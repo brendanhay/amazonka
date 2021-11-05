@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-comment">-- | Represents the input of a @DeleteItem@ operation.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- /See:/ 'newDeleteItem' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679394281"><span id="local-6989586621679394282"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteItem"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-var">DeleteItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-var">DeleteItem'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679394290"><span id="local-6989586621679394291"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteItem"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-var">DeleteItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-var">DeleteItem'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- The following are some use cases for using @ExpressionAttributeNames@:</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -202,7 +202,7 @@
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3Akey%3ADeleteItem%27"><span class="annot"><span class="annottext">DeleteItem -&gt; HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3Akey%3ADeleteItem%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394266"><span id="local-6989586621679394268"><span class="annot"><span class="annottext">DeleteItem -&gt; DeleteItem -&gt; Bool
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394275"><span id="local-6989586621679394277"><span class="annot"><span class="annottext">DeleteItem -&gt; DeleteItem -&gt; Bool
 (DeleteItem -&gt; DeleteItem -&gt; Bool)
 -&gt; (DeleteItem -&gt; DeleteItem -&gt; Bool) -&gt; Eq DeleteItem
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -210,7 +210,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteItem -&gt; DeleteItem -&gt; Bool
 == :: DeleteItem -&gt; DeleteItem -&gt; Bool
 $c== :: DeleteItem -&gt; DeleteItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394257"><span id="local-6989586621679394259"><span id="local-6989586621679394261"><span id="local-6989586621679394263"><span class="annot"><span class="annottext">ReadPrec [DeleteItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394266"><span id="local-6989586621679394268"><span id="local-6989586621679394270"><span id="local-6989586621679394272"><span class="annot"><span class="annottext">ReadPrec [DeleteItem]
 ReadPrec DeleteItem
 Int -&gt; ReadS DeleteItem
 ReadS [DeleteItem]
@@ -230,7 +230,7 @@ readList :: ReadS [DeleteItem]
 $creadList :: ReadS [DeleteItem]
 readsPrec :: Int -&gt; ReadS DeleteItem
 $creadsPrec :: Int -&gt; ReadS DeleteItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394250"><span id="local-6989586621679394252"><span id="local-6989586621679394254"><span class="annot"><span class="annottext">Int -&gt; DeleteItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394259"><span id="local-6989586621679394261"><span id="local-6989586621679394263"><span class="annot"><span class="annottext">Int -&gt; DeleteItem -&gt; ShowS
 [DeleteItem] -&gt; ShowS
 DeleteItem -&gt; String
 (Int -&gt; DeleteItem -&gt; ShowS)
@@ -384,8 +384,8 @@ $cfrom :: forall x. DeleteItem -&gt; Rep DeleteItem x
 </span><span id="line-323"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-324"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span>
 </span><span id="line-325"></span><span id="newDeleteItem"><span class="annot"><span class="annottext">newDeleteItem :: Text -&gt; DeleteItem
-</span><a href="Network.AWS.DynamoDB.DeleteItem.html#newDeleteItem"><span class="hs-identifier hs-var hs-var">newDeleteItem</span></a></span></span><span> </span><span id="local-6989586621679394245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394245"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DeleteItem.html#newDeleteItem"><span class="hs-identifier hs-var hs-var">newDeleteItem</span></a></span></span><span> </span><span id="local-6989586621679394254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394254"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-326"></span><span>  </span><span class="annot"><span class="annottext">DeleteItem' :: Maybe (HashMap Text Text)
 -&gt; Maybe ReturnValue
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -433,7 +433,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-336"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:DeleteItem' :: Text
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AtableName%3ADeleteItem%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394245"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394254"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:DeleteItem' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3Akey%3ADeleteItem%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
 forall a. Monoid a =&gt; a
@@ -488,16 +488,16 @@ forall a. Monoid a =&gt; a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394242"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394251"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 expressionAttributeNames :: Maybe (HashMap Text Text)
 $sel:expressionAttributeNames:DeleteItem' :: DeleteItem -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679394242"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679394242"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394241"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394240"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679394240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:DeleteItem' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679394251"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679394251"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394250"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394249"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679394249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:DeleteItem' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AexpressionAttributeNames%3ADeleteItem%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679394240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679394249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; DeleteItem -&gt; f DeleteItem)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -547,16 +547,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DeleteItem DeleteItem (Maybe ReturnValue) (Maybe ReturnValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394236"><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394245"><span class="annot"><span class="annottext">Maybe ReturnValue
 returnValues :: Maybe ReturnValue
 $sel:returnValues:DeleteItem' :: DeleteItem -&gt; Maybe ReturnValue
-</span><a href="#local-6989586621679394236"><span class="hs-identifier hs-var hs-var">returnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679394236"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394235"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394234"><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679394234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValues:DeleteItem' :: Maybe ReturnValue
+</span><a href="#local-6989586621679394245"><span class="hs-identifier hs-var hs-var">returnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><a href="#local-6989586621679394245"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394244"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394243"><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><a href="#local-6989586621679394243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValues:DeleteItem' :: Maybe ReturnValue
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AreturnValues%3ADeleteItem%27"><span class="hs-identifier hs-var">returnValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679394234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-395"></span><span>
 </span><span id="line-396"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
 </span><span id="line-397"></span><span class="hs-comment">--</span><span>
@@ -590,16 +590,16 @@ $sel:returnValues:DeleteItem' :: DeleteItem -&gt; Maybe ReturnValue
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394233"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394242"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
 $sel:expressionAttributeValues:DeleteItem' :: DeleteItem -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394233"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394233"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394232"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394231"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:DeleteItem' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394242"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394242"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394241"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394240"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:DeleteItem' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AexpressionAttributeValues%3ADeleteItem%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; DeleteItem -&gt; f DeleteItem)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -644,16 +644,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ReturnConsumedCapacity)
      (Maybe ReturnConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394230"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394239"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:returnConsumedCapacity:DeleteItem' :: DeleteItem -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679394230"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679394230"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394229"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394228"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679394228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:DeleteItem' :: Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679394239"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679394239"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394238"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394237"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679394237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:DeleteItem' :: Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AreturnConsumedCapacity%3ADeleteItem%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679394228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-421"></span><span>
 </span><span id="line-422"></span><span class="hs-comment">-- | Determines whether item collection metrics are returned. If set to</span><span>
 </span><span id="line-423"></span><span class="hs-comment">-- @SIZE@, the response includes statistics about item collections, if any,</span><span>
@@ -671,16 +671,16 @@ $sel:returnConsumedCapacity:DeleteItem' :: DeleteItem -&gt; Maybe ReturnConsumed
      (Maybe ReturnItemCollectionMetrics)
      (Maybe ReturnItemCollectionMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394227"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394236"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
 returnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
 $sel:returnItemCollectionMetrics:DeleteItem' :: DeleteItem -&gt; Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679394227"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679394227"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394226"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394225"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679394225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:DeleteItem' :: Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679394236"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679394236"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394235"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394234"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679394234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:DeleteItem' :: Maybe ReturnItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AreturnItemCollectionMetrics%3ADeleteItem%27"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679394225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-428"></span><span>
 </span><span id="line-429"></span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional</span><span>
 </span><span id="line-430"></span><span class="hs-comment">-- @DeleteItem@ to succeed.</span><span>
@@ -705,16 +705,16 @@ $sel:returnItemCollectionMetrics:DeleteItem' :: DeleteItem -&gt; Maybe ReturnIte
 -&gt; (DeleteItem -&gt; Maybe Text -&gt; DeleteItem)
 -&gt; Lens DeleteItem DeleteItem (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394224"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394233"><span class="annot"><span class="annottext">Maybe Text
 conditionExpression :: Maybe Text
 $sel:conditionExpression:DeleteItem' :: DeleteItem -&gt; Maybe Text
-</span><a href="#local-6989586621679394224"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394224"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394223"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394222"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:DeleteItem' :: Maybe Text
+</span><a href="#local-6989586621679394233"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394233"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394232"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394231"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:DeleteItem' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AconditionExpression%3ADeleteItem%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-448"></span><span>
 </span><span id="line-449"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more</span><span>
 </span><span id="line-450"></span><span class="hs-comment">-- information, see</span><span>
@@ -731,16 +731,16 @@ $sel:conditionExpression:DeleteItem' :: DeleteItem -&gt; Maybe Text
      (Maybe ConditionalOperator)
      (Maybe ConditionalOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394221"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394230"><span class="annot"><span class="annottext">Maybe ConditionalOperator
 conditionalOperator :: Maybe ConditionalOperator
 $sel:conditionalOperator:DeleteItem' :: DeleteItem -&gt; Maybe ConditionalOperator
-</span><a href="#local-6989586621679394221"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679394221"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394220"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394219"><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679394219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:DeleteItem' :: Maybe ConditionalOperator
+</span><a href="#local-6989586621679394230"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679394230"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394229"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394228"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679394228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:DeleteItem' :: Maybe ConditionalOperator
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AconditionalOperator%3ADeleteItem%27"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679394219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-455"></span><span>
 </span><span id="line-456"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more</span><span>
 </span><span id="line-457"></span><span class="hs-comment">-- information, see</span><span>
@@ -759,16 +759,16 @@ $sel:conditionalOperator:DeleteItem' :: DeleteItem -&gt; Maybe ConditionalOperat
      (Maybe (HashMap Text ExpectedAttributeValue))
      (Maybe (HashMap Text ExpectedAttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394218"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394227"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
 expected :: Maybe (HashMap Text ExpectedAttributeValue)
 $sel:expected:DeleteItem' :: DeleteItem -&gt; Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679394218"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679394218"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394217"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394216"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679394216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:DeleteItem' :: Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679394227"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679394227"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394226"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394225"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679394225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:DeleteItem' :: Maybe (HashMap Text ExpectedAttributeValue)
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3Aexpected%3ADeleteItem%27"><span class="hs-identifier hs-var">expected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679394216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679394225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ExpectedAttributeValue)
   -&gt; f (Maybe (HashMap Text ExpectedAttributeValue)))
  -&gt; DeleteItem -&gt; f DeleteItem)
 -&gt; ((Maybe (HashMap Text ExpectedAttributeValue)
@@ -808,16 +808,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteItem -&gt; Text -&gt; DeleteItem)
 -&gt; Lens DeleteItem DeleteItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394215"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394224"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DeleteItem' :: DeleteItem -&gt; Text
-</span><a href="#local-6989586621679394215"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394215"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394214"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394213"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DeleteItem' :: Text
+</span><a href="#local-6989586621679394224"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394224"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394223"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394222"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DeleteItem' :: Text
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AtableName%3ADeleteItem%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-466"></span><span>
 </span><span id="line-467"></span><span class="hs-comment">-- | A map of attribute names to @AttributeValue@ objects, representing the</span><span>
 </span><span id="line-468"></span><span class="hs-comment">-- primary key of the item to delete.</span><span>
@@ -837,16 +837,16 @@ $sel:tableName:DeleteItem' :: DeleteItem -&gt; Text
      (HashMap Text AttributeValue)
      (HashMap Text AttributeValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394212"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394221"><span class="annot"><span class="annottext">HashMap Text AttributeValue
 key :: HashMap Text AttributeValue
 $sel:key:DeleteItem' :: DeleteItem -&gt; HashMap Text AttributeValue
-</span><a href="#local-6989586621679394212"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679394212"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394211"><span class="annot"><span class="annottext">s :: DeleteItem
-</span><a href="#local-6989586621679394211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394210"><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679394210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
-</span><a href="#local-6989586621679394211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:DeleteItem' :: HashMap Text AttributeValue
+</span><a href="#local-6989586621679394221"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679394221"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394220"><span class="annot"><span class="annottext">s :: DeleteItem
+</span><a href="#local-6989586621679394220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394219"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679394219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItem
+</span><a href="#local-6989586621679394220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:DeleteItem' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3Akey%3ADeleteItem%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679394210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+</span><a href="#local-6989586621679394219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
  -&gt; DeleteItem -&gt; f DeleteItem)
 -&gt; ((HashMap Text AttributeValue
      -&gt; f (HashMap Text AttributeValue))
@@ -862,12 +862,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-476"></span><span>
 </span><span id="line-477"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-478"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span>
-</span><span id="line-479"></span><span>  </span><span id="local-6989586621679394206"><span class="annot"><span class="annottext">request :: DeleteItem -&gt; Request DeleteItem
+</span><span id="line-479"></span><span>  </span><span id="local-6989586621679394215"><span class="annot"><span class="annottext">request :: DeleteItem -&gt; Request DeleteItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteItem -&gt; Request DeleteItem
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-480"></span><span>  </span><span id="local-6989586621679394202"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-480"></span><span>  </span><span id="local-6989586621679394211"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteItem
 -&gt; ClientResponse ClientBody
@@ -891,10 +891,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-482"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394199"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394199"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394198"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679394198"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394197"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-482"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394208"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394208"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394207"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394207"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394206"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394206"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-483"></span><span>          </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
 -&gt; Maybe ConsumedCapacity
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -915,7 +915,7 @@ MonadResource m =&gt;
       -&gt; DeleteItemResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ItemCollectionMetrics)
+</span><a href="#local-6989586621679394206"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ItemCollectionMetrics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ItemCollectionMetrics&quot;</span></span><span class="hs-special">)</span><span>
@@ -931,7 +931,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe (HashMap Text AttributeValue) -&gt; Int -&gt; DeleteItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
+</span><a href="#local-6989586621679394206"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -942,7 +942,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DeleteItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394206"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -962,15 +962,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394199"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394208"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-488"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-489"></span><span>
-</span><span id="line-490"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394188"><span id="local-6989586621679394190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span></span></span><span>
+</span><span id="line-490"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394197"><span id="local-6989586621679394199"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span></span></span><span>
 </span><span id="line-491"></span><span>
-</span><span id="line-492"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span></span><span>
+</span><span id="line-492"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span></span><span>
 </span><span id="line-493"></span><span>
 </span><span id="line-494"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-495"></span><span>  </span><span id="local-6989586621679394181"><span class="annot"><span class="annottext">toHeaders :: DeleteItem -&gt; ResponseHeaders
+</span><span id="line-495"></span><span>  </span><span id="local-6989586621679394190"><span class="annot"><span class="annottext">toHeaders :: DeleteItem -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-496"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteItem -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -997,9 +997,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-506"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-507"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-508"></span><span>
-</span><span id="line-509"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394171"><span id="local-6989586621679394173"><span id="local-6989586621679394175"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-510"></span><span>  </span><span id="local-6989586621679394169"><span class="annot"><span class="annottext">toJSON :: DeleteItem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394158"><span id="local-6989586621679394159"><span id="local-6989586621679394160"><span id="local-6989586621679394161"><span id="local-6989586621679394162"><span id="local-6989586621679394163"><span id="local-6989586621679394164"><span id="local-6989586621679394165"><span id="local-6989586621679394166"><span id="local-6989586621679394167"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-509"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394180"><span id="local-6989586621679394182"><span id="local-6989586621679394184"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-510"></span><span>  </span><span id="local-6989586621679394178"><span class="annot"><span class="annottext">toJSON :: DeleteItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem%27"><span class="hs-identifier hs-type">DeleteItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394167"><span id="local-6989586621679394168"><span id="local-6989586621679394169"><span id="local-6989586621679394170"><span id="local-6989586621679394171"><span id="local-6989586621679394172"><span id="local-6989586621679394173"><span id="local-6989586621679394174"><span id="local-6989586621679394175"><span id="local-6989586621679394176"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Maybe (HashMap Text AttributeValue)
 Maybe (HashMap Text ExpectedAttributeValue)
@@ -1029,7 +1029,7 @@ $sel:returnConsumedCapacity:DeleteItem' :: DeleteItem -&gt; Maybe ReturnConsumed
 $sel:expressionAttributeValues:DeleteItem' :: DeleteItem -&gt; Maybe (HashMap Text AttributeValue)
 $sel:returnValues:DeleteItem' :: DeleteItem -&gt; Maybe ReturnValue
 $sel:expressionAttributeNames:DeleteItem' :: DeleteItem -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679394158"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394167"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-511"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-512"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1043,14 +1043,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679394167"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394176"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-515"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ReturnValue -&gt; Pair) -&gt; Maybe ReturnValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679394166"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394175"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-516"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1059,7 +1059,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394165"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394174"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-518"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnConsumedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnConsumedCapacity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1068,7 +1068,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679394164"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394173"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-520"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnItemCollectionMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnItemCollectionMetrics -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1077,7 +1077,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnItemCollectionMetrics -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679394163"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394172"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-522"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1085,7 +1085,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-523"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394162"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394171"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-524"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionalOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConditionalOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1094,7 +1094,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConditionalOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679394161"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394170"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-526"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Expected&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text ExpectedAttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1102,33 +1102,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text ExpectedAttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679394160"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394169"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-527"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394159"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394168"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-528"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679394158"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394167"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-529"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-530"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-531"></span><span>
 </span><span id="line-532"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-533"></span><span>  </span><span id="local-6989586621679394152"><span class="annot"><span class="annottext">toPath :: DeleteItem -&gt; ByteString
+</span><span id="line-533"></span><span>  </span><span id="local-6989586621679394161"><span class="annot"><span class="annottext">toPath :: DeleteItem -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteItem -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-534"></span><span>
 </span><span id="line-535"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItem"><span class="hs-identifier hs-type">DeleteItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-536"></span><span>  </span><span id="local-6989586621679394148"><span class="annot"><span class="annottext">toQuery :: DeleteItem -&gt; QueryString
+</span><span id="line-536"></span><span>  </span><span id="local-6989586621679394157"><span class="annot"><span class="annottext">toQuery :: DeleteItem -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteItem -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1138,7 +1138,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-538"></span><span class="hs-comment">-- | Represents the output of a @DeleteItem@ operation.</span><span>
 </span><span id="line-539"></span><span class="hs-comment">--</span><span>
 </span><span id="line-540"></span><span class="hs-comment">-- /See:/ 'newDeleteItemResponse' smart constructor.</span><span>
-</span><span id="line-541"></span><span id="local-6989586621679394145"><span id="local-6989586621679394146"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-var">DeleteItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-var">DeleteItemResponse'</span></a></span></span><span>
+</span><span id="line-541"></span><span id="local-6989586621679394154"><span id="local-6989586621679394155"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-var">DeleteItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-var">DeleteItemResponse'</span></a></span></span><span>
 </span><span id="line-542"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about item collections, if any, that were affected by the</span><span>
 </span><span id="line-543"></span><span>    </span><span class="hs-comment">-- @DeleteItem@ operation. @ItemCollectionMetrics@ is only returned if the</span><span>
 </span><span id="line-544"></span><span>    </span><span class="hs-comment">-- @ReturnItemCollectionMetrics@ parameter was specified. If the table does</span><span>
@@ -1182,7 +1182,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-579"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteItemResponse%27"><span class="annot"><span class="annottext">DeleteItemResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AhttpStatus%3ADeleteItemResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-580"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-581"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394137"><span id="local-6989586621679394139"><span class="annot"><span class="annottext">DeleteItemResponse -&gt; DeleteItemResponse -&gt; Bool
+</span><span id="line-581"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394146"><span id="local-6989586621679394148"><span class="annot"><span class="annottext">DeleteItemResponse -&gt; DeleteItemResponse -&gt; Bool
 (DeleteItemResponse -&gt; DeleteItemResponse -&gt; Bool)
 -&gt; (DeleteItemResponse -&gt; DeleteItemResponse -&gt; Bool)
 -&gt; Eq DeleteItemResponse
@@ -1191,7 +1191,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteItemResponse -&gt; DeleteItemResponse -&gt; Bool
 == :: DeleteItemResponse -&gt; DeleteItemResponse -&gt; Bool
 $c== :: DeleteItemResponse -&gt; DeleteItemResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394129"><span id="local-6989586621679394131"><span id="local-6989586621679394133"><span id="local-6989586621679394135"><span class="annot"><span class="annottext">ReadPrec [DeleteItemResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394138"><span id="local-6989586621679394140"><span id="local-6989586621679394142"><span id="local-6989586621679394144"><span class="annot"><span class="annottext">ReadPrec [DeleteItemResponse]
 ReadPrec DeleteItemResponse
 Int -&gt; ReadS DeleteItemResponse
 ReadS [DeleteItemResponse]
@@ -1211,7 +1211,7 @@ readList :: ReadS [DeleteItemResponse]
 $creadList :: ReadS [DeleteItemResponse]
 readsPrec :: Int -&gt; ReadS DeleteItemResponse
 $creadsPrec :: Int -&gt; ReadS DeleteItemResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394123"><span id="local-6989586621679394125"><span id="local-6989586621679394127"><span class="annot"><span class="annottext">Int -&gt; DeleteItemResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394132"><span id="local-6989586621679394134"><span id="local-6989586621679394136"><span class="annot"><span class="annottext">Int -&gt; DeleteItemResponse -&gt; ShowS
 [DeleteItemResponse] -&gt; ShowS
 DeleteItemResponse -&gt; String
 (Int -&gt; DeleteItemResponse -&gt; ShowS)
@@ -1287,8 +1287,8 @@ $cfrom :: forall x. DeleteItemResponse -&gt; Rep DeleteItemResponse x
 </span><span id="line-630"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-631"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span>
 </span><span id="line-632"></span><span id="newDeleteItemResponse"><span class="annot"><span class="annottext">newDeleteItemResponse :: Int -&gt; DeleteItemResponse
-</span><a href="Network.AWS.DynamoDB.DeleteItem.html#newDeleteItemResponse"><span class="hs-identifier hs-var hs-var">newDeleteItemResponse</span></a></span></span><span> </span><span id="local-6989586621679394120"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394120"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DeleteItem.html#newDeleteItemResponse"><span class="hs-identifier hs-var hs-var">newDeleteItemResponse</span></a></span></span><span> </span><span id="local-6989586621679394129"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-633"></span><span>  </span><span class="annot"><span class="annottext">DeleteItemResponse' :: Maybe ItemCollectionMetrics
 -&gt; Maybe ConsumedCapacity
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -1310,7 +1310,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-638"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AhttpStatus%3ADeleteItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394120"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679394129"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-639"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-640"></span><span>
 </span><span id="line-641"></span><span class="hs-comment">-- | Information about item collections, if any, that were affected by the</span><span>
@@ -1347,16 +1347,16 @@ forall a. Maybe a
      (Maybe ItemCollectionMetrics)
      (Maybe ItemCollectionMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394119"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394128"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
 itemCollectionMetrics :: Maybe ItemCollectionMetrics
 $sel:itemCollectionMetrics:DeleteItemResponse' :: DeleteItemResponse -&gt; Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679394119"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679394119"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394118"><span class="annot"><span class="annottext">s :: DeleteItemResponse
-</span><a href="#local-6989586621679394118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394117"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679394117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
-</span><a href="#local-6989586621679394118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:DeleteItemResponse' :: Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679394128"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679394128"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394127"><span class="annot"><span class="annottext">s :: DeleteItemResponse
+</span><a href="#local-6989586621679394127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394126"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679394126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
+</span><a href="#local-6989586621679394127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:DeleteItemResponse' :: Maybe ItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AitemCollectionMetrics%3ADeleteItemResponse%27"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679394117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-665"></span><span>
 </span><span id="line-666"></span><span class="hs-comment">-- | The capacity units consumed by the @DeleteItem@ operation. The data</span><span>
 </span><span id="line-667"></span><span class="hs-comment">-- returned includes the total provisioned throughput consumed, along with</span><span>
@@ -1377,16 +1377,16 @@ $sel:itemCollectionMetrics:DeleteItemResponse' :: DeleteItemResponse -&gt; Maybe
      (Maybe ConsumedCapacity)
      (Maybe ConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394116"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394125"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
 consumedCapacity :: Maybe ConsumedCapacity
 $sel:consumedCapacity:DeleteItemResponse' :: DeleteItemResponse -&gt; Maybe ConsumedCapacity
-</span><a href="#local-6989586621679394116"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679394116"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394115"><span class="annot"><span class="annottext">s :: DeleteItemResponse
-</span><a href="#local-6989586621679394115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394114"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679394114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
-</span><a href="#local-6989586621679394115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:DeleteItemResponse' :: Maybe ConsumedCapacity
+</span><a href="#local-6989586621679394125"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679394125"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394124"><span class="annot"><span class="annottext">s :: DeleteItemResponse
+</span><a href="#local-6989586621679394124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394123"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679394123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
+</span><a href="#local-6989586621679394124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:DeleteItemResponse' :: Maybe ConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AconsumedCapacity%3ADeleteItemResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679394114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-675"></span><span>
 </span><span id="line-676"></span><span class="hs-comment">-- | A map of attribute names to @AttributeValue@ objects, representing the</span><span>
 </span><span id="line-677"></span><span class="hs-comment">-- item as it appeared before the @DeleteItem@ operation. This map appears</span><span>
@@ -1405,16 +1405,16 @@ $sel:consumedCapacity:DeleteItemResponse' :: DeleteItemResponse -&gt; Maybe Cons
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394113"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394122"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 attributes :: Maybe (HashMap Text AttributeValue)
 $sel:attributes:DeleteItemResponse' :: DeleteItemResponse -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394113"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394113"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394112"><span class="annot"><span class="annottext">s :: DeleteItemResponse
-</span><a href="#local-6989586621679394112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394111"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
-</span><a href="#local-6989586621679394112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DeleteItemResponse' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394122"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394122"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394121"><span class="annot"><span class="annottext">s :: DeleteItemResponse
+</span><a href="#local-6989586621679394121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394120"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
+</span><a href="#local-6989586621679394121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DeleteItemResponse' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3Aattributes%3ADeleteItemResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679394111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679394120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; DeleteItemResponse -&gt; f DeleteItemResponse)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -1454,16 +1454,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DeleteItemResponse -&gt; Int -&gt; DeleteItemResponse)
 -&gt; Lens DeleteItemResponse DeleteItemResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394110"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394119"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteItemResponse' :: DeleteItemResponse -&gt; Int
-</span><a href="#local-6989586621679394110"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394110"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394109"><span class="annot"><span class="annottext">s :: DeleteItemResponse
-</span><a href="#local-6989586621679394109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394108"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
-</span><a href="#local-6989586621679394109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteItemResponse' :: Int
+</span><a href="#local-6989586621679394119"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394119"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394118"><span class="annot"><span class="annottext">s :: DeleteItemResponse
+</span><a href="#local-6989586621679394118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse%27"><span class="hs-identifier hs-type">DeleteItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394117"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteItemResponse
+</span><a href="#local-6989586621679394118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DeleteItem.html#%24sel%3AhttpStatus%3ADeleteItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-686"></span><span>
-</span><span id="line-687"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span></span><span>
+</span><span id="line-687"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteItem.html#DeleteItemResponse"><span class="hs-identifier hs-type">DeleteItemResponse</span></a></span></span><span>
 </span><span id="line-688"></span></pre></body></html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ImageBuilder.Types.ComponentVersion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ComponentVersion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentType.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.ComponentType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html"><span class="hs-identifier">Network.AWS.ImageBuilder.Types.Platform</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The defining characteristics of a specific version of an Amazon Web</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Services TOE component.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newComponentVersion' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679317282"><span id="local-6989586621679317283"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComponentVersion"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-var">ComponentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComponentVersion%27"><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-var">ComponentVersion'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The platform of the component.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aplatform%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe Platform
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aplatform%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Semantic versioning is included in each object\'s Amazon Resource Name</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (ARN), at the level that applies to that object as follows:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- 1.  Versionless ARNs and Name ARNs do not include specific values in any</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     of the nodes. The nodes are either left off entirely, or they are</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     specified as wildcards, for example: x.x.x.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- 2.  Version ARNs have only the first three nodes:</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- 3.  Build version ARNs have all four nodes, and point to a specific</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     build for a specific version of an object.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aarn%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aarn%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | he operating system (OS) version supported by the component. If the OS</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- information is available, a prefix match is performed against the base</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- image OS version during image recipe creation.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsupportedOsVersions%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3AsupportedOsVersions%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">supportedOsVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The owner of the component.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aowner%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aowner%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The date that the component was created.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdateCreated%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3AdateCreated%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aname%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aname%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The semantic version of the component.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aversion%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aversion%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The type of the component denotes whether the component is used to build</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the image or only to test it.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Atype%27%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe ComponentType
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Atype%27%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentType.html#ComponentType"><span class="hs-identifier hs-type">ComponentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The description of the component.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Adescription%3AComponentVersion%27"><span class="annot"><span class="annottext">ComponentVersion -&gt; Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Adescription%3AComponentVersion%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317268"><span id="local-6989586621679317270"><span class="annot"><span class="annottext">ComponentVersion -&gt; ComponentVersion -&gt; Bool
+(ComponentVersion -&gt; ComponentVersion -&gt; Bool)
+-&gt; (ComponentVersion -&gt; ComponentVersion -&gt; Bool)
+-&gt; Eq ComponentVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ComponentVersion -&gt; ComponentVersion -&gt; Bool
+$c/= :: ComponentVersion -&gt; ComponentVersion -&gt; Bool
+== :: ComponentVersion -&gt; ComponentVersion -&gt; Bool
+$c== :: ComponentVersion -&gt; ComponentVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317259"><span id="local-6989586621679317261"><span id="local-6989586621679317263"><span id="local-6989586621679317265"><span class="annot"><span class="annottext">ReadPrec [ComponentVersion]
+ReadPrec ComponentVersion
+Int -&gt; ReadS ComponentVersion
+ReadS [ComponentVersion]
+(Int -&gt; ReadS ComponentVersion)
+-&gt; ReadS [ComponentVersion]
+-&gt; ReadPrec ComponentVersion
+-&gt; ReadPrec [ComponentVersion]
+-&gt; Read ComponentVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ComponentVersion]
+$creadListPrec :: ReadPrec [ComponentVersion]
+readPrec :: ReadPrec ComponentVersion
+$creadPrec :: ReadPrec ComponentVersion
+readList :: ReadS [ComponentVersion]
+$creadList :: ReadS [ComponentVersion]
+readsPrec :: Int -&gt; ReadS ComponentVersion
+$creadsPrec :: Int -&gt; ReadS ComponentVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317252"><span id="local-6989586621679317254"><span id="local-6989586621679317256"><span class="annot"><span class="annottext">Int -&gt; ComponentVersion -&gt; ShowS
+[ComponentVersion] -&gt; ShowS
+ComponentVersion -&gt; String
+(Int -&gt; ComponentVersion -&gt; ShowS)
+-&gt; (ComponentVersion -&gt; String)
+-&gt; ([ComponentVersion] -&gt; ShowS)
+-&gt; Show ComponentVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ComponentVersion] -&gt; ShowS
+$cshowList :: [ComponentVersion] -&gt; ShowS
+show :: ComponentVersion -&gt; String
+$cshow :: ComponentVersion -&gt; String
+showsPrec :: Int -&gt; ComponentVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; ComponentVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ComponentVersion -&gt; Rep ComponentVersion x)
+-&gt; (forall x. Rep ComponentVersion x -&gt; ComponentVersion)
+-&gt; Generic ComponentVersion
+forall x. Rep ComponentVersion x -&gt; ComponentVersion
+forall x. ComponentVersion -&gt; Rep ComponentVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ComponentVersion x -&gt; ComponentVersion
+$cfrom :: forall x. ComponentVersion -&gt; Rep ComponentVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'ComponentVersion' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'platform', 'componentVersion_platform' - The platform of the component.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'arn', 'componentVersion_arn' - The Amazon Resource Name (ARN) of the component.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Semantic versioning is included in each object\'s Amazon Resource Name</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- (ARN), at the level that applies to that object as follows:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 1.  Versionless ARNs and Name ARNs do not include specific values in any</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--     of the nodes. The nodes are either left off entirely, or they are</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     specified as wildcards, for example: x.x.x.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 2.  Version ARNs have only the first three nodes:</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--     \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 3.  Build version ARNs have all four nodes, and point to a specific</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     build for a specific version of an object.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'supportedOsVersions', 'componentVersion_supportedOsVersions' - he operating system (OS) version supported by the component. If the OS</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- information is available, a prefix match is performed against the base</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- image OS version during image recipe creation.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'owner', 'componentVersion_owner' - The owner of the component.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'dateCreated', 'componentVersion_dateCreated' - The date that the component was created.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'name', 'componentVersion_name' - The name of the component.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'version', 'componentVersion_version' - The semantic version of the component.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'type'', 'componentVersion_type' - The type of the component denotes whether the component is used to build</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- the image or only to test it.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'description', 'componentVersion_description' - The description of the component.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#newComponentVersion"><span class="hs-identifier hs-type">newComponentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span>
+</span><span id="line-153"></span><span id="newComponentVersion"><span class="annot"><span class="annottext">newComponentVersion :: ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#newComponentVersion"><span class="hs-identifier hs-var hs-var">newComponentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">ComponentVersion' :: Maybe Platform
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ComponentType
+-&gt; Maybe Text
+-&gt; ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:platform:ComponentVersion' :: Maybe Platform
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aplatform%3AComponentVersion%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aarn%3AComponentVersion%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:supportedOsVersions:ComponentVersion' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3AsupportedOsVersions%3AComponentVersion%27"><span class="hs-identifier hs-var">supportedOsVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aowner%3AComponentVersion%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3AdateCreated%3AComponentVersion%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aname%3AComponentVersion%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aversion%3AComponentVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ComponentVersion' :: Maybe ComponentType
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Atype%27%3AComponentVersion%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Adescription%3AComponentVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The platform of the component.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_platform"><span class="hs-identifier hs-type">componentVersion_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.Platform.html#Platform"><span class="hs-identifier hs-type">Platform</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="componentVersion_platform"><span class="annot"><span class="annottext">componentVersion_platform :: (Maybe Platform -&gt; f (Maybe Platform))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_platform"><span class="hs-identifier hs-var hs-var">componentVersion_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe Platform)
+-&gt; (ComponentVersion -&gt; Maybe Platform -&gt; ComponentVersion)
+-&gt; Lens
+     ComponentVersion ComponentVersion (Maybe Platform) (Maybe Platform)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317243"><span class="annot"><span class="annottext">Maybe Platform
+platform :: Maybe Platform
+$sel:platform:ComponentVersion' :: ComponentVersion -&gt; Maybe Platform
+</span><a href="#local-6989586621679317243"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679317243"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317242"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317241"><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679317241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ComponentVersion' :: Maybe Platform
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aplatform%3AComponentVersion%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Platform
+</span><a href="#local-6989586621679317241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the component.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Semantic versioning is included in each object\'s Amazon Resource Name</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- (ARN), at the level that applies to that object as follows:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 1.  Versionless ARNs and Name ARNs do not include specific values in any</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     of the nodes. The nodes are either left off entirely, or they are</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     specified as wildcards, for example: x.x.x.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 2.  Version ARNs have only the first three nodes:</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 3.  Build version ARNs have all four nodes, and point to a specific</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     build for a specific version of an object.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_arn"><span class="hs-identifier hs-type">componentVersion_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="componentVersion_arn"><span class="annot"><span class="annottext">componentVersion_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_arn"><span class="hs-identifier hs-var hs-var">componentVersion_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe Text)
+-&gt; (ComponentVersion -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Lens ComponentVersion ComponentVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317239"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ComponentVersion' :: ComponentVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679317239"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317239"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317238"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317237"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aarn%3AComponentVersion%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | he operating system (OS) version supported by the component. If the OS</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- information is available, a prefix match is performed against the base</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- image OS version during image recipe creation.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_supportedOsVersions"><span class="hs-identifier hs-type">componentVersion_supportedOsVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="componentVersion_supportedOsVersions"><span class="annot"><span class="annottext">componentVersion_supportedOsVersions :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_supportedOsVersions"><span class="hs-identifier hs-var hs-var">componentVersion_supportedOsVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe (NonEmpty Text))
+-&gt; (ComponentVersion -&gt; Maybe (NonEmpty Text) -&gt; ComponentVersion)
+-&gt; Lens
+     ComponentVersion
+     ComponentVersion
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317235"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+supportedOsVersions :: Maybe (NonEmpty Text)
+$sel:supportedOsVersions:ComponentVersion' :: ComponentVersion -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679317235"><span class="hs-identifier hs-var hs-var">supportedOsVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679317235"><span class="hs-identifier hs-var">supportedOsVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317234"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317233"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679317233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedOsVersions:ComponentVersion' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3AsupportedOsVersions%3AComponentVersion%27"><span class="hs-identifier hs-var">supportedOsVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679317233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+ -&gt; ComponentVersion -&gt; f ComponentVersion)
+-&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+    -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+-&gt; ComponentVersion
+-&gt; f ComponentVersion
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+-&gt; Iso
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+     (Maybe (NonEmpty Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The owner of the component.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_owner"><span class="hs-identifier hs-type">componentVersion_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="componentVersion_owner"><span class="annot"><span class="annottext">componentVersion_owner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_owner"><span class="hs-identifier hs-var hs-var">componentVersion_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe Text)
+-&gt; (ComponentVersion -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Lens ComponentVersion ComponentVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317228"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:ComponentVersion' :: ComponentVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679317228"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317228"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317227"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317226"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aowner%3AComponentVersion%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The date that the component was created.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_dateCreated"><span class="hs-identifier hs-type">componentVersion_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="componentVersion_dateCreated"><span class="annot"><span class="annottext">componentVersion_dateCreated :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_dateCreated"><span class="hs-identifier hs-var hs-var">componentVersion_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe Text)
+-&gt; (ComponentVersion -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Lens ComponentVersion ComponentVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317224"><span class="annot"><span class="annottext">Maybe Text
+dateCreated :: Maybe Text
+$sel:dateCreated:ComponentVersion' :: ComponentVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679317224"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317224"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317223"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3AdateCreated%3AComponentVersion%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The name of the component.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_name"><span class="hs-identifier hs-type">componentVersion_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="componentVersion_name"><span class="annot"><span class="annottext">componentVersion_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_name"><span class="hs-identifier hs-var hs-var">componentVersion_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe Text)
+-&gt; (ComponentVersion -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Lens ComponentVersion ComponentVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317220"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ComponentVersion' :: ComponentVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679317220"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317220"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317219"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317218"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aname%3AComponentVersion%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The semantic version of the component.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The semantic version has four nodes:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- \&lt;major&gt;.\&lt;minor&gt;.\&lt;patch&gt;\/\&lt;build&gt;. You can assign values for the</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- first three, and can filter on all of them.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- __Assignment:__ For the first three nodes you can assign any positive</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- integer value, including zero, with an upper limit of 2^30-1, or</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 1073741823 for each node. Image Builder automatically assigns the build</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- number to the fourth node.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- __Patterns:__ You can use any numeric pattern that adheres to the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- assignment requirements for the nodes that you can assign. For example,</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- you might choose a software version pattern, such as 1.0.0, or a date,</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- such as 2021.01.01.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- __Filtering:__ With semantic versioning, you have the flexibility to use</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- wildcards (x) to specify the most recent versions or nodes when</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- selecting the base image or components for your recipe. When you use a</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- wildcard in any node, all nodes to the right of the first wildcard must</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- also be wildcards.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_version"><span class="hs-identifier hs-type">componentVersion_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="componentVersion_version"><span class="annot"><span class="annottext">componentVersion_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_version"><span class="hs-identifier hs-var hs-var">componentVersion_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe Text)
+-&gt; (ComponentVersion -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Lens ComponentVersion ComponentVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317216"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:ComponentVersion' :: ComponentVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679317216"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317216"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317215"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317214"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Aversion%3AComponentVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The type of the component denotes whether the component is used to build</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- the image or only to test it.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_type"><span class="hs-identifier hs-type">componentVersion_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentType.html#ComponentType"><span class="hs-identifier hs-type">ComponentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="componentVersion_type"><span class="annot"><span class="annottext">componentVersion_type :: (Maybe ComponentType -&gt; f (Maybe ComponentType))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_type"><span class="hs-identifier hs-var hs-var">componentVersion_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe ComponentType)
+-&gt; (ComponentVersion -&gt; Maybe ComponentType -&gt; ComponentVersion)
+-&gt; Lens
+     ComponentVersion
+     ComponentVersion
+     (Maybe ComponentType)
+     (Maybe ComponentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317212"><span class="annot"><span class="annottext">Maybe ComponentType
+type' :: Maybe ComponentType
+$sel:type':ComponentVersion' :: ComponentVersion -&gt; Maybe ComponentType
+</span><a href="#local-6989586621679317212"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentType
+</span><a href="#local-6989586621679317212"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317211"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317210"><span class="annot"><span class="annottext">Maybe ComponentType
+</span><a href="#local-6989586621679317210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ComponentVersion' :: Maybe ComponentType
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Atype%27%3AComponentVersion%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentType
+</span><a href="#local-6989586621679317210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The description of the component.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_description"><span class="hs-identifier hs-type">componentVersion_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="componentVersion_description"><span class="annot"><span class="annottext">componentVersion_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ComponentVersion -&gt; f ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#componentVersion_description"><span class="hs-identifier hs-var hs-var">componentVersion_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ComponentVersion -&gt; Maybe Text)
+-&gt; (ComponentVersion -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Lens ComponentVersion ComponentVersion (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317208"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:ComponentVersion' :: ComponentVersion -&gt; Maybe Text
+</span><a href="#local-6989586621679317208"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317208"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317207"><span class="annot"><span class="annottext">s :: ComponentVersion
+</span><a href="#local-6989586621679317207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-type">ComponentVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComponentVersion
+</span><a href="#local-6989586621679317207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ComponentVersion' :: Maybe Text
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#%24sel%3Adescription%3AComponentVersion%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317203"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679317201"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComponentVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ComponentVersion)
+-&gt; Value
+-&gt; Parser ComponentVersion
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ComponentVersion&quot;</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-243"></span><span>          </span><span class="annot"><span class="annottext">Maybe Platform
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ComponentType
+-&gt; Maybe Text
+-&gt; ComponentVersion
+</span><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion%27"><span class="hs-identifier hs-var">ComponentVersion'</span></a></span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Platform
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ComponentType
+ -&gt; Maybe Text
+ -&gt; ComponentVersion)
+-&gt; Parser (Maybe Platform)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComponentType
+      -&gt; Maybe Text
+      -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Platform)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComponentType
+   -&gt; Maybe Text
+   -&gt; ComponentVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComponentType
+      -&gt; Maybe Text
+      -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Text)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComponentType
+   -&gt; Maybe Text
+   -&gt; ComponentVersion)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComponentType
+      -&gt; Maybe Text
+      -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;supportedOsVersions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComponentType
+   -&gt; Maybe Text
+   -&gt; ComponentVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComponentType
+      -&gt; Maybe Text
+      -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComponentType
+   -&gt; Maybe Text
+   -&gt; ComponentVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ComponentType
+      -&gt; Maybe Text
+      -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dateCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ComponentType
+   -&gt; Maybe Text
+   -&gt; ComponentVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ComponentType -&gt; Maybe Text -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ComponentType -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ComponentType -&gt; Maybe Text -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ComponentType -&gt; Maybe Text -&gt; ComponentVersion)
+-&gt; Parser (Maybe ComponentType)
+-&gt; Parser (Maybe Text -&gt; ComponentVersion)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComponentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ComponentVersion)
+-&gt; Parser (Maybe Text) -&gt; Parser ComponentVersion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317192"><span id="local-6989586621679317194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span></span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ImageBuilder.Types.ComponentVersion.html#ComponentVersion"><span class="hs-identifier hs-type">ComponentVersion</span></a></span></span><span>
+</span><span id="line-258"></span></pre></body></html>

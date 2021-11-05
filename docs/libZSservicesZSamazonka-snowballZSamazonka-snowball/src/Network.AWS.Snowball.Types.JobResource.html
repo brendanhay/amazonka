@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- (AMI) based on Amazon EC2 that is associated with a particular job.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newJobResource' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679226913"><span id="local-6989586621679226914"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobResource"><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-var">JobResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobResource%27"><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-var">JobResource'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679226922"><span id="local-6989586621679226923"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobResource"><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-var">JobResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobResource%27"><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-var">JobResource'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Machine Images (AMIs) associated with this job.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Aec2AmiResources%3AJobResource%27"><span class="annot"><span class="annottext">JobResource -&gt; Maybe [Ec2AmiResource]
 </span><a href="Network.AWS.Snowball.Types.JobResource.html#%24sel%3Aec2AmiResources%3AJobResource%27"><span class="hs-identifier hs-var hs-var">ec2AmiResources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Snowball.Types.Ec2AmiResource.html#Ec2AmiResource"><span class="hs-identifier hs-type">Ec2AmiResource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3As3Resources%3AJobResource%27"><span class="annot"><span class="annottext">JobResource -&gt; Maybe [S3Resource]
 </span><a href="Network.AWS.Snowball.Types.JobResource.html#%24sel%3As3Resources%3AJobResource%27"><span class="hs-identifier hs-var hs-var">s3Resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Snowball.Types.S3Resource.html#S3Resource"><span class="hs-identifier hs-type">S3Resource</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226905"><span id="local-6989586621679226907"><span class="annot"><span class="annottext">JobResource -&gt; JobResource -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226914"><span id="local-6989586621679226916"><span class="annot"><span class="annottext">JobResource -&gt; JobResource -&gt; Bool
 (JobResource -&gt; JobResource -&gt; Bool)
 -&gt; (JobResource -&gt; JobResource -&gt; Bool) -&gt; Eq JobResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JobResource -&gt; JobResource -&gt; Bool
 == :: JobResource -&gt; JobResource -&gt; Bool
 $c== :: JobResource -&gt; JobResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226896"><span id="local-6989586621679226898"><span id="local-6989586621679226900"><span id="local-6989586621679226902"><span class="annot"><span class="annottext">ReadPrec [JobResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226905"><span id="local-6989586621679226907"><span id="local-6989586621679226909"><span id="local-6989586621679226911"><span class="annot"><span class="annottext">ReadPrec [JobResource]
 ReadPrec JobResource
 Int -&gt; ReadS JobResource
 ReadS [JobResource]
@@ -70,7 +70,7 @@ readList :: ReadS [JobResource]
 $creadList :: ReadS [JobResource]
 readsPrec :: Int -&gt; ReadS JobResource
 $creadsPrec :: Int -&gt; ReadS JobResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226889"><span id="local-6989586621679226891"><span id="local-6989586621679226893"><span class="annot"><span class="annottext">Int -&gt; JobResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226898"><span id="local-6989586621679226900"><span id="local-6989586621679226902"><span class="annot"><span class="annottext">Int -&gt; JobResource -&gt; ShowS
 [JobResource] -&gt; ShowS
 JobResource -&gt; String
 (Int -&gt; JobResource -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
      (Maybe [Ec2AmiResource])
      (Maybe [Ec2AmiResource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226880"><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226889"><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
 ec2AmiResources :: Maybe [Ec2AmiResource]
 $sel:ec2AmiResources:JobResource' :: JobResource -&gt; Maybe [Ec2AmiResource]
-</span><a href="#local-6989586621679226880"><span class="hs-identifier hs-var hs-var">ec2AmiResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
-</span><a href="#local-6989586621679226880"><span class="hs-identifier hs-var">ec2AmiResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226879"><span class="annot"><span class="annottext">s :: JobResource
-</span><a href="#local-6989586621679226879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226878"><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
-</span><a href="#local-6989586621679226878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobResource
-</span><a href="#local-6989586621679226879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2AmiResources:JobResource' :: Maybe [Ec2AmiResource]
+</span><a href="#local-6989586621679226889"><span class="hs-identifier hs-var hs-var">ec2AmiResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
+</span><a href="#local-6989586621679226889"><span class="hs-identifier hs-var">ec2AmiResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226888"><span class="annot"><span class="annottext">s :: JobResource
+</span><a href="#local-6989586621679226888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226887"><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
+</span><a href="#local-6989586621679226887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobResource
+</span><a href="#local-6989586621679226888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2AmiResources:JobResource' :: Maybe [Ec2AmiResource]
 </span><a href="Network.AWS.Snowball.Types.JobResource.html#%24sel%3Aec2AmiResources%3AJobResource%27"><span class="hs-identifier hs-var">ec2AmiResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
-</span><a href="#local-6989586621679226878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ec2AmiResource] -&gt; f (Maybe [Ec2AmiResource]))
+</span><a href="#local-6989586621679226887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Ec2AmiResource] -&gt; f (Maybe [Ec2AmiResource]))
  -&gt; JobResource -&gt; f JobResource)
 -&gt; ((Maybe [Ec2AmiResource] -&gt; f (Maybe [Ec2AmiResource]))
     -&gt; Maybe [Ec2AmiResource] -&gt; f (Maybe [Ec2AmiResource]))
@@ -186,16 +186,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [LambdaResource])
      (Maybe [LambdaResource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226873"><span class="annot"><span class="annottext">Maybe [LambdaResource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226882"><span class="annot"><span class="annottext">Maybe [LambdaResource]
 lambdaResources :: Maybe [LambdaResource]
 $sel:lambdaResources:JobResource' :: JobResource -&gt; Maybe [LambdaResource]
-</span><a href="#local-6989586621679226873"><span class="hs-identifier hs-var hs-var">lambdaResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaResource]
-</span><a href="#local-6989586621679226873"><span class="hs-identifier hs-var">lambdaResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226872"><span class="annot"><span class="annottext">s :: JobResource
-</span><a href="#local-6989586621679226872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226871"><span class="annot"><span class="annottext">Maybe [LambdaResource]
-</span><a href="#local-6989586621679226871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobResource
-</span><a href="#local-6989586621679226872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaResources:JobResource' :: Maybe [LambdaResource]
+</span><a href="#local-6989586621679226882"><span class="hs-identifier hs-var hs-var">lambdaResources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaResource]
+</span><a href="#local-6989586621679226882"><span class="hs-identifier hs-var">lambdaResources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226881"><span class="annot"><span class="annottext">s :: JobResource
+</span><a href="#local-6989586621679226881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226880"><span class="annot"><span class="annottext">Maybe [LambdaResource]
+</span><a href="#local-6989586621679226880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobResource
+</span><a href="#local-6989586621679226881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaResources:JobResource' :: Maybe [LambdaResource]
 </span><a href="Network.AWS.Snowball.Types.JobResource.html#%24sel%3AlambdaResources%3AJobResource%27"><span class="hs-identifier hs-var">lambdaResources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaResource]
-</span><a href="#local-6989586621679226871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LambdaResource] -&gt; f (Maybe [LambdaResource]))
+</span><a href="#local-6989586621679226880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LambdaResource] -&gt; f (Maybe [LambdaResource]))
  -&gt; JobResource -&gt; f JobResource)
 -&gt; ((Maybe [LambdaResource] -&gt; f (Maybe [LambdaResource]))
     -&gt; Maybe [LambdaResource] -&gt; f (Maybe [LambdaResource]))
@@ -227,16 +227,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      JobResource JobResource (Maybe [S3Resource]) (Maybe [S3Resource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226869"><span class="annot"><span class="annottext">Maybe [S3Resource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226878"><span class="annot"><span class="annottext">Maybe [S3Resource]
 s3Resources :: Maybe [S3Resource]
 $sel:s3Resources:JobResource' :: JobResource -&gt; Maybe [S3Resource]
-</span><a href="#local-6989586621679226869"><span class="hs-identifier hs-var hs-var">s3Resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Resource]
-</span><a href="#local-6989586621679226869"><span class="hs-identifier hs-var">s3Resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226868"><span class="annot"><span class="annottext">s :: JobResource
-</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226867"><span class="annot"><span class="annottext">Maybe [S3Resource]
-</span><a href="#local-6989586621679226867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobResource
-</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Resources:JobResource' :: Maybe [S3Resource]
+</span><a href="#local-6989586621679226878"><span class="hs-identifier hs-var hs-var">s3Resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Resource]
+</span><a href="#local-6989586621679226878"><span class="hs-identifier hs-var">s3Resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226877"><span class="annot"><span class="annottext">s :: JobResource
+</span><a href="#local-6989586621679226877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226876"><span class="annot"><span class="annottext">Maybe [S3Resource]
+</span><a href="#local-6989586621679226876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobResource
+</span><a href="#local-6989586621679226877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Resources:JobResource' :: Maybe [S3Resource]
 </span><a href="Network.AWS.Snowball.Types.JobResource.html#%24sel%3As3Resources%3AJobResource%27"><span class="hs-identifier hs-var">s3Resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Resource]
-</span><a href="#local-6989586621679226867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3Resource] -&gt; f (Maybe [S3Resource]))
+</span><a href="#local-6989586621679226876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3Resource] -&gt; f (Maybe [S3Resource]))
  -&gt; JobResource -&gt; f JobResource)
 -&gt; ((Maybe [S3Resource] -&gt; f (Maybe [S3Resource]))
     -&gt; Maybe [S3Resource] -&gt; f (Maybe [S3Resource]))
@@ -257,8 +257,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226864"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679226862"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobResource
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226873"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679226871"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobResource) -&gt; Value -&gt; Parser JobResource
@@ -266,8 +266,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobResource&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226859"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226859"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226868"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
 -&gt; Maybe [LambdaResource] -&gt; Maybe [S3Resource] -&gt; JobResource
 </span><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-var">JobResource'</span></a></span><span>
@@ -278,7 +278,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [LambdaResource] -&gt; Maybe [S3Resource] -&gt; JobResource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Ec2AmiResource]))
+</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Ec2AmiResource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Ec2AmiResources&quot;</span></span><span>
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [S3Resource] -&gt; JobResource)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LambdaResource]))
+</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [LambdaResource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LambdaResources&quot;</span></span><span>
@@ -310,7 +310,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [S3Resource]) -&gt; Parser JobResource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226859"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [S3Resource]))
+</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [S3Resource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [S3Resource]))
@@ -321,13 +321,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226852"><span id="local-6989586621679226854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226861"><span id="local-6989586621679226863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226841"><span id="local-6989586621679226843"><span id="local-6989586621679226845"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679226839"><span class="annot"><span class="annottext">toJSON :: JobResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226835"><span id="local-6989586621679226836"><span id="local-6989586621679226837"><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226850"><span id="local-6989586621679226852"><span id="local-6989586621679226854"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource"><span class="hs-identifier hs-type">JobResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679226848"><span class="annot"><span class="annottext">toJSON :: JobResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.JobResource.html#JobResource%27"><span class="hs-identifier hs-type">JobResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226844"><span id="local-6989586621679226845"><span id="local-6989586621679226846"><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
 Maybe [LambdaResource]
 Maybe [S3Resource]
 s3Resources :: Maybe [S3Resource]
@@ -336,7 +336,7 @@ ec2AmiResources :: Maybe [Ec2AmiResource]
 $sel:s3Resources:JobResource' :: JobResource -&gt; Maybe [S3Resource]
 $sel:lambdaResources:JobResource' :: JobResource -&gt; Maybe [LambdaResource]
 $sel:ec2AmiResources:JobResource' :: JobResource -&gt; Maybe [Ec2AmiResource]
-</span><a href="#local-6989586621679226835"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226844"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -349,7 +349,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">([Ec2AmiResource] -&gt; Pair) -&gt; Maybe [Ec2AmiResource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Ec2AmiResource]
-</span><a href="#local-6989586621679226837"><span class="hs-identifier hs-var">ec2AmiResources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226846"><span class="hs-identifier hs-var">ec2AmiResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LambdaResources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [LambdaResource] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -357,14 +357,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">([LambdaResource] -&gt; Pair) -&gt; Maybe [LambdaResource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaResource]
-</span><a href="#local-6989586621679226836"><span class="hs-identifier hs-var">lambdaResources</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226845"><span class="hs-identifier hs-var">lambdaResources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [S3Resource] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([S3Resource] -&gt; Pair) -&gt; Maybe [S3Resource] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [S3Resource]
-</span><a href="#local-6989586621679226835"><span class="hs-identifier hs-var">s3Resources</span></a></span><span>
+</span><a href="#local-6989586621679226844"><span class="hs-identifier hs-var">s3Resources</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Represents the input of a list repositories operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newListRepositories' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679361579"><span id="local-6989586621679361580"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRepositories"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-var">ListRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRepositories%27"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-var">ListRepositories'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679361588"><span id="local-6989586621679361589"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRepositories"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-var">ListRepositories</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRepositories%27"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-var">ListRepositories'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An enumeration token that allows the operation to batch the results of</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the operation. Batch sizes are 1,000 for list repository operations.</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- When the client sends the token back to AWS CodeCommit, another page of</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AsortBy%3AListRepositories%27"><span class="annot"><span class="annottext">ListRepositories -&gt; Maybe SortByEnum
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3AsortBy%3AListRepositories%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SortByEnum.html#SortByEnum"><span class="hs-identifier hs-type">SortByEnum</span></a></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361571"><span id="local-6989586621679361573"><span class="annot"><span class="annottext">ListRepositories -&gt; ListRepositories -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361580"><span id="local-6989586621679361582"><span class="annot"><span class="annottext">ListRepositories -&gt; ListRepositories -&gt; Bool
 (ListRepositories -&gt; ListRepositories -&gt; Bool)
 -&gt; (ListRepositories -&gt; ListRepositories -&gt; Bool)
 -&gt; Eq ListRepositories
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRepositories -&gt; ListRepositories -&gt; Bool
 == :: ListRepositories -&gt; ListRepositories -&gt; Bool
 $c== :: ListRepositories -&gt; ListRepositories -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361562"><span id="local-6989586621679361564"><span id="local-6989586621679361566"><span id="local-6989586621679361568"><span class="annot"><span class="annottext">ReadPrec [ListRepositories]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361571"><span id="local-6989586621679361573"><span id="local-6989586621679361575"><span id="local-6989586621679361577"><span class="annot"><span class="annottext">ReadPrec [ListRepositories]
 ReadPrec ListRepositories
 Int -&gt; ReadS ListRepositories
 ReadS [ListRepositories]
@@ -97,7 +97,7 @@ readList :: ReadS [ListRepositories]
 $creadList :: ReadS [ListRepositories]
 readsPrec :: Int -&gt; ReadS ListRepositories
 $creadsPrec :: Int -&gt; ReadS ListRepositories
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361555"><span id="local-6989586621679361557"><span id="local-6989586621679361559"><span class="annot"><span class="annottext">Int -&gt; ListRepositories -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361564"><span id="local-6989586621679361566"><span id="local-6989586621679361568"><span class="annot"><span class="annottext">Int -&gt; ListRepositories -&gt; ShowS
 [ListRepositories] -&gt; ShowS
 ListRepositories -&gt; String
 (Int -&gt; ListRepositories -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; (ListRepositories -&gt; Maybe Text -&gt; ListRepositories)
 -&gt; Lens ListRepositories ListRepositories (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361549"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361558"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListRepositories' :: ListRepositories -&gt; Maybe Text
-</span><a href="#local-6989586621679361549"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679361549"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361548"><span class="annot"><span class="annottext">s :: ListRepositories
-</span><a href="#local-6989586621679361548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361547"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679361547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositories
-</span><a href="#local-6989586621679361548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositories' :: Maybe Text
+</span><a href="#local-6989586621679361558"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679361558"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361557"><span class="annot"><span class="annottext">s :: ListRepositories
+</span><a href="#local-6989586621679361557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679361556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositories
+</span><a href="#local-6989586621679361557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositories' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3AnextToken%3AListRepositories%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679361547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The order in which to sort the results of a list repositories operation.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#listRepositories_order"><span class="hs-identifier hs-type">listRepositories_order</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.OrderEnum.html#OrderEnum"><span class="hs-identifier hs-type">OrderEnum</span></a></span><span class="hs-special">)</span><span>
@@ -194,16 +194,16 @@ $sel:nextToken:ListRepositories' :: ListRepositories -&gt; Maybe Text
      (Maybe OrderEnum)
      (Maybe OrderEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361546"><span class="annot"><span class="annottext">Maybe OrderEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361555"><span class="annot"><span class="annottext">Maybe OrderEnum
 order :: Maybe OrderEnum
 $sel:order:ListRepositories' :: ListRepositories -&gt; Maybe OrderEnum
-</span><a href="#local-6989586621679361546"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderEnum
-</span><a href="#local-6989586621679361546"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361545"><span class="annot"><span class="annottext">s :: ListRepositories
-</span><a href="#local-6989586621679361545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361544"><span class="annot"><span class="annottext">Maybe OrderEnum
-</span><a href="#local-6989586621679361544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositories
-</span><a href="#local-6989586621679361545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:ListRepositories' :: Maybe OrderEnum
+</span><a href="#local-6989586621679361555"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderEnum
+</span><a href="#local-6989586621679361555"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361554"><span class="annot"><span class="annottext">s :: ListRepositories
+</span><a href="#local-6989586621679361554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361553"><span class="annot"><span class="annottext">Maybe OrderEnum
+</span><a href="#local-6989586621679361553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositories
+</span><a href="#local-6989586621679361554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:ListRepositories' :: Maybe OrderEnum
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3Aorder%3AListRepositories%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderEnum
-</span><a href="#local-6989586621679361544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The criteria used to sort the results of a list repositories operation.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#listRepositories_sortBy"><span class="hs-identifier hs-type">listRepositories_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SortByEnum.html#SortByEnum"><span class="hs-identifier hs-type">SortByEnum</span></a></span><span class="hs-special">)</span><span>
@@ -217,29 +217,29 @@ $sel:order:ListRepositories' :: ListRepositories -&gt; Maybe OrderEnum
      (Maybe SortByEnum)
      (Maybe SortByEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361543"><span class="annot"><span class="annottext">Maybe SortByEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361552"><span class="annot"><span class="annottext">Maybe SortByEnum
 sortBy :: Maybe SortByEnum
 $sel:sortBy:ListRepositories' :: ListRepositories -&gt; Maybe SortByEnum
-</span><a href="#local-6989586621679361543"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortByEnum
-</span><a href="#local-6989586621679361543"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361542"><span class="annot"><span class="annottext">s :: ListRepositories
-</span><a href="#local-6989586621679361542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361541"><span class="annot"><span class="annottext">Maybe SortByEnum
-</span><a href="#local-6989586621679361541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositories
-</span><a href="#local-6989586621679361542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListRepositories' :: Maybe SortByEnum
+</span><a href="#local-6989586621679361552"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortByEnum
+</span><a href="#local-6989586621679361552"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361551"><span class="annot"><span class="annottext">s :: ListRepositories
+</span><a href="#local-6989586621679361551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361550"><span class="annot"><span class="annottext">Maybe SortByEnum
+</span><a href="#local-6989586621679361550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositories
+</span><a href="#local-6989586621679361551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListRepositories' :: Maybe SortByEnum
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3AsortBy%3AListRepositories%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortByEnum
-</span><a href="#local-6989586621679361541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679361537"><span class="annot"><span class="annottext">page :: ListRepositories
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679361546"><span class="annot"><span class="annottext">page :: ListRepositories
 -&gt; AWSResponse ListRepositories -&gt; Maybe ListRepositories
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679361535"><span class="annot"><span class="annottext">ListRepositories
-</span><a href="#local-6989586621679361535"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679361534"><span class="annot"><span class="annottext">AWSResponse ListRepositories
-</span><a href="#local-6989586621679361534"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679361544"><span class="annot"><span class="annottext">ListRepositories
+</span><a href="#local-6989586621679361544"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679361543"><span class="annot"><span class="annottext">AWSResponse ListRepositories
+</span><a href="#local-6989586621679361543"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRepositories
 ListRepositoriesResponse
-</span><a href="#local-6989586621679361534"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679361543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListRepositoriesResponse
 -&gt; Getting (First Text) ListRepositoriesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -268,7 +268,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRepositories
 ListRepositoriesResponse
-</span><a href="#local-6989586621679361534"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679361543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">ListRepositoriesResponse
 -&gt; Getting
      (First [RepositoryNameIdPair])
@@ -318,7 +318,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListRepositories
-</span><a href="#local-6989586621679361535"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679361544"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListRepositories
 -&gt; (ListRepositories -&gt; ListRepositories) -&gt; ListRepositories
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -332,7 +332,7 @@ Lens ListRepositories ListRepositories (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRepositories
 ListRepositoriesResponse
-</span><a href="#local-6989586621679361534"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679361543"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListRepositoriesResponse
 -&gt; Getting (First Text) ListRepositoriesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -357,12 +357,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-134"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679361524"><span class="annot"><span class="annottext">request :: ListRepositories -&gt; Request ListRepositories
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679361533"><span class="annot"><span class="annottext">request :: ListRepositories -&gt; Request ListRepositories
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRepositories -&gt; Request ListRepositories
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679361520"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679361529"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRepositories
 -&gt; ClientResponse ClientBody
@@ -386,10 +386,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361517"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361517"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679361516"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679361516"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679361515"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679361515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361526"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679361525"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679361525"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679361524"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679361524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
 -&gt; Maybe Text -&gt; Int -&gt; ListRepositoriesResponse
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-var">ListRepositoriesResponse'</span></a></span><span>
@@ -399,7 +399,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListRepositoriesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679361515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679361524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [RepositoryNameIdPair]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -415,7 +415,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListRepositoriesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679361515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679361524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -427,15 +427,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361517"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361526"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361506"><span id="local-6989586621679361508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361515"><span id="local-6989586621679361517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679361499"><span class="annot"><span class="annottext">toHeaders :: ListRepositories -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679361508"><span class="annot"><span class="annottext">toHeaders :: ListRepositories -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRepositories -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -462,9 +462,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361489"><span id="local-6989586621679361491"><span id="local-6989586621679361493"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679361487"><span class="annot"><span class="annottext">toJSON :: ListRepositories -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361483"><span id="local-6989586621679361484"><span id="local-6989586621679361485"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361498"><span id="local-6989586621679361500"><span id="local-6989586621679361502"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679361496"><span class="annot"><span class="annottext">toJSON :: ListRepositories -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories%27"><span class="hs-identifier hs-type">ListRepositories'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361492"><span id="local-6989586621679361493"><span id="local-6989586621679361494"><span class="annot"><span class="annottext">Maybe Text
 Maybe OrderEnum
 Maybe SortByEnum
 sortBy :: Maybe SortByEnum
@@ -473,7 +473,7 @@ nextToken :: Maybe Text
 $sel:sortBy:ListRepositories' :: ListRepositories -&gt; Maybe SortByEnum
 $sel:order:ListRepositories' :: ListRepositories -&gt; Maybe OrderEnum
 $sel:nextToken:ListRepositories' :: ListRepositories -&gt; Maybe Text
-</span><a href="#local-6989586621679361483"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679361492"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -485,33 +485,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679361485"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679361494"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;order&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrderEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderEnum -&gt; Pair) -&gt; Maybe OrderEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderEnum
-</span><a href="#local-6989586621679361484"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679361493"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortByEnum -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortByEnum -&gt; Pair) -&gt; Maybe SortByEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortByEnum
-</span><a href="#local-6989586621679361483"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><a href="#local-6989586621679361492"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679361477"><span class="annot"><span class="annottext">toPath :: ListRepositories -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679361486"><span class="annot"><span class="annottext">toPath :: ListRepositories -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRepositories -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositories"><span class="hs-identifier hs-type">ListRepositories</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679361473"><span class="annot"><span class="annottext">toQuery :: ListRepositories -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679361482"><span class="annot"><span class="annottext">toQuery :: ListRepositories -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRepositories -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -521,7 +521,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span class="hs-comment">-- | Represents the output of a list repositories operation.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- /See:/ 'newListRepositoriesResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679361470"><span id="local-6989586621679361471"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRepositoriesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-var">ListRepositoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRepositoriesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-var">ListRepositoriesResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679361479"><span id="local-6989586621679361480"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRepositoriesResponse"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-var">ListRepositoriesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRepositoriesResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-var">ListRepositoriesResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Lists the repositories called by the list repositories operation.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3Arepositories%3AListRepositoriesResponse%27"><span class="annot"><span class="annottext">ListRepositoriesResponse -&gt; Maybe [RepositoryNameIdPair]
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3Arepositories%3AListRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryNameIdPair.html#RepositoryNameIdPair"><span class="hs-identifier hs-type">RepositoryNameIdPair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -535,7 +535,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRepositoriesResponse%27"><span class="annot"><span class="annottext">ListRepositoriesResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3AhttpStatus%3AListRepositoriesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361463"><span id="local-6989586621679361465"><span class="annot"><span class="annottext">ListRepositoriesResponse -&gt; ListRepositoriesResponse -&gt; Bool
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361472"><span id="local-6989586621679361474"><span class="annot"><span class="annottext">ListRepositoriesResponse -&gt; ListRepositoriesResponse -&gt; Bool
 (ListRepositoriesResponse -&gt; ListRepositoriesResponse -&gt; Bool)
 -&gt; (ListRepositoriesResponse -&gt; ListRepositoriesResponse -&gt; Bool)
 -&gt; Eq ListRepositoriesResponse
@@ -544,7 +544,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRepositoriesResponse -&gt; ListRepositoriesResponse -&gt; Bool
 == :: ListRepositoriesResponse -&gt; ListRepositoriesResponse -&gt; Bool
 $c== :: ListRepositoriesResponse -&gt; ListRepositoriesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361455"><span id="local-6989586621679361457"><span id="local-6989586621679361459"><span id="local-6989586621679361461"><span class="annot"><span class="annottext">ReadPrec [ListRepositoriesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361464"><span id="local-6989586621679361466"><span id="local-6989586621679361468"><span id="local-6989586621679361470"><span class="annot"><span class="annottext">ReadPrec [ListRepositoriesResponse]
 ReadPrec ListRepositoriesResponse
 Int -&gt; ReadS ListRepositoriesResponse
 ReadS [ListRepositoriesResponse]
@@ -564,7 +564,7 @@ readList :: ReadS [ListRepositoriesResponse]
 $creadList :: ReadS [ListRepositoriesResponse]
 readsPrec :: Int -&gt; ReadS ListRepositoriesResponse
 $creadsPrec :: Int -&gt; ReadS ListRepositoriesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361449"><span id="local-6989586621679361451"><span id="local-6989586621679361453"><span class="annot"><span class="annottext">Int -&gt; ListRepositoriesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361458"><span id="local-6989586621679361460"><span id="local-6989586621679361462"><span class="annot"><span class="annottext">Int -&gt; ListRepositoriesResponse -&gt; ShowS
 [ListRepositoriesResponse] -&gt; ShowS
 ListRepositoriesResponse -&gt; String
 (Int -&gt; ListRepositoriesResponse -&gt; ShowS)
@@ -617,8 +617,8 @@ ListRepositoriesResponse -&gt; Rep ListRepositoriesResponse x
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newListRepositoriesResponse"><span class="annot"><span class="annottext">newListRepositoriesResponse :: Int -&gt; ListRepositoriesResponse
-</span><a href="Network.AWS.CodeCommit.ListRepositories.html#newListRepositoriesResponse"><span class="hs-identifier hs-var hs-var">newListRepositoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679361446"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.ListRepositories.html#newListRepositoriesResponse"><span class="hs-identifier hs-var hs-var">newListRepositoriesResponse</span></a></span></span><span> </span><span id="local-6989586621679361455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361455"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">ListRepositoriesResponse' :: Maybe [RepositoryNameIdPair]
 -&gt; Maybe Text -&gt; Int -&gt; ListRepositoriesResponse
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span>
@@ -633,7 +633,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRepositoriesResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3AhttpStatus%3AListRepositoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679361455"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Lists the repositories called by the list repositories operation.</span><span>
@@ -645,16 +645,16 @@ forall a. Maybe a
     -&gt; Maybe [RepositoryNameIdPair] -&gt; ListRepositoriesResponse)
 -&gt; Lens' ListRepositoriesResponse (Maybe [RepositoryNameIdPair])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361445"><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361454"><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
 repositories :: Maybe [RepositoryNameIdPair]
 $sel:repositories:ListRepositoriesResponse' :: ListRepositoriesResponse -&gt; Maybe [RepositoryNameIdPair]
-</span><a href="#local-6989586621679361445"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
-</span><a href="#local-6989586621679361445"><span class="hs-identifier hs-var">repositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361444"><span class="annot"><span class="annottext">s :: ListRepositoriesResponse
-</span><a href="#local-6989586621679361444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361443"><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
-</span><a href="#local-6989586621679361443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesResponse
-</span><a href="#local-6989586621679361444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositories:ListRepositoriesResponse' :: Maybe [RepositoryNameIdPair]
+</span><a href="#local-6989586621679361454"><span class="hs-identifier hs-var hs-var">repositories</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
+</span><a href="#local-6989586621679361454"><span class="hs-identifier hs-var">repositories</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361453"><span class="annot"><span class="annottext">s :: ListRepositoriesResponse
+</span><a href="#local-6989586621679361453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361452"><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
+</span><a href="#local-6989586621679361452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesResponse
+</span><a href="#local-6989586621679361453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositories:ListRepositoriesResponse' :: Maybe [RepositoryNameIdPair]
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3Arepositories%3AListRepositoriesResponse%27"><span class="hs-identifier hs-var">repositories</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RepositoryNameIdPair]
-</span><a href="#local-6989586621679361443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RepositoryNameIdPair] -&gt; f (Maybe [RepositoryNameIdPair]))
+</span><a href="#local-6989586621679361452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RepositoryNameIdPair] -&gt; f (Maybe [RepositoryNameIdPair]))
  -&gt; ListRepositoriesResponse -&gt; f ListRepositoriesResponse)
 -&gt; ((Maybe [RepositoryNameIdPair]
      -&gt; f (Maybe [RepositoryNameIdPair]))
@@ -698,16 +698,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListRepositoriesResponse)
 -&gt; Lens' ListRepositoriesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361440"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361449"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListRepositoriesResponse' :: ListRepositoriesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679361440"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679361440"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361439"><span class="annot"><span class="annottext">s :: ListRepositoriesResponse
-</span><a href="#local-6989586621679361439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361438"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679361438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesResponse
-</span><a href="#local-6989586621679361439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositoriesResponse' :: Maybe Text
+</span><a href="#local-6989586621679361449"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679361449"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361448"><span class="annot"><span class="annottext">s :: ListRepositoriesResponse
+</span><a href="#local-6989586621679361448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361447"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679361447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesResponse
+</span><a href="#local-6989586621679361448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRepositoriesResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3AnextToken%3AListRepositoriesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679361438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-237"></span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#listRepositoriesResponse_httpStatus"><span class="hs-identifier hs-type">listRepositoriesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -717,16 +717,16 @@ $sel:nextToken:ListRepositoriesResponse' :: ListRepositoriesResponse -&gt; Maybe
 -&gt; (ListRepositoriesResponse -&gt; Int -&gt; ListRepositoriesResponse)
 -&gt; Lens ListRepositoriesResponse ListRepositoriesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361437"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361446"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRepositoriesResponse' :: ListRepositoriesResponse -&gt; Int
-</span><a href="#local-6989586621679361437"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361437"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361436"><span class="annot"><span class="annottext">s :: ListRepositoriesResponse
-</span><a href="#local-6989586621679361436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361435"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesResponse
-</span><a href="#local-6989586621679361436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRepositoriesResponse' :: Int
+</span><a href="#local-6989586621679361446"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361446"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361445"><span class="annot"><span class="annottext">s :: ListRepositoriesResponse
+</span><a href="#local-6989586621679361445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse%27"><span class="hs-identifier hs-type">ListRepositoriesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRepositoriesResponse
+</span><a href="#local-6989586621679361445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRepositoriesResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.ListRepositories.html#%24sel%3AhttpStatus%3AListRepositoriesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.ListRepositories.html#ListRepositoriesResponse"><span class="hs-identifier hs-type">ListRepositoriesResponse</span></a></span></span><span>
 </span><span id="line-241"></span></pre></body></html>

@@ -75,7 +75,7 @@
 </span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newCreateRuleGroup' smart constructor.</span><span>
-</span><span id="line-78"></span><span id="local-6989586621679326130"><span id="local-6989586621679326131"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRuleGroup"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-var">CreateRuleGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRuleGroup%27"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-var">CreateRuleGroup'</span></a></span></span><span>
+</span><span id="line-78"></span><span id="local-6989586621679326139"><span id="local-6989586621679326140"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRuleGroup"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-var">CreateRuleGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRuleGroup%27"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-var">CreateRuleGroup'</span></a></span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atags%3ACreateRuleGroup%27"><span class="annot"><span class="annottext">CreateRuleGroup -&gt; Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3Atags%3ACreateRuleGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | A friendly name or description of the RuleGroup. You can\'t change</span><span>
@@ -94,7 +94,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AchangeToken%3ACreateRuleGroup%27"><span class="annot"><span class="annottext">CreateRuleGroup -&gt; Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AchangeToken%3ACreateRuleGroup%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326121"><span id="local-6989586621679326123"><span class="annot"><span class="annottext">CreateRuleGroup -&gt; CreateRuleGroup -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326130"><span id="local-6989586621679326132"><span class="annot"><span class="annottext">CreateRuleGroup -&gt; CreateRuleGroup -&gt; Bool
 (CreateRuleGroup -&gt; CreateRuleGroup -&gt; Bool)
 -&gt; (CreateRuleGroup -&gt; CreateRuleGroup -&gt; Bool)
 -&gt; Eq CreateRuleGroup
@@ -103,7 +103,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRuleGroup -&gt; CreateRuleGroup -&gt; Bool
 == :: CreateRuleGroup -&gt; CreateRuleGroup -&gt; Bool
 $c== :: CreateRuleGroup -&gt; CreateRuleGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326112"><span id="local-6989586621679326114"><span id="local-6989586621679326116"><span id="local-6989586621679326118"><span class="annot"><span class="annottext">ReadPrec [CreateRuleGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326121"><span id="local-6989586621679326123"><span id="local-6989586621679326125"><span id="local-6989586621679326127"><span class="annot"><span class="annottext">ReadPrec [CreateRuleGroup]
 ReadPrec CreateRuleGroup
 Int -&gt; ReadS CreateRuleGroup
 ReadS [CreateRuleGroup]
@@ -123,7 +123,7 @@ readList :: ReadS [CreateRuleGroup]
 $creadList :: ReadS [CreateRuleGroup]
 readsPrec :: Int -&gt; ReadS CreateRuleGroup
 $creadsPrec :: Int -&gt; ReadS CreateRuleGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326105"><span id="local-6989586621679326107"><span id="local-6989586621679326109"><span class="annot"><span class="annottext">Int -&gt; CreateRuleGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326114"><span id="local-6989586621679326116"><span id="local-6989586621679326118"><span class="annot"><span class="annottext">Int -&gt; CreateRuleGroup -&gt; ShowS
 [CreateRuleGroup] -&gt; ShowS
 CreateRuleGroup -&gt; String
 (Int -&gt; CreateRuleGroup -&gt; ShowS)
@@ -179,10 +179,10 @@ $cfrom :: forall x. CreateRuleGroup -&gt; Rep CreateRuleGroup x
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span>
 </span><span id="line-124"></span><span id="newCreateRuleGroup"><span class="annot"><span class="annottext">newCreateRuleGroup :: Text -&gt; Text -&gt; Text -&gt; CreateRuleGroup
-</span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#newCreateRuleGroup"><span class="hs-identifier hs-var hs-var">newCreateRuleGroup</span></a></span></span><span> </span><span id="local-6989586621679326100"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326100"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679326099"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326099"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span id="local-6989586621679326098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326098"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#newCreateRuleGroup"><span class="hs-identifier hs-var hs-var">newCreateRuleGroup</span></a></span></span><span> </span><span id="local-6989586621679326109"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326109"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679326108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326108"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span id="local-6989586621679326107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326107"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">CreateRuleGroup' :: Maybe (NonEmpty Tag) -&gt; Text -&gt; Text -&gt; Text -&gt; CreateRuleGroup
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateRuleGroup' :: Maybe (NonEmpty Tag)
@@ -191,13 +191,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateRuleGroup' :: Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3Aname%3ACreateRuleGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326100"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326109"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:CreateRuleGroup' :: Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AmetricName%3ACreateRuleGroup%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326099"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326108"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleGroup' :: Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AchangeToken%3ACreateRuleGroup%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326098"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
+</span><a href="#local-6989586621679326107"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Tag))
      (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326095"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326104"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:CreateRuleGroup' :: CreateRuleGroup -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679326095"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679326095"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326094"><span class="annot"><span class="annottext">s :: CreateRuleGroup
-</span><a href="#local-6989586621679326094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326093"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679326093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
-</span><a href="#local-6989586621679326094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRuleGroup' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679326104"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679326104"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326103"><span class="annot"><span class="annottext">s :: CreateRuleGroup
+</span><a href="#local-6989586621679326103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326102"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679326102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
+</span><a href="#local-6989586621679326103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRuleGroup' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3Atags%3ACreateRuleGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679326093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679326102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; CreateRuleGroup -&gt; f CreateRuleGroup)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -250,16 +250,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateRuleGroup -&gt; Text -&gt; CreateRuleGroup)
 -&gt; Lens CreateRuleGroup CreateRuleGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326089"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326098"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
-</span><a href="#local-6989586621679326089"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326089"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326088"><span class="annot"><span class="annottext">s :: CreateRuleGroup
-</span><a href="#local-6989586621679326088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
-</span><a href="#local-6989586621679326088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRuleGroup' :: Text
+</span><a href="#local-6989586621679326098"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326098"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326097"><span class="annot"><span class="annottext">s :: CreateRuleGroup
+</span><a href="#local-6989586621679326097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326096"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
+</span><a href="#local-6989586621679326097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRuleGroup' :: Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3Aname%3ACreateRuleGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | A friendly name or description for the metrics for this @RuleGroup@. The</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- name can contain only alphanumeric characters (A-Z, a-z, 0-9), with</span><span>
@@ -273,16 +273,16 @@ $sel:name:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
 -&gt; (CreateRuleGroup -&gt; Text -&gt; CreateRuleGroup)
 -&gt; Lens CreateRuleGroup CreateRuleGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326086"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326095"><span class="annot"><span class="annottext">Text
 metricName :: Text
 $sel:metricName:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
-</span><a href="#local-6989586621679326086"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326086"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326085"><span class="annot"><span class="annottext">s :: CreateRuleGroup
-</span><a href="#local-6989586621679326085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326084"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
-</span><a href="#local-6989586621679326085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CreateRuleGroup' :: Text
+</span><a href="#local-6989586621679326095"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326095"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326094"><span class="annot"><span class="annottext">s :: CreateRuleGroup
+</span><a href="#local-6989586621679326094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
+</span><a href="#local-6989586621679326094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:CreateRuleGroup' :: Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AmetricName%3ACreateRuleGroup%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#createRuleGroup_changeToken"><span class="hs-identifier hs-type">createRuleGroup_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -291,27 +291,27 @@ $sel:metricName:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
 -&gt; (CreateRuleGroup -&gt; Text -&gt; CreateRuleGroup)
 -&gt; Lens CreateRuleGroup CreateRuleGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326083"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326092"><span class="annot"><span class="annottext">Text
 changeToken :: Text
 $sel:changeToken:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
-</span><a href="#local-6989586621679326083"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326083"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326082"><span class="annot"><span class="annottext">s :: CreateRuleGroup
-</span><a href="#local-6989586621679326082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326081"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
-</span><a href="#local-6989586621679326082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleGroup' :: Text
+</span><a href="#local-6989586621679326092"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326092"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326091"><span class="annot"><span class="annottext">s :: CreateRuleGroup
+</span><a href="#local-6989586621679326091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326090"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroup
+</span><a href="#local-6989586621679326091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleGroup' :: Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AchangeToken%3ACreateRuleGroup%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-156"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679326077"><span class="annot"><span class="annottext">request :: CreateRuleGroup -&gt; Request CreateRuleGroup
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679326086"><span class="annot"><span class="annottext">request :: CreateRuleGroup -&gt; Request CreateRuleGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRuleGroup -&gt; Request CreateRuleGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679326073"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679326082"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateRuleGroup
 -&gt; ClientResponse ClientBody
@@ -335,10 +335,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326070"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326070"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679326069"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679326069"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679326068"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326079"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679326078"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679326078"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679326077"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe RuleGroup -&gt; Int -&gt; CreateRuleGroupResponse
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-var">CreateRuleGroupResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe RuleGroup -&gt; Int -&gt; CreateRuleGroupResponse)
@@ -347,7 +347,7 @@ MonadResource m =&gt;
      String (Maybe RuleGroup -&gt; Int -&gt; CreateRuleGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679326077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -356,7 +356,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreateRuleGroupResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RuleGroup)
+</span><a href="#local-6989586621679326077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RuleGroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -368,15 +368,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326070"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326079"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326060"><span id="local-6989586621679326062"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326069"><span id="local-6989586621679326071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679326053"><span class="annot"><span class="annottext">toHeaders :: CreateRuleGroup -&gt; ResponseHeaders
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679326062"><span class="annot"><span class="annottext">toHeaders :: CreateRuleGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRuleGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -403,9 +403,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326043"><span id="local-6989586621679326045"><span id="local-6989586621679326047"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679326041"><span class="annot"><span class="annottext">toJSON :: CreateRuleGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326036"><span id="local-6989586621679326037"><span id="local-6989586621679326038"><span id="local-6989586621679326039"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326052"><span id="local-6989586621679326054"><span id="local-6989586621679326056"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679326050"><span class="annot"><span class="annottext">toJSON :: CreateRuleGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup%27"><span class="hs-identifier hs-type">CreateRuleGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326045"><span id="local-6989586621679326046"><span id="local-6989586621679326047"><span id="local-6989586621679326048"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 Text
 changeToken :: Text
 metricName :: Text
@@ -415,7 +415,7 @@ $sel:changeToken:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
 $sel:metricName:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
 $sel:name:CreateRuleGroup' :: CreateRuleGroup -&gt; Text
 $sel:tags:CreateRuleGroup' :: CreateRuleGroup -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679326036"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326045"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -427,40 +427,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679326039"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326048"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326038"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326047"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326037"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326046"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326036"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326045"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679326030"><span class="annot"><span class="annottext">toPath :: CreateRuleGroup -&gt; ByteString
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679326039"><span class="annot"><span class="annottext">toPath :: CreateRuleGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRuleGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroup"><span class="hs-identifier hs-type">CreateRuleGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679326026"><span class="annot"><span class="annottext">toQuery :: CreateRuleGroup -&gt; QueryString
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679326035"><span class="annot"><span class="annottext">toQuery :: CreateRuleGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRuleGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -468,7 +468,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newCreateRuleGroupResponse' smart constructor.</span><span>
-</span><span id="line-205"></span><span id="local-6989586621679326023"><span id="local-6989586621679326024"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRuleGroupResponse"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-var">CreateRuleGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRuleGroupResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-var">CreateRuleGroupResponse'</span></a></span></span><span>
+</span><span id="line-205"></span><span id="local-6989586621679326032"><span id="local-6989586621679326033"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRuleGroupResponse"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-var">CreateRuleGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRuleGroupResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-var">CreateRuleGroupResponse'</span></a></span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.</span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-comment">-- You can also use this value to query the status of the request. For more</span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
@@ -481,7 +481,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRuleGroupResponse%27"><span class="annot"><span class="annottext">CreateRuleGroupResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AhttpStatus%3ACreateRuleGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326016"><span id="local-6989586621679326018"><span class="annot"><span class="annottext">CreateRuleGroupResponse -&gt; CreateRuleGroupResponse -&gt; Bool
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326025"><span id="local-6989586621679326027"><span class="annot"><span class="annottext">CreateRuleGroupResponse -&gt; CreateRuleGroupResponse -&gt; Bool
 (CreateRuleGroupResponse -&gt; CreateRuleGroupResponse -&gt; Bool)
 -&gt; (CreateRuleGroupResponse -&gt; CreateRuleGroupResponse -&gt; Bool)
 -&gt; Eq CreateRuleGroupResponse
@@ -490,7 +490,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRuleGroupResponse -&gt; CreateRuleGroupResponse -&gt; Bool
 == :: CreateRuleGroupResponse -&gt; CreateRuleGroupResponse -&gt; Bool
 $c== :: CreateRuleGroupResponse -&gt; CreateRuleGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326008"><span id="local-6989586621679326010"><span id="local-6989586621679326012"><span id="local-6989586621679326014"><span class="annot"><span class="annottext">ReadPrec [CreateRuleGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326017"><span id="local-6989586621679326019"><span id="local-6989586621679326021"><span id="local-6989586621679326023"><span class="annot"><span class="annottext">ReadPrec [CreateRuleGroupResponse]
 ReadPrec CreateRuleGroupResponse
 Int -&gt; ReadS CreateRuleGroupResponse
 ReadS [CreateRuleGroupResponse]
@@ -510,7 +510,7 @@ readList :: ReadS [CreateRuleGroupResponse]
 $creadList :: ReadS [CreateRuleGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateRuleGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateRuleGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326002"><span id="local-6989586621679326004"><span id="local-6989586621679326006"><span class="annot"><span class="annottext">Int -&gt; CreateRuleGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326011"><span id="local-6989586621679326013"><span id="local-6989586621679326015"><span class="annot"><span class="annottext">Int -&gt; CreateRuleGroupResponse -&gt; ShowS
 [CreateRuleGroupResponse] -&gt; ShowS
 CreateRuleGroupResponse -&gt; String
 (Int -&gt; CreateRuleGroupResponse -&gt; ShowS)
@@ -558,8 +558,8 @@ $cfrom :: forall x. CreateRuleGroupResponse -&gt; Rep CreateRuleGroupResponse x
 </span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-235"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span>
 </span><span id="line-236"></span><span id="newCreateRuleGroupResponse"><span class="annot"><span class="annottext">newCreateRuleGroupResponse :: Int -&gt; CreateRuleGroupResponse
-</span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#newCreateRuleGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateRuleGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679325999"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#newCreateRuleGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateRuleGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679326008"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>  </span><span class="annot"><span class="annottext">CreateRuleGroupResponse' :: Maybe Text -&gt; Maybe RuleGroup -&gt; Int -&gt; CreateRuleGroupResponse
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleGroupResponse' :: Maybe Text
@@ -573,7 +573,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleGroupResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AhttpStatus%3ACreateRuleGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679326008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @CreateRuleGroup@ request.</span><span>
@@ -591,16 +591,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325998"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326007"><span class="annot"><span class="annottext">Maybe Text
 changeToken :: Maybe Text
 $sel:changeToken:CreateRuleGroupResponse' :: CreateRuleGroupResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325997"><span class="annot"><span class="annottext">s :: CreateRuleGroupResponse
-</span><a href="#local-6989586621679325997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325996"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroupResponse
-</span><a href="#local-6989586621679325997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleGroupResponse' :: Maybe Text
+</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326007"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326006"><span class="annot"><span class="annottext">s :: CreateRuleGroupResponse
+</span><a href="#local-6989586621679326006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326005"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroupResponse
+</span><a href="#local-6989586621679326006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:CreateRuleGroupResponse' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AchangeToken%3ACreateRuleGroupResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | An empty RuleGroup.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#createRuleGroupResponse_ruleGroup"><span class="hs-identifier hs-type">createRuleGroupResponse_ruleGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.RuleGroup.html#RuleGroup"><span class="hs-identifier hs-type">RuleGroup</span></a></span><span class="hs-special">)</span><span>
@@ -615,16 +615,16 @@ $sel:changeToken:CreateRuleGroupResponse' :: CreateRuleGroupResponse -&gt; Maybe
      (Maybe RuleGroup)
      (Maybe RuleGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325995"><span class="annot"><span class="annottext">Maybe RuleGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326004"><span class="annot"><span class="annottext">Maybe RuleGroup
 ruleGroup :: Maybe RuleGroup
 $sel:ruleGroup:CreateRuleGroupResponse' :: CreateRuleGroupResponse -&gt; Maybe RuleGroup
-</span><a href="#local-6989586621679325995"><span class="hs-identifier hs-var hs-var">ruleGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleGroup
-</span><a href="#local-6989586621679325995"><span class="hs-identifier hs-var">ruleGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325994"><span class="annot"><span class="annottext">s :: CreateRuleGroupResponse
-</span><a href="#local-6989586621679325994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325993"><span class="annot"><span class="annottext">Maybe RuleGroup
-</span><a href="#local-6989586621679325993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroupResponse
-</span><a href="#local-6989586621679325994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleGroup:CreateRuleGroupResponse' :: Maybe RuleGroup
+</span><a href="#local-6989586621679326004"><span class="hs-identifier hs-var hs-var">ruleGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleGroup
+</span><a href="#local-6989586621679326004"><span class="hs-identifier hs-var">ruleGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326003"><span class="annot"><span class="annottext">s :: CreateRuleGroupResponse
+</span><a href="#local-6989586621679326003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326002"><span class="annot"><span class="annottext">Maybe RuleGroup
+</span><a href="#local-6989586621679326002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroupResponse
+</span><a href="#local-6989586621679326003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleGroup:CreateRuleGroupResponse' :: Maybe RuleGroup
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AruleGroup%3ACreateRuleGroupResponse%27"><span class="hs-identifier hs-var">ruleGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleGroup
-</span><a href="#local-6989586621679325993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-255"></span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#createRuleGroupResponse_httpStatus"><span class="hs-identifier hs-type">createRuleGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -634,16 +634,16 @@ $sel:ruleGroup:CreateRuleGroupResponse' :: CreateRuleGroupResponse -&gt; Maybe R
 -&gt; (CreateRuleGroupResponse -&gt; Int -&gt; CreateRuleGroupResponse)
 -&gt; Lens CreateRuleGroupResponse CreateRuleGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325992"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326001"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateRuleGroupResponse' :: CreateRuleGroupResponse -&gt; Int
-</span><a href="#local-6989586621679325992"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679325992"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325991"><span class="annot"><span class="annottext">s :: CreateRuleGroupResponse
-</span><a href="#local-6989586621679325991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325990"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroupResponse
-</span><a href="#local-6989586621679325991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleGroupResponse' :: Int
+</span><a href="#local-6989586621679326001"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326001"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326000"><span class="annot"><span class="annottext">s :: CreateRuleGroupResponse
+</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse%27"><span class="hs-identifier hs-type">CreateRuleGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325999"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRuleGroupResponse
+</span><a href="#local-6989586621679326000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRuleGroupResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#%24sel%3AhttpStatus%3ACreateRuleGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679325990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span></span><span>
+</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.CreateRuleGroup.html#CreateRuleGroupResponse"><span class="hs-identifier hs-type">CreateRuleGroupResponse</span></a></span></span><span>
 </span><span id="line-259"></span></pre></body></html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataBrew.Types.PathOptions</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataBrew.Types.PathOptions</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.DatasetParameter.html"><span class="hs-identifier">Network.AWS.DataBrew.Types.DatasetParameter</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html"><span class="hs-identifier">Network.AWS.DataBrew.Types.FilesLimit</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilterExpression.html"><span class="hs-identifier">Network.AWS.DataBrew.Types.FilterExpression</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Represents a set of options that define how DataBrew selects files for a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- given Amazon S3 path in a dataset.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newPathOptions' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679296225"><span id="local-6989586621679296226"></span></span><span class="hs-keyword">data</span><span> </span><span id="PathOptions"><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-var">PathOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PathOptions%27"><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-var">PathOptions'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If provided, this structure defines a date range for matching Amazon S3</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- objects based on their LastModifiedDate attribute in Amazon S3.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AlastModifiedDateCondition%3APathOptions%27"><span class="annot"><span class="annottext">PathOptions -&gt; Maybe FilterExpression
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3AlastModifiedDateCondition%3APathOptions%27"><span class="hs-identifier hs-var hs-var">lastModifiedDateCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilterExpression.html#FilterExpression"><span class="hs-identifier hs-type">FilterExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A structure that maps names of parameters used in the Amazon S3 path of</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- a dataset to their definitions.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aparameters%3APathOptions%27"><span class="annot"><span class="annottext">PathOptions -&gt; Maybe (HashMap Text DatasetParameter)
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3Aparameters%3APathOptions%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.DatasetParameter.html#DatasetParameter"><span class="hs-identifier hs-type">DatasetParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | If provided, this structure imposes a limit on a number of files that</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- should be selected.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfilesLimit%3APathOptions%27"><span class="annot"><span class="annottext">PathOptions -&gt; Maybe FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3AfilesLimit%3APathOptions%27"><span class="hs-identifier hs-var hs-var">filesLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296217"><span id="local-6989586621679296219"><span class="annot"><span class="annottext">PathOptions -&gt; PathOptions -&gt; Bool
+(PathOptions -&gt; PathOptions -&gt; Bool)
+-&gt; (PathOptions -&gt; PathOptions -&gt; Bool) -&gt; Eq PathOptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PathOptions -&gt; PathOptions -&gt; Bool
+$c/= :: PathOptions -&gt; PathOptions -&gt; Bool
+== :: PathOptions -&gt; PathOptions -&gt; Bool
+$c== :: PathOptions -&gt; PathOptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296208"><span id="local-6989586621679296210"><span id="local-6989586621679296212"><span id="local-6989586621679296214"><span class="annot"><span class="annottext">ReadPrec [PathOptions]
+ReadPrec PathOptions
+Int -&gt; ReadS PathOptions
+ReadS [PathOptions]
+(Int -&gt; ReadS PathOptions)
+-&gt; ReadS [PathOptions]
+-&gt; ReadPrec PathOptions
+-&gt; ReadPrec [PathOptions]
+-&gt; Read PathOptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PathOptions]
+$creadListPrec :: ReadPrec [PathOptions]
+readPrec :: ReadPrec PathOptions
+$creadPrec :: ReadPrec PathOptions
+readList :: ReadS [PathOptions]
+$creadList :: ReadS [PathOptions]
+readsPrec :: Int -&gt; ReadS PathOptions
+$creadsPrec :: Int -&gt; ReadS PathOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296201"><span id="local-6989586621679296203"><span id="local-6989586621679296205"><span class="annot"><span class="annottext">Int -&gt; PathOptions -&gt; ShowS
+[PathOptions] -&gt; ShowS
+PathOptions -&gt; String
+(Int -&gt; PathOptions -&gt; ShowS)
+-&gt; (PathOptions -&gt; String)
+-&gt; ([PathOptions] -&gt; ShowS)
+-&gt; Show PathOptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PathOptions] -&gt; ShowS
+$cshowList :: [PathOptions] -&gt; ShowS
+show :: PathOptions -&gt; String
+$cshow :: PathOptions -&gt; String
+showsPrec :: Int -&gt; PathOptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; PathOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PathOptions -&gt; Rep PathOptions x)
+-&gt; (forall x. Rep PathOptions x -&gt; PathOptions)
+-&gt; Generic PathOptions
+forall x. Rep PathOptions x -&gt; PathOptions
+forall x. PathOptions -&gt; Rep PathOptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PathOptions x -&gt; PathOptions
+$cfrom :: forall x. PathOptions -&gt; Rep PathOptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'PathOptions' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'lastModifiedDateCondition', 'pathOptions_lastModifiedDateCondition' - If provided, this structure defines a date range for matching Amazon S3</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- objects based on their LastModifiedDate attribute in Amazon S3.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'parameters', 'pathOptions_parameters' - A structure that maps names of parameters used in the Amazon S3 path of</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- a dataset to their definitions.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'filesLimit', 'pathOptions_filesLimit' - If provided, this structure imposes a limit on a number of files that</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- should be selected.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#newPathOptions"><span class="hs-identifier hs-type">newPathOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span>
+</span><span id="line-64"></span><span id="newPathOptions"><span class="annot"><span class="annottext">newPathOptions :: PathOptions
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#newPathOptions"><span class="hs-identifier hs-var hs-var">newPathOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">PathOptions' :: Maybe FilterExpression
+-&gt; Maybe (HashMap Text DatasetParameter)
+-&gt; Maybe FilesLimit
+-&gt; PathOptions
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDateCondition:PathOptions' :: Maybe FilterExpression
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3AlastModifiedDateCondition%3APathOptions%27"><span class="hs-identifier hs-var">lastModifiedDateCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe FilterExpression
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:PathOptions' :: Maybe (HashMap Text DatasetParameter)
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3Aparameters%3APathOptions%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:filesLimit:PathOptions' :: Maybe FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3AfilesLimit%3APathOptions%27"><span class="hs-identifier hs-var">filesLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilesLimit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | If provided, this structure defines a date range for matching Amazon S3</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- objects based on their LastModifiedDate attribute in Amazon S3.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#pathOptions_lastModifiedDateCondition"><span class="hs-identifier hs-type">pathOptions_lastModifiedDateCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilterExpression.html#FilterExpression"><span class="hs-identifier hs-type">FilterExpression</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="pathOptions_lastModifiedDateCondition"><span class="annot"><span class="annottext">pathOptions_lastModifiedDateCondition :: (Maybe FilterExpression -&gt; f (Maybe FilterExpression))
+-&gt; PathOptions -&gt; f PathOptions
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#pathOptions_lastModifiedDateCondition"><span class="hs-identifier hs-var hs-var">pathOptions_lastModifiedDateCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PathOptions -&gt; Maybe FilterExpression)
+-&gt; (PathOptions -&gt; Maybe FilterExpression -&gt; PathOptions)
+-&gt; Lens
+     PathOptions
+     PathOptions
+     (Maybe FilterExpression)
+     (Maybe FilterExpression)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296192"><span class="annot"><span class="annottext">Maybe FilterExpression
+lastModifiedDateCondition :: Maybe FilterExpression
+$sel:lastModifiedDateCondition:PathOptions' :: PathOptions -&gt; Maybe FilterExpression
+</span><a href="#local-6989586621679296192"><span class="hs-identifier hs-var hs-var">lastModifiedDateCondition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterExpression
+</span><a href="#local-6989586621679296192"><span class="hs-identifier hs-var">lastModifiedDateCondition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296191"><span class="annot"><span class="annottext">s :: PathOptions
+</span><a href="#local-6989586621679296191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296190"><span class="annot"><span class="annottext">Maybe FilterExpression
+</span><a href="#local-6989586621679296190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PathOptions
+</span><a href="#local-6989586621679296191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDateCondition:PathOptions' :: Maybe FilterExpression
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3AlastModifiedDateCondition%3APathOptions%27"><span class="hs-identifier hs-var">lastModifiedDateCondition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterExpression
+</span><a href="#local-6989586621679296190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | A structure that maps names of parameters used in the Amazon S3 path of</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- a dataset to their definitions.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#pathOptions_parameters"><span class="hs-identifier hs-type">pathOptions_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.DatasetParameter.html#DatasetParameter"><span class="hs-identifier hs-type">DatasetParameter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="pathOptions_parameters"><span class="annot"><span class="annottext">pathOptions_parameters :: (Maybe (HashMap Text DatasetParameter)
+ -&gt; f (Maybe (HashMap Text DatasetParameter)))
+-&gt; PathOptions -&gt; f PathOptions
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#pathOptions_parameters"><span class="hs-identifier hs-var hs-var">pathOptions_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PathOptions -&gt; Maybe (HashMap Text DatasetParameter))
+-&gt; (PathOptions
+    -&gt; Maybe (HashMap Text DatasetParameter) -&gt; PathOptions)
+-&gt; Lens
+     PathOptions
+     PathOptions
+     (Maybe (HashMap Text DatasetParameter))
+     (Maybe (HashMap Text DatasetParameter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296188"><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+parameters :: Maybe (HashMap Text DatasetParameter)
+$sel:parameters:PathOptions' :: PathOptions -&gt; Maybe (HashMap Text DatasetParameter)
+</span><a href="#local-6989586621679296188"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+</span><a href="#local-6989586621679296188"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296187"><span class="annot"><span class="annottext">s :: PathOptions
+</span><a href="#local-6989586621679296187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296186"><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+</span><a href="#local-6989586621679296186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PathOptions
+</span><a href="#local-6989586621679296187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:PathOptions' :: Maybe (HashMap Text DatasetParameter)
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3Aparameters%3APathOptions%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+</span><a href="#local-6989586621679296186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text DatasetParameter)
+  -&gt; f (Maybe (HashMap Text DatasetParameter)))
+ -&gt; PathOptions -&gt; f PathOptions)
+-&gt; ((Maybe (HashMap Text DatasetParameter)
+     -&gt; f (Maybe (HashMap Text DatasetParameter)))
+    -&gt; Maybe (HashMap Text DatasetParameter)
+    -&gt; f (Maybe (HashMap Text DatasetParameter)))
+-&gt; (Maybe (HashMap Text DatasetParameter)
+    -&gt; f (Maybe (HashMap Text DatasetParameter)))
+-&gt; PathOptions
+-&gt; f PathOptions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text DatasetParameter)
+  (HashMap Text DatasetParameter)
+  (HashMap Text DatasetParameter)
+  (HashMap Text DatasetParameter)
+-&gt; Iso
+     (Maybe (HashMap Text DatasetParameter))
+     (Maybe (HashMap Text DatasetParameter))
+     (Maybe (HashMap Text DatasetParameter))
+     (Maybe (HashMap Text DatasetParameter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text DatasetParameter)
+  (HashMap Text DatasetParameter)
+  (HashMap Text DatasetParameter)
+  (HashMap Text DatasetParameter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | If provided, this structure imposes a limit on a number of files that</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- should be selected.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#pathOptions_filesLimit"><span class="hs-identifier hs-type">pathOptions_filesLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.FilesLimit.html#FilesLimit"><span class="hs-identifier hs-type">FilesLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="pathOptions_filesLimit"><span class="annot"><span class="annottext">pathOptions_filesLimit :: (Maybe FilesLimit -&gt; f (Maybe FilesLimit))
+-&gt; PathOptions -&gt; f PathOptions
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#pathOptions_filesLimit"><span class="hs-identifier hs-var hs-var">pathOptions_filesLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PathOptions -&gt; Maybe FilesLimit)
+-&gt; (PathOptions -&gt; Maybe FilesLimit -&gt; PathOptions)
+-&gt; Lens
+     PathOptions PathOptions (Maybe FilesLimit) (Maybe FilesLimit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296181"><span class="annot"><span class="annottext">Maybe FilesLimit
+filesLimit :: Maybe FilesLimit
+$sel:filesLimit:PathOptions' :: PathOptions -&gt; Maybe FilesLimit
+</span><a href="#local-6989586621679296181"><span class="hs-identifier hs-var hs-var">filesLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilesLimit
+</span><a href="#local-6989586621679296181"><span class="hs-identifier hs-var">filesLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296180"><span class="annot"><span class="annottext">s :: PathOptions
+</span><a href="#local-6989586621679296180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296179"><span class="annot"><span class="annottext">Maybe FilesLimit
+</span><a href="#local-6989586621679296179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PathOptions
+</span><a href="#local-6989586621679296180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filesLimit:PathOptions' :: Maybe FilesLimit
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#%24sel%3AfilesLimit%3APathOptions%27"><span class="hs-identifier hs-var">filesLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilesLimit
+</span><a href="#local-6989586621679296179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296176"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679296174"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PathOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PathOptions) -&gt; Value -&gt; Parser PathOptions
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PathOptions&quot;</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296171"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe FilterExpression
+-&gt; Maybe (HashMap Text DatasetParameter)
+-&gt; Maybe FilesLimit
+-&gt; PathOptions
+</span><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-var">PathOptions'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FilterExpression
+ -&gt; Maybe (HashMap Text DatasetParameter)
+ -&gt; Maybe FilesLimit
+ -&gt; PathOptions)
+-&gt; Parser (Maybe FilterExpression)
+-&gt; Parser
+     (Maybe (HashMap Text DatasetParameter)
+      -&gt; Maybe FilesLimit -&gt; PathOptions)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FilterExpression)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDateCondition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text DatasetParameter)
+   -&gt; Maybe FilesLimit -&gt; PathOptions)
+-&gt; Parser (Maybe (HashMap Text DatasetParameter))
+-&gt; Parser (Maybe FilesLimit -&gt; PathOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text DatasetParameter)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text DatasetParameter)))
+-&gt; Maybe (HashMap Text DatasetParameter)
+-&gt; Parser (Maybe (HashMap Text DatasetParameter))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FilesLimit -&gt; PathOptions)
+-&gt; Parser (Maybe FilesLimit) -&gt; Parser PathOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FilesLimit)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FilesLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296164"><span id="local-6989586621679296166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296153"><span id="local-6989586621679296155"><span id="local-6989586621679296157"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions"><span class="hs-identifier hs-type">PathOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679296151"><span class="annot"><span class="annottext">toJSON :: PathOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataBrew.Types.PathOptions.html#PathOptions%27"><span class="hs-identifier hs-type">PathOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296147"><span id="local-6989586621679296148"><span id="local-6989586621679296149"><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+Maybe FilterExpression
+Maybe FilesLimit
+filesLimit :: Maybe FilesLimit
+parameters :: Maybe (HashMap Text DatasetParameter)
+lastModifiedDateCondition :: Maybe FilterExpression
+$sel:filesLimit:PathOptions' :: PathOptions -&gt; Maybe FilesLimit
+$sel:parameters:PathOptions' :: PathOptions -&gt; Maybe (HashMap Text DatasetParameter)
+$sel:lastModifiedDateCondition:PathOptions' :: PathOptions -&gt; Maybe FilterExpression
+</span><a href="#local-6989586621679296147"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedDateCondition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterExpression -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(FilterExpression -&gt; Pair) -&gt; Maybe FilterExpression -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterExpression
+</span><a href="#local-6989586621679296149"><span class="hs-identifier hs-var">lastModifiedDateCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text DatasetParameter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text DatasetParameter -&gt; Pair)
+-&gt; Maybe (HashMap Text DatasetParameter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text DatasetParameter)
+</span><a href="#local-6989586621679296148"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FilesLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilesLimit -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FilesLimit -&gt; Pair) -&gt; Maybe FilesLimit -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilesLimit
+</span><a href="#local-6989586621679296147"><span class="hs-identifier hs-var">filesLimit</span></a></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span></pre></body></html>

@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Represents a request to the get job operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetJob' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679383949"><span id="local-6989586621679383950"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJob"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-var">GetJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJob%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-var">GetJob'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679383958"><span id="local-6989586621679383959"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJob"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-var">GetJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJob%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-var">GetJob'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job\'s ARN.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3AGetJob%27"><span class="annot"><span class="annottext">GetJob -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3Aarn%3AGetJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383943"><span id="local-6989586621679383945"><span class="annot"><span class="annottext">GetJob -&gt; GetJob -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383952"><span id="local-6989586621679383954"><span class="annot"><span class="annottext">GetJob -&gt; GetJob -&gt; Bool
 (GetJob -&gt; GetJob -&gt; Bool)
 -&gt; (GetJob -&gt; GetJob -&gt; Bool) -&gt; Eq GetJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJob -&gt; GetJob -&gt; Bool
 == :: GetJob -&gt; GetJob -&gt; Bool
 $c== :: GetJob -&gt; GetJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383934"><span id="local-6989586621679383936"><span id="local-6989586621679383938"><span id="local-6989586621679383940"><span class="annot"><span class="annottext">ReadPrec [GetJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383943"><span id="local-6989586621679383945"><span id="local-6989586621679383947"><span id="local-6989586621679383949"><span class="annot"><span class="annottext">ReadPrec [GetJob]
 ReadPrec GetJob
 Int -&gt; ReadS GetJob
 ReadS [GetJob]
@@ -82,7 +82,7 @@ readList :: ReadS [GetJob]
 $creadList :: ReadS [GetJob]
 readsPrec :: Int -&gt; ReadS GetJob
 $creadsPrec :: Int -&gt; ReadS GetJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383927"><span id="local-6989586621679383929"><span id="local-6989586621679383931"><span class="annot"><span class="annottext">Int -&gt; GetJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383936"><span id="local-6989586621679383938"><span id="local-6989586621679383940"><span class="annot"><span class="annottext">Int -&gt; GetJob -&gt; ShowS
 [GetJob] -&gt; ShowS
 GetJob -&gt; String
 (Int -&gt; GetJob -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. GetJob -&gt; Rep GetJob x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetJob"><span class="annot"><span class="annottext">newGetJob :: Text -&gt; GetJob
-</span><a href="Network.AWS.DeviceFarm.GetJob.html#newGetJob"><span class="hs-identifier hs-var hs-var">newGetJob</span></a></span></span><span> </span><span id="local-6989586621679383922"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383922"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetJob' :: Text -&gt; GetJob
+</span><a href="Network.AWS.DeviceFarm.GetJob.html#newGetJob"><span class="hs-identifier hs-var hs-var">newGetJob</span></a></span></span><span> </span><span id="local-6989586621679383931"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383931"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetJob' :: Text -&gt; GetJob
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetJob' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3Aarn%3AGetJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383922"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679383931"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The job\'s ARN.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#getJob_arn"><span class="hs-identifier hs-type">getJob_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -131,25 +131,25 @@ $cfrom :: forall x. GetJob -&gt; Rep GetJob x
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#getJob_arn"><span class="hs-identifier hs-var hs-var">getJob_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJob -&gt; Text)
 -&gt; (GetJob -&gt; Text -&gt; GetJob) -&gt; Lens GetJob GetJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383919"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383928"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetJob' :: GetJob -&gt; Text
-</span><a href="#local-6989586621679383919"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383919"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383918"><span class="annot"><span class="annottext">s :: GetJob
-</span><a href="#local-6989586621679383918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383917"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJob
-</span><a href="#local-6989586621679383918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetJob' :: Text
+</span><a href="#local-6989586621679383928"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383928"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383927"><span class="annot"><span class="annottext">s :: GetJob
+</span><a href="#local-6989586621679383927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383926"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJob
+</span><a href="#local-6989586621679383927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetJob' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3Aarn%3AGetJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679383913"><span class="annot"><span class="annottext">request :: GetJob -&gt; Request GetJob
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679383922"><span class="annot"><span class="annottext">request :: GetJob -&gt; Request GetJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetJob -&gt; Request GetJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383909"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383918"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetJob
 -&gt; ClientResponse ClientBody
@@ -171,10 +171,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383906"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383906"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383905"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679383905"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383904"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383915"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383914"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679383914"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383913"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Job -&gt; Int -&gt; GetJobResponse
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Job -&gt; Int -&gt; GetJobResponse)
@@ -182,7 +182,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Job)
+</span><a href="#local-6989586621679383913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Job)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;job&quot;</span></span><span class="hs-special">)</span><span>
@@ -194,15 +194,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383906"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383915"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383896"><span id="local-6989586621679383898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383905"><span id="local-6989586621679383907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679383889"><span class="annot"><span class="annottext">toHeaders :: GetJob -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679383898"><span class="annot"><span class="annottext">toHeaders :: GetJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,12 +227,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383879"><span id="local-6989586621679383881"><span id="local-6989586621679383883"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679383877"><span class="annot"><span class="annottext">toJSON :: GetJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383875"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383888"><span id="local-6989586621679383890"><span id="local-6989586621679383892"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679383886"><span class="annot"><span class="annottext">toJSON :: GetJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383884"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetJob' :: GetJob -&gt; Text
-</span><a href="#local-6989586621679383875"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383884"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,18 +244,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383875"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679383884"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679383869"><span class="annot"><span class="annottext">toPath :: GetJob -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679383878"><span class="annot"><span class="annottext">toPath :: GetJob -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetJob -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679383865"><span class="annot"><span class="annottext">toQuery :: GetJob -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679383874"><span class="annot"><span class="annottext">toQuery :: GetJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -265,7 +265,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-118"></span><span class="hs-comment">-- | Represents the result of a get job request.</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- /See:/ 'newGetJobResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679383862"><span id="local-6989586621679383863"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-var">GetJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679383871"><span id="local-6989586621679383872"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-var">GetJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains information about the requested job.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3Ajob%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe Job
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3Ajob%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">,</span><span>
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383856"><span id="local-6989586621679383858"><span class="annot"><span class="annottext">GetJobResponse -&gt; GetJobResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383865"><span id="local-6989586621679383867"><span class="annot"><span class="annottext">GetJobResponse -&gt; GetJobResponse -&gt; Bool
 (GetJobResponse -&gt; GetJobResponse -&gt; Bool)
 -&gt; (GetJobResponse -&gt; GetJobResponse -&gt; Bool) -&gt; Eq GetJobResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -281,7 +281,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
 == :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
 $c== :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383848"><span id="local-6989586621679383850"><span id="local-6989586621679383852"><span id="local-6989586621679383854"><span class="annot"><span class="annottext">ReadPrec [GetJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383857"><span id="local-6989586621679383859"><span id="local-6989586621679383861"><span id="local-6989586621679383863"><span class="annot"><span class="annottext">ReadPrec [GetJobResponse]
 ReadPrec GetJobResponse
 Int -&gt; ReadS GetJobResponse
 ReadS [GetJobResponse]
@@ -301,7 +301,7 @@ readList :: ReadS [GetJobResponse]
 $creadList :: ReadS [GetJobResponse]
 readsPrec :: Int -&gt; ReadS GetJobResponse
 $creadsPrec :: Int -&gt; ReadS GetJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383842"><span id="local-6989586621679383844"><span id="local-6989586621679383846"><span class="annot"><span class="annottext">Int -&gt; GetJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383851"><span id="local-6989586621679383853"><span id="local-6989586621679383855"><span class="annot"><span class="annottext">Int -&gt; GetJobResponse -&gt; ShowS
 [GetJobResponse] -&gt; ShowS
 GetJobResponse -&gt; String
 (Int -&gt; GetJobResponse -&gt; ShowS)
@@ -343,8 +343,8 @@ $cfrom :: forall x. GetJobResponse -&gt; Rep GetJobResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newGetJobResponse"><span class="annot"><span class="annottext">newGetJobResponse :: Int -&gt; GetJobResponse
-</span><a href="Network.AWS.DeviceFarm.GetJob.html#newGetJobResponse"><span class="hs-identifier hs-var hs-var">newGetJobResponse</span></a></span></span><span> </span><span id="local-6989586621679383839"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383839"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.GetJob.html#newGetJobResponse"><span class="hs-identifier hs-var hs-var">newGetJobResponse</span></a></span></span><span> </span><span id="local-6989586621679383848"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383848"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetJobResponse' :: Maybe Job -&gt; Int -&gt; GetJobResponse
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:job:GetJobResponse' :: Maybe Job
@@ -353,7 +353,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383839"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679383848"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | An object that contains information about the requested job.</span><span>
@@ -363,16 +363,16 @@ forall a. Maybe a
 -&gt; (GetJobResponse -&gt; Maybe Job -&gt; GetJobResponse)
 -&gt; Lens GetJobResponse GetJobResponse (Maybe Job) (Maybe Job)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383838"><span class="annot"><span class="annottext">Maybe Job
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383847"><span class="annot"><span class="annottext">Maybe Job
 job :: Maybe Job
 $sel:job:GetJobResponse' :: GetJobResponse -&gt; Maybe Job
-</span><a href="#local-6989586621679383838"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621679383838"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383837"><span class="annot"><span class="annottext">s :: GetJobResponse
-</span><a href="#local-6989586621679383837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383836"><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621679383836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
-</span><a href="#local-6989586621679383837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:GetJobResponse' :: Maybe Job
+</span><a href="#local-6989586621679383847"><span class="hs-identifier hs-var hs-var">job</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Job
+</span><a href="#local-6989586621679383847"><span class="hs-identifier hs-var">job</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383846"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679383846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383845"><span class="annot"><span class="annottext">Maybe Job
+</span><a href="#local-6989586621679383845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679383846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:job:GetJobResponse' :: Maybe Job
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3Ajob%3AGetJobResponse%27"><span class="hs-identifier hs-var">job</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Job
-</span><a href="#local-6989586621679383836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#getJobResponse_httpStatus"><span class="hs-identifier hs-type">getJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -381,16 +381,16 @@ $sel:job:GetJobResponse' :: GetJobResponse -&gt; Maybe Job
 -&gt; (GetJobResponse -&gt; Int -&gt; GetJobResponse)
 -&gt; Lens GetJobResponse GetJobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383835"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383844"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetJobResponse' :: GetJobResponse -&gt; Int
-</span><a href="#local-6989586621679383835"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383835"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383834"><span class="annot"><span class="annottext">s :: GetJobResponse
-</span><a href="#local-6989586621679383834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383833"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
-</span><a href="#local-6989586621679383834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
+</span><a href="#local-6989586621679383844"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383844"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383843"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679383843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679383843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

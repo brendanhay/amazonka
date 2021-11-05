@@ -1,0 +1,791 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.PlatformDifference.html"><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.PlatformDifference</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.UtilizationMetric.html"><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.UtilizationMetric</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a recommendation option for an Amazon EC2 instance.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceRecommendationOption' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679243588"><span id="local-6989586621679243589"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceRecommendationOption"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-var">InstanceRecommendationOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRecommendationOption%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-var">InstanceRecommendationOption'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the configuration differences between the current instance and</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the recommended instance type. You should consider the configuration</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- differences before migrating your workloads from the current instance to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the recommended instance type. The</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type guide for Linux&gt;</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-resize.html Change the instance type guide for Windows&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- provide general guidance for getting started with an instance migration.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Platform differences include:</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   __@Hypervisor@__ &#8212; The hypervisor of the recommended instance type</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     is different than that of the current instance. For example, the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     recommended instance type uses a Nitro hypervisor and the current</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     instance uses a Xen hypervisor. The differences that you should</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     consider between these hypervisors are covered in the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     &lt;http://aws.amazon.com/ec2/faqs/#Nitro_Hypervisor Nitro Hypervisor&gt;</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     section of the Amazon EC2 frequently asked questions. For more</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System&gt;</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System&gt;</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   __@NetworkInterface@__ &#8212; The network interface of the recommended</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     instance type is different than that of the current instance. For</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     example, the recommended instance type supports enhanced networking</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     and the current instance might not. To enable enhanced networking</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     for the recommended instance type, you must install the Elastic</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     Network Adapter (ENA) driver or the Intel 82599 Virtual Function</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     driver. For more information, see</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     and</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html Enhanced networking on Linux&gt;</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     and</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/enhanced-networking.html Enhanced networking on Windows&gt;</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   __@StorageInterface@__ &#8212; The storage interface of the recommended</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     instance type is different than that of the current instance. For</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     example, the recommended instance type uses an NVMe storage</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     interface and the current instance does not. To access NVMe volumes</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     for the recommended instance type, you will need to install or</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     upgrade the NVMe driver. For more information, see</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     and</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html Amazon EBS and NVMe on Linux instances&gt;</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     and</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.html Amazon EBS and NVMe on Windows instances&gt;</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   __@InstanceStoreAvailability@__ &#8212; The recommended instance type does</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     not support instance store volumes and the current instance does.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     Before migrating, you might need to back up the data on your</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     instance store volumes if you want to preserve them. For more</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     &lt;https://aws.amazon.com/premiumsupport/knowledge-center/back-up-instance-store-ebs/ How do I back up an instance store volume on my Amazon EC2 instance to Amazon EBS?&gt;</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     in the /Amazon Web Services Premium Support Knowledge Base/. For</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     more information, see</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     and</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 instance store&gt;</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     and</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/InstanceStorage.html Amazon EC2 instance store&gt;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   __@VirtualizationType@__ &#8212; The recommended instance type uses the</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     hardware virtual machine (HVM) virtualization type and the current</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     instance uses the paravirtual (PV) virtualization type. For more</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     information about the differences between these virtualization</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     types, see</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html Linux AMI virtualization types&gt;</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-ami-version-history.html#virtualization-types Windows AMI virtualization types&gt;</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   __@Architecture@__ &#8212; The CPU architecture between the recommended</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     instance type and the current instance is different. For example,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     the recommended instance type might use an Arm CPU architecture and</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">--     the current instance type might use a different one, such as x86.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--     Before migrating, you should consider recompiling the software on</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">--     your instance for the new architecture. Alternatively, you might</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--     switch to an Amazon Machine Image (AMI) that supports the new</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">--     architecture. For more information about the CPU architecture for</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     each instance type, see</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--     &lt;http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types&gt;.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AplatformDifferences%3AInstanceRecommendationOption%27"><span class="annot"><span class="annottext">InstanceRecommendationOption -&gt; Maybe [PlatformDifference]
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AplatformDifferences%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var hs-var">platformDifferences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-type">PlatformDifference</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The performance risk of the instance recommendation option.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- Performance risk indicates the likelihood of the recommended instance</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- type not meeting the resource needs of your workload. Compute Optimizer</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- calculates an individual performance risk score for each specification</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- of the recommended instance, including CPU, memory, EBS throughput, EBS</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- IOPS, disk throughput, disk IOPS, network throughput, and network PPS.</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- The performance risk of the recommended instance is calculated as the</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- maximum performance risk score across the analyzed resource</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- specifications.</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- The value ranges from @0@ - @4@, with @0@ meaning that the recommended</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- resource is predicted to always provide enough hardware capability. The</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- higher the performance risk is, the more likely you should validate</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- whether the recommendation will meet the performance requirements of</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- your workload before migrating your resource.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AperformanceRisk%3AInstanceRecommendationOption%27"><span class="annot"><span class="annottext">InstanceRecommendationOption -&gt; Maybe Double
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AperformanceRisk%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var hs-var">performanceRisk</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the projected utilization metrics of</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- the instance recommendation option.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- The @Cpu@ and @Memory@ metrics are the only projected utilization</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- metrics returned. Additionally, the @Memory@ metric is returned only for</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- resources that have the unified CloudWatch agent installed on them. For</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent&gt;.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AprojectedUtilizationMetrics%3AInstanceRecommendationOption%27"><span class="annot"><span class="annottext">InstanceRecommendationOption -&gt; Maybe [UtilizationMetric]
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AprojectedUtilizationMetrics%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var hs-var">projectedUtilizationMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.UtilizationMetric.html#UtilizationMetric"><span class="hs-identifier hs-type">UtilizationMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The instance type of the instance recommendation.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AinstanceType%3AInstanceRecommendationOption%27"><span class="annot"><span class="annottext">InstanceRecommendationOption -&gt; Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AinstanceType%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The rank of the instance recommendation option.</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- The top recommendation option is ranked as @1@.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3Arank%3AInstanceRecommendationOption%27"><span class="annot"><span class="annottext">InstanceRecommendationOption -&gt; Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3Arank%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var hs-var">rank</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243578"><span id="local-6989586621679243580"><span class="annot"><span class="annottext">InstanceRecommendationOption
+-&gt; InstanceRecommendationOption -&gt; Bool
+(InstanceRecommendationOption
+ -&gt; InstanceRecommendationOption -&gt; Bool)
+-&gt; (InstanceRecommendationOption
+    -&gt; InstanceRecommendationOption -&gt; Bool)
+-&gt; Eq InstanceRecommendationOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceRecommendationOption
+-&gt; InstanceRecommendationOption -&gt; Bool
+$c/= :: InstanceRecommendationOption
+-&gt; InstanceRecommendationOption -&gt; Bool
+== :: InstanceRecommendationOption
+-&gt; InstanceRecommendationOption -&gt; Bool
+$c== :: InstanceRecommendationOption
+-&gt; InstanceRecommendationOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243569"><span id="local-6989586621679243571"><span id="local-6989586621679243573"><span id="local-6989586621679243575"><span class="annot"><span class="annottext">ReadPrec [InstanceRecommendationOption]
+ReadPrec InstanceRecommendationOption
+Int -&gt; ReadS InstanceRecommendationOption
+ReadS [InstanceRecommendationOption]
+(Int -&gt; ReadS InstanceRecommendationOption)
+-&gt; ReadS [InstanceRecommendationOption]
+-&gt; ReadPrec InstanceRecommendationOption
+-&gt; ReadPrec [InstanceRecommendationOption]
+-&gt; Read InstanceRecommendationOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceRecommendationOption]
+$creadListPrec :: ReadPrec [InstanceRecommendationOption]
+readPrec :: ReadPrec InstanceRecommendationOption
+$creadPrec :: ReadPrec InstanceRecommendationOption
+readList :: ReadS [InstanceRecommendationOption]
+$creadList :: ReadS [InstanceRecommendationOption]
+readsPrec :: Int -&gt; ReadS InstanceRecommendationOption
+$creadsPrec :: Int -&gt; ReadS InstanceRecommendationOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243562"><span id="local-6989586621679243564"><span id="local-6989586621679243566"><span class="annot"><span class="annottext">Int -&gt; InstanceRecommendationOption -&gt; ShowS
+[InstanceRecommendationOption] -&gt; ShowS
+InstanceRecommendationOption -&gt; String
+(Int -&gt; InstanceRecommendationOption -&gt; ShowS)
+-&gt; (InstanceRecommendationOption -&gt; String)
+-&gt; ([InstanceRecommendationOption] -&gt; ShowS)
+-&gt; Show InstanceRecommendationOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceRecommendationOption] -&gt; ShowS
+$cshowList :: [InstanceRecommendationOption] -&gt; ShowS
+show :: InstanceRecommendationOption -&gt; String
+$cshow :: InstanceRecommendationOption -&gt; String
+showsPrec :: Int -&gt; InstanceRecommendationOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceRecommendationOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InstanceRecommendationOption -&gt; Rep InstanceRecommendationOption x)
+-&gt; (forall x.
+    Rep InstanceRecommendationOption x -&gt; InstanceRecommendationOption)
+-&gt; Generic InstanceRecommendationOption
+forall x.
+Rep InstanceRecommendationOption x -&gt; InstanceRecommendationOption
+forall x.
+InstanceRecommendationOption -&gt; Rep InstanceRecommendationOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InstanceRecommendationOption x -&gt; InstanceRecommendationOption
+$cfrom :: forall x.
+InstanceRecommendationOption -&gt; Rep InstanceRecommendationOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'InstanceRecommendationOption' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'platformDifferences', 'instanceRecommendationOption_platformDifferences' - Describes the configuration differences between the current instance and</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- the recommended instance type. You should consider the configuration</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- differences before migrating your workloads from the current instance to</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- the recommended instance type. The</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type guide for Linux&gt;</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-resize.html Change the instance type guide for Windows&gt;</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- provide general guidance for getting started with an instance migration.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Platform differences include:</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   __@Hypervisor@__ &#8212; The hypervisor of the recommended instance type</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     is different than that of the current instance. For example, the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     recommended instance type uses a Nitro hypervisor and the current</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     instance uses a Xen hypervisor. The differences that you should</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     consider between these hypervisors are covered in the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     &lt;http://aws.amazon.com/ec2/faqs/#Nitro_Hypervisor Nitro Hypervisor&gt;</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     section of the Amazon EC2 frequently asked questions. For more</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System&gt;</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System&gt;</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   __@NetworkInterface@__ &#8212; The network interface of the recommended</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     instance type is different than that of the current instance. For</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     example, the recommended instance type supports enhanced networking</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     and the current instance might not. To enable enhanced networking</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     for the recommended instance type, you must install the Elastic</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     Network Adapter (ENA) driver or the Intel 82599 Virtual Function</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--     driver. For more information, see</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html Enhanced networking on Linux&gt;</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/enhanced-networking.html Enhanced networking on Windows&gt;</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   __@StorageInterface@__ &#8212; The storage interface of the recommended</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     instance type is different than that of the current instance. For</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     example, the recommended instance type uses an NVMe storage</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     interface and the current instance does not. To access NVMe volumes</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     for the recommended instance type, you will need to install or</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     upgrade the NVMe driver. For more information, see</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html Amazon EBS and NVMe on Linux instances&gt;</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.html Amazon EBS and NVMe on Windows instances&gt;</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- -   __@InstanceStoreAvailability@__ &#8212; The recommended instance type does</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--     not support instance store volumes and the current instance does.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     Before migrating, you might need to back up the data on your</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     instance store volumes if you want to preserve them. For more</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     &lt;https://aws.amazon.com/premiumsupport/knowledge-center/back-up-instance-store-ebs/ How do I back up an instance store volume on my Amazon EC2 instance to Amazon EBS?&gt;</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     in the /Amazon Web Services Premium Support Knowledge Base/. For</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     more information, see</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 instance store&gt;</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or see</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/InstanceStorage.html Amazon EC2 instance store&gt;</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   __@VirtualizationType@__ &#8212; The recommended instance type uses the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     hardware virtual machine (HVM) virtualization type and the current</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     instance uses the paravirtual (PV) virtualization type. For more</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     information about the differences between these virtualization</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--     types, see</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html Linux AMI virtualization types&gt;</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-ami-version-history.html#virtualization-types Windows AMI virtualization types&gt;</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   __@Architecture@__ &#8212; The CPU architecture between the recommended</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     instance type and the current instance is different. For example,</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     the recommended instance type might use an Arm CPU architecture and</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     the current instance type might use a different one, such as x86.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--     Before migrating, you should consider recompiling the software on</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     your instance for the new architecture. Alternatively, you might</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     switch to an Amazon Machine Image (AMI) that supports the new</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     architecture. For more information about the CPU architecture for</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     each instance type, see</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     &lt;http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types&gt;.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- 'performanceRisk', 'instanceRecommendationOption_performanceRisk' - The performance risk of the instance recommendation option.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Performance risk indicates the likelihood of the recommended instance</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- type not meeting the resource needs of your workload. Compute Optimizer</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- calculates an individual performance risk score for each specification</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- of the recommended instance, including CPU, memory, EBS throughput, EBS</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- IOPS, disk throughput, disk IOPS, network throughput, and network PPS.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- The performance risk of the recommended instance is calculated as the</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- maximum performance risk score across the analyzed resource</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- specifications.</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- The value ranges from @0@ - @4@, with @0@ meaning that the recommended</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- resource is predicted to always provide enough hardware capability. The</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- higher the performance risk is, the more likely you should validate</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- whether the recommendation will meet the performance requirements of</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- your workload before migrating your resource.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'projectedUtilizationMetrics', 'instanceRecommendationOption_projectedUtilizationMetrics' - An array of objects that describe the projected utilization metrics of</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- the instance recommendation option.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- The @Cpu@ and @Memory@ metrics are the only projected utilization</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- metrics returned. Additionally, the @Memory@ metric is returned only for</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- resources that have the unified CloudWatch agent installed on them. For</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent&gt;.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'instanceType', 'instanceRecommendationOption_instanceType' - The instance type of the instance recommendation.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- 'rank', 'instanceRecommendationOption_rank' - The rank of the instance recommendation option.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- The top recommendation option is ranked as @1@.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#newInstanceRecommendationOption"><span class="hs-identifier hs-type">newInstanceRecommendationOption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-293"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span>
+</span><span id="line-294"></span><span id="newInstanceRecommendationOption"><span class="annot"><span class="annottext">newInstanceRecommendationOption :: InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#newInstanceRecommendationOption"><span class="hs-identifier hs-var hs-var">newInstanceRecommendationOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><span class="annottext">InstanceRecommendationOption' :: Maybe [PlatformDifference]
+-&gt; Maybe Double
+-&gt; Maybe [UtilizationMetric]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span>
+</span><span id="line-296"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:platformDifferences:InstanceRecommendationOption' :: Maybe [PlatformDifference]
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AplatformDifferences%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">platformDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PlatformDifference]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:performanceRisk:InstanceRecommendationOption' :: Maybe Double
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AperformanceRisk%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">performanceRisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectedUtilizationMetrics:InstanceRecommendationOption' :: Maybe [UtilizationMetric]
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AprojectedUtilizationMetrics%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">projectedUtilizationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:InstanceRecommendationOption' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AinstanceType%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:rank:InstanceRecommendationOption' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3Arank%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">rank</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-302"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | Describes the configuration differences between the current instance and</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- the recommended instance type. You should consider the configuration</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- differences before migrating your workloads from the current instance to</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- the recommended instance type. The</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type guide for Linux&gt;</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-resize.html Change the instance type guide for Windows&gt;</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- provide general guidance for getting started with an instance migration.</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- Platform differences include:</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- -   __@Hypervisor@__ &#8212; The hypervisor of the recommended instance type</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     is different than that of the current instance. For example, the</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--     recommended instance type uses a Nitro hypervisor and the current</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--     instance uses a Xen hypervisor. The differences that you should</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--     consider between these hypervisors are covered in the</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     &lt;http://aws.amazon.com/ec2/faqs/#Nitro_Hypervisor Nitro Hypervisor&gt;</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     section of the Amazon EC2 frequently asked questions. For more</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System&gt;</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#ec2-nitro-instances Instances built on the Nitro System&gt;</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- -   __@NetworkInterface@__ &#8212; The network interface of the recommended</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--     instance type is different than that of the current instance. For</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--     example, the recommended instance type supports enhanced networking</span><span>
+</span><span id="line-331"></span><span class="hs-comment">--     and the current instance might not. To enable enhanced networking</span><span>
+</span><span id="line-332"></span><span class="hs-comment">--     for the recommended instance type, you must install the Elastic</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--     Network Adapter (ENA) driver or the Intel 82599 Virtual Function</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--     driver. For more information, see</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-336"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html Enhanced networking on Linux&gt;</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/enhanced-networking.html Enhanced networking on Windows&gt;</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- -   __@StorageInterface@__ &#8212; The storage interface of the recommended</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--     instance type is different than that of the current instance. For</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     example, the recommended instance type uses an NVMe storage</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--     interface and the current instance does not. To access NVMe volumes</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--     for the recommended instance type, you will need to install or</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--     upgrade the NVMe driver. For more information, see</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html Amazon EBS and NVMe on Linux instances&gt;</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.html Amazon EBS and NVMe on Windows instances&gt;</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- -   __@InstanceStoreAvailability@__ &#8212; The recommended instance type does</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--     not support instance store volumes and the current instance does.</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--     Before migrating, you might need to back up the data on your</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--     instance store volumes if you want to preserve them. For more</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--     &lt;https://aws.amazon.com/premiumsupport/knowledge-center/back-up-instance-store-ebs/ How do I back up an instance store volume on my Amazon EC2 instance to Amazon EBS?&gt;</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--     in the /Amazon Web Services Premium Support Knowledge Base/. For</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--     more information, see</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 instance store&gt;</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or see</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instance-types.html#instance-networking-storage Networking and storage features&gt;</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--     and</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/InstanceStorage.html Amazon EC2 instance store&gt;</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- -   __@VirtualizationType@__ &#8212; The recommended instance type uses the</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--     hardware virtual machine (HVM) virtualization type and the current</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--     instance uses the paravirtual (PV) virtualization type. For more</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--     information about the differences between these virtualization</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--     types, see</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/virtualization_types.html Linux AMI virtualization types&gt;</span><span>
+</span><span id="line-382"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Linux/, or</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-ami-version-history.html#virtualization-types Windows AMI virtualization types&gt;</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--     in the /Amazon EC2 User Guide for Windows/.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- -   __@Architecture@__ &#8212; The CPU architecture between the recommended</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--     instance type and the current instance is different. For example,</span><span>
+</span><span id="line-388"></span><span class="hs-comment">--     the recommended instance type might use an Arm CPU architecture and</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--     the current instance type might use a different one, such as x86.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--     Before migrating, you should consider recompiling the software on</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--     your instance for the new architecture. Alternatively, you might</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--     switch to an Amazon Machine Image (AMI) that supports the new</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--     architecture. For more information about the CPU architecture for</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--     each instance type, see</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--     &lt;http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types&gt;.</span><span>
+</span><span id="line-396"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_platformDifferences"><span class="hs-identifier hs-type">instanceRecommendationOption_platformDifferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.PlatformDifference.html#PlatformDifference"><span class="hs-identifier hs-type">PlatformDifference</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-397"></span><span id="instanceRecommendationOption_platformDifferences"><span class="annot"><span class="annottext">instanceRecommendationOption_platformDifferences :: (Maybe [PlatformDifference] -&gt; f (Maybe [PlatformDifference]))
+-&gt; InstanceRecommendationOption -&gt; f InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_platformDifferences"><span class="hs-identifier hs-var hs-var">instanceRecommendationOption_platformDifferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendationOption -&gt; Maybe [PlatformDifference])
+-&gt; (InstanceRecommendationOption
+    -&gt; Maybe [PlatformDifference] -&gt; InstanceRecommendationOption)
+-&gt; Lens
+     InstanceRecommendationOption
+     InstanceRecommendationOption
+     (Maybe [PlatformDifference])
+     (Maybe [PlatformDifference])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243553"><span class="annot"><span class="annottext">Maybe [PlatformDifference]
+platformDifferences :: Maybe [PlatformDifference]
+$sel:platformDifferences:InstanceRecommendationOption' :: InstanceRecommendationOption -&gt; Maybe [PlatformDifference]
+</span><a href="#local-6989586621679243553"><span class="hs-identifier hs-var hs-var">platformDifferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformDifference]
+</span><a href="#local-6989586621679243553"><span class="hs-identifier hs-var">platformDifferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243552"><span class="annot"><span class="annottext">s :: InstanceRecommendationOption
+</span><a href="#local-6989586621679243552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243551"><span class="annot"><span class="annottext">Maybe [PlatformDifference]
+</span><a href="#local-6989586621679243551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendationOption
+</span><a href="#local-6989586621679243552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platformDifferences:InstanceRecommendationOption' :: Maybe [PlatformDifference]
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AplatformDifferences%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">platformDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformDifference]
+</span><a href="#local-6989586621679243551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlatformDifference] -&gt; f (Maybe [PlatformDifference]))
+ -&gt; InstanceRecommendationOption -&gt; f InstanceRecommendationOption)
+-&gt; ((Maybe [PlatformDifference] -&gt; f (Maybe [PlatformDifference]))
+    -&gt; Maybe [PlatformDifference] -&gt; f (Maybe [PlatformDifference]))
+-&gt; (Maybe [PlatformDifference] -&gt; f (Maybe [PlatformDifference]))
+-&gt; InstanceRecommendationOption
+-&gt; f InstanceRecommendationOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlatformDifference]
+  [PlatformDifference]
+  [PlatformDifference]
+  [PlatformDifference]
+-&gt; Iso
+     (Maybe [PlatformDifference])
+     (Maybe [PlatformDifference])
+     (Maybe [PlatformDifference])
+     (Maybe [PlatformDifference])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlatformDifference]
+  [PlatformDifference]
+  [PlatformDifference]
+  [PlatformDifference]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-398"></span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- | The performance risk of the instance recommendation option.</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- Performance risk indicates the likelihood of the recommended instance</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- type not meeting the resource needs of your workload. Compute Optimizer</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- calculates an individual performance risk score for each specification</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- of the recommended instance, including CPU, memory, EBS throughput, EBS</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- IOPS, disk throughput, disk IOPS, network throughput, and network PPS.</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- The performance risk of the recommended instance is calculated as the</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- maximum performance risk score across the analyzed resource</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- specifications.</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- The value ranges from @0@ - @4@, with @0@ meaning that the recommended</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- resource is predicted to always provide enough hardware capability. The</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- higher the performance risk is, the more likely you should validate</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- whether the recommendation will meet the performance requirements of</span><span>
+</span><span id="line-414"></span><span class="hs-comment">-- your workload before migrating your resource.</span><span>
+</span><span id="line-415"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_performanceRisk"><span class="hs-identifier hs-type">instanceRecommendationOption_performanceRisk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span id="instanceRecommendationOption_performanceRisk"><span class="annot"><span class="annottext">instanceRecommendationOption_performanceRisk :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; InstanceRecommendationOption -&gt; f InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_performanceRisk"><span class="hs-identifier hs-var hs-var">instanceRecommendationOption_performanceRisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendationOption -&gt; Maybe Double)
+-&gt; (InstanceRecommendationOption
+    -&gt; Maybe Double -&gt; InstanceRecommendationOption)
+-&gt; Lens
+     InstanceRecommendationOption
+     InstanceRecommendationOption
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243546"><span class="annot"><span class="annottext">Maybe Double
+performanceRisk :: Maybe Double
+$sel:performanceRisk:InstanceRecommendationOption' :: InstanceRecommendationOption -&gt; Maybe Double
+</span><a href="#local-6989586621679243546"><span class="hs-identifier hs-var hs-var">performanceRisk</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679243546"><span class="hs-identifier hs-var">performanceRisk</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243545"><span class="annot"><span class="annottext">s :: InstanceRecommendationOption
+</span><a href="#local-6989586621679243545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243544"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679243544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendationOption
+</span><a href="#local-6989586621679243545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:performanceRisk:InstanceRecommendationOption' :: Maybe Double
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AperformanceRisk%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">performanceRisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679243544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>
+</span><span id="line-418"></span><span class="hs-comment">-- | An array of objects that describe the projected utilization metrics of</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- the instance recommendation option.</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--</span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- The @Cpu@ and @Memory@ metrics are the only projected utilization</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- metrics returned. Additionally, the @Memory@ metric is returned only for</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- resources that have the unified CloudWatch agent installed on them. For</span><span>
+</span><span id="line-424"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent Enabling Memory Utilization with the CloudWatch Agent&gt;.</span><span>
+</span><span id="line-426"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_projectedUtilizationMetrics"><span class="hs-identifier hs-type">instanceRecommendationOption_projectedUtilizationMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.UtilizationMetric.html#UtilizationMetric"><span class="hs-identifier hs-type">UtilizationMetric</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-427"></span><span id="instanceRecommendationOption_projectedUtilizationMetrics"><span class="annot"><span class="annottext">instanceRecommendationOption_projectedUtilizationMetrics :: (Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+-&gt; InstanceRecommendationOption -&gt; f InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_projectedUtilizationMetrics"><span class="hs-identifier hs-var hs-var">instanceRecommendationOption_projectedUtilizationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendationOption -&gt; Maybe [UtilizationMetric])
+-&gt; (InstanceRecommendationOption
+    -&gt; Maybe [UtilizationMetric] -&gt; InstanceRecommendationOption)
+-&gt; Lens
+     InstanceRecommendationOption
+     InstanceRecommendationOption
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243542"><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+projectedUtilizationMetrics :: Maybe [UtilizationMetric]
+$sel:projectedUtilizationMetrics:InstanceRecommendationOption' :: InstanceRecommendationOption -&gt; Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243542"><span class="hs-identifier hs-var hs-var">projectedUtilizationMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243542"><span class="hs-identifier hs-var">projectedUtilizationMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243541"><span class="annot"><span class="annottext">s :: InstanceRecommendationOption
+</span><a href="#local-6989586621679243541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243540"><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendationOption
+</span><a href="#local-6989586621679243541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectedUtilizationMetrics:InstanceRecommendationOption' :: Maybe [UtilizationMetric]
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AprojectedUtilizationMetrics%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">projectedUtilizationMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+</span><a href="#local-6989586621679243540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+ -&gt; InstanceRecommendationOption -&gt; f InstanceRecommendationOption)
+-&gt; ((Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+    -&gt; Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+-&gt; (Maybe [UtilizationMetric] -&gt; f (Maybe [UtilizationMetric]))
+-&gt; InstanceRecommendationOption
+-&gt; f InstanceRecommendationOption
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+-&gt; Iso
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+     (Maybe [UtilizationMetric])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+  [UtilizationMetric]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-428"></span><span>
+</span><span id="line-429"></span><span class="hs-comment">-- | The instance type of the instance recommendation.</span><span>
+</span><span id="line-430"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_instanceType"><span class="hs-identifier hs-type">instanceRecommendationOption_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span id="instanceRecommendationOption_instanceType"><span class="annot"><span class="annottext">instanceRecommendationOption_instanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceRecommendationOption -&gt; f InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_instanceType"><span class="hs-identifier hs-var hs-var">instanceRecommendationOption_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendationOption -&gt; Maybe Text)
+-&gt; (InstanceRecommendationOption
+    -&gt; Maybe Text -&gt; InstanceRecommendationOption)
+-&gt; Lens
+     InstanceRecommendationOption
+     InstanceRecommendationOption
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243538"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:InstanceRecommendationOption' :: InstanceRecommendationOption -&gt; Maybe Text
+</span><a href="#local-6989586621679243538"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243538"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243537"><span class="annot"><span class="annottext">s :: InstanceRecommendationOption
+</span><a href="#local-6989586621679243537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendationOption
+</span><a href="#local-6989586621679243537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:InstanceRecommendationOption' :: Maybe Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3AinstanceType%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-432"></span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- | The rank of the instance recommendation option.</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- The top recommendation option is ranked as @1@.</span><span>
+</span><span id="line-436"></span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_rank"><span class="hs-identifier hs-type">instanceRecommendationOption_rank</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-437"></span><span id="instanceRecommendationOption_rank"><span class="annot"><span class="annottext">instanceRecommendationOption_rank :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InstanceRecommendationOption -&gt; f InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#instanceRecommendationOption_rank"><span class="hs-identifier hs-var hs-var">instanceRecommendationOption_rank</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceRecommendationOption -&gt; Maybe Int)
+-&gt; (InstanceRecommendationOption
+    -&gt; Maybe Int -&gt; InstanceRecommendationOption)
+-&gt; Lens
+     InstanceRecommendationOption
+     InstanceRecommendationOption
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243534"><span class="annot"><span class="annottext">Maybe Int
+rank :: Maybe Int
+$sel:rank:InstanceRecommendationOption' :: InstanceRecommendationOption -&gt; Maybe Int
+</span><a href="#local-6989586621679243534"><span class="hs-identifier hs-var hs-var">rank</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679243534"><span class="hs-identifier hs-var">rank</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243533"><span class="annot"><span class="annottext">s :: InstanceRecommendationOption
+</span><a href="#local-6989586621679243533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-type">InstanceRecommendationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243532"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679243532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceRecommendationOption
+</span><a href="#local-6989586621679243533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rank:InstanceRecommendationOption' :: Maybe Int
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#%24sel%3Arank%3AInstanceRecommendationOption%27"><span class="hs-identifier hs-var">rank</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679243532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>
+</span><span id="line-439"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243529"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-440"></span><span>  </span><span id="local-6989586621679243527"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceRecommendationOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-441"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser InstanceRecommendationOption)
+-&gt; Value
+-&gt; Parser InstanceRecommendationOption
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-442"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;InstanceRecommendationOption&quot;</span></span><span>
+</span><span id="line-443"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243524"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-444"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PlatformDifference]
+-&gt; Maybe Double
+-&gt; Maybe [UtilizationMetric]
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; InstanceRecommendationOption
+</span><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption%27"><span class="hs-identifier hs-var">InstanceRecommendationOption'</span></a></span><span>
+</span><span id="line-445"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PlatformDifference]
+ -&gt; Maybe Double
+ -&gt; Maybe [UtilizationMetric]
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; InstanceRecommendationOption)
+-&gt; Parser (Maybe [PlatformDifference])
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe [UtilizationMetric]
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; InstanceRecommendationOption)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PlatformDifference]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platformDifferences&quot;</span></span><span>
+</span><span id="line-446"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PlatformDifference]))
+-&gt; Maybe [PlatformDifference]
+-&gt; Parser (Maybe [PlatformDifference])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlatformDifference]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-447"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-448"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe [UtilizationMetric]
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; InstanceRecommendationOption)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe [UtilizationMetric]
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; InstanceRecommendationOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;performanceRisk&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-449"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [UtilizationMetric]
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; InstanceRecommendationOption)
+-&gt; Parser (Maybe [UtilizationMetric])
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; InstanceRecommendationOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UtilizationMetric]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectedUtilizationMetrics&quot;</span></span><span>
+</span><span id="line-450"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UtilizationMetric]))
+-&gt; Maybe [UtilizationMetric] -&gt; Parser (Maybe [UtilizationMetric])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [UtilizationMetric]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-451"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-452"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; InstanceRecommendationOption)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; InstanceRecommendationOption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; InstanceRecommendationOption)
+-&gt; Parser (Maybe Int) -&gt; Parser InstanceRecommendationOption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rank&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-454"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-455"></span><span>
+</span><span id="line-456"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-457"></span><span>  </span><span id="local-6989586621679243517"><span id="local-6989586621679243519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-458"></span><span>    </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span></span></span><span>
+</span><span id="line-459"></span><span>
+</span><span id="line-460"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.InstanceRecommendationOption.html#InstanceRecommendationOption"><span class="hs-identifier hs-type">InstanceRecommendationOption</span></a></span></span><span>
+</span><span id="line-461"></span></pre></body></html>

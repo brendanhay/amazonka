@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a fleet error.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFleetError' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679286270"><span id="local-6989586621679286271"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetError"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-var">FleetError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetError%27"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-var">FleetError'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679286279"><span id="local-6989586621679286280"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetError"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-var">FleetError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetError%27"><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-var">FleetError'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AerrorCode%3AFleetError%27"><span class="annot"><span class="annottext">FleetError -&gt; Maybe FleetErrorCode
 </span><a href="Network.AWS.AppStream.Types.FleetError.html#%24sel%3AerrorCode%3AFleetError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetErrorCode.html#FleetErrorCode"><span class="hs-identifier hs-type">FleetErrorCode</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AerrorMessage%3AFleetError%27"><span class="annot"><span class="annottext">FleetError -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.Types.FleetError.html#%24sel%3AerrorMessage%3AFleetError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286263"><span id="local-6989586621679286265"><span class="annot"><span class="annottext">FleetError -&gt; FleetError -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286272"><span id="local-6989586621679286274"><span class="annot"><span class="annottext">FleetError -&gt; FleetError -&gt; Bool
 (FleetError -&gt; FleetError -&gt; Bool)
 -&gt; (FleetError -&gt; FleetError -&gt; Bool) -&gt; Eq FleetError
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FleetError -&gt; FleetError -&gt; Bool
 == :: FleetError -&gt; FleetError -&gt; Bool
 $c== :: FleetError -&gt; FleetError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286254"><span id="local-6989586621679286256"><span id="local-6989586621679286258"><span id="local-6989586621679286260"><span class="annot"><span class="annottext">ReadPrec [FleetError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286263"><span id="local-6989586621679286265"><span id="local-6989586621679286267"><span id="local-6989586621679286269"><span class="annot"><span class="annottext">ReadPrec [FleetError]
 ReadPrec FleetError
 Int -&gt; ReadS FleetError
 ReadS [FleetError]
@@ -63,7 +63,7 @@ readList :: ReadS [FleetError]
 $creadList :: ReadS [FleetError]
 readsPrec :: Int -&gt; ReadS FleetError
 $creadsPrec :: Int -&gt; ReadS FleetError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286247"><span id="local-6989586621679286249"><span id="local-6989586621679286251"><span class="annot"><span class="annottext">Int -&gt; FleetError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286256"><span id="local-6989586621679286258"><span id="local-6989586621679286260"><span class="annot"><span class="annottext">Int -&gt; FleetError -&gt; ShowS
 [FleetError] -&gt; ShowS
 FleetError -&gt; String
 (Int -&gt; FleetError -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; Lens
      FleetError FleetError (Maybe FleetErrorCode) (Maybe FleetErrorCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286238"><span class="annot"><span class="annottext">Maybe FleetErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286247"><span class="annot"><span class="annottext">Maybe FleetErrorCode
 errorCode :: Maybe FleetErrorCode
 $sel:errorCode:FleetError' :: FleetError -&gt; Maybe FleetErrorCode
-</span><a href="#local-6989586621679286238"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetErrorCode
-</span><a href="#local-6989586621679286238"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286237"><span class="annot"><span class="annottext">s :: FleetError
-</span><a href="#local-6989586621679286237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286236"><span class="annot"><span class="annottext">Maybe FleetErrorCode
-</span><a href="#local-6989586621679286236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetError
-</span><a href="#local-6989586621679286237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:FleetError' :: Maybe FleetErrorCode
+</span><a href="#local-6989586621679286247"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FleetErrorCode
+</span><a href="#local-6989586621679286247"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286246"><span class="annot"><span class="annottext">s :: FleetError
+</span><a href="#local-6989586621679286246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286245"><span class="annot"><span class="annottext">Maybe FleetErrorCode
+</span><a href="#local-6989586621679286245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetError
+</span><a href="#local-6989586621679286246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:FleetError' :: Maybe FleetErrorCode
 </span><a href="Network.AWS.AppStream.Types.FleetError.html#%24sel%3AerrorCode%3AFleetError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FleetErrorCode
-</span><a href="#local-6989586621679286236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The error message.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#fleetError_errorMessage"><span class="hs-identifier hs-type">fleetError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -142,19 +142,19 @@ $sel:errorCode:FleetError' :: FleetError -&gt; Maybe FleetErrorCode
 -&gt; (FleetError -&gt; Maybe Text -&gt; FleetError)
 -&gt; Lens FleetError FleetError (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286234"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286243"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:FleetError' :: FleetError -&gt; Maybe Text
-</span><a href="#local-6989586621679286234"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286234"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286233"><span class="annot"><span class="annottext">s :: FleetError
-</span><a href="#local-6989586621679286233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286232"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetError
-</span><a href="#local-6989586621679286233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:FleetError' :: Maybe Text
+</span><a href="#local-6989586621679286243"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286243"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286242"><span class="annot"><span class="annottext">s :: FleetError
+</span><a href="#local-6989586621679286242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-type">FleetError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286241"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679286241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetError
+</span><a href="#local-6989586621679286242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:FleetError' :: Maybe Text
 </span><a href="Network.AWS.AppStream.Types.FleetError.html#%24sel%3AerrorMessage%3AFleetError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286229"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679286227"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FleetError
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286238"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679286236"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FleetError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FleetError) -&gt; Value -&gt; Parser FleetError
@@ -162,8 +162,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FleetError&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286224"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679286224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286233"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe FleetErrorCode -&gt; Maybe Text -&gt; FleetError
 </span><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError%27"><span class="hs-identifier hs-var">FleetError'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FleetErrorCode -&gt; Maybe Text -&gt; FleetError)
@@ -171,7 +171,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; FleetError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679286224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FleetErrorCode)
+</span><a href="#local-6989586621679286233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FleetErrorCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,13 +179,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser FleetError
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679286224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679286233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286218"><span id="local-6989586621679286220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286227"><span id="local-6989586621679286229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.FleetError.html#FleetError"><span class="hs-identifier hs-type">FleetError</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

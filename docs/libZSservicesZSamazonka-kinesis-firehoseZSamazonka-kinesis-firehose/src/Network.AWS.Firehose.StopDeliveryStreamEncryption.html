@@ -71,13 +71,13 @@
 </span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | /See:/ 'newStopDeliveryStreamEncryption' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621679282599"><span id="local-6989586621679282600"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeliveryStreamEncryption"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-var">StopDeliveryStreamEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeliveryStreamEncryption%27"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">StopDeliveryStreamEncryption'</span></a></span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621679282608"><span id="local-6989586621679282609"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeliveryStreamEncryption"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-var">StopDeliveryStreamEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeliveryStreamEncryption%27"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">StopDeliveryStreamEncryption'</span></a></span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the delivery stream for which you want to disable</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- server-side encryption (SSE).</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AdeliveryStreamName%3AStopDeliveryStreamEncryption%27"><span class="annot"><span class="annottext">StopDeliveryStreamEncryption -&gt; Text
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamName%3AStopDeliveryStreamEncryption%27"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282593"><span id="local-6989586621679282595"><span class="annot"><span class="annottext">StopDeliveryStreamEncryption
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282602"><span id="local-6989586621679282604"><span class="annot"><span class="annottext">StopDeliveryStreamEncryption
 -&gt; StopDeliveryStreamEncryption -&gt; Bool
 (StopDeliveryStreamEncryption
  -&gt; StopDeliveryStreamEncryption -&gt; Bool)
@@ -93,7 +93,7 @@ $c/= :: StopDeliveryStreamEncryption
 -&gt; StopDeliveryStreamEncryption -&gt; Bool
 $c== :: StopDeliveryStreamEncryption
 -&gt; StopDeliveryStreamEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282584"><span id="local-6989586621679282586"><span id="local-6989586621679282588"><span id="local-6989586621679282590"><span class="annot"><span class="annottext">ReadPrec [StopDeliveryStreamEncryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282593"><span id="local-6989586621679282595"><span id="local-6989586621679282597"><span id="local-6989586621679282599"><span class="annot"><span class="annottext">ReadPrec [StopDeliveryStreamEncryption]
 ReadPrec StopDeliveryStreamEncryption
 Int -&gt; ReadS StopDeliveryStreamEncryption
 ReadS [StopDeliveryStreamEncryption]
@@ -113,7 +113,7 @@ readList :: ReadS [StopDeliveryStreamEncryption]
 $creadList :: ReadS [StopDeliveryStreamEncryption]
 readsPrec :: Int -&gt; ReadS StopDeliveryStreamEncryption
 $creadsPrec :: Int -&gt; ReadS StopDeliveryStreamEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282577"><span id="local-6989586621679282579"><span id="local-6989586621679282581"><span class="annot"><span class="annottext">Int -&gt; StopDeliveryStreamEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282586"><span id="local-6989586621679282588"><span id="local-6989586621679282590"><span class="annot"><span class="annottext">Int -&gt; StopDeliveryStreamEncryption -&gt; ShowS
 [StopDeliveryStreamEncryption] -&gt; ShowS
 StopDeliveryStreamEncryption -&gt; String
 (Int -&gt; StopDeliveryStreamEncryption -&gt; ShowS)
@@ -160,14 +160,14 @@ StopDeliveryStreamEncryption -&gt; Rep StopDeliveryStreamEncryption x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span>
 </span><span id="line-95"></span><span id="newStopDeliveryStreamEncryption"><span class="annot"><span class="annottext">newStopDeliveryStreamEncryption :: Text -&gt; StopDeliveryStreamEncryption
-</span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#newStopDeliveryStreamEncryption"><span class="hs-identifier hs-var hs-var">newStopDeliveryStreamEncryption</span></a></span></span><span> </span><span id="local-6989586621679282572"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282572"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#newStopDeliveryStreamEncryption"><span class="hs-identifier hs-var hs-var">newStopDeliveryStreamEncryption</span></a></span></span><span> </span><span id="local-6989586621679282581"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282581"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">StopDeliveryStreamEncryption' :: Text -&gt; StopDeliveryStreamEncryption
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryStreamName:StopDeliveryStreamEncryption' :: Text
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamName%3AStopDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282572"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span>
+</span><a href="#local-6989586621679282581"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of the delivery stream for which you want to disable</span><span>
@@ -181,22 +181,22 @@ StopDeliveryStreamEncryption -&gt; Rep StopDeliveryStreamEncryption x
 -&gt; Lens
      StopDeliveryStreamEncryption StopDeliveryStreamEncryption Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282569"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282578"><span class="annot"><span class="annottext">Text
 deliveryStreamName :: Text
 $sel:deliveryStreamName:StopDeliveryStreamEncryption' :: StopDeliveryStreamEncryption -&gt; Text
-</span><a href="#local-6989586621679282569"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282569"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282568"><span class="annot"><span class="annottext">s :: StopDeliveryStreamEncryption
-</span><a href="#local-6989586621679282568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282567"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeliveryStreamEncryption
-</span><a href="#local-6989586621679282568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:StopDeliveryStreamEncryption' :: Text
+</span><a href="#local-6989586621679282578"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282578"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282577"><span class="annot"><span class="annottext">s :: StopDeliveryStreamEncryption
+</span><a href="#local-6989586621679282577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeliveryStreamEncryption
+</span><a href="#local-6989586621679282577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:StopDeliveryStreamEncryption' :: Text
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#%24sel%3AdeliveryStreamName%3AStopDeliveryStreamEncryption%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679282563"><span class="annot"><span class="annottext">request :: StopDeliveryStreamEncryption
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679282572"><span class="annot"><span class="annottext">request :: StopDeliveryStreamEncryption
 -&gt; Request StopDeliveryStreamEncryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StopDeliveryStreamEncryption
@@ -204,7 +204,7 @@ $sel:deliveryStreamName:StopDeliveryStreamEncryption' :: StopDeliveryStreamEncry
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679282559"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679282568"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopDeliveryStreamEncryption
 -&gt; ClientResponse ClientBody
@@ -230,10 +230,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282556"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282556"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282555"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679282555"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282554"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679282554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282565"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282565"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282564"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679282564"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282563"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679282563"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopDeliveryStreamEncryptionResponse
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StopDeliveryStreamEncryptionResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopDeliveryStreamEncryptionResponse)
@@ -245,17 +245,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282556"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282565"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679282547"><span id="local-6989586621679282549"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679282556"><span id="local-6989586621679282558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679282540"><span class="annot"><span class="annottext">toHeaders :: StopDeliveryStreamEncryption -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679282549"><span class="annot"><span class="annottext">toHeaders :: StopDeliveryStreamEncryption -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopDeliveryStreamEncryption -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -282,12 +282,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282530"><span id="local-6989586621679282532"><span id="local-6989586621679282534"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679282528"><span class="annot"><span class="annottext">toJSON :: StopDeliveryStreamEncryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282526"><span class="annot"><span class="annottext">Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282539"><span id="local-6989586621679282541"><span id="local-6989586621679282543"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679282537"><span class="annot"><span class="annottext">toJSON :: StopDeliveryStreamEncryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282535"><span class="annot"><span class="annottext">Text
 deliveryStreamName :: Text
 $sel:deliveryStreamName:StopDeliveryStreamEncryption' :: StopDeliveryStreamEncryption -&gt; Text
-</span><a href="#local-6989586621679282526"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679282535"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,19 +300,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282526"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282535"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679282520"><span class="annot"><span class="annottext">toPath :: StopDeliveryStreamEncryption -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679282529"><span class="annot"><span class="annottext">toPath :: StopDeliveryStreamEncryption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopDeliveryStreamEncryption -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryption"><span class="hs-identifier hs-type">StopDeliveryStreamEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679282516"><span class="annot"><span class="annottext">toQuery :: StopDeliveryStreamEncryption -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679282525"><span class="annot"><span class="annottext">toQuery :: StopDeliveryStreamEncryption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopDeliveryStreamEncryption -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -320,12 +320,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newStopDeliveryStreamEncryptionResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679282513"><span id="local-6989586621679282514"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeliveryStreamEncryptionResponse"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-var">StopDeliveryStreamEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeliveryStreamEncryptionResponse%27"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StopDeliveryStreamEncryptionResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679282522"><span id="local-6989586621679282523"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeliveryStreamEncryptionResponse"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-var">StopDeliveryStreamEncryptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeliveryStreamEncryptionResponse%27"><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">StopDeliveryStreamEncryptionResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopDeliveryStreamEncryptionResponse%27"><span class="annot"><span class="annottext">StopDeliveryStreamEncryptionResponse -&gt; Int
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#%24sel%3AhttpStatus%3AStopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282508"><span id="local-6989586621679282510"><span class="annot"><span class="annottext">StopDeliveryStreamEncryptionResponse
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282517"><span id="local-6989586621679282519"><span class="annot"><span class="annottext">StopDeliveryStreamEncryptionResponse
 -&gt; StopDeliveryStreamEncryptionResponse -&gt; Bool
 (StopDeliveryStreamEncryptionResponse
  -&gt; StopDeliveryStreamEncryptionResponse -&gt; Bool)
@@ -341,7 +341,7 @@ $c/= :: StopDeliveryStreamEncryptionResponse
 -&gt; StopDeliveryStreamEncryptionResponse -&gt; Bool
 $c== :: StopDeliveryStreamEncryptionResponse
 -&gt; StopDeliveryStreamEncryptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282500"><span id="local-6989586621679282502"><span id="local-6989586621679282504"><span id="local-6989586621679282506"><span class="annot"><span class="annottext">ReadPrec [StopDeliveryStreamEncryptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282509"><span id="local-6989586621679282511"><span id="local-6989586621679282513"><span id="local-6989586621679282515"><span class="annot"><span class="annottext">ReadPrec [StopDeliveryStreamEncryptionResponse]
 ReadPrec StopDeliveryStreamEncryptionResponse
 Int -&gt; ReadS StopDeliveryStreamEncryptionResponse
 ReadS [StopDeliveryStreamEncryptionResponse]
@@ -361,7 +361,7 @@ readList :: ReadS [StopDeliveryStreamEncryptionResponse]
 $creadList :: ReadS [StopDeliveryStreamEncryptionResponse]
 readsPrec :: Int -&gt; ReadS StopDeliveryStreamEncryptionResponse
 $creadsPrec :: Int -&gt; ReadS StopDeliveryStreamEncryptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282494"><span id="local-6989586621679282496"><span id="local-6989586621679282498"><span class="annot"><span class="annottext">Int -&gt; StopDeliveryStreamEncryptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282503"><span id="local-6989586621679282505"><span id="local-6989586621679282507"><span class="annot"><span class="annottext">Int -&gt; StopDeliveryStreamEncryptionResponse -&gt; ShowS
 [StopDeliveryStreamEncryptionResponse] -&gt; ShowS
 StopDeliveryStreamEncryptionResponse -&gt; String
 (Int -&gt; StopDeliveryStreamEncryptionResponse -&gt; ShowS)
@@ -413,14 +413,14 @@ StopDeliveryStreamEncryptionResponse
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newStopDeliveryStreamEncryptionResponse"><span class="annot"><span class="annottext">newStopDeliveryStreamEncryptionResponse :: Int -&gt; StopDeliveryStreamEncryptionResponse
-</span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#newStopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-var hs-var">newStopDeliveryStreamEncryptionResponse</span></a></span></span><span> </span><span id="local-6989586621679282491"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282491"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#newStopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-var hs-var">newStopDeliveryStreamEncryptionResponse</span></a></span></span><span> </span><span id="local-6989586621679282500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">StopDeliveryStreamEncryptionResponse' :: Int -&gt; StopDeliveryStreamEncryptionResponse
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopDeliveryStreamEncryptionResponse' :: Int
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#%24sel%3AhttpStatus%3AStopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282491"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679282500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -437,18 +437,18 @@ StopDeliveryStreamEncryptionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282490"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282499"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopDeliveryStreamEncryptionResponse' :: StopDeliveryStreamEncryptionResponse -&gt; Int
-</span><a href="#local-6989586621679282490"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282490"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282489"><span class="annot"><span class="annottext">s :: StopDeliveryStreamEncryptionResponse
-</span><a href="#local-6989586621679282489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282488"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeliveryStreamEncryptionResponse
-</span><a href="#local-6989586621679282489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDeliveryStreamEncryptionResponse' :: Int
+</span><a href="#local-6989586621679282499"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282499"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282498"><span class="annot"><span class="annottext">s :: StopDeliveryStreamEncryptionResponse
+</span><a href="#local-6989586621679282498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282497"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeliveryStreamEncryptionResponse
+</span><a href="#local-6989586621679282498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDeliveryStreamEncryptionResponse' :: Int
 </span><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#%24sel%3AhttpStatus%3AStopDeliveryStreamEncryptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679282486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679282495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.Firehose.StopDeliveryStreamEncryption.html#StopDeliveryStreamEncryptionResponse"><span class="hs-identifier hs-type">StopDeliveryStreamEncryptionResponse</span></a></span></span><span>
 </span><span id="line-187"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Container for all response elements.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCopyPartResult' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679539973"><span id="local-6989586621679539974"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyPartResult"><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-var">CopyPartResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyPartResult%27"><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-var">CopyPartResult'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679539982"><span id="local-6989586621679539983"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyPartResult"><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-var">CopyPartResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyPartResult%27"><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-var">CopyPartResult'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Entity tag of the object.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AeTag%3ACopyPartResult%27"><span class="annot"><span class="annottext">CopyPartResult -&gt; Maybe ETag
 </span><a href="Network.AWS.S3.Types.CopyPartResult.html#%24sel%3AeTag%3ACopyPartResult%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ETag"><span class="hs-identifier hs-type">ETag</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastModified%3ACopyPartResult%27"><span class="annot"><span class="annottext">CopyPartResult -&gt; Maybe ISO8601
 </span><a href="Network.AWS.S3.Types.CopyPartResult.html#%24sel%3AlastModified%3ACopyPartResult%27"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539966"><span id="local-6989586621679539968"><span class="annot"><span class="annottext">CopyPartResult -&gt; CopyPartResult -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679539975"><span id="local-6989586621679539977"><span class="annot"><span class="annottext">CopyPartResult -&gt; CopyPartResult -&gt; Bool
 (CopyPartResult -&gt; CopyPartResult -&gt; Bool)
 -&gt; (CopyPartResult -&gt; CopyPartResult -&gt; Bool) -&gt; Eq CopyPartResult
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyPartResult -&gt; CopyPartResult -&gt; Bool
 == :: CopyPartResult -&gt; CopyPartResult -&gt; Bool
 $c== :: CopyPartResult -&gt; CopyPartResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539957"><span id="local-6989586621679539959"><span id="local-6989586621679539961"><span id="local-6989586621679539963"><span class="annot"><span class="annottext">ReadPrec [CopyPartResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539966"><span id="local-6989586621679539968"><span id="local-6989586621679539970"><span id="local-6989586621679539972"><span class="annot"><span class="annottext">ReadPrec [CopyPartResult]
 ReadPrec CopyPartResult
 Int -&gt; ReadS CopyPartResult
 ReadS [CopyPartResult]
@@ -63,7 +63,7 @@ readList :: ReadS [CopyPartResult]
 $creadList :: ReadS [CopyPartResult]
 readsPrec :: Int -&gt; ReadS CopyPartResult
 $creadsPrec :: Int -&gt; ReadS CopyPartResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539950"><span id="local-6989586621679539952"><span id="local-6989586621679539954"><span class="annot"><span class="annottext">Int -&gt; CopyPartResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679539959"><span id="local-6989586621679539961"><span id="local-6989586621679539963"><span class="annot"><span class="annottext">Int -&gt; CopyPartResult -&gt; ShowS
 [CopyPartResult] -&gt; ShowS
 CopyPartResult -&gt; String
 (Int -&gt; CopyPartResult -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (CopyPartResult -&gt; Maybe ETag -&gt; CopyPartResult)
 -&gt; Lens CopyPartResult CopyPartResult (Maybe ETag) (Maybe ETag)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539941"><span class="annot"><span class="annottext">Maybe ETag
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539950"><span class="annot"><span class="annottext">Maybe ETag
 eTag :: Maybe ETag
 $sel:eTag:CopyPartResult' :: CopyPartResult -&gt; Maybe ETag
-</span><a href="#local-6989586621679539941"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ETag
-</span><a href="#local-6989586621679539941"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539940"><span class="annot"><span class="annottext">s :: CopyPartResult
-</span><a href="#local-6989586621679539940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539939"><span class="annot"><span class="annottext">Maybe ETag
-</span><a href="#local-6989586621679539939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPartResult
-</span><a href="#local-6989586621679539940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CopyPartResult' :: Maybe ETag
+</span><a href="#local-6989586621679539950"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ETag
+</span><a href="#local-6989586621679539950"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539949"><span class="annot"><span class="annottext">s :: CopyPartResult
+</span><a href="#local-6989586621679539949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539948"><span class="annot"><span class="annottext">Maybe ETag
+</span><a href="#local-6989586621679539948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPartResult
+</span><a href="#local-6989586621679539949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:CopyPartResult' :: Maybe ETag
 </span><a href="Network.AWS.S3.Types.CopyPartResult.html#%24sel%3AeTag%3ACopyPartResult%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ETag
-</span><a href="#local-6989586621679539939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679539948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Date and time at which the object was uploaded.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#copyPartResult_lastModified"><span class="hs-identifier hs-type">copyPartResult_lastModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -144,16 +144,16 @@ $sel:eTag:CopyPartResult' :: CopyPartResult -&gt; Maybe ETag
 -&gt; Lens
      CopyPartResult CopyPartResult (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539937"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679539946"><span class="annot"><span class="annottext">Maybe ISO8601
 lastModified :: Maybe ISO8601
 $sel:lastModified:CopyPartResult' :: CopyPartResult -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679539937"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679539937"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539936"><span class="annot"><span class="annottext">s :: CopyPartResult
-</span><a href="#local-6989586621679539936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539935"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679539935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPartResult
-</span><a href="#local-6989586621679539936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:CopyPartResult' :: Maybe ISO8601
+</span><a href="#local-6989586621679539946"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679539946"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679539945"><span class="annot"><span class="annottext">s :: CopyPartResult
+</span><a href="#local-6989586621679539945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-type">CopyPartResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679539944"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679539944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyPartResult
+</span><a href="#local-6989586621679539945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:CopyPartResult' :: Maybe ISO8601
 </span><a href="Network.AWS.S3.Types.CopyPartResult.html#%24sel%3AlastModified%3ACopyPartResult%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679539935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679539944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; CopyPartResult -&gt; f CopyPartResult)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -172,9 +172,9 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679539929"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CopyPartResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679539927"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679539927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679539938"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CopyPartResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679539936"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679539936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe ETag -&gt; Maybe ISO8601 -&gt; CopyPartResult
 </span><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult%27"><span class="hs-identifier hs-var">CopyPartResult'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ETag -&gt; Maybe ISO8601 -&gt; CopyPartResult)
@@ -182,7 +182,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Either String (Maybe ISO8601 -&gt; CopyPartResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679539927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ETag)
+</span><a href="#local-6989586621679539936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ETag)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
@@ -190,12 +190,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe ISO8601) -&gt; Either String CopyPartResult
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679539927"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679539936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModified&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539921"><span id="local-6989586621679539923"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539930"><span id="local-6989586621679539932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539918"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679539927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.CopyPartResult.html#CopyPartResult"><span class="hs-identifier hs-type">CopyPartResult</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

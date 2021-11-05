@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- action.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newExportFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679203371"><span id="local-6989586621679203372"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportFilter"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-var">ExportFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportFilter%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-var">ExportFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679203380"><span id="local-6989586621679203381"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportFilter"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-var">ExportFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportFilter%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-var">ExportFilter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A single @ExportFilter@ name. Supported filters: @agentId@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AExportFilter%27"><span class="annot"><span class="annottext">ExportFilter -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Aname%3AExportFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Acondition%3AExportFilter%27"><span class="annot"><span class="annottext">ExportFilter -&gt; Text
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Acondition%3AExportFilter%27"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203363"><span id="local-6989586621679203365"><span class="annot"><span class="annottext">ExportFilter -&gt; ExportFilter -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203372"><span id="local-6989586621679203374"><span class="annot"><span class="annottext">ExportFilter -&gt; ExportFilter -&gt; Bool
 (ExportFilter -&gt; ExportFilter -&gt; Bool)
 -&gt; (ExportFilter -&gt; ExportFilter -&gt; Bool) -&gt; Eq ExportFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExportFilter -&gt; ExportFilter -&gt; Bool
 == :: ExportFilter -&gt; ExportFilter -&gt; Bool
 $c== :: ExportFilter -&gt; ExportFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203354"><span id="local-6989586621679203356"><span id="local-6989586621679203358"><span id="local-6989586621679203360"><span class="annot"><span class="annottext">ReadPrec [ExportFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203363"><span id="local-6989586621679203365"><span id="local-6989586621679203367"><span id="local-6989586621679203369"><span class="annot"><span class="annottext">ReadPrec [ExportFilter]
 ReadPrec ExportFilter
 Int -&gt; ReadS ExportFilter
 ReadS [ExportFilter]
@@ -71,7 +71,7 @@ readList :: ReadS [ExportFilter]
 $creadList :: ReadS [ExportFilter]
 readsPrec :: Int -&gt; ReadS ExportFilter
 $creadsPrec :: Int -&gt; ReadS ExportFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203347"><span id="local-6989586621679203349"><span id="local-6989586621679203351"><span class="annot"><span class="annottext">Int -&gt; ExportFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203356"><span id="local-6989586621679203358"><span id="local-6989586621679203360"><span class="annot"><span class="annottext">Int -&gt; ExportFilter -&gt; ShowS
 [ExportFilter] -&gt; ShowS
 ExportFilter -&gt; String
 (Int -&gt; ExportFilter -&gt; ShowS)
@@ -120,21 +120,21 @@ $cfrom :: forall x. ExportFilter -&gt; Rep ExportFilter x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span><span>
 </span><span id="line-67"></span><span id="newExportFilter"><span class="annot"><span class="annottext">newExportFilter :: Text -&gt; Text -&gt; ExportFilter
-</span><a href="Network.AWS.Discovery.Types.ExportFilter.html#newExportFilter"><span class="hs-identifier hs-var hs-var">newExportFilter</span></a></span></span><span> </span><span id="local-6989586621679203341"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203341"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679203340"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203340"><span class="hs-identifier hs-var">pCondition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.Types.ExportFilter.html#newExportFilter"><span class="hs-identifier hs-var hs-var">newExportFilter</span></a></span></span><span> </span><span id="local-6989586621679203350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203350"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679203349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203349"><span class="hs-identifier hs-var">pCondition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ExportFilter' :: Text -&gt; [Text] -&gt; Text -&gt; ExportFilter
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:ExportFilter' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Aname%3AExportFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203341"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203350"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:ExportFilter' :: [Text]
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Avalues%3AExportFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:condition:ExportFilter' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Acondition%3AExportFilter%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203340"><span class="hs-identifier hs-var">pCondition_</span></a></span><span>
+</span><a href="#local-6989586621679203349"><span class="hs-identifier hs-var">pCondition_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | A single @ExportFilter@ name. Supported filters: @agentId@.</span><span>
@@ -144,16 +144,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ExportFilter -&gt; Text -&gt; ExportFilter)
 -&gt; Lens ExportFilter ExportFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203336"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203345"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ExportFilter' :: ExportFilter -&gt; Text
-</span><a href="#local-6989586621679203336"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203336"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203335"><span class="annot"><span class="annottext">s :: ExportFilter
-</span><a href="#local-6989586621679203335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203334"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportFilter
-</span><a href="#local-6989586621679203335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExportFilter' :: Text
+</span><a href="#local-6989586621679203345"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203345"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203344"><span class="annot"><span class="annottext">s :: ExportFilter
+</span><a href="#local-6989586621679203344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportFilter
+</span><a href="#local-6989586621679203344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ExportFilter' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Aname%3AExportFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A single @agentId@ for a Discovery Agent. An @agentId@ can be found</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- using the</span><span>
@@ -165,16 +165,16 @@ $sel:name:ExportFilter' :: ExportFilter -&gt; Text
 -&gt; (ExportFilter -&gt; [Text] -&gt; ExportFilter)
 -&gt; Lens ExportFilter ExportFilter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203332"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203341"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:ExportFilter' :: ExportFilter -&gt; [Text]
-</span><a href="#local-6989586621679203332"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679203332"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203331"><span class="annot"><span class="annottext">s :: ExportFilter
-</span><a href="#local-6989586621679203331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203330"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679203330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportFilter
-</span><a href="#local-6989586621679203331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ExportFilter' :: [Text]
+</span><a href="#local-6989586621679203341"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679203341"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203340"><span class="annot"><span class="annottext">s :: ExportFilter
+</span><a href="#local-6989586621679203340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203339"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679203339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportFilter
+</span><a href="#local-6989586621679203340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ExportFilter' :: [Text]
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Avalues%3AExportFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679203330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ExportFilter -&gt; f ExportFilter)
+</span><a href="#local-6989586621679203339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ExportFilter -&gt; f ExportFilter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; ExportFilter
@@ -191,24 +191,24 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ExportFilter -&gt; Text -&gt; ExportFilter)
 -&gt; Lens ExportFilter ExportFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203326"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203335"><span class="annot"><span class="annottext">Text
 condition :: Text
 $sel:condition:ExportFilter' :: ExportFilter -&gt; Text
-</span><a href="#local-6989586621679203326"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203326"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203325"><span class="annot"><span class="annottext">s :: ExportFilter
-</span><a href="#local-6989586621679203325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203324"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportFilter
-</span><a href="#local-6989586621679203325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:ExportFilter' :: Text
+</span><a href="#local-6989586621679203335"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203335"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203334"><span class="annot"><span class="annottext">s :: ExportFilter
+</span><a href="#local-6989586621679203334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203333"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportFilter
+</span><a href="#local-6989586621679203334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:ExportFilter' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportFilter.html#%24sel%3Acondition%3AExportFilter%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203320"><span id="local-6989586621679203322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203329"><span id="local-6989586621679203331"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203326"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203309"><span id="local-6989586621679203311"><span id="local-6989586621679203313"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679203307"><span class="annot"><span class="annottext">toJSON :: ExportFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203303"><span id="local-6989586621679203304"><span id="local-6989586621679203305"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203318"><span id="local-6989586621679203320"><span id="local-6989586621679203322"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter"><span class="hs-identifier hs-type">ExportFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679203316"><span class="annot"><span class="annottext">toJSON :: ExportFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportFilter.html#ExportFilter%27"><span class="hs-identifier hs-type">ExportFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203312"><span id="local-6989586621679203313"><span id="local-6989586621679203314"><span class="annot"><span class="annottext">[Text]
 Text
 condition :: Text
 values :: [Text]
@@ -216,7 +216,7 @@ name :: Text
 $sel:condition:ExportFilter' :: ExportFilter -&gt; Text
 $sel:values:ExportFilter' :: ExportFilter -&gt; [Text]
 $sel:name:ExportFilter' :: ExportFilter -&gt; Text
-</span><a href="#local-6989586621679203303"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679203312"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -228,21 +228,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203305"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203314"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679203304"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203313"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;condition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203303"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203312"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

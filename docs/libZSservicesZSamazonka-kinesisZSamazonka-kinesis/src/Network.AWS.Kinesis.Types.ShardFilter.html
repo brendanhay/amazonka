@@ -25,7 +25,7 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newShardFilter' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679198467"><span id="local-6989586621679198468"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShardFilter"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-var">ShardFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShardFilter%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-var">ShardFilter'</span></a></span></span><span>
+</span><span id="line-28"></span><span id="local-6989586621679198476"><span id="local-6989586621679198477"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShardFilter"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-var">ShardFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShardFilter%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-var">ShardFilter'</span></a></span></span><span>
 </span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atimestamp%3AShardFilter%27"><span class="annot"><span class="annottext">ShardFilter -&gt; Maybe POSIX
 </span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#%24sel%3Atimestamp%3AShardFilter%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>    </span><span id="%24sel%3AshardId%3AShardFilter%27"><span class="annot"><span class="annottext">ShardFilter -&gt; Maybe Text
@@ -33,7 +33,7 @@
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Atype%27%3AShardFilter%27"><span class="annot"><span class="annottext">ShardFilter -&gt; ShardFilterType
 </span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#%24sel%3Atype%27%3AShardFilter%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#ShardFilterType"><span class="hs-identifier hs-type">ShardFilterType</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198459"><span id="local-6989586621679198461"><span class="annot"><span class="annottext">ShardFilter -&gt; ShardFilter -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198468"><span id="local-6989586621679198470"><span class="annot"><span class="annottext">ShardFilter -&gt; ShardFilter -&gt; Bool
 (ShardFilter -&gt; ShardFilter -&gt; Bool)
 -&gt; (ShardFilter -&gt; ShardFilter -&gt; Bool) -&gt; Eq ShardFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ShardFilter -&gt; ShardFilter -&gt; Bool
 == :: ShardFilter -&gt; ShardFilter -&gt; Bool
 $c== :: ShardFilter -&gt; ShardFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198450"><span id="local-6989586621679198452"><span id="local-6989586621679198454"><span id="local-6989586621679198456"><span class="annot"><span class="annottext">ReadPrec [ShardFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198459"><span id="local-6989586621679198461"><span id="local-6989586621679198463"><span id="local-6989586621679198465"><span class="annot"><span class="annottext">ReadPrec [ShardFilter]
 ReadPrec ShardFilter
 Int -&gt; ReadS ShardFilter
 ReadS [ShardFilter]
@@ -61,7 +61,7 @@ readList :: ReadS [ShardFilter]
 $creadList :: ReadS [ShardFilter]
 readsPrec :: Int -&gt; ReadS ShardFilter
 $creadsPrec :: Int -&gt; ReadS ShardFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198443"><span id="local-6989586621679198445"><span id="local-6989586621679198447"><span class="annot"><span class="annottext">Int -&gt; ShardFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198452"><span id="local-6989586621679198454"><span id="local-6989586621679198456"><span class="annot"><span class="annottext">Int -&gt; ShardFilter -&gt; ShowS
 [ShardFilter] -&gt; ShowS
 ShardFilter -&gt; String
 (Int -&gt; ShardFilter -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. ShardFilter -&gt; Rep ShardFilter x
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#ShardFilterType"><span class="hs-identifier hs-type">ShardFilterType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span>
 </span><span id="line-52"></span><span id="newShardFilter"><span class="annot"><span class="annottext">newShardFilter :: ShardFilterType -&gt; ShardFilter
-</span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#newShardFilter"><span class="hs-identifier hs-var hs-var">newShardFilter</span></a></span></span><span> </span><span id="local-6989586621679198437"><span class="annot"><span class="annottext">ShardFilterType
-</span><a href="#local-6989586621679198437"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#newShardFilter"><span class="hs-identifier hs-var hs-var">newShardFilter</span></a></span></span><span> </span><span id="local-6989586621679198446"><span class="annot"><span class="annottext">ShardFilterType
+</span><a href="#local-6989586621679198446"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ShardFilter' :: Maybe POSIX -&gt; Maybe Text -&gt; ShardFilterType -&gt; ShardFilter
 </span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:ShardFilter' :: Maybe POSIX
@@ -119,7 +119,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ShardFilter' :: ShardFilterType
 </span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#%24sel%3Atype%27%3AShardFilter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShardFilterType
-</span><a href="#local-6989586621679198437"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679198446"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -130,16 +130,16 @@ forall a. Maybe a
 -&gt; (ShardFilter -&gt; Maybe POSIX -&gt; ShardFilter)
 -&gt; Lens ShardFilter ShardFilter (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198433"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198442"><span class="annot"><span class="annottext">Maybe POSIX
 timestamp :: Maybe POSIX
 $sel:timestamp:ShardFilter' :: ShardFilter -&gt; Maybe POSIX
-</span><a href="#local-6989586621679198433"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198433"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198432"><span class="annot"><span class="annottext">s :: ShardFilter
-</span><a href="#local-6989586621679198432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198431"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilter
-</span><a href="#local-6989586621679198432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ShardFilter' :: Maybe POSIX
+</span><a href="#local-6989586621679198442"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198442"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198441"><span class="annot"><span class="annottext">s :: ShardFilter
+</span><a href="#local-6989586621679198441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198440"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilter
+</span><a href="#local-6989586621679198441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:ShardFilter' :: Maybe POSIX
 </span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#%24sel%3Atimestamp%3AShardFilter%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ShardFilter -&gt; f ShardFilter)
+</span><a href="#local-6989586621679198440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ShardFilter -&gt; f ShardFilter)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -162,16 +162,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ShardFilter -&gt; Maybe Text -&gt; ShardFilter)
 -&gt; Lens ShardFilter ShardFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198426"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198435"><span class="annot"><span class="annottext">Maybe Text
 shardId :: Maybe Text
 $sel:shardId:ShardFilter' :: ShardFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679198426"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198426"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198425"><span class="annot"><span class="annottext">s :: ShardFilter
-</span><a href="#local-6989586621679198425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198424"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilter
-</span><a href="#local-6989586621679198425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:ShardFilter' :: Maybe Text
+</span><a href="#local-6989586621679198435"><span class="hs-identifier hs-var hs-var">shardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198435"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198434"><span class="annot"><span class="annottext">s :: ShardFilter
+</span><a href="#local-6989586621679198434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198433"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilter
+</span><a href="#local-6989586621679198434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardId:ShardFilter' :: Maybe Text
 </span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#%24sel%3AshardId%3AShardFilter%27"><span class="hs-identifier hs-var">shardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#shardFilter_type"><span class="hs-identifier hs-type">shardFilter_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilterType.html#ShardFilterType"><span class="hs-identifier hs-type">ShardFilterType</span></a></span><span>
@@ -181,24 +181,24 @@ $sel:shardId:ShardFilter' :: ShardFilter -&gt; Maybe Text
 -&gt; (ShardFilter -&gt; ShardFilterType -&gt; ShardFilter)
 -&gt; Lens ShardFilter ShardFilter ShardFilterType ShardFilterType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198422"><span class="annot"><span class="annottext">ShardFilterType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198431"><span class="annot"><span class="annottext">ShardFilterType
 type' :: ShardFilterType
 $sel:type':ShardFilter' :: ShardFilter -&gt; ShardFilterType
-</span><a href="#local-6989586621679198422"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilterType
-</span><a href="#local-6989586621679198422"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198421"><span class="annot"><span class="annottext">s :: ShardFilter
-</span><a href="#local-6989586621679198421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198420"><span class="annot"><span class="annottext">ShardFilterType
-</span><a href="#local-6989586621679198420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilter
-</span><a href="#local-6989586621679198421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ShardFilter' :: ShardFilterType
+</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilterType
+</span><a href="#local-6989586621679198431"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198430"><span class="annot"><span class="annottext">s :: ShardFilter
+</span><a href="#local-6989586621679198430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198429"><span class="annot"><span class="annottext">ShardFilterType
+</span><a href="#local-6989586621679198429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShardFilter
+</span><a href="#local-6989586621679198430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ShardFilter' :: ShardFilterType
 </span><a href="Network.AWS.Kinesis.Types.ShardFilter.html#%24sel%3Atype%27%3AShardFilter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ShardFilterType
-</span><a href="#local-6989586621679198420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198416"><span id="local-6989586621679198418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198425"><span id="local-6989586621679198427"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198422"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198405"><span id="local-6989586621679198407"><span id="local-6989586621679198409"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679198403"><span class="annot"><span class="annottext">toJSON :: ShardFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198399"><span id="local-6989586621679198400"><span id="local-6989586621679198401"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198414"><span id="local-6989586621679198416"><span id="local-6989586621679198418"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter"><span class="hs-identifier hs-type">ShardFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679198412"><span class="annot"><span class="annottext">toJSON :: ShardFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.ShardFilter.html#ShardFilter%27"><span class="hs-identifier hs-type">ShardFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198408"><span id="local-6989586621679198409"><span id="local-6989586621679198410"><span class="annot"><span class="annottext">Maybe Text
 Maybe POSIX
 ShardFilterType
 type' :: ShardFilterType
@@ -207,7 +207,7 @@ timestamp :: Maybe POSIX
 $sel:type':ShardFilter' :: ShardFilter -&gt; ShardFilterType
 $sel:shardId:ShardFilter' :: ShardFilter -&gt; Maybe Text
 $sel:timestamp:ShardFilter' :: ShardFilter -&gt; Maybe POSIX
-</span><a href="#local-6989586621679198399"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198408"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -219,21 +219,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679198401"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198410"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679198400"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679198409"><span class="hs-identifier hs-var">shardId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ShardFilterType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ShardFilterType
-</span><a href="#local-6989586621679198399"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198408"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

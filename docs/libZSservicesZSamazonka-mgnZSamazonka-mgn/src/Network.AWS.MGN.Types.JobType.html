@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.Types.JobType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.Types.JobType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType"><span class="hs-identifier">JobType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType_LAUNCH"><span class="hs-identifier">JobType_LAUNCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType_TERMINATE"><span class="hs-identifier">JobType_TERMINATE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679226765"><span id="local-6989586621679226766"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JobType"><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType"><span class="hs-identifier hs-var">JobType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobType%27"><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType%27"><span class="hs-identifier hs-var">JobType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromJobType"><span class="annot"><span class="annottext">JobType -&gt; Text
+</span><a href="Network.AWS.MGN.Types.JobType.html#fromJobType"><span class="hs-identifier hs-var hs-var">fromJobType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226757"><span id="local-6989586621679226759"><span id="local-6989586621679226761"><span class="annot"><span class="annottext">Int -&gt; JobType -&gt; ShowS
+[JobType] -&gt; ShowS
+JobType -&gt; String
+(Int -&gt; JobType -&gt; ShowS)
+-&gt; (JobType -&gt; String) -&gt; ([JobType] -&gt; ShowS) -&gt; Show JobType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JobType] -&gt; ShowS
+$cshowList :: [JobType] -&gt; ShowS
+show :: JobType -&gt; String
+$cshow :: JobType -&gt; String
+showsPrec :: Int -&gt; JobType -&gt; ShowS
+$cshowsPrec :: Int -&gt; JobType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679226748"><span id="local-6989586621679226750"><span id="local-6989586621679226752"><span id="local-6989586621679226754"><span class="annot"><span class="annottext">ReadPrec [JobType]
+ReadPrec JobType
+Int -&gt; ReadS JobType
+ReadS [JobType]
+(Int -&gt; ReadS JobType)
+-&gt; ReadS [JobType]
+-&gt; ReadPrec JobType
+-&gt; ReadPrec [JobType]
+-&gt; Read JobType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JobType]
+$creadListPrec :: ReadPrec [JobType]
+readPrec :: ReadPrec JobType
+$creadPrec :: ReadPrec JobType
+readList :: ReadS [JobType]
+$creadList :: ReadS [JobType]
+readsPrec :: Int -&gt; ReadS JobType
+$creadsPrec :: Int -&gt; ReadS JobType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679226743"><span id="local-6989586621679226745"><span class="annot"><span class="annottext">JobType -&gt; JobType -&gt; Bool
+(JobType -&gt; JobType -&gt; Bool)
+-&gt; (JobType -&gt; JobType -&gt; Bool) -&gt; Eq JobType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JobType -&gt; JobType -&gt; Bool
+$c/= :: JobType -&gt; JobType -&gt; Bool
+== :: JobType -&gt; JobType -&gt; Bool
+$c== :: JobType -&gt; JobType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679226727"><span id="local-6989586621679226729"><span id="local-6989586621679226731"><span id="local-6989586621679226733"><span id="local-6989586621679226735"><span id="local-6989586621679226737"><span id="local-6989586621679226739"><span class="annot"><span class="annottext">Eq JobType
+Eq JobType
+-&gt; (JobType -&gt; JobType -&gt; Ordering)
+-&gt; (JobType -&gt; JobType -&gt; Bool)
+-&gt; (JobType -&gt; JobType -&gt; Bool)
+-&gt; (JobType -&gt; JobType -&gt; Bool)
+-&gt; (JobType -&gt; JobType -&gt; Bool)
+-&gt; (JobType -&gt; JobType -&gt; JobType)
+-&gt; (JobType -&gt; JobType -&gt; JobType)
+-&gt; Ord JobType
+JobType -&gt; JobType -&gt; Bool
+JobType -&gt; JobType -&gt; Ordering
+JobType -&gt; JobType -&gt; JobType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JobType -&gt; JobType -&gt; JobType
+$cmin :: JobType -&gt; JobType -&gt; JobType
+max :: JobType -&gt; JobType -&gt; JobType
+$cmax :: JobType -&gt; JobType -&gt; JobType
+&gt;= :: JobType -&gt; JobType -&gt; Bool
+$c&gt;= :: JobType -&gt; JobType -&gt; Bool
+&gt; :: JobType -&gt; JobType -&gt; Bool
+$c&gt; :: JobType -&gt; JobType -&gt; Bool
+&lt;= :: JobType -&gt; JobType -&gt; Bool
+$c&lt;= :: JobType -&gt; JobType -&gt; Bool
+&lt; :: JobType -&gt; JobType -&gt; Bool
+$c&lt; :: JobType -&gt; JobType -&gt; Bool
+compare :: JobType -&gt; JobType -&gt; Ordering
+$ccompare :: JobType -&gt; JobType -&gt; Ordering
+$cp1Ord :: Eq JobType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JobType -&gt; Rep JobType x)
+-&gt; (forall x. Rep JobType x -&gt; JobType) -&gt; Generic JobType
+forall x. Rep JobType x -&gt; JobType
+forall x. JobType -&gt; Rep JobType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JobType x -&gt; JobType
+$cfrom :: forall x. JobType -&gt; Rep JobType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226719"><span id="local-6989586621679226721"><span class="annot"><span class="annottext">Int -&gt; JobType -&gt; Int
+JobType -&gt; Int
+(Int -&gt; JobType -&gt; Int) -&gt; (JobType -&gt; Int) -&gt; Hashable JobType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JobType -&gt; Int
+$chash :: JobType -&gt; Int
+hashWithSalt :: Int -&gt; JobType -&gt; Int
+$chashWithSalt :: Int -&gt; JobType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679226716"><span class="annot"><span class="annottext">JobType -&gt; ()
+(JobType -&gt; ()) -&gt; NFData JobType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JobType -&gt; ()
+$crnf :: JobType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679226713"><span class="annot"><span class="annottext">Text -&gt; Either String JobType
+(Text -&gt; Either String JobType) -&gt; FromText JobType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JobType
+$cfromText :: Text -&gt; Either String JobType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679226710"><span class="annot"><span class="annottext">JobType -&gt; Text
+(JobType -&gt; Text) -&gt; ToText JobType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JobType -&gt; Text
+$ctoText :: JobType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679226707"><span class="annot"><span class="annottext">JobType -&gt; ByteString
+(JobType -&gt; ByteString) -&gt; ToByteString JobType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JobType -&gt; ByteString
+$ctoBS :: JobType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226704"><span class="annot"><span class="annottext">JobType -&gt; ByteStringBuilder
+(JobType -&gt; ByteStringBuilder) -&gt; ToLog JobType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JobType -&gt; ByteStringBuilder
+$cbuild :: JobType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226701"><span class="annot"><span class="annottext">HeaderName -&gt; JobType -&gt; [Header]
+(HeaderName -&gt; JobType -&gt; [Header]) -&gt; ToHeader JobType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JobType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JobType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226698"><span class="annot"><span class="annottext">JobType -&gt; QueryString
+(JobType -&gt; QueryString) -&gt; ToQuery JobType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JobType -&gt; QueryString
+$ctoQuery :: JobType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226693"><span id="local-6989586621679226695"><span class="annot"><span class="annottext">Value -&gt; Parser [JobType]
+Value -&gt; Parser JobType
+(Value -&gt; Parser JobType)
+-&gt; (Value -&gt; Parser [JobType]) -&gt; FromJSON JobType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JobType]
+$cparseJSONList :: Value -&gt; Parser [JobType]
+parseJSON :: Value -&gt; Parser JobType
+$cparseJSON :: Value -&gt; Parser JobType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226688"><span id="local-6989586621679226690"><span class="annot"><span class="annottext">FromJSONKeyFunction [JobType]
+FromJSONKeyFunction JobType
+FromJSONKeyFunction JobType
+-&gt; FromJSONKeyFunction [JobType] -&gt; FromJSONKey JobType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JobType]
+$cfromJSONKeyList :: FromJSONKeyFunction [JobType]
+fromJSONKey :: FromJSONKeyFunction JobType
+$cfromJSONKey :: FromJSONKeyFunction JobType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226679"><span id="local-6989586621679226681"><span id="local-6989586621679226683"><span id="local-6989586621679226685"><span class="annot"><span class="annottext">[JobType] -&gt; Encoding
+[JobType] -&gt; Value
+JobType -&gt; Encoding
+JobType -&gt; Value
+(JobType -&gt; Value)
+-&gt; (JobType -&gt; Encoding)
+-&gt; ([JobType] -&gt; Value)
+-&gt; ([JobType] -&gt; Encoding)
+-&gt; ToJSON JobType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JobType] -&gt; Encoding
+$ctoEncodingList :: [JobType] -&gt; Encoding
+toJSONList :: [JobType] -&gt; Value
+$ctoJSONList :: [JobType] -&gt; Value
+toEncoding :: JobType -&gt; Encoding
+$ctoEncoding :: JobType -&gt; Encoding
+toJSON :: JobType -&gt; Value
+$ctoJSON :: JobType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226674"><span id="local-6989586621679226676"><span class="annot"><span class="annottext">ToJSONKeyFunction [JobType]
+ToJSONKeyFunction JobType
+ToJSONKeyFunction JobType
+-&gt; ToJSONKeyFunction [JobType] -&gt; ToJSONKey JobType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JobType]
+$ctoJSONKeyList :: ToJSONKeyFunction [JobType]
+toJSONKey :: ToJSONKeyFunction JobType
+$ctoJSONKey :: ToJSONKeyFunction JobType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226671"><span class="annot"><span class="annottext">[Node] -&gt; Either String JobType
+([Node] -&gt; Either String JobType) -&gt; FromXML JobType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JobType
+$cparseXML :: [Node] -&gt; Either String JobType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226668"><span class="annot"><span class="annottext">JobType -&gt; XML
+(JobType -&gt; XML) -&gt; ToXML JobType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JobType -&gt; XML
+$ctoXML :: JobType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType_LAUNCH"><span class="hs-identifier hs-type">JobType_LAUNCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobType_LAUNCH"><span id="%24mJobType_LAUNCH"><span id="JobType_LAUNCH"><span class="annot"><span class="annottext">$bJobType_LAUNCH :: JobType
+$mJobType_LAUNCH :: forall r. JobType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.JobType.html#%24bJobType_LAUNCH"><span class="hs-identifier hs-var hs-var hs-var">JobType_LAUNCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType%27"><span class="hs-identifier hs-type">JobType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LAUNCH&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType_TERMINATE"><span class="hs-identifier hs-type">JobType_TERMINATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJobType_TERMINATE"><span id="%24mJobType_TERMINATE"><span id="JobType_TERMINATE"><span class="annot"><span class="annottext">$bJobType_TERMINATE :: JobType
+$mJobType_TERMINATE :: forall r. JobType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MGN.Types.JobType.html#%24bJobType_TERMINATE"><span class="hs-identifier hs-var hs-var hs-var">JobType_TERMINATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType%27"><span class="hs-identifier hs-type">JobType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType_LAUNCH"><span class="hs-pragma hs-type">JobType_LAUNCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType_TERMINATE"><span class="hs-pragma hs-type">JobType_TERMINATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType%27"><span class="hs-pragma hs-type">JobType'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

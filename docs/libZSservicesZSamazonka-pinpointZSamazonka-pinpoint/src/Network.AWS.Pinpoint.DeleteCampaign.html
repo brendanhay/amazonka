@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteCampaign' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679638179"><span id="local-6989586621679638180"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCampaign"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-var">DeleteCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCampaign%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-var">DeleteCampaign'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679638188"><span id="local-6989586621679638189"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCampaign"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-var">DeleteCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCampaign%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-var">DeleteCampaign'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="annot"><span class="annottext">DeleteCampaign -&gt; Text
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="annot"><span class="annottext">DeleteCampaign -&gt; Text
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638172"><span id="local-6989586621679638174"><span class="annot"><span class="annottext">DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638181"><span id="local-6989586621679638183"><span class="annot"><span class="annottext">DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
 (DeleteCampaign -&gt; DeleteCampaign -&gt; Bool)
 -&gt; (DeleteCampaign -&gt; DeleteCampaign -&gt; Bool) -&gt; Eq DeleteCampaign
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
 == :: DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
 $c== :: DeleteCampaign -&gt; DeleteCampaign -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638163"><span id="local-6989586621679638165"><span id="local-6989586621679638167"><span id="local-6989586621679638169"><span class="annot"><span class="annottext">ReadPrec [DeleteCampaign]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638172"><span id="local-6989586621679638174"><span id="local-6989586621679638176"><span id="local-6989586621679638178"><span class="annot"><span class="annottext">ReadPrec [DeleteCampaign]
 ReadPrec DeleteCampaign
 Int -&gt; ReadS DeleteCampaign
 ReadS [DeleteCampaign]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteCampaign]
 $creadList :: ReadS [DeleteCampaign]
 readsPrec :: Int -&gt; ReadS DeleteCampaign
 $creadsPrec :: Int -&gt; ReadS DeleteCampaign
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638156"><span id="local-6989586621679638158"><span id="local-6989586621679638160"><span class="annot"><span class="annottext">Int -&gt; DeleteCampaign -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638165"><span id="local-6989586621679638167"><span id="local-6989586621679638169"><span class="annot"><span class="annottext">Int -&gt; DeleteCampaign -&gt; ShowS
 [DeleteCampaign] -&gt; ShowS
 DeleteCampaign -&gt; String
 (Int -&gt; DeleteCampaign -&gt; ShowS)
@@ -130,17 +130,17 @@ $cfrom :: forall x. DeleteCampaign -&gt; Rep DeleteCampaign x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span>
 </span><span id="line-78"></span><span id="newDeleteCampaign"><span class="annot"><span class="annottext">newDeleteCampaign :: Text -&gt; Text -&gt; DeleteCampaign
-</span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#newDeleteCampaign"><span class="hs-identifier hs-var hs-var">newDeleteCampaign</span></a></span></span><span> </span><span id="local-6989586621679638151"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638151"><span class="hs-identifier hs-var">pCampaignId_</span></a></span></span><span> </span><span id="local-6989586621679638150"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638150"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#newDeleteCampaign"><span class="hs-identifier hs-var hs-var">newDeleteCampaign</span></a></span></span><span> </span><span id="local-6989586621679638160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638160"><span class="hs-identifier hs-var">pCampaignId_</span></a></span></span><span> </span><span id="local-6989586621679638159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638159"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteCampaign' :: Text -&gt; Text -&gt; DeleteCampaign
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:campaignId:DeleteCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638151"><span class="hs-identifier hs-var">pCampaignId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679638160"><span class="hs-identifier hs-var">pCampaignId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:DeleteCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638150"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679638159"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The unique identifier for the campaign.</span><span>
@@ -150,16 +150,16 @@ $cfrom :: forall x. DeleteCampaign -&gt; Rep DeleteCampaign x
 -&gt; (DeleteCampaign -&gt; Text -&gt; DeleteCampaign)
 -&gt; Lens DeleteCampaign DeleteCampaign Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638147"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638156"><span class="annot"><span class="annottext">Text
 campaignId :: Text
 $sel:campaignId:DeleteCampaign' :: DeleteCampaign -&gt; Text
-</span><a href="#local-6989586621679638147"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638147"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638146"><span class="annot"><span class="annottext">s :: DeleteCampaign
-</span><a href="#local-6989586621679638146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638145"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaign
-</span><a href="#local-6989586621679638146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:DeleteCampaign' :: Text
+</span><a href="#local-6989586621679638156"><span class="hs-identifier hs-var hs-var">campaignId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638156"><span class="hs-identifier hs-var">campaignId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638155"><span class="annot"><span class="annottext">s :: DeleteCampaign
+</span><a href="#local-6989586621679638155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaign
+</span><a href="#local-6989586621679638155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignId:DeleteCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">campaignId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
@@ -169,27 +169,27 @@ $sel:campaignId:DeleteCampaign' :: DeleteCampaign -&gt; Text
 -&gt; (DeleteCampaign -&gt; Text -&gt; DeleteCampaign)
 -&gt; Lens DeleteCampaign DeleteCampaign Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638144"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638153"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:DeleteCampaign' :: DeleteCampaign -&gt; Text
-</span><a href="#local-6989586621679638144"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638144"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638143"><span class="annot"><span class="annottext">s :: DeleteCampaign
-</span><a href="#local-6989586621679638143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638142"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaign
-</span><a href="#local-6989586621679638143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteCampaign' :: Text
+</span><a href="#local-6989586621679638153"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638153"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638152"><span class="annot"><span class="annottext">s :: DeleteCampaign
+</span><a href="#local-6989586621679638152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679638151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaign
+</span><a href="#local-6989586621679638152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteCampaign' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AapplicationId%3ADeleteCampaign%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679638138"><span class="annot"><span class="annottext">request :: DeleteCampaign -&gt; Request DeleteCampaign
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679638147"><span class="annot"><span class="annottext">request :: DeleteCampaign -&gt; Request DeleteCampaign
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCampaign -&gt; Request DeleteCampaign
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679638134"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679638143"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCampaign
 -&gt; ClientResponse ClientBody
@@ -213,10 +213,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679638131"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679638131"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679638130"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679638130"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679638129"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679638129"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679638140"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638140"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679638139"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679638139"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679638138"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679638138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-var">DeleteCampaignResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse)
@@ -228,7 +228,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679638131"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638140"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (CampaignResponse -&gt; DeleteCampaignResponse)
 -&gt; Either String CampaignResponse
 -&gt; Either String DeleteCampaignResponse
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String CampaignResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679638129"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638138"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638121"><span id="local-6989586621679638123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638130"><span id="local-6989586621679638132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679638114"><span class="annot"><span class="annottext">toHeaders :: DeleteCampaign -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679638123"><span class="annot"><span class="annottext">toHeaders :: DeleteCampaign -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCampaign -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -264,13 +264,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679638108"><span class="annot"><span class="annottext">toPath :: DeleteCampaign -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638105"><span id="local-6989586621679638106"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679638117"><span class="annot"><span class="annottext">toPath :: DeleteCampaign -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign%27"><span class="hs-identifier hs-type">DeleteCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638114"><span id="local-6989586621679638115"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 campaignId :: Text
 $sel:applicationId:DeleteCampaign' :: DeleteCampaign -&gt; Text
 $sel:campaignId:DeleteCampaign' :: DeleteCampaign -&gt; Text
-</span><a href="#local-6989586621679638105"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679638114"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -279,17 +279,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638105"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679638114"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/campaigns/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679638106"><span class="hs-identifier hs-var">campaignId</span></a></span><span>
+</span><a href="#local-6989586621679638115"><span class="hs-identifier hs-var">campaignId</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaign"><span class="hs-identifier hs-type">DeleteCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679638101"><span class="annot"><span class="annottext">toQuery :: DeleteCampaign -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679638110"><span class="annot"><span class="annottext">toQuery :: DeleteCampaign -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCampaign -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -297,14 +297,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDeleteCampaignResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679638098"><span id="local-6989586621679638099"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCampaignResponse"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-var">DeleteCampaignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCampaignResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-var">DeleteCampaignResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679638107"><span id="local-6989586621679638108"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCampaignResponse"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-var">DeleteCampaignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCampaignResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-var">DeleteCampaignResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="annot"><span class="annottext">DeleteCampaignResponse -&gt; Int
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="annot"><span class="annottext">DeleteCampaignResponse -&gt; CampaignResponse
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignResponse.html#CampaignResponse"><span class="hs-identifier hs-type">CampaignResponse</span></a></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638092"><span id="local-6989586621679638094"><span class="annot"><span class="annottext">DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679638101"><span id="local-6989586621679638103"><span class="annot"><span class="annottext">DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
 (DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool)
 -&gt; (DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool)
 -&gt; Eq DeleteCampaignResponse
@@ -313,7 +313,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
 == :: DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
 $c== :: DeleteCampaignResponse -&gt; DeleteCampaignResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638084"><span id="local-6989586621679638086"><span id="local-6989586621679638088"><span id="local-6989586621679638090"><span class="annot"><span class="annottext">ReadPrec [DeleteCampaignResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638093"><span id="local-6989586621679638095"><span id="local-6989586621679638097"><span id="local-6989586621679638099"><span class="annot"><span class="annottext">ReadPrec [DeleteCampaignResponse]
 ReadPrec DeleteCampaignResponse
 Int -&gt; ReadS DeleteCampaignResponse
 ReadS [DeleteCampaignResponse]
@@ -333,7 +333,7 @@ readList :: ReadS [DeleteCampaignResponse]
 $creadList :: ReadS [DeleteCampaignResponse]
 readsPrec :: Int -&gt; ReadS DeleteCampaignResponse
 $creadsPrec :: Int -&gt; ReadS DeleteCampaignResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638078"><span id="local-6989586621679638080"><span id="local-6989586621679638082"><span class="annot"><span class="annottext">Int -&gt; DeleteCampaignResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679638087"><span id="local-6989586621679638089"><span id="local-6989586621679638091"><span class="annot"><span class="annottext">Int -&gt; DeleteCampaignResponse -&gt; ShowS
 [DeleteCampaignResponse] -&gt; ShowS
 DeleteCampaignResponse -&gt; String
 (Int -&gt; DeleteCampaignResponse -&gt; ShowS)
@@ -379,18 +379,18 @@ $cfrom :: forall x. DeleteCampaignResponse -&gt; Rep DeleteCampaignResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span>
 </span><span id="line-158"></span><span id="newDeleteCampaignResponse"><span class="annot"><span class="annottext">newDeleteCampaignResponse :: Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#newDeleteCampaignResponse"><span class="hs-identifier hs-var hs-var">newDeleteCampaignResponse</span></a></span></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679638075"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679638075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679638074"><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679638074"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679638084"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638084"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679638083"><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679638083"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">DeleteCampaignResponse' :: Int -&gt; CampaignResponse -&gt; DeleteCampaignResponse
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCampaignResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679638075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679638084"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:campaignResponse:DeleteCampaignResponse' :: CampaignResponse
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679638074"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span><span>
+</span><a href="#local-6989586621679638083"><span class="hs-identifier hs-var">pCampaignResponse_</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -401,16 +401,16 @@ $cfrom :: forall x. DeleteCampaignResponse -&gt; Rep DeleteCampaignResponse x
 -&gt; (DeleteCampaignResponse -&gt; Int -&gt; DeleteCampaignResponse)
 -&gt; Lens DeleteCampaignResponse DeleteCampaignResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638073"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638082"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteCampaignResponse' :: DeleteCampaignResponse -&gt; Int
-</span><a href="#local-6989586621679638073"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679638073"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638072"><span class="annot"><span class="annottext">s :: DeleteCampaignResponse
-</span><a href="#local-6989586621679638072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638071"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679638071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaignResponse
-</span><a href="#local-6989586621679638072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCampaignResponse' :: Int
+</span><a href="#local-6989586621679638082"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638082"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638081"><span class="annot"><span class="annottext">s :: DeleteCampaignResponse
+</span><a href="#local-6989586621679638081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638080"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679638080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaignResponse
+</span><a href="#local-6989586621679638081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCampaignResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AhttpStatus%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679638071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#deleteCampaignResponse_campaignResponse"><span class="hs-identifier hs-type">deleteCampaignResponse_campaignResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignResponse.html#CampaignResponse"><span class="hs-identifier hs-type">CampaignResponse</span></a></span><span>
@@ -425,16 +425,16 @@ $sel:httpStatus:DeleteCampaignResponse' :: DeleteCampaignResponse -&gt; Int
      CampaignResponse
      CampaignResponse
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638070"><span class="annot"><span class="annottext">CampaignResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679638079"><span class="annot"><span class="annottext">CampaignResponse
 campaignResponse :: CampaignResponse
 $sel:campaignResponse:DeleteCampaignResponse' :: DeleteCampaignResponse -&gt; CampaignResponse
-</span><a href="#local-6989586621679638070"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679638070"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638069"><span class="annot"><span class="annottext">s :: DeleteCampaignResponse
-</span><a href="#local-6989586621679638069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638068"><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679638068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaignResponse
-</span><a href="#local-6989586621679638069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignResponse:DeleteCampaignResponse' :: CampaignResponse
+</span><a href="#local-6989586621679638079"><span class="hs-identifier hs-var hs-var">campaignResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679638079"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679638078"><span class="annot"><span class="annottext">s :: DeleteCampaignResponse
+</span><a href="#local-6989586621679638078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse%27"><span class="hs-identifier hs-type">DeleteCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679638077"><span class="annot"><span class="annottext">CampaignResponse
+</span><a href="#local-6989586621679638077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCampaignResponse
+</span><a href="#local-6989586621679638078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignResponse:DeleteCampaignResponse' :: CampaignResponse
 </span><a href="Network.AWS.Pinpoint.DeleteCampaign.html#%24sel%3AcampaignResponse%3ADeleteCampaignResponse%27"><span class="hs-identifier hs-var">campaignResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CampaignResponse
-</span><a href="#local-6989586621679638068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679638077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679638075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteCampaign.html#DeleteCampaignResponse"><span class="hs-identifier hs-type">DeleteCampaignResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

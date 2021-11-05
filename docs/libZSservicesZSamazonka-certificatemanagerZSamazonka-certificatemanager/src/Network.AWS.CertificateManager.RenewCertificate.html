@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newRenewCertificate' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679191559"><span id="local-6989586621679191560"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewCertificate"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-var">RenewCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-var">RenewCertificate'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679191568"><span id="local-6989586621679191569"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewCertificate"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-var">RenewCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewCertificate%27"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-var">RenewCertificate'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | String that contains the ARN of the ACM certificate to be renewed. This</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- must be of the form:</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AcertificateArn%3ARenewCertificate%27"><span class="annot"><span class="annottext">RenewCertificate -&gt; Text
 </span><a href="Network.AWS.CertificateManager.RenewCertificate.html#%24sel%3AcertificateArn%3ARenewCertificate%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191553"><span id="local-6989586621679191555"><span class="annot"><span class="annottext">RenewCertificate -&gt; RenewCertificate -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191562"><span id="local-6989586621679191564"><span class="annot"><span class="annottext">RenewCertificate -&gt; RenewCertificate -&gt; Bool
 (RenewCertificate -&gt; RenewCertificate -&gt; Bool)
 -&gt; (RenewCertificate -&gt; RenewCertificate -&gt; Bool)
 -&gt; Eq RenewCertificate
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RenewCertificate -&gt; RenewCertificate -&gt; Bool
 == :: RenewCertificate -&gt; RenewCertificate -&gt; Bool
 $c== :: RenewCertificate -&gt; RenewCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191544"><span id="local-6989586621679191546"><span id="local-6989586621679191548"><span id="local-6989586621679191550"><span class="annot"><span class="annottext">ReadPrec [RenewCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191553"><span id="local-6989586621679191555"><span id="local-6989586621679191557"><span id="local-6989586621679191559"><span class="annot"><span class="annottext">ReadPrec [RenewCertificate]
 ReadPrec RenewCertificate
 Int -&gt; ReadS RenewCertificate
 ReadS [RenewCertificate]
@@ -89,7 +89,7 @@ readList :: ReadS [RenewCertificate]
 $creadList :: ReadS [RenewCertificate]
 readsPrec :: Int -&gt; ReadS RenewCertificate
 $creadsPrec :: Int -&gt; ReadS RenewCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191537"><span id="local-6989586621679191539"><span id="local-6989586621679191541"><span class="annot"><span class="annottext">Int -&gt; RenewCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191546"><span id="local-6989586621679191548"><span id="local-6989586621679191550"><span class="annot"><span class="annottext">Int -&gt; RenewCertificate -&gt; ShowS
 [RenewCertificate] -&gt; ShowS
 RenewCertificate -&gt; String
 (Int -&gt; RenewCertificate -&gt; ShowS)
@@ -135,14 +135,14 @@ $cfrom :: forall x. RenewCertificate -&gt; Rep RenewCertificate x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span>
 </span><span id="line-83"></span><span id="newRenewCertificate"><span class="annot"><span class="annottext">newRenewCertificate :: Text -&gt; RenewCertificate
-</span><a href="Network.AWS.CertificateManager.RenewCertificate.html#newRenewCertificate"><span class="hs-identifier hs-var hs-var">newRenewCertificate</span></a></span></span><span> </span><span id="local-6989586621679191532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191532"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CertificateManager.RenewCertificate.html#newRenewCertificate"><span class="hs-identifier hs-var hs-var">newRenewCertificate</span></a></span></span><span> </span><span id="local-6989586621679191541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191541"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">RenewCertificate' :: Text -&gt; RenewCertificate
 </span><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-type">RenewCertificate'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateArn:RenewCertificate' :: Text
 </span><a href="Network.AWS.CertificateManager.RenewCertificate.html#%24sel%3AcertificateArn%3ARenewCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191532"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span>
+</span><a href="#local-6989586621679191541"><span class="hs-identifier hs-var">pCertificateArn_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | String that contains the ARN of the ACM certificate to be renewed. This</span><span>
@@ -158,27 +158,27 @@ $cfrom :: forall x. RenewCertificate -&gt; Rep RenewCertificate x
 -&gt; (RenewCertificate -&gt; Text -&gt; RenewCertificate)
 -&gt; Lens RenewCertificate RenewCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-type">RenewCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191529"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-type">RenewCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191538"><span class="annot"><span class="annottext">Text
 certificateArn :: Text
 $sel:certificateArn:RenewCertificate' :: RenewCertificate -&gt; Text
-</span><a href="#local-6989586621679191529"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191529"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191528"><span class="annot"><span class="annottext">s :: RenewCertificate
-</span><a href="#local-6989586621679191528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-type">RenewCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191527"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewCertificate
-</span><a href="#local-6989586621679191528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RenewCertificate' :: Text
+</span><a href="#local-6989586621679191538"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191538"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191537"><span class="annot"><span class="annottext">s :: RenewCertificate
+</span><a href="#local-6989586621679191537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-type">RenewCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679191536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RenewCertificate
+</span><a href="#local-6989586621679191537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RenewCertificate' :: Text
 </span><a href="Network.AWS.CertificateManager.RenewCertificate.html#%24sel%3AcertificateArn%3ARenewCertificate%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse"><span class="hs-identifier hs-type">RenewCertificateResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679191523"><span class="annot"><span class="annottext">request :: RenewCertificate -&gt; Request RenewCertificate
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679191532"><span class="annot"><span class="annottext">request :: RenewCertificate -&gt; Request RenewCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RenewCertificate -&gt; Request RenewCertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679191519"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679191528"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RenewCertificate
 -&gt; ClientResponse ClientBody
@@ -202,12 +202,12 @@ AWSResponse a
 RenewCertificateResponse
 </span><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse%27"><span class="hs-identifier hs-var">RenewCertificateResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191512"><span id="local-6989586621679191514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191521"><span id="local-6989586621679191523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679191505"><span class="annot"><span class="annottext">toHeaders :: RenewCertificate -&gt; [Header]
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679191514"><span class="annot"><span class="annottext">toHeaders :: RenewCertificate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RenewCertificate -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -234,12 +234,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191495"><span id="local-6989586621679191497"><span id="local-6989586621679191499"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679191493"><span class="annot"><span class="annottext">toJSON :: RenewCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-type">RenewCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191491"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191504"><span id="local-6989586621679191506"><span id="local-6989586621679191508"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679191502"><span class="annot"><span class="annottext">toJSON :: RenewCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate%27"><span class="hs-identifier hs-type">RenewCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191500"><span class="annot"><span class="annottext">Text
 certificateArn :: Text
 $sel:certificateArn:RenewCertificate' :: RenewCertificate -&gt; Text
-</span><a href="#local-6989586621679191491"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679191500"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,19 +252,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;CertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679191491"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191500"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679191485"><span class="annot"><span class="annottext">toPath :: RenewCertificate -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679191494"><span class="annot"><span class="annottext">toPath :: RenewCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RenewCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificate"><span class="hs-identifier hs-type">RenewCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679191481"><span class="annot"><span class="annottext">toQuery :: RenewCertificate -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679191490"><span class="annot"><span class="annottext">toQuery :: RenewCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RenewCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,10 +272,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newRenewCertificateResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679191478"><span id="local-6989586621679191479"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse"><span class="hs-identifier hs-var">RenewCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse%27"><span class="hs-identifier hs-var">RenewCertificateResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679191487"><span id="local-6989586621679191488"></span></span><span class="hs-keyword">data</span><span> </span><span id="RenewCertificateResponse"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse"><span class="hs-identifier hs-var">RenewCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RenewCertificateResponse%27"><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse%27"><span class="hs-identifier hs-var">RenewCertificateResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191474"><span id="local-6989586621679191476"><span class="annot"><span class="annottext">RenewCertificateResponse -&gt; RenewCertificateResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191483"><span id="local-6989586621679191485"><span class="annot"><span class="annottext">RenewCertificateResponse -&gt; RenewCertificateResponse -&gt; Bool
 (RenewCertificateResponse -&gt; RenewCertificateResponse -&gt; Bool)
 -&gt; (RenewCertificateResponse -&gt; RenewCertificateResponse -&gt; Bool)
 -&gt; Eq RenewCertificateResponse
@@ -284,7 +284,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RenewCertificateResponse -&gt; RenewCertificateResponse -&gt; Bool
 == :: RenewCertificateResponse -&gt; RenewCertificateResponse -&gt; Bool
 $c== :: RenewCertificateResponse -&gt; RenewCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191466"><span id="local-6989586621679191468"><span id="local-6989586621679191470"><span id="local-6989586621679191472"><span class="annot"><span class="annottext">ReadPrec [RenewCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191475"><span id="local-6989586621679191477"><span id="local-6989586621679191479"><span id="local-6989586621679191481"><span class="annot"><span class="annottext">ReadPrec [RenewCertificateResponse]
 ReadPrec RenewCertificateResponse
 Int -&gt; ReadS RenewCertificateResponse
 ReadS [RenewCertificateResponse]
@@ -304,7 +304,7 @@ readList :: ReadS [RenewCertificateResponse]
 $creadList :: ReadS [RenewCertificateResponse]
 readsPrec :: Int -&gt; ReadS RenewCertificateResponse
 $creadsPrec :: Int -&gt; ReadS RenewCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191460"><span id="local-6989586621679191462"><span id="local-6989586621679191464"><span class="annot"><span class="annottext">Int -&gt; RenewCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191469"><span id="local-6989586621679191471"><span id="local-6989586621679191473"><span class="annot"><span class="annottext">Int -&gt; RenewCertificateResponse -&gt; ShowS
 [RenewCertificateResponse] -&gt; ShowS
 RenewCertificateResponse -&gt; String
 (Int -&gt; RenewCertificateResponse -&gt; ShowS)
@@ -347,5 +347,5 @@ RenewCertificateResponse -&gt; Rep RenewCertificateResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">RenewCertificateResponse
 </span><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse%27"><span class="hs-identifier hs-var">RenewCertificateResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse"><span class="hs-identifier hs-type">RenewCertificateResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.RenewCertificate.html#RenewCertificateResponse"><span class="hs-identifier hs-type">RenewCertificateResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

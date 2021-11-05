@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListAliases' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679306213"><span id="local-6989586621679306214"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAliases"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-var">ListAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAliases%27"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-var">ListAliases'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679306222"><span id="local-6989586621679306223"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAliases"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-var">ListAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAliases%27"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-var">ListAliases'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- retrieve the next page of results.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Amarker%3AListAliases%27"><span class="annot"><span class="annottext">ListAliases -&gt; Maybe Text
@@ -83,7 +83,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AfunctionName%3AListAliases%27"><span class="annot"><span class="annottext">ListAliases -&gt; Text
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AfunctionName%3AListAliases%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306204"><span id="local-6989586621679306206"><span class="annot"><span class="annottext">ListAliases -&gt; ListAliases -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306213"><span id="local-6989586621679306215"><span class="annot"><span class="annottext">ListAliases -&gt; ListAliases -&gt; Bool
 (ListAliases -&gt; ListAliases -&gt; Bool)
 -&gt; (ListAliases -&gt; ListAliases -&gt; Bool) -&gt; Eq ListAliases
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAliases -&gt; ListAliases -&gt; Bool
 == :: ListAliases -&gt; ListAliases -&gt; Bool
 $c== :: ListAliases -&gt; ListAliases -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306195"><span id="local-6989586621679306197"><span id="local-6989586621679306199"><span id="local-6989586621679306201"><span class="annot"><span class="annottext">ReadPrec [ListAliases]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306204"><span id="local-6989586621679306206"><span id="local-6989586621679306208"><span id="local-6989586621679306210"><span class="annot"><span class="annottext">ReadPrec [ListAliases]
 ReadPrec ListAliases
 Int -&gt; ReadS ListAliases
 ReadS [ListAliases]
@@ -111,7 +111,7 @@ readList :: ReadS [ListAliases]
 $creadList :: ReadS [ListAliases]
 readsPrec :: Int -&gt; ReadS ListAliases
 $creadsPrec :: Int -&gt; ReadS ListAliases
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306188"><span id="local-6989586621679306190"><span id="local-6989586621679306192"><span class="annot"><span class="annottext">Int -&gt; ListAliases -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306197"><span id="local-6989586621679306199"><span id="local-6989586621679306201"><span class="annot"><span class="annottext">Int -&gt; ListAliases -&gt; ShowS
 [ListAliases] -&gt; ShowS
 ListAliases -&gt; String
 (Int -&gt; ListAliases -&gt; ShowS)
@@ -171,8 +171,8 @@ $cfrom :: forall x. ListAliases -&gt; Rep ListAliases x
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span>
 </span><span id="line-117"></span><span id="newListAliases"><span class="annot"><span class="annottext">newListAliases :: Text -&gt; ListAliases
-</span><a href="Network.AWS.Lambda.ListAliases.html#newListAliases"><span class="hs-identifier hs-var hs-var">newListAliases</span></a></span></span><span> </span><span id="local-6989586621679306183"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306183"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.ListAliases.html#newListAliases"><span class="hs-identifier hs-var hs-var">newListAliases</span></a></span></span><span> </span><span id="local-6989586621679306192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306192"><span class="hs-identifier hs-var">pFunctionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">ListAliases' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; ListAliases
 </span><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListAliases' :: Maybe Text
@@ -189,7 +189,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionName:ListAliases' :: Text
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AfunctionName%3AListAliases%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306183"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
+</span><a href="#local-6989586621679306192"><span class="hs-identifier hs-var">pFunctionName_</span></a></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | Specify the pagination token that\'s returned by a previous request to</span><span>
@@ -200,16 +200,16 @@ forall a. Maybe a
 -&gt; (ListAliases -&gt; Maybe Text -&gt; ListAliases)
 -&gt; Lens ListAliases ListAliases (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306181"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306190"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListAliases' :: ListAliases -&gt; Maybe Text
-</span><a href="#local-6989586621679306181"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306181"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306180"><span class="annot"><span class="annottext">s :: ListAliases
-</span><a href="#local-6989586621679306180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306179"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
-</span><a href="#local-6989586621679306180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAliases' :: Maybe Text
+</span><a href="#local-6989586621679306190"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306190"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306189"><span class="annot"><span class="annottext">s :: ListAliases
+</span><a href="#local-6989586621679306189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
+</span><a href="#local-6989586621679306189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAliases' :: Maybe Text
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3Amarker%3AListAliases%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | Limit the number of aliases returned.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#listAliases_maxItems"><span class="hs-identifier hs-type">listAliases_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -219,16 +219,16 @@ $sel:marker:ListAliases' :: ListAliases -&gt; Maybe Text
 -&gt; (ListAliases -&gt; Maybe Natural -&gt; ListAliases)
 -&gt; Lens ListAliases ListAliases (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306178"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306187"><span class="annot"><span class="annottext">Maybe Natural
 maxItems :: Maybe Natural
 $sel:maxItems:ListAliases' :: ListAliases -&gt; Maybe Natural
-</span><a href="#local-6989586621679306178"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306178"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306177"><span class="annot"><span class="annottext">s :: ListAliases
-</span><a href="#local-6989586621679306177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306176"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
-</span><a href="#local-6989586621679306177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListAliases' :: Maybe Natural
+</span><a href="#local-6989586621679306187"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306187"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306186"><span class="annot"><span class="annottext">s :: ListAliases
+</span><a href="#local-6989586621679306186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306185"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679306185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
+</span><a href="#local-6989586621679306186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListAliases' :: Maybe Natural
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AmaxItems%3AListAliases%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | Specify a function version to only list aliases that invoke that</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- version.</span><span>
@@ -238,16 +238,16 @@ $sel:maxItems:ListAliases' :: ListAliases -&gt; Maybe Natural
 -&gt; (ListAliases -&gt; Maybe Text -&gt; ListAliases)
 -&gt; Lens ListAliases ListAliases (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306175"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306184"><span class="annot"><span class="annottext">Maybe Text
 functionVersion :: Maybe Text
 $sel:functionVersion:ListAliases' :: ListAliases -&gt; Maybe Text
-</span><a href="#local-6989586621679306175"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306175"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306174"><span class="annot"><span class="annottext">s :: ListAliases
-</span><a href="#local-6989586621679306174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306173"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
-</span><a href="#local-6989586621679306174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionVersion:ListAliases' :: Maybe Text
+</span><a href="#local-6989586621679306184"><span class="hs-identifier hs-var hs-var">functionVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306184"><span class="hs-identifier hs-var">functionVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306183"><span class="annot"><span class="annottext">s :: ListAliases
+</span><a href="#local-6989586621679306183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306182"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
+</span><a href="#local-6989586621679306183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionVersion:ListAliases' :: Maybe Text
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AfunctionVersion%3AListAliases%27"><span class="hs-identifier hs-var">functionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the Lambda function.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
@@ -268,28 +268,28 @@ $sel:functionVersion:ListAliases' :: ListAliases -&gt; Maybe Text
 -&gt; (ListAliases -&gt; Text -&gt; ListAliases)
 -&gt; Lens ListAliases ListAliases Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306172"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306181"><span class="annot"><span class="annottext">Text
 functionName :: Text
 $sel:functionName:ListAliases' :: ListAliases -&gt; Text
-</span><a href="#local-6989586621679306172"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306172"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306171"><span class="annot"><span class="annottext">s :: ListAliases
-</span><a href="#local-6989586621679306171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306170"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
-</span><a href="#local-6989586621679306171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:ListAliases' :: Text
+</span><a href="#local-6989586621679306181"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306181"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306180"><span class="annot"><span class="annottext">s :: ListAliases
+</span><a href="#local-6989586621679306180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliases
+</span><a href="#local-6989586621679306180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:ListAliases' :: Text
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AfunctionName%3AListAliases%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679306166"><span class="annot"><span class="annottext">page :: ListAliases -&gt; AWSResponse ListAliases -&gt; Maybe ListAliases
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679306164"><span class="annot"><span class="annottext">ListAliases
-</span><a href="#local-6989586621679306164"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679306163"><span class="annot"><span class="annottext">AWSResponse ListAliases
-</span><a href="#local-6989586621679306163"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679306175"><span class="annot"><span class="annottext">page :: ListAliases -&gt; AWSResponse ListAliases -&gt; Maybe ListAliases
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679306173"><span class="annot"><span class="annottext">ListAliases
+</span><a href="#local-6989586621679306173"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679306172"><span class="annot"><span class="annottext">AWSResponse ListAliases
+</span><a href="#local-6989586621679306172"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAliases
 ListAliasesResponse
-</span><a href="#local-6989586621679306163"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306172"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">ListAliasesResponse
 -&gt; Getting (First Text) ListAliasesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -315,7 +315,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-163"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAliases
 ListAliasesResponse
-</span><a href="#local-6989586621679306163"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306172"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">ListAliasesResponse
 -&gt; Getting
      (First [AliasConfiguration])
@@ -360,7 +360,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ListAliases
-</span><a href="#local-6989586621679306164"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679306173"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ListAliases -&gt; (ListAliases -&gt; ListAliases) -&gt; ListAliases
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -373,7 +373,7 @@ Lens ListAliases ListAliases (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAliases
 ListAliasesResponse
-</span><a href="#local-6989586621679306163"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679306172"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">ListAliasesResponse
 -&gt; Getting (First Text) ListAliasesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -393,12 +393,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679306153"><span class="annot"><span class="annottext">request :: ListAliases -&gt; Request ListAliases
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679306162"><span class="annot"><span class="annottext">request :: ListAliases -&gt; Request ListAliases
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAliases -&gt; Request ListAliases
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679306149"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679306158"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAliases
 -&gt; ClientResponse ClientBody
@@ -422,10 +422,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306146"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306146"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306145"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679306145"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306144"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679306155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306155"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679306154"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679306154"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679306153"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
 -&gt; Maybe Text -&gt; Int -&gt; ListAliasesResponse
 </span><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-var">ListAliasesResponse'</span></a></span><span>
@@ -435,7 +435,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListAliasesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679306153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [AliasConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -451,7 +451,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListAliasesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679306144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679306153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -463,15 +463,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306146"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306155"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306135"><span id="local-6989586621679306137"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306144"><span id="local-6989586621679306146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span></span></span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679306128"><span class="annot"><span class="annottext">toHeaders :: ListAliases -&gt; ResponseHeaders
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679306137"><span class="annot"><span class="annottext">toHeaders :: ListAliases -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAliases -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -479,8 +479,35 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679306123"><span class="annot"><span class="annottext">toPath :: ListAliases -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306118"><span id="local-6989586621679306119"><span id="local-6989586621679306120"><span id="local-6989586621679306121"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679306132"><span class="annot"><span class="annottext">toPath :: ListAliases -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306127"><span id="local-6989586621679306128"><span id="local-6989586621679306129"><span id="local-6989586621679306130"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+functionName :: Text
+functionVersion :: Maybe Text
+maxItems :: Maybe Natural
+marker :: Maybe Text
+$sel:functionName:ListAliases' :: ListAliases -&gt; Text
+$sel:functionVersion:ListAliases' :: ListAliases -&gt; Maybe Text
+$sel:maxItems:ListAliases' :: ListAliases -&gt; Maybe Natural
+$sel:marker:ListAliases' :: ListAliases -&gt; Maybe Text
+</span><a href="#local-6989586621679306127"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2015-03-31/functions/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679306127"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/aliases&quot;</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679306123"><span class="annot"><span class="annottext">toQuery :: ListAliases -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306118"><span id="local-6989586621679306119"><span id="local-6989586621679306120"><span id="local-6989586621679306121"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 functionName :: Text
@@ -492,33 +519,6 @@ $sel:functionVersion:ListAliases' :: ListAliases -&gt; Maybe Text
 $sel:maxItems:ListAliases' :: ListAliases -&gt; Maybe Natural
 $sel:marker:ListAliases' :: ListAliases -&gt; Maybe Text
 </span><a href="#local-6989586621679306118"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-196"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/2015-03-31/functions/&quot;</span></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679306118"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/aliases&quot;</span></span><span>
-</span><span id="line-199"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases"><span class="hs-identifier hs-type">ListAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679306114"><span class="annot"><span class="annottext">toQuery :: ListAliases -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliases%27"><span class="hs-identifier hs-type">ListAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306109"><span id="local-6989586621679306110"><span id="local-6989586621679306111"><span id="local-6989586621679306112"><span class="annot"><span class="annottext">Maybe Natural
-Maybe Text
-Text
-functionName :: Text
-functionVersion :: Maybe Text
-maxItems :: Maybe Natural
-marker :: Maybe Text
-$sel:functionName:ListAliases' :: ListAliases -&gt; Text
-$sel:functionVersion:ListAliases' :: ListAliases -&gt; Maybe Text
-$sel:maxItems:ListAliases' :: ListAliases -&gt; Maybe Natural
-$sel:marker:ListAliases' :: ListAliases -&gt; Maybe Text
-</span><a href="#local-6989586621679306109"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -526,21 +526,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306112"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306121"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679306111"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679306120"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;FunctionVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306110"><span class="hs-identifier hs-var">functionVersion</span></a></span><span>
+</span><a href="#local-6989586621679306119"><span class="hs-identifier hs-var">functionVersion</span></a></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | /See:/ 'newListAliasesResponse' smart constructor.</span><span>
-</span><span id="line-210"></span><span id="local-6989586621679306106"><span id="local-6989586621679306107"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAliasesResponse"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-var">ListAliasesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAliasesResponse%27"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-var">ListAliasesResponse'</span></a></span></span><span>
+</span><span id="line-210"></span><span id="local-6989586621679306115"><span id="local-6989586621679306116"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAliasesResponse"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-var">ListAliasesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAliasesResponse%27"><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-var">ListAliasesResponse'</span></a></span></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of aliases.</span><span>
 </span><span id="line-212"></span><span>    </span><span id="%24sel%3Aaliases%3AListAliasesResponse%27"><span class="annot"><span class="annottext">ListAliasesResponse -&gt; Maybe [AliasConfiguration]
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3Aaliases%3AListAliasesResponse%27"><span class="hs-identifier hs-var hs-var">aliases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lambda.Types.AliasConfiguration.html#AliasConfiguration"><span class="hs-identifier hs-type">AliasConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -551,7 +551,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAliasesResponse%27"><span class="annot"><span class="annottext">ListAliasesResponse -&gt; Int
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AhttpStatus%3AListAliasesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306099"><span id="local-6989586621679306101"><span class="annot"><span class="annottext">ListAliasesResponse -&gt; ListAliasesResponse -&gt; Bool
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679306108"><span id="local-6989586621679306110"><span class="annot"><span class="annottext">ListAliasesResponse -&gt; ListAliasesResponse -&gt; Bool
 (ListAliasesResponse -&gt; ListAliasesResponse -&gt; Bool)
 -&gt; (ListAliasesResponse -&gt; ListAliasesResponse -&gt; Bool)
 -&gt; Eq ListAliasesResponse
@@ -560,7 +560,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAliasesResponse -&gt; ListAliasesResponse -&gt; Bool
 == :: ListAliasesResponse -&gt; ListAliasesResponse -&gt; Bool
 $c== :: ListAliasesResponse -&gt; ListAliasesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306091"><span id="local-6989586621679306093"><span id="local-6989586621679306095"><span id="local-6989586621679306097"><span class="annot"><span class="annottext">ReadPrec [ListAliasesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306100"><span id="local-6989586621679306102"><span id="local-6989586621679306104"><span id="local-6989586621679306106"><span class="annot"><span class="annottext">ReadPrec [ListAliasesResponse]
 ReadPrec ListAliasesResponse
 Int -&gt; ReadS ListAliasesResponse
 ReadS [ListAliasesResponse]
@@ -580,7 +580,7 @@ readList :: ReadS [ListAliasesResponse]
 $creadList :: ReadS [ListAliasesResponse]
 readsPrec :: Int -&gt; ReadS ListAliasesResponse
 $creadsPrec :: Int -&gt; ReadS ListAliasesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306085"><span id="local-6989586621679306087"><span id="local-6989586621679306089"><span class="annot"><span class="annottext">Int -&gt; ListAliasesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679306094"><span id="local-6989586621679306096"><span id="local-6989586621679306098"><span class="annot"><span class="annottext">Int -&gt; ListAliasesResponse -&gt; ShowS
 [ListAliasesResponse] -&gt; ShowS
 ListAliasesResponse -&gt; String
 (Int -&gt; ListAliasesResponse -&gt; ShowS)
@@ -624,8 +624,8 @@ $cfrom :: forall x. ListAliasesResponse -&gt; Rep ListAliasesResponse x
 </span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-236"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span>
 </span><span id="line-237"></span><span id="newListAliasesResponse"><span class="annot"><span class="annottext">newListAliasesResponse :: Int -&gt; ListAliasesResponse
-</span><a href="Network.AWS.Lambda.ListAliases.html#newListAliasesResponse"><span class="hs-identifier hs-var hs-var">newListAliasesResponse</span></a></span></span><span> </span><span id="local-6989586621679306082"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.ListAliases.html#newListAliasesResponse"><span class="hs-identifier hs-var hs-var">newListAliasesResponse</span></a></span></span><span> </span><span id="local-6989586621679306091"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306091"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="annottext">ListAliasesResponse' :: Maybe [AliasConfiguration]
 -&gt; Maybe Text -&gt; Int -&gt; ListAliasesResponse
 </span><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span>
@@ -639,7 +639,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAliasesResponse' :: Int
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AhttpStatus%3AListAliasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679306091"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | A list of aliases.</span><span>
@@ -651,16 +651,16 @@ forall a. Maybe a
     -&gt; Maybe [AliasConfiguration] -&gt; ListAliasesResponse)
 -&gt; Lens' ListAliasesResponse (Maybe [AliasConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306081"><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306090"><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
 aliases :: Maybe [AliasConfiguration]
 $sel:aliases:ListAliasesResponse' :: ListAliasesResponse -&gt; Maybe [AliasConfiguration]
-</span><a href="#local-6989586621679306081"><span class="hs-identifier hs-var hs-var">aliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
-</span><a href="#local-6989586621679306081"><span class="hs-identifier hs-var">aliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306080"><span class="annot"><span class="annottext">s :: ListAliasesResponse
-</span><a href="#local-6989586621679306080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306079"><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
-</span><a href="#local-6989586621679306079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliasesResponse
-</span><a href="#local-6989586621679306080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliases:ListAliasesResponse' :: Maybe [AliasConfiguration]
+</span><a href="#local-6989586621679306090"><span class="hs-identifier hs-var hs-var">aliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
+</span><a href="#local-6989586621679306090"><span class="hs-identifier hs-var">aliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306089"><span class="annot"><span class="annottext">s :: ListAliasesResponse
+</span><a href="#local-6989586621679306089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306088"><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
+</span><a href="#local-6989586621679306088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliasesResponse
+</span><a href="#local-6989586621679306089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliases:ListAliasesResponse' :: Maybe [AliasConfiguration]
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3Aaliases%3AListAliasesResponse%27"><span class="hs-identifier hs-var">aliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AliasConfiguration]
-</span><a href="#local-6989586621679306079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AliasConfiguration] -&gt; f (Maybe [AliasConfiguration]))
+</span><a href="#local-6989586621679306088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AliasConfiguration] -&gt; f (Maybe [AliasConfiguration]))
  -&gt; ListAliasesResponse -&gt; f ListAliasesResponse)
 -&gt; ((Maybe [AliasConfiguration] -&gt; f (Maybe [AliasConfiguration]))
     -&gt; Maybe [AliasConfiguration] -&gt; f (Maybe [AliasConfiguration]))
@@ -697,16 +697,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListAliasesResponse -&gt; Maybe Text -&gt; ListAliasesResponse)
 -&gt; Lens' ListAliasesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306076"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306085"><span class="annot"><span class="annottext">Maybe Text
 nextMarker :: Maybe Text
 $sel:nextMarker:ListAliasesResponse' :: ListAliasesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679306076"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306076"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306075"><span class="annot"><span class="annottext">s :: ListAliasesResponse
-</span><a href="#local-6989586621679306075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306074"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliasesResponse
-</span><a href="#local-6989586621679306075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListAliasesResponse' :: Maybe Text
+</span><a href="#local-6989586621679306085"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306085"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306084"><span class="annot"><span class="annottext">s :: ListAliasesResponse
+</span><a href="#local-6989586621679306084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679306083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliasesResponse
+</span><a href="#local-6989586621679306084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListAliasesResponse' :: Maybe Text
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AnextMarker%3AListAliasesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679306074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#listAliasesResponse_httpStatus"><span class="hs-identifier hs-type">listAliasesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -715,16 +715,16 @@ $sel:nextMarker:ListAliasesResponse' :: ListAliasesResponse -&gt; Maybe Text
 -&gt; (ListAliasesResponse -&gt; Int -&gt; ListAliasesResponse)
 -&gt; Lens ListAliasesResponse ListAliasesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306073"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679306082"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAliasesResponse' :: ListAliasesResponse -&gt; Int
-</span><a href="#local-6989586621679306073"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306073"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306072"><span class="annot"><span class="annottext">s :: ListAliasesResponse
-</span><a href="#local-6989586621679306072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306071"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliasesResponse
-</span><a href="#local-6989586621679306072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAliasesResponse' :: Int
+</span><a href="#local-6989586621679306082"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306082"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679306081"><span class="annot"><span class="annottext">s :: ListAliasesResponse
+</span><a href="#local-6989586621679306081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse%27"><span class="hs-identifier hs-type">ListAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679306080"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679306080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAliasesResponse
+</span><a href="#local-6989586621679306081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAliasesResponse' :: Int
 </span><a href="Network.AWS.Lambda.ListAliases.html#%24sel%3AhttpStatus%3AListAliasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679306071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679306080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
-</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679306078"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.ListAliases.html#ListAliasesResponse"><span class="hs-identifier hs-type">ListAliasesResponse</span></a></span></span><span>
 </span><span id="line-257"></span></pre></body></html>

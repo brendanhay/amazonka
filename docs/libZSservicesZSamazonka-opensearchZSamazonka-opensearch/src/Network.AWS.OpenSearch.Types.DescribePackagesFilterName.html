@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.OpenSearch.Types.DescribePackagesFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.OpenSearch.Types.DescribePackagesFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName"><span class="hs-identifier">DescribePackagesFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageID"><span class="hs-identifier">DescribePackagesFilterName_PackageID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageName"><span class="hs-identifier">DescribePackagesFilterName_PackageName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageStatus"><span class="hs-identifier">DescribePackagesFilterName_PackageStatus</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679298148"><span id="local-6989586621679298149"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DescribePackagesFilterName"><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName"><span class="hs-identifier hs-var">DescribePackagesFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePackagesFilterName%27"><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName%27"><span class="hs-identifier hs-var">DescribePackagesFilterName'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDescribePackagesFilterName"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; Text
+</span><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#fromDescribePackagesFilterName"><span class="hs-identifier hs-var hs-var">fromDescribePackagesFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298140"><span id="local-6989586621679298142"><span id="local-6989586621679298144"><span class="annot"><span class="annottext">Int -&gt; DescribePackagesFilterName -&gt; ShowS
+[DescribePackagesFilterName] -&gt; ShowS
+DescribePackagesFilterName -&gt; String
+(Int -&gt; DescribePackagesFilterName -&gt; ShowS)
+-&gt; (DescribePackagesFilterName -&gt; String)
+-&gt; ([DescribePackagesFilterName] -&gt; ShowS)
+-&gt; Show DescribePackagesFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePackagesFilterName] -&gt; ShowS
+$cshowList :: [DescribePackagesFilterName] -&gt; ShowS
+show :: DescribePackagesFilterName -&gt; String
+$cshow :: DescribePackagesFilterName -&gt; String
+showsPrec :: Int -&gt; DescribePackagesFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePackagesFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298131"><span id="local-6989586621679298133"><span id="local-6989586621679298135"><span id="local-6989586621679298137"><span class="annot"><span class="annottext">ReadPrec [DescribePackagesFilterName]
+ReadPrec DescribePackagesFilterName
+Int -&gt; ReadS DescribePackagesFilterName
+ReadS [DescribePackagesFilterName]
+(Int -&gt; ReadS DescribePackagesFilterName)
+-&gt; ReadS [DescribePackagesFilterName]
+-&gt; ReadPrec DescribePackagesFilterName
+-&gt; ReadPrec [DescribePackagesFilterName]
+-&gt; Read DescribePackagesFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePackagesFilterName]
+$creadListPrec :: ReadPrec [DescribePackagesFilterName]
+readPrec :: ReadPrec DescribePackagesFilterName
+$creadPrec :: ReadPrec DescribePackagesFilterName
+readList :: ReadS [DescribePackagesFilterName]
+$creadList :: ReadS [DescribePackagesFilterName]
+readsPrec :: Int -&gt; ReadS DescribePackagesFilterName
+$creadsPrec :: Int -&gt; ReadS DescribePackagesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298126"><span id="local-6989586621679298128"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+(DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool)
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; Bool)
+-&gt; Eq DescribePackagesFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+$c/= :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+== :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+$c== :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679298110"><span id="local-6989586621679298112"><span id="local-6989586621679298114"><span id="local-6989586621679298116"><span id="local-6989586621679298118"><span id="local-6989586621679298120"><span id="local-6989586621679298122"><span class="annot"><span class="annottext">Eq DescribePackagesFilterName
+Eq DescribePackagesFilterName
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; Ordering)
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; Bool)
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; Bool)
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; Bool)
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; Bool)
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; DescribePackagesFilterName)
+-&gt; (DescribePackagesFilterName
+    -&gt; DescribePackagesFilterName -&gt; DescribePackagesFilterName)
+-&gt; Ord DescribePackagesFilterName
+DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; Ordering
+DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; DescribePackagesFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; DescribePackagesFilterName
+$cmin :: DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; DescribePackagesFilterName
+max :: DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; DescribePackagesFilterName
+$cmax :: DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; DescribePackagesFilterName
+&gt;= :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+$c&gt;= :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+&gt; :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+$c&gt; :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+&lt;= :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+$c&lt;= :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+&lt; :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+$c&lt; :: DescribePackagesFilterName -&gt; DescribePackagesFilterName -&gt; Bool
+compare :: DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; Ordering
+$ccompare :: DescribePackagesFilterName
+-&gt; DescribePackagesFilterName -&gt; Ordering
+$cp1Ord :: Eq DescribePackagesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DescribePackagesFilterName -&gt; Rep DescribePackagesFilterName x)
+-&gt; (forall x.
+    Rep DescribePackagesFilterName x -&gt; DescribePackagesFilterName)
+-&gt; Generic DescribePackagesFilterName
+forall x.
+Rep DescribePackagesFilterName x -&gt; DescribePackagesFilterName
+forall x.
+DescribePackagesFilterName -&gt; Rep DescribePackagesFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePackagesFilterName x -&gt; DescribePackagesFilterName
+$cfrom :: forall x.
+DescribePackagesFilterName -&gt; Rep DescribePackagesFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298102"><span id="local-6989586621679298104"><span class="annot"><span class="annottext">Int -&gt; DescribePackagesFilterName -&gt; Int
+DescribePackagesFilterName -&gt; Int
+(Int -&gt; DescribePackagesFilterName -&gt; Int)
+-&gt; (DescribePackagesFilterName -&gt; Int)
+-&gt; Hashable DescribePackagesFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DescribePackagesFilterName -&gt; Int
+$chash :: DescribePackagesFilterName -&gt; Int
+hashWithSalt :: Int -&gt; DescribePackagesFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; DescribePackagesFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298099"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; ()
+(DescribePackagesFilterName -&gt; ())
+-&gt; NFData DescribePackagesFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DescribePackagesFilterName -&gt; ()
+$crnf :: DescribePackagesFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298096"><span class="annot"><span class="annottext">Text -&gt; Either String DescribePackagesFilterName
+(Text -&gt; Either String DescribePackagesFilterName)
+-&gt; FromText DescribePackagesFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DescribePackagesFilterName
+$cfromText :: Text -&gt; Either String DescribePackagesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298093"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; Text
+(DescribePackagesFilterName -&gt; Text)
+-&gt; ToText DescribePackagesFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DescribePackagesFilterName -&gt; Text
+$ctoText :: DescribePackagesFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298090"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; ByteString
+(DescribePackagesFilterName -&gt; ByteString)
+-&gt; ToByteString DescribePackagesFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DescribePackagesFilterName -&gt; ByteString
+$ctoBS :: DescribePackagesFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298087"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; ByteStringBuilder
+(DescribePackagesFilterName -&gt; ByteStringBuilder)
+-&gt; ToLog DescribePackagesFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DescribePackagesFilterName -&gt; ByteStringBuilder
+$cbuild :: DescribePackagesFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298084"><span class="annot"><span class="annottext">HeaderName -&gt; DescribePackagesFilterName -&gt; [Header]
+(HeaderName -&gt; DescribePackagesFilterName -&gt; [Header])
+-&gt; ToHeader DescribePackagesFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DescribePackagesFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DescribePackagesFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298081"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; QueryString
+(DescribePackagesFilterName -&gt; QueryString)
+-&gt; ToQuery DescribePackagesFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DescribePackagesFilterName -&gt; QueryString
+$ctoQuery :: DescribePackagesFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298076"><span id="local-6989586621679298078"><span class="annot"><span class="annottext">Value -&gt; Parser [DescribePackagesFilterName]
+Value -&gt; Parser DescribePackagesFilterName
+(Value -&gt; Parser DescribePackagesFilterName)
+-&gt; (Value -&gt; Parser [DescribePackagesFilterName])
+-&gt; FromJSON DescribePackagesFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DescribePackagesFilterName]
+$cparseJSONList :: Value -&gt; Parser [DescribePackagesFilterName]
+parseJSON :: Value -&gt; Parser DescribePackagesFilterName
+$cparseJSON :: Value -&gt; Parser DescribePackagesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298071"><span id="local-6989586621679298073"><span class="annot"><span class="annottext">FromJSONKeyFunction [DescribePackagesFilterName]
+FromJSONKeyFunction DescribePackagesFilterName
+FromJSONKeyFunction DescribePackagesFilterName
+-&gt; FromJSONKeyFunction [DescribePackagesFilterName]
+-&gt; FromJSONKey DescribePackagesFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DescribePackagesFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [DescribePackagesFilterName]
+fromJSONKey :: FromJSONKeyFunction DescribePackagesFilterName
+$cfromJSONKey :: FromJSONKeyFunction DescribePackagesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298062"><span id="local-6989586621679298064"><span id="local-6989586621679298066"><span id="local-6989586621679298068"><span class="annot"><span class="annottext">[DescribePackagesFilterName] -&gt; Encoding
+[DescribePackagesFilterName] -&gt; Value
+DescribePackagesFilterName -&gt; Encoding
+DescribePackagesFilterName -&gt; Value
+(DescribePackagesFilterName -&gt; Value)
+-&gt; (DescribePackagesFilterName -&gt; Encoding)
+-&gt; ([DescribePackagesFilterName] -&gt; Value)
+-&gt; ([DescribePackagesFilterName] -&gt; Encoding)
+-&gt; ToJSON DescribePackagesFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DescribePackagesFilterName] -&gt; Encoding
+$ctoEncodingList :: [DescribePackagesFilterName] -&gt; Encoding
+toJSONList :: [DescribePackagesFilterName] -&gt; Value
+$ctoJSONList :: [DescribePackagesFilterName] -&gt; Value
+toEncoding :: DescribePackagesFilterName -&gt; Encoding
+$ctoEncoding :: DescribePackagesFilterName -&gt; Encoding
+toJSON :: DescribePackagesFilterName -&gt; Value
+$ctoJSON :: DescribePackagesFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298057"><span id="local-6989586621679298059"><span class="annot"><span class="annottext">ToJSONKeyFunction [DescribePackagesFilterName]
+ToJSONKeyFunction DescribePackagesFilterName
+ToJSONKeyFunction DescribePackagesFilterName
+-&gt; ToJSONKeyFunction [DescribePackagesFilterName]
+-&gt; ToJSONKey DescribePackagesFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DescribePackagesFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [DescribePackagesFilterName]
+toJSONKey :: ToJSONKeyFunction DescribePackagesFilterName
+$ctoJSONKey :: ToJSONKeyFunction DescribePackagesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298054"><span class="annot"><span class="annottext">[Node] -&gt; Either String DescribePackagesFilterName
+([Node] -&gt; Either String DescribePackagesFilterName)
+-&gt; FromXML DescribePackagesFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DescribePackagesFilterName
+$cparseXML :: [Node] -&gt; Either String DescribePackagesFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298051"><span class="annot"><span class="annottext">DescribePackagesFilterName -&gt; XML
+(DescribePackagesFilterName -&gt; XML)
+-&gt; ToXML DescribePackagesFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DescribePackagesFilterName -&gt; XML
+$ctoXML :: DescribePackagesFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageID"><span class="hs-identifier hs-type">DescribePackagesFilterName_PackageID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName"><span class="hs-identifier hs-type">DescribePackagesFilterName</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDescribePackagesFilterName_PackageID"><span id="%24mDescribePackagesFilterName_PackageID"><span id="DescribePackagesFilterName_PackageID"><span class="annot"><span class="annottext">$bDescribePackagesFilterName_PackageID :: DescribePackagesFilterName
+$mDescribePackagesFilterName_PackageID :: forall r.
+DescribePackagesFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#%24bDescribePackagesFilterName_PackageID"><span class="hs-identifier hs-var hs-var hs-var">DescribePackagesFilterName_PackageID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName%27"><span class="hs-identifier hs-type">DescribePackagesFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PackageID&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageName"><span class="hs-identifier hs-type">DescribePackagesFilterName_PackageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName"><span class="hs-identifier hs-type">DescribePackagesFilterName</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDescribePackagesFilterName_PackageName"><span id="%24mDescribePackagesFilterName_PackageName"><span id="DescribePackagesFilterName_PackageName"><span class="annot"><span class="annottext">$bDescribePackagesFilterName_PackageName :: DescribePackagesFilterName
+$mDescribePackagesFilterName_PackageName :: forall r.
+DescribePackagesFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#%24bDescribePackagesFilterName_PackageName"><span class="hs-identifier hs-var hs-var hs-var">DescribePackagesFilterName_PackageName</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName%27"><span class="hs-identifier hs-type">DescribePackagesFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PackageName&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageStatus"><span class="hs-identifier hs-type">DescribePackagesFilterName_PackageStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName"><span class="hs-identifier hs-type">DescribePackagesFilterName</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDescribePackagesFilterName_PackageStatus"><span id="%24mDescribePackagesFilterName_PackageStatus"><span id="DescribePackagesFilterName_PackageStatus"><span class="annot"><span class="annottext">$bDescribePackagesFilterName_PackageStatus :: DescribePackagesFilterName
+$mDescribePackagesFilterName_PackageStatus :: forall r.
+DescribePackagesFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#%24bDescribePackagesFilterName_PackageStatus"><span class="hs-identifier hs-var hs-var hs-var">DescribePackagesFilterName_PackageStatus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName%27"><span class="hs-identifier hs-type">DescribePackagesFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PackageStatus&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageID"><span class="hs-pragma hs-type">DescribePackagesFilterName_PackageID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageName"><span class="hs-pragma hs-type">DescribePackagesFilterName_PackageName</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName_PackageStatus"><span class="hs-pragma hs-type">DescribePackagesFilterName_PackageStatus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.OpenSearch.Types.DescribePackagesFilterName.html#DescribePackagesFilterName%27"><span class="hs-pragma hs-type">DescribePackagesFilterName'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

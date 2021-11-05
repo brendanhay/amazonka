@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- endpoint and details of transaction and control table data information.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newKafkaSettings' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679433393"><span id="local-6989586621679433394"></span></span><span class="hs-keyword">data</span><span> </span><span id="KafkaSettings"><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-var">KafkaSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KafkaSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-var">KafkaSettings'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679433402"><span id="local-6989586621679433403"></span></span><span class="hs-keyword">data</span><span> </span><span id="KafkaSettings"><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-var">KafkaSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KafkaSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-var">KafkaSettings'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the client private key used to</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- securely connect to a Kafka target endpoint.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AsslClientKeyArn%3AKafkaSettings%27"><span class="annot"><span class="annottext">KafkaSettings -&gt; Maybe Text
@@ -127,7 +127,7 @@
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AincludeNullAndEmpty%3AKafkaSettings%27"><span class="annot"><span class="annottext">KafkaSettings -&gt; Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AincludeNullAndEmpty%3AKafkaSettings%27"><span class="hs-identifier hs-var hs-var">includeNullAndEmpty</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433370"><span id="local-6989586621679433372"><span class="annot"><span class="annottext">KafkaSettings -&gt; KafkaSettings -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433379"><span id="local-6989586621679433381"><span class="annot"><span class="annottext">KafkaSettings -&gt; KafkaSettings -&gt; Bool
 (KafkaSettings -&gt; KafkaSettings -&gt; Bool)
 -&gt; (KafkaSettings -&gt; KafkaSettings -&gt; Bool) -&gt; Eq KafkaSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -135,7 +135,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KafkaSettings -&gt; KafkaSettings -&gt; Bool
 == :: KafkaSettings -&gt; KafkaSettings -&gt; Bool
 $c== :: KafkaSettings -&gt; KafkaSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433363"><span id="local-6989586621679433365"><span id="local-6989586621679433367"><span class="annot"><span class="annottext">Int -&gt; KafkaSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433372"><span id="local-6989586621679433374"><span id="local-6989586621679433376"><span class="annot"><span class="annottext">Int -&gt; KafkaSettings -&gt; ShowS
 [KafkaSettings] -&gt; ShowS
 KafkaSettings -&gt; String
 (Int -&gt; KafkaSettings -&gt; ShowS)
@@ -351,16 +351,16 @@ forall a. Maybe a
 -&gt; (KafkaSettings -&gt; Maybe Text -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433354"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433363"><span class="annot"><span class="annottext">Maybe Text
 sslClientKeyArn :: Maybe Text
 $sel:sslClientKeyArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433354"><span class="hs-identifier hs-var hs-var">sslClientKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433354"><span class="hs-identifier hs-var">sslClientKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433353"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433352"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslClientKeyArn:KafkaSettings' :: Maybe Text
+</span><a href="#local-6989586621679433363"><span class="hs-identifier hs-var hs-var">sslClientKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433363"><span class="hs-identifier hs-var">sslClientKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433362"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433361"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslClientKeyArn:KafkaSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AsslClientKeyArn%3AKafkaSettings%27"><span class="hs-identifier hs-var">sslClientKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | Provides detailed transaction information from the source database. This</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- information includes a commit timestamp, a log position, and values for</span><span>
@@ -372,16 +372,16 @@ $sel:sslClientKeyArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
 -&gt; (KafkaSettings -&gt; Maybe Bool -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433350"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433359"><span class="annot"><span class="annottext">Maybe Bool
 includeTransactionDetails :: Maybe Bool
 $sel:includeTransactionDetails:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433350"><span class="hs-identifier hs-var hs-var">includeTransactionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433350"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433349"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433348"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTransactionDetails:KafkaSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433359"><span class="hs-identifier hs-var hs-var">includeTransactionDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433359"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433358"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433357"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTransactionDetails:KafkaSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AincludeTransactionDetails%3AKafkaSettings%27"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | Includes any data definition language (DDL) operations that change the</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- table in the control data, such as @rename-table@, @drop-table@,</span><span>
@@ -393,16 +393,16 @@ $sel:includeTransactionDetails:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
 -&gt; (KafkaSettings -&gt; Maybe Bool -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433346"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433355"><span class="annot"><span class="annottext">Maybe Bool
 includeTableAlterOperations :: Maybe Bool
 $sel:includeTableAlterOperations:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var hs-var">includeTableAlterOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433345"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433344"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTableAlterOperations:KafkaSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433355"><span class="hs-identifier hs-var hs-var">includeTableAlterOperations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433355"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433354"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433353"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeTableAlterOperations:KafkaSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AincludeTableAlterOperations%3AKafkaSettings%27"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the client certificate used to</span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- securely connect to a Kafka target endpoint.</span><span>
@@ -412,16 +412,16 @@ $sel:includeTableAlterOperations:KafkaSettings' :: KafkaSettings -&gt; Maybe Boo
 -&gt; (KafkaSettings -&gt; Maybe Text -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433342"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433351"><span class="annot"><span class="annottext">Maybe Text
 sslClientCertificateArn :: Maybe Text
 $sel:sslClientCertificateArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433342"><span class="hs-identifier hs-var hs-var">sslClientCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433342"><span class="hs-identifier hs-var">sslClientCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433341"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433340"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslClientCertificateArn:KafkaSettings' :: Maybe Text
+</span><a href="#local-6989586621679433351"><span class="hs-identifier hs-var hs-var">sslClientCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433351"><span class="hs-identifier hs-var">sslClientCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433350"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433349"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslClientCertificateArn:KafkaSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AsslClientCertificateArn%3AKafkaSettings%27"><span class="hs-identifier hs-var">sslClientCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the private certificate authority</span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- (CA) cert that DMS uses to securely connect to your Kafka target</span><span>
@@ -432,16 +432,16 @@ $sel:sslClientCertificateArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
 -&gt; (KafkaSettings -&gt; Maybe Text -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433338"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433347"><span class="annot"><span class="annottext">Maybe Text
 sslCaCertificateArn :: Maybe Text
 $sel:sslCaCertificateArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var hs-var">sslCaCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433337"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433336"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslCaCertificateArn:KafkaSettings' :: Maybe Text
+</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var hs-var">sslCaCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433346"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433345"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslCaCertificateArn:KafkaSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AsslCaCertificateArn%3AKafkaSettings%27"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | Prefixes schema and table names to partition values, when the partition</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- type is @primary-key-type@. Doing this increases data distribution among</span><span>
@@ -455,16 +455,16 @@ $sel:sslCaCertificateArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
 -&gt; (KafkaSettings -&gt; Maybe Bool -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433334"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433343"><span class="annot"><span class="annottext">Maybe Bool
 partitionIncludeSchemaTable :: Maybe Bool
 $sel:partitionIncludeSchemaTable:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433334"><span class="hs-identifier hs-var hs-var">partitionIncludeSchemaTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433334"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433333"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433332"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIncludeSchemaTable:KafkaSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433343"><span class="hs-identifier hs-var hs-var">partitionIncludeSchemaTable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433343"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433342"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433341"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIncludeSchemaTable:KafkaSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3ApartitionIncludeSchemaTable%3AKafkaSettings%27"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The topic to which you migrate the data. If you don\'t specify a topic,</span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- DMS specifies @\&quot;kafka-default-topic\&quot;@ as the migration topic.</span><span>
@@ -474,16 +474,16 @@ $sel:partitionIncludeSchemaTable:KafkaSettings' :: KafkaSettings -&gt; Maybe Boo
 -&gt; (KafkaSettings -&gt; Maybe Text -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433330"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433339"><span class="annot"><span class="annottext">Maybe Text
 topic :: Maybe Text
 $sel:topic:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433330"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433330"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433329"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433328"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:KafkaSettings' :: Maybe Text
+</span><a href="#local-6989586621679433339"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433339"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433338"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:KafkaSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3Atopic%3AKafkaSettings%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | Shows detailed control information for table definition, column</span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- definition, and table and column changes in the Kafka message output.</span><span>
@@ -494,16 +494,16 @@ $sel:topic:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
 -&gt; (KafkaSettings -&gt; Maybe Bool -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433326"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433335"><span class="annot"><span class="annottext">Maybe Bool
 includeControlDetails :: Maybe Bool
 $sel:includeControlDetails:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433326"><span class="hs-identifier hs-var hs-var">includeControlDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433326"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433325"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433324"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeControlDetails:KafkaSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433335"><span class="hs-identifier hs-var hs-var">includeControlDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433335"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433334"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433333"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeControlDetails:KafkaSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AincludeControlDetails%3AKafkaSettings%27"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- | Set this optional parameter to @true@ to avoid adding a \'0x\' prefix to</span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- raw data in hexadecimal format. For example, by default, DMS adds a</span><span>
@@ -517,16 +517,16 @@ $sel:includeControlDetails:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
 -&gt; (KafkaSettings -&gt; Maybe Bool -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433322"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433331"><span class="annot"><span class="annottext">Maybe Bool
 noHexPrefix :: Maybe Bool
 $sel:noHexPrefix:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433322"><span class="hs-identifier hs-var hs-var">noHexPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433322"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433321"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433320"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noHexPrefix:KafkaSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433331"><span class="hs-identifier hs-var hs-var">noHexPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433331"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433330"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433329"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noHexPrefix:KafkaSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AnoHexPrefix%3AKafkaSettings%27"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | The secure password you created when you first set up your MSK cluster</span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- to validate a client identity and make an encrypted connection between</span><span>
@@ -541,16 +541,16 @@ $sel:noHexPrefix:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433318"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433327"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 saslPassword :: Maybe (Sensitive Text)
 $sel:saslPassword:KafkaSettings' :: KafkaSettings -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433318"><span class="hs-identifier hs-var hs-var">saslPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433318"><span class="hs-identifier hs-var">saslPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433317"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433316"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:saslPassword:KafkaSettings' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433327"><span class="hs-identifier hs-var hs-var">saslPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433327"><span class="hs-identifier hs-var">saslPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433326"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433325"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:saslPassword:KafkaSettings' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AsaslPassword%3AKafkaSettings%27"><span class="hs-identifier hs-var">saslPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679433325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; KafkaSettings -&gt; f KafkaSettings)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -583,16 +583,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433311"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433320"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 sslClientKeyPassword :: Maybe (Sensitive Text)
 $sel:sslClientKeyPassword:KafkaSettings' :: KafkaSettings -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433311"><span class="hs-identifier hs-var hs-var">sslClientKeyPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433311"><span class="hs-identifier hs-var">sslClientKeyPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433310"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433309"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslClientKeyPassword:KafkaSettings' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433320"><span class="hs-identifier hs-var hs-var">sslClientKeyPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433320"><span class="hs-identifier hs-var">sslClientKeyPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433319"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433318"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679433318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sslClientKeyPassword:KafkaSettings' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AsslClientKeyPassword%3AKafkaSettings%27"><span class="hs-identifier hs-var">sslClientKeyPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679433318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; KafkaSettings -&gt; f KafkaSettings)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -621,16 +621,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (KafkaSettings -&gt; Maybe Bool -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433307"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433316"><span class="annot"><span class="annottext">Maybe Bool
 includePartitionValue :: Maybe Bool
 $sel:includePartitionValue:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433307"><span class="hs-identifier hs-var hs-var">includePartitionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433307"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433306"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433305"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includePartitionValue:KafkaSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433316"><span class="hs-identifier hs-var hs-var">includePartitionValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433316"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433315"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433314"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includePartitionValue:KafkaSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AincludePartitionValue%3AKafkaSettings%27"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- | The output format for the records created on the endpoint. The message</span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- format is @JSON@ (default) or @JSON_UNFORMATTED@ (a single line with no</span><span>
@@ -646,16 +646,16 @@ $sel:includePartitionValue:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
      (Maybe MessageFormatValue)
      (Maybe MessageFormatValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433303"><span class="annot"><span class="annottext">Maybe MessageFormatValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433312"><span class="annot"><span class="annottext">Maybe MessageFormatValue
 messageFormat :: Maybe MessageFormatValue
 $sel:messageFormat:KafkaSettings' :: KafkaSettings -&gt; Maybe MessageFormatValue
-</span><a href="#local-6989586621679433303"><span class="hs-identifier hs-var hs-var">messageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433303"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433302"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433301"><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageFormat:KafkaSettings' :: Maybe MessageFormatValue
+</span><a href="#local-6989586621679433312"><span class="hs-identifier hs-var hs-var">messageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
+</span><a href="#local-6989586621679433312"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433311"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433310"><span class="annot"><span class="annottext">Maybe MessageFormatValue
+</span><a href="#local-6989586621679433310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageFormat:KafkaSettings' :: Maybe MessageFormatValue
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AmessageFormat%3AKafkaSettings%27"><span class="hs-identifier hs-var">messageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- | Set secure connection to a Kafka target endpoint using Transport Layer</span><span>
 </span><span id="line-304"></span><span class="hs-comment">-- Security (TLS). Options include @ssl-encryption@, @ssl-authentication@,</span><span>
@@ -671,16 +671,16 @@ $sel:messageFormat:KafkaSettings' :: KafkaSettings -&gt; Maybe MessageFormatValu
      (Maybe KafkaSecurityProtocol)
      (Maybe KafkaSecurityProtocol)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433299"><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433308"><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
 securityProtocol :: Maybe KafkaSecurityProtocol
 $sel:securityProtocol:KafkaSettings' :: KafkaSettings -&gt; Maybe KafkaSecurityProtocol
-</span><a href="#local-6989586621679433299"><span class="hs-identifier hs-var hs-var">securityProtocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
-</span><a href="#local-6989586621679433299"><span class="hs-identifier hs-var">securityProtocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433298"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433297"><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
-</span><a href="#local-6989586621679433297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProtocol:KafkaSettings' :: Maybe KafkaSecurityProtocol
+</span><a href="#local-6989586621679433308"><span class="hs-identifier hs-var hs-var">securityProtocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
+</span><a href="#local-6989586621679433308"><span class="hs-identifier hs-var">securityProtocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433307"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433306"><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
+</span><a href="#local-6989586621679433306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProtocol:KafkaSettings' :: Maybe KafkaSecurityProtocol
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AsecurityProtocol%3AKafkaSettings%27"><span class="hs-identifier hs-var">securityProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
-</span><a href="#local-6989586621679433297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | The secure user name you created when you first set up your MSK cluster</span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- to validate a client identity and make an encrypted connection between</span><span>
@@ -691,16 +691,16 @@ $sel:securityProtocol:KafkaSettings' :: KafkaSettings -&gt; Maybe KafkaSecurityP
 -&gt; (KafkaSettings -&gt; Maybe Text -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433295"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433304"><span class="annot"><span class="annottext">Maybe Text
 saslUsername :: Maybe Text
 $sel:saslUsername:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433295"><span class="hs-identifier hs-var hs-var">saslUsername</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433295"><span class="hs-identifier hs-var">saslUsername</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433294"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433293"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:saslUsername:KafkaSettings' :: Maybe Text
+</span><a href="#local-6989586621679433304"><span class="hs-identifier hs-var hs-var">saslUsername</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433304"><span class="hs-identifier hs-var">saslUsername</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433303"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:saslUsername:KafkaSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AsaslUsername%3AKafkaSettings%27"><span class="hs-identifier hs-var">saslUsername</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- | A comma-separated list of one or more broker locations in your Kafka</span><span>
 </span><span id="line-316"></span><span class="hs-comment">-- cluster that host your Kafka instance. Specify each broker location in</span><span>
@@ -715,16 +715,16 @@ $sel:saslUsername:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
 -&gt; (KafkaSettings -&gt; Maybe Text -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433291"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433300"><span class="annot"><span class="annottext">Maybe Text
 broker :: Maybe Text
 $sel:broker:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433291"><span class="hs-identifier hs-var hs-var">broker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433291"><span class="hs-identifier hs-var">broker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433290"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433289"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:broker:KafkaSettings' :: Maybe Text
+</span><a href="#local-6989586621679433300"><span class="hs-identifier hs-var hs-var">broker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433300"><span class="hs-identifier hs-var">broker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433299"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433298"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:broker:KafkaSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3Abroker%3AKafkaSettings%27"><span class="hs-identifier hs-var">broker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-324"></span><span>
 </span><span id="line-325"></span><span class="hs-comment">-- | The maximum size in bytes for records created on the endpoint The</span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- default is 1,000,000.</span><span>
@@ -734,16 +734,16 @@ $sel:broker:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
 -&gt; (KafkaSettings -&gt; Maybe Int -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433287"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433296"><span class="annot"><span class="annottext">Maybe Int
 messageMaxBytes :: Maybe Int
 $sel:messageMaxBytes:KafkaSettings' :: KafkaSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679433287"><span class="hs-identifier hs-var hs-var">messageMaxBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433287"><span class="hs-identifier hs-var">messageMaxBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433286"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433285"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageMaxBytes:KafkaSettings' :: Maybe Int
+</span><a href="#local-6989586621679433296"><span class="hs-identifier hs-var hs-var">messageMaxBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433296"><span class="hs-identifier hs-var">messageMaxBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433295"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433294"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageMaxBytes:KafkaSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AmessageMaxBytes%3AKafkaSettings%27"><span class="hs-identifier hs-var">messageMaxBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | Include NULL and empty columns for records migrated to the endpoint. The</span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- default is @false@.</span><span>
@@ -753,19 +753,19 @@ $sel:messageMaxBytes:KafkaSettings' :: KafkaSettings -&gt; Maybe Int
 -&gt; (KafkaSettings -&gt; Maybe Bool -&gt; KafkaSettings)
 -&gt; Lens KafkaSettings KafkaSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433283"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433292"><span class="annot"><span class="annottext">Maybe Bool
 includeNullAndEmpty :: Maybe Bool
 $sel:includeNullAndEmpty:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679433283"><span class="hs-identifier hs-var hs-var">includeNullAndEmpty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433283"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433282"><span class="annot"><span class="annottext">s :: KafkaSettings
-</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433281"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
-</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeNullAndEmpty:KafkaSettings' :: Maybe Bool
+</span><a href="#local-6989586621679433292"><span class="hs-identifier hs-var hs-var">includeNullAndEmpty</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433292"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433291"><span class="annot"><span class="annottext">s :: KafkaSettings
+</span><a href="#local-6989586621679433291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433290"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679433290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KafkaSettings
+</span><a href="#local-6989586621679433291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeNullAndEmpty:KafkaSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.KafkaSettings.html#%24sel%3AincludeNullAndEmpty%3AKafkaSettings%27"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
-</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433278"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-336"></span><span>  </span><span id="local-6989586621679433276"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KafkaSettings
+</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433287"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621679433285"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KafkaSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-337"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KafkaSettings)
@@ -775,8 +775,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-338"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KafkaSettings&quot;</span></span><span>
-</span><span id="line-339"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433273"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433282"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-340"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Bool
@@ -838,7 +838,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslClientKeyArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -882,7 +882,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTransactionDetails&quot;</span></span><span class="hs-special">)</span><span>
@@ -924,7 +924,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTableAlterOperations&quot;</span></span><span class="hs-special">)</span><span>
@@ -964,7 +964,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslClientCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -1002,7 +1002,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslCaCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -1038,7 +1038,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartitionIncludeSchemaTable&quot;</span></span><span class="hs-special">)</span><span>
@@ -1072,7 +1072,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Topic&quot;</span></span><span class="hs-special">)</span><span>
@@ -1104,7 +1104,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeControlDetails&quot;</span></span><span class="hs-special">)</span><span>
@@ -1134,7 +1134,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NoHexPrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -1162,7 +1162,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SaslPassword&quot;</span></span><span class="hs-special">)</span><span>
@@ -1188,7 +1188,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslClientKeyPassword&quot;</span></span><span class="hs-special">)</span><span>
@@ -1212,7 +1212,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludePartitionValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -1234,7 +1234,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageFormatValue)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MessageFormatValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -1251,7 +1251,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Int -&gt; Maybe Bool -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KafkaSecurityProtocol)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KafkaSecurityProtocol)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityProtocol&quot;</span></span><span class="hs-special">)</span><span>
@@ -1262,7 +1262,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Maybe Bool -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SaslUsername&quot;</span></span><span class="hs-special">)</span><span>
@@ -1271,7 +1271,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe Bool -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Broker&quot;</span></span><span class="hs-special">)</span><span>
@@ -1279,7 +1279,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Bool -&gt; KafkaSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageMaxBytes&quot;</span></span><span class="hs-special">)</span><span>
@@ -1287,19 +1287,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser KafkaSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679433273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679433282"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeNullAndEmpty&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-359"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-360"></span><span>
-</span><span id="line-361"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433267"><span id="local-6989586621679433269"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433276"><span id="local-6989586621679433278"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span></span><span>
 </span><span id="line-362"></span><span>
-</span><span id="line-363"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433273"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span><span>
 </span><span id="line-364"></span><span>
-</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433256"><span id="local-6989586621679433258"><span id="local-6989586621679433260"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-366"></span><span>  </span><span id="local-6989586621679433254"><span class="annot"><span class="annottext">toJSON :: KafkaSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433235"><span id="local-6989586621679433236"><span id="local-6989586621679433237"><span id="local-6989586621679433238"><span id="local-6989586621679433239"><span id="local-6989586621679433240"><span id="local-6989586621679433241"><span id="local-6989586621679433242"><span id="local-6989586621679433243"><span id="local-6989586621679433244"><span id="local-6989586621679433245"><span id="local-6989586621679433246"><span id="local-6989586621679433247"><span id="local-6989586621679433248"><span id="local-6989586621679433249"><span id="local-6989586621679433250"><span id="local-6989586621679433251"><span id="local-6989586621679433252"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433265"><span id="local-6989586621679433267"><span id="local-6989586621679433269"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings"><span class="hs-identifier hs-type">KafkaSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-366"></span><span>  </span><span id="local-6989586621679433263"><span class="annot"><span class="annottext">toJSON :: KafkaSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.KafkaSettings.html#KafkaSettings%27"><span class="hs-identifier hs-type">KafkaSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433244"><span id="local-6989586621679433245"><span id="local-6989586621679433246"><span id="local-6989586621679433247"><span id="local-6989586621679433248"><span id="local-6989586621679433249"><span id="local-6989586621679433250"><span id="local-6989586621679433251"><span id="local-6989586621679433252"><span id="local-6989586621679433253"><span id="local-6989586621679433254"><span id="local-6989586621679433255"><span id="local-6989586621679433256"><span id="local-6989586621679433257"><span id="local-6989586621679433258"><span id="local-6989586621679433259"><span id="local-6989586621679433260"><span id="local-6989586621679433261"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Maybe (Sensitive Text)
@@ -1341,7 +1341,7 @@ $sel:sslClientCertificateArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
 $sel:includeTableAlterOperations:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
 $sel:includeTransactionDetails:KafkaSettings' :: KafkaSettings -&gt; Maybe Bool
 $sel:sslClientKeyArn:KafkaSettings' :: KafkaSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679433235"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433244"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-367"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-368"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1354,7 +1354,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-370"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433252"><span class="hs-identifier hs-var">sslClientKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433261"><span class="hs-identifier hs-var">sslClientKeyArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTransactionDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1362,7 +1362,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-372"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433251"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433260"><span class="hs-identifier hs-var">includeTransactionDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-373"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeTableAlterOperations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1370,7 +1370,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-374"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433250"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433259"><span class="hs-identifier hs-var">includeTableAlterOperations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslClientCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1378,7 +1378,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433249"><span class="hs-identifier hs-var">sslClientCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433258"><span class="hs-identifier hs-var">sslClientCertificateArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslCaCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1386,7 +1386,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-378"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433248"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433257"><span class="hs-identifier hs-var">sslCaCertificateArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-379"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartitionIncludeSchemaTable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1394,14 +1394,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-380"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433247"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433256"><span class="hs-identifier hs-var">partitionIncludeSchemaTable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Topic&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433246"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433255"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-382"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeControlDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1409,21 +1409,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-383"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433245"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433254"><span class="hs-identifier hs-var">includeControlDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-384"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NoHexPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433244"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433253"><span class="hs-identifier hs-var">noHexPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SaslPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433243"><span class="hs-identifier hs-var">saslPassword</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433252"><span class="hs-identifier hs-var">saslPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-386"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SslClientKeyPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1431,7 +1431,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-387"></span><span>              </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679433242"><span class="hs-identifier hs-var">sslClientKeyPassword</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433251"><span class="hs-identifier hs-var">sslClientKeyPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-388"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludePartitionValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1439,7 +1439,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-389"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433241"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433250"><span class="hs-identifier hs-var">includePartitionValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-390"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MessageFormatValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1447,7 +1447,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MessageFormatValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageFormatValue
-</span><a href="#local-6989586621679433240"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433249"><span class="hs-identifier hs-var">messageFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-391"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityProtocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KafkaSecurityProtocol -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1456,21 +1456,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe KafkaSecurityProtocol -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KafkaSecurityProtocol
-</span><a href="#local-6989586621679433239"><span class="hs-identifier hs-var">securityProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433248"><span class="hs-identifier hs-var">securityProtocol</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-393"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SaslUsername&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433238"><span class="hs-identifier hs-var">saslUsername</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433247"><span class="hs-identifier hs-var">saslUsername</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-394"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Broker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679433237"><span class="hs-identifier hs-var">broker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433246"><span class="hs-identifier hs-var">broker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-395"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageMaxBytes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1478,7 +1478,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-396"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679433236"><span class="hs-identifier hs-var">messageMaxBytes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433245"><span class="hs-identifier hs-var">messageMaxBytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-397"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IncludeNullAndEmpty&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1486,7 +1486,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-398"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679433235"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span>
+</span><a href="#local-6989586621679433244"><span class="hs-identifier hs-var">includeNullAndEmpty</span></a></span><span>
 </span><span id="line-399"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-400"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-401"></span></pre></body></html>

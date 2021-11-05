@@ -81,7 +81,7 @@
 </span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newAttachVolume' smart constructor.</span><span>
-</span><span id="line-84"></span><span id="local-6989586621681304495"><span id="local-6989586621681304496"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachVolume"><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-var">AttachVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachVolume%27"><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-var">AttachVolume'</span></a></span></span><span>
+</span><span id="line-84"></span><span id="local-6989586621681304504"><span id="local-6989586621681304505"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachVolume"><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-var">AttachVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachVolume%27"><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-var">AttachVolume'</span></a></span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
@@ -99,7 +99,7 @@
 </span><span id="line-96"></span><span>    </span><span id="%24sel%3AvolumeId%3AAttachVolume%27"><span class="annot"><span class="annottext">AttachVolume -&gt; Text
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3AvolumeId%3AAttachVolume%27"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681304486"><span id="local-6989586621681304488"><span class="annot"><span class="annottext">AttachVolume -&gt; AttachVolume -&gt; Bool
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681304495"><span id="local-6989586621681304497"><span class="annot"><span class="annottext">AttachVolume -&gt; AttachVolume -&gt; Bool
 (AttachVolume -&gt; AttachVolume -&gt; Bool)
 -&gt; (AttachVolume -&gt; AttachVolume -&gt; Bool) -&gt; Eq AttachVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachVolume -&gt; AttachVolume -&gt; Bool
 == :: AttachVolume -&gt; AttachVolume -&gt; Bool
 $c== :: AttachVolume -&gt; AttachVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681304477"><span id="local-6989586621681304479"><span id="local-6989586621681304481"><span id="local-6989586621681304483"><span class="annot"><span class="annottext">ReadPrec [AttachVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681304486"><span id="local-6989586621681304488"><span id="local-6989586621681304490"><span id="local-6989586621681304492"><span class="annot"><span class="annottext">ReadPrec [AttachVolume]
 ReadPrec AttachVolume
 Int -&gt; ReadS AttachVolume
 ReadS [AttachVolume]
@@ -127,7 +127,7 @@ readList :: ReadS [AttachVolume]
 $creadList :: ReadS [AttachVolume]
 readsPrec :: Int -&gt; ReadS AttachVolume
 $creadsPrec :: Int -&gt; ReadS AttachVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681304470"><span id="local-6989586621681304472"><span id="local-6989586621681304474"><span class="annot"><span class="annottext">Int -&gt; AttachVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681304479"><span id="local-6989586621681304481"><span id="local-6989586621681304483"><span class="annot"><span class="annottext">Int -&gt; AttachVolume -&gt; ShowS
 [AttachVolume] -&gt; ShowS
 AttachVolume -&gt; String
 (Int -&gt; AttachVolume -&gt; ShowS)
@@ -181,10 +181,10 @@ $cfrom :: forall x. AttachVolume -&gt; Rep AttachVolume x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span>
 </span><span id="line-127"></span><span id="newAttachVolume"><span class="annot"><span class="annottext">newAttachVolume :: Text -&gt; Text -&gt; Text -&gt; AttachVolume
-</span><a href="Network.AWS.EC2.AttachVolume.html#newAttachVolume"><span class="hs-identifier hs-var hs-var">newAttachVolume</span></a></span></span><span> </span><span id="local-6989586621681304465"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304465"><span class="hs-identifier hs-var">pDevice_</span></a></span></span><span> </span><span id="local-6989586621681304464"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304464"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621681304463"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304463"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.AttachVolume.html#newAttachVolume"><span class="hs-identifier hs-var hs-var">newAttachVolume</span></a></span></span><span> </span><span id="local-6989586621681304474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304474"><span class="hs-identifier hs-var">pDevice_</span></a></span></span><span> </span><span id="local-6989586621681304473"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304473"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621681304472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304472"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">AttachVolume' :: Maybe Bool -&gt; Text -&gt; Text -&gt; Text -&gt; AttachVolume
 </span><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:AttachVolume' :: Maybe Bool
@@ -193,13 +193,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:device:AttachVolume' :: Text
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3Adevice%3AAttachVolume%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304465"><span class="hs-identifier hs-var">pDevice_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681304474"><span class="hs-identifier hs-var">pDevice_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:AttachVolume' :: Text
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3AinstanceId%3AAttachVolume%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304464"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681304473"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeId:AttachVolume' :: Text
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3AvolumeId%3AAttachVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304463"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
+</span><a href="#local-6989586621681304472"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
 -&gt; (AttachVolume -&gt; Maybe Bool -&gt; AttachVolume)
 -&gt; Lens AttachVolume AttachVolume (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304460"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304469"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:AttachVolume' :: AttachVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681304460"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681304460"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304459"><span class="annot"><span class="annottext">s :: AttachVolume
-</span><a href="#local-6989586621681304459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304458"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681304458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
-</span><a href="#local-6989586621681304459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AttachVolume' :: Maybe Bool
+</span><a href="#local-6989586621681304469"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681304469"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304468"><span class="annot"><span class="annottext">s :: AttachVolume
+</span><a href="#local-6989586621681304468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304467"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681304467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
+</span><a href="#local-6989586621681304468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:AttachVolume' :: Maybe Bool
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3AdryRun%3AAttachVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681304458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681304467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The device name (for example, @\/dev\/sdh@ or @xvdh@).</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#attachVolume_device"><span class="hs-identifier hs-type">attachVolume_device</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -230,16 +230,16 @@ $sel:dryRun:AttachVolume' :: AttachVolume -&gt; Maybe Bool
 -&gt; (AttachVolume -&gt; Text -&gt; AttachVolume)
 -&gt; Lens AttachVolume AttachVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304457"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304466"><span class="annot"><span class="annottext">Text
 device :: Text
 $sel:device:AttachVolume' :: AttachVolume -&gt; Text
-</span><a href="#local-6989586621681304457"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304457"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304456"><span class="annot"><span class="annottext">s :: AttachVolume
-</span><a href="#local-6989586621681304456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304455"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
-</span><a href="#local-6989586621681304456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:AttachVolume' :: Text
+</span><a href="#local-6989586621681304466"><span class="hs-identifier hs-var hs-var">device</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304466"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304465"><span class="annot"><span class="annottext">s :: AttachVolume
+</span><a href="#local-6989586621681304465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
+</span><a href="#local-6989586621681304465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:device:AttachVolume' :: Text
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3Adevice%3AAttachVolume%27"><span class="hs-identifier hs-var">device</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681304464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#attachVolume_instanceId"><span class="hs-identifier hs-type">attachVolume_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -248,16 +248,16 @@ $sel:device:AttachVolume' :: AttachVolume -&gt; Text
 -&gt; (AttachVolume -&gt; Text -&gt; AttachVolume)
 -&gt; Lens AttachVolume AttachVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304454"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304463"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:AttachVolume' :: AttachVolume -&gt; Text
-</span><a href="#local-6989586621681304454"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304454"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304453"><span class="annot"><span class="annottext">s :: AttachVolume
-</span><a href="#local-6989586621681304453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304452"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
-</span><a href="#local-6989586621681304453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AttachVolume' :: Text
+</span><a href="#local-6989586621681304463"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304463"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304462"><span class="annot"><span class="annottext">s :: AttachVolume
+</span><a href="#local-6989586621681304462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304461"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
+</span><a href="#local-6989586621681304462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AttachVolume' :: Text
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3AinstanceId%3AAttachVolume%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681304461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The ID of the EBS volume. The volume and instance must be within the</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- same Availability Zone.</span><span>
@@ -267,25 +267,25 @@ $sel:instanceId:AttachVolume' :: AttachVolume -&gt; Text
 -&gt; (AttachVolume -&gt; Text -&gt; AttachVolume)
 -&gt; Lens AttachVolume AttachVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304451"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304460"><span class="annot"><span class="annottext">Text
 volumeId :: Text
 $sel:volumeId:AttachVolume' :: AttachVolume -&gt; Text
-</span><a href="#local-6989586621681304451"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304451"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304450"><span class="annot"><span class="annottext">s :: AttachVolume
-</span><a href="#local-6989586621681304450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304449"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
-</span><a href="#local-6989586621681304450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:AttachVolume' :: Text
+</span><a href="#local-6989586621681304460"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304460"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304459"><span class="annot"><span class="annottext">s :: AttachVolume
+</span><a href="#local-6989586621681304459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681304458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681304458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachVolume
+</span><a href="#local-6989586621681304459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:AttachVolume' :: Text
 </span><a href="Network.AWS.EC2.AttachVolume.html#%24sel%3AvolumeId%3AAttachVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681304458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeAttachment.html#VolumeAttachment"><span class="hs-identifier hs-type">VolumeAttachment</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621681304445"><span class="annot"><span class="annottext">request :: AttachVolume -&gt; Request AttachVolume
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621681304454"><span class="annot"><span class="annottext">request :: AttachVolume -&gt; Request AttachVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachVolume -&gt; Request AttachVolume
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621681304441"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621681304450"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachVolume
 -&gt; ClientResponse ClientBody
@@ -308,20 +308,20 @@ MonadResource m =&gt;
 -&gt; Proxy a
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
-</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681304438"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681304437"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681304437"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681304436"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681304436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttachment
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681304447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681304447"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681304446"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681304446"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681304445"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681304445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String VolumeAttachment
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681304436"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681304445"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681304431"><span id="local-6989586621681304433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681304440"><span id="local-6989586621681304442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681304428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681304437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621681304424"><span class="annot"><span class="annottext">toHeaders :: AttachVolume -&gt; ResponseHeaders
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621681304433"><span class="annot"><span class="annottext">toHeaders :: AttachVolume -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AttachVolume -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -329,15 +329,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621681304419"><span class="annot"><span class="annottext">toPath :: AttachVolume -&gt; ByteString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621681304428"><span class="annot"><span class="annottext">toPath :: AttachVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume"><span class="hs-identifier hs-type">AttachVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621681304415"><span class="annot"><span class="annottext">toQuery :: AttachVolume -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304410"><span id="local-6989586621681304411"><span id="local-6989586621681304412"><span id="local-6989586621681304413"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621681304424"><span class="annot"><span class="annottext">toQuery :: AttachVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AttachVolume.html#AttachVolume%27"><span class="hs-identifier hs-type">AttachVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681304419"><span id="local-6989586621681304420"><span id="local-6989586621681304421"><span id="local-6989586621681304422"><span class="annot"><span class="annottext">Maybe Bool
 Text
 volumeId :: Text
 instanceId :: Text
@@ -347,7 +347,7 @@ $sel:volumeId:AttachVolume' :: AttachVolume -&gt; Text
 $sel:instanceId:AttachVolume' :: AttachVolume -&gt; Text
 $sel:device:AttachVolume' :: AttachVolume -&gt; Text
 $sel:dryRun:AttachVolume' :: AttachVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681304410"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681304419"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -367,21 +367,21 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681304413"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681304422"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Device&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304412"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681304421"><span class="hs-identifier hs-var">device</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304411"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681304420"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681304410"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
+</span><a href="#local-6989586621681304419"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span></pre></body></html>

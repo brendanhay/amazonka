@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53RecoveryReadiness.Types.RuleResult</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.Types.RuleResult</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Message.html"><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.Types.Message</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Readiness.html"><span class="hs-identifier">Network.AWS.Route53RecoveryReadiness.Types.Readiness</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Result with status for an individual rule..</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRuleResult' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679200216"><span id="local-6989586621679200217"></span></span><span class="hs-keyword">data</span><span> </span><span id="RuleResult"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-var">RuleResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RuleResult%27"><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-var">RuleResult'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the resource\'s readiness</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessages%3ARuleResult%27"><span class="annot"><span class="annottext">RuleResult -&gt; [Message]
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3Amessages%3ARuleResult%27"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The readiness at rule level.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Areadiness%3ARuleResult%27"><span class="annot"><span class="annottext">RuleResult -&gt; Readiness
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3Areadiness%3ARuleResult%27"><span class="hs-identifier hs-var hs-var">readiness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The identifier of the rule.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AruleId%3ARuleResult%27"><span class="annot"><span class="annottext">RuleResult -&gt; Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3AruleId%3ARuleResult%27"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time the resource was last checked for readiness, in ISO-8601</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- format, UTC.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastCheckedTimestamp%3ARuleResult%27"><span class="annot"><span class="annottext">RuleResult -&gt; POSIX
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3AlastCheckedTimestamp%3ARuleResult%27"><span class="hs-identifier hs-var hs-var">lastCheckedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200207"><span id="local-6989586621679200209"><span class="annot"><span class="annottext">RuleResult -&gt; RuleResult -&gt; Bool
+(RuleResult -&gt; RuleResult -&gt; Bool)
+-&gt; (RuleResult -&gt; RuleResult -&gt; Bool) -&gt; Eq RuleResult
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RuleResult -&gt; RuleResult -&gt; Bool
+$c/= :: RuleResult -&gt; RuleResult -&gt; Bool
+== :: RuleResult -&gt; RuleResult -&gt; Bool
+$c== :: RuleResult -&gt; RuleResult -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200198"><span id="local-6989586621679200200"><span id="local-6989586621679200202"><span id="local-6989586621679200204"><span class="annot"><span class="annottext">ReadPrec [RuleResult]
+ReadPrec RuleResult
+Int -&gt; ReadS RuleResult
+ReadS [RuleResult]
+(Int -&gt; ReadS RuleResult)
+-&gt; ReadS [RuleResult]
+-&gt; ReadPrec RuleResult
+-&gt; ReadPrec [RuleResult]
+-&gt; Read RuleResult
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RuleResult]
+$creadListPrec :: ReadPrec [RuleResult]
+readPrec :: ReadPrec RuleResult
+$creadPrec :: ReadPrec RuleResult
+readList :: ReadS [RuleResult]
+$creadList :: ReadS [RuleResult]
+readsPrec :: Int -&gt; ReadS RuleResult
+$creadsPrec :: Int -&gt; ReadS RuleResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200191"><span id="local-6989586621679200193"><span id="local-6989586621679200195"><span class="annot"><span class="annottext">Int -&gt; RuleResult -&gt; ShowS
+[RuleResult] -&gt; ShowS
+RuleResult -&gt; String
+(Int -&gt; RuleResult -&gt; ShowS)
+-&gt; (RuleResult -&gt; String)
+-&gt; ([RuleResult] -&gt; ShowS)
+-&gt; Show RuleResult
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RuleResult] -&gt; ShowS
+$cshowList :: [RuleResult] -&gt; ShowS
+show :: RuleResult -&gt; String
+$cshow :: RuleResult -&gt; String
+showsPrec :: Int -&gt; RuleResult -&gt; ShowS
+$cshowsPrec :: Int -&gt; RuleResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RuleResult -&gt; Rep RuleResult x)
+-&gt; (forall x. Rep RuleResult x -&gt; RuleResult) -&gt; Generic RuleResult
+forall x. Rep RuleResult x -&gt; RuleResult
+forall x. RuleResult -&gt; Rep RuleResult x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RuleResult x -&gt; RuleResult
+$cfrom :: forall x. RuleResult -&gt; Rep RuleResult x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'RuleResult' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'messages', 'ruleResult_messages' - Details about the resource\'s readiness</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'readiness', 'ruleResult_readiness' - The readiness at rule level.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'ruleId', 'ruleResult_ruleId' - The identifier of the rule.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lastCheckedTimestamp', 'ruleResult_lastCheckedTimestamp' - The time the resource was last checked for readiness, in ISO-8601</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- format, UTC.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#newRuleResult"><span class="hs-identifier hs-type">newRuleResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-comment">-- | 'readiness'</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-comment">-- | 'ruleId'</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'lastCheckedTimestamp'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span>
+</span><span id="line-68"></span><span id="newRuleResult"><span class="annot"><span class="annottext">newRuleResult :: Readiness -&gt; Text -&gt; UTCTime -&gt; RuleResult
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#newRuleResult"><span class="hs-identifier hs-var hs-var">newRuleResult</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679200185"><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679200185"><span class="hs-identifier hs-var">pReadiness_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679200184"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200184"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679200183"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679200183"><span class="hs-identifier hs-var">pLastCheckedTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">RuleResult' :: [Message] -&gt; Readiness -&gt; Text -&gt; POSIX -&gt; RuleResult
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messages:RuleResult' :: [Message]
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3Amessages%3ARuleResult%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Message]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:readiness:RuleResult' :: Readiness
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3Areadiness%3ARuleResult%27"><span class="hs-identifier hs-var">readiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679200185"><span class="hs-identifier hs-var">pReadiness_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleId:RuleResult' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3AruleId%3ARuleResult%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200184"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastCheckedTimestamp:RuleResult' :: POSIX
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3AlastCheckedTimestamp%3ARuleResult%27"><span class="hs-identifier hs-var">lastCheckedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679200183"><span class="hs-identifier hs-var">pLastCheckedTimestamp_</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Details about the resource\'s readiness</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_messages"><span class="hs-identifier hs-type">ruleResult_messages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-82"></span><span id="ruleResult_messages"><span class="annot"><span class="annottext">ruleResult_messages :: ([Message] -&gt; f [Message]) -&gt; RuleResult -&gt; f RuleResult
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_messages"><span class="hs-identifier hs-var hs-var">ruleResult_messages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleResult -&gt; [Message])
+-&gt; (RuleResult -&gt; [Message] -&gt; RuleResult)
+-&gt; Lens RuleResult RuleResult [Message] [Message]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200177"><span class="annot"><span class="annottext">[Message]
+messages :: [Message]
+$sel:messages:RuleResult' :: RuleResult -&gt; [Message]
+</span><a href="#local-6989586621679200177"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Message]
+</span><a href="#local-6989586621679200177"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200176"><span class="annot"><span class="annottext">s :: RuleResult
+</span><a href="#local-6989586621679200176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200175"><span class="annot"><span class="annottext">[Message]
+</span><a href="#local-6989586621679200175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleResult
+</span><a href="#local-6989586621679200176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:RuleResult' :: [Message]
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3Amessages%3ARuleResult%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Message]
+</span><a href="#local-6989586621679200175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Message] -&gt; f [Message]) -&gt; RuleResult -&gt; f RuleResult)
+-&gt; (([Message] -&gt; f [Message]) -&gt; [Message] -&gt; f [Message])
+-&gt; ([Message] -&gt; f [Message])
+-&gt; RuleResult
+-&gt; f RuleResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Message] -&gt; f [Message]) -&gt; [Message] -&gt; f [Message]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The readiness at rule level.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_readiness"><span class="hs-identifier hs-type">ruleResult_readiness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span>
+</span><span id="line-86"></span><span id="ruleResult_readiness"><span class="annot"><span class="annottext">ruleResult_readiness :: (Readiness -&gt; f Readiness) -&gt; RuleResult -&gt; f RuleResult
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_readiness"><span class="hs-identifier hs-var hs-var">ruleResult_readiness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleResult -&gt; Readiness)
+-&gt; (RuleResult -&gt; Readiness -&gt; RuleResult)
+-&gt; Lens RuleResult RuleResult Readiness Readiness
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200171"><span class="annot"><span class="annottext">Readiness
+readiness :: Readiness
+$sel:readiness:RuleResult' :: RuleResult -&gt; Readiness
+</span><a href="#local-6989586621679200171"><span class="hs-identifier hs-var hs-var">readiness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679200171"><span class="hs-identifier hs-var">readiness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200170"><span class="annot"><span class="annottext">s :: RuleResult
+</span><a href="#local-6989586621679200170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200169"><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679200169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleResult
+</span><a href="#local-6989586621679200170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readiness:RuleResult' :: Readiness
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3Areadiness%3ARuleResult%27"><span class="hs-identifier hs-var">readiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Readiness
+</span><a href="#local-6989586621679200169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The identifier of the rule.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_ruleId"><span class="hs-identifier hs-type">ruleResult_ruleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="ruleResult_ruleId"><span class="annot"><span class="annottext">ruleResult_ruleId :: (Text -&gt; f Text) -&gt; RuleResult -&gt; f RuleResult
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_ruleId"><span class="hs-identifier hs-var hs-var">ruleResult_ruleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleResult -&gt; Text)
+-&gt; (RuleResult -&gt; Text -&gt; RuleResult)
+-&gt; Lens RuleResult RuleResult Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200167"><span class="annot"><span class="annottext">Text
+ruleId :: Text
+$sel:ruleId:RuleResult' :: RuleResult -&gt; Text
+</span><a href="#local-6989586621679200167"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200167"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200166"><span class="annot"><span class="annottext">s :: RuleResult
+</span><a href="#local-6989586621679200166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleResult
+</span><a href="#local-6989586621679200166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:RuleResult' :: Text
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3AruleId%3ARuleResult%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The time the resource was last checked for readiness, in ISO-8601</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- format, UTC.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_lastCheckedTimestamp"><span class="hs-identifier hs-type">ruleResult_lastCheckedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-95"></span><span id="ruleResult_lastCheckedTimestamp"><span class="annot"><span class="annottext">ruleResult_lastCheckedTimestamp :: (UTCTime -&gt; f UTCTime) -&gt; RuleResult -&gt; f RuleResult
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#ruleResult_lastCheckedTimestamp"><span class="hs-identifier hs-var hs-var">ruleResult_lastCheckedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RuleResult -&gt; POSIX)
+-&gt; (RuleResult -&gt; POSIX -&gt; RuleResult)
+-&gt; Lens RuleResult RuleResult POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200163"><span class="annot"><span class="annottext">POSIX
+lastCheckedTimestamp :: POSIX
+$sel:lastCheckedTimestamp:RuleResult' :: RuleResult -&gt; POSIX
+</span><a href="#local-6989586621679200163"><span class="hs-identifier hs-var hs-var">lastCheckedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679200163"><span class="hs-identifier hs-var">lastCheckedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200162"><span class="annot"><span class="annottext">s :: RuleResult
+</span><a href="#local-6989586621679200162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-type">RuleResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200161"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679200161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleResult
+</span><a href="#local-6989586621679200162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastCheckedTimestamp:RuleResult' :: POSIX
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#%24sel%3AlastCheckedTimestamp%3ARuleResult%27"><span class="hs-identifier hs-var">lastCheckedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679200161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; RuleResult -&gt; f RuleResult)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; RuleResult
+-&gt; f RuleResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200158"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679200156"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RuleResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser RuleResult) -&gt; Value -&gt; Parser RuleResult
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;RuleResult&quot;</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200153"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">[Message] -&gt; Readiness -&gt; Text -&gt; POSIX -&gt; RuleResult
+</span><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult%27"><span class="hs-identifier hs-var">RuleResult'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">([Message] -&gt; Readiness -&gt; Text -&gt; POSIX -&gt; RuleResult)
+-&gt; Parser [Message]
+-&gt; Parser (Readiness -&gt; Text -&gt; POSIX -&gt; RuleResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Message])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;messages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Message]) -&gt; [Message] -&gt; Parser [Message]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Message]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Readiness -&gt; Text -&gt; POSIX -&gt; RuleResult)
+-&gt; Parser Readiness -&gt; Parser (Text -&gt; POSIX -&gt; RuleResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Readiness
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;readiness&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; POSIX -&gt; RuleResult)
+-&gt; Parser Text -&gt; Parser (POSIX -&gt; RuleResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; RuleResult) -&gt; Parser POSIX -&gt; Parser RuleResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastCheckedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200145"><span id="local-6989586621679200147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53RecoveryReadiness.Types.RuleResult.html#RuleResult"><span class="hs-identifier hs-type">RuleResult</span></a></span></span><span>
+</span><span id="line-112"></span></pre></body></html>

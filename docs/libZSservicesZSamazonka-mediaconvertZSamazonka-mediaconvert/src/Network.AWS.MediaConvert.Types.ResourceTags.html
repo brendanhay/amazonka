@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- MediaConvert resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceTags' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680003985"><span id="local-6989586621680003986"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceTags"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-var">ResourceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceTags%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-var">ResourceTags'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680003994"><span id="local-6989586621680003995"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceTags"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-var">ResourceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceTags%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-var">ResourceTags'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3AResourceTags%27"><span class="annot"><span class="annottext">ResourceTags -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#%24sel%3Aarn%3AResourceTags%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atags%3AResourceTags%27"><span class="annot"><span class="annottext">ResourceTags -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#%24sel%3Atags%3AResourceTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003978"><span id="local-6989586621680003980"><span class="annot"><span class="annottext">ResourceTags -&gt; ResourceTags -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680003987"><span id="local-6989586621680003989"><span class="annot"><span class="annottext">ResourceTags -&gt; ResourceTags -&gt; Bool
 (ResourceTags -&gt; ResourceTags -&gt; Bool)
 -&gt; (ResourceTags -&gt; ResourceTags -&gt; Bool) -&gt; Eq ResourceTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceTags -&gt; ResourceTags -&gt; Bool
 == :: ResourceTags -&gt; ResourceTags -&gt; Bool
 $c== :: ResourceTags -&gt; ResourceTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003969"><span id="local-6989586621680003971"><span id="local-6989586621680003973"><span id="local-6989586621680003975"><span class="annot"><span class="annottext">ReadPrec [ResourceTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003978"><span id="local-6989586621680003980"><span id="local-6989586621680003982"><span id="local-6989586621680003984"><span class="annot"><span class="annottext">ReadPrec [ResourceTags]
 ReadPrec ResourceTags
 Int -&gt; ReadS ResourceTags
 ReadS [ResourceTags]
@@ -63,7 +63,7 @@ readList :: ReadS [ResourceTags]
 $creadList :: ReadS [ResourceTags]
 readsPrec :: Int -&gt; ReadS ResourceTags
 $creadsPrec :: Int -&gt; ReadS ResourceTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003962"><span id="local-6989586621680003964"><span id="local-6989586621680003966"><span class="annot"><span class="annottext">Int -&gt; ResourceTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680003971"><span id="local-6989586621680003973"><span id="local-6989586621680003975"><span class="annot"><span class="annottext">Int -&gt; ResourceTags -&gt; ShowS
 [ResourceTags] -&gt; ShowS
 ResourceTags -&gt; String
 (Int -&gt; ResourceTags -&gt; ShowS)
@@ -123,16 +123,16 @@ forall a. Maybe a
 -&gt; (ResourceTags -&gt; Maybe Text -&gt; ResourceTags)
 -&gt; Lens ResourceTags ResourceTags (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003953"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003962"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:ResourceTags' :: ResourceTags -&gt; Maybe Text
-</span><a href="#local-6989586621680003953"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680003953"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003952"><span class="annot"><span class="annottext">s :: ResourceTags
-</span><a href="#local-6989586621680003952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003951"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680003951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTags
-</span><a href="#local-6989586621680003952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResourceTags' :: Maybe Text
+</span><a href="#local-6989586621680003962"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003962"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003961"><span class="annot"><span class="annottext">s :: ResourceTags
+</span><a href="#local-6989586621680003961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003960"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680003960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTags
+</span><a href="#local-6989586621680003961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ResourceTags' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#%24sel%3Aarn%3AResourceTags%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680003951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680003960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The tags for the resource.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#resourceTags_tags"><span class="hs-identifier hs-type">resourceTags_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -146,16 +146,16 @@ $sel:arn:ResourceTags' :: ResourceTags -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003949"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680003958"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:ResourceTags' :: ResourceTags -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680003949"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680003949"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003948"><span class="annot"><span class="annottext">s :: ResourceTags
-</span><a href="#local-6989586621680003948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003947"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680003947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTags
-</span><a href="#local-6989586621680003948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ResourceTags' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680003958"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680003958"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680003957"><span class="annot"><span class="annottext">s :: ResourceTags
+</span><a href="#local-6989586621680003957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-type">ResourceTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680003956"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680003956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceTags
+</span><a href="#local-6989586621680003957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ResourceTags' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#%24sel%3Atags%3AResourceTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680003947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680003956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ResourceTags -&gt; f ResourceTags)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -184,8 +184,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003941"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621680003939"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceTags
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003950"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680003948"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceTags) -&gt; Value -&gt; Parser ResourceTags
@@ -193,8 +193,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceTags&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680003936"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680003945"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680003945"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ResourceTags
 </span><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags%27"><span class="hs-identifier hs-var">ResourceTags'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ResourceTags)
@@ -202,7 +202,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; ResourceTags)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680003945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,7 +210,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser ResourceTags
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680003936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680003945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -221,7 +221,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003929"><span id="local-6989586621680003931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003938"><span id="local-6989586621680003940"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680003935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ResourceTags.html#ResourceTags"><span class="hs-identifier hs-type">ResourceTags</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

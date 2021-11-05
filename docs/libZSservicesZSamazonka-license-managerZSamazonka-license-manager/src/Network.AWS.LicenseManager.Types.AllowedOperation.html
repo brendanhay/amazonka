@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.AllowedOperation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.AllowedOperation</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier">AllowedOperation</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckInLicense"><span class="hs-identifier">AllowedOperation_CheckInLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckoutBorrowLicense"><span class="hs-identifier">AllowedOperation_CheckoutBorrowLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckoutLicense"><span class="hs-identifier">AllowedOperation_CheckoutLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CreateGrant"><span class="hs-identifier">AllowedOperation_CreateGrant</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CreateToken"><span class="hs-identifier">AllowedOperation_CreateToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_ExtendConsumptionLicense"><span class="hs-identifier">AllowedOperation_ExtendConsumptionLicense</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_ListPurchasedLicenses"><span class="hs-identifier">AllowedOperation_ListPurchasedLicenses</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679295437"><span id="local-6989586621679295438"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AllowedOperation"><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-var">AllowedOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AllowedOperation%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-var">AllowedOperation'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAllowedOperation"><span class="annot"><span class="annottext">AllowedOperation -&gt; Text
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#fromAllowedOperation"><span class="hs-identifier hs-var hs-var">fromAllowedOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295429"><span id="local-6989586621679295431"><span id="local-6989586621679295433"><span class="annot"><span class="annottext">Int -&gt; AllowedOperation -&gt; ShowS
+[AllowedOperation] -&gt; ShowS
+AllowedOperation -&gt; String
+(Int -&gt; AllowedOperation -&gt; ShowS)
+-&gt; (AllowedOperation -&gt; String)
+-&gt; ([AllowedOperation] -&gt; ShowS)
+-&gt; Show AllowedOperation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AllowedOperation] -&gt; ShowS
+$cshowList :: [AllowedOperation] -&gt; ShowS
+show :: AllowedOperation -&gt; String
+$cshow :: AllowedOperation -&gt; String
+showsPrec :: Int -&gt; AllowedOperation -&gt; ShowS
+$cshowsPrec :: Int -&gt; AllowedOperation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679295420"><span id="local-6989586621679295422"><span id="local-6989586621679295424"><span id="local-6989586621679295426"><span class="annot"><span class="annottext">ReadPrec [AllowedOperation]
+ReadPrec AllowedOperation
+Int -&gt; ReadS AllowedOperation
+ReadS [AllowedOperation]
+(Int -&gt; ReadS AllowedOperation)
+-&gt; ReadS [AllowedOperation]
+-&gt; ReadPrec AllowedOperation
+-&gt; ReadPrec [AllowedOperation]
+-&gt; Read AllowedOperation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AllowedOperation]
+$creadListPrec :: ReadPrec [AllowedOperation]
+readPrec :: ReadPrec AllowedOperation
+$creadPrec :: ReadPrec AllowedOperation
+readList :: ReadS [AllowedOperation]
+$creadList :: ReadS [AllowedOperation]
+readsPrec :: Int -&gt; ReadS AllowedOperation
+$creadsPrec :: Int -&gt; ReadS AllowedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679295415"><span id="local-6989586621679295417"><span class="annot"><span class="annottext">AllowedOperation -&gt; AllowedOperation -&gt; Bool
+(AllowedOperation -&gt; AllowedOperation -&gt; Bool)
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; Bool)
+-&gt; Eq AllowedOperation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+$c/= :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+== :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+$c== :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295399"><span id="local-6989586621679295401"><span id="local-6989586621679295403"><span id="local-6989586621679295405"><span id="local-6989586621679295407"><span id="local-6989586621679295409"><span id="local-6989586621679295411"><span class="annot"><span class="annottext">Eq AllowedOperation
+Eq AllowedOperation
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; Ordering)
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; Bool)
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; Bool)
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; Bool)
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; Bool)
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; AllowedOperation)
+-&gt; (AllowedOperation -&gt; AllowedOperation -&gt; AllowedOperation)
+-&gt; Ord AllowedOperation
+AllowedOperation -&gt; AllowedOperation -&gt; Bool
+AllowedOperation -&gt; AllowedOperation -&gt; Ordering
+AllowedOperation -&gt; AllowedOperation -&gt; AllowedOperation
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AllowedOperation -&gt; AllowedOperation -&gt; AllowedOperation
+$cmin :: AllowedOperation -&gt; AllowedOperation -&gt; AllowedOperation
+max :: AllowedOperation -&gt; AllowedOperation -&gt; AllowedOperation
+$cmax :: AllowedOperation -&gt; AllowedOperation -&gt; AllowedOperation
+&gt;= :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+$c&gt;= :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+&gt; :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+$c&gt; :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+&lt;= :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+$c&lt;= :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+&lt; :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+$c&lt; :: AllowedOperation -&gt; AllowedOperation -&gt; Bool
+compare :: AllowedOperation -&gt; AllowedOperation -&gt; Ordering
+$ccompare :: AllowedOperation -&gt; AllowedOperation -&gt; Ordering
+$cp1Ord :: Eq AllowedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AllowedOperation -&gt; Rep AllowedOperation x)
+-&gt; (forall x. Rep AllowedOperation x -&gt; AllowedOperation)
+-&gt; Generic AllowedOperation
+forall x. Rep AllowedOperation x -&gt; AllowedOperation
+forall x. AllowedOperation -&gt; Rep AllowedOperation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AllowedOperation x -&gt; AllowedOperation
+$cfrom :: forall x. AllowedOperation -&gt; Rep AllowedOperation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295391"><span id="local-6989586621679295393"><span class="annot"><span class="annottext">Int -&gt; AllowedOperation -&gt; Int
+AllowedOperation -&gt; Int
+(Int -&gt; AllowedOperation -&gt; Int)
+-&gt; (AllowedOperation -&gt; Int) -&gt; Hashable AllowedOperation
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AllowedOperation -&gt; Int
+$chash :: AllowedOperation -&gt; Int
+hashWithSalt :: Int -&gt; AllowedOperation -&gt; Int
+$chashWithSalt :: Int -&gt; AllowedOperation -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295388"><span class="annot"><span class="annottext">AllowedOperation -&gt; ()
+(AllowedOperation -&gt; ()) -&gt; NFData AllowedOperation
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AllowedOperation -&gt; ()
+$crnf :: AllowedOperation -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295385"><span class="annot"><span class="annottext">Text -&gt; Either String AllowedOperation
+(Text -&gt; Either String AllowedOperation)
+-&gt; FromText AllowedOperation
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AllowedOperation
+$cfromText :: Text -&gt; Either String AllowedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295382"><span class="annot"><span class="annottext">AllowedOperation -&gt; Text
+(AllowedOperation -&gt; Text) -&gt; ToText AllowedOperation
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AllowedOperation -&gt; Text
+$ctoText :: AllowedOperation -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295379"><span class="annot"><span class="annottext">AllowedOperation -&gt; ByteString
+(AllowedOperation -&gt; ByteString) -&gt; ToByteString AllowedOperation
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AllowedOperation -&gt; ByteString
+$ctoBS :: AllowedOperation -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295376"><span class="annot"><span class="annottext">AllowedOperation -&gt; ByteStringBuilder
+(AllowedOperation -&gt; ByteStringBuilder) -&gt; ToLog AllowedOperation
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AllowedOperation -&gt; ByteStringBuilder
+$cbuild :: AllowedOperation -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295373"><span class="annot"><span class="annottext">HeaderName -&gt; AllowedOperation -&gt; [Header]
+(HeaderName -&gt; AllowedOperation -&gt; [Header])
+-&gt; ToHeader AllowedOperation
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AllowedOperation -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AllowedOperation -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295370"><span class="annot"><span class="annottext">AllowedOperation -&gt; QueryString
+(AllowedOperation -&gt; QueryString) -&gt; ToQuery AllowedOperation
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AllowedOperation -&gt; QueryString
+$ctoQuery :: AllowedOperation -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295365"><span id="local-6989586621679295367"><span class="annot"><span class="annottext">Value -&gt; Parser [AllowedOperation]
+Value -&gt; Parser AllowedOperation
+(Value -&gt; Parser AllowedOperation)
+-&gt; (Value -&gt; Parser [AllowedOperation])
+-&gt; FromJSON AllowedOperation
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AllowedOperation]
+$cparseJSONList :: Value -&gt; Parser [AllowedOperation]
+parseJSON :: Value -&gt; Parser AllowedOperation
+$cparseJSON :: Value -&gt; Parser AllowedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679295360"><span id="local-6989586621679295362"><span class="annot"><span class="annottext">FromJSONKeyFunction [AllowedOperation]
+FromJSONKeyFunction AllowedOperation
+FromJSONKeyFunction AllowedOperation
+-&gt; FromJSONKeyFunction [AllowedOperation]
+-&gt; FromJSONKey AllowedOperation
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AllowedOperation]
+$cfromJSONKeyList :: FromJSONKeyFunction [AllowedOperation]
+fromJSONKey :: FromJSONKeyFunction AllowedOperation
+$cfromJSONKey :: FromJSONKeyFunction AllowedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679295351"><span id="local-6989586621679295353"><span id="local-6989586621679295355"><span id="local-6989586621679295357"><span class="annot"><span class="annottext">[AllowedOperation] -&gt; Encoding
+[AllowedOperation] -&gt; Value
+AllowedOperation -&gt; Encoding
+AllowedOperation -&gt; Value
+(AllowedOperation -&gt; Value)
+-&gt; (AllowedOperation -&gt; Encoding)
+-&gt; ([AllowedOperation] -&gt; Value)
+-&gt; ([AllowedOperation] -&gt; Encoding)
+-&gt; ToJSON AllowedOperation
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AllowedOperation] -&gt; Encoding
+$ctoEncodingList :: [AllowedOperation] -&gt; Encoding
+toJSONList :: [AllowedOperation] -&gt; Value
+$ctoJSONList :: [AllowedOperation] -&gt; Value
+toEncoding :: AllowedOperation -&gt; Encoding
+$ctoEncoding :: AllowedOperation -&gt; Encoding
+toJSON :: AllowedOperation -&gt; Value
+$ctoJSON :: AllowedOperation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679295346"><span id="local-6989586621679295348"><span class="annot"><span class="annottext">ToJSONKeyFunction [AllowedOperation]
+ToJSONKeyFunction AllowedOperation
+ToJSONKeyFunction AllowedOperation
+-&gt; ToJSONKeyFunction [AllowedOperation]
+-&gt; ToJSONKey AllowedOperation
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AllowedOperation]
+$ctoJSONKeyList :: ToJSONKeyFunction [AllowedOperation]
+toJSONKey :: ToJSONKeyFunction AllowedOperation
+$ctoJSONKey :: ToJSONKeyFunction AllowedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679295343"><span class="annot"><span class="annottext">[Node] -&gt; Either String AllowedOperation
+([Node] -&gt; Either String AllowedOperation)
+-&gt; FromXML AllowedOperation
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AllowedOperation
+$cparseXML :: [Node] -&gt; Either String AllowedOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679295340"><span class="annot"><span class="annottext">AllowedOperation -&gt; XML
+(AllowedOperation -&gt; XML) -&gt; ToXML AllowedOperation
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AllowedOperation -&gt; XML
+$ctoXML :: AllowedOperation -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckInLicense"><span class="hs-identifier hs-type">AllowedOperation_CheckInLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-type">AllowedOperation</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowedOperation_CheckInLicense"><span id="%24mAllowedOperation_CheckInLicense"><span id="AllowedOperation_CheckInLicense"><span class="annot"><span class="annottext">$bAllowedOperation_CheckInLicense :: AllowedOperation
+$mAllowedOperation_CheckInLicense :: forall r. AllowedOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#%24bAllowedOperation_CheckInLicense"><span class="hs-identifier hs-var hs-var hs-var">AllowedOperation_CheckInLicense</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-type">AllowedOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CheckInLicense&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckoutBorrowLicense"><span class="hs-identifier hs-type">AllowedOperation_CheckoutBorrowLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-type">AllowedOperation</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowedOperation_CheckoutBorrowLicense"><span id="%24mAllowedOperation_CheckoutBorrowLicense"><span id="AllowedOperation_CheckoutBorrowLicense"><span class="annot"><span class="annottext">$bAllowedOperation_CheckoutBorrowLicense :: AllowedOperation
+$mAllowedOperation_CheckoutBorrowLicense :: forall r. AllowedOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#%24bAllowedOperation_CheckoutBorrowLicense"><span class="hs-identifier hs-var hs-var hs-var">AllowedOperation_CheckoutBorrowLicense</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-type">AllowedOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CheckoutBorrowLicense&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckoutLicense"><span class="hs-identifier hs-type">AllowedOperation_CheckoutLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-type">AllowedOperation</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowedOperation_CheckoutLicense"><span id="%24mAllowedOperation_CheckoutLicense"><span id="AllowedOperation_CheckoutLicense"><span class="annot"><span class="annottext">$bAllowedOperation_CheckoutLicense :: AllowedOperation
+$mAllowedOperation_CheckoutLicense :: forall r. AllowedOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#%24bAllowedOperation_CheckoutLicense"><span class="hs-identifier hs-var hs-var hs-var">AllowedOperation_CheckoutLicense</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-type">AllowedOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CheckoutLicense&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CreateGrant"><span class="hs-identifier hs-type">AllowedOperation_CreateGrant</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-type">AllowedOperation</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowedOperation_CreateGrant"><span id="%24mAllowedOperation_CreateGrant"><span id="AllowedOperation_CreateGrant"><span class="annot"><span class="annottext">$bAllowedOperation_CreateGrant :: AllowedOperation
+$mAllowedOperation_CreateGrant :: forall r. AllowedOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#%24bAllowedOperation_CreateGrant"><span class="hs-identifier hs-var hs-var hs-var">AllowedOperation_CreateGrant</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-type">AllowedOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreateGrant&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CreateToken"><span class="hs-identifier hs-type">AllowedOperation_CreateToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-type">AllowedOperation</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowedOperation_CreateToken"><span id="%24mAllowedOperation_CreateToken"><span id="AllowedOperation_CreateToken"><span class="annot"><span class="annottext">$bAllowedOperation_CreateToken :: AllowedOperation
+$mAllowedOperation_CreateToken :: forall r. AllowedOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#%24bAllowedOperation_CreateToken"><span class="hs-identifier hs-var hs-var hs-var">AllowedOperation_CreateToken</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-type">AllowedOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CreateToken&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_ExtendConsumptionLicense"><span class="hs-identifier hs-type">AllowedOperation_ExtendConsumptionLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-type">AllowedOperation</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowedOperation_ExtendConsumptionLicense"><span id="%24mAllowedOperation_ExtendConsumptionLicense"><span id="AllowedOperation_ExtendConsumptionLicense"><span class="annot"><span class="annottext">$bAllowedOperation_ExtendConsumptionLicense :: AllowedOperation
+$mAllowedOperation_ExtendConsumptionLicense :: forall r. AllowedOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#%24bAllowedOperation_ExtendConsumptionLicense"><span class="hs-identifier hs-var hs-var hs-var">AllowedOperation_ExtendConsumptionLicense</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-type">AllowedOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ExtendConsumptionLicense&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_ListPurchasedLicenses"><span class="hs-identifier hs-type">AllowedOperation_ListPurchasedLicenses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation"><span class="hs-identifier hs-type">AllowedOperation</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAllowedOperation_ListPurchasedLicenses"><span id="%24mAllowedOperation_ListPurchasedLicenses"><span id="AllowedOperation_ListPurchasedLicenses"><span class="annot"><span class="annottext">$bAllowedOperation_ListPurchasedLicenses :: AllowedOperation
+$mAllowedOperation_ListPurchasedLicenses :: forall r. AllowedOperation -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#%24bAllowedOperation_ListPurchasedLicenses"><span class="hs-identifier hs-var hs-var hs-var">AllowedOperation_ListPurchasedLicenses</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-identifier hs-type">AllowedOperation'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ListPurchasedLicenses&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckInLicense"><span class="hs-pragma hs-type">AllowedOperation_CheckInLicense</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckoutBorrowLicense"><span class="hs-pragma hs-type">AllowedOperation_CheckoutBorrowLicense</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CheckoutLicense"><span class="hs-pragma hs-type">AllowedOperation_CheckoutLicense</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CreateGrant"><span class="hs-pragma hs-type">AllowedOperation_CreateGrant</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_CreateToken"><span class="hs-pragma hs-type">AllowedOperation_CreateToken</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_ExtendConsumptionLicense"><span class="hs-pragma hs-type">AllowedOperation_ExtendConsumptionLicense</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation_ListPurchasedLicenses"><span class="hs-pragma hs-type">AllowedOperation_ListPurchasedLicenses</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.AllowedOperation.html#AllowedOperation%27"><span class="hs-pragma hs-type">AllowedOperation'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

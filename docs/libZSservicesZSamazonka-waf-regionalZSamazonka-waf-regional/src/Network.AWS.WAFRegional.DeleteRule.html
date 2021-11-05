@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.html"><span class="hs-identifier">Network.AWS.WAFRegional.Types</span></a></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newDeleteRule' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679323061"><span id="local-6989586621679323062"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRule"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-var">DeleteRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRule%27"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-var">DeleteRule'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679323070"><span id="local-6989586621679323071"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRule"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-var">DeleteRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRule%27"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-var">DeleteRule'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @RuleId@ of the Rule that you want to delete. @RuleId@ is returned</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- by CreateRule and by ListRules.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AruleId%3ADeleteRule%27"><span class="annot"><span class="annottext">DeleteRule -&gt; Text
@@ -81,7 +81,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AchangeToken%3ADeleteRule%27"><span class="annot"><span class="annottext">DeleteRule -&gt; Text
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AchangeToken%3ADeleteRule%27"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323054"><span id="local-6989586621679323056"><span class="annot"><span class="annottext">DeleteRule -&gt; DeleteRule -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323063"><span id="local-6989586621679323065"><span class="annot"><span class="annottext">DeleteRule -&gt; DeleteRule -&gt; Bool
 (DeleteRule -&gt; DeleteRule -&gt; Bool)
 -&gt; (DeleteRule -&gt; DeleteRule -&gt; Bool) -&gt; Eq DeleteRule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRule -&gt; DeleteRule -&gt; Bool
 == :: DeleteRule -&gt; DeleteRule -&gt; Bool
 $c== :: DeleteRule -&gt; DeleteRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323045"><span id="local-6989586621679323047"><span id="local-6989586621679323049"><span id="local-6989586621679323051"><span class="annot"><span class="annottext">ReadPrec [DeleteRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323054"><span id="local-6989586621679323056"><span id="local-6989586621679323058"><span id="local-6989586621679323060"><span class="annot"><span class="annottext">ReadPrec [DeleteRule]
 ReadPrec DeleteRule
 Int -&gt; ReadS DeleteRule
 ReadS [DeleteRule]
@@ -109,7 +109,7 @@ readList :: ReadS [DeleteRule]
 $creadList :: ReadS [DeleteRule]
 readsPrec :: Int -&gt; ReadS DeleteRule
 $creadsPrec :: Int -&gt; ReadS DeleteRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323038"><span id="local-6989586621679323040"><span id="local-6989586621679323042"><span class="annot"><span class="annottext">Int -&gt; DeleteRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323047"><span id="local-6989586621679323049"><span id="local-6989586621679323051"><span class="annot"><span class="annottext">Int -&gt; DeleteRule -&gt; ShowS
 [DeleteRule] -&gt; ShowS
 DeleteRule -&gt; String
 (Int -&gt; DeleteRule -&gt; ShowS)
@@ -153,17 +153,17 @@ $cfrom :: forall x. DeleteRule -&gt; Rep DeleteRule x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span>
 </span><span id="line-102"></span><span id="newDeleteRule"><span class="annot"><span class="annottext">newDeleteRule :: Text -&gt; Text -&gt; DeleteRule
-</span><a href="Network.AWS.WAFRegional.DeleteRule.html#newDeleteRule"><span class="hs-identifier hs-var hs-var">newDeleteRule</span></a></span></span><span> </span><span id="local-6989586621679323033"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323033"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679323032"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323032"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.DeleteRule.html#newDeleteRule"><span class="hs-identifier hs-var hs-var">newDeleteRule</span></a></span></span><span> </span><span id="local-6989586621679323042"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323042"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span id="local-6989586621679323041"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323041"><span class="hs-identifier hs-var">pChangeToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">DeleteRule' :: Text -&gt; Text -&gt; DeleteRule
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleId:DeleteRule' :: Text
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AruleId%3ADeleteRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323033"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679323042"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:changeToken:DeleteRule' :: Text
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AchangeToken%3ADeleteRule%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323032"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
+</span><a href="#local-6989586621679323041"><span class="hs-identifier hs-var">pChangeToken_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The @RuleId@ of the Rule that you want to delete. @RuleId@ is returned</span><span>
@@ -174,16 +174,16 @@ $cfrom :: forall x. DeleteRule -&gt; Rep DeleteRule x
 -&gt; (DeleteRule -&gt; Text -&gt; DeleteRule)
 -&gt; Lens DeleteRule DeleteRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323029"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323038"><span class="annot"><span class="annottext">Text
 ruleId :: Text
 $sel:ruleId:DeleteRule' :: DeleteRule -&gt; Text
-</span><a href="#local-6989586621679323029"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323029"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323028"><span class="annot"><span class="annottext">s :: DeleteRule
-</span><a href="#local-6989586621679323028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323027"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
-</span><a href="#local-6989586621679323028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:DeleteRule' :: Text
+</span><a href="#local-6989586621679323038"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323038"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323037"><span class="annot"><span class="annottext">s :: DeleteRule
+</span><a href="#local-6989586621679323037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
+</span><a href="#local-6989586621679323037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:DeleteRule' :: Text
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AruleId%3ADeleteRule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The value returned by the most recent call to GetChangeToken.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#deleteRule_changeToken"><span class="hs-identifier hs-type">deleteRule_changeToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -192,25 +192,25 @@ $sel:ruleId:DeleteRule' :: DeleteRule -&gt; Text
 -&gt; (DeleteRule -&gt; Text -&gt; DeleteRule)
 -&gt; Lens DeleteRule DeleteRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323026"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323035"><span class="annot"><span class="annottext">Text
 changeToken :: Text
 $sel:changeToken:DeleteRule' :: DeleteRule -&gt; Text
-</span><a href="#local-6989586621679323026"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323026"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323025"><span class="annot"><span class="annottext">s :: DeleteRule
-</span><a href="#local-6989586621679323025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323024"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
-</span><a href="#local-6989586621679323025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:DeleteRule' :: Text
+</span><a href="#local-6989586621679323035"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323035"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323034"><span class="annot"><span class="annottext">s :: DeleteRule
+</span><a href="#local-6989586621679323034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRule
+</span><a href="#local-6989586621679323034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:DeleteRule' :: Text
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AchangeToken%3ADeleteRule%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679323020"><span class="annot"><span class="annottext">request :: DeleteRule -&gt; Request DeleteRule
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679323029"><span class="annot"><span class="annottext">request :: DeleteRule -&gt; Request DeleteRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRule -&gt; Request DeleteRule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAFRegional.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679323016"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679323025"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteRule
 -&gt; ClientResponse ClientBody
@@ -234,10 +234,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323013"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679323013"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679323012"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679323012"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679323011"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323011"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323022"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679323021"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679323021"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679323020"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323020"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteRuleResponse
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-var">DeleteRuleResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteRuleResponse)
@@ -245,7 +245,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteRuleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323011"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679323020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -257,15 +257,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679323013"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323022"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323003"><span id="local-6989586621679323005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323012"><span id="local-6989586621679323014"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323009"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679322996"><span class="annot"><span class="annottext">toHeaders :: DeleteRule -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679323005"><span class="annot"><span class="annottext">toHeaders :: DeleteRule -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteRule -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -292,14 +292,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322986"><span id="local-6989586621679322988"><span id="local-6989586621679322990"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679322984"><span class="annot"><span class="annottext">toJSON :: DeleteRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322981"><span id="local-6989586621679322982"><span class="annot"><span class="annottext">Text
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322995"><span id="local-6989586621679322997"><span id="local-6989586621679322999"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679322993"><span class="annot"><span class="annottext">toJSON :: DeleteRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule%27"><span class="hs-identifier hs-type">DeleteRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322990"><span id="local-6989586621679322991"><span class="annot"><span class="annottext">Text
 changeToken :: Text
 ruleId :: Text
 $sel:changeToken:DeleteRule' :: DeleteRule -&gt; Text
 $sel:ruleId:DeleteRule' :: DeleteRule -&gt; Text
-</span><a href="#local-6989586621679322981"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679322990"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -311,26 +311,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RuleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322982"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322991"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679322981"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322990"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679322975"><span class="annot"><span class="annottext">toPath :: DeleteRule -&gt; ByteString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679322984"><span class="annot"><span class="annottext">toPath :: DeleteRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRule"><span class="hs-identifier hs-type">DeleteRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679322971"><span class="annot"><span class="annottext">toQuery :: DeleteRule -&gt; QueryString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679322980"><span class="annot"><span class="annottext">toQuery :: DeleteRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -338,7 +338,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newDeleteRuleResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679322968"><span id="local-6989586621679322969"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRuleResponse"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-var">DeleteRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRuleResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-var">DeleteRuleResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679322977"><span id="local-6989586621679322978"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRuleResponse"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-var">DeleteRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRuleResponse%27"><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-var">DeleteRuleResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You</span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-comment">-- can also use this value to query the status of the request. For more</span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-comment">-- information, see GetChangeTokenStatus.</span><span>
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRuleResponse%27"><span class="annot"><span class="annottext">DeleteRuleResponse -&gt; Int
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AhttpStatus%3ADeleteRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322962"><span id="local-6989586621679322964"><span class="annot"><span class="annottext">DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322971"><span id="local-6989586621679322973"><span class="annot"><span class="annottext">DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
 (DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool)
 -&gt; (DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool)
 -&gt; Eq DeleteRuleResponse
@@ -357,7 +357,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
 == :: DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
 $c== :: DeleteRuleResponse -&gt; DeleteRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322954"><span id="local-6989586621679322956"><span id="local-6989586621679322958"><span id="local-6989586621679322960"><span class="annot"><span class="annottext">ReadPrec [DeleteRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322963"><span id="local-6989586621679322965"><span id="local-6989586621679322967"><span id="local-6989586621679322969"><span class="annot"><span class="annottext">ReadPrec [DeleteRuleResponse]
 ReadPrec DeleteRuleResponse
 Int -&gt; ReadS DeleteRuleResponse
 ReadS [DeleteRuleResponse]
@@ -377,7 +377,7 @@ readList :: ReadS [DeleteRuleResponse]
 $creadList :: ReadS [DeleteRuleResponse]
 readsPrec :: Int -&gt; ReadS DeleteRuleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322948"><span id="local-6989586621679322950"><span id="local-6989586621679322952"><span class="annot"><span class="annottext">Int -&gt; DeleteRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322957"><span id="local-6989586621679322959"><span id="local-6989586621679322961"><span class="annot"><span class="annottext">Int -&gt; DeleteRuleResponse -&gt; ShowS
 [DeleteRuleResponse] -&gt; ShowS
 DeleteRuleResponse -&gt; String
 (Int -&gt; DeleteRuleResponse -&gt; ShowS)
@@ -421,8 +421,8 @@ $cfrom :: forall x. DeleteRuleResponse -&gt; Rep DeleteRuleResponse x
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span>
 </span><span id="line-190"></span><span id="newDeleteRuleResponse"><span class="annot"><span class="annottext">newDeleteRuleResponse :: Int -&gt; DeleteRuleResponse
-</span><a href="Network.AWS.WAFRegional.DeleteRule.html#newDeleteRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679322945"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.DeleteRule.html#newDeleteRuleResponse"><span class="hs-identifier hs-var hs-var">newDeleteRuleResponse</span></a></span></span><span> </span><span id="local-6989586621679322954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">DeleteRuleResponse' :: Maybe Text -&gt; Int -&gt; DeleteRuleResponse
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:changeToken:DeleteRuleResponse' :: Maybe Text
@@ -431,7 +431,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRuleResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AhttpStatus%3ADeleteRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679322954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You</span><span>
@@ -445,16 +445,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteRuleResponse DeleteRuleResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322944"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322953"><span class="annot"><span class="annottext">Maybe Text
 changeToken :: Maybe Text
 $sel:changeToken:DeleteRuleResponse' :: DeleteRuleResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679322944"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322944"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322943"><span class="annot"><span class="annottext">s :: DeleteRuleResponse
-</span><a href="#local-6989586621679322943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322942"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRuleResponse
-</span><a href="#local-6989586621679322943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:DeleteRuleResponse' :: Maybe Text
+</span><a href="#local-6989586621679322953"><span class="hs-identifier hs-var hs-var">changeToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322953"><span class="hs-identifier hs-var">changeToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322952"><span class="annot"><span class="annottext">s :: DeleteRuleResponse
+</span><a href="#local-6989586621679322952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322951"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRuleResponse
+</span><a href="#local-6989586621679322952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeToken:DeleteRuleResponse' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AchangeToken%3ADeleteRuleResponse%27"><span class="hs-identifier hs-var">changeToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#deleteRuleResponse_httpStatus"><span class="hs-identifier hs-type">deleteRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -463,16 +463,16 @@ $sel:changeToken:DeleteRuleResponse' :: DeleteRuleResponse -&gt; Maybe Text
 -&gt; (DeleteRuleResponse -&gt; Int -&gt; DeleteRuleResponse)
 -&gt; Lens DeleteRuleResponse DeleteRuleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322941"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322950"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteRuleResponse' :: DeleteRuleResponse -&gt; Int
-</span><a href="#local-6989586621679322941"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322941"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322940"><span class="annot"><span class="annottext">s :: DeleteRuleResponse
-</span><a href="#local-6989586621679322940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322939"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRuleResponse
-</span><a href="#local-6989586621679322940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRuleResponse' :: Int
+</span><a href="#local-6989586621679322950"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322950"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322949"><span class="annot"><span class="annottext">s :: DeleteRuleResponse
+</span><a href="#local-6989586621679322949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse%27"><span class="hs-identifier hs-type">DeleteRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRuleResponse
+</span><a href="#local-6989586621679322949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRuleResponse' :: Int
 </span><a href="Network.AWS.WAFRegional.DeleteRule.html#%24sel%3AhttpStatus%3ADeleteRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.DeleteRule.html#DeleteRuleResponse"><span class="hs-identifier hs-type">DeleteRuleResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

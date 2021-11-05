@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679308571"><span id="local-6989586621679308572"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TextTransformation"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-var">TextTransformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TextTransformation%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-var">TextTransformation'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679308580"><span id="local-6989586621679308581"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TextTransformation"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#TextTransformation"><span class="hs-identifier hs-var">TextTransformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TextTransformation%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#TextTransformation%27"><span class="hs-identifier hs-var">TextTransformation'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTextTransformation"><span class="annot"><span class="annottext">TextTransformation -&gt; Text
 </span><a href="Network.AWS.WAFRegional.Types.TextTransformation.html#fromTextTransformation"><span class="hs-identifier hs-var hs-var">fromTextTransformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308563"><span id="local-6989586621679308565"><span id="local-6989586621679308567"><span class="annot"><span class="annottext">Int -&gt; TextTransformation -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308572"><span id="local-6989586621679308574"><span id="local-6989586621679308576"><span class="annot"><span class="annottext">Int -&gt; TextTransformation -&gt; ShowS
 [TextTransformation] -&gt; ShowS
 TextTransformation -&gt; String
 (Int -&gt; TextTransformation -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: TextTransformation -&gt; String
 showsPrec :: Int -&gt; TextTransformation -&gt; ShowS
 $cshowsPrec :: Int -&gt; TextTransformation -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679308554"><span id="local-6989586621679308556"><span id="local-6989586621679308558"><span id="local-6989586621679308560"><span class="annot"><span class="annottext">ReadPrec [TextTransformation]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679308563"><span id="local-6989586621679308565"><span id="local-6989586621679308567"><span id="local-6989586621679308569"><span class="annot"><span class="annottext">ReadPrec [TextTransformation]
 ReadPrec TextTransformation
 Int -&gt; ReadS TextTransformation
 ReadS [TextTransformation]
@@ -76,7 +76,7 @@ $creadList :: ReadS [TextTransformation]
 readsPrec :: Int -&gt; ReadS TextTransformation
 $creadsPrec :: Int -&gt; ReadS TextTransformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679308549"><span id="local-6989586621679308551"><span class="annot"><span class="annottext">TextTransformation -&gt; TextTransformation -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679308558"><span id="local-6989586621679308560"><span class="annot"><span class="annottext">TextTransformation -&gt; TextTransformation -&gt; Bool
 (TextTransformation -&gt; TextTransformation -&gt; Bool)
 -&gt; (TextTransformation -&gt; TextTransformation -&gt; Bool)
 -&gt; Eq TextTransformation
@@ -86,7 +86,7 @@ $c/= :: TextTransformation -&gt; TextTransformation -&gt; Bool
 == :: TextTransformation -&gt; TextTransformation -&gt; Bool
 $c== :: TextTransformation -&gt; TextTransformation -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679308533"><span id="local-6989586621679308535"><span id="local-6989586621679308537"><span id="local-6989586621679308539"><span id="local-6989586621679308541"><span id="local-6989586621679308543"><span id="local-6989586621679308545"><span class="annot"><span class="annottext">Eq TextTransformation
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679308542"><span id="local-6989586621679308544"><span id="local-6989586621679308546"><span id="local-6989586621679308548"><span id="local-6989586621679308550"><span id="local-6989586621679308552"><span id="local-6989586621679308554"><span class="annot"><span class="annottext">Eq TextTransformation
 Eq TextTransformation
 -&gt; (TextTransformation -&gt; TextTransformation -&gt; Ordering)
 -&gt; (TextTransformation -&gt; TextTransformation -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. TextTransformation -&gt; Rep TextTransformation x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308525"><span id="local-6989586621679308527"><span class="annot"><span class="annottext">Int -&gt; TextTransformation -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679308534"><span id="local-6989586621679308536"><span class="annot"><span class="annottext">Int -&gt; TextTransformation -&gt; Int
 TextTransformation -&gt; Int
 (Int -&gt; TextTransformation -&gt; Int)
 -&gt; (TextTransformation -&gt; Int) -&gt; Hashable TextTransformation
@@ -147,53 +147,53 @@ $chash :: TextTransformation -&gt; Int
 hashWithSalt :: Int -&gt; TextTransformation -&gt; Int
 $chashWithSalt :: Int -&gt; TextTransformation -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679308522"><span class="annot"><span class="annottext">TextTransformation -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679308531"><span class="annot"><span class="annottext">TextTransformation -&gt; ()
 (TextTransformation -&gt; ()) -&gt; NFData TextTransformation
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TextTransformation -&gt; ()
 $crnf :: TextTransformation -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679308519"><span class="annot"><span class="annottext">Text -&gt; Either String TextTransformation
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679308528"><span class="annot"><span class="annottext">Text -&gt; Either String TextTransformation
 (Text -&gt; Either String TextTransformation)
 -&gt; FromText TextTransformation
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TextTransformation
 $cfromText :: Text -&gt; Either String TextTransformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679308516"><span class="annot"><span class="annottext">TextTransformation -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679308525"><span class="annot"><span class="annottext">TextTransformation -&gt; Text
 (TextTransformation -&gt; Text) -&gt; ToText TextTransformation
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TextTransformation -&gt; Text
 $ctoText :: TextTransformation -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679308513"><span class="annot"><span class="annottext">TextTransformation -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679308522"><span class="annot"><span class="annottext">TextTransformation -&gt; ByteString
 (TextTransformation -&gt; ByteString)
 -&gt; ToByteString TextTransformation
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TextTransformation -&gt; ByteString
 $ctoBS :: TextTransformation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679308510"><span class="annot"><span class="annottext">TextTransformation -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679308519"><span class="annot"><span class="annottext">TextTransformation -&gt; ByteStringBuilder
 (TextTransformation -&gt; ByteStringBuilder)
 -&gt; ToLog TextTransformation
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TextTransformation -&gt; ByteStringBuilder
 $cbuild :: TextTransformation -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679308507"><span class="annot"><span class="annottext">HeaderName -&gt; TextTransformation -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679308516"><span class="annot"><span class="annottext">HeaderName -&gt; TextTransformation -&gt; [Header]
 (HeaderName -&gt; TextTransformation -&gt; [Header])
 -&gt; ToHeader TextTransformation
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TextTransformation -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TextTransformation -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679308504"><span class="annot"><span class="annottext">TextTransformation -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679308513"><span class="annot"><span class="annottext">TextTransformation -&gt; QueryString
 (TextTransformation -&gt; QueryString) -&gt; ToQuery TextTransformation
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TextTransformation -&gt; QueryString
 $ctoQuery :: TextTransformation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679308499"><span id="local-6989586621679308501"><span class="annot"><span class="annottext">Value -&gt; Parser [TextTransformation]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679308508"><span id="local-6989586621679308510"><span class="annot"><span class="annottext">Value -&gt; Parser [TextTransformation]
 Value -&gt; Parser TextTransformation
 (Value -&gt; Parser TextTransformation)
 -&gt; (Value -&gt; Parser [TextTransformation])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [TextTransformation]
 parseJSON :: Value -&gt; Parser TextTransformation
 $cparseJSON :: Value -&gt; Parser TextTransformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679308494"><span id="local-6989586621679308496"><span class="annot"><span class="annottext">FromJSONKeyFunction [TextTransformation]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679308503"><span id="local-6989586621679308505"><span class="annot"><span class="annottext">FromJSONKeyFunction [TextTransformation]
 FromJSONKeyFunction TextTransformation
 FromJSONKeyFunction TextTransformation
 -&gt; FromJSONKeyFunction [TextTransformation]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TextTransformation]
 fromJSONKey :: FromJSONKeyFunction TextTransformation
 $cfromJSONKey :: FromJSONKeyFunction TextTransformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679308485"><span id="local-6989586621679308487"><span id="local-6989586621679308489"><span id="local-6989586621679308491"><span class="annot"><span class="annottext">[TextTransformation] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679308494"><span id="local-6989586621679308496"><span id="local-6989586621679308498"><span id="local-6989586621679308500"><span class="annot"><span class="annottext">[TextTransformation] -&gt; Encoding
 [TextTransformation] -&gt; Value
 TextTransformation -&gt; Encoding
 TextTransformation -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: TextTransformation -&gt; Encoding
 toJSON :: TextTransformation -&gt; Value
 $ctoJSON :: TextTransformation -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679308480"><span id="local-6989586621679308482"><span class="annot"><span class="annottext">ToJSONKeyFunction [TextTransformation]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679308489"><span id="local-6989586621679308491"><span class="annot"><span class="annottext">ToJSONKeyFunction [TextTransformation]
 ToJSONKeyFunction TextTransformation
 ToJSONKeyFunction TextTransformation
 -&gt; ToJSONKeyFunction [TextTransformation]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TextTransformation]
 toJSONKey :: ToJSONKeyFunction TextTransformation
 $ctoJSONKey :: ToJSONKeyFunction TextTransformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679308477"><span class="annot"><span class="annottext">[Node] -&gt; Either String TextTransformation
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679308486"><span class="annot"><span class="annottext">[Node] -&gt; Either String TextTransformation
 ([Node] -&gt; Either String TextTransformation)
 -&gt; FromXML TextTransformation
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TextTransformation
 $cparseXML :: [Node] -&gt; Either String TextTransformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679308474"><span class="annot"><span class="annottext">TextTransformation -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679308483"><span class="annot"><span class="annottext">TextTransformation -&gt; XML
 (TextTransformation -&gt; XML) -&gt; ToXML TextTransformation
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TextTransformation -&gt; XML

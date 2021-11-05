@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The node group update configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNodegroupUpdateConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679267879"><span id="local-6989586621679267880"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupUpdateConfig"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-var">NodegroupUpdateConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupUpdateConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-var">NodegroupUpdateConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679267888"><span id="local-6989586621679267889"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodegroupUpdateConfig"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-var">NodegroupUpdateConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodegroupUpdateConfig%27"><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-var">NodegroupUpdateConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of nodes unavailable at once during a version update.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Nodes will be updated in parallel. This value or</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @maxUnavailablePercentage@ is required to have a value.The maximum</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AmaxUnavailablePercentage%3ANodegroupUpdateConfig%27"><span class="annot"><span class="annottext">NodegroupUpdateConfig -&gt; Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#%24sel%3AmaxUnavailablePercentage%3ANodegroupUpdateConfig%27"><span class="hs-identifier hs-var hs-var">maxUnavailablePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267872"><span id="local-6989586621679267874"><span class="annot"><span class="annottext">NodegroupUpdateConfig -&gt; NodegroupUpdateConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267881"><span id="local-6989586621679267883"><span class="annot"><span class="annottext">NodegroupUpdateConfig -&gt; NodegroupUpdateConfig -&gt; Bool
 (NodegroupUpdateConfig -&gt; NodegroupUpdateConfig -&gt; Bool)
 -&gt; (NodegroupUpdateConfig -&gt; NodegroupUpdateConfig -&gt; Bool)
 -&gt; Eq NodegroupUpdateConfig
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodegroupUpdateConfig -&gt; NodegroupUpdateConfig -&gt; Bool
 == :: NodegroupUpdateConfig -&gt; NodegroupUpdateConfig -&gt; Bool
 $c== :: NodegroupUpdateConfig -&gt; NodegroupUpdateConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267863"><span id="local-6989586621679267865"><span id="local-6989586621679267867"><span id="local-6989586621679267869"><span class="annot"><span class="annottext">ReadPrec [NodegroupUpdateConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267872"><span id="local-6989586621679267874"><span id="local-6989586621679267876"><span id="local-6989586621679267878"><span class="annot"><span class="annottext">ReadPrec [NodegroupUpdateConfig]
 ReadPrec NodegroupUpdateConfig
 Int -&gt; ReadS NodegroupUpdateConfig
 ReadS [NodegroupUpdateConfig]
@@ -68,7 +68,7 @@ readList :: ReadS [NodegroupUpdateConfig]
 $creadList :: ReadS [NodegroupUpdateConfig]
 readsPrec :: Int -&gt; ReadS NodegroupUpdateConfig
 $creadsPrec :: Int -&gt; ReadS NodegroupUpdateConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267856"><span id="local-6989586621679267858"><span id="local-6989586621679267860"><span class="annot"><span class="annottext">Int -&gt; NodegroupUpdateConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267865"><span id="local-6989586621679267867"><span id="local-6989586621679267869"><span class="annot"><span class="annottext">Int -&gt; NodegroupUpdateConfig -&gt; ShowS
 [NodegroupUpdateConfig] -&gt; ShowS
 NodegroupUpdateConfig -&gt; String
 (Int -&gt; NodegroupUpdateConfig -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267847"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267856"><span class="annot"><span class="annottext">Maybe Natural
 maxUnavailable :: Maybe Natural
 $sel:maxUnavailable:NodegroupUpdateConfig' :: NodegroupUpdateConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679267847"><span class="hs-identifier hs-var hs-var">maxUnavailable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267847"><span class="hs-identifier hs-var">maxUnavailable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267846"><span class="annot"><span class="annottext">s :: NodegroupUpdateConfig
-</span><a href="#local-6989586621679267846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267845"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupUpdateConfig
-</span><a href="#local-6989586621679267846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxUnavailable:NodegroupUpdateConfig' :: Maybe Natural
+</span><a href="#local-6989586621679267856"><span class="hs-identifier hs-var hs-var">maxUnavailable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267856"><span class="hs-identifier hs-var">maxUnavailable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267855"><span class="annot"><span class="annottext">s :: NodegroupUpdateConfig
+</span><a href="#local-6989586621679267855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267854"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupUpdateConfig
+</span><a href="#local-6989586621679267855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxUnavailable:NodegroupUpdateConfig' :: Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#%24sel%3AmaxUnavailable%3ANodegroupUpdateConfig%27"><span class="hs-identifier hs-var">maxUnavailable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The maximum percentage of nodes unavailable during a version update.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- This percentage of nodes will be updated in parallel, up to 100 nodes at</span><span>
@@ -169,19 +169,19 @@ $sel:maxUnavailable:NodegroupUpdateConfig' :: NodegroupUpdateConfig -&gt; Maybe 
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267843"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267852"><span class="annot"><span class="annottext">Maybe Natural
 maxUnavailablePercentage :: Maybe Natural
 $sel:maxUnavailablePercentage:NodegroupUpdateConfig' :: NodegroupUpdateConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679267843"><span class="hs-identifier hs-var hs-var">maxUnavailablePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267843"><span class="hs-identifier hs-var">maxUnavailablePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267842"><span class="annot"><span class="annottext">s :: NodegroupUpdateConfig
-</span><a href="#local-6989586621679267842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267841"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupUpdateConfig
-</span><a href="#local-6989586621679267842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxUnavailablePercentage:NodegroupUpdateConfig' :: Maybe Natural
+</span><a href="#local-6989586621679267852"><span class="hs-identifier hs-var hs-var">maxUnavailablePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267852"><span class="hs-identifier hs-var">maxUnavailablePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267851"><span class="annot"><span class="annottext">s :: NodegroupUpdateConfig
+</span><a href="#local-6989586621679267851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267850"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679267850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodegroupUpdateConfig
+</span><a href="#local-6989586621679267851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxUnavailablePercentage:NodegroupUpdateConfig' :: Maybe Natural
 </span><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#%24sel%3AmaxUnavailablePercentage%3ANodegroupUpdateConfig%27"><span class="hs-identifier hs-var">maxUnavailablePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679267850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267838"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679267836"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupUpdateConfig
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267847"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679267845"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NodegroupUpdateConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser NodegroupUpdateConfig)
@@ -191,8 +191,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;NodegroupUpdateConfig&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267833"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679267842"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679267842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; NodegroupUpdateConfig
 </span><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-var">NodegroupUpdateConfig'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; NodegroupUpdateConfig)
@@ -200,7 +200,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; NodegroupUpdateConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679267842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxUnavailable&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,24 +208,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser NodegroupUpdateConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679267842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxUnavailablePercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267827"><span id="local-6989586621679267829"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267836"><span id="local-6989586621679267838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267824"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267816"><span id="local-6989586621679267818"><span id="local-6989586621679267820"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679267814"><span class="annot"><span class="annottext">toJSON :: NodegroupUpdateConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267811"><span id="local-6989586621679267812"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267825"><span id="local-6989586621679267827"><span id="local-6989586621679267829"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig"><span class="hs-identifier hs-type">NodegroupUpdateConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679267823"><span class="annot"><span class="annottext">toJSON :: NodegroupUpdateConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.NodegroupUpdateConfig.html#NodegroupUpdateConfig%27"><span class="hs-identifier hs-type">NodegroupUpdateConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267820"><span id="local-6989586621679267821"><span class="annot"><span class="annottext">Maybe Natural
 maxUnavailablePercentage :: Maybe Natural
 maxUnavailable :: Maybe Natural
 $sel:maxUnavailablePercentage:NodegroupUpdateConfig' :: NodegroupUpdateConfig -&gt; Maybe Natural
 $sel:maxUnavailable:NodegroupUpdateConfig' :: NodegroupUpdateConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679267811"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679267820"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -238,7 +238,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267812"><span class="hs-identifier hs-var">maxUnavailable</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679267821"><span class="hs-identifier hs-var">maxUnavailable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxUnavailablePercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -246,7 +246,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679267811"><span class="hs-identifier hs-var">maxUnavailablePercentage</span></a></span><span>
+</span><a href="#local-6989586621679267820"><span class="hs-identifier hs-var">maxUnavailablePercentage</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

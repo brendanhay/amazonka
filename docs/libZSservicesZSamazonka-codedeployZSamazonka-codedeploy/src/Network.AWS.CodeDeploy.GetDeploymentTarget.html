@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetDeploymentTarget' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679322238"><span id="local-6989586621679322239"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeploymentTarget"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-var">GetDeploymentTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeploymentTarget%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-var">GetDeploymentTarget'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679322247"><span id="local-6989586621679322248"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeploymentTarget"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-var">GetDeploymentTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeploymentTarget%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-var">GetDeploymentTarget'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of a deployment target.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AtargetId%3AGetDeploymentTarget%27"><span class="annot"><span class="annottext">GetDeploymentTarget -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AtargetId%3AGetDeploymentTarget%27"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdeploymentId%3AGetDeploymentTarget%27"><span class="annot"><span class="annottext">GetDeploymentTarget -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AdeploymentId%3AGetDeploymentTarget%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322231"><span id="local-6989586621679322233"><span class="annot"><span class="annottext">GetDeploymentTarget -&gt; GetDeploymentTarget -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322240"><span id="local-6989586621679322242"><span class="annot"><span class="annottext">GetDeploymentTarget -&gt; GetDeploymentTarget -&gt; Bool
 (GetDeploymentTarget -&gt; GetDeploymentTarget -&gt; Bool)
 -&gt; (GetDeploymentTarget -&gt; GetDeploymentTarget -&gt; Bool)
 -&gt; Eq GetDeploymentTarget
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDeploymentTarget -&gt; GetDeploymentTarget -&gt; Bool
 == :: GetDeploymentTarget -&gt; GetDeploymentTarget -&gt; Bool
 $c== :: GetDeploymentTarget -&gt; GetDeploymentTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322222"><span id="local-6989586621679322224"><span id="local-6989586621679322226"><span id="local-6989586621679322228"><span class="annot"><span class="annottext">ReadPrec [GetDeploymentTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322231"><span id="local-6989586621679322233"><span id="local-6989586621679322235"><span id="local-6989586621679322237"><span class="annot"><span class="annottext">ReadPrec [GetDeploymentTarget]
 ReadPrec GetDeploymentTarget
 Int -&gt; ReadS GetDeploymentTarget
 ReadS [GetDeploymentTarget]
@@ -85,7 +85,7 @@ readList :: ReadS [GetDeploymentTarget]
 $creadList :: ReadS [GetDeploymentTarget]
 readsPrec :: Int -&gt; ReadS GetDeploymentTarget
 $creadsPrec :: Int -&gt; ReadS GetDeploymentTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322215"><span id="local-6989586621679322217"><span id="local-6989586621679322219"><span class="annot"><span class="annottext">Int -&gt; GetDeploymentTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322224"><span id="local-6989586621679322226"><span id="local-6989586621679322228"><span class="annot"><span class="annottext">Int -&gt; GetDeploymentTarget -&gt; ShowS
 [GetDeploymentTarget] -&gt; ShowS
 GetDeploymentTarget -&gt; String
 (Int -&gt; GetDeploymentTarget -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; Lens
      GetDeploymentTarget GetDeploymentTarget (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322208"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322217"><span class="annot"><span class="annottext">Maybe Text
 targetId :: Maybe Text
 $sel:targetId:GetDeploymentTarget' :: GetDeploymentTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679322208"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322208"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322207"><span class="annot"><span class="annottext">s :: GetDeploymentTarget
-</span><a href="#local-6989586621679322207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322206"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTarget
-</span><a href="#local-6989586621679322207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetId:GetDeploymentTarget' :: Maybe Text
+</span><a href="#local-6989586621679322217"><span class="hs-identifier hs-var hs-var">targetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322217"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322216"><span class="annot"><span class="annottext">s :: GetDeploymentTarget
+</span><a href="#local-6989586621679322216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322215"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTarget
+</span><a href="#local-6989586621679322216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetId:GetDeploymentTarget' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AtargetId%3AGetDeploymentTarget%27"><span class="hs-identifier hs-var">targetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The unique ID of a deployment.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#getDeploymentTarget_deploymentId"><span class="hs-identifier hs-type">getDeploymentTarget_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -167,27 +167,27 @@ $sel:targetId:GetDeploymentTarget' :: GetDeploymentTarget -&gt; Maybe Text
 -&gt; Lens
      GetDeploymentTarget GetDeploymentTarget (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322205"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322214"><span class="annot"><span class="annottext">Maybe Text
 deploymentId :: Maybe Text
 $sel:deploymentId:GetDeploymentTarget' :: GetDeploymentTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679322205"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322205"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322204"><span class="annot"><span class="annottext">s :: GetDeploymentTarget
-</span><a href="#local-6989586621679322204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322203"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTarget
-</span><a href="#local-6989586621679322204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:GetDeploymentTarget' :: Maybe Text
+</span><a href="#local-6989586621679322214"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322214"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322213"><span class="annot"><span class="annottext">s :: GetDeploymentTarget
+</span><a href="#local-6989586621679322213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322212"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679322212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTarget
+</span><a href="#local-6989586621679322213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:GetDeploymentTarget' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AdeploymentId%3AGetDeploymentTarget%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679322199"><span class="annot"><span class="annottext">request :: GetDeploymentTarget -&gt; Request GetDeploymentTarget
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679322208"><span class="annot"><span class="annottext">request :: GetDeploymentTarget -&gt; Request GetDeploymentTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDeploymentTarget -&gt; Request GetDeploymentTarget
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679322195"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679322204"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDeploymentTarget
 -&gt; ClientResponse ClientBody
@@ -213,10 +213,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322192"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322192"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322191"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679322191"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322190"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322190"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679322201"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322201"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679322200"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679322200"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679322199"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679322199"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeploymentTarget -&gt; Int -&gt; GetDeploymentTargetResponse
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-var">GetDeploymentTargetResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeploymentTarget -&gt; Int -&gt; GetDeploymentTargetResponse)
@@ -224,7 +224,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetDeploymentTargetResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679322190"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DeploymentTarget)
+</span><a href="#local-6989586621679322199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DeploymentTarget)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentTarget&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322192"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322201"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322182"><span id="local-6989586621679322184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322191"><span id="local-6989586621679322193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679322175"><span class="annot"><span class="annottext">toHeaders :: GetDeploymentTarget -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679322184"><span class="annot"><span class="annottext">toHeaders :: GetDeploymentTarget -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDeploymentTarget -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,14 +271,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322165"><span id="local-6989586621679322167"><span id="local-6989586621679322169"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679322163"><span class="annot"><span class="annottext">toJSON :: GetDeploymentTarget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322160"><span id="local-6989586621679322161"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322174"><span id="local-6989586621679322176"><span id="local-6989586621679322178"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679322172"><span class="annot"><span class="annottext">toJSON :: GetDeploymentTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget%27"><span class="hs-identifier hs-type">GetDeploymentTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322169"><span id="local-6989586621679322170"><span class="annot"><span class="annottext">Maybe Text
 deploymentId :: Maybe Text
 targetId :: Maybe Text
 $sel:deploymentId:GetDeploymentTarget' :: GetDeploymentTarget -&gt; Maybe Text
 $sel:targetId:GetDeploymentTarget' :: GetDeploymentTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679322160"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679322169"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,26 +290,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322161"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679322170"><span class="hs-identifier hs-var">targetId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679322160"><span class="hs-identifier hs-var">deploymentId</span></a></span><span>
+</span><a href="#local-6989586621679322169"><span class="hs-identifier hs-var">deploymentId</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679322154"><span class="annot"><span class="annottext">toPath :: GetDeploymentTarget -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679322163"><span class="annot"><span class="annottext">toPath :: GetDeploymentTarget -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDeploymentTarget -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTarget"><span class="hs-identifier hs-type">GetDeploymentTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679322150"><span class="annot"><span class="annottext">toQuery :: GetDeploymentTarget -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679322159"><span class="annot"><span class="annottext">toQuery :: GetDeploymentTarget -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDeploymentTarget -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,7 +317,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newGetDeploymentTargetResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679322147"><span id="local-6989586621679322148"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeploymentTargetResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-var">GetDeploymentTargetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeploymentTargetResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-var">GetDeploymentTargetResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679322156"><span id="local-6989586621679322157"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeploymentTargetResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-var">GetDeploymentTargetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeploymentTargetResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-var">GetDeploymentTargetResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A deployment target that contains information about a deployment such as</span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-comment">-- its status, lifecycle events, and when it was last updated. It also</span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-comment">-- contains metadata about the deployment target. The deployment target</span><span>
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDeploymentTargetResponse%27"><span class="annot"><span class="annottext">GetDeploymentTargetResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AhttpStatus%3AGetDeploymentTargetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322141"><span id="local-6989586621679322143"><span class="annot"><span class="annottext">GetDeploymentTargetResponse -&gt; GetDeploymentTargetResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679322150"><span id="local-6989586621679322152"><span class="annot"><span class="annottext">GetDeploymentTargetResponse -&gt; GetDeploymentTargetResponse -&gt; Bool
 (GetDeploymentTargetResponse
  -&gt; GetDeploymentTargetResponse -&gt; Bool)
 -&gt; (GetDeploymentTargetResponse
@@ -340,7 +340,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDeploymentTargetResponse -&gt; GetDeploymentTargetResponse -&gt; Bool
 == :: GetDeploymentTargetResponse -&gt; GetDeploymentTargetResponse -&gt; Bool
 $c== :: GetDeploymentTargetResponse -&gt; GetDeploymentTargetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322133"><span id="local-6989586621679322135"><span id="local-6989586621679322137"><span id="local-6989586621679322139"><span class="annot"><span class="annottext">ReadPrec [GetDeploymentTargetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322142"><span id="local-6989586621679322144"><span id="local-6989586621679322146"><span id="local-6989586621679322148"><span class="annot"><span class="annottext">ReadPrec [GetDeploymentTargetResponse]
 ReadPrec GetDeploymentTargetResponse
 Int -&gt; ReadS GetDeploymentTargetResponse
 ReadS [GetDeploymentTargetResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [GetDeploymentTargetResponse]
 $creadList :: ReadS [GetDeploymentTargetResponse]
 readsPrec :: Int -&gt; ReadS GetDeploymentTargetResponse
 $creadsPrec :: Int -&gt; ReadS GetDeploymentTargetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322127"><span id="local-6989586621679322129"><span id="local-6989586621679322131"><span class="annot"><span class="annottext">Int -&gt; GetDeploymentTargetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679322136"><span id="local-6989586621679322138"><span id="local-6989586621679322140"><span class="annot"><span class="annottext">Int -&gt; GetDeploymentTargetResponse -&gt; ShowS
 [GetDeploymentTargetResponse] -&gt; ShowS
 GetDeploymentTargetResponse -&gt; String
 (Int -&gt; GetDeploymentTargetResponse -&gt; ShowS)
@@ -412,8 +412,8 @@ GetDeploymentTargetResponse -&gt; Rep GetDeploymentTargetResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newGetDeploymentTargetResponse"><span class="annot"><span class="annottext">newGetDeploymentTargetResponse :: Int -&gt; GetDeploymentTargetResponse
-</span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#newGetDeploymentTargetResponse"><span class="hs-identifier hs-var hs-var">newGetDeploymentTargetResponse</span></a></span></span><span> </span><span id="local-6989586621679322124"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#newGetDeploymentTargetResponse"><span class="hs-identifier hs-var hs-var">newGetDeploymentTargetResponse</span></a></span></span><span> </span><span id="local-6989586621679322133"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">GetDeploymentTargetResponse' :: Maybe DeploymentTarget -&gt; Int -&gt; GetDeploymentTargetResponse
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentTarget:GetDeploymentTargetResponse' :: Maybe DeploymentTarget
@@ -423,7 +423,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeploymentTargetResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AhttpStatus%3AGetDeploymentTargetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322124"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679322133"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | A deployment target that contains information about a deployment such as</span><span>
@@ -443,16 +443,16 @@ forall a. Maybe a
      (Maybe DeploymentTarget)
      (Maybe DeploymentTarget)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322123"><span class="annot"><span class="annottext">Maybe DeploymentTarget
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322132"><span class="annot"><span class="annottext">Maybe DeploymentTarget
 deploymentTarget :: Maybe DeploymentTarget
 $sel:deploymentTarget:GetDeploymentTargetResponse' :: GetDeploymentTargetResponse -&gt; Maybe DeploymentTarget
-</span><a href="#local-6989586621679322123"><span class="hs-identifier hs-var hs-var">deploymentTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTarget
-</span><a href="#local-6989586621679322123"><span class="hs-identifier hs-var">deploymentTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322122"><span class="annot"><span class="annottext">s :: GetDeploymentTargetResponse
-</span><a href="#local-6989586621679322122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322121"><span class="annot"><span class="annottext">Maybe DeploymentTarget
-</span><a href="#local-6989586621679322121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTargetResponse
-</span><a href="#local-6989586621679322122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentTarget:GetDeploymentTargetResponse' :: Maybe DeploymentTarget
+</span><a href="#local-6989586621679322132"><span class="hs-identifier hs-var hs-var">deploymentTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTarget
+</span><a href="#local-6989586621679322132"><span class="hs-identifier hs-var">deploymentTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322131"><span class="annot"><span class="annottext">s :: GetDeploymentTargetResponse
+</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322130"><span class="annot"><span class="annottext">Maybe DeploymentTarget
+</span><a href="#local-6989586621679322130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTargetResponse
+</span><a href="#local-6989586621679322131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentTarget:GetDeploymentTargetResponse' :: Maybe DeploymentTarget
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AdeploymentTarget%3AGetDeploymentTargetResponse%27"><span class="hs-identifier hs-var">deploymentTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentTarget
-</span><a href="#local-6989586621679322121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#getDeploymentTargetResponse_httpStatus"><span class="hs-identifier hs-type">getDeploymentTargetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -464,16 +464,16 @@ $sel:deploymentTarget:GetDeploymentTargetResponse' :: GetDeploymentTargetRespons
 -&gt; Lens
      GetDeploymentTargetResponse GetDeploymentTargetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322120"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679322129"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDeploymentTargetResponse' :: GetDeploymentTargetResponse -&gt; Int
-</span><a href="#local-6989586621679322120"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322120"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322119"><span class="annot"><span class="annottext">s :: GetDeploymentTargetResponse
-</span><a href="#local-6989586621679322119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322118"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTargetResponse
-</span><a href="#local-6989586621679322119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeploymentTargetResponse' :: Int
+</span><a href="#local-6989586621679322129"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322129"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679322128"><span class="annot"><span class="annottext">s :: GetDeploymentTargetResponse
+</span><a href="#local-6989586621679322128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse%27"><span class="hs-identifier hs-type">GetDeploymentTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679322127"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679322127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeploymentTargetResponse
+</span><a href="#local-6989586621679322128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeploymentTargetResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#%24sel%3AhttpStatus%3AGetDeploymentTargetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679322118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679322127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679322125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.GetDeploymentTarget.html#GetDeploymentTargetResponse"><span class="hs-identifier hs-type">GetDeploymentTargetResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

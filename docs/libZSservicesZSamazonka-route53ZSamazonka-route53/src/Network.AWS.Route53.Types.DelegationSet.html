@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- as the @CallerReference@ and the @ID@ for the delegation set.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDelegationSet' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679293926"><span id="local-6989586621679293927"></span></span><span class="hs-keyword">data</span><span> </span><span id="DelegationSet"><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-var">DelegationSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DelegationSet%27"><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-var">DelegationSet'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679293935"><span id="local-6989586621679293936"></span></span><span class="hs-keyword">data</span><span> </span><span id="DelegationSet"><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-var">DelegationSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DelegationSet%27"><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-var">DelegationSet'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID that Amazon Route 53 assigns to a reusable delegation set.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3ADelegationSet%27"><span class="annot"><span class="annottext">DelegationSet -&gt; Maybe ResourceId
 </span><a href="Network.AWS.Route53.Types.DelegationSet.html#%24sel%3Aid%3ADelegationSet%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html#ResourceId"><span class="hs-identifier hs-type">ResourceId</span></a></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AnameServers%3ADelegationSet%27"><span class="annot"><span class="annottext">DelegationSet -&gt; NonEmpty Text
 </span><a href="Network.AWS.Route53.Types.DelegationSet.html#%24sel%3AnameServers%3ADelegationSet%27"><span class="hs-identifier hs-var hs-var">nameServers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293918"><span id="local-6989586621679293920"><span class="annot"><span class="annottext">DelegationSet -&gt; DelegationSet -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293927"><span id="local-6989586621679293929"><span class="annot"><span class="annottext">DelegationSet -&gt; DelegationSet -&gt; Bool
 (DelegationSet -&gt; DelegationSet -&gt; Bool)
 -&gt; (DelegationSet -&gt; DelegationSet -&gt; Bool) -&gt; Eq DelegationSet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DelegationSet -&gt; DelegationSet -&gt; Bool
 == :: DelegationSet -&gt; DelegationSet -&gt; Bool
 $c== :: DelegationSet -&gt; DelegationSet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293909"><span id="local-6989586621679293911"><span id="local-6989586621679293913"><span id="local-6989586621679293915"><span class="annot"><span class="annottext">ReadPrec [DelegationSet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293918"><span id="local-6989586621679293920"><span id="local-6989586621679293922"><span id="local-6989586621679293924"><span class="annot"><span class="annottext">ReadPrec [DelegationSet]
 ReadPrec DelegationSet
 Int -&gt; ReadS DelegationSet
 ReadS [DelegationSet]
@@ -69,7 +69,7 @@ readList :: ReadS [DelegationSet]
 $creadList :: ReadS [DelegationSet]
 readsPrec :: Int -&gt; ReadS DelegationSet
 $creadsPrec :: Int -&gt; ReadS DelegationSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293902"><span id="local-6989586621679293904"><span id="local-6989586621679293906"><span class="annot"><span class="annottext">Int -&gt; DelegationSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293911"><span id="local-6989586621679293913"><span id="local-6989586621679293915"><span class="annot"><span class="annottext">Int -&gt; DelegationSet -&gt; ShowS
 [DelegationSet] -&gt; ShowS
 DelegationSet -&gt; String
 (Int -&gt; DelegationSet -&gt; ShowS)
@@ -115,8 +115,8 @@ $cfrom :: forall x. DelegationSet -&gt; Rep DelegationSet x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span>
 </span><span id="line-62"></span><span id="newDelegationSet"><span class="annot"><span class="annottext">newDelegationSet :: NonEmpty Text -&gt; DelegationSet
-</span><a href="Network.AWS.Route53.Types.DelegationSet.html#newDelegationSet"><span class="hs-identifier hs-var hs-var">newDelegationSet</span></a></span></span><span> </span><span id="local-6989586621679293896"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679293896"><span class="hs-identifier hs-var">pNameServers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.Types.DelegationSet.html#newDelegationSet"><span class="hs-identifier hs-var hs-var">newDelegationSet</span></a></span></span><span> </span><span id="local-6989586621679293905"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679293905"><span class="hs-identifier hs-var">pNameServers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">DelegationSet' :: Maybe ResourceId -&gt; Maybe Text -&gt; NonEmpty Text -&gt; DelegationSet
 </span><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:DelegationSet' :: Maybe ResourceId
@@ -136,7 +136,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679293896"><span class="hs-identifier hs-var">pNameServers_</span></a></span><span>
+</span><a href="#local-6989586621679293905"><span class="hs-identifier hs-var">pNameServers_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The ID that Amazon Route 53 assigns to a reusable delegation set.</span><span>
@@ -148,16 +148,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      DelegationSet DelegationSet (Maybe ResourceId) (Maybe ResourceId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293890"><span class="annot"><span class="annottext">Maybe ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293899"><span class="annot"><span class="annottext">Maybe ResourceId
 id :: Maybe ResourceId
 $sel:id:DelegationSet' :: DelegationSet -&gt; Maybe ResourceId
-</span><a href="#local-6989586621679293890"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceId
-</span><a href="#local-6989586621679293890"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293889"><span class="annot"><span class="annottext">s :: DelegationSet
-</span><a href="#local-6989586621679293889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293888"><span class="annot"><span class="annottext">Maybe ResourceId
-</span><a href="#local-6989586621679293888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationSet
-</span><a href="#local-6989586621679293889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DelegationSet' :: Maybe ResourceId
+</span><a href="#local-6989586621679293899"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceId
+</span><a href="#local-6989586621679293899"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293898"><span class="annot"><span class="annottext">s :: DelegationSet
+</span><a href="#local-6989586621679293898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293897"><span class="annot"><span class="annottext">Maybe ResourceId
+</span><a href="#local-6989586621679293897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationSet
+</span><a href="#local-6989586621679293898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DelegationSet' :: Maybe ResourceId
 </span><a href="Network.AWS.Route53.Types.DelegationSet.html#%24sel%3Aid%3ADelegationSet%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceId
-</span><a href="#local-6989586621679293888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The value that you specified for @CallerReference@ when you created the</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- reusable delegation set.</span><span>
@@ -167,16 +167,16 @@ $sel:id:DelegationSet' :: DelegationSet -&gt; Maybe ResourceId
 -&gt; (DelegationSet -&gt; Maybe Text -&gt; DelegationSet)
 -&gt; Lens DelegationSet DelegationSet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293886"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293895"><span class="annot"><span class="annottext">Maybe Text
 callerReference :: Maybe Text
 $sel:callerReference:DelegationSet' :: DelegationSet -&gt; Maybe Text
-</span><a href="#local-6989586621679293886"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293886"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293885"><span class="annot"><span class="annottext">s :: DelegationSet
-</span><a href="#local-6989586621679293885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293884"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationSet
-</span><a href="#local-6989586621679293885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:DelegationSet' :: Maybe Text
+</span><a href="#local-6989586621679293895"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293895"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293894"><span class="annot"><span class="annottext">s :: DelegationSet
+</span><a href="#local-6989586621679293894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293893"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679293893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationSet
+</span><a href="#local-6989586621679293894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:DelegationSet' :: Maybe Text
 </span><a href="Network.AWS.Route53.Types.DelegationSet.html#%24sel%3AcallerReference%3ADelegationSet%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | A complex type that contains a list of the authoritative name servers</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for a hosted zone or for a reusable delegation set.</span><span>
@@ -187,16 +187,16 @@ $sel:callerReference:DelegationSet' :: DelegationSet -&gt; Maybe Text
 -&gt; (DelegationSet -&gt; NonEmpty Text -&gt; DelegationSet)
 -&gt; Lens DelegationSet DelegationSet (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293882"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293891"><span class="annot"><span class="annottext">NonEmpty Text
 nameServers :: NonEmpty Text
 $sel:nameServers:DelegationSet' :: DelegationSet -&gt; NonEmpty Text
-</span><a href="#local-6989586621679293882"><span class="hs-identifier hs-var hs-var">nameServers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679293882"><span class="hs-identifier hs-var">nameServers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293881"><span class="annot"><span class="annottext">s :: DelegationSet
-</span><a href="#local-6989586621679293881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293880"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679293880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationSet
-</span><a href="#local-6989586621679293881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameServers:DelegationSet' :: NonEmpty Text
+</span><a href="#local-6989586621679293891"><span class="hs-identifier hs-var hs-var">nameServers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679293891"><span class="hs-identifier hs-var">nameServers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293890"><span class="annot"><span class="annottext">s :: DelegationSet
+</span><a href="#local-6989586621679293890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-type">DelegationSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293889"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679293889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegationSet
+</span><a href="#local-6989586621679293890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameServers:DelegationSet' :: NonEmpty Text
 </span><a href="Network.AWS.Route53.Types.DelegationSet.html#%24sel%3AnameServers%3ADelegationSet%27"><span class="hs-identifier hs-var">nameServers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679293880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679293889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DelegationSet -&gt; f DelegationSet)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -210,9 +210,9 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679293876"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DelegationSet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293874"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679293885"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DelegationSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679293883"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679293883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">Maybe ResourceId -&gt; Maybe Text -&gt; NonEmpty Text -&gt; DelegationSet
 </span><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet%27"><span class="hs-identifier hs-var">DelegationSet'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ResourceId -&gt; Maybe Text -&gt; NonEmpty Text -&gt; DelegationSet)
@@ -220,7 +220,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Either String (Maybe Text -&gt; NonEmpty Text -&gt; DelegationSet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceId)
+</span><a href="#local-6989586621679293883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ResourceId)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -229,7 +229,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (NonEmpty Text -&gt; DelegationSet)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679293883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
@@ -237,7 +237,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (NonEmpty Text) -&gt; Either String DelegationSet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679293874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679293883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NameServers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -255,7 +255,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
 </span><span class="hs-string">&quot;NameServer&quot;</span></span><span>
 </span><span id="line-90"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293866"><span id="local-6989586621679293868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293875"><span id="local-6989586621679293877"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.DelegationSet.html#DelegationSet"><span class="hs-identifier hs-type">DelegationSet</span></a></span></span><span>
 </span><span id="line-95"></span></pre></body></html>

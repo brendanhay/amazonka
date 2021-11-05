@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetContainerPolicy' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679167208"><span id="local-6989586621679167209"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerPolicy"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-var">GetContainerPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-var">GetContainerPolicy'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679167217"><span id="local-6989586621679167218"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerPolicy"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-var">GetContainerPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-var">GetContainerPolicy'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AcontainerName%3AGetContainerPolicy%27"><span class="annot"><span class="annottext">GetContainerPolicy -&gt; Text
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3AcontainerName%3AGetContainerPolicy%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167202"><span id="local-6989586621679167204"><span class="annot"><span class="annottext">GetContainerPolicy -&gt; GetContainerPolicy -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167211"><span id="local-6989586621679167213"><span class="annot"><span class="annottext">GetContainerPolicy -&gt; GetContainerPolicy -&gt; Bool
 (GetContainerPolicy -&gt; GetContainerPolicy -&gt; Bool)
 -&gt; (GetContainerPolicy -&gt; GetContainerPolicy -&gt; Bool)
 -&gt; Eq GetContainerPolicy
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContainerPolicy -&gt; GetContainerPolicy -&gt; Bool
 == :: GetContainerPolicy -&gt; GetContainerPolicy -&gt; Bool
 $c== :: GetContainerPolicy -&gt; GetContainerPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167193"><span id="local-6989586621679167195"><span id="local-6989586621679167197"><span id="local-6989586621679167199"><span class="annot"><span class="annottext">ReadPrec [GetContainerPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167202"><span id="local-6989586621679167204"><span id="local-6989586621679167206"><span id="local-6989586621679167208"><span class="annot"><span class="annottext">ReadPrec [GetContainerPolicy]
 ReadPrec GetContainerPolicy
 Int -&gt; ReadS GetContainerPolicy
 ReadS [GetContainerPolicy]
@@ -83,7 +83,7 @@ readList :: ReadS [GetContainerPolicy]
 $creadList :: ReadS [GetContainerPolicy]
 readsPrec :: Int -&gt; ReadS GetContainerPolicy
 $creadsPrec :: Int -&gt; ReadS GetContainerPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167186"><span id="local-6989586621679167188"><span id="local-6989586621679167190"><span class="annot"><span class="annottext">Int -&gt; GetContainerPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167195"><span id="local-6989586621679167197"><span id="local-6989586621679167199"><span class="annot"><span class="annottext">Int -&gt; GetContainerPolicy -&gt; ShowS
 [GetContainerPolicy] -&gt; ShowS
 GetContainerPolicy -&gt; String
 (Int -&gt; GetContainerPolicy -&gt; ShowS)
@@ -123,14 +123,14 @@ $cfrom :: forall x. GetContainerPolicy -&gt; Rep GetContainerPolicy x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetContainerPolicy"><span class="annot"><span class="annottext">newGetContainerPolicy :: Text -&gt; GetContainerPolicy
-</span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#newGetContainerPolicy"><span class="hs-identifier hs-var hs-var">newGetContainerPolicy</span></a></span></span><span> </span><span id="local-6989586621679167181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167181"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#newGetContainerPolicy"><span class="hs-identifier hs-var hs-var">newGetContainerPolicy</span></a></span></span><span> </span><span id="local-6989586621679167190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167190"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetContainerPolicy' :: Text -&gt; GetContainerPolicy
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-type">GetContainerPolicy'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerName:GetContainerPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3AcontainerName%3AGetContainerPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167181"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
+</span><a href="#local-6989586621679167190"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the container.</span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. GetContainerPolicy -&gt; Rep GetContainerPolicy x
 -&gt; (GetContainerPolicy -&gt; Text -&gt; GetContainerPolicy)
 -&gt; Lens GetContainerPolicy GetContainerPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-type">GetContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167178"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-type">GetContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167187"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:GetContainerPolicy' :: GetContainerPolicy -&gt; Text
-</span><a href="#local-6989586621679167178"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167178"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167177"><span class="annot"><span class="annottext">s :: GetContainerPolicy
-</span><a href="#local-6989586621679167177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-type">GetContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167176"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerPolicy
-</span><a href="#local-6989586621679167177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:GetContainerPolicy' :: Text
+</span><a href="#local-6989586621679167187"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167187"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167186"><span class="annot"><span class="annottext">s :: GetContainerPolicy
+</span><a href="#local-6989586621679167186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-type">GetContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167185"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerPolicy
+</span><a href="#local-6989586621679167186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:GetContainerPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3AcontainerName%3AGetContainerPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679167172"><span class="annot"><span class="annottext">request :: GetContainerPolicy -&gt; Request GetContainerPolicy
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679167181"><span class="annot"><span class="annottext">request :: GetContainerPolicy -&gt; Request GetContainerPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetContainerPolicy -&gt; Request GetContainerPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679167168"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679167177"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetContainerPolicy
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167165"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167165"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679167164"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679167164"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679167163"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167163"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679167174"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167174"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679167173"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679167173"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679167172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679167172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; GetContainerPolicyResponse
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-var">GetContainerPolicyResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; GetContainerPolicyResponse)
@@ -201,23 +201,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167165"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167174"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; GetContainerPolicyResponse)
 -&gt; Either String Text -&gt; Either String GetContainerPolicyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679167163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679167172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167155"><span id="local-6989586621679167157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167164"><span id="local-6989586621679167166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679167148"><span class="annot"><span class="annottext">toHeaders :: GetContainerPolicy -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679167157"><span class="annot"><span class="annottext">toHeaders :: GetContainerPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetContainerPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -244,12 +244,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167138"><span id="local-6989586621679167140"><span id="local-6989586621679167142"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679167136"><span class="annot"><span class="annottext">toJSON :: GetContainerPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-type">GetContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167134"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167147"><span id="local-6989586621679167149"><span id="local-6989586621679167151"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679167145"><span class="annot"><span class="annottext">toJSON :: GetContainerPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy%27"><span class="hs-identifier hs-type">GetContainerPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167143"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:GetContainerPolicy' :: GetContainerPolicy -&gt; Text
-</span><a href="#local-6989586621679167134"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679167143"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -262,19 +262,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167134"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167143"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679167128"><span class="annot"><span class="annottext">toPath :: GetContainerPolicy -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679167137"><span class="annot"><span class="annottext">toPath :: GetContainerPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContainerPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicy"><span class="hs-identifier hs-type">GetContainerPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679167124"><span class="annot"><span class="annottext">toQuery :: GetContainerPolicy -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679167133"><span class="annot"><span class="annottext">toQuery :: GetContainerPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContainerPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -282,7 +282,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGetContainerPolicyResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679167121"><span id="local-6989586621679167122"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-var">GetContainerPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-var">GetContainerPolicyResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679167130"><span id="local-6989586621679167131"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-var">GetContainerPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-var">GetContainerPolicyResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContainerPolicyResponse%27"><span class="annot"><span class="annottext">GetContainerPolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3AhttpStatus%3AGetContainerPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -290,7 +290,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Apolicy%3AGetContainerPolicyResponse%27"><span class="annot"><span class="annottext">GetContainerPolicyResponse -&gt; Text
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3Apolicy%3AGetContainerPolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167115"><span id="local-6989586621679167117"><span class="annot"><span class="annottext">GetContainerPolicyResponse -&gt; GetContainerPolicyResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679167124"><span id="local-6989586621679167126"><span class="annot"><span class="annottext">GetContainerPolicyResponse -&gt; GetContainerPolicyResponse -&gt; Bool
 (GetContainerPolicyResponse -&gt; GetContainerPolicyResponse -&gt; Bool)
 -&gt; (GetContainerPolicyResponse
     -&gt; GetContainerPolicyResponse -&gt; Bool)
@@ -300,7 +300,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContainerPolicyResponse -&gt; GetContainerPolicyResponse -&gt; Bool
 == :: GetContainerPolicyResponse -&gt; GetContainerPolicyResponse -&gt; Bool
 $c== :: GetContainerPolicyResponse -&gt; GetContainerPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167107"><span id="local-6989586621679167109"><span id="local-6989586621679167111"><span id="local-6989586621679167113"><span class="annot"><span class="annottext">ReadPrec [GetContainerPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167116"><span id="local-6989586621679167118"><span id="local-6989586621679167120"><span id="local-6989586621679167122"><span class="annot"><span class="annottext">ReadPrec [GetContainerPolicyResponse]
 ReadPrec GetContainerPolicyResponse
 Int -&gt; ReadS GetContainerPolicyResponse
 ReadS [GetContainerPolicyResponse]
@@ -320,7 +320,7 @@ readList :: ReadS [GetContainerPolicyResponse]
 $creadList :: ReadS [GetContainerPolicyResponse]
 readsPrec :: Int -&gt; ReadS GetContainerPolicyResponse
 $creadsPrec :: Int -&gt; ReadS GetContainerPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167101"><span id="local-6989586621679167103"><span id="local-6989586621679167105"><span class="annot"><span class="annottext">Int -&gt; GetContainerPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679167110"><span id="local-6989586621679167112"><span id="local-6989586621679167114"><span class="annot"><span class="annottext">Int -&gt; GetContainerPolicyResponse -&gt; ShowS
 [GetContainerPolicyResponse] -&gt; ShowS
 GetContainerPolicyResponse -&gt; String
 (Int -&gt; GetContainerPolicyResponse -&gt; ShowS)
@@ -370,18 +370,18 @@ GetContainerPolicyResponse -&gt; Rep GetContainerPolicyResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newGetContainerPolicyResponse"><span class="annot"><span class="annottext">newGetContainerPolicyResponse :: Int -&gt; Text -&gt; GetContainerPolicyResponse
-</span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#newGetContainerPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetContainerPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679167098"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679167097"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167097"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#newGetContainerPolicyResponse"><span class="hs-identifier hs-var hs-var">newGetContainerPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679167107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679167106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167106"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetContainerPolicyResponse' :: Int -&gt; Text -&gt; GetContainerPolicyResponse
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3AhttpStatus%3AGetContainerPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679167107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:policy:GetContainerPolicyResponse' :: Text
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3Apolicy%3AGetContainerPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167097"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679167106"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -394,16 +394,16 @@ GetContainerPolicyResponse -&gt; Rep GetContainerPolicyResponse x
 -&gt; Lens
      GetContainerPolicyResponse GetContainerPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167096"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167105"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetContainerPolicyResponse' :: GetContainerPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679167096"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167096"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167095"><span class="annot"><span class="annottext">s :: GetContainerPolicyResponse
-</span><a href="#local-6989586621679167095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerPolicyResponse
-</span><a href="#local-6989586621679167095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerPolicyResponse' :: Int
+</span><a href="#local-6989586621679167105"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167105"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167104"><span class="annot"><span class="annottext">s :: GetContainerPolicyResponse
+</span><a href="#local-6989586621679167104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679167103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerPolicyResponse
+</span><a href="#local-6989586621679167104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3AhttpStatus%3AGetContainerPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679167094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The contents of the access policy.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#getContainerPolicyResponse_policy"><span class="hs-identifier hs-type">getContainerPolicyResponse_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -415,16 +415,16 @@ $sel:httpStatus:GetContainerPolicyResponse' :: GetContainerPolicyResponse -&gt; 
 -&gt; Lens
      GetContainerPolicyResponse GetContainerPolicyResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167093"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679167102"><span class="annot"><span class="annottext">Text
 policy :: Text
 $sel:policy:GetContainerPolicyResponse' :: GetContainerPolicyResponse -&gt; Text
-</span><a href="#local-6989586621679167093"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167093"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167092"><span class="annot"><span class="annottext">s :: GetContainerPolicyResponse
-</span><a href="#local-6989586621679167092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerPolicyResponse
-</span><a href="#local-6989586621679167092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetContainerPolicyResponse' :: Text
+</span><a href="#local-6989586621679167102"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167102"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679167101"><span class="annot"><span class="annottext">s :: GetContainerPolicyResponse
+</span><a href="#local-6989586621679167101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse%27"><span class="hs-identifier hs-type">GetContainerPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679167100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679167100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerPolicyResponse
+</span><a href="#local-6989586621679167101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetContainerPolicyResponse' :: Text
 </span><a href="Network.AWS.MediaStore.GetContainerPolicy.html#%24sel%3Apolicy%3AGetContainerPolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679167091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679167100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679167098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.GetContainerPolicy.html#GetContainerPolicyResponse"><span class="hs-identifier hs-type">GetContainerPolicyResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

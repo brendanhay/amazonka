@@ -54,13 +54,13 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDetachDisk' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679651223"><span id="local-6989586621679651224"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachDisk"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-var">DetachDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-var">DetachDisk'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679651232"><span id="local-6989586621679651233"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachDisk"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-var">DetachDisk</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachDisk%27"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-var">DetachDisk'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique name of the disk you want to detach from your instance (e.g.,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @my-disk@).</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdiskName%3ADetachDisk%27"><span class="annot"><span class="annottext">DetachDisk -&gt; Text
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#%24sel%3AdiskName%3ADetachDisk%27"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651217"><span id="local-6989586621679651219"><span class="annot"><span class="annottext">DetachDisk -&gt; DetachDisk -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651226"><span id="local-6989586621679651228"><span class="annot"><span class="annottext">DetachDisk -&gt; DetachDisk -&gt; Bool
 (DetachDisk -&gt; DetachDisk -&gt; Bool)
 -&gt; (DetachDisk -&gt; DetachDisk -&gt; Bool) -&gt; Eq DetachDisk
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachDisk -&gt; DetachDisk -&gt; Bool
 == :: DetachDisk -&gt; DetachDisk -&gt; Bool
 $c== :: DetachDisk -&gt; DetachDisk -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651208"><span id="local-6989586621679651210"><span id="local-6989586621679651212"><span id="local-6989586621679651214"><span class="annot"><span class="annottext">ReadPrec [DetachDisk]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651217"><span id="local-6989586621679651219"><span id="local-6989586621679651221"><span id="local-6989586621679651223"><span class="annot"><span class="annottext">ReadPrec [DetachDisk]
 ReadPrec DetachDisk
 Int -&gt; ReadS DetachDisk
 ReadS [DetachDisk]
@@ -88,7 +88,7 @@ readList :: ReadS [DetachDisk]
 $creadList :: ReadS [DetachDisk]
 readsPrec :: Int -&gt; ReadS DetachDisk
 $creadsPrec :: Int -&gt; ReadS DetachDisk
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651201"><span id="local-6989586621679651203"><span id="local-6989586621679651205"><span class="annot"><span class="annottext">Int -&gt; DetachDisk -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651210"><span id="local-6989586621679651212"><span id="local-6989586621679651214"><span class="annot"><span class="annottext">Int -&gt; DetachDisk -&gt; ShowS
 [DetachDisk] -&gt; ShowS
 DetachDisk -&gt; String
 (Int -&gt; DetachDisk -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. DetachDisk -&gt; Rep DetachDisk x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span>
 </span><span id="line-78"></span><span id="newDetachDisk"><span class="annot"><span class="annottext">newDetachDisk :: Text -&gt; DetachDisk
-</span><a href="Network.AWS.Lightsail.DetachDisk.html#newDetachDisk"><span class="hs-identifier hs-var hs-var">newDetachDisk</span></a></span></span><span> </span><span id="local-6989586621679651196"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651196"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DetachDisk.html#newDetachDisk"><span class="hs-identifier hs-var hs-var">newDetachDisk</span></a></span></span><span> </span><span id="local-6989586621679651205"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679651205"><span class="hs-identifier hs-var">pDiskName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DetachDisk' :: Text -&gt; DetachDisk
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-type">DetachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:DetachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#%24sel%3AdiskName%3ADetachDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651196"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679651205"><span class="hs-identifier hs-var">pDiskName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The unique name of the disk you want to detach from your instance (e.g.,</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- @my-disk@).</span><span>
@@ -143,25 +143,25 @@ $cfrom :: forall x. DetachDisk -&gt; Rep DetachDisk x
 -&gt; (DetachDisk -&gt; Text -&gt; DetachDisk)
 -&gt; Lens DetachDisk DetachDisk Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-type">DetachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651193"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-type">DetachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651202"><span class="annot"><span class="annottext">Text
 diskName :: Text
 $sel:diskName:DetachDisk' :: DetachDisk -&gt; Text
-</span><a href="#local-6989586621679651193"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651193"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651192"><span class="annot"><span class="annottext">s :: DetachDisk
-</span><a href="#local-6989586621679651192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-type">DetachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651191"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachDisk
-</span><a href="#local-6989586621679651192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:DetachDisk' :: Text
+</span><a href="#local-6989586621679651202"><span class="hs-identifier hs-var hs-var">diskName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679651202"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651201"><span class="annot"><span class="annottext">s :: DetachDisk
+</span><a href="#local-6989586621679651201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-type">DetachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651200"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679651200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachDisk
+</span><a href="#local-6989586621679651201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskName:DetachDisk' :: Text
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#%24sel%3AdiskName%3ADetachDisk%27"><span class="hs-identifier hs-var">diskName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679651200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679651187"><span class="annot"><span class="annottext">request :: DetachDisk -&gt; Request DetachDisk
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679651196"><span class="annot"><span class="annottext">request :: DetachDisk -&gt; Request DetachDisk
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachDisk -&gt; Request DetachDisk
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679651183"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679651192"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachDisk
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679651180"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651180"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679651179"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679651179"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679651178"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679651178"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679651189"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651189"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679651188"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679651188"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679651187"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679651187"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DetachDiskResponse
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-var">DetachDiskResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DetachDiskResponse)
@@ -196,7 +196,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DetachDiskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679651178"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679651187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -213,15 +213,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651180"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679651189"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651169"><span id="local-6989586621679651171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651178"><span id="local-6989586621679651180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679651162"><span class="annot"><span class="annottext">toHeaders :: DetachDisk -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679651171"><span class="annot"><span class="annottext">toHeaders :: DetachDisk -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetachDisk -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -248,12 +248,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651152"><span id="local-6989586621679651154"><span id="local-6989586621679651156"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679651150"><span class="annot"><span class="annottext">toJSON :: DetachDisk -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-type">DetachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651148"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651161"><span id="local-6989586621679651163"><span id="local-6989586621679651165"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679651159"><span class="annot"><span class="annottext">toJSON :: DetachDisk -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk%27"><span class="hs-identifier hs-type">DetachDisk'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651157"><span class="annot"><span class="annottext">Text
 diskName :: Text
 $sel:diskName:DetachDisk' :: DetachDisk -&gt; Text
-</span><a href="#local-6989586621679651148"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679651157"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -265,18 +265,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;diskName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679651148"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679651157"><span class="hs-identifier hs-var">diskName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679651142"><span class="annot"><span class="annottext">toPath :: DetachDisk -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679651151"><span class="annot"><span class="annottext">toPath :: DetachDisk -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetachDisk -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDisk"><span class="hs-identifier hs-type">DetachDisk</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679651138"><span class="annot"><span class="annottext">toQuery :: DetachDisk -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679651147"><span class="annot"><span class="annottext">toQuery :: DetachDisk -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetachDisk -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -284,7 +284,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDetachDiskResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679651135"><span id="local-6989586621679651136"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-var">DetachDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-var">DetachDiskResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679651144"><span id="local-6989586621679651145"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachDiskResponse"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-var">DetachDiskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachDiskResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-var">DetachDiskResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetachDiskResponse%27"><span class="annot"><span class="annottext">DetachDiskResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#%24sel%3AhttpStatus%3ADetachDiskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651129"><span id="local-6989586621679651131"><span class="annot"><span class="annottext">DetachDiskResponse -&gt; DetachDiskResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679651138"><span id="local-6989586621679651140"><span class="annot"><span class="annottext">DetachDiskResponse -&gt; DetachDiskResponse -&gt; Bool
 (DetachDiskResponse -&gt; DetachDiskResponse -&gt; Bool)
 -&gt; (DetachDiskResponse -&gt; DetachDiskResponse -&gt; Bool)
 -&gt; Eq DetachDiskResponse
@@ -303,7 +303,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachDiskResponse -&gt; DetachDiskResponse -&gt; Bool
 == :: DetachDiskResponse -&gt; DetachDiskResponse -&gt; Bool
 $c== :: DetachDiskResponse -&gt; DetachDiskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651121"><span id="local-6989586621679651123"><span id="local-6989586621679651125"><span id="local-6989586621679651127"><span class="annot"><span class="annottext">ReadPrec [DetachDiskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651130"><span id="local-6989586621679651132"><span id="local-6989586621679651134"><span id="local-6989586621679651136"><span class="annot"><span class="annottext">ReadPrec [DetachDiskResponse]
 ReadPrec DetachDiskResponse
 Int -&gt; ReadS DetachDiskResponse
 ReadS [DetachDiskResponse]
@@ -323,7 +323,7 @@ readList :: ReadS [DetachDiskResponse]
 $creadList :: ReadS [DetachDiskResponse]
 readsPrec :: Int -&gt; ReadS DetachDiskResponse
 $creadsPrec :: Int -&gt; ReadS DetachDiskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651115"><span id="local-6989586621679651117"><span id="local-6989586621679651119"><span class="annot"><span class="annottext">Int -&gt; DetachDiskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679651124"><span id="local-6989586621679651126"><span id="local-6989586621679651128"><span class="annot"><span class="annottext">Int -&gt; DetachDiskResponse -&gt; ShowS
 [DetachDiskResponse] -&gt; ShowS
 DetachDiskResponse -&gt; String
 (Int -&gt; DetachDiskResponse -&gt; ShowS)
@@ -367,8 +367,8 @@ $cfrom :: forall x. DetachDiskResponse -&gt; Rep DetachDiskResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newDetachDiskResponse"><span class="annot"><span class="annottext">newDetachDiskResponse :: Int -&gt; DetachDiskResponse
-</span><a href="Network.AWS.Lightsail.DetachDisk.html#newDetachDiskResponse"><span class="hs-identifier hs-var hs-var">newDetachDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679651112"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.DetachDisk.html#newDetachDiskResponse"><span class="hs-identifier hs-var hs-var">newDetachDiskResponse</span></a></span></span><span> </span><span id="local-6989586621679651121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651121"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DetachDiskResponse' :: Maybe [Operation] -&gt; Int -&gt; DetachDiskResponse
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DetachDiskResponse' :: Maybe [Operation]
@@ -377,7 +377,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetachDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#%24sel%3AhttpStatus%3ADetachDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679651121"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -394,16 +394,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651111"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651120"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:DetachDiskResponse' :: DetachDiskResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679651111"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679651111"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651110"><span class="annot"><span class="annottext">s :: DetachDiskResponse
-</span><a href="#local-6989586621679651110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651109"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679651109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachDiskResponse
-</span><a href="#local-6989586621679651110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DetachDiskResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679651120"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679651120"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651119"><span class="annot"><span class="annottext">s :: DetachDiskResponse
+</span><a href="#local-6989586621679651119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651118"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679651118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachDiskResponse
+</span><a href="#local-6989586621679651119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DetachDiskResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#%24sel%3Aoperations%3ADetachDiskResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679651109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679651118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; DetachDiskResponse -&gt; f DetachDiskResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -431,16 +431,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DetachDiskResponse -&gt; Int -&gt; DetachDiskResponse)
 -&gt; Lens DetachDiskResponse DetachDiskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651105"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679651114"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DetachDiskResponse' :: DetachDiskResponse -&gt; Int
-</span><a href="#local-6989586621679651105"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651105"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651104"><span class="annot"><span class="annottext">s :: DetachDiskResponse
-</span><a href="#local-6989586621679651104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651103"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachDiskResponse
-</span><a href="#local-6989586621679651104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachDiskResponse' :: Int
+</span><a href="#local-6989586621679651114"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651114"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679651113"><span class="annot"><span class="annottext">s :: DetachDiskResponse
+</span><a href="#local-6989586621679651113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse%27"><span class="hs-identifier hs-type">DetachDiskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679651112"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679651112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachDiskResponse
+</span><a href="#local-6989586621679651113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachDiskResponse' :: Int
 </span><a href="Network.AWS.Lightsail.DetachDisk.html#%24sel%3AhttpStatus%3ADetachDiskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679651103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679651112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679651110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.DetachDisk.html#DetachDiskResponse"><span class="hs-identifier hs-type">DetachDiskResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

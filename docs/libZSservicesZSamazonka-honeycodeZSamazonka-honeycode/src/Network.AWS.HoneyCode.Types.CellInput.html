@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.HoneyCode.Types.CellInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.HoneyCode.Types.CellInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | CellInput object contains the data needed to create or update cells in a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCellInput' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679178079"><span id="local-6989586621679178080"></span></span><span class="hs-keyword">data</span><span> </span><span id="CellInput"><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-var">CellInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CellInput%27"><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput%27"><span class="hs-identifier hs-var">CellInput'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Fact represents the data that is entered into a cell. This data can be</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- free text or a formula. Formulas need to start with the equals (=) sign.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Afact%3ACellInput%27"><span class="annot"><span class="annottext">CellInput -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.HoneyCode.Types.CellInput.html#%24sel%3Afact%3ACellInput%27"><span class="hs-identifier hs-var hs-var">fact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679178073"><span id="local-6989586621679178075"><span class="annot"><span class="annottext">CellInput -&gt; CellInput -&gt; Bool
+(CellInput -&gt; CellInput -&gt; Bool)
+-&gt; (CellInput -&gt; CellInput -&gt; Bool) -&gt; Eq CellInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CellInput -&gt; CellInput -&gt; Bool
+$c/= :: CellInput -&gt; CellInput -&gt; Bool
+== :: CellInput -&gt; CellInput -&gt; Bool
+$c== :: CellInput -&gt; CellInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679178066"><span id="local-6989586621679178068"><span id="local-6989586621679178070"><span class="annot"><span class="annottext">Int -&gt; CellInput -&gt; ShowS
+[CellInput] -&gt; ShowS
+CellInput -&gt; String
+(Int -&gt; CellInput -&gt; ShowS)
+-&gt; (CellInput -&gt; String)
+-&gt; ([CellInput] -&gt; ShowS)
+-&gt; Show CellInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CellInput] -&gt; ShowS
+$cshowList :: [CellInput] -&gt; ShowS
+show :: CellInput -&gt; String
+$cshow :: CellInput -&gt; String
+showsPrec :: Int -&gt; CellInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; CellInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CellInput -&gt; Rep CellInput x)
+-&gt; (forall x. Rep CellInput x -&gt; CellInput) -&gt; Generic CellInput
+forall x. Rep CellInput x -&gt; CellInput
+forall x. CellInput -&gt; Rep CellInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CellInput x -&gt; CellInput
+$cfrom :: forall x. CellInput -&gt; Rep CellInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'CellInput' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'fact', 'cellInput_fact' - Fact represents the data that is entered into a cell. This data can be</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- free text or a formula. Formulas need to start with the equals (=) sign.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#newCellInput"><span class="hs-identifier hs-type">newCellInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span><span>
+</span><span id="line-49"></span><span id="newCellInput"><span class="annot"><span class="annottext">newCellInput :: CellInput
+</span><a href="Network.AWS.HoneyCode.Types.CellInput.html#newCellInput"><span class="hs-identifier hs-var hs-var">newCellInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CellInput' :: Maybe (Sensitive Text) -&gt; CellInput
+</span><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput%27"><span class="hs-identifier hs-type">CellInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fact:CellInput' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.HoneyCode.Types.CellInput.html#%24sel%3Afact%3ACellInput%27"><span class="hs-identifier hs-var">fact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | Fact represents the data that is entered into a cell. This data can be</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- free text or a formula. Formulas need to start with the equals (=) sign.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#cellInput_fact"><span class="hs-identifier hs-type">cellInput_fact</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span id="cellInput_fact"><span class="annot"><span class="annottext">cellInput_fact :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CellInput -&gt; f CellInput
+</span><a href="Network.AWS.HoneyCode.Types.CellInput.html#cellInput_fact"><span class="hs-identifier hs-var hs-var">cellInput_fact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CellInput -&gt; Maybe (Sensitive Text))
+-&gt; (CellInput -&gt; Maybe (Sensitive Text) -&gt; CellInput)
+-&gt; Lens
+     CellInput
+     CellInput
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput%27"><span class="hs-identifier hs-type">CellInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178057"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+fact :: Maybe (Sensitive Text)
+$sel:fact:CellInput' :: CellInput -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178057"><span class="hs-identifier hs-var hs-var">fact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178057"><span class="hs-identifier hs-var">fact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679178056"><span class="annot"><span class="annottext">s :: CellInput
+</span><a href="#local-6989586621679178056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput%27"><span class="hs-identifier hs-type">CellInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679178055"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CellInput
+</span><a href="#local-6989586621679178056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fact:CellInput' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.HoneyCode.Types.CellInput.html#%24sel%3Afact%3ACellInput%27"><span class="hs-identifier hs-var">fact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CellInput -&gt; f CellInput)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CellInput
+-&gt; f CellInput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178048"><span id="local-6989586621679178050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span></span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679178037"><span id="local-6989586621679178039"><span id="local-6989586621679178041"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput"><span class="hs-identifier hs-type">CellInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679178035"><span class="annot"><span class="annottext">toJSON :: CellInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.HoneyCode.Types.CellInput.html#CellInput%27"><span class="hs-identifier hs-type">CellInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679178033"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+fact :: Maybe (Sensitive Text)
+$sel:fact:CellInput' :: CellInput -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178033"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-64"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fact&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679178033"><span class="hs-identifier hs-var">fact</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span></pre></body></html>

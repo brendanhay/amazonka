@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightSeverity.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.InsightSeverity</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.InsightStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightTimeRange.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.InsightTimeRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.PredictionTimeRange.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.PredictionTimeRange</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ResourceCollection.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.ResourceCollection</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ServiceCollection.html"><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.ServiceCollection</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Details about a proactive insight. This object is returned by</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @DescribeInsight.@</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newProactiveInsightSummary' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679237951"><span id="local-6989586621679237952"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProactiveInsightSummary"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-var">ProactiveInsightSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProactiveInsightSummary%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-var">ProactiveInsightSummary'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the proactive insight.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe InsightStatus
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Astatus%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier hs-type">InsightStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceCollection%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe ResourceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AresourceCollection%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">resourceCollection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ResourceCollection.html#ResourceCollection"><span class="hs-identifier hs-type">ResourceCollection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The severity of the proactive insight.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aseverity%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe InsightSeverity
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aseverity%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightSeverity.html#InsightSeverity"><span class="hs-identifier hs-type">InsightSeverity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AinsightTimeRange%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe InsightTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AinsightTimeRange%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">insightTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightTimeRange.html#InsightTimeRange"><span class="hs-identifier hs-type">InsightTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the proactive insight.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aname%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3ApredictionTimeRange%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe PredictionTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3ApredictionTimeRange%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">predictionTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.PredictionTimeRange.html#PredictionTimeRange"><span class="hs-identifier hs-type">PredictionTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ID of the proactive insight.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aid%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aid%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | A collection of the names of AWS services.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AserviceCollection%3AProactiveInsightSummary%27"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; Maybe ServiceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AserviceCollection%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var hs-var">serviceCollection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ServiceCollection.html#ServiceCollection"><span class="hs-identifier hs-type">ServiceCollection</span></a></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237938"><span id="local-6989586621679237940"><span class="annot"><span class="annottext">ProactiveInsightSummary -&gt; ProactiveInsightSummary -&gt; Bool
+(ProactiveInsightSummary -&gt; ProactiveInsightSummary -&gt; Bool)
+-&gt; (ProactiveInsightSummary -&gt; ProactiveInsightSummary -&gt; Bool)
+-&gt; Eq ProactiveInsightSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProactiveInsightSummary -&gt; ProactiveInsightSummary -&gt; Bool
+$c/= :: ProactiveInsightSummary -&gt; ProactiveInsightSummary -&gt; Bool
+== :: ProactiveInsightSummary -&gt; ProactiveInsightSummary -&gt; Bool
+$c== :: ProactiveInsightSummary -&gt; ProactiveInsightSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237929"><span id="local-6989586621679237931"><span id="local-6989586621679237933"><span id="local-6989586621679237935"><span class="annot"><span class="annottext">ReadPrec [ProactiveInsightSummary]
+ReadPrec ProactiveInsightSummary
+Int -&gt; ReadS ProactiveInsightSummary
+ReadS [ProactiveInsightSummary]
+(Int -&gt; ReadS ProactiveInsightSummary)
+-&gt; ReadS [ProactiveInsightSummary]
+-&gt; ReadPrec ProactiveInsightSummary
+-&gt; ReadPrec [ProactiveInsightSummary]
+-&gt; Read ProactiveInsightSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProactiveInsightSummary]
+$creadListPrec :: ReadPrec [ProactiveInsightSummary]
+readPrec :: ReadPrec ProactiveInsightSummary
+$creadPrec :: ReadPrec ProactiveInsightSummary
+readList :: ReadS [ProactiveInsightSummary]
+$creadList :: ReadS [ProactiveInsightSummary]
+readsPrec :: Int -&gt; ReadS ProactiveInsightSummary
+$creadsPrec :: Int -&gt; ReadS ProactiveInsightSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237922"><span id="local-6989586621679237924"><span id="local-6989586621679237926"><span class="annot"><span class="annottext">Int -&gt; ProactiveInsightSummary -&gt; ShowS
+[ProactiveInsightSummary] -&gt; ShowS
+ProactiveInsightSummary -&gt; String
+(Int -&gt; ProactiveInsightSummary -&gt; ShowS)
+-&gt; (ProactiveInsightSummary -&gt; String)
+-&gt; ([ProactiveInsightSummary] -&gt; ShowS)
+-&gt; Show ProactiveInsightSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProactiveInsightSummary] -&gt; ShowS
+$cshowList :: [ProactiveInsightSummary] -&gt; ShowS
+show :: ProactiveInsightSummary -&gt; String
+$cshow :: ProactiveInsightSummary -&gt; String
+showsPrec :: Int -&gt; ProactiveInsightSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProactiveInsightSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ProactiveInsightSummary -&gt; Rep ProactiveInsightSummary x)
+-&gt; (forall x.
+    Rep ProactiveInsightSummary x -&gt; ProactiveInsightSummary)
+-&gt; Generic ProactiveInsightSummary
+forall x. Rep ProactiveInsightSummary x -&gt; ProactiveInsightSummary
+forall x. ProactiveInsightSummary -&gt; Rep ProactiveInsightSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProactiveInsightSummary x -&gt; ProactiveInsightSummary
+$cfrom :: forall x. ProactiveInsightSummary -&gt; Rep ProactiveInsightSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Create a value of 'ProactiveInsightSummary' with all optional fields omitted.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'status', 'proactiveInsightSummary_status' - The status of the proactive insight.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'resourceCollection', 'proactiveInsightSummary_resourceCollection' - Undocumented member.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'severity', 'proactiveInsightSummary_severity' - The severity of the proactive insight.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'insightTimeRange', 'proactiveInsightSummary_insightTimeRange' - Undocumented member.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'name', 'proactiveInsightSummary_name' - The name of the proactive insight.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'predictionTimeRange', 'proactiveInsightSummary_predictionTimeRange' - Undocumented member.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'id', 'proactiveInsightSummary_id' - The ID of the proactive insight.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'serviceCollection', 'proactiveInsightSummary_serviceCollection' - A collection of the names of AWS services.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#newProactiveInsightSummary"><span class="hs-identifier hs-type">newProactiveInsightSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span>
+</span><span id="line-78"></span><span id="newProactiveInsightSummary"><span class="annot"><span class="annottext">newProactiveInsightSummary :: ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#newProactiveInsightSummary"><span class="hs-identifier hs-var hs-var">newProactiveInsightSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">ProactiveInsightSummary' :: Maybe InsightStatus
+-&gt; Maybe ResourceCollection
+-&gt; Maybe InsightSeverity
+-&gt; Maybe InsightTimeRange
+-&gt; Maybe Text
+-&gt; Maybe PredictionTimeRange
+-&gt; Maybe Text
+-&gt; Maybe ServiceCollection
+-&gt; ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ProactiveInsightSummary' :: Maybe InsightStatus
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Astatus%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceCollection:ProactiveInsightSummary' :: Maybe ResourceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AresourceCollection%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceCollection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:ProactiveInsightSummary' :: Maybe InsightSeverity
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aseverity%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightSeverity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:insightTimeRange:ProactiveInsightSummary' :: Maybe InsightTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AinsightTimeRange%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">insightTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightTimeRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ProactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aname%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:predictionTimeRange:ProactiveInsightSummary' :: Maybe PredictionTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3ApredictionTimeRange%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">predictionTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PredictionTimeRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ProactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aid%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCollection:ProactiveInsightSummary' :: Maybe ServiceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AserviceCollection%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">serviceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCollection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The status of the proactive insight.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_status"><span class="hs-identifier hs-type">proactiveInsightSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightStatus.html#InsightStatus"><span class="hs-identifier hs-type">InsightStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="proactiveInsightSummary_status"><span class="annot"><span class="annottext">proactiveInsightSummary_status :: (Maybe InsightStatus -&gt; f (Maybe InsightStatus))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_status"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe InsightStatus)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe InsightStatus -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe InsightStatus)
+     (Maybe InsightStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237913"><span class="annot"><span class="annottext">Maybe InsightStatus
+status :: Maybe InsightStatus
+$sel:status:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe InsightStatus
+</span><a href="#local-6989586621679237913"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightStatus
+</span><a href="#local-6989586621679237913"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237912"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237911"><span class="annot"><span class="annottext">Maybe InsightStatus
+</span><a href="#local-6989586621679237911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ProactiveInsightSummary' :: Maybe InsightStatus
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Astatus%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightStatus
+</span><a href="#local-6989586621679237911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_resourceCollection"><span class="hs-identifier hs-type">proactiveInsightSummary_resourceCollection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ResourceCollection.html#ResourceCollection"><span class="hs-identifier hs-type">ResourceCollection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="proactiveInsightSummary_resourceCollection"><span class="annot"><span class="annottext">proactiveInsightSummary_resourceCollection :: (Maybe ResourceCollection -&gt; f (Maybe ResourceCollection))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_resourceCollection"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_resourceCollection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe ResourceCollection)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe ResourceCollection -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe ResourceCollection)
+     (Maybe ResourceCollection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237909"><span class="annot"><span class="annottext">Maybe ResourceCollection
+resourceCollection :: Maybe ResourceCollection
+$sel:resourceCollection:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe ResourceCollection
+</span><a href="#local-6989586621679237909"><span class="hs-identifier hs-var hs-var">resourceCollection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceCollection
+</span><a href="#local-6989586621679237909"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237908"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237907"><span class="annot"><span class="annottext">Maybe ResourceCollection
+</span><a href="#local-6989586621679237907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceCollection:ProactiveInsightSummary' :: Maybe ResourceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AresourceCollection%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">resourceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceCollection
+</span><a href="#local-6989586621679237907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The severity of the proactive insight.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_severity"><span class="hs-identifier hs-type">proactiveInsightSummary_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightSeverity.html#InsightSeverity"><span class="hs-identifier hs-type">InsightSeverity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="proactiveInsightSummary_severity"><span class="annot"><span class="annottext">proactiveInsightSummary_severity :: (Maybe InsightSeverity -&gt; f (Maybe InsightSeverity))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_severity"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe InsightSeverity)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe InsightSeverity -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe InsightSeverity)
+     (Maybe InsightSeverity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237905"><span class="annot"><span class="annottext">Maybe InsightSeverity
+severity :: Maybe InsightSeverity
+$sel:severity:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe InsightSeverity
+</span><a href="#local-6989586621679237905"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightSeverity
+</span><a href="#local-6989586621679237905"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237904"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237903"><span class="annot"><span class="annottext">Maybe InsightSeverity
+</span><a href="#local-6989586621679237903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:ProactiveInsightSummary' :: Maybe InsightSeverity
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aseverity%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightSeverity
+</span><a href="#local-6989586621679237903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_insightTimeRange"><span class="hs-identifier hs-type">proactiveInsightSummary_insightTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.InsightTimeRange.html#InsightTimeRange"><span class="hs-identifier hs-type">InsightTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="proactiveInsightSummary_insightTimeRange"><span class="annot"><span class="annottext">proactiveInsightSummary_insightTimeRange :: (Maybe InsightTimeRange -&gt; f (Maybe InsightTimeRange))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_insightTimeRange"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_insightTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe InsightTimeRange)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe InsightTimeRange -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe InsightTimeRange)
+     (Maybe InsightTimeRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237901"><span class="annot"><span class="annottext">Maybe InsightTimeRange
+insightTimeRange :: Maybe InsightTimeRange
+$sel:insightTimeRange:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe InsightTimeRange
+</span><a href="#local-6989586621679237901"><span class="hs-identifier hs-var hs-var">insightTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InsightTimeRange
+</span><a href="#local-6989586621679237901"><span class="hs-identifier hs-var">insightTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237900"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237899"><span class="annot"><span class="annottext">Maybe InsightTimeRange
+</span><a href="#local-6989586621679237899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightTimeRange:ProactiveInsightSummary' :: Maybe InsightTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AinsightTimeRange%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">insightTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InsightTimeRange
+</span><a href="#local-6989586621679237899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the proactive insight.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_name"><span class="hs-identifier hs-type">proactiveInsightSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="proactiveInsightSummary_name"><span class="annot"><span class="annottext">proactiveInsightSummary_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_name"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe Text)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe Text -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237897"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679237897"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237897"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237896"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aname%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_predictionTimeRange"><span class="hs-identifier hs-type">proactiveInsightSummary_predictionTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.PredictionTimeRange.html#PredictionTimeRange"><span class="hs-identifier hs-type">PredictionTimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="proactiveInsightSummary_predictionTimeRange"><span class="annot"><span class="annottext">proactiveInsightSummary_predictionTimeRange :: (Maybe PredictionTimeRange -&gt; f (Maybe PredictionTimeRange))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_predictionTimeRange"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_predictionTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe PredictionTimeRange)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe PredictionTimeRange -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe PredictionTimeRange)
+     (Maybe PredictionTimeRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237893"><span class="annot"><span class="annottext">Maybe PredictionTimeRange
+predictionTimeRange :: Maybe PredictionTimeRange
+$sel:predictionTimeRange:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe PredictionTimeRange
+</span><a href="#local-6989586621679237893"><span class="hs-identifier hs-var hs-var">predictionTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PredictionTimeRange
+</span><a href="#local-6989586621679237893"><span class="hs-identifier hs-var">predictionTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237892"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237891"><span class="annot"><span class="annottext">Maybe PredictionTimeRange
+</span><a href="#local-6989586621679237891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predictionTimeRange:ProactiveInsightSummary' :: Maybe PredictionTimeRange
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3ApredictionTimeRange%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">predictionTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PredictionTimeRange
+</span><a href="#local-6989586621679237891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The ID of the proactive insight.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_id"><span class="hs-identifier hs-type">proactiveInsightSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="proactiveInsightSummary_id"><span class="annot"><span class="annottext">proactiveInsightSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_id"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe Text)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe Text -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237889"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679237889"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237889"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237888"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ProactiveInsightSummary' :: Maybe Text
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3Aid%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | A collection of the names of AWS services.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_serviceCollection"><span class="hs-identifier hs-type">proactiveInsightSummary_serviceCollection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ServiceCollection.html#ServiceCollection"><span class="hs-identifier hs-type">ServiceCollection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="proactiveInsightSummary_serviceCollection"><span class="annot"><span class="annottext">proactiveInsightSummary_serviceCollection :: (Maybe ServiceCollection -&gt; f (Maybe ServiceCollection))
+-&gt; ProactiveInsightSummary -&gt; f ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#proactiveInsightSummary_serviceCollection"><span class="hs-identifier hs-var hs-var">proactiveInsightSummary_serviceCollection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProactiveInsightSummary -&gt; Maybe ServiceCollection)
+-&gt; (ProactiveInsightSummary
+    -&gt; Maybe ServiceCollection -&gt; ProactiveInsightSummary)
+-&gt; Lens
+     ProactiveInsightSummary
+     ProactiveInsightSummary
+     (Maybe ServiceCollection)
+     (Maybe ServiceCollection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237885"><span class="annot"><span class="annottext">Maybe ServiceCollection
+serviceCollection :: Maybe ServiceCollection
+$sel:serviceCollection:ProactiveInsightSummary' :: ProactiveInsightSummary -&gt; Maybe ServiceCollection
+</span><a href="#local-6989586621679237885"><span class="hs-identifier hs-var hs-var">serviceCollection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCollection
+</span><a href="#local-6989586621679237885"><span class="hs-identifier hs-var">serviceCollection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237884"><span class="annot"><span class="annottext">s :: ProactiveInsightSummary
+</span><a href="#local-6989586621679237884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-type">ProactiveInsightSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237883"><span class="annot"><span class="annottext">Maybe ServiceCollection
+</span><a href="#local-6989586621679237883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProactiveInsightSummary
+</span><a href="#local-6989586621679237884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCollection:ProactiveInsightSummary' :: Maybe ServiceCollection
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#%24sel%3AserviceCollection%3AProactiveInsightSummary%27"><span class="hs-identifier hs-var">serviceCollection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceCollection
+</span><a href="#local-6989586621679237883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237880"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679237878"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProactiveInsightSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProactiveInsightSummary)
+-&gt; Value
+-&gt; Parser ProactiveInsightSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProactiveInsightSummary&quot;</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237875"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Maybe InsightStatus
+-&gt; Maybe ResourceCollection
+-&gt; Maybe InsightSeverity
+-&gt; Maybe InsightTimeRange
+-&gt; Maybe Text
+-&gt; Maybe PredictionTimeRange
+-&gt; Maybe Text
+-&gt; Maybe ServiceCollection
+-&gt; ProactiveInsightSummary
+</span><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary%27"><span class="hs-identifier hs-var">ProactiveInsightSummary'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InsightStatus
+ -&gt; Maybe ResourceCollection
+ -&gt; Maybe InsightSeverity
+ -&gt; Maybe InsightTimeRange
+ -&gt; Maybe Text
+ -&gt; Maybe PredictionTimeRange
+ -&gt; Maybe Text
+ -&gt; Maybe ServiceCollection
+ -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe InsightStatus)
+-&gt; Parser
+     (Maybe ResourceCollection
+      -&gt; Maybe InsightSeverity
+      -&gt; Maybe InsightTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe PredictionTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ProactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceCollection
+   -&gt; Maybe InsightSeverity
+   -&gt; Maybe InsightTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe PredictionTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe ResourceCollection)
+-&gt; Parser
+     (Maybe InsightSeverity
+      -&gt; Maybe InsightTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe PredictionTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ProactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceCollection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceCollection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InsightSeverity
+   -&gt; Maybe InsightTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe PredictionTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe InsightSeverity)
+-&gt; Parser
+     (Maybe InsightTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe PredictionTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ProactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightSeverity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe InsightTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe PredictionTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe InsightTimeRange)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PredictionTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ProactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InsightTimeRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InsightTimeRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PredictionTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PredictionTimeRange
+      -&gt; Maybe Text
+      -&gt; Maybe ServiceCollection
+      -&gt; ProactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PredictionTimeRange
+   -&gt; Maybe Text
+   -&gt; Maybe ServiceCollection
+   -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe PredictionTimeRange)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe ServiceCollection -&gt; ProactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PredictionTimeRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PredictionTimeRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe ServiceCollection -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ServiceCollection -&gt; ProactiveInsightSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ServiceCollection -&gt; ProactiveInsightSummary)
+-&gt; Parser (Maybe ServiceCollection)
+-&gt; Parser ProactiveInsightSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceCollection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceCollection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237869"><span id="local-6989586621679237871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.ProactiveInsightSummary.html#ProactiveInsightSummary"><span class="hs-identifier hs-type">ProactiveInsightSummary</span></a></span></span><span>
+</span><span id="line-141"></span></pre></body></html>

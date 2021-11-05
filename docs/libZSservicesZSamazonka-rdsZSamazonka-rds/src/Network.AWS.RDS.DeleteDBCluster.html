@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newDeleteDBCluster' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679799753"><span id="local-6989586621679799754"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBCluster"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-var">DeleteDBCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBCluster%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-var">DeleteDBCluster'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679799762"><span id="local-6989586621679799763"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBCluster"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-var">DeleteDBCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBCluster%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-var">DeleteDBCluster'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DB cluster snapshot identifier of the new DB cluster snapshot</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- created when @SkipFinalSnapshot@ is disabled.</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -97,7 +97,7 @@
 </span><span id="line-95"></span><span>    </span><span id="%24sel%3AdbClusterIdentifier%3ADeleteDBCluster%27"><span class="annot"><span class="annottext">DeleteDBCluster -&gt; Text
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AdbClusterIdentifier%3ADeleteDBCluster%27"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799745"><span id="local-6989586621679799747"><span class="annot"><span class="annottext">DeleteDBCluster -&gt; DeleteDBCluster -&gt; Bool
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799754"><span id="local-6989586621679799756"><span class="annot"><span class="annottext">DeleteDBCluster -&gt; DeleteDBCluster -&gt; Bool
 (DeleteDBCluster -&gt; DeleteDBCluster -&gt; Bool)
 -&gt; (DeleteDBCluster -&gt; DeleteDBCluster -&gt; Bool)
 -&gt; Eq DeleteDBCluster
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBCluster -&gt; DeleteDBCluster -&gt; Bool
 == :: DeleteDBCluster -&gt; DeleteDBCluster -&gt; Bool
 $c== :: DeleteDBCluster -&gt; DeleteDBCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799736"><span id="local-6989586621679799738"><span id="local-6989586621679799740"><span id="local-6989586621679799742"><span class="annot"><span class="annottext">ReadPrec [DeleteDBCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799745"><span id="local-6989586621679799747"><span id="local-6989586621679799749"><span id="local-6989586621679799751"><span class="annot"><span class="annottext">ReadPrec [DeleteDBCluster]
 ReadPrec DeleteDBCluster
 Int -&gt; ReadS DeleteDBCluster
 ReadS [DeleteDBCluster]
@@ -126,7 +126,7 @@ readList :: ReadS [DeleteDBCluster]
 $creadList :: ReadS [DeleteDBCluster]
 readsPrec :: Int -&gt; ReadS DeleteDBCluster
 $creadsPrec :: Int -&gt; ReadS DeleteDBCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799729"><span id="local-6989586621679799731"><span id="local-6989586621679799733"><span class="annot"><span class="annottext">Int -&gt; DeleteDBCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799738"><span id="local-6989586621679799740"><span id="local-6989586621679799742"><span class="annot"><span class="annottext">Int -&gt; DeleteDBCluster -&gt; ShowS
 [DeleteDBCluster] -&gt; ShowS
 DeleteDBCluster -&gt; String
 (Int -&gt; DeleteDBCluster -&gt; ShowS)
@@ -196,8 +196,8 @@ $cfrom :: forall x. DeleteDBCluster -&gt; Rep DeleteDBCluster x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span>
 </span><span id="line-142"></span><span id="newDeleteDBCluster"><span class="annot"><span class="annottext">newDeleteDBCluster :: Text -&gt; DeleteDBCluster
-</span><a href="Network.AWS.RDS.DeleteDBCluster.html#newDeleteDBCluster"><span class="hs-identifier hs-var hs-var">newDeleteDBCluster</span></a></span></span><span> </span><span id="local-6989586621679799724"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799724"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBCluster.html#newDeleteDBCluster"><span class="hs-identifier hs-var hs-var">newDeleteDBCluster</span></a></span></span><span> </span><span id="local-6989586621679799733"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799733"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBCluster' :: Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; DeleteDBCluster
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:finalDBSnapshotIdentifier:DeleteDBCluster' :: Maybe Text
@@ -211,7 +211,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:DeleteDBCluster' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AdbClusterIdentifier%3ADeleteDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799724"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679799733"><span class="hs-identifier hs-var">pDBClusterIdentifier_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The DB cluster snapshot identifier of the new DB cluster snapshot</span><span>
@@ -235,16 +235,16 @@ forall a. Maybe a
 -&gt; (DeleteDBCluster -&gt; Maybe Text -&gt; DeleteDBCluster)
 -&gt; Lens DeleteDBCluster DeleteDBCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799721"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799730"><span class="annot"><span class="annottext">Maybe Text
 finalDBSnapshotIdentifier :: Maybe Text
 $sel:finalDBSnapshotIdentifier:DeleteDBCluster' :: DeleteDBCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679799721"><span class="hs-identifier hs-var hs-var">finalDBSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799721"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799720"><span class="annot"><span class="annottext">s :: DeleteDBCluster
-</span><a href="#local-6989586621679799720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799719"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBCluster
-</span><a href="#local-6989586621679799720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalDBSnapshotIdentifier:DeleteDBCluster' :: Maybe Text
+</span><a href="#local-6989586621679799730"><span class="hs-identifier hs-var hs-var">finalDBSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799730"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799729"><span class="annot"><span class="annottext">s :: DeleteDBCluster
+</span><a href="#local-6989586621679799729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679799728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBCluster
+</span><a href="#local-6989586621679799729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalDBSnapshotIdentifier:DeleteDBCluster' :: Maybe Text
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AfinalDBSnapshotIdentifier%3ADeleteDBCluster%27"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | A value that indicates whether to skip the creation of a final DB</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- cluster snapshot before the DB cluster is deleted. If skip is specified,</span><span>
@@ -262,16 +262,16 @@ $sel:finalDBSnapshotIdentifier:DeleteDBCluster' :: DeleteDBCluster -&gt; Maybe T
 -&gt; (DeleteDBCluster -&gt; Maybe Bool -&gt; DeleteDBCluster)
 -&gt; Lens DeleteDBCluster DeleteDBCluster (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799718"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799727"><span class="annot"><span class="annottext">Maybe Bool
 skipFinalSnapshot :: Maybe Bool
 $sel:skipFinalSnapshot:DeleteDBCluster' :: DeleteDBCluster -&gt; Maybe Bool
-</span><a href="#local-6989586621679799718"><span class="hs-identifier hs-var hs-var">skipFinalSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799718"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799717"><span class="annot"><span class="annottext">s :: DeleteDBCluster
-</span><a href="#local-6989586621679799717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799716"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBCluster
-</span><a href="#local-6989586621679799717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipFinalSnapshot:DeleteDBCluster' :: Maybe Bool
+</span><a href="#local-6989586621679799727"><span class="hs-identifier hs-var hs-var">skipFinalSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799727"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799726"><span class="annot"><span class="annottext">s :: DeleteDBCluster
+</span><a href="#local-6989586621679799726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799725"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679799725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBCluster
+</span><a href="#local-6989586621679799726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipFinalSnapshot:DeleteDBCluster' :: Maybe Bool
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AskipFinalSnapshot%3ADeleteDBCluster%27"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The DB cluster identifier for the DB cluster to be deleted. This</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- parameter isn\'t case-sensitive.</span><span>
@@ -285,27 +285,27 @@ $sel:skipFinalSnapshot:DeleteDBCluster' :: DeleteDBCluster -&gt; Maybe Bool
 -&gt; (DeleteDBCluster -&gt; Text -&gt; DeleteDBCluster)
 -&gt; Lens DeleteDBCluster DeleteDBCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799715"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799724"><span class="annot"><span class="annottext">Text
 dbClusterIdentifier :: Text
 $sel:dbClusterIdentifier:DeleteDBCluster' :: DeleteDBCluster -&gt; Text
-</span><a href="#local-6989586621679799715"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799715"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799714"><span class="annot"><span class="annottext">s :: DeleteDBCluster
-</span><a href="#local-6989586621679799714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799713"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBCluster
-</span><a href="#local-6989586621679799714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:DeleteDBCluster' :: Text
+</span><a href="#local-6989586621679799724"><span class="hs-identifier hs-var hs-var">dbClusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799724"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799723"><span class="annot"><span class="annottext">s :: DeleteDBCluster
+</span><a href="#local-6989586621679799723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679799722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBCluster
+</span><a href="#local-6989586621679799723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterIdentifier:DeleteDBCluster' :: Text
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AdbClusterIdentifier%3ADeleteDBCluster%27"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-190"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679799709"><span class="annot"><span class="annottext">request :: DeleteDBCluster -&gt; Request DeleteDBCluster
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679799718"><span class="annot"><span class="annottext">request :: DeleteDBCluster -&gt; Request DeleteDBCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDBCluster -&gt; Request DeleteDBCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679799705"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679799714"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDBCluster
 -&gt; ClientResponse ClientBody
@@ -334,10 +334,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteDBClusterResult&quot;</span></span><span>
-</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799702"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799702"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679799701"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679799701"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679799700"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679799700"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799711"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799711"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679799710"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679799710"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679799709"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679799709"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBCluster -&gt; Int -&gt; DeleteDBClusterResponse
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-var">DeleteDBClusterResponse'</span></a></span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBCluster -&gt; Int -&gt; DeleteDBClusterResponse)
@@ -345,7 +345,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteDBClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679799700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBCluster)
+</span><a href="#local-6989586621679799709"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBCluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBCluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -357,15 +357,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799702"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799711"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799692"><span id="local-6989586621679799694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799701"><span id="local-6989586621679799703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span></span></span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679799685"><span class="annot"><span class="annottext">toHeaders :: DeleteDBCluster -&gt; ResponseHeaders
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679799694"><span class="annot"><span class="annottext">toHeaders :: DeleteDBCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDBCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -373,15 +373,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679799680"><span class="annot"><span class="annottext">toPath :: DeleteDBCluster -&gt; ByteString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679799689"><span class="annot"><span class="annottext">toPath :: DeleteDBCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDBCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster"><span class="hs-identifier hs-type">DeleteDBCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679799676"><span class="annot"><span class="annottext">toQuery :: DeleteDBCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799672"><span id="local-6989586621679799673"><span id="local-6989586621679799674"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679799685"><span class="annot"><span class="annottext">toQuery :: DeleteDBCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBCluster%27"><span class="hs-identifier hs-type">DeleteDBCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799681"><span id="local-6989586621679799682"><span id="local-6989586621679799683"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 dbClusterIdentifier :: Text
@@ -390,7 +390,7 @@ finalDBSnapshotIdentifier :: Maybe Text
 $sel:dbClusterIdentifier:DeleteDBCluster' :: DeleteDBCluster -&gt; Text
 $sel:skipFinalSnapshot:DeleteDBCluster' :: DeleteDBCluster -&gt; Maybe Bool
 $sel:finalDBSnapshotIdentifier:DeleteDBCluster' :: DeleteDBCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679799672"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679799681"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -411,28 +411,28 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799674"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799683"><span class="hs-identifier hs-var">finalDBSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SkipFinalSnapshot&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679799673"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679799682"><span class="hs-identifier hs-var">skipFinalSnapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799672"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679799681"><span class="hs-identifier hs-var">dbClusterIdentifier</span></a></span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | /See:/ 'newDeleteDBClusterResponse' smart constructor.</span><span>
-</span><span id="line-226"></span><span id="local-6989586621679799669"><span id="local-6989586621679799670"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBClusterResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-var">DeleteDBClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-var">DeleteDBClusterResponse'</span></a></span></span><span>
+</span><span id="line-226"></span><span id="local-6989586621679799678"><span id="local-6989586621679799679"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDBClusterResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-var">DeleteDBClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDBClusterResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-var">DeleteDBClusterResponse'</span></a></span></span><span>
 </span><span id="line-227"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbCluster%3ADeleteDBClusterResponse%27"><span class="annot"><span class="annottext">DeleteDBClusterResponse -&gt; Maybe DBCluster
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AdbCluster%3ADeleteDBClusterResponse%27"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBCluster.html#DBCluster"><span class="hs-identifier hs-type">DBCluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-229"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDBClusterResponse%27"><span class="annot"><span class="annottext">DeleteDBClusterResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AhttpStatus%3ADeleteDBClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799663"><span id="local-6989586621679799665"><span class="annot"><span class="annottext">DeleteDBClusterResponse -&gt; DeleteDBClusterResponse -&gt; Bool
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799672"><span id="local-6989586621679799674"><span class="annot"><span class="annottext">DeleteDBClusterResponse -&gt; DeleteDBClusterResponse -&gt; Bool
 (DeleteDBClusterResponse -&gt; DeleteDBClusterResponse -&gt; Bool)
 -&gt; (DeleteDBClusterResponse -&gt; DeleteDBClusterResponse -&gt; Bool)
 -&gt; Eq DeleteDBClusterResponse
@@ -441,7 +441,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDBClusterResponse -&gt; DeleteDBClusterResponse -&gt; Bool
 == :: DeleteDBClusterResponse -&gt; DeleteDBClusterResponse -&gt; Bool
 $c== :: DeleteDBClusterResponse -&gt; DeleteDBClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799655"><span id="local-6989586621679799657"><span id="local-6989586621679799659"><span id="local-6989586621679799661"><span class="annot"><span class="annottext">ReadPrec [DeleteDBClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799664"><span id="local-6989586621679799666"><span id="local-6989586621679799668"><span id="local-6989586621679799670"><span class="annot"><span class="annottext">ReadPrec [DeleteDBClusterResponse]
 ReadPrec DeleteDBClusterResponse
 Int -&gt; ReadS DeleteDBClusterResponse
 ReadS [DeleteDBClusterResponse]
@@ -461,7 +461,7 @@ readList :: ReadS [DeleteDBClusterResponse]
 $creadList :: ReadS [DeleteDBClusterResponse]
 readsPrec :: Int -&gt; ReadS DeleteDBClusterResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDBClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799649"><span id="local-6989586621679799651"><span id="local-6989586621679799653"><span class="annot"><span class="annottext">Int -&gt; DeleteDBClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799658"><span id="local-6989586621679799660"><span id="local-6989586621679799662"><span class="annot"><span class="annottext">Int -&gt; DeleteDBClusterResponse -&gt; ShowS
 [DeleteDBClusterResponse] -&gt; ShowS
 DeleteDBClusterResponse -&gt; String
 (Int -&gt; DeleteDBClusterResponse -&gt; ShowS)
@@ -505,8 +505,8 @@ $cfrom :: forall x. DeleteDBClusterResponse -&gt; Rep DeleteDBClusterResponse x
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span><span>
 </span><span id="line-248"></span><span id="newDeleteDBClusterResponse"><span class="annot"><span class="annottext">newDeleteDBClusterResponse :: Int -&gt; DeleteDBClusterResponse
-</span><a href="Network.AWS.RDS.DeleteDBCluster.html#newDeleteDBClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679799646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteDBCluster.html#newDeleteDBClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteDBClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679799655"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-249"></span><span>  </span><span class="annot"><span class="annottext">DeleteDBClusterResponse' :: Maybe DBCluster -&gt; Int -&gt; DeleteDBClusterResponse
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span>
 </span><span id="line-250"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbCluster:DeleteDBClusterResponse' :: Maybe DBCluster
@@ -516,7 +516,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AhttpStatus%3ADeleteDBClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679799655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-253"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -532,16 +532,16 @@ forall a. Maybe a
      (Maybe DBCluster)
      (Maybe DBCluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799645"><span class="annot"><span class="annottext">Maybe DBCluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799654"><span class="annot"><span class="annottext">Maybe DBCluster
 dbCluster :: Maybe DBCluster
 $sel:dbCluster:DeleteDBClusterResponse' :: DeleteDBClusterResponse -&gt; Maybe DBCluster
-</span><a href="#local-6989586621679799645"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
-</span><a href="#local-6989586621679799645"><span class="hs-identifier hs-var">dbCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799644"><span class="annot"><span class="annottext">s :: DeleteDBClusterResponse
-</span><a href="#local-6989586621679799644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799643"><span class="annot"><span class="annottext">Maybe DBCluster
-</span><a href="#local-6989586621679799643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBClusterResponse
-</span><a href="#local-6989586621679799644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbCluster:DeleteDBClusterResponse' :: Maybe DBCluster
+</span><a href="#local-6989586621679799654"><span class="hs-identifier hs-var hs-var">dbCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679799654"><span class="hs-identifier hs-var">dbCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799653"><span class="annot"><span class="annottext">s :: DeleteDBClusterResponse
+</span><a href="#local-6989586621679799653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799652"><span class="annot"><span class="annottext">Maybe DBCluster
+</span><a href="#local-6989586621679799652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBClusterResponse
+</span><a href="#local-6989586621679799653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbCluster:DeleteDBClusterResponse' :: Maybe DBCluster
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AdbCluster%3ADeleteDBClusterResponse%27"><span class="hs-identifier hs-var">dbCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBCluster
-</span><a href="#local-6989586621679799643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-260"></span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#deleteDBClusterResponse_httpStatus"><span class="hs-identifier hs-type">deleteDBClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -551,16 +551,16 @@ $sel:dbCluster:DeleteDBClusterResponse' :: DeleteDBClusterResponse -&gt; Maybe D
 -&gt; (DeleteDBClusterResponse -&gt; Int -&gt; DeleteDBClusterResponse)
 -&gt; Lens DeleteDBClusterResponse DeleteDBClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799642"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799651"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDBClusterResponse' :: DeleteDBClusterResponse -&gt; Int
-</span><a href="#local-6989586621679799642"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799642"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799641"><span class="annot"><span class="annottext">s :: DeleteDBClusterResponse
-</span><a href="#local-6989586621679799641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799640"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBClusterResponse
-</span><a href="#local-6989586621679799641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBClusterResponse' :: Int
+</span><a href="#local-6989586621679799651"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799651"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799650"><span class="annot"><span class="annottext">s :: DeleteDBClusterResponse
+</span><a href="#local-6989586621679799650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse%27"><span class="hs-identifier hs-type">DeleteDBClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679799649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDBClusterResponse
+</span><a href="#local-6989586621679799650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDBClusterResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteDBCluster.html#%24sel%3AhttpStatus%3ADeleteDBClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679799640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679799649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteDBCluster.html#DeleteDBClusterResponse"><span class="hs-identifier hs-type">DeleteDBClusterResponse</span></a></span></span><span>
 </span><span id="line-264"></span></pre></body></html>

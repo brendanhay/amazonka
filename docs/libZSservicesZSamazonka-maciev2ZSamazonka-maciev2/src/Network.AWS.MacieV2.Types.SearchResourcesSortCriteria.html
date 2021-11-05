@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.SearchResourcesSortCriteria</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.SearchResourcesSortCriteria</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.OrderBy.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.OrderBy</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortAttributeName.html"><span class="hs-identifier">Network.AWS.MacieV2.Types.SearchResourcesSortAttributeName</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies criteria for sorting the results of a query for information</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- about Amazon Web Services resources that Amazon Macie monitors and</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- analyzes.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSearchResourcesSortCriteria' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679395017"><span id="local-6989586621679395018"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchResourcesSortCriteria"><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-var">SearchResourcesSortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchResourcesSortCriteria%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria%27"><span class="hs-identifier hs-var">SearchResourcesSortCriteria'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sort order to apply to the results, based on the value for the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- property specified by the attributeName property. Valid values are: ASC,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- sort the results in ascending order; and, DESC, sort the results in</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- descending order.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AorderBy%3ASearchResourcesSortCriteria%27"><span class="annot"><span class="annottext">SearchResourcesSortCriteria -&gt; Maybe OrderBy
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#%24sel%3AorderBy%3ASearchResourcesSortCriteria%27"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The property to sort the results by.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AattributeName%3ASearchResourcesSortCriteria%27"><span class="annot"><span class="annottext">SearchResourcesSortCriteria
+-&gt; Maybe SearchResourcesSortAttributeName
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#%24sel%3AattributeName%3ASearchResourcesSortCriteria%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortAttributeName.html#SearchResourcesSortAttributeName"><span class="hs-identifier hs-type">SearchResourcesSortAttributeName</span></a></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395010"><span id="local-6989586621679395012"><span class="annot"><span class="annottext">SearchResourcesSortCriteria -&gt; SearchResourcesSortCriteria -&gt; Bool
+(SearchResourcesSortCriteria
+ -&gt; SearchResourcesSortCriteria -&gt; Bool)
+-&gt; (SearchResourcesSortCriteria
+    -&gt; SearchResourcesSortCriteria -&gt; Bool)
+-&gt; Eq SearchResourcesSortCriteria
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchResourcesSortCriteria -&gt; SearchResourcesSortCriteria -&gt; Bool
+$c/= :: SearchResourcesSortCriteria -&gt; SearchResourcesSortCriteria -&gt; Bool
+== :: SearchResourcesSortCriteria -&gt; SearchResourcesSortCriteria -&gt; Bool
+$c== :: SearchResourcesSortCriteria -&gt; SearchResourcesSortCriteria -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395001"><span id="local-6989586621679395003"><span id="local-6989586621679395005"><span id="local-6989586621679395007"><span class="annot"><span class="annottext">ReadPrec [SearchResourcesSortCriteria]
+ReadPrec SearchResourcesSortCriteria
+Int -&gt; ReadS SearchResourcesSortCriteria
+ReadS [SearchResourcesSortCriteria]
+(Int -&gt; ReadS SearchResourcesSortCriteria)
+-&gt; ReadS [SearchResourcesSortCriteria]
+-&gt; ReadPrec SearchResourcesSortCriteria
+-&gt; ReadPrec [SearchResourcesSortCriteria]
+-&gt; Read SearchResourcesSortCriteria
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchResourcesSortCriteria]
+$creadListPrec :: ReadPrec [SearchResourcesSortCriteria]
+readPrec :: ReadPrec SearchResourcesSortCriteria
+$creadPrec :: ReadPrec SearchResourcesSortCriteria
+readList :: ReadS [SearchResourcesSortCriteria]
+$creadList :: ReadS [SearchResourcesSortCriteria]
+readsPrec :: Int -&gt; ReadS SearchResourcesSortCriteria
+$creadsPrec :: Int -&gt; ReadS SearchResourcesSortCriteria
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394994"><span id="local-6989586621679394996"><span id="local-6989586621679394998"><span class="annot"><span class="annottext">Int -&gt; SearchResourcesSortCriteria -&gt; ShowS
+[SearchResourcesSortCriteria] -&gt; ShowS
+SearchResourcesSortCriteria -&gt; String
+(Int -&gt; SearchResourcesSortCriteria -&gt; ShowS)
+-&gt; (SearchResourcesSortCriteria -&gt; String)
+-&gt; ([SearchResourcesSortCriteria] -&gt; ShowS)
+-&gt; Show SearchResourcesSortCriteria
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchResourcesSortCriteria] -&gt; ShowS
+$cshowList :: [SearchResourcesSortCriteria] -&gt; ShowS
+show :: SearchResourcesSortCriteria -&gt; String
+$cshow :: SearchResourcesSortCriteria -&gt; String
+showsPrec :: Int -&gt; SearchResourcesSortCriteria -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchResourcesSortCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SearchResourcesSortCriteria -&gt; Rep SearchResourcesSortCriteria x)
+-&gt; (forall x.
+    Rep SearchResourcesSortCriteria x -&gt; SearchResourcesSortCriteria)
+-&gt; Generic SearchResourcesSortCriteria
+forall x.
+Rep SearchResourcesSortCriteria x -&gt; SearchResourcesSortCriteria
+forall x.
+SearchResourcesSortCriteria -&gt; Rep SearchResourcesSortCriteria x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SearchResourcesSortCriteria x -&gt; SearchResourcesSortCriteria
+$cfrom :: forall x.
+SearchResourcesSortCriteria -&gt; Rep SearchResourcesSortCriteria x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'SearchResourcesSortCriteria' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'orderBy', 'searchResourcesSortCriteria_orderBy' - The sort order to apply to the results, based on the value for the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- property specified by the attributeName property. Valid values are: ASC,</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- sort the results in ascending order; and, DESC, sort the results in</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- descending order.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'attributeName', 'searchResourcesSortCriteria_attributeName' - The property to sort the results by.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#newSearchResourcesSortCriteria"><span class="hs-identifier hs-type">newSearchResourcesSortCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span><span>
+</span><span id="line-60"></span><span id="newSearchResourcesSortCriteria"><span class="annot"><span class="annottext">newSearchResourcesSortCriteria :: SearchResourcesSortCriteria
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#newSearchResourcesSortCriteria"><span class="hs-identifier hs-var hs-var">newSearchResourcesSortCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">SearchResourcesSortCriteria' :: Maybe OrderBy
+-&gt; Maybe SearchResourcesSortAttributeName
+-&gt; SearchResourcesSortCriteria
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria%27"><span class="hs-identifier hs-type">SearchResourcesSortCriteria'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:orderBy:SearchResourcesSortCriteria' :: Maybe OrderBy
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#%24sel%3AorderBy%3ASearchResourcesSortCriteria%27"><span class="hs-identifier hs-var">orderBy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe OrderBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeName:SearchResourcesSortCriteria' :: Maybe SearchResourcesSortAttributeName
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#%24sel%3AattributeName%3ASearchResourcesSortCriteria%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesSortAttributeName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The sort order to apply to the results, based on the value for the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- property specified by the attributeName property. Valid values are: ASC,</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- sort the results in ascending order; and, DESC, sort the results in</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- descending order.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#searchResourcesSortCriteria_orderBy"><span class="hs-identifier hs-type">searchResourcesSortCriteria_orderBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.OrderBy.html#OrderBy"><span class="hs-identifier hs-type">OrderBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="searchResourcesSortCriteria_orderBy"><span class="annot"><span class="annottext">searchResourcesSortCriteria_orderBy :: (Maybe OrderBy -&gt; f (Maybe OrderBy))
+-&gt; SearchResourcesSortCriteria -&gt; f SearchResourcesSortCriteria
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#searchResourcesSortCriteria_orderBy"><span class="hs-identifier hs-var hs-var">searchResourcesSortCriteria_orderBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesSortCriteria -&gt; Maybe OrderBy)
+-&gt; (SearchResourcesSortCriteria
+    -&gt; Maybe OrderBy -&gt; SearchResourcesSortCriteria)
+-&gt; Lens
+     SearchResourcesSortCriteria
+     SearchResourcesSortCriteria
+     (Maybe OrderBy)
+     (Maybe OrderBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria%27"><span class="hs-identifier hs-type">SearchResourcesSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394985"><span class="annot"><span class="annottext">Maybe OrderBy
+orderBy :: Maybe OrderBy
+$sel:orderBy:SearchResourcesSortCriteria' :: SearchResourcesSortCriteria -&gt; Maybe OrderBy
+</span><a href="#local-6989586621679394985"><span class="hs-identifier hs-var hs-var">orderBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679394985"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394984"><span class="annot"><span class="annottext">s :: SearchResourcesSortCriteria
+</span><a href="#local-6989586621679394984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria%27"><span class="hs-identifier hs-type">SearchResourcesSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394983"><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679394983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesSortCriteria
+</span><a href="#local-6989586621679394984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orderBy:SearchResourcesSortCriteria' :: Maybe OrderBy
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#%24sel%3AorderBy%3ASearchResourcesSortCriteria%27"><span class="hs-identifier hs-var">orderBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679394983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The property to sort the results by.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#searchResourcesSortCriteria_attributeName"><span class="hs-identifier hs-type">searchResourcesSortCriteria_attributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortAttributeName.html#SearchResourcesSortAttributeName"><span class="hs-identifier hs-type">SearchResourcesSortAttributeName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="searchResourcesSortCriteria_attributeName"><span class="annot"><span class="annottext">searchResourcesSortCriteria_attributeName :: (Maybe SearchResourcesSortAttributeName
+ -&gt; f (Maybe SearchResourcesSortAttributeName))
+-&gt; SearchResourcesSortCriteria -&gt; f SearchResourcesSortCriteria
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#searchResourcesSortCriteria_attributeName"><span class="hs-identifier hs-var hs-var">searchResourcesSortCriteria_attributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesSortCriteria
+ -&gt; Maybe SearchResourcesSortAttributeName)
+-&gt; (SearchResourcesSortCriteria
+    -&gt; Maybe SearchResourcesSortAttributeName
+    -&gt; SearchResourcesSortCriteria)
+-&gt; Lens
+     SearchResourcesSortCriteria
+     SearchResourcesSortCriteria
+     (Maybe SearchResourcesSortAttributeName)
+     (Maybe SearchResourcesSortAttributeName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria%27"><span class="hs-identifier hs-type">SearchResourcesSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394981"><span class="annot"><span class="annottext">Maybe SearchResourcesSortAttributeName
+attributeName :: Maybe SearchResourcesSortAttributeName
+$sel:attributeName:SearchResourcesSortCriteria' :: SearchResourcesSortCriteria
+-&gt; Maybe SearchResourcesSortAttributeName
+</span><a href="#local-6989586621679394981"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesSortAttributeName
+</span><a href="#local-6989586621679394981"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394980"><span class="annot"><span class="annottext">s :: SearchResourcesSortCriteria
+</span><a href="#local-6989586621679394980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria%27"><span class="hs-identifier hs-type">SearchResourcesSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394979"><span class="annot"><span class="annottext">Maybe SearchResourcesSortAttributeName
+</span><a href="#local-6989586621679394979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchResourcesSortCriteria
+</span><a href="#local-6989586621679394980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:SearchResourcesSortCriteria' :: Maybe SearchResourcesSortAttributeName
+</span><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#%24sel%3AattributeName%3ASearchResourcesSortCriteria%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesSortAttributeName
+</span><a href="#local-6989586621679394979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394975"><span id="local-6989586621679394977"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394972"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394964"><span id="local-6989586621679394966"><span id="local-6989586621679394968"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria"><span class="hs-identifier hs-type">SearchResourcesSortCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679394962"><span class="annot"><span class="annottext">toJSON :: SearchResourcesSortCriteria -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.SearchResourcesSortCriteria.html#SearchResourcesSortCriteria%27"><span class="hs-identifier hs-type">SearchResourcesSortCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394959"><span id="local-6989586621679394960"><span class="annot"><span class="annottext">Maybe OrderBy
+Maybe SearchResourcesSortAttributeName
+attributeName :: Maybe SearchResourcesSortAttributeName
+orderBy :: Maybe OrderBy
+$sel:attributeName:SearchResourcesSortCriteria' :: SearchResourcesSortCriteria
+-&gt; Maybe SearchResourcesSortAttributeName
+$sel:orderBy:SearchResourcesSortCriteria' :: SearchResourcesSortCriteria -&gt; Maybe OrderBy
+</span><a href="#local-6989586621679394959"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-86"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;orderBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrderBy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrderBy -&gt; Pair) -&gt; Maybe OrderBy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderBy
+</span><a href="#local-6989586621679394960"><span class="hs-identifier hs-var">orderBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SearchResourcesSortAttributeName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SearchResourcesSortAttributeName -&gt; Pair)
+-&gt; Maybe SearchResourcesSortAttributeName -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SearchResourcesSortAttributeName
+</span><a href="#local-6989586621679394959"><span class="hs-identifier hs-var">attributeName</span></a></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span></pre></body></html>

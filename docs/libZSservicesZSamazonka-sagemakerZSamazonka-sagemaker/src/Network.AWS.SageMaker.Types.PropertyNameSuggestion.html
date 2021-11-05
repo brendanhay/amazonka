@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- specifies a value in the @PropertyNameQuery@ field.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPropertyNameSuggestion' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680335919"><span id="local-6989586621680335920"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyNameSuggestion"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-var">PropertyNameSuggestion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyNameSuggestion%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion%27"><span class="hs-identifier hs-var">PropertyNameSuggestion'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680335928"><span id="local-6989586621680335929"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyNameSuggestion"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-var">PropertyNameSuggestion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyNameSuggestion%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion%27"><span class="hs-identifier hs-var">PropertyNameSuggestion'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A suggested property name based on what you entered in the search</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- textbox in the Amazon SageMaker console.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApropertyName%3APropertyNameSuggestion%27"><span class="annot"><span class="annottext">PropertyNameSuggestion -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#%24sel%3ApropertyName%3APropertyNameSuggestion%27"><span class="hs-identifier hs-var hs-var">propertyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680335913"><span id="local-6989586621680335915"><span class="annot"><span class="annottext">PropertyNameSuggestion -&gt; PropertyNameSuggestion -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680335922"><span id="local-6989586621680335924"><span class="annot"><span class="annottext">PropertyNameSuggestion -&gt; PropertyNameSuggestion -&gt; Bool
 (PropertyNameSuggestion -&gt; PropertyNameSuggestion -&gt; Bool)
 -&gt; (PropertyNameSuggestion -&gt; PropertyNameSuggestion -&gt; Bool)
 -&gt; Eq PropertyNameSuggestion
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PropertyNameSuggestion -&gt; PropertyNameSuggestion -&gt; Bool
 == :: PropertyNameSuggestion -&gt; PropertyNameSuggestion -&gt; Bool
 $c== :: PropertyNameSuggestion -&gt; PropertyNameSuggestion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335904"><span id="local-6989586621680335906"><span id="local-6989586621680335908"><span id="local-6989586621680335910"><span class="annot"><span class="annottext">ReadPrec [PropertyNameSuggestion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335913"><span id="local-6989586621680335915"><span id="local-6989586621680335917"><span id="local-6989586621680335919"><span class="annot"><span class="annottext">ReadPrec [PropertyNameSuggestion]
 ReadPrec PropertyNameSuggestion
 Int -&gt; ReadS PropertyNameSuggestion
 ReadS [PropertyNameSuggestion]
@@ -62,7 +62,7 @@ readList :: ReadS [PropertyNameSuggestion]
 $creadList :: ReadS [PropertyNameSuggestion]
 readsPrec :: Int -&gt; ReadS PropertyNameSuggestion
 $creadsPrec :: Int -&gt; ReadS PropertyNameSuggestion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335897"><span id="local-6989586621680335899"><span id="local-6989586621680335901"><span class="annot"><span class="annottext">Int -&gt; PropertyNameSuggestion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680335906"><span id="local-6989586621680335908"><span id="local-6989586621680335910"><span class="annot"><span class="annottext">Int -&gt; PropertyNameSuggestion -&gt; ShowS
 [PropertyNameSuggestion] -&gt; ShowS
 PropertyNameSuggestion -&gt; String
 (Int -&gt; PropertyNameSuggestion -&gt; ShowS)
@@ -125,19 +125,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion%27"><span class="hs-identifier hs-type">PropertyNameSuggestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335888"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion%27"><span class="hs-identifier hs-type">PropertyNameSuggestion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680335897"><span class="annot"><span class="annottext">Maybe Text
 propertyName :: Maybe Text
 $sel:propertyName:PropertyNameSuggestion' :: PropertyNameSuggestion -&gt; Maybe Text
-</span><a href="#local-6989586621680335888"><span class="hs-identifier hs-var hs-var">propertyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680335888"><span class="hs-identifier hs-var">propertyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335887"><span class="annot"><span class="annottext">s :: PropertyNameSuggestion
-</span><a href="#local-6989586621680335887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion%27"><span class="hs-identifier hs-type">PropertyNameSuggestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335886"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680335886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyNameSuggestion
-</span><a href="#local-6989586621680335887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyName:PropertyNameSuggestion' :: Maybe Text
+</span><a href="#local-6989586621680335897"><span class="hs-identifier hs-var hs-var">propertyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680335897"><span class="hs-identifier hs-var">propertyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680335896"><span class="annot"><span class="annottext">s :: PropertyNameSuggestion
+</span><a href="#local-6989586621680335896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion%27"><span class="hs-identifier hs-type">PropertyNameSuggestion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680335895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680335895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyNameSuggestion
+</span><a href="#local-6989586621680335896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyName:PropertyNameSuggestion' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#%24sel%3ApropertyName%3APropertyNameSuggestion%27"><span class="hs-identifier hs-var">propertyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680335886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680335895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335883"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621680335881"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PropertyNameSuggestion
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335892"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621680335890"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PropertyNameSuggestion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PropertyNameSuggestion)
@@ -147,21 +147,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PropertyNameSuggestion&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680335878"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335878"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680335887"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680335887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; PropertyNameSuggestion
 </span><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion%27"><span class="hs-identifier hs-var">PropertyNameSuggestion'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; PropertyNameSuggestion)
 -&gt; Parser (Maybe Text) -&gt; Parser PropertyNameSuggestion
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680335878"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680335887"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PropertyName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335872"><span id="local-6989586621680335874"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335881"><span id="local-6989586621680335883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335869"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680335878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PropertyNameSuggestion.html#PropertyNameSuggestion"><span class="hs-identifier hs-type">PropertyNameSuggestion</span></a></span></span><span>
 </span><span id="line-72"></span></pre></body></html>

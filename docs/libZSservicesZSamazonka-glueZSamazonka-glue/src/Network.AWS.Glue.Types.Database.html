@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- reside in a Hive metastore or an RDBMS.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDatabase' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679694353"><span id="local-6989586621679694354"></span></span><span class="hs-keyword">data</span><span> </span><span id="Database"><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-var">Database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Database%27"><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-var">Database'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679694362"><span id="local-6989586621679694363"></span></span><span class="hs-keyword">data</span><span> </span><span id="Database"><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-var">Database</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Database%27"><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-var">Database'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location of the database (for example, an HDFS path).</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlocationUri%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3AlocationUri%3ADatabase%27"><span class="hs-identifier hs-var hs-var">locationUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3ADatabase%27"><span class="annot"><span class="annottext">Database -&gt; Text
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694340"><span id="local-6989586621679694342"><span class="annot"><span class="annottext">Database -&gt; Database -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694349"><span id="local-6989586621679694351"><span class="annot"><span class="annottext">Database -&gt; Database -&gt; Bool
 (Database -&gt; Database -&gt; Bool)
 -&gt; (Database -&gt; Database -&gt; Bool) -&gt; Eq Database
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Database -&gt; Database -&gt; Bool
 == :: Database -&gt; Database -&gt; Bool
 $c== :: Database -&gt; Database -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694331"><span id="local-6989586621679694333"><span id="local-6989586621679694335"><span id="local-6989586621679694337"><span class="annot"><span class="annottext">ReadPrec [Database]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694340"><span id="local-6989586621679694342"><span id="local-6989586621679694344"><span id="local-6989586621679694346"><span class="annot"><span class="annottext">ReadPrec [Database]
 ReadPrec Database
 Int -&gt; ReadS Database
 ReadS [Database]
@@ -85,7 +85,7 @@ readList :: ReadS [Database]
 $creadList :: ReadS [Database]
 readsPrec :: Int -&gt; ReadS Database
 $creadsPrec :: Int -&gt; ReadS Database
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694324"><span id="local-6989586621679694326"><span id="local-6989586621679694328"><span class="annot"><span class="annottext">Int -&gt; Database -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694333"><span id="local-6989586621679694335"><span id="local-6989586621679694337"><span class="annot"><span class="annottext">Int -&gt; Database -&gt; ShowS
 [Database] -&gt; ShowS
 Database -&gt; String
 (Int -&gt; Database -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. Database -&gt; Rep Database x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span>
 </span><span id="line-83"></span><span id="newDatabase"><span class="annot"><span class="annottext">newDatabase :: Text -&gt; Database
-</span><a href="Network.AWS.Glue.Types.Database.html#newDatabase"><span class="hs-identifier hs-var hs-var">newDatabase</span></a></span></span><span> </span><span id="local-6989586621679694318"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679694318"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.Database.html#newDatabase"><span class="hs-identifier hs-var hs-var">newDatabase</span></a></span></span><span> </span><span id="local-6989586621679694327"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679694327"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">Database' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe DatabaseIdentifier
@@ -180,7 +180,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679694318"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679694327"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The location of the database (for example, an HDFS path).</span><span>
@@ -190,16 +190,16 @@ forall a. Maybe a
 -&gt; (Database -&gt; Maybe Text -&gt; Database)
 -&gt; Lens Database Database (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694314"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694323"><span class="annot"><span class="annottext">Maybe Text
 locationUri :: Maybe Text
 $sel:locationUri:Database' :: Database -&gt; Maybe Text
-</span><a href="#local-6989586621679694314"><span class="hs-identifier hs-var hs-var">locationUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694314"><span class="hs-identifier hs-var">locationUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694313"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694312"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationUri:Database' :: Maybe Text
+</span><a href="#local-6989586621679694323"><span class="hs-identifier hs-var hs-var">locationUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694323"><span class="hs-identifier hs-var">locationUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694322"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694321"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationUri:Database' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3AlocationUri%3ADatabase%27"><span class="hs-identifier hs-var">locationUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The ID of the Data Catalog in which the database resides.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#database_catalogId"><span class="hs-identifier hs-type">database_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -208,16 +208,16 @@ $sel:locationUri:Database' :: Database -&gt; Maybe Text
 -&gt; (Database -&gt; Maybe Text -&gt; Database)
 -&gt; Lens Database Database (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694310"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694319"><span class="annot"><span class="annottext">Maybe Text
 catalogId :: Maybe Text
 $sel:catalogId:Database' :: Database -&gt; Maybe Text
-</span><a href="#local-6989586621679694310"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694310"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694309"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694308"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:Database' :: Maybe Text
+</span><a href="#local-6989586621679694319"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694319"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694318"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:Database' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3AcatalogId%3ADatabase%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | A @DatabaseIdentifier@ structure that describes a target database for</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- resource linking.</span><span>
@@ -232,16 +232,16 @@ $sel:catalogId:Database' :: Database -&gt; Maybe Text
      (Maybe DatabaseIdentifier)
      (Maybe DatabaseIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694306"><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694315"><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
 targetDatabase :: Maybe DatabaseIdentifier
 $sel:targetDatabase:Database' :: Database -&gt; Maybe DatabaseIdentifier
-</span><a href="#local-6989586621679694306"><span class="hs-identifier hs-var hs-var">targetDatabase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
-</span><a href="#local-6989586621679694306"><span class="hs-identifier hs-var">targetDatabase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694305"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694304"><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
-</span><a href="#local-6989586621679694304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDatabase:Database' :: Maybe DatabaseIdentifier
+</span><a href="#local-6989586621679694315"><span class="hs-identifier hs-var hs-var">targetDatabase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+</span><a href="#local-6989586621679694315"><span class="hs-identifier hs-var">targetDatabase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694314"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694313"><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
+</span><a href="#local-6989586621679694313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDatabase:Database' :: Maybe DatabaseIdentifier
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3AtargetDatabase%3ADatabase%27"><span class="hs-identifier hs-var">targetDatabase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatabaseIdentifier
-</span><a href="#local-6989586621679694304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | These key-value pairs define parameters and properties of the database.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#database_parameters"><span class="hs-identifier hs-type">database_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -255,16 +255,16 @@ $sel:targetDatabase:Database' :: Database -&gt; Maybe DatabaseIdentifier
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694302"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694311"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:Database' :: Database -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679694302"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679694302"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694301"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694300"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679694300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Database' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679694311"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679694311"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694310"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694309"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679694309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Database' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3Aparameters%3ADatabase%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679694300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679694309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Database -&gt; f Database)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -300,16 +300,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Database -&gt; Maybe Text -&gt; Database)
 -&gt; Lens Database Database (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694295"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694304"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:Database' :: Database -&gt; Maybe Text
-</span><a href="#local-6989586621679694295"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694295"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694294"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694293"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Database' :: Maybe Text
+</span><a href="#local-6989586621679694304"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694304"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694303"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Database' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3Adescription%3ADatabase%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679694293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The time at which the metadata database was created in the catalog.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#database_createTime"><span class="hs-identifier hs-type">database_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -318,16 +318,16 @@ $sel:description:Database' :: Database -&gt; Maybe Text
 -&gt; (Database -&gt; Maybe POSIX -&gt; Database)
 -&gt; Lens Database Database (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694291"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694300"><span class="annot"><span class="annottext">Maybe POSIX
 createTime :: Maybe POSIX
 $sel:createTime:Database' :: Database -&gt; Maybe POSIX
-</span><a href="#local-6989586621679694291"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679694291"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694290"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694289"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679694289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:Database' :: Maybe POSIX
+</span><a href="#local-6989586621679694300"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679694300"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694299"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694298"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679694298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:Database' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3AcreateTime%3ADatabase%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679694289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Database -&gt; f Database)
+</span><a href="#local-6989586621679694298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Database -&gt; f Database)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -355,16 +355,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe [PrincipalPermissions])
      (Maybe [PrincipalPermissions])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694286"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694295"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
 createTableDefaultPermissions :: Maybe [PrincipalPermissions]
 $sel:createTableDefaultPermissions:Database' :: Database -&gt; Maybe [PrincipalPermissions]
-</span><a href="#local-6989586621679694286"><span class="hs-identifier hs-var hs-var">createTableDefaultPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
-</span><a href="#local-6989586621679694286"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694285"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694284"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
-</span><a href="#local-6989586621679694284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTableDefaultPermissions:Database' :: Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679694295"><span class="hs-identifier hs-var hs-var">createTableDefaultPermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679694295"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694294"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694293"><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
+</span><a href="#local-6989586621679694293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTableDefaultPermissions:Database' :: Maybe [PrincipalPermissions]
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3AcreateTableDefaultPermissions%3ADatabase%27"><span class="hs-identifier hs-var">createTableDefaultPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PrincipalPermissions]
-</span><a href="#local-6989586621679694284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
+</span><a href="#local-6989586621679694293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PrincipalPermissions] -&gt; f (Maybe [PrincipalPermissions]))
  -&gt; Database -&gt; f Database)
 -&gt; ((Maybe [PrincipalPermissions]
      -&gt; f (Maybe [PrincipalPermissions]))
@@ -404,27 +404,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Database -&gt; Text -&gt; Database)
 -&gt; Lens Database Database Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694282"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694291"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Database' :: Database -&gt; Text
-</span><a href="#local-6989586621679694282"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679694282"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694281"><span class="annot"><span class="annottext">s :: Database
-</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694280"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679694280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
-</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
+</span><a href="#local-6989586621679694291"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679694291"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694290"><span class="annot"><span class="annottext">s :: Database
+</span><a href="#local-6989586621679694290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database%27"><span class="hs-identifier hs-type">Database'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679694289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Database
+</span><a href="#local-6989586621679694290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Database' :: Text
 </span><a href="Network.AWS.Glue.Types.Database.html#%24sel%3Aname%3ADatabase%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679694280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694277"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679694275"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Database
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694286"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679694284"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Database
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Database) -&gt; Value -&gt; Parser Database
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Database&quot;</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679694272"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679694281"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe DatabaseIdentifier
@@ -456,7 +456,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Database)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocationUri&quot;</span></span><span class="hs-special">)</span><span>
@@ -480,7 +480,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Database)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span class="hs-special">)</span><span>
@@ -502,7 +502,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Database)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatabaseIdentifier)
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatabaseIdentifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetDatabase&quot;</span></span><span class="hs-special">)</span><span>
@@ -519,7 +519,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe POSIX -&gt; Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -536,7 +536,7 @@ forall a. Monoid a =&gt; a
      (Maybe POSIX -&gt; Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
@@ -546,7 +546,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [PrincipalPermissions] -&gt; Text -&gt; Database)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -555,7 +555,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Database)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PrincipalPermissions]))
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PrincipalPermissions]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateTableDefaultPermissions&quot;</span></span><span>
@@ -570,13 +570,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Database) -&gt; Parser Text -&gt; Parser Database
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694272"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679694281"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694264"><span id="local-6989586621679694266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694273"><span id="local-6989586621679694275"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694270"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Database.html#Database"><span class="hs-identifier hs-type">Database</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

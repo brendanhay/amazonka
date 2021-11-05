@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newGetJourney' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679629420"><span id="local-6989586621679629421"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJourney"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-var">GetJourney</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJourney%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-var">GetJourney'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679629429"><span id="local-6989586621679629430"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJourney"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-var">GetJourney</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJourney%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-var">GetJourney'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AjourneyId%3AGetJourney%27"><span class="annot"><span class="annottext">GetJourney -&gt; Text
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AjourneyId%3AGetJourney%27"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetJourney%27"><span class="annot"><span class="annottext">GetJourney -&gt; Text
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AapplicationId%3AGetJourney%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629413"><span id="local-6989586621679629415"><span class="annot"><span class="annottext">GetJourney -&gt; GetJourney -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629422"><span id="local-6989586621679629424"><span class="annot"><span class="annottext">GetJourney -&gt; GetJourney -&gt; Bool
 (GetJourney -&gt; GetJourney -&gt; Bool)
 -&gt; (GetJourney -&gt; GetJourney -&gt; Bool) -&gt; Eq GetJourney
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJourney -&gt; GetJourney -&gt; Bool
 == :: GetJourney -&gt; GetJourney -&gt; Bool
 $c== :: GetJourney -&gt; GetJourney -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629404"><span id="local-6989586621679629406"><span id="local-6989586621679629408"><span id="local-6989586621679629410"><span class="annot"><span class="annottext">ReadPrec [GetJourney]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629413"><span id="local-6989586621679629415"><span id="local-6989586621679629417"><span id="local-6989586621679629419"><span class="annot"><span class="annottext">ReadPrec [GetJourney]
 ReadPrec GetJourney
 Int -&gt; ReadS GetJourney
 ReadS [GetJourney]
@@ -86,7 +86,7 @@ readList :: ReadS [GetJourney]
 $creadList :: ReadS [GetJourney]
 readsPrec :: Int -&gt; ReadS GetJourney
 $creadsPrec :: Int -&gt; ReadS GetJourney
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629397"><span id="local-6989586621679629399"><span id="local-6989586621679629401"><span class="annot"><span class="annottext">Int -&gt; GetJourney -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629406"><span id="local-6989586621679629408"><span id="local-6989586621679629410"><span class="annot"><span class="annottext">Int -&gt; GetJourney -&gt; ShowS
 [GetJourney] -&gt; ShowS
 GetJourney -&gt; String
 (Int -&gt; GetJourney -&gt; ShowS)
@@ -130,17 +130,17 @@ $cfrom :: forall x. GetJourney -&gt; Rep GetJourney x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span>
 </span><span id="line-79"></span><span id="newGetJourney"><span class="annot"><span class="annottext">newGetJourney :: Text -&gt; Text -&gt; GetJourney
-</span><a href="Network.AWS.Pinpoint.GetJourney.html#newGetJourney"><span class="hs-identifier hs-var hs-var">newGetJourney</span></a></span></span><span> </span><span id="local-6989586621679629392"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629392"><span class="hs-identifier hs-var">pJourneyId_</span></a></span></span><span> </span><span id="local-6989586621679629391"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629391"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.GetJourney.html#newGetJourney"><span class="hs-identifier hs-var hs-var">newGetJourney</span></a></span></span><span> </span><span id="local-6989586621679629401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629401"><span class="hs-identifier hs-var">pJourneyId_</span></a></span></span><span> </span><span id="local-6989586621679629400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629400"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">GetJourney' :: Text -&gt; Text -&gt; GetJourney
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:journeyId:GetJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AjourneyId%3AGetJourney%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629392"><span class="hs-identifier hs-var">pJourneyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679629401"><span class="hs-identifier hs-var">pJourneyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:GetJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AapplicationId%3AGetJourney%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629391"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679629400"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
@@ -150,16 +150,16 @@ $cfrom :: forall x. GetJourney -&gt; Rep GetJourney x
 -&gt; (GetJourney -&gt; Text -&gt; GetJourney)
 -&gt; Lens GetJourney GetJourney Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629388"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629397"><span class="annot"><span class="annottext">Text
 journeyId :: Text
 $sel:journeyId:GetJourney' :: GetJourney -&gt; Text
-</span><a href="#local-6989586621679629388"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629388"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629387"><span class="annot"><span class="annottext">s :: GetJourney
-</span><a href="#local-6989586621679629387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629386"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourney
-</span><a href="#local-6989586621679629387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyId:GetJourney' :: Text
+</span><a href="#local-6989586621679629397"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629397"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629396"><span class="annot"><span class="annottext">s :: GetJourney
+</span><a href="#local-6989586621679629396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourney
+</span><a href="#local-6989586621679629396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyId:GetJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AjourneyId%3AGetJourney%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679629395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
@@ -169,25 +169,25 @@ $sel:journeyId:GetJourney' :: GetJourney -&gt; Text
 -&gt; (GetJourney -&gt; Text -&gt; GetJourney)
 -&gt; Lens GetJourney GetJourney Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629385"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629394"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetJourney' :: GetJourney -&gt; Text
-</span><a href="#local-6989586621679629385"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629385"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629384"><span class="annot"><span class="annottext">s :: GetJourney
-</span><a href="#local-6989586621679629384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourney
-</span><a href="#local-6989586621679629384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetJourney' :: Text
+</span><a href="#local-6989586621679629394"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629394"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629393"><span class="annot"><span class="annottext">s :: GetJourney
+</span><a href="#local-6989586621679629393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679629392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourney
+</span><a href="#local-6989586621679629393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AapplicationId%3AGetJourney%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679629392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679629379"><span class="annot"><span class="annottext">request :: GetJourney -&gt; Request GetJourney
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679629388"><span class="annot"><span class="annottext">request :: GetJourney -&gt; Request GetJourney
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetJourney -&gt; Request GetJourney
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679629375"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679629384"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetJourney
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679629372"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629372"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679629371"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679629371"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679629370"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679629370"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679629381"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629381"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679629380"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679629380"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679629379"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679629379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; JourneyResponse -&gt; GetJourneyResponse
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-var">GetJourneyResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; JourneyResponse -&gt; GetJourneyResponse)
@@ -226,7 +226,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629372"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679629381"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (JourneyResponse -&gt; GetJourneyResponse)
 -&gt; Either String JourneyResponse
 -&gt; Either String GetJourneyResponse
@@ -234,15 +234,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String JourneyResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679629370"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679629379"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629362"><span id="local-6989586621679629364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629371"><span id="local-6989586621679629373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679629355"><span class="annot"><span class="annottext">toHeaders :: GetJourney -&gt; ResponseHeaders
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679629364"><span class="annot"><span class="annottext">toHeaders :: GetJourney -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJourney -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -262,13 +262,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679629349"><span class="annot"><span class="annottext">toPath :: GetJourney -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629346"><span id="local-6989586621679629347"><span class="annot"><span class="annottext">Text
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679629358"><span class="annot"><span class="annottext">toPath :: GetJourney -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney%27"><span class="hs-identifier hs-type">GetJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629355"><span id="local-6989586621679629356"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 journeyId :: Text
 $sel:applicationId:GetJourney' :: GetJourney -&gt; Text
 $sel:journeyId:GetJourney' :: GetJourney -&gt; Text
-</span><a href="#local-6989586621679629346"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679629355"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -277,17 +277,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629346"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679629355"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/journeys/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679629347"><span class="hs-identifier hs-var">journeyId</span></a></span><span>
+</span><a href="#local-6989586621679629356"><span class="hs-identifier hs-var">journeyId</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourney"><span class="hs-identifier hs-type">GetJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679629342"><span class="annot"><span class="annottext">toQuery :: GetJourney -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679629351"><span class="annot"><span class="annottext">toQuery :: GetJourney -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJourney -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -295,14 +295,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newGetJourneyResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679629339"><span id="local-6989586621679629340"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJourneyResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-var">GetJourneyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJourneyResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-var">GetJourneyResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679629348"><span id="local-6989586621679629349"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJourneyResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-var">GetJourneyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJourneyResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-var">GetJourneyResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJourneyResponse%27"><span class="annot"><span class="annottext">GetJourneyResponse -&gt; Int
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AhttpStatus%3AGetJourneyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AjourneyResponse%3AGetJourneyResponse%27"><span class="annot"><span class="annottext">GetJourneyResponse -&gt; JourneyResponse
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AjourneyResponse%3AGetJourneyResponse%27"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629333"><span id="local-6989586621679629335"><span class="annot"><span class="annottext">GetJourneyResponse -&gt; GetJourneyResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679629342"><span id="local-6989586621679629344"><span class="annot"><span class="annottext">GetJourneyResponse -&gt; GetJourneyResponse -&gt; Bool
 (GetJourneyResponse -&gt; GetJourneyResponse -&gt; Bool)
 -&gt; (GetJourneyResponse -&gt; GetJourneyResponse -&gt; Bool)
 -&gt; Eq GetJourneyResponse
@@ -311,7 +311,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJourneyResponse -&gt; GetJourneyResponse -&gt; Bool
 == :: GetJourneyResponse -&gt; GetJourneyResponse -&gt; Bool
 $c== :: GetJourneyResponse -&gt; GetJourneyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629325"><span id="local-6989586621679629327"><span id="local-6989586621679629329"><span id="local-6989586621679629331"><span class="annot"><span class="annottext">ReadPrec [GetJourneyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629334"><span id="local-6989586621679629336"><span id="local-6989586621679629338"><span id="local-6989586621679629340"><span class="annot"><span class="annottext">ReadPrec [GetJourneyResponse]
 ReadPrec GetJourneyResponse
 Int -&gt; ReadS GetJourneyResponse
 ReadS [GetJourneyResponse]
@@ -331,7 +331,7 @@ readList :: ReadS [GetJourneyResponse]
 $creadList :: ReadS [GetJourneyResponse]
 readsPrec :: Int -&gt; ReadS GetJourneyResponse
 $creadsPrec :: Int -&gt; ReadS GetJourneyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629319"><span id="local-6989586621679629321"><span id="local-6989586621679629323"><span class="annot"><span class="annottext">Int -&gt; GetJourneyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679629328"><span id="local-6989586621679629330"><span id="local-6989586621679629332"><span class="annot"><span class="annottext">Int -&gt; GetJourneyResponse -&gt; ShowS
 [GetJourneyResponse] -&gt; ShowS
 GetJourneyResponse -&gt; String
 (Int -&gt; GetJourneyResponse -&gt; ShowS)
@@ -375,17 +375,17 @@ $cfrom :: forall x. GetJourneyResponse -&gt; Rep GetJourneyResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newGetJourneyResponse"><span class="annot"><span class="annottext">newGetJourneyResponse :: Int -&gt; JourneyResponse -&gt; GetJourneyResponse
-</span><a href="Network.AWS.Pinpoint.GetJourney.html#newGetJourneyResponse"><span class="hs-identifier hs-var hs-var">newGetJourneyResponse</span></a></span></span><span> </span><span id="local-6989586621679629316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679629315"><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679629315"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.GetJourney.html#newGetJourneyResponse"><span class="hs-identifier hs-var hs-var">newGetJourneyResponse</span></a></span></span><span> </span><span id="local-6989586621679629325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679629324"><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679629324"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">GetJourneyResponse' :: Int -&gt; JourneyResponse -&gt; GetJourneyResponse
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJourneyResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AhttpStatus%3AGetJourneyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679629325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:journeyResponse:GetJourneyResponse' :: JourneyResponse
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AjourneyResponse%3AGetJourneyResponse%27"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679629315"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span><span>
+</span><a href="#local-6989586621679629324"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -395,16 +395,16 @@ $cfrom :: forall x. GetJourneyResponse -&gt; Rep GetJourneyResponse x
 -&gt; (GetJourneyResponse -&gt; Int -&gt; GetJourneyResponse)
 -&gt; Lens GetJourneyResponse GetJourneyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629314"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629323"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetJourneyResponse' :: GetJourneyResponse -&gt; Int
-</span><a href="#local-6989586621679629314"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629314"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629313"><span class="annot"><span class="annottext">s :: GetJourneyResponse
-</span><a href="#local-6989586621679629313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629312"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyResponse
-</span><a href="#local-6989586621679629313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJourneyResponse' :: Int
+</span><a href="#local-6989586621679629323"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629323"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629322"><span class="annot"><span class="annottext">s :: GetJourneyResponse
+</span><a href="#local-6989586621679629322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679629321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyResponse
+</span><a href="#local-6989586621679629322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJourneyResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AhttpStatus%3AGetJourneyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679629312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679629321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#getJourneyResponse_journeyResponse"><span class="hs-identifier hs-type">getJourneyResponse_journeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span>
@@ -418,16 +418,16 @@ $sel:httpStatus:GetJourneyResponse' :: GetJourneyResponse -&gt; Int
      JourneyResponse
      JourneyResponse
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629311"><span class="annot"><span class="annottext">JourneyResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679629320"><span class="annot"><span class="annottext">JourneyResponse
 journeyResponse :: JourneyResponse
 $sel:journeyResponse:GetJourneyResponse' :: GetJourneyResponse -&gt; JourneyResponse
-</span><a href="#local-6989586621679629311"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679629311"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629310"><span class="annot"><span class="annottext">s :: GetJourneyResponse
-</span><a href="#local-6989586621679629310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629309"><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679629309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyResponse
-</span><a href="#local-6989586621679629310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyResponse:GetJourneyResponse' :: JourneyResponse
+</span><a href="#local-6989586621679629320"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679629320"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679629319"><span class="annot"><span class="annottext">s :: GetJourneyResponse
+</span><a href="#local-6989586621679629319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse%27"><span class="hs-identifier hs-type">GetJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679629318"><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679629318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJourneyResponse
+</span><a href="#local-6989586621679629319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyResponse:GetJourneyResponse' :: JourneyResponse
 </span><a href="Network.AWS.Pinpoint.GetJourney.html#%24sel%3AjourneyResponse%3AGetJourneyResponse%27"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679629309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679629318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679629316"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetJourney.html#GetJourneyResponse"><span class="hs-identifier hs-type">GetJourneyResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

@@ -59,12 +59,12 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newPutRemediationConfigurations' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679414817"><span id="local-6989586621679414818"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRemediationConfigurations"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-var">PutRemediationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRemediationConfigurations%27"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-var">PutRemediationConfigurations'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679414826"><span id="local-6989586621679414827"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRemediationConfigurations"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-var">PutRemediationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRemediationConfigurations%27"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-var">PutRemediationConfigurations'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of remediation configuration objects.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AremediationConfigurations%3APutRemediationConfigurations%27"><span class="annot"><span class="annottext">PutRemediationConfigurations -&gt; [RemediationConfiguration]
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#%24sel%3AremediationConfigurations%3APutRemediationConfigurations%27"><span class="hs-identifier hs-var hs-var">remediationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationConfiguration.html#RemediationConfiguration"><span class="hs-identifier hs-type">RemediationConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414811"><span id="local-6989586621679414813"><span class="annot"><span class="annottext">PutRemediationConfigurations
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414820"><span id="local-6989586621679414822"><span class="annot"><span class="annottext">PutRemediationConfigurations
 -&gt; PutRemediationConfigurations -&gt; Bool
 (PutRemediationConfigurations
  -&gt; PutRemediationConfigurations -&gt; Bool)
@@ -80,7 +80,7 @@ $c/= :: PutRemediationConfigurations
 -&gt; PutRemediationConfigurations -&gt; Bool
 $c== :: PutRemediationConfigurations
 -&gt; PutRemediationConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414802"><span id="local-6989586621679414804"><span id="local-6989586621679414806"><span id="local-6989586621679414808"><span class="annot"><span class="annottext">ReadPrec [PutRemediationConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414811"><span id="local-6989586621679414813"><span id="local-6989586621679414815"><span id="local-6989586621679414817"><span class="annot"><span class="annottext">ReadPrec [PutRemediationConfigurations]
 ReadPrec PutRemediationConfigurations
 Int -&gt; ReadS PutRemediationConfigurations
 ReadS [PutRemediationConfigurations]
@@ -100,7 +100,7 @@ readList :: ReadS [PutRemediationConfigurations]
 $creadList :: ReadS [PutRemediationConfigurations]
 readsPrec :: Int -&gt; ReadS PutRemediationConfigurations
 $creadsPrec :: Int -&gt; ReadS PutRemediationConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414795"><span id="local-6989586621679414797"><span id="local-6989586621679414799"><span class="annot"><span class="annottext">Int -&gt; PutRemediationConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414804"><span id="local-6989586621679414806"><span id="local-6989586621679414808"><span class="annot"><span class="annottext">Int -&gt; PutRemediationConfigurations -&gt; ShowS
 [PutRemediationConfigurations] -&gt; ShowS
 PutRemediationConfigurations -&gt; String
 (Int -&gt; PutRemediationConfigurations -&gt; ShowS)
@@ -167,16 +167,16 @@ forall a. Monoid a =&gt; a
      [RemediationConfiguration]
      [RemediationConfiguration]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-type">PutRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414788"><span class="annot"><span class="annottext">[RemediationConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-type">PutRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414797"><span class="annot"><span class="annottext">[RemediationConfiguration]
 remediationConfigurations :: [RemediationConfiguration]
 $sel:remediationConfigurations:PutRemediationConfigurations' :: PutRemediationConfigurations -&gt; [RemediationConfiguration]
-</span><a href="#local-6989586621679414788"><span class="hs-identifier hs-var hs-var">remediationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RemediationConfiguration]
-</span><a href="#local-6989586621679414788"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414787"><span class="annot"><span class="annottext">s :: PutRemediationConfigurations
-</span><a href="#local-6989586621679414787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-type">PutRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414786"><span class="annot"><span class="annottext">[RemediationConfiguration]
-</span><a href="#local-6989586621679414786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRemediationConfigurations
-</span><a href="#local-6989586621679414787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationConfigurations:PutRemediationConfigurations' :: [RemediationConfiguration]
+</span><a href="#local-6989586621679414797"><span class="hs-identifier hs-var hs-var">remediationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RemediationConfiguration]
+</span><a href="#local-6989586621679414797"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414796"><span class="annot"><span class="annottext">s :: PutRemediationConfigurations
+</span><a href="#local-6989586621679414796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-type">PutRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414795"><span class="annot"><span class="annottext">[RemediationConfiguration]
+</span><a href="#local-6989586621679414795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRemediationConfigurations
+</span><a href="#local-6989586621679414796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remediationConfigurations:PutRemediationConfigurations' :: [RemediationConfiguration]
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#%24sel%3AremediationConfigurations%3APutRemediationConfigurations%27"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RemediationConfiguration]
-</span><a href="#local-6989586621679414786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RemediationConfiguration] -&gt; f [RemediationConfiguration])
+</span><a href="#local-6989586621679414795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RemediationConfiguration] -&gt; f [RemediationConfiguration])
  -&gt; PutRemediationConfigurations -&gt; f PutRemediationConfigurations)
 -&gt; (([RemediationConfiguration] -&gt; f [RemediationConfiguration])
     -&gt; [RemediationConfiguration] -&gt; f [RemediationConfiguration])
@@ -193,7 +193,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679414780"><span class="annot"><span class="annottext">request :: PutRemediationConfigurations
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679414789"><span class="annot"><span class="annottext">request :: PutRemediationConfigurations
 -&gt; Request PutRemediationConfigurations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutRemediationConfigurations
@@ -201,7 +201,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679414776"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679414785"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutRemediationConfigurations
 -&gt; ClientResponse ClientBody
@@ -227,10 +227,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414773"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414773"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414772"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679414772"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414771"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679414771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414782"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414782"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414781"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679414781"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414780"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679414780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
 -&gt; Int -&gt; PutRemediationConfigurationsResponse
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">PutRemediationConfigurationsResponse'</span></a></span><span>
@@ -240,7 +240,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutRemediationConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679414771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679414780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [FailedRemediationBatch]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -260,17 +260,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414773"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414782"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679414762"><span id="local-6989586621679414764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679414771"><span id="local-6989586621679414773"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414768"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679414755"><span class="annot"><span class="annottext">toHeaders :: PutRemediationConfigurations -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679414764"><span class="annot"><span class="annottext">toHeaders :: PutRemediationConfigurations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRemediationConfigurations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -297,12 +297,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414745"><span id="local-6989586621679414747"><span id="local-6989586621679414749"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679414743"><span class="annot"><span class="annottext">toJSON :: PutRemediationConfigurations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-type">PutRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414741"><span class="annot"><span class="annottext">[RemediationConfiguration]
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414754"><span id="local-6989586621679414756"><span id="local-6989586621679414758"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679414752"><span class="annot"><span class="annottext">toJSON :: PutRemediationConfigurations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations%27"><span class="hs-identifier hs-type">PutRemediationConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414750"><span class="annot"><span class="annottext">[RemediationConfiguration]
 remediationConfigurations :: [RemediationConfiguration]
 $sel:remediationConfigurations:PutRemediationConfigurations' :: PutRemediationConfigurations -&gt; [RemediationConfiguration]
-</span><a href="#local-6989586621679414741"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679414750"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -316,20 +316,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-129"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [RemediationConfiguration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[RemediationConfiguration]
-</span><a href="#local-6989586621679414741"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span>
+</span><a href="#local-6989586621679414750"><span class="hs-identifier hs-var">remediationConfigurations</span></a></span><span>
 </span><span id="line-130"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679414735"><span class="annot"><span class="annottext">toPath :: PutRemediationConfigurations -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679414744"><span class="annot"><span class="annottext">toPath :: PutRemediationConfigurations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutRemediationConfigurations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurations"><span class="hs-identifier hs-type">PutRemediationConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679414731"><span class="annot"><span class="annottext">toQuery :: PutRemediationConfigurations -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679414740"><span class="annot"><span class="annottext">toQuery :: PutRemediationConfigurations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRemediationConfigurations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -337,7 +337,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newPutRemediationConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679414728"><span id="local-6989586621679414729"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRemediationConfigurationsResponse"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-var">PutRemediationConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRemediationConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">PutRemediationConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679414737"><span id="local-6989586621679414738"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRemediationConfigurationsResponse"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-var">PutRemediationConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRemediationConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">PutRemediationConfigurationsResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a list of failed remediation batch objects.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AfailedBatches%3APutRemediationConfigurationsResponse%27"><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse
 -&gt; Maybe [FailedRemediationBatch]
@@ -346,7 +346,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRemediationConfigurationsResponse%27"><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#%24sel%3AhttpStatus%3APutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414722"><span id="local-6989586621679414724"><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414731"><span id="local-6989586621679414733"><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse
 -&gt; PutRemediationConfigurationsResponse -&gt; Bool
 (PutRemediationConfigurationsResponse
  -&gt; PutRemediationConfigurationsResponse -&gt; Bool)
@@ -362,7 +362,7 @@ $c/= :: PutRemediationConfigurationsResponse
 -&gt; PutRemediationConfigurationsResponse -&gt; Bool
 $c== :: PutRemediationConfigurationsResponse
 -&gt; PutRemediationConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414714"><span id="local-6989586621679414716"><span id="local-6989586621679414718"><span id="local-6989586621679414720"><span class="annot"><span class="annottext">ReadPrec [PutRemediationConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414723"><span id="local-6989586621679414725"><span id="local-6989586621679414727"><span id="local-6989586621679414729"><span class="annot"><span class="annottext">ReadPrec [PutRemediationConfigurationsResponse]
 ReadPrec PutRemediationConfigurationsResponse
 Int -&gt; ReadS PutRemediationConfigurationsResponse
 ReadS [PutRemediationConfigurationsResponse]
@@ -382,7 +382,7 @@ readList :: ReadS [PutRemediationConfigurationsResponse]
 $creadList :: ReadS [PutRemediationConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS PutRemediationConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS PutRemediationConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414708"><span id="local-6989586621679414710"><span id="local-6989586621679414712"><span class="annot"><span class="annottext">Int -&gt; PutRemediationConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414717"><span id="local-6989586621679414719"><span id="local-6989586621679414721"><span class="annot"><span class="annottext">Int -&gt; PutRemediationConfigurationsResponse -&gt; ShowS
 [PutRemediationConfigurationsResponse] -&gt; ShowS
 PutRemediationConfigurationsResponse -&gt; String
 (Int -&gt; PutRemediationConfigurationsResponse -&gt; ShowS)
@@ -436,8 +436,8 @@ PutRemediationConfigurationsResponse
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newPutRemediationConfigurationsResponse"><span class="annot"><span class="annottext">newPutRemediationConfigurationsResponse :: Int -&gt; PutRemediationConfigurationsResponse
-</span><a href="Network.AWS.Config.PutRemediationConfigurations.html#newPutRemediationConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newPutRemediationConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679414705"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.PutRemediationConfigurations.html#newPutRemediationConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newPutRemediationConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679414714"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414714"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse' :: Maybe [FailedRemediationBatch]
 -&gt; Int -&gt; PutRemediationConfigurationsResponse
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span>
@@ -448,7 +448,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRemediationConfigurationsResponse' :: Int
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#%24sel%3AhttpStatus%3APutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414705"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679414714"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | Returns a list of failed remediation batch objects.</span><span>
@@ -468,17 +468,17 @@ forall a. Maybe a
      (Maybe [FailedRemediationBatch])
      (Maybe [FailedRemediationBatch])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414704"><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414713"><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
 failedBatches :: Maybe [FailedRemediationBatch]
 $sel:failedBatches:PutRemediationConfigurationsResponse' :: PutRemediationConfigurationsResponse
 -&gt; Maybe [FailedRemediationBatch]
-</span><a href="#local-6989586621679414704"><span class="hs-identifier hs-var hs-var">failedBatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
-</span><a href="#local-6989586621679414704"><span class="hs-identifier hs-var">failedBatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414703"><span class="annot"><span class="annottext">s :: PutRemediationConfigurationsResponse
-</span><a href="#local-6989586621679414703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414702"><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
-</span><a href="#local-6989586621679414702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse
-</span><a href="#local-6989586621679414703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedBatches:PutRemediationConfigurationsResponse' :: Maybe [FailedRemediationBatch]
+</span><a href="#local-6989586621679414713"><span class="hs-identifier hs-var hs-var">failedBatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
+</span><a href="#local-6989586621679414713"><span class="hs-identifier hs-var">failedBatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414712"><span class="annot"><span class="annottext">s :: PutRemediationConfigurationsResponse
+</span><a href="#local-6989586621679414712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414711"><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
+</span><a href="#local-6989586621679414711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse
+</span><a href="#local-6989586621679414712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedBatches:PutRemediationConfigurationsResponse' :: Maybe [FailedRemediationBatch]
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#%24sel%3AfailedBatches%3APutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">failedBatches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedRemediationBatch]
-</span><a href="#local-6989586621679414702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedRemediationBatch]
+</span><a href="#local-6989586621679414711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedRemediationBatch]
   -&gt; f (Maybe [FailedRemediationBatch]))
  -&gt; PutRemediationConfigurationsResponse
  -&gt; f PutRemediationConfigurationsResponse)
@@ -526,18 +526,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414700"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414709"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutRemediationConfigurationsResponse' :: PutRemediationConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679414700"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414700"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414699"><span class="annot"><span class="annottext">s :: PutRemediationConfigurationsResponse
-</span><a href="#local-6989586621679414699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414698"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse
-</span><a href="#local-6989586621679414699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRemediationConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679414709"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414709"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414708"><span class="annot"><span class="annottext">s :: PutRemediationConfigurationsResponse
+</span><a href="#local-6989586621679414708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679414707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRemediationConfigurationsResponse
+</span><a href="#local-6989586621679414708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRemediationConfigurationsResponse' :: Int
 </span><a href="Network.AWS.Config.PutRemediationConfigurations.html#%24sel%3AhttpStatus%3APutRemediationConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679414707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679414696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679414705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.PutRemediationConfigurations.html#PutRemediationConfigurationsResponse"><span class="hs-identifier hs-type">PutRemediationConfigurationsResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

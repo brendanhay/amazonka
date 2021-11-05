@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newAssignIpv6Addresses' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621681308077"><span id="local-6989586621681308078"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignIpv6Addresses"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-var">AssignIpv6Addresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignIpv6Addresses%27"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-var">AssignIpv6Addresses'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621681308086"><span id="local-6989586621681308087"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignIpv6Addresses"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-var">AssignIpv6Addresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignIpv6Addresses%27"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-var">AssignIpv6Addresses'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of additional IPv6 addresses to assign to the network</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- interface. The specified number of IPv6 addresses are assigned in</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- addition to the existing IPv6 addresses that are already assigned to the</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-92"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3AAssignIpv6Addresses%27"><span class="annot"><span class="annottext">AssignIpv6Addresses -&gt; Text
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AnetworkInterfaceId%3AAssignIpv6Addresses%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681308067"><span id="local-6989586621681308069"><span class="annot"><span class="annottext">AssignIpv6Addresses -&gt; AssignIpv6Addresses -&gt; Bool
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681308076"><span id="local-6989586621681308078"><span class="annot"><span class="annottext">AssignIpv6Addresses -&gt; AssignIpv6Addresses -&gt; Bool
 (AssignIpv6Addresses -&gt; AssignIpv6Addresses -&gt; Bool)
 -&gt; (AssignIpv6Addresses -&gt; AssignIpv6Addresses -&gt; Bool)
 -&gt; Eq AssignIpv6Addresses
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssignIpv6Addresses -&gt; AssignIpv6Addresses -&gt; Bool
 == :: AssignIpv6Addresses -&gt; AssignIpv6Addresses -&gt; Bool
 $c== :: AssignIpv6Addresses -&gt; AssignIpv6Addresses -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681308058"><span id="local-6989586621681308060"><span id="local-6989586621681308062"><span id="local-6989586621681308064"><span class="annot"><span class="annottext">ReadPrec [AssignIpv6Addresses]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681308067"><span id="local-6989586621681308069"><span id="local-6989586621681308071"><span id="local-6989586621681308073"><span class="annot"><span class="annottext">ReadPrec [AssignIpv6Addresses]
 ReadPrec AssignIpv6Addresses
 Int -&gt; ReadS AssignIpv6Addresses
 ReadS [AssignIpv6Addresses]
@@ -125,7 +125,7 @@ readList :: ReadS [AssignIpv6Addresses]
 $creadList :: ReadS [AssignIpv6Addresses]
 readsPrec :: Int -&gt; ReadS AssignIpv6Addresses
 $creadsPrec :: Int -&gt; ReadS AssignIpv6Addresses
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681308051"><span id="local-6989586621681308053"><span id="local-6989586621681308055"><span class="annot"><span class="annottext">Int -&gt; AssignIpv6Addresses -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681308060"><span id="local-6989586621681308062"><span id="local-6989586621681308064"><span class="annot"><span class="annottext">Int -&gt; AssignIpv6Addresses -&gt; ShowS
 [AssignIpv6Addresses] -&gt; ShowS
 AssignIpv6Addresses -&gt; String
 (Int -&gt; AssignIpv6Addresses -&gt; ShowS)
@@ -183,8 +183,8 @@ $cfrom :: forall x. AssignIpv6Addresses -&gt; Rep AssignIpv6Addresses x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span>
 </span><span id="line-127"></span><span id="newAssignIpv6Addresses"><span class="annot"><span class="annottext">newAssignIpv6Addresses :: Text -&gt; AssignIpv6Addresses
-</span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#newAssignIpv6Addresses"><span class="hs-identifier hs-var hs-var">newAssignIpv6Addresses</span></a></span></span><span> </span><span id="local-6989586621681308046"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681308046"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#newAssignIpv6Addresses"><span class="hs-identifier hs-var hs-var">newAssignIpv6Addresses</span></a></span></span><span> </span><span id="local-6989586621681308055"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681308055"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">AssignIpv6Addresses' :: Maybe Int
 -&gt; Maybe [Text]
 -&gt; Maybe Int
@@ -211,7 +211,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:AssignIpv6Addresses' :: Text
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AnetworkInterfaceId%3AAssignIpv6Addresses%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681308046"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span><span>
+</span><a href="#local-6989586621681308055"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The number of additional IPv6 addresses to assign to the network</span><span>
@@ -228,16 +228,16 @@ forall a. Maybe a
 -&gt; Lens
      AssignIpv6Addresses AssignIpv6Addresses (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308043"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308052"><span class="annot"><span class="annottext">Maybe Int
 ipv6AddressCount :: Maybe Int
 $sel:ipv6AddressCount:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe Int
-</span><a href="#local-6989586621681308043"><span class="hs-identifier hs-var hs-var">ipv6AddressCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681308043"><span class="hs-identifier hs-var">ipv6AddressCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308042"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
-</span><a href="#local-6989586621681308042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308041"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681308041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
-</span><a href="#local-6989586621681308042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6AddressCount:AssignIpv6Addresses' :: Maybe Int
+</span><a href="#local-6989586621681308052"><span class="hs-identifier hs-var hs-var">ipv6AddressCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681308052"><span class="hs-identifier hs-var">ipv6AddressCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308051"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
+</span><a href="#local-6989586621681308051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308050"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681308050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
+</span><a href="#local-6989586621681308051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6AddressCount:AssignIpv6Addresses' :: Maybe Int
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3Aipv6AddressCount%3AAssignIpv6Addresses%27"><span class="hs-identifier hs-var">ipv6AddressCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681308041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681308050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | One or more IPv6 prefixes assigned to the network interface. You cannot</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- use this option if you use the @Ipv6PrefixCount@ option.</span><span>
@@ -252,16 +252,16 @@ $sel:ipv6AddressCount:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe In
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308040"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308049"><span class="annot"><span class="annottext">Maybe [Text]
 ipv6Prefixes :: Maybe [Text]
 $sel:ipv6Prefixes:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe [Text]
-</span><a href="#local-6989586621681308040"><span class="hs-identifier hs-var hs-var">ipv6Prefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681308040"><span class="hs-identifier hs-var">ipv6Prefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308039"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
-</span><a href="#local-6989586621681308039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308038"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681308038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
-</span><a href="#local-6989586621681308039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Prefixes:AssignIpv6Addresses' :: Maybe [Text]
+</span><a href="#local-6989586621681308049"><span class="hs-identifier hs-var hs-var">ipv6Prefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681308049"><span class="hs-identifier hs-var">ipv6Prefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308048"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
+</span><a href="#local-6989586621681308048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308047"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681308047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
+</span><a href="#local-6989586621681308048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Prefixes:AssignIpv6Addresses' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3Aipv6Prefixes%3AAssignIpv6Addresses%27"><span class="hs-identifier hs-var">ipv6Prefixes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681308038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681308047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AssignIpv6Addresses -&gt; f AssignIpv6Addresses)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -289,16 +289,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      AssignIpv6Addresses AssignIpv6Addresses (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308034"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308043"><span class="annot"><span class="annottext">Maybe Int
 ipv6PrefixCount :: Maybe Int
 $sel:ipv6PrefixCount:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe Int
-</span><a href="#local-6989586621681308034"><span class="hs-identifier hs-var hs-var">ipv6PrefixCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681308034"><span class="hs-identifier hs-var">ipv6PrefixCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308033"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
-</span><a href="#local-6989586621681308033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308032"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681308032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
-</span><a href="#local-6989586621681308033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6PrefixCount:AssignIpv6Addresses' :: Maybe Int
+</span><a href="#local-6989586621681308043"><span class="hs-identifier hs-var hs-var">ipv6PrefixCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681308043"><span class="hs-identifier hs-var">ipv6PrefixCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308042"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
+</span><a href="#local-6989586621681308042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308041"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681308041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
+</span><a href="#local-6989586621681308042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6PrefixCount:AssignIpv6Addresses' :: Maybe Int
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3Aipv6PrefixCount%3AAssignIpv6Addresses%27"><span class="hs-identifier hs-var">ipv6PrefixCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681308032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681308041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | One or more specific IPv6 addresses to be assigned to the network</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- interface. You can\'t use this option if you\'re specifying a number of</span><span>
@@ -314,16 +314,16 @@ $sel:ipv6PrefixCount:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe Int
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308031"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308040"><span class="annot"><span class="annottext">Maybe [Text]
 ipv6Addresses :: Maybe [Text]
 $sel:ipv6Addresses:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe [Text]
-</span><a href="#local-6989586621681308031"><span class="hs-identifier hs-var hs-var">ipv6Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681308031"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308030"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
-</span><a href="#local-6989586621681308030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308029"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681308029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
-</span><a href="#local-6989586621681308030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Addresses:AssignIpv6Addresses' :: Maybe [Text]
+</span><a href="#local-6989586621681308040"><span class="hs-identifier hs-var hs-var">ipv6Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681308040"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308039"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
+</span><a href="#local-6989586621681308039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308038"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681308038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
+</span><a href="#local-6989586621681308039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6Addresses:AssignIpv6Addresses' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3Aipv6Addresses%3AAssignIpv6Addresses%27"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681308029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681308038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AssignIpv6Addresses -&gt; f AssignIpv6Addresses)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -347,27 +347,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AssignIpv6Addresses -&gt; Text -&gt; AssignIpv6Addresses)
 -&gt; Lens AssignIpv6Addresses AssignIpv6Addresses Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308028"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681308037"><span class="annot"><span class="annottext">Text
 networkInterfaceId :: Text
 $sel:networkInterfaceId:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Text
-</span><a href="#local-6989586621681308028"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681308028"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308027"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
-</span><a href="#local-6989586621681308027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308026"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681308026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
-</span><a href="#local-6989586621681308027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:AssignIpv6Addresses' :: Text
+</span><a href="#local-6989586621681308037"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681308037"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681308036"><span class="annot"><span class="annottext">s :: AssignIpv6Addresses
+</span><a href="#local-6989586621681308036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681308035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681308035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6Addresses
+</span><a href="#local-6989586621681308036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:AssignIpv6Addresses' :: Text
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AnetworkInterfaceId%3AAssignIpv6Addresses%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681308026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681308035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-169"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621681308022"><span class="annot"><span class="annottext">request :: AssignIpv6Addresses -&gt; Request AssignIpv6Addresses
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621681308031"><span class="annot"><span class="annottext">request :: AssignIpv6Addresses -&gt; Request AssignIpv6Addresses
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssignIpv6Addresses -&gt; Request AssignIpv6Addresses
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621681308018"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621681308027"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssignIpv6Addresses
 -&gt; ClientResponse ClientBody
@@ -393,10 +393,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681308015"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681308015"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681308014"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681308014"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681308013"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681308013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681308024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681308024"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681308023"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681308023"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681308022"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681308022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe [Text]
@@ -415,7 +415,7 @@ MonadResource m =&gt;
       -&gt; Maybe [Text] -&gt; Int -&gt; AssignIpv6AddressesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681308013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681308022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkInterfaceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -428,7 +428,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe [Text] -&gt; Int -&gt; AssignIpv6AddressesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681308013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681308022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assignedIpv6PrefixSet&quot;</span></span><span>
@@ -456,7 +456,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; AssignIpv6AddressesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681308013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681308022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assignedIpv6Addresses&quot;</span></span><span>
@@ -487,15 +487,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681308015"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681308024"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681308002"><span id="local-6989586621681308004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681308011"><span id="local-6989586621681308013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681307999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681308008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621681307995"><span class="annot"><span class="annottext">toHeaders :: AssignIpv6Addresses -&gt; ResponseHeaders
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681308004"><span class="annot"><span class="annottext">toHeaders :: AssignIpv6Addresses -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssignIpv6Addresses -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -503,15 +503,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621681307990"><span class="annot"><span class="annottext">toPath :: AssignIpv6Addresses -&gt; ByteString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621681307999"><span class="annot"><span class="annottext">toPath :: AssignIpv6Addresses -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssignIpv6Addresses -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses"><span class="hs-identifier hs-type">AssignIpv6Addresses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621681307986"><span class="annot"><span class="annottext">toQuery :: AssignIpv6Addresses -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307980"><span id="local-6989586621681307981"><span id="local-6989586621681307982"><span id="local-6989586621681307983"><span id="local-6989586621681307984"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621681307995"><span class="annot"><span class="annottext">toQuery :: AssignIpv6Addresses -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6Addresses%27"><span class="hs-identifier hs-type">AssignIpv6Addresses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307989"><span id="local-6989586621681307990"><span id="local-6989586621681307991"><span id="local-6989586621681307992"><span id="local-6989586621681307993"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Text
 networkInterfaceId :: Text
@@ -524,7 +524,7 @@ $sel:ipv6Addresses:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe [Text
 $sel:ipv6PrefixCount:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe Int
 $sel:ipv6Prefixes:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe [Text]
 $sel:ipv6AddressCount:AssignIpv6Addresses' :: AssignIpv6Addresses -&gt; Maybe Int
-</span><a href="#local-6989586621681307980"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681307989"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -544,7 +544,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Ipv6AddressCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681307984"><span class="hs-identifier hs-var">ipv6AddressCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681307993"><span class="hs-identifier hs-var">ipv6AddressCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -557,13 +557,13 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307983"><span class="hs-identifier hs-var">ipv6Prefixes</span></a></span><span>
+</span><a href="#local-6989586621681307992"><span class="hs-identifier hs-var">ipv6Prefixes</span></a></span><span>
 </span><span id="line-209"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Ipv6PrefixCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681307982"><span class="hs-identifier hs-var">ipv6PrefixCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681307991"><span class="hs-identifier hs-var">ipv6PrefixCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -576,17 +576,17 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307981"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span>
+</span><a href="#local-6989586621681307990"><span class="hs-identifier hs-var">ipv6Addresses</span></a></span><span>
 </span><span id="line-214"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NetworkInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681307980"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span>
+</span><a href="#local-6989586621681307989"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | /See:/ 'newAssignIpv6AddressesResponse' smart constructor.</span><span>
-</span><span id="line-219"></span><span id="local-6989586621681307976"><span id="local-6989586621681307977"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignIpv6AddressesResponse"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-var">AssignIpv6AddressesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignIpv6AddressesResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var">AssignIpv6AddressesResponse'</span></a></span></span><span>
+</span><span id="line-219"></span><span id="local-6989586621681307985"><span id="local-6989586621681307986"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignIpv6AddressesResponse"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-var">AssignIpv6AddressesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignIpv6AddressesResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var">AssignIpv6AddressesResponse'</span></a></span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the network interface.</span><span>
 </span><span id="line-221"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3AAssignIpv6AddressesResponse%27"><span class="annot"><span class="annottext">AssignIpv6AddressesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AnetworkInterfaceId%3AAssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -602,7 +602,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-229"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssignIpv6AddressesResponse%27"><span class="annot"><span class="annottext">AssignIpv6AddressesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AhttpStatus%3AAssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681307968"><span id="local-6989586621681307970"><span class="annot"><span class="annottext">AssignIpv6AddressesResponse -&gt; AssignIpv6AddressesResponse -&gt; Bool
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681307977"><span id="local-6989586621681307979"><span class="annot"><span class="annottext">AssignIpv6AddressesResponse -&gt; AssignIpv6AddressesResponse -&gt; Bool
 (AssignIpv6AddressesResponse
  -&gt; AssignIpv6AddressesResponse -&gt; Bool)
 -&gt; (AssignIpv6AddressesResponse
@@ -613,7 +613,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssignIpv6AddressesResponse -&gt; AssignIpv6AddressesResponse -&gt; Bool
 == :: AssignIpv6AddressesResponse -&gt; AssignIpv6AddressesResponse -&gt; Bool
 $c== :: AssignIpv6AddressesResponse -&gt; AssignIpv6AddressesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681307960"><span id="local-6989586621681307962"><span id="local-6989586621681307964"><span id="local-6989586621681307966"><span class="annot"><span class="annottext">ReadPrec [AssignIpv6AddressesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681307969"><span id="local-6989586621681307971"><span id="local-6989586621681307973"><span id="local-6989586621681307975"><span class="annot"><span class="annottext">ReadPrec [AssignIpv6AddressesResponse]
 ReadPrec AssignIpv6AddressesResponse
 Int -&gt; ReadS AssignIpv6AddressesResponse
 ReadS [AssignIpv6AddressesResponse]
@@ -633,7 +633,7 @@ readList :: ReadS [AssignIpv6AddressesResponse]
 $creadList :: ReadS [AssignIpv6AddressesResponse]
 readsPrec :: Int -&gt; ReadS AssignIpv6AddressesResponse
 $creadsPrec :: Int -&gt; ReadS AssignIpv6AddressesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681307954"><span id="local-6989586621681307956"><span id="local-6989586621681307958"><span class="annot"><span class="annottext">Int -&gt; AssignIpv6AddressesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681307963"><span id="local-6989586621681307965"><span id="local-6989586621681307967"><span class="annot"><span class="annottext">Int -&gt; AssignIpv6AddressesResponse -&gt; ShowS
 [AssignIpv6AddressesResponse] -&gt; ShowS
 AssignIpv6AddressesResponse -&gt; String
 (Int -&gt; AssignIpv6AddressesResponse -&gt; ShowS)
@@ -687,8 +687,8 @@ AssignIpv6AddressesResponse -&gt; Rep AssignIpv6AddressesResponse x
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span>
 </span><span id="line-254"></span><span id="newAssignIpv6AddressesResponse"><span class="annot"><span class="annottext">newAssignIpv6AddressesResponse :: Int -&gt; AssignIpv6AddressesResponse
-</span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#newAssignIpv6AddressesResponse"><span class="hs-identifier hs-var hs-var">newAssignIpv6AddressesResponse</span></a></span></span><span> </span><span id="local-6989586621681307951"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681307951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#newAssignIpv6AddressesResponse"><span class="hs-identifier hs-var hs-var">newAssignIpv6AddressesResponse</span></a></span></span><span> </span><span id="local-6989586621681307960"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681307960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>  </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse' :: Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe [Text]
@@ -710,7 +710,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssignIpv6AddressesResponse' :: Int
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AhttpStatus%3AAssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681307951"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681307960"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-261"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The ID of the network interface.</span><span>
@@ -726,16 +726,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307950"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307959"><span class="annot"><span class="annottext">Maybe Text
 networkInterfaceId :: Maybe Text
 $sel:networkInterfaceId:AssignIpv6AddressesResponse' :: AssignIpv6AddressesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681307950"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681307950"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307949"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307948"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681307948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:AssignIpv6AddressesResponse' :: Maybe Text
+</span><a href="#local-6989586621681307959"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681307959"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307958"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307957"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681307957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:AssignIpv6AddressesResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AnetworkInterfaceId%3AAssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681307948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681307957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The IPv6 prefixes that are assigned to the network interface.</span><span>
 </span><span id="line-268"></span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#assignIpv6AddressesResponse_assignedIpv6Prefixes"><span class="hs-identifier hs-type">assignIpv6AddressesResponse_assignedIpv6Prefixes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -750,16 +750,16 @@ $sel:networkInterfaceId:AssignIpv6AddressesResponse' :: AssignIpv6AddressesRespo
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307947"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307956"><span class="annot"><span class="annottext">Maybe [Text]
 assignedIpv6Prefixes :: Maybe [Text]
 $sel:assignedIpv6Prefixes:AssignIpv6AddressesResponse' :: AssignIpv6AddressesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621681307947"><span class="hs-identifier hs-var hs-var">assignedIpv6Prefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307947"><span class="hs-identifier hs-var">assignedIpv6Prefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307946"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307945"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignedIpv6Prefixes:AssignIpv6AddressesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621681307956"><span class="hs-identifier hs-var hs-var">assignedIpv6Prefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681307956"><span class="hs-identifier hs-var">assignedIpv6Prefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307955"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307954"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681307954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignedIpv6Prefixes:AssignIpv6AddressesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AassignedIpv6Prefixes%3AAssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var">assignedIpv6Prefixes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681307954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AssignIpv6AddressesResponse -&gt; f AssignIpv6AddressesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -791,16 +791,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307944"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307953"><span class="annot"><span class="annottext">Maybe [Text]
 assignedIpv6Addresses :: Maybe [Text]
 $sel:assignedIpv6Addresses:AssignIpv6AddressesResponse' :: AssignIpv6AddressesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621681307944"><span class="hs-identifier hs-var hs-var">assignedIpv6Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307944"><span class="hs-identifier hs-var">assignedIpv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307943"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307942"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignedIpv6Addresses:AssignIpv6AddressesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621681307953"><span class="hs-identifier hs-var hs-var">assignedIpv6Addresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681307953"><span class="hs-identifier hs-var">assignedIpv6Addresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307952"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307951"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681307951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignedIpv6Addresses:AssignIpv6AddressesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AassignedIpv6Addresses%3AAssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var">assignedIpv6Addresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681307942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681307951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AssignIpv6AddressesResponse -&gt; f AssignIpv6AddressesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -827,16 +827,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      AssignIpv6AddressesResponse AssignIpv6AddressesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307941"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681307950"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssignIpv6AddressesResponse' :: AssignIpv6AddressesResponse -&gt; Int
-</span><a href="#local-6989586621681307941"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681307941"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307940"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307939"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681307939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
-</span><a href="#local-6989586621681307940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssignIpv6AddressesResponse' :: Int
+</span><a href="#local-6989586621681307950"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681307950"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681307949"><span class="annot"><span class="annottext">s :: AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse%27"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681307948"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681307948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignIpv6AddressesResponse
+</span><a href="#local-6989586621681307949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssignIpv6AddressesResponse' :: Int
 </span><a href="Network.AWS.EC2.AssignIpv6Addresses.html#%24sel%3AhttpStatus%3AAssignIpv6AddressesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681307939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681307948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
-</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681307937"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681307946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssignIpv6Addresses.html#AssignIpv6AddressesResponse"><span class="hs-identifier hs-type">AssignIpv6AddressesResponse</span></a></span></span><span>
 </span><span id="line-282"></span></pre></body></html>

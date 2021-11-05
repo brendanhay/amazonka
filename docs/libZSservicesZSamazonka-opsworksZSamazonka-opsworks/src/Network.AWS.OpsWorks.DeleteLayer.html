@@ -52,12 +52,12 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteLayer' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679392244"><span id="local-6989586621679392245"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLayer"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-var">DeleteLayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLayer%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-var">DeleteLayer'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679392253"><span id="local-6989586621679392254"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLayer"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-var">DeleteLayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLayer%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-var">DeleteLayer'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The layer ID.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AlayerId%3ADeleteLayer%27"><span class="annot"><span class="annottext">DeleteLayer -&gt; Text
 </span><a href="Network.AWS.OpsWorks.DeleteLayer.html#%24sel%3AlayerId%3ADeleteLayer%27"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392238"><span id="local-6989586621679392240"><span class="annot"><span class="annottext">DeleteLayer -&gt; DeleteLayer -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392247"><span id="local-6989586621679392249"><span class="annot"><span class="annottext">DeleteLayer -&gt; DeleteLayer -&gt; Bool
 (DeleteLayer -&gt; DeleteLayer -&gt; Bool)
 -&gt; (DeleteLayer -&gt; DeleteLayer -&gt; Bool) -&gt; Eq DeleteLayer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLayer -&gt; DeleteLayer -&gt; Bool
 == :: DeleteLayer -&gt; DeleteLayer -&gt; Bool
 $c== :: DeleteLayer -&gt; DeleteLayer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392229"><span id="local-6989586621679392231"><span id="local-6989586621679392233"><span id="local-6989586621679392235"><span class="annot"><span class="annottext">ReadPrec [DeleteLayer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392238"><span id="local-6989586621679392240"><span id="local-6989586621679392242"><span id="local-6989586621679392244"><span class="annot"><span class="annottext">ReadPrec [DeleteLayer]
 ReadPrec DeleteLayer
 Int -&gt; ReadS DeleteLayer
 ReadS [DeleteLayer]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteLayer]
 $creadList :: ReadS [DeleteLayer]
 readsPrec :: Int -&gt; ReadS DeleteLayer
 $creadsPrec :: Int -&gt; ReadS DeleteLayer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392222"><span id="local-6989586621679392224"><span id="local-6989586621679392226"><span class="annot"><span class="annottext">Int -&gt; DeleteLayer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392231"><span id="local-6989586621679392233"><span id="local-6989586621679392235"><span class="annot"><span class="annottext">Int -&gt; DeleteLayer -&gt; ShowS
 [DeleteLayer] -&gt; ShowS
 DeleteLayer -&gt; String
 (Int -&gt; DeleteLayer -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. DeleteLayer -&gt; Rep DeleteLayer x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span>
 </span><span id="line-74"></span><span id="newDeleteLayer"><span class="annot"><span class="annottext">newDeleteLayer :: Text -&gt; DeleteLayer
-</span><a href="Network.AWS.OpsWorks.DeleteLayer.html#newDeleteLayer"><span class="hs-identifier hs-var hs-var">newDeleteLayer</span></a></span></span><span> </span><span id="local-6989586621679392217"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392217"><span class="hs-identifier hs-var">pLayerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DeleteLayer.html#newDeleteLayer"><span class="hs-identifier hs-var hs-var">newDeleteLayer</span></a></span></span><span> </span><span id="local-6989586621679392226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392226"><span class="hs-identifier hs-var">pLayerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteLayer' :: Text -&gt; DeleteLayer
 </span><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-type">DeleteLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerId:DeleteLayer' :: Text
 </span><a href="Network.AWS.OpsWorks.DeleteLayer.html#%24sel%3AlayerId%3ADeleteLayer%27"><span class="hs-identifier hs-var">layerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392217"><span class="hs-identifier hs-var">pLayerId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679392226"><span class="hs-identifier hs-var">pLayerId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The layer ID.</span><span>
 </span><span id="line-78"></span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#deleteLayer_layerId"><span class="hs-identifier hs-type">deleteLayer_layerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,25 +139,25 @@ $cfrom :: forall x. DeleteLayer -&gt; Rep DeleteLayer x
 -&gt; (DeleteLayer -&gt; Text -&gt; DeleteLayer)
 -&gt; Lens DeleteLayer DeleteLayer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-type">DeleteLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392214"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-type">DeleteLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392223"><span class="annot"><span class="annottext">Text
 layerId :: Text
 $sel:layerId:DeleteLayer' :: DeleteLayer -&gt; Text
-</span><a href="#local-6989586621679392214"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392214"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392213"><span class="annot"><span class="annottext">s :: DeleteLayer
-</span><a href="#local-6989586621679392213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-type">DeleteLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392212"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLayer
-</span><a href="#local-6989586621679392213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerId:DeleteLayer' :: Text
+</span><a href="#local-6989586621679392223"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392223"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392222"><span class="annot"><span class="annottext">s :: DeleteLayer
+</span><a href="#local-6989586621679392222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-type">DeleteLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392221"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLayer
+</span><a href="#local-6989586621679392222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerId:DeleteLayer' :: Text
 </span><a href="Network.AWS.OpsWorks.DeleteLayer.html#%24sel%3AlayerId%3ADeleteLayer%27"><span class="hs-identifier hs-var">layerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse"><span class="hs-identifier hs-type">DeleteLayerResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679392208"><span class="annot"><span class="annottext">request :: DeleteLayer -&gt; Request DeleteLayer
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679392217"><span class="annot"><span class="annottext">request :: DeleteLayer -&gt; Request DeleteLayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLayer -&gt; Request DeleteLayer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679392204"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679392213"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteLayer
 -&gt; ClientResponse ClientBody
@@ -180,12 +180,12 @@ AWSResponse a
 DeleteLayerResponse
 </span><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse%27"><span class="hs-identifier hs-var">DeleteLayerResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392197"><span id="local-6989586621679392199"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392206"><span id="local-6989586621679392208"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392203"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679392190"><span class="annot"><span class="annottext">toHeaders :: DeleteLayer -&gt; [Header]
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679392199"><span class="annot"><span class="annottext">toHeaders :: DeleteLayer -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteLayer -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -212,12 +212,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392180"><span id="local-6989586621679392182"><span id="local-6989586621679392184"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679392178"><span class="annot"><span class="annottext">toJSON :: DeleteLayer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-type">DeleteLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392176"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392189"><span id="local-6989586621679392191"><span id="local-6989586621679392193"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679392187"><span class="annot"><span class="annottext">toJSON :: DeleteLayer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer%27"><span class="hs-identifier hs-type">DeleteLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392185"><span class="annot"><span class="annottext">Text
 layerId :: Text
 $sel:layerId:DeleteLayer' :: DeleteLayer -&gt; Text
-</span><a href="#local-6989586621679392176"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392185"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,18 +229,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;LayerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679392176"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679392185"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679392170"><span class="annot"><span class="annottext">toPath :: DeleteLayer -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679392179"><span class="annot"><span class="annottext">toPath :: DeleteLayer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteLayer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayer"><span class="hs-identifier hs-type">DeleteLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679392166"><span class="annot"><span class="annottext">toQuery :: DeleteLayer -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679392175"><span class="annot"><span class="annottext">toQuery :: DeleteLayer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLayer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -248,10 +248,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDeleteLayerResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679392163"><span id="local-6989586621679392164"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLayerResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse"><span class="hs-identifier hs-var">DeleteLayerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLayerResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse%27"><span class="hs-identifier hs-var">DeleteLayerResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679392172"><span id="local-6989586621679392173"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLayerResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse"><span class="hs-identifier hs-var">DeleteLayerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLayerResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse%27"><span class="hs-identifier hs-var">DeleteLayerResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392159"><span id="local-6989586621679392161"><span class="annot"><span class="annottext">DeleteLayerResponse -&gt; DeleteLayerResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392168"><span id="local-6989586621679392170"><span class="annot"><span class="annottext">DeleteLayerResponse -&gt; DeleteLayerResponse -&gt; Bool
 (DeleteLayerResponse -&gt; DeleteLayerResponse -&gt; Bool)
 -&gt; (DeleteLayerResponse -&gt; DeleteLayerResponse -&gt; Bool)
 -&gt; Eq DeleteLayerResponse
@@ -260,7 +260,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteLayerResponse -&gt; DeleteLayerResponse -&gt; Bool
 == :: DeleteLayerResponse -&gt; DeleteLayerResponse -&gt; Bool
 $c== :: DeleteLayerResponse -&gt; DeleteLayerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392151"><span id="local-6989586621679392153"><span id="local-6989586621679392155"><span id="local-6989586621679392157"><span class="annot"><span class="annottext">ReadPrec [DeleteLayerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392160"><span id="local-6989586621679392162"><span id="local-6989586621679392164"><span id="local-6989586621679392166"><span class="annot"><span class="annottext">ReadPrec [DeleteLayerResponse]
 ReadPrec DeleteLayerResponse
 Int -&gt; ReadS DeleteLayerResponse
 ReadS [DeleteLayerResponse]
@@ -280,7 +280,7 @@ readList :: ReadS [DeleteLayerResponse]
 $creadList :: ReadS [DeleteLayerResponse]
 readsPrec :: Int -&gt; ReadS DeleteLayerResponse
 $creadsPrec :: Int -&gt; ReadS DeleteLayerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392145"><span id="local-6989586621679392147"><span id="local-6989586621679392149"><span class="annot"><span class="annottext">Int -&gt; DeleteLayerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392154"><span id="local-6989586621679392156"><span id="local-6989586621679392158"><span class="annot"><span class="annottext">Int -&gt; DeleteLayerResponse -&gt; ShowS
 [DeleteLayerResponse] -&gt; ShowS
 DeleteLayerResponse -&gt; String
 (Int -&gt; DeleteLayerResponse -&gt; ShowS)
@@ -316,5 +316,5 @@ $cfrom :: forall x. DeleteLayerResponse -&gt; Rep DeleteLayerResponse x
 </span><a href="Network.AWS.OpsWorks.DeleteLayer.html#newDeleteLayerResponse"><span class="hs-identifier hs-var hs-var">newDeleteLayerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteLayerResponse
 </span><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse%27"><span class="hs-identifier hs-var">DeleteLayerResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse"><span class="hs-identifier hs-type">DeleteLayerResponse</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679392150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DeleteLayer.html#DeleteLayerResponse"><span class="hs-identifier hs-type">DeleteLayerResponse</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object that specifies the authorization service for a domain.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAuthorizerConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679777193"><span id="local-6989586621679777194"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizerConfig"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-var">AuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizerConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-var">AuthorizerConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679777202"><span id="local-6989586621679777203"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizerConfig"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-var">AuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizerConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-var">AuthorizerConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A Boolean that specifies whether the domain configuration\'s</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- authorization service can be overridden.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AallowAuthorizerOverride%3AAuthorizerConfig%27"><span class="annot"><span class="annottext">AuthorizerConfig -&gt; Maybe Bool
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdefaultAuthorizerName%3AAuthorizerConfig%27"><span class="annot"><span class="annottext">AuthorizerConfig -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#%24sel%3AdefaultAuthorizerName%3AAuthorizerConfig%27"><span class="hs-identifier hs-var hs-var">defaultAuthorizerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777186"><span id="local-6989586621679777188"><span class="annot"><span class="annottext">AuthorizerConfig -&gt; AuthorizerConfig -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777195"><span id="local-6989586621679777197"><span class="annot"><span class="annottext">AuthorizerConfig -&gt; AuthorizerConfig -&gt; Bool
 (AuthorizerConfig -&gt; AuthorizerConfig -&gt; Bool)
 -&gt; (AuthorizerConfig -&gt; AuthorizerConfig -&gt; Bool)
 -&gt; Eq AuthorizerConfig
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuthorizerConfig -&gt; AuthorizerConfig -&gt; Bool
 == :: AuthorizerConfig -&gt; AuthorizerConfig -&gt; Bool
 $c== :: AuthorizerConfig -&gt; AuthorizerConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777177"><span id="local-6989586621679777179"><span id="local-6989586621679777181"><span id="local-6989586621679777183"><span class="annot"><span class="annottext">ReadPrec [AuthorizerConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777186"><span id="local-6989586621679777188"><span id="local-6989586621679777190"><span id="local-6989586621679777192"><span class="annot"><span class="annottext">ReadPrec [AuthorizerConfig]
 ReadPrec AuthorizerConfig
 Int -&gt; ReadS AuthorizerConfig
 ReadS [AuthorizerConfig]
@@ -64,7 +64,7 @@ readList :: ReadS [AuthorizerConfig]
 $creadList :: ReadS [AuthorizerConfig]
 readsPrec :: Int -&gt; ReadS AuthorizerConfig
 $creadsPrec :: Int -&gt; ReadS AuthorizerConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777170"><span id="local-6989586621679777172"><span id="local-6989586621679777174"><span class="annot"><span class="annottext">Int -&gt; AuthorizerConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777179"><span id="local-6989586621679777181"><span id="local-6989586621679777183"><span class="annot"><span class="annottext">Int -&gt; AuthorizerConfig -&gt; ShowS
 [AuthorizerConfig] -&gt; ShowS
 AuthorizerConfig -&gt; String
 (Int -&gt; AuthorizerConfig -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (AuthorizerConfig -&gt; Maybe Bool -&gt; AuthorizerConfig)
 -&gt; Lens AuthorizerConfig AuthorizerConfig (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777161"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777170"><span class="annot"><span class="annottext">Maybe Bool
 allowAuthorizerOverride :: Maybe Bool
 $sel:allowAuthorizerOverride:AuthorizerConfig' :: AuthorizerConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679777161"><span class="hs-identifier hs-var hs-var">allowAuthorizerOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679777161"><span class="hs-identifier hs-var">allowAuthorizerOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777160"><span class="annot"><span class="annottext">s :: AuthorizerConfig
-</span><a href="#local-6989586621679777160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777159"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679777159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerConfig
-</span><a href="#local-6989586621679777160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowAuthorizerOverride:AuthorizerConfig' :: Maybe Bool
+</span><a href="#local-6989586621679777170"><span class="hs-identifier hs-var hs-var">allowAuthorizerOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679777170"><span class="hs-identifier hs-var">allowAuthorizerOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777169"><span class="annot"><span class="annottext">s :: AuthorizerConfig
+</span><a href="#local-6989586621679777169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777168"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679777168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerConfig
+</span><a href="#local-6989586621679777169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowAuthorizerOverride:AuthorizerConfig' :: Maybe Bool
 </span><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#%24sel%3AallowAuthorizerOverride%3AAuthorizerConfig%27"><span class="hs-identifier hs-var">allowAuthorizerOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679777159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679777168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The name of the authorization service for a domain configuration.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#authorizerConfig_defaultAuthorizerName"><span class="hs-identifier hs-type">authorizerConfig_defaultAuthorizerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -147,19 +147,19 @@ $sel:allowAuthorizerOverride:AuthorizerConfig' :: AuthorizerConfig -&gt; Maybe B
 -&gt; (AuthorizerConfig -&gt; Maybe Text -&gt; AuthorizerConfig)
 -&gt; Lens AuthorizerConfig AuthorizerConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777157"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777166"><span class="annot"><span class="annottext">Maybe Text
 defaultAuthorizerName :: Maybe Text
 $sel:defaultAuthorizerName:AuthorizerConfig' :: AuthorizerConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679777157"><span class="hs-identifier hs-var hs-var">defaultAuthorizerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679777157"><span class="hs-identifier hs-var">defaultAuthorizerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777156"><span class="annot"><span class="annottext">s :: AuthorizerConfig
-</span><a href="#local-6989586621679777156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777155"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679777155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerConfig
-</span><a href="#local-6989586621679777156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultAuthorizerName:AuthorizerConfig' :: Maybe Text
+</span><a href="#local-6989586621679777166"><span class="hs-identifier hs-var hs-var">defaultAuthorizerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777166"><span class="hs-identifier hs-var">defaultAuthorizerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777165"><span class="annot"><span class="annottext">s :: AuthorizerConfig
+</span><a href="#local-6989586621679777165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777164"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerConfig
+</span><a href="#local-6989586621679777165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultAuthorizerName:AuthorizerConfig' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#%24sel%3AdefaultAuthorizerName%3AAuthorizerConfig%27"><span class="hs-identifier hs-var">defaultAuthorizerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679777155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679777164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777152"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679777150"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthorizerConfig
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777161"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679777159"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthorizerConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AuthorizerConfig)
@@ -169,15 +169,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AuthorizerConfig&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679777147"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679777147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679777156"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679777156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; AuthorizerConfig
 </span><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-var">AuthorizerConfig'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Text -&gt; AuthorizerConfig)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Text -&gt; AuthorizerConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679777147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679777156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowAuthorizerOverride&quot;</span></span><span class="hs-special">)</span><span>
@@ -185,25 +185,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AuthorizerConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679777147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679777156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultAuthorizerName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777141"><span id="local-6989586621679777143"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777150"><span id="local-6989586621679777152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777130"><span id="local-6989586621679777132"><span id="local-6989586621679777134"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679777128"><span class="annot"><span class="annottext">toJSON :: AuthorizerConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777125"><span id="local-6989586621679777126"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777139"><span id="local-6989586621679777141"><span id="local-6989586621679777143"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig"><span class="hs-identifier hs-type">AuthorizerConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679777137"><span class="annot"><span class="annottext">toJSON :: AuthorizerConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerConfig.html#AuthorizerConfig%27"><span class="hs-identifier hs-type">AuthorizerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777134"><span id="local-6989586621679777135"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 defaultAuthorizerName :: Maybe Text
 allowAuthorizerOverride :: Maybe Bool
 $sel:defaultAuthorizerName:AuthorizerConfig' :: AuthorizerConfig -&gt; Maybe Text
 $sel:allowAuthorizerOverride:AuthorizerConfig' :: AuthorizerConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679777125"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679777134"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -216,7 +216,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679777126"><span class="hs-identifier hs-var">allowAuthorizerOverride</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679777135"><span class="hs-identifier hs-var">allowAuthorizerOverride</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultAuthorizerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -224,7 +224,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679777125"><span class="hs-identifier hs-var">defaultAuthorizerName</span></a></span><span>
+</span><a href="#local-6989586621679777134"><span class="hs-identifier hs-var">defaultAuthorizerName</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

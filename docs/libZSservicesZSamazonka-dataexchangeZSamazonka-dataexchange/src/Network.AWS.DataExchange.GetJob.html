@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DataExchange.GetJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation returns information about a job.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataExchange.GetJob</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier">GetJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#newGetJob"><span class="hs-identifier">newGetJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJob_jobId"><span class="hs-identifier">getJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#newGetJobResponse"><span class="hs-identifier">newGetJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_state"><span class="hs-identifier">getJobResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_arn"><span class="hs-identifier">getJobResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_createdAt"><span class="hs-identifier">getJobResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_details"><span class="hs-identifier">getJobResponse_details</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_id"><span class="hs-identifier">getJobResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_type"><span class="hs-identifier">getJobResponse_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_updatedAt"><span class="hs-identifier">getJobResponse_updatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_errors"><span class="hs-identifier">getJobResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_httpStatus"><span class="hs-identifier">getJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.html"><span class="hs-identifier">Network.AWS.DataExchange.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newGetJob' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679242854"><span id="local-6989586621679242855"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJob"><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-var">GetJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJob%27"><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob%27"><span class="hs-identifier hs-var">GetJob'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for a job.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobId%3AGetJob%27"><span class="annot"><span class="annottext">GetJob -&gt; Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AjobId%3AGetJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242848"><span id="local-6989586621679242850"><span class="annot"><span class="annottext">GetJob -&gt; GetJob -&gt; Bool
+(GetJob -&gt; GetJob -&gt; Bool)
+-&gt; (GetJob -&gt; GetJob -&gt; Bool) -&gt; Eq GetJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetJob -&gt; GetJob -&gt; Bool
+$c/= :: GetJob -&gt; GetJob -&gt; Bool
+== :: GetJob -&gt; GetJob -&gt; Bool
+$c== :: GetJob -&gt; GetJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242839"><span id="local-6989586621679242841"><span id="local-6989586621679242843"><span id="local-6989586621679242845"><span class="annot"><span class="annottext">ReadPrec [GetJob]
+ReadPrec GetJob
+Int -&gt; ReadS GetJob
+ReadS [GetJob]
+(Int -&gt; ReadS GetJob)
+-&gt; ReadS [GetJob]
+-&gt; ReadPrec GetJob
+-&gt; ReadPrec [GetJob]
+-&gt; Read GetJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetJob]
+$creadListPrec :: ReadPrec [GetJob]
+readPrec :: ReadPrec GetJob
+$creadPrec :: ReadPrec GetJob
+readList :: ReadS [GetJob]
+$creadList :: ReadS [GetJob]
+readsPrec :: Int -&gt; ReadS GetJob
+$creadsPrec :: Int -&gt; ReadS GetJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242832"><span id="local-6989586621679242834"><span id="local-6989586621679242836"><span class="annot"><span class="annottext">Int -&gt; GetJob -&gt; ShowS
+[GetJob] -&gt; ShowS
+GetJob -&gt; String
+(Int -&gt; GetJob -&gt; ShowS)
+-&gt; (GetJob -&gt; String) -&gt; ([GetJob] -&gt; ShowS) -&gt; Show GetJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetJob] -&gt; ShowS
+$cshowList :: [GetJob] -&gt; ShowS
+show :: GetJob -&gt; String
+$cshow :: GetJob -&gt; String
+showsPrec :: Int -&gt; GetJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetJob -&gt; Rep GetJob x)
+-&gt; (forall x. Rep GetJob x -&gt; GetJob) -&gt; Generic GetJob
+forall x. Rep GetJob x -&gt; GetJob
+forall x. GetJob -&gt; Rep GetJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetJob x -&gt; GetJob
+$cfrom :: forall x. GetJob -&gt; Rep GetJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'GetJob' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'jobId', 'getJob_jobId' - The unique identifier for a job.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#newGetJob"><span class="hs-identifier hs-type">newGetJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetJob"><span class="annot"><span class="annottext">newGetJob :: Text -&gt; GetJob
+</span><a href="Network.AWS.DataExchange.GetJob.html#newGetJob"><span class="hs-identifier hs-var hs-var">newGetJob</span></a></span></span><span> </span><span id="local-6989586621679242827"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242827"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetJob' :: Text -&gt; GetJob
+</span><a href="Network.AWS.DataExchange.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJob' :: Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AjobId%3AGetJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242827"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The unique identifier for a job.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJob_jobId"><span class="hs-identifier hs-type">getJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span id="getJob_jobId"><span class="annot"><span class="annottext">getJob_jobId :: (Text -&gt; f Text) -&gt; GetJob -&gt; f GetJob
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJob_jobId"><span class="hs-identifier hs-var hs-var">getJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJob -&gt; Text)
+-&gt; (GetJob -&gt; Text -&gt; GetJob) -&gt; Lens GetJob GetJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242824"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:GetJob' :: GetJob -&gt; Text
+</span><a href="#local-6989586621679242824"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242824"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242823"><span class="annot"><span class="annottext">s :: GetJob
+</span><a href="#local-6989586621679242823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJob
+</span><a href="#local-6989586621679242823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJob' :: Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AjobId%3AGetJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679242818"><span class="annot"><span class="annottext">request :: GetJob -&gt; Request GetJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetJob -&gt; Request GetJob
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679242814"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse GetJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242811"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679242810"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679242810"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679242809"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe State
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ResponseDetails
+-&gt; Maybe Text
+-&gt; Maybe Type
+-&gt; Maybe POSIX
+-&gt; Maybe [JobError]
+-&gt; Int
+-&gt; GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe State
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe ResponseDetails
+ -&gt; Maybe Text
+ -&gt; Maybe Type
+ -&gt; Maybe POSIX
+ -&gt; Maybe [JobError]
+ -&gt; Int
+ -&gt; GetJobResponse)
+-&gt; Either String (Maybe State)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ResponseDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe POSIX
+      -&gt; Maybe [JobError]
+      -&gt; Int
+      -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe State)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ResponseDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe POSIX
+   -&gt; Maybe [JobError]
+   -&gt; Int
+   -&gt; GetJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe ResponseDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe POSIX
+      -&gt; Maybe [JobError]
+      -&gt; Int
+      -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe ResponseDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe POSIX
+   -&gt; Maybe [JobError]
+   -&gt; Int
+   -&gt; GetJobResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe ResponseDetails
+      -&gt; Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe POSIX
+      -&gt; Maybe [JobError]
+      -&gt; Int
+      -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ResponseDetails
+   -&gt; Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe POSIX
+   -&gt; Maybe [JobError]
+   -&gt; Int
+   -&gt; GetJobResponse)
+-&gt; Either String (Maybe ResponseDetails)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Type
+      -&gt; Maybe POSIX
+      -&gt; Maybe [JobError]
+      -&gt; Int
+      -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResponseDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Type
+   -&gt; Maybe POSIX
+   -&gt; Maybe [JobError]
+   -&gt; Int
+   -&gt; GetJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Type
+      -&gt; Maybe POSIX -&gt; Maybe [JobError] -&gt; Int -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Type
+   -&gt; Maybe POSIX -&gt; Maybe [JobError] -&gt; Int -&gt; GetJobResponse)
+-&gt; Either String (Maybe Type)
+-&gt; Either
+     String (Maybe POSIX -&gt; Maybe [JobError] -&gt; Int -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Type)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe POSIX -&gt; Maybe [JobError] -&gt; Int -&gt; GetJobResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Maybe [JobError] -&gt; Int -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [JobError] -&gt; Int -&gt; GetJobResponse)
+-&gt; Either String (Maybe [JobError])
+-&gt; Either String (Int -&gt; GetJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [JobError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [JobError]))
+-&gt; Maybe [JobError] -&gt; Either String (Maybe [JobError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetJobResponse)
+-&gt; Either String Int -&gt; Either String GetJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242811"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242800"><span id="local-6989586621679242802"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679242793"><span class="annot"><span class="annottext">toHeaders :: GetJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679242787"><span class="annot"><span class="annottext">toPath :: GetJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob%27"><span class="hs-identifier hs-type">GetJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242785"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:GetJob' :: GetJob -&gt; Text
+</span><a href="#local-6989586621679242785"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242785"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJob"><span class="hs-identifier hs-type">GetJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679242781"><span class="annot"><span class="annottext">toQuery :: GetJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newGetJobResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679242778"><span id="local-6989586621679242779"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobResponse"><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-var">GetJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobResponse%27"><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-var">GetJobResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the job.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3Astate%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe State
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Astate%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The ARN for the job.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3Aarn%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aarn%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The date and time that the job was created, in ISO 8601 format.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AcreatedAt%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AcreatedAt%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | Details about the job.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3Adetails%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe ResponseDetails
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Adetails%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ResponseDetails.html#ResponseDetails"><span class="hs-identifier hs-type">ResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the job.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3Aid%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aid%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The job type.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3Atype%27%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe Type
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Atype%27%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The date and time that the job was last updated, in ISO 8601 format.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AupdatedAt%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AupdatedAt%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The errors associated with jobs.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Aerrors%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Maybe [JobError]
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aerrors%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="annot"><span class="annottext">GetJobResponse -&gt; Int
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242765"><span id="local-6989586621679242767"><span class="annot"><span class="annottext">GetJobResponse -&gt; GetJobResponse -&gt; Bool
+(GetJobResponse -&gt; GetJobResponse -&gt; Bool)
+-&gt; (GetJobResponse -&gt; GetJobResponse -&gt; Bool) -&gt; Eq GetJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
+$c/= :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
+== :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
+$c== :: GetJobResponse -&gt; GetJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242757"><span id="local-6989586621679242759"><span id="local-6989586621679242761"><span id="local-6989586621679242763"><span class="annot"><span class="annottext">ReadPrec [GetJobResponse]
+ReadPrec GetJobResponse
+Int -&gt; ReadS GetJobResponse
+ReadS [GetJobResponse]
+(Int -&gt; ReadS GetJobResponse)
+-&gt; ReadS [GetJobResponse]
+-&gt; ReadPrec GetJobResponse
+-&gt; ReadPrec [GetJobResponse]
+-&gt; Read GetJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetJobResponse]
+$creadListPrec :: ReadPrec [GetJobResponse]
+readPrec :: ReadPrec GetJobResponse
+$creadPrec :: ReadPrec GetJobResponse
+readList :: ReadS [GetJobResponse]
+$creadList :: ReadS [GetJobResponse]
+readsPrec :: Int -&gt; ReadS GetJobResponse
+$creadsPrec :: Int -&gt; ReadS GetJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242751"><span id="local-6989586621679242753"><span id="local-6989586621679242755"><span class="annot"><span class="annottext">Int -&gt; GetJobResponse -&gt; ShowS
+[GetJobResponse] -&gt; ShowS
+GetJobResponse -&gt; String
+(Int -&gt; GetJobResponse -&gt; ShowS)
+-&gt; (GetJobResponse -&gt; String)
+-&gt; ([GetJobResponse] -&gt; ShowS)
+-&gt; Show GetJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetJobResponse] -&gt; ShowS
+$cshowList :: [GetJobResponse] -&gt; ShowS
+show :: GetJobResponse -&gt; String
+$cshow :: GetJobResponse -&gt; String
+showsPrec :: Int -&gt; GetJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetJobResponse -&gt; Rep GetJobResponse x)
+-&gt; (forall x. Rep GetJobResponse x -&gt; GetJobResponse)
+-&gt; Generic GetJobResponse
+forall x. Rep GetJobResponse x -&gt; GetJobResponse
+forall x. GetJobResponse -&gt; Rep GetJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetJobResponse x -&gt; GetJobResponse
+$cfrom :: forall x. GetJobResponse -&gt; Rep GetJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'GetJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'state', 'getJobResponse_state' - The state of the job.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'arn', 'getJobResponse_arn' - The ARN for the job.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'createdAt', 'getJobResponse_createdAt' - The date and time that the job was created, in ISO 8601 format.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'details', 'getJobResponse_details' - Details about the job.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'id', 'getJobResponse_id' - The unique identifier for the job.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'type'', 'getJobResponse_type' - The job type.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'updatedAt', 'getJobResponse_updatedAt' - The date and time that the job was last updated, in ISO 8601 format.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'errors', 'getJobResponse_errors' - The errors associated with jobs.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'getJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#newGetJobResponse"><span class="hs-identifier hs-type">newGetJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newGetJobResponse"><span class="annot"><span class="annottext">newGetJobResponse :: Int -&gt; GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#newGetJobResponse"><span class="hs-identifier hs-var hs-var">newGetJobResponse</span></a></span></span><span> </span><span id="local-6989586621679242748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">GetJobResponse' :: Maybe State
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ResponseDetails
+-&gt; Maybe Text
+-&gt; Maybe Type
+-&gt; Maybe POSIX
+-&gt; Maybe [JobError]
+-&gt; Int
+-&gt; GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:GetJobResponse' :: Maybe State
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Astate%3AGetJobResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe State
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetJobResponse' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aarn%3AGetJobResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:GetJobResponse' :: Maybe POSIX
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AcreatedAt%3AGetJobResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:details:GetJobResponse' :: Maybe ResponseDetails
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Adetails%3AGetJobResponse%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResponseDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetJobResponse' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aid%3AGetJobResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':GetJobResponse' :: Maybe Type
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Atype%27%3AGetJobResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedAt:GetJobResponse' :: Maybe POSIX
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AupdatedAt%3AGetJobResponse%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:GetJobResponse' :: Maybe [JobError]
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aerrors%3AGetJobResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The state of the job.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_state"><span class="hs-identifier hs-type">getJobResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="getJobResponse_state"><span class="annot"><span class="annottext">getJobResponse_state :: (Maybe State -&gt; f (Maybe State))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_state"><span class="hs-identifier hs-var hs-var">getJobResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe State)
+-&gt; (GetJobResponse -&gt; Maybe State -&gt; GetJobResponse)
+-&gt; Lens GetJobResponse GetJobResponse (Maybe State) (Maybe State)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242747"><span class="annot"><span class="annottext">Maybe State
+state :: Maybe State
+$sel:state:GetJobResponse' :: GetJobResponse -&gt; Maybe State
+</span><a href="#local-6989586621679242747"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621679242747"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242746"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242745"><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621679242745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:GetJobResponse' :: Maybe State
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Astate%3AGetJobResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621679242745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The ARN for the job.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_arn"><span class="hs-identifier hs-type">getJobResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="getJobResponse_arn"><span class="annot"><span class="annottext">getJobResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_arn"><span class="hs-identifier hs-var hs-var">getJobResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe Text)
+-&gt; (GetJobResponse -&gt; Maybe Text -&gt; GetJobResponse)
+-&gt; Lens GetJobResponse GetJobResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242744"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:GetJobResponse' :: GetJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242744"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242744"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242743"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242742"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetJobResponse' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aarn%3AGetJobResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The date and time that the job was created, in ISO 8601 format.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_createdAt"><span class="hs-identifier hs-type">getJobResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="getJobResponse_createdAt"><span class="annot"><span class="annottext">getJobResponse_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_createdAt"><span class="hs-identifier hs-var hs-var">getJobResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe POSIX)
+-&gt; (GetJobResponse -&gt; Maybe POSIX -&gt; GetJobResponse)
+-&gt; Lens GetJobResponse GetJobResponse (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242741"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:GetJobResponse' :: GetJobResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679242741"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679242741"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242740"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242739"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679242739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:GetJobResponse' :: Maybe POSIX
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AcreatedAt%3AGetJobResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679242739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetJobResponse -&gt; f GetJobResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetJobResponse
+-&gt; f GetJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Details about the job.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_details"><span class="hs-identifier hs-type">getJobResponse_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ResponseDetails.html#ResponseDetails"><span class="hs-identifier hs-type">ResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="getJobResponse_details"><span class="annot"><span class="annottext">getJobResponse_details :: (Maybe ResponseDetails -&gt; f (Maybe ResponseDetails))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_details"><span class="hs-identifier hs-var hs-var">getJobResponse_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe ResponseDetails)
+-&gt; (GetJobResponse -&gt; Maybe ResponseDetails -&gt; GetJobResponse)
+-&gt; Lens
+     GetJobResponse
+     GetJobResponse
+     (Maybe ResponseDetails)
+     (Maybe ResponseDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242735"><span class="annot"><span class="annottext">Maybe ResponseDetails
+details :: Maybe ResponseDetails
+$sel:details:GetJobResponse' :: GetJobResponse -&gt; Maybe ResponseDetails
+</span><a href="#local-6989586621679242735"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResponseDetails
+</span><a href="#local-6989586621679242735"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242734"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242733"><span class="annot"><span class="annottext">Maybe ResponseDetails
+</span><a href="#local-6989586621679242733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:GetJobResponse' :: Maybe ResponseDetails
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Adetails%3AGetJobResponse%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResponseDetails
+</span><a href="#local-6989586621679242733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The unique identifier for the job.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_id"><span class="hs-identifier hs-type">getJobResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="getJobResponse_id"><span class="annot"><span class="annottext">getJobResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_id"><span class="hs-identifier hs-var hs-var">getJobResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe Text)
+-&gt; (GetJobResponse -&gt; Maybe Text -&gt; GetJobResponse)
+-&gt; Lens GetJobResponse GetJobResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242732"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:GetJobResponse' :: GetJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242732"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242732"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242731"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242730"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetJobResponse' :: Maybe Text
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aid%3AGetJobResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The job type.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_type"><span class="hs-identifier hs-type">getJobResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="getJobResponse_type"><span class="annot"><span class="annottext">getJobResponse_type :: (Maybe Type -&gt; f (Maybe Type))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_type"><span class="hs-identifier hs-var hs-var">getJobResponse_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe Type)
+-&gt; (GetJobResponse -&gt; Maybe Type -&gt; GetJobResponse)
+-&gt; Lens GetJobResponse GetJobResponse (Maybe Type) (Maybe Type)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242729"><span class="annot"><span class="annottext">Maybe Type
+type' :: Maybe Type
+$sel:type':GetJobResponse' :: GetJobResponse -&gt; Maybe Type
+</span><a href="#local-6989586621679242729"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679242729"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242728"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242727"><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679242727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':GetJobResponse' :: Maybe Type
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Atype%27%3AGetJobResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Type
+</span><a href="#local-6989586621679242727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The date and time that the job was last updated, in ISO 8601 format.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_updatedAt"><span class="hs-identifier hs-type">getJobResponse_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="getJobResponse_updatedAt"><span class="annot"><span class="annottext">getJobResponse_updatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_updatedAt"><span class="hs-identifier hs-var hs-var">getJobResponse_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe POSIX)
+-&gt; (GetJobResponse -&gt; Maybe POSIX -&gt; GetJobResponse)
+-&gt; Lens GetJobResponse GetJobResponse (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242726"><span class="annot"><span class="annottext">Maybe POSIX
+updatedAt :: Maybe POSIX
+$sel:updatedAt:GetJobResponse' :: GetJobResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679242726"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679242726"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242725"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242724"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679242724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:GetJobResponse' :: Maybe POSIX
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AupdatedAt%3AGetJobResponse%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679242724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetJobResponse -&gt; f GetJobResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetJobResponse
+-&gt; f GetJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The errors associated with jobs.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_errors"><span class="hs-identifier hs-type">getJobResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier hs-type">JobError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="getJobResponse_errors"><span class="annot"><span class="annottext">getJobResponse_errors :: (Maybe [JobError] -&gt; f (Maybe [JobError]))
+-&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_errors"><span class="hs-identifier hs-var hs-var">getJobResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Maybe [JobError])
+-&gt; (GetJobResponse -&gt; Maybe [JobError] -&gt; GetJobResponse)
+-&gt; Lens
+     GetJobResponse GetJobResponse (Maybe [JobError]) (Maybe [JobError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242723"><span class="annot"><span class="annottext">Maybe [JobError]
+errors :: Maybe [JobError]
+$sel:errors:GetJobResponse' :: GetJobResponse -&gt; Maybe [JobError]
+</span><a href="#local-6989586621679242723"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+</span><a href="#local-6989586621679242723"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242722"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242721"><span class="annot"><span class="annottext">Maybe [JobError]
+</span><a href="#local-6989586621679242721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:GetJobResponse' :: Maybe [JobError]
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3Aerrors%3AGetJobResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobError]
+</span><a href="#local-6989586621679242721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobError] -&gt; f (Maybe [JobError]))
+ -&gt; GetJobResponse -&gt; f GetJobResponse)
+-&gt; ((Maybe [JobError] -&gt; f (Maybe [JobError]))
+    -&gt; Maybe [JobError] -&gt; f (Maybe [JobError]))
+-&gt; (Maybe [JobError] -&gt; f (Maybe [JobError]))
+-&gt; GetJobResponse
+-&gt; f GetJobResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobError] [JobError] [JobError] [JobError]
+-&gt; Iso
+     (Maybe [JobError])
+     (Maybe [JobError])
+     (Maybe [JobError])
+     (Maybe [JobError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobError] [JobError] [JobError] [JobError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_httpStatus"><span class="hs-identifier hs-type">getJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-221"></span><span id="getJobResponse_httpStatus"><span class="annot"><span class="annottext">getJobResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetJobResponse -&gt; f GetJobResponse
+</span><a href="Network.AWS.DataExchange.GetJob.html#getJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetJobResponse -&gt; Int)
+-&gt; (GetJobResponse -&gt; Int -&gt; GetJobResponse)
+-&gt; Lens GetJobResponse GetJobResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242719"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetJobResponse' :: GetJobResponse -&gt; Int
+</span><a href="#local-6989586621679242719"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242719"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242718"><span class="annot"><span class="annottext">s :: GetJobResponse
+</span><a href="#local-6989586621679242718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse%27"><span class="hs-identifier hs-type">GetJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242717"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobResponse
+</span><a href="#local-6989586621679242718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobResponse' :: Int
+</span><a href="Network.AWS.DataExchange.GetJob.html#%24sel%3AhttpStatus%3AGetJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242715"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.GetJob.html#GetJobResponse"><span class="hs-identifier hs-type">GetJobResponse</span></a></span></span><span>
+</span><span id="line-224"></span></pre></body></html>

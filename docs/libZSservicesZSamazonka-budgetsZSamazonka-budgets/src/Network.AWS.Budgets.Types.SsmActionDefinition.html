@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The AWS Systems Manager (SSM) action definition details.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSsmActionDefinition' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679207873"><span id="local-6989586621679207874"></span></span><span class="hs-keyword">data</span><span> </span><span id="SsmActionDefinition"><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-var">SsmActionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SsmActionDefinition%27"><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-var">SsmActionDefinition'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679207882"><span id="local-6989586621679207883"></span></span><span class="hs-keyword">data</span><span> </span><span id="SsmActionDefinition"><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-var">SsmActionDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SsmActionDefinition%27"><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-var">SsmActionDefinition'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action subType.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AactionSubType%3ASsmActionDefinition%27"><span class="annot"><span class="annottext">SsmActionDefinition -&gt; ActionSubType
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3AactionSubType%3ASsmActionDefinition%27"><span class="hs-identifier hs-var hs-var">actionSubType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.ActionSubType.html#ActionSubType"><span class="hs-identifier hs-type">ActionSubType</span></a></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstanceIds%3ASsmActionDefinition%27"><span class="annot"><span class="annottext">SsmActionDefinition -&gt; NonEmpty Text
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3AinstanceIds%3ASsmActionDefinition%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207865"><span id="local-6989586621679207867"><span class="annot"><span class="annottext">SsmActionDefinition -&gt; SsmActionDefinition -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207874"><span id="local-6989586621679207876"><span class="annot"><span class="annottext">SsmActionDefinition -&gt; SsmActionDefinition -&gt; Bool
 (SsmActionDefinition -&gt; SsmActionDefinition -&gt; Bool)
 -&gt; (SsmActionDefinition -&gt; SsmActionDefinition -&gt; Bool)
 -&gt; Eq SsmActionDefinition
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SsmActionDefinition -&gt; SsmActionDefinition -&gt; Bool
 == :: SsmActionDefinition -&gt; SsmActionDefinition -&gt; Bool
 $c== :: SsmActionDefinition -&gt; SsmActionDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207856"><span id="local-6989586621679207858"><span id="local-6989586621679207860"><span id="local-6989586621679207862"><span class="annot"><span class="annottext">ReadPrec [SsmActionDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207865"><span id="local-6989586621679207867"><span id="local-6989586621679207869"><span id="local-6989586621679207871"><span class="annot"><span class="annottext">ReadPrec [SsmActionDefinition]
 ReadPrec SsmActionDefinition
 Int -&gt; ReadS SsmActionDefinition
 ReadS [SsmActionDefinition]
@@ -67,7 +67,7 @@ readList :: ReadS [SsmActionDefinition]
 $creadList :: ReadS [SsmActionDefinition]
 readsPrec :: Int -&gt; ReadS SsmActionDefinition
 $creadsPrec :: Int -&gt; ReadS SsmActionDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207849"><span id="local-6989586621679207851"><span id="local-6989586621679207853"><span class="annot"><span class="annottext">Int -&gt; SsmActionDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207858"><span id="local-6989586621679207860"><span id="local-6989586621679207862"><span class="annot"><span class="annottext">Int -&gt; SsmActionDefinition -&gt; ShowS
 [SsmActionDefinition] -&gt; ShowS
 SsmActionDefinition -&gt; String
 (Int -&gt; SsmActionDefinition -&gt; ShowS)
@@ -116,21 +116,21 @@ $cfrom :: forall x. SsmActionDefinition -&gt; Rep SsmActionDefinition x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span>
 </span><span id="line-61"></span><span id="newSsmActionDefinition"><span class="annot"><span class="annottext">newSsmActionDefinition :: ActionSubType -&gt; Text -&gt; NonEmpty Text -&gt; SsmActionDefinition
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#newSsmActionDefinition"><span class="hs-identifier hs-var hs-var">newSsmActionDefinition</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679207843"><span class="annot"><span class="annottext">ActionSubType
-</span><a href="#local-6989586621679207843"><span class="hs-identifier hs-var">pActionSubType_</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679207842"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679207841"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207841"><span class="hs-identifier hs-var">pInstanceIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679207852"><span class="annot"><span class="annottext">ActionSubType
+</span><a href="#local-6989586621679207852"><span class="hs-identifier hs-var">pActionSubType_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679207851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207851"><span class="hs-identifier hs-var">pRegion_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679207850"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679207850"><span class="hs-identifier hs-var">pInstanceIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">SsmActionDefinition' :: ActionSubType -&gt; Text -&gt; NonEmpty Text -&gt; SsmActionDefinition
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionSubType:SsmActionDefinition' :: ActionSubType
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3AactionSubType%3ASsmActionDefinition%27"><span class="hs-identifier hs-var">actionSubType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">ActionSubType
-</span><a href="#local-6989586621679207843"><span class="hs-identifier hs-var">pActionSubType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207852"><span class="hs-identifier hs-var">pActionSubType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:region:SsmActionDefinition' :: Text
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3Aregion%3ASsmActionDefinition%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">pRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207851"><span class="hs-identifier hs-var">pRegion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceIds:SsmActionDefinition' :: NonEmpty Text
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3AinstanceIds%3ASsmActionDefinition%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
@@ -140,7 +140,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207841"><span class="hs-identifier hs-var">pInstanceIds_</span></a></span><span>
+</span><a href="#local-6989586621679207850"><span class="hs-identifier hs-var">pInstanceIds_</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The action subType.</span><span>
@@ -152,16 +152,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      SsmActionDefinition SsmActionDefinition ActionSubType ActionSubType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207835"><span class="annot"><span class="annottext">ActionSubType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207844"><span class="annot"><span class="annottext">ActionSubType
 actionSubType :: ActionSubType
 $sel:actionSubType:SsmActionDefinition' :: SsmActionDefinition -&gt; ActionSubType
-</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var hs-var">actionSubType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSubType
-</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">actionSubType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207834"><span class="annot"><span class="annottext">s :: SsmActionDefinition
-</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207833"><span class="annot"><span class="annottext">ActionSubType
-</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SsmActionDefinition
-</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionSubType:SsmActionDefinition' :: ActionSubType
+</span><a href="#local-6989586621679207844"><span class="hs-identifier hs-var hs-var">actionSubType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionSubType
+</span><a href="#local-6989586621679207844"><span class="hs-identifier hs-var">actionSubType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207843"><span class="annot"><span class="annottext">s :: SsmActionDefinition
+</span><a href="#local-6989586621679207843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207842"><span class="annot"><span class="annottext">ActionSubType
+</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SsmActionDefinition
+</span><a href="#local-6989586621679207843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionSubType:SsmActionDefinition' :: ActionSubType
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3AactionSubType%3ASsmActionDefinition%27"><span class="hs-identifier hs-var">actionSubType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionSubType
-</span><a href="#local-6989586621679207833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The Region to run the SSM document.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#ssmActionDefinition_region"><span class="hs-identifier hs-type">ssmActionDefinition_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -170,16 +170,16 @@ $sel:actionSubType:SsmActionDefinition' :: SsmActionDefinition -&gt; ActionSubTy
 -&gt; (SsmActionDefinition -&gt; Text -&gt; SsmActionDefinition)
 -&gt; Lens SsmActionDefinition SsmActionDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207831"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207840"><span class="annot"><span class="annottext">Text
 region :: Text
 $sel:region:SsmActionDefinition' :: SsmActionDefinition -&gt; Text
-</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207831"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207830"><span class="annot"><span class="annottext">s :: SsmActionDefinition
-</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207829"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SsmActionDefinition
-</span><a href="#local-6989586621679207830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:SsmActionDefinition' :: Text
+</span><a href="#local-6989586621679207840"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207840"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207839"><span class="annot"><span class="annottext">s :: SsmActionDefinition
+</span><a href="#local-6989586621679207839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SsmActionDefinition
+</span><a href="#local-6989586621679207839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:SsmActionDefinition' :: Text
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3Aregion%3ASsmActionDefinition%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The EC2 and RDS instance IDs.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#ssmActionDefinition_instanceIds"><span class="hs-identifier hs-type">ssmActionDefinition_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -193,16 +193,16 @@ $sel:region:SsmActionDefinition' :: SsmActionDefinition -&gt; Text
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207827"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207836"><span class="annot"><span class="annottext">NonEmpty Text
 instanceIds :: NonEmpty Text
 $sel:instanceIds:SsmActionDefinition' :: SsmActionDefinition -&gt; NonEmpty Text
-</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207827"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207826"><span class="annot"><span class="annottext">s :: SsmActionDefinition
-</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207825"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SsmActionDefinition
-</span><a href="#local-6989586621679207826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:SsmActionDefinition' :: NonEmpty Text
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679207836"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207835"><span class="annot"><span class="annottext">s :: SsmActionDefinition
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207834"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SsmActionDefinition
+</span><a href="#local-6989586621679207835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:SsmActionDefinition' :: NonEmpty Text
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#%24sel%3AinstanceIds%3ASsmActionDefinition%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679207834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; SsmActionDefinition -&gt; f SsmActionDefinition)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -215,8 +215,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207821"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679207819"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SsmActionDefinition
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207830"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679207828"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SsmActionDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SsmActionDefinition)
@@ -226,8 +226,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SsmActionDefinition&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207816"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679207825"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">ActionSubType -&gt; Text -&gt; NonEmpty Text -&gt; SsmActionDefinition
 </span><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-var">SsmActionDefinition'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(ActionSubType -&gt; Text -&gt; NonEmpty Text -&gt; SsmActionDefinition)
@@ -235,7 +235,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; NonEmpty Text -&gt; SsmActionDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionSubType
+</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActionSubType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionSubType&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,7 +243,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (NonEmpty Text -&gt; SsmActionDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,19 +251,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty Text) -&gt; Parser SsmActionDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679207816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679207825"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceIds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207810"><span id="local-6989586621679207812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207819"><span id="local-6989586621679207821"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207816"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207799"><span id="local-6989586621679207801"><span id="local-6989586621679207803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679207797"><span class="annot"><span class="annottext">toJSON :: SsmActionDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207793"><span id="local-6989586621679207794"><span id="local-6989586621679207795"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679207808"><span id="local-6989586621679207810"><span id="local-6989586621679207812"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition"><span class="hs-identifier hs-type">SsmActionDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679207806"><span class="annot"><span class="annottext">toJSON :: SsmActionDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Budgets.Types.SsmActionDefinition.html#SsmActionDefinition%27"><span class="hs-identifier hs-type">SsmActionDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207802"><span id="local-6989586621679207803"><span id="local-6989586621679207804"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 ActionSubType
 instanceIds :: NonEmpty Text
@@ -272,7 +272,7 @@ actionSubType :: ActionSubType
 $sel:instanceIds:SsmActionDefinition' :: SsmActionDefinition -&gt; NonEmpty Text
 $sel:region:SsmActionDefinition' :: SsmActionDefinition -&gt; Text
 $sel:actionSubType:SsmActionDefinition' :: SsmActionDefinition -&gt; ActionSubType
-</span><a href="#local-6989586621679207793"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679207802"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -285,21 +285,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ActionSubType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ActionSubType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ActionSubType
-</span><a href="#local-6989586621679207795"><span class="hs-identifier hs-var">actionSubType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207804"><span class="hs-identifier hs-var">actionSubType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679207794"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679207803"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679207793"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679207802"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

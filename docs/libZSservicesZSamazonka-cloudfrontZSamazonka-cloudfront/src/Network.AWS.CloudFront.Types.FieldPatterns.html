@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- field-level encryption.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFieldPatterns' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679389579"><span id="local-6989586621679389580"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldPatterns"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-var">FieldPatterns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldPatterns%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-var">FieldPatterns'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679389588"><span id="local-6989586621679389589"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldPatterns"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-var">FieldPatterns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldPatterns%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-var">FieldPatterns'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of the field-level encryption field patterns.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aitems%3AFieldPatterns%27"><span class="annot"><span class="annottext">FieldPatterns -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#%24sel%3Aitems%3AFieldPatterns%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aquantity%3AFieldPatterns%27"><span class="annot"><span class="annottext">FieldPatterns -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#%24sel%3Aquantity%3AFieldPatterns%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389572"><span id="local-6989586621679389574"><span class="annot"><span class="annottext">FieldPatterns -&gt; FieldPatterns -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389581"><span id="local-6989586621679389583"><span class="annot"><span class="annottext">FieldPatterns -&gt; FieldPatterns -&gt; Bool
 (FieldPatterns -&gt; FieldPatterns -&gt; Bool)
 -&gt; (FieldPatterns -&gt; FieldPatterns -&gt; Bool) -&gt; Eq FieldPatterns
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FieldPatterns -&gt; FieldPatterns -&gt; Bool
 == :: FieldPatterns -&gt; FieldPatterns -&gt; Bool
 $c== :: FieldPatterns -&gt; FieldPatterns -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389563"><span id="local-6989586621679389565"><span id="local-6989586621679389567"><span id="local-6989586621679389569"><span class="annot"><span class="annottext">ReadPrec [FieldPatterns]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389572"><span id="local-6989586621679389574"><span id="local-6989586621679389576"><span id="local-6989586621679389578"><span class="annot"><span class="annottext">ReadPrec [FieldPatterns]
 ReadPrec FieldPatterns
 Int -&gt; ReadS FieldPatterns
 ReadS [FieldPatterns]
@@ -63,7 +63,7 @@ readList :: ReadS [FieldPatterns]
 $creadList :: ReadS [FieldPatterns]
 readsPrec :: Int -&gt; ReadS FieldPatterns
 $creadsPrec :: Int -&gt; ReadS FieldPatterns
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389556"><span id="local-6989586621679389558"><span id="local-6989586621679389560"><span class="annot"><span class="annottext">Int -&gt; FieldPatterns -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389565"><span id="local-6989586621679389567"><span id="local-6989586621679389569"><span class="annot"><span class="annottext">Int -&gt; FieldPatterns -&gt; ShowS
 [FieldPatterns] -&gt; ShowS
 FieldPatterns -&gt; String
 (Int -&gt; FieldPatterns -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. FieldPatterns -&gt; Rep FieldPatterns x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span>
 </span><span id="line-53"></span><span id="newFieldPatterns"><span class="annot"><span class="annottext">newFieldPatterns :: Int -&gt; FieldPatterns
-</span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#newFieldPatterns"><span class="hs-identifier hs-var hs-var">newFieldPatterns</span></a></span></span><span> </span><span id="local-6989586621679389550"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389550"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#newFieldPatterns"><span class="hs-identifier hs-var hs-var">newFieldPatterns</span></a></span></span><span> </span><span id="local-6989586621679389559"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389559"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">FieldPatterns' :: Maybe [Text] -&gt; Int -&gt; FieldPatterns
 </span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:FieldPatterns' :: Maybe [Text]
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:FieldPatterns' :: Int
 </span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#%24sel%3Aquantity%3AFieldPatterns%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389550"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679389559"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | An array of the field-level encryption field patterns.</span><span>
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (FieldPatterns -&gt; Maybe [Text] -&gt; FieldPatterns)
 -&gt; Lens FieldPatterns FieldPatterns (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389546"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389555"><span class="annot"><span class="annottext">Maybe [Text]
 items :: Maybe [Text]
 $sel:items:FieldPatterns' :: FieldPatterns -&gt; Maybe [Text]
-</span><a href="#local-6989586621679389546"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389546"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389545"><span class="annot"><span class="annottext">s :: FieldPatterns
-</span><a href="#local-6989586621679389545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389544"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:FieldPatterns' :: Maybe [Text]
+</span><a href="#local-6989586621679389555"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389555"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389554"><span class="annot"><span class="annottext">s :: FieldPatterns
+</span><a href="#local-6989586621679389554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389553"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:FieldPatterns' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#%24sel%3Aitems%3AFieldPatterns%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679389553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; FieldPatterns -&gt; f FieldPatterns)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -159,21 +159,21 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (FieldPatterns -&gt; Int -&gt; FieldPatterns)
 -&gt; Lens FieldPatterns FieldPatterns Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389539"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389548"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:FieldPatterns' :: FieldPatterns -&gt; Int
-</span><a href="#local-6989586621679389539"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389539"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389538"><span class="annot"><span class="annottext">s :: FieldPatterns
-</span><a href="#local-6989586621679389538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389537"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:FieldPatterns' :: Int
+</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389548"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389547"><span class="annot"><span class="annottext">s :: FieldPatterns
+</span><a href="#local-6989586621679389547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:FieldPatterns' :: Int
 </span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#%24sel%3Aquantity%3AFieldPatterns%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679389534"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FieldPatterns
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679389532"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679389532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679389543"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FieldPatterns
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679389541"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389541"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Int -&gt; FieldPatterns
 </span><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-var">FieldPatterns'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Int -&gt; FieldPatterns)
@@ -181,7 +181,7 @@ $sel:quantity:FieldPatterns' :: FieldPatterns -&gt; Int
 -&gt; Either String (Int -&gt; FieldPatterns)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679389532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679389541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -207,24 +207,24 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Int -&gt; Either String FieldPatterns
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679389532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679389541"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389522"><span id="local-6989586621679389524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389531"><span id="local-6989586621679389533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679389515"><span class="annot"><span class="annottext">toXML :: FieldPatterns -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389512"><span id="local-6989586621679389513"><span class="annot"><span class="annottext">Int
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679389524"><span class="annot"><span class="annottext">toXML :: FieldPatterns -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns%27"><span class="hs-identifier hs-type">FieldPatterns'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389521"><span id="local-6989586621679389522"><span class="annot"><span class="annottext">Int
 Maybe [Text]
 quantity :: Int
 items :: Maybe [Text]
 $sel:quantity:FieldPatterns' :: FieldPatterns -&gt; Int
 $sel:items:FieldPatterns' :: FieldPatterns -&gt; Maybe [Text]
-</span><a href="#local-6989586621679389512"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389521"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -241,11 +241,11 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;FieldPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; XML) -&gt; Maybe [Text] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389513"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389522"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389512"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><a href="#local-6989586621679389521"><span class="hs-identifier hs-var">quantity</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span></pre></body></html>

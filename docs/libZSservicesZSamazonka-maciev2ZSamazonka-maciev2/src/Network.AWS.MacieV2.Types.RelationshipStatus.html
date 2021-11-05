@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.RelationshipStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.RelationshipStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier">RelationshipStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_AccountSuspended"><span class="hs-identifier">RelationshipStatus_AccountSuspended</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Created"><span class="hs-identifier">RelationshipStatus_Created</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_EmailVerificationFailed"><span class="hs-identifier">RelationshipStatus_EmailVerificationFailed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_EmailVerificationInProgress"><span class="hs-identifier">RelationshipStatus_EmailVerificationInProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Enabled"><span class="hs-identifier">RelationshipStatus_Enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Invited"><span class="hs-identifier">RelationshipStatus_Invited</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Paused"><span class="hs-identifier">RelationshipStatus_Paused</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_RegionDisabled"><span class="hs-identifier">RelationshipStatus_RegionDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Removed"><span class="hs-identifier">RelationshipStatus_Removed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Resigned"><span class="hs-identifier">RelationshipStatus_Resigned</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- | The current status of the relationship between an account and an</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- associated Amazon Macie administrator account (/inviter account/).</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-43"></span><span id="local-6989586621679393189"><span id="local-6989586621679393190"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RelationshipStatus"><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-var">RelationshipStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RelationshipStatus%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-var">RelationshipStatus'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRelationshipStatus"><span class="annot"><span class="annottext">RelationshipStatus -&gt; Text
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#fromRelationshipStatus"><span class="hs-identifier hs-var hs-var">fromRelationshipStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393181"><span id="local-6989586621679393183"><span id="local-6989586621679393185"><span class="annot"><span class="annottext">Int -&gt; RelationshipStatus -&gt; ShowS
+[RelationshipStatus] -&gt; ShowS
+RelationshipStatus -&gt; String
+(Int -&gt; RelationshipStatus -&gt; ShowS)
+-&gt; (RelationshipStatus -&gt; String)
+-&gt; ([RelationshipStatus] -&gt; ShowS)
+-&gt; Show RelationshipStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RelationshipStatus] -&gt; ShowS
+$cshowList :: [RelationshipStatus] -&gt; ShowS
+show :: RelationshipStatus -&gt; String
+$cshow :: RelationshipStatus -&gt; String
+showsPrec :: Int -&gt; RelationshipStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; RelationshipStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679393172"><span id="local-6989586621679393174"><span id="local-6989586621679393176"><span id="local-6989586621679393178"><span class="annot"><span class="annottext">ReadPrec [RelationshipStatus]
+ReadPrec RelationshipStatus
+Int -&gt; ReadS RelationshipStatus
+ReadS [RelationshipStatus]
+(Int -&gt; ReadS RelationshipStatus)
+-&gt; ReadS [RelationshipStatus]
+-&gt; ReadPrec RelationshipStatus
+-&gt; ReadPrec [RelationshipStatus]
+-&gt; Read RelationshipStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RelationshipStatus]
+$creadListPrec :: ReadPrec [RelationshipStatus]
+readPrec :: ReadPrec RelationshipStatus
+$creadPrec :: ReadPrec RelationshipStatus
+readList :: ReadS [RelationshipStatus]
+$creadList :: ReadS [RelationshipStatus]
+readsPrec :: Int -&gt; ReadS RelationshipStatus
+$creadsPrec :: Int -&gt; ReadS RelationshipStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679393167"><span id="local-6989586621679393169"><span class="annot"><span class="annottext">RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+(RelationshipStatus -&gt; RelationshipStatus -&gt; Bool)
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; Bool)
+-&gt; Eq RelationshipStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+$c/= :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+== :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+$c== :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679393151"><span id="local-6989586621679393153"><span id="local-6989586621679393155"><span id="local-6989586621679393157"><span id="local-6989586621679393159"><span id="local-6989586621679393161"><span id="local-6989586621679393163"><span class="annot"><span class="annottext">Eq RelationshipStatus
+Eq RelationshipStatus
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; Ordering)
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; Bool)
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; Bool)
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; Bool)
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; Bool)
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; RelationshipStatus)
+-&gt; (RelationshipStatus -&gt; RelationshipStatus -&gt; RelationshipStatus)
+-&gt; Ord RelationshipStatus
+RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+RelationshipStatus -&gt; RelationshipStatus -&gt; Ordering
+RelationshipStatus -&gt; RelationshipStatus -&gt; RelationshipStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RelationshipStatus -&gt; RelationshipStatus -&gt; RelationshipStatus
+$cmin :: RelationshipStatus -&gt; RelationshipStatus -&gt; RelationshipStatus
+max :: RelationshipStatus -&gt; RelationshipStatus -&gt; RelationshipStatus
+$cmax :: RelationshipStatus -&gt; RelationshipStatus -&gt; RelationshipStatus
+&gt;= :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+$c&gt;= :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+&gt; :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+$c&gt; :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+&lt;= :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+$c&lt;= :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+&lt; :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+$c&lt; :: RelationshipStatus -&gt; RelationshipStatus -&gt; Bool
+compare :: RelationshipStatus -&gt; RelationshipStatus -&gt; Ordering
+$ccompare :: RelationshipStatus -&gt; RelationshipStatus -&gt; Ordering
+$cp1Ord :: Eq RelationshipStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RelationshipStatus -&gt; Rep RelationshipStatus x)
+-&gt; (forall x. Rep RelationshipStatus x -&gt; RelationshipStatus)
+-&gt; Generic RelationshipStatus
+forall x. Rep RelationshipStatus x -&gt; RelationshipStatus
+forall x. RelationshipStatus -&gt; Rep RelationshipStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RelationshipStatus x -&gt; RelationshipStatus
+$cfrom :: forall x. RelationshipStatus -&gt; Rep RelationshipStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679393143"><span id="local-6989586621679393145"><span class="annot"><span class="annottext">Int -&gt; RelationshipStatus -&gt; Int
+RelationshipStatus -&gt; Int
+(Int -&gt; RelationshipStatus -&gt; Int)
+-&gt; (RelationshipStatus -&gt; Int) -&gt; Hashable RelationshipStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RelationshipStatus -&gt; Int
+$chash :: RelationshipStatus -&gt; Int
+hashWithSalt :: Int -&gt; RelationshipStatus -&gt; Int
+$chashWithSalt :: Int -&gt; RelationshipStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679393140"><span class="annot"><span class="annottext">RelationshipStatus -&gt; ()
+(RelationshipStatus -&gt; ()) -&gt; NFData RelationshipStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RelationshipStatus -&gt; ()
+$crnf :: RelationshipStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679393137"><span class="annot"><span class="annottext">Text -&gt; Either String RelationshipStatus
+(Text -&gt; Either String RelationshipStatus)
+-&gt; FromText RelationshipStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RelationshipStatus
+$cfromText :: Text -&gt; Either String RelationshipStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679393134"><span class="annot"><span class="annottext">RelationshipStatus -&gt; Text
+(RelationshipStatus -&gt; Text) -&gt; ToText RelationshipStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RelationshipStatus -&gt; Text
+$ctoText :: RelationshipStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679393131"><span class="annot"><span class="annottext">RelationshipStatus -&gt; ByteString
+(RelationshipStatus -&gt; ByteString)
+-&gt; ToByteString RelationshipStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RelationshipStatus -&gt; ByteString
+$ctoBS :: RelationshipStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679393128"><span class="annot"><span class="annottext">RelationshipStatus -&gt; ByteStringBuilder
+(RelationshipStatus -&gt; ByteStringBuilder)
+-&gt; ToLog RelationshipStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RelationshipStatus -&gt; ByteStringBuilder
+$cbuild :: RelationshipStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679393125"><span class="annot"><span class="annottext">HeaderName -&gt; RelationshipStatus -&gt; [Header]
+(HeaderName -&gt; RelationshipStatus -&gt; [Header])
+-&gt; ToHeader RelationshipStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RelationshipStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RelationshipStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679393122"><span class="annot"><span class="annottext">RelationshipStatus -&gt; QueryString
+(RelationshipStatus -&gt; QueryString) -&gt; ToQuery RelationshipStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RelationshipStatus -&gt; QueryString
+$ctoQuery :: RelationshipStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679393117"><span id="local-6989586621679393119"><span class="annot"><span class="annottext">Value -&gt; Parser [RelationshipStatus]
+Value -&gt; Parser RelationshipStatus
+(Value -&gt; Parser RelationshipStatus)
+-&gt; (Value -&gt; Parser [RelationshipStatus])
+-&gt; FromJSON RelationshipStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RelationshipStatus]
+$cparseJSONList :: Value -&gt; Parser [RelationshipStatus]
+parseJSON :: Value -&gt; Parser RelationshipStatus
+$cparseJSON :: Value -&gt; Parser RelationshipStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679393112"><span id="local-6989586621679393114"><span class="annot"><span class="annottext">FromJSONKeyFunction [RelationshipStatus]
+FromJSONKeyFunction RelationshipStatus
+FromJSONKeyFunction RelationshipStatus
+-&gt; FromJSONKeyFunction [RelationshipStatus]
+-&gt; FromJSONKey RelationshipStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RelationshipStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [RelationshipStatus]
+fromJSONKey :: FromJSONKeyFunction RelationshipStatus
+$cfromJSONKey :: FromJSONKeyFunction RelationshipStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679393103"><span id="local-6989586621679393105"><span id="local-6989586621679393107"><span id="local-6989586621679393109"><span class="annot"><span class="annottext">[RelationshipStatus] -&gt; Encoding
+[RelationshipStatus] -&gt; Value
+RelationshipStatus -&gt; Encoding
+RelationshipStatus -&gt; Value
+(RelationshipStatus -&gt; Value)
+-&gt; (RelationshipStatus -&gt; Encoding)
+-&gt; ([RelationshipStatus] -&gt; Value)
+-&gt; ([RelationshipStatus] -&gt; Encoding)
+-&gt; ToJSON RelationshipStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RelationshipStatus] -&gt; Encoding
+$ctoEncodingList :: [RelationshipStatus] -&gt; Encoding
+toJSONList :: [RelationshipStatus] -&gt; Value
+$ctoJSONList :: [RelationshipStatus] -&gt; Value
+toEncoding :: RelationshipStatus -&gt; Encoding
+$ctoEncoding :: RelationshipStatus -&gt; Encoding
+toJSON :: RelationshipStatus -&gt; Value
+$ctoJSON :: RelationshipStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679393098"><span id="local-6989586621679393100"><span class="annot"><span class="annottext">ToJSONKeyFunction [RelationshipStatus]
+ToJSONKeyFunction RelationshipStatus
+ToJSONKeyFunction RelationshipStatus
+-&gt; ToJSONKeyFunction [RelationshipStatus]
+-&gt; ToJSONKey RelationshipStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RelationshipStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [RelationshipStatus]
+toJSONKey :: ToJSONKeyFunction RelationshipStatus
+$ctoJSONKey :: ToJSONKeyFunction RelationshipStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679393095"><span class="annot"><span class="annottext">[Node] -&gt; Either String RelationshipStatus
+([Node] -&gt; Either String RelationshipStatus)
+-&gt; FromXML RelationshipStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RelationshipStatus
+$cparseXML :: [Node] -&gt; Either String RelationshipStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679393092"><span class="annot"><span class="annottext">RelationshipStatus -&gt; XML
+(RelationshipStatus -&gt; XML) -&gt; ToXML RelationshipStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RelationshipStatus -&gt; XML
+$ctoXML :: RelationshipStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_AccountSuspended"><span class="hs-identifier hs-type">RelationshipStatus_AccountSuspended</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_AccountSuspended"><span id="%24mRelationshipStatus_AccountSuspended"><span id="RelationshipStatus_AccountSuspended"><span class="annot"><span class="annottext">$bRelationshipStatus_AccountSuspended :: RelationshipStatus
+$mRelationshipStatus_AccountSuspended :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_AccountSuspended"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_AccountSuspended</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AccountSuspended&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Created"><span class="hs-identifier hs-type">RelationshipStatus_Created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_Created"><span id="%24mRelationshipStatus_Created"><span id="RelationshipStatus_Created"><span class="annot"><span class="annottext">$bRelationshipStatus_Created :: RelationshipStatus
+$mRelationshipStatus_Created :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_Created"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_Created</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Created&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_EmailVerificationFailed"><span class="hs-identifier hs-type">RelationshipStatus_EmailVerificationFailed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_EmailVerificationFailed"><span id="%24mRelationshipStatus_EmailVerificationFailed"><span id="RelationshipStatus_EmailVerificationFailed"><span class="annot"><span class="annottext">$bRelationshipStatus_EmailVerificationFailed :: RelationshipStatus
+$mRelationshipStatus_EmailVerificationFailed :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_EmailVerificationFailed"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_EmailVerificationFailed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EmailVerificationFailed&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_EmailVerificationInProgress"><span class="hs-identifier hs-type">RelationshipStatus_EmailVerificationInProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_EmailVerificationInProgress"><span id="%24mRelationshipStatus_EmailVerificationInProgress"><span id="RelationshipStatus_EmailVerificationInProgress"><span class="annot"><span class="annottext">$bRelationshipStatus_EmailVerificationInProgress :: RelationshipStatus
+$mRelationshipStatus_EmailVerificationInProgress :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_EmailVerificationInProgress"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_EmailVerificationInProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EmailVerificationInProgress&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Enabled"><span class="hs-identifier hs-type">RelationshipStatus_Enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_Enabled"><span id="%24mRelationshipStatus_Enabled"><span id="RelationshipStatus_Enabled"><span class="annot"><span class="annottext">$bRelationshipStatus_Enabled :: RelationshipStatus
+$mRelationshipStatus_Enabled :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_Enabled"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_Enabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Enabled&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Invited"><span class="hs-identifier hs-type">RelationshipStatus_Invited</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_Invited"><span id="%24mRelationshipStatus_Invited"><span id="RelationshipStatus_Invited"><span class="annot"><span class="annottext">$bRelationshipStatus_Invited :: RelationshipStatus
+$mRelationshipStatus_Invited :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_Invited"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_Invited</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Invited&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Paused"><span class="hs-identifier hs-type">RelationshipStatus_Paused</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_Paused"><span id="%24mRelationshipStatus_Paused"><span id="RelationshipStatus_Paused"><span class="annot"><span class="annottext">$bRelationshipStatus_Paused :: RelationshipStatus
+$mRelationshipStatus_Paused :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_Paused"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_Paused</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Paused&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_RegionDisabled"><span class="hs-identifier hs-type">RelationshipStatus_RegionDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_RegionDisabled"><span id="%24mRelationshipStatus_RegionDisabled"><span id="RelationshipStatus_RegionDisabled"><span class="annot"><span class="annottext">$bRelationshipStatus_RegionDisabled :: RelationshipStatus
+$mRelationshipStatus_RegionDisabled :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_RegionDisabled"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_RegionDisabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RegionDisabled&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Removed"><span class="hs-identifier hs-type">RelationshipStatus_Removed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_Removed"><span id="%24mRelationshipStatus_Removed"><span id="RelationshipStatus_Removed"><span class="annot"><span class="annottext">$bRelationshipStatus_Removed :: RelationshipStatus
+$mRelationshipStatus_Removed :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_Removed"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_Removed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Removed&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Resigned"><span class="hs-identifier hs-type">RelationshipStatus_Resigned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus"><span class="hs-identifier hs-type">RelationshipStatus</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRelationshipStatus_Resigned"><span id="%24mRelationshipStatus_Resigned"><span id="RelationshipStatus_Resigned"><span class="annot"><span class="annottext">$bRelationshipStatus_Resigned :: RelationshipStatus
+$mRelationshipStatus_Resigned :: forall r. RelationshipStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#%24bRelationshipStatus_Resigned"><span class="hs-identifier hs-var hs-var hs-var">RelationshipStatus_Resigned</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-identifier hs-type">RelationshipStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Resigned&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_AccountSuspended"><span class="hs-pragma hs-type">RelationshipStatus_AccountSuspended</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Created"><span class="hs-pragma hs-type">RelationshipStatus_Created</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_EmailVerificationFailed"><span class="hs-pragma hs-type">RelationshipStatus_EmailVerificationFailed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_EmailVerificationInProgress"><span class="hs-pragma hs-type">RelationshipStatus_EmailVerificationInProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Enabled"><span class="hs-pragma hs-type">RelationshipStatus_Enabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Invited"><span class="hs-pragma hs-type">RelationshipStatus_Invited</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Paused"><span class="hs-pragma hs-type">RelationshipStatus_Paused</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_RegionDisabled"><span class="hs-pragma hs-type">RelationshipStatus_RegionDisabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Removed"><span class="hs-pragma hs-type">RelationshipStatus_Removed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus_Resigned"><span class="hs-pragma hs-type">RelationshipStatus_Resigned</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.RelationshipStatus.html#RelationshipStatus%27"><span class="hs-pragma hs-type">RelationshipStatus'</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-114"></span></pre></body></html>

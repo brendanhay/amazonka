@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeyPair' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621681282393"><span id="local-6989586621681282394"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPair"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-var">DeleteKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPair%27"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-var">DeleteKeyPair'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621681282402"><span id="local-6989586621681282403"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPair"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-var">DeleteKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPair%27"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-var">DeleteKeyPair'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the key pair.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AkeyName%3ADeleteKeyPair%27"><span class="annot"><span class="annottext">DeleteKeyPair -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#%24sel%3AkeyName%3ADeleteKeyPair%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteKeyPair%27"><span class="annot"><span class="annottext">DeleteKeyPair -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#%24sel%3AdryRun%3ADeleteKeyPair%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282385"><span id="local-6989586621681282387"><span class="annot"><span class="annottext">DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282394"><span id="local-6989586621681282396"><span class="annot"><span class="annottext">DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
 (DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool)
 -&gt; (DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool) -&gt; Eq DeleteKeyPair
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
 == :: DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
 $c== :: DeleteKeyPair -&gt; DeleteKeyPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282376"><span id="local-6989586621681282378"><span id="local-6989586621681282380"><span id="local-6989586621681282382"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPair]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282385"><span id="local-6989586621681282387"><span id="local-6989586621681282389"><span id="local-6989586621681282391"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPair]
 ReadPrec DeleteKeyPair
 Int -&gt; ReadS DeleteKeyPair
 ReadS [DeleteKeyPair]
@@ -88,7 +88,7 @@ readList :: ReadS [DeleteKeyPair]
 $creadList :: ReadS [DeleteKeyPair]
 readsPrec :: Int -&gt; ReadS DeleteKeyPair
 $creadsPrec :: Int -&gt; ReadS DeleteKeyPair
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282369"><span id="local-6989586621681282371"><span id="local-6989586621681282373"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282378"><span id="local-6989586621681282380"><span id="local-6989586621681282382"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPair -&gt; ShowS
 [DeleteKeyPair] -&gt; ShowS
 DeleteKeyPair -&gt; String
 (Int -&gt; DeleteKeyPair -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; (DeleteKeyPair -&gt; Maybe Text -&gt; DeleteKeyPair)
 -&gt; Lens DeleteKeyPair DeleteKeyPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282362"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282371"><span class="annot"><span class="annottext">Maybe Text
 keyName :: Maybe Text
 $sel:keyName:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621681282362"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282362"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282361"><span class="annot"><span class="annottext">s :: DeleteKeyPair
-</span><a href="#local-6989586621681282361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282360"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
-</span><a href="#local-6989586621681282361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:DeleteKeyPair' :: Maybe Text
+</span><a href="#local-6989586621681282371"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282371"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282370"><span class="annot"><span class="annottext">s :: DeleteKeyPair
+</span><a href="#local-6989586621681282370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
+</span><a href="#local-6989586621681282370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:DeleteKeyPair' :: Maybe Text
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#%24sel%3AkeyName%3ADeleteKeyPair%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The ID of the key pair.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#deleteKeyPair_keyPairId"><span class="hs-identifier hs-type">deleteKeyPair_keyPairId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -175,16 +175,16 @@ $sel:keyName:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Text
 -&gt; (DeleteKeyPair -&gt; Maybe Text -&gt; DeleteKeyPair)
 -&gt; Lens DeleteKeyPair DeleteKeyPair (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282359"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282368"><span class="annot"><span class="annottext">Maybe Text
 keyPairId :: Maybe Text
 $sel:keyPairId:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621681282359"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282359"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282358"><span class="annot"><span class="annottext">s :: DeleteKeyPair
-</span><a href="#local-6989586621681282358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282357"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
-</span><a href="#local-6989586621681282358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:DeleteKeyPair' :: Maybe Text
+</span><a href="#local-6989586621681282368"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282368"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282367"><span class="annot"><span class="annottext">s :: DeleteKeyPair
+</span><a href="#local-6989586621681282367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282366"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681282366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
+</span><a href="#local-6989586621681282367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:DeleteKeyPair' :: Maybe Text
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#%24sel%3AkeyPairId%3ADeleteKeyPair%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -196,27 +196,27 @@ $sel:keyPairId:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Text
 -&gt; (DeleteKeyPair -&gt; Maybe Bool -&gt; DeleteKeyPair)
 -&gt; Lens DeleteKeyPair DeleteKeyPair (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282356"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282365"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Bool
-</span><a href="#local-6989586621681282356"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282356"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282355"><span class="annot"><span class="annottext">s :: DeleteKeyPair
-</span><a href="#local-6989586621681282355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282354"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
-</span><a href="#local-6989586621681282355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteKeyPair' :: Maybe Bool
+</span><a href="#local-6989586621681282365"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681282365"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681282364"><span class="annot"><span class="annottext">s :: DeleteKeyPair
+</span><a href="#local-6989586621681282364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681282363"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681282363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPair
+</span><a href="#local-6989586621681282364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteKeyPair' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#%24sel%3AdryRun%3ADeleteKeyPair%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681282363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621681282350"><span class="annot"><span class="annottext">request :: DeleteKeyPair -&gt; Request DeleteKeyPair
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621681282359"><span class="annot"><span class="annottext">request :: DeleteKeyPair -&gt; Request DeleteKeyPair
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteKeyPair -&gt; Request DeleteKeyPair
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621681282346"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681282355"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteKeyPair
 -&gt; ClientResponse ClientBody
@@ -240,12 +240,12 @@ AWSResponse a
 DeleteKeyPairResponse
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-var">DeleteKeyPairResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282339"><span id="local-6989586621681282341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282348"><span id="local-6989586621681282350"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282345"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621681282332"><span class="annot"><span class="annottext">toHeaders :: DeleteKeyPair -&gt; [Header]
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621681282341"><span class="annot"><span class="annottext">toHeaders :: DeleteKeyPair -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteKeyPair -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -253,15 +253,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681282327"><span class="annot"><span class="annottext">toPath :: DeleteKeyPair -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681282336"><span class="annot"><span class="annottext">toPath :: DeleteKeyPair -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteKeyPair -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair"><span class="hs-identifier hs-type">DeleteKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621681282323"><span class="annot"><span class="annottext">toQuery :: DeleteKeyPair -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282319"><span id="local-6989586621681282320"><span id="local-6989586621681282321"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681282332"><span class="annot"><span class="annottext">toQuery :: DeleteKeyPair -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPair%27"><span class="hs-identifier hs-type">DeleteKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681282328"><span id="local-6989586621681282329"><span id="local-6989586621681282330"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 dryRun :: Maybe Bool
 keyPairId :: Maybe Text
@@ -269,7 +269,7 @@ keyName :: Maybe Text
 $sel:dryRun:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Bool
 $sel:keyPairId:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Text
 $sel:keyName:DeleteKeyPair' :: DeleteKeyPair -&gt; Maybe Text
-</span><a href="#local-6989586621681282319"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681282328"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -289,24 +289,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;KeyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282321"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681282330"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;KeyPairId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681282320"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681282329"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681282319"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><a href="#local-6989586621681282328"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDeleteKeyPairResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621681282316"><span id="local-6989586621681282317"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPairResponse"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-var">DeleteKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPairResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-var">DeleteKeyPairResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621681282325"><span id="local-6989586621681282326"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteKeyPairResponse"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-var">DeleteKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteKeyPairResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-var">DeleteKeyPairResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282312"><span id="local-6989586621681282314"><span class="annot"><span class="annottext">DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681282321"><span id="local-6989586621681282323"><span class="annot"><span class="annottext">DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
 (DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool)
 -&gt; (DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool)
 -&gt; Eq DeleteKeyPairResponse
@@ -315,7 +315,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
 == :: DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
 $c== :: DeleteKeyPairResponse -&gt; DeleteKeyPairResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282304"><span id="local-6989586621681282306"><span id="local-6989586621681282308"><span id="local-6989586621681282310"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPairResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282313"><span id="local-6989586621681282315"><span id="local-6989586621681282317"><span id="local-6989586621681282319"><span class="annot"><span class="annottext">ReadPrec [DeleteKeyPairResponse]
 ReadPrec DeleteKeyPairResponse
 Int -&gt; ReadS DeleteKeyPairResponse
 ReadS [DeleteKeyPairResponse]
@@ -335,7 +335,7 @@ readList :: ReadS [DeleteKeyPairResponse]
 $creadList :: ReadS [DeleteKeyPairResponse]
 readsPrec :: Int -&gt; ReadS DeleteKeyPairResponse
 $creadsPrec :: Int -&gt; ReadS DeleteKeyPairResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282298"><span id="local-6989586621681282300"><span id="local-6989586621681282302"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPairResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681282307"><span id="local-6989586621681282309"><span id="local-6989586621681282311"><span class="annot"><span class="annottext">Int -&gt; DeleteKeyPairResponse -&gt; ShowS
 [DeleteKeyPairResponse] -&gt; ShowS
 DeleteKeyPairResponse -&gt; String
 (Int -&gt; DeleteKeyPairResponse -&gt; ShowS)
@@ -371,5 +371,5 @@ $cfrom :: forall x. DeleteKeyPairResponse -&gt; Rep DeleteKeyPairResponse x
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#newDeleteKeyPairResponse"><span class="hs-identifier hs-var hs-var">newDeleteKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteKeyPairResponse
 </span><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse%27"><span class="hs-identifier hs-var">DeleteKeyPairResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681282303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteKeyPair.html#DeleteKeyPairResponse"><span class="hs-identifier hs-type">DeleteKeyPairResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

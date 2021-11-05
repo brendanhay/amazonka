@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.ResourceStatus.html"><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.ResourceStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.Tag.html"><span class="hs-identifier">Network.AWS.NetworkFirewall.Types.Tag</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The high-level properties of a firewall policy. This, along with the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- FirewallPolicy, define the policy. You can retrieve all objects for a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- firewall policy by calling DescribeFirewallPolicy.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFirewallPolicyResponse' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679242869"><span id="local-6989586621679242870"></span></span><span class="hs-keyword">data</span><span> </span><span id="FirewallPolicyResponse"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-var">FirewallPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FirewallPolicyResponse%27"><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-var">FirewallPolicyResponse'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of capacity units currently consumed by the policy\'s</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- stateless rules.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconsumedStatelessRuleCapacity%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AconsumedStatelessRuleCapacity%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">consumedStatelessRuleCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The number of firewalls that are associated with this firewall policy.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnumberOfAssociations%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AnumberOfAssociations%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">numberOfAssociations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The current status of the firewall policy. You can retrieve this for a</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- firewall policy by calling DescribeFirewallPolicy and providing the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- firewall policy\'s name or ARN.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfirewallPolicyStatus%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Maybe ResourceStatus
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyStatus%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">firewallPolicyStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of capacity units currently consumed by the policy\'s</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- stateful rules.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AconsumedStatefulRuleCapacity%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AconsumedStatefulRuleCapacity%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">consumedStatefulRuleCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A description of the firewall policy.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3Adescription%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The key:value pairs to associate with the resource.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atags%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3Atags%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The descriptive name of the firewall policy. You can\'t change the name</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- of a firewall policy after you create it.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AfirewallPolicyName%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyName%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">firewallPolicyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall policy.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- If this response is for a create request that had @DryRun@ set to</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @TRUE@, then this ARN is a placeholder that isn\'t attached to a valid</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AfirewallPolicyArn%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyArn%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">firewallPolicyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the firewall policy.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AfirewallPolicyId%3AFirewallPolicyResponse%27"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyId%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var hs-var">firewallPolicyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242855"><span id="local-6989586621679242857"><span class="annot"><span class="annottext">FirewallPolicyResponse -&gt; FirewallPolicyResponse -&gt; Bool
+(FirewallPolicyResponse -&gt; FirewallPolicyResponse -&gt; Bool)
+-&gt; (FirewallPolicyResponse -&gt; FirewallPolicyResponse -&gt; Bool)
+-&gt; Eq FirewallPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FirewallPolicyResponse -&gt; FirewallPolicyResponse -&gt; Bool
+$c/= :: FirewallPolicyResponse -&gt; FirewallPolicyResponse -&gt; Bool
+== :: FirewallPolicyResponse -&gt; FirewallPolicyResponse -&gt; Bool
+$c== :: FirewallPolicyResponse -&gt; FirewallPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242846"><span id="local-6989586621679242848"><span id="local-6989586621679242850"><span id="local-6989586621679242852"><span class="annot"><span class="annottext">ReadPrec [FirewallPolicyResponse]
+ReadPrec FirewallPolicyResponse
+Int -&gt; ReadS FirewallPolicyResponse
+ReadS [FirewallPolicyResponse]
+(Int -&gt; ReadS FirewallPolicyResponse)
+-&gt; ReadS [FirewallPolicyResponse]
+-&gt; ReadPrec FirewallPolicyResponse
+-&gt; ReadPrec [FirewallPolicyResponse]
+-&gt; Read FirewallPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FirewallPolicyResponse]
+$creadListPrec :: ReadPrec [FirewallPolicyResponse]
+readPrec :: ReadPrec FirewallPolicyResponse
+$creadPrec :: ReadPrec FirewallPolicyResponse
+readList :: ReadS [FirewallPolicyResponse]
+$creadList :: ReadS [FirewallPolicyResponse]
+readsPrec :: Int -&gt; ReadS FirewallPolicyResponse
+$creadsPrec :: Int -&gt; ReadS FirewallPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242839"><span id="local-6989586621679242841"><span id="local-6989586621679242843"><span class="annot"><span class="annottext">Int -&gt; FirewallPolicyResponse -&gt; ShowS
+[FirewallPolicyResponse] -&gt; ShowS
+FirewallPolicyResponse -&gt; String
+(Int -&gt; FirewallPolicyResponse -&gt; ShowS)
+-&gt; (FirewallPolicyResponse -&gt; String)
+-&gt; ([FirewallPolicyResponse] -&gt; ShowS)
+-&gt; Show FirewallPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FirewallPolicyResponse] -&gt; ShowS
+$cshowList :: [FirewallPolicyResponse] -&gt; ShowS
+show :: FirewallPolicyResponse -&gt; String
+$cshow :: FirewallPolicyResponse -&gt; String
+showsPrec :: Int -&gt; FirewallPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; FirewallPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FirewallPolicyResponse -&gt; Rep FirewallPolicyResponse x)
+-&gt; (forall x.
+    Rep FirewallPolicyResponse x -&gt; FirewallPolicyResponse)
+-&gt; Generic FirewallPolicyResponse
+forall x. Rep FirewallPolicyResponse x -&gt; FirewallPolicyResponse
+forall x. FirewallPolicyResponse -&gt; Rep FirewallPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FirewallPolicyResponse x -&gt; FirewallPolicyResponse
+$cfrom :: forall x. FirewallPolicyResponse -&gt; Rep FirewallPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'FirewallPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'consumedStatelessRuleCapacity', 'firewallPolicyResponse_consumedStatelessRuleCapacity' - The number of capacity units currently consumed by the policy\'s</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- stateless rules.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'numberOfAssociations', 'firewallPolicyResponse_numberOfAssociations' - The number of firewalls that are associated with this firewall policy.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'firewallPolicyStatus', 'firewallPolicyResponse_firewallPolicyStatus' - The current status of the firewall policy. You can retrieve this for a</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- firewall policy by calling DescribeFirewallPolicy and providing the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- firewall policy\'s name or ARN.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'consumedStatefulRuleCapacity', 'firewallPolicyResponse_consumedStatefulRuleCapacity' - The number of capacity units currently consumed by the policy\'s</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- stateful rules.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'description', 'firewallPolicyResponse_description' - A description of the firewall policy.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'tags', 'firewallPolicyResponse_tags' - The key:value pairs to associate with the resource.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'firewallPolicyName', 'firewallPolicyResponse_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- of a firewall policy after you create it.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'firewallPolicyArn', 'firewallPolicyResponse_firewallPolicyArn' - The Amazon Resource Name (ARN) of the firewall policy.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- If this response is for a create request that had @DryRun@ set to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @TRUE@, then this ARN is a placeholder that isn\'t attached to a valid</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'firewallPolicyId', 'firewallPolicyResponse_firewallPolicyId' - The unique identifier for the firewall policy.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#newFirewallPolicyResponse"><span class="hs-identifier hs-type">newFirewallPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'firewallPolicyName'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-comment">-- | 'firewallPolicyArn'</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'firewallPolicyId'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span>
+</span><span id="line-106"></span><span id="newFirewallPolicyResponse"><span class="annot"><span class="annottext">newFirewallPolicyResponse :: Text -&gt; Text -&gt; Text -&gt; FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#newFirewallPolicyResponse"><span class="hs-identifier hs-var hs-var">newFirewallPolicyResponse</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679242833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242833"><span class="hs-identifier hs-var">pFirewallPolicyName_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679242832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242832"><span class="hs-identifier hs-var">pFirewallPolicyArn_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679242831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242831"><span class="hs-identifier hs-var">pFirewallPolicyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">FirewallPolicyResponse' :: Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe ResourceStatus
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:consumedStatelessRuleCapacity:FirewallPolicyResponse' :: Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AconsumedStatelessRuleCapacity%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">consumedStatelessRuleCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfAssociations:FirewallPolicyResponse' :: Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AnumberOfAssociations%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">numberOfAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:firewallPolicyStatus:FirewallPolicyResponse' :: Maybe ResourceStatus
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyStatus%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumedStatefulRuleCapacity:FirewallPolicyResponse' :: Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AconsumedStatefulRuleCapacity%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">consumedStatefulRuleCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:FirewallPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3Adescription%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:FirewallPolicyResponse' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3Atags%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:firewallPolicyName:FirewallPolicyResponse' :: Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyName%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242833"><span class="hs-identifier hs-var">pFirewallPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:firewallPolicyArn:FirewallPolicyResponse' :: Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyArn%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242832"><span class="hs-identifier hs-var">pFirewallPolicyArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:firewallPolicyId:FirewallPolicyResponse' :: Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyId%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242831"><span class="hs-identifier hs-var">pFirewallPolicyId_</span></a></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The number of capacity units currently consumed by the policy\'s</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- stateless rules.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_consumedStatelessRuleCapacity"><span class="hs-identifier hs-type">firewallPolicyResponse_consumedStatelessRuleCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="firewallPolicyResponse_consumedStatelessRuleCapacity"><span class="annot"><span class="annottext">firewallPolicyResponse_consumedStatelessRuleCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_consumedStatelessRuleCapacity"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_consumedStatelessRuleCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Maybe Int)
+-&gt; (FirewallPolicyResponse -&gt; Maybe Int -&gt; FirewallPolicyResponse)
+-&gt; Lens
+     FirewallPolicyResponse
+     FirewallPolicyResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242827"><span class="annot"><span class="annottext">Maybe Int
+consumedStatelessRuleCapacity :: Maybe Int
+$sel:consumedStatelessRuleCapacity:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679242827"><span class="hs-identifier hs-var hs-var">consumedStatelessRuleCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242827"><span class="hs-identifier hs-var">consumedStatelessRuleCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242826"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242825"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedStatelessRuleCapacity:FirewallPolicyResponse' :: Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AconsumedStatelessRuleCapacity%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">consumedStatelessRuleCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The number of firewalls that are associated with this firewall policy.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_numberOfAssociations"><span class="hs-identifier hs-type">firewallPolicyResponse_numberOfAssociations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="firewallPolicyResponse_numberOfAssociations"><span class="annot"><span class="annottext">firewallPolicyResponse_numberOfAssociations :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_numberOfAssociations"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_numberOfAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Maybe Int)
+-&gt; (FirewallPolicyResponse -&gt; Maybe Int -&gt; FirewallPolicyResponse)
+-&gt; Lens
+     FirewallPolicyResponse
+     FirewallPolicyResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242823"><span class="annot"><span class="annottext">Maybe Int
+numberOfAssociations :: Maybe Int
+$sel:numberOfAssociations:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679242823"><span class="hs-identifier hs-var hs-var">numberOfAssociations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242823"><span class="hs-identifier hs-var">numberOfAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242822"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242821"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfAssociations:FirewallPolicyResponse' :: Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AnumberOfAssociations%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">numberOfAssociations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The current status of the firewall policy. You can retrieve this for a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- firewall policy by calling DescribeFirewallPolicy and providing the</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- firewall policy\'s name or ARN.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyStatus"><span class="hs-identifier hs-type">firewallPolicyResponse_firewallPolicyStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="firewallPolicyResponse_firewallPolicyStatus"><span class="annot"><span class="annottext">firewallPolicyResponse_firewallPolicyStatus :: (Maybe ResourceStatus -&gt; f (Maybe ResourceStatus))
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyStatus"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_firewallPolicyStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Maybe ResourceStatus)
+-&gt; (FirewallPolicyResponse
+    -&gt; Maybe ResourceStatus -&gt; FirewallPolicyResponse)
+-&gt; Lens
+     FirewallPolicyResponse
+     FirewallPolicyResponse
+     (Maybe ResourceStatus)
+     (Maybe ResourceStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242819"><span class="annot"><span class="annottext">Maybe ResourceStatus
+firewallPolicyStatus :: Maybe ResourceStatus
+$sel:firewallPolicyStatus:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Maybe ResourceStatus
+</span><a href="#local-6989586621679242819"><span class="hs-identifier hs-var hs-var">firewallPolicyStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679242819"><span class="hs-identifier hs-var">firewallPolicyStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242818"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242817"><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679242817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallPolicyStatus:FirewallPolicyResponse' :: Maybe ResourceStatus
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyStatus%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceStatus
+</span><a href="#local-6989586621679242817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The number of capacity units currently consumed by the policy\'s</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- stateful rules.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_consumedStatefulRuleCapacity"><span class="hs-identifier hs-type">firewallPolicyResponse_consumedStatefulRuleCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="firewallPolicyResponse_consumedStatefulRuleCapacity"><span class="annot"><span class="annottext">firewallPolicyResponse_consumedStatefulRuleCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_consumedStatefulRuleCapacity"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_consumedStatefulRuleCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Maybe Int)
+-&gt; (FirewallPolicyResponse -&gt; Maybe Int -&gt; FirewallPolicyResponse)
+-&gt; Lens
+     FirewallPolicyResponse
+     FirewallPolicyResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242815"><span class="annot"><span class="annottext">Maybe Int
+consumedStatefulRuleCapacity :: Maybe Int
+$sel:consumedStatefulRuleCapacity:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679242815"><span class="hs-identifier hs-var hs-var">consumedStatefulRuleCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242815"><span class="hs-identifier hs-var">consumedStatefulRuleCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242814"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242813"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedStatefulRuleCapacity:FirewallPolicyResponse' :: Maybe Int
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AconsumedStatefulRuleCapacity%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">consumedStatefulRuleCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A description of the firewall policy.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_description"><span class="hs-identifier hs-type">firewallPolicyResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="firewallPolicyResponse_description"><span class="annot"><span class="annottext">firewallPolicyResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_description"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Maybe Text)
+-&gt; (FirewallPolicyResponse -&gt; Maybe Text -&gt; FirewallPolicyResponse)
+-&gt; Lens
+     FirewallPolicyResponse
+     FirewallPolicyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242811"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242811"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242811"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242810"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:FirewallPolicyResponse' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3Adescription%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The key:value pairs to associate with the resource.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_tags"><span class="hs-identifier hs-type">firewallPolicyResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="firewallPolicyResponse_tags"><span class="annot"><span class="annottext">firewallPolicyResponse_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_tags"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Maybe (NonEmpty Tag))
+-&gt; (FirewallPolicyResponse
+    -&gt; Maybe (NonEmpty Tag) -&gt; FirewallPolicyResponse)
+-&gt; Lens
+     FirewallPolicyResponse
+     FirewallPolicyResponse
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242807"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242807"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242807"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242806"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242805"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FirewallPolicyResponse' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3Atags%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; FirewallPolicyResponse
+-&gt; f FirewallPolicyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The descriptive name of the firewall policy. You can\'t change the name</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- of a firewall policy after you create it.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyName"><span class="hs-identifier hs-type">firewallPolicyResponse_firewallPolicyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-154"></span><span id="firewallPolicyResponse_firewallPolicyName"><span class="annot"><span class="annottext">firewallPolicyResponse_firewallPolicyName :: (Text -&gt; f Text)
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyName"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_firewallPolicyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Text)
+-&gt; (FirewallPolicyResponse -&gt; Text -&gt; FirewallPolicyResponse)
+-&gt; Lens FirewallPolicyResponse FirewallPolicyResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242800"><span class="annot"><span class="annottext">Text
+firewallPolicyName :: Text
+$sel:firewallPolicyName:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Text
+</span><a href="#local-6989586621679242800"><span class="hs-identifier hs-var hs-var">firewallPolicyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242800"><span class="hs-identifier hs-var">firewallPolicyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242799"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242798"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallPolicyName:FirewallPolicyResponse' :: Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyName%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall policy.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If this response is for a create request that had @DryRun@ set to</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @TRUE@, then this ARN is a placeholder that isn\'t attached to a valid</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyArn"><span class="hs-identifier hs-type">firewallPolicyResponse_firewallPolicyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="firewallPolicyResponse_firewallPolicyArn"><span class="annot"><span class="annottext">firewallPolicyResponse_firewallPolicyArn :: (Text -&gt; f Text)
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyArn"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_firewallPolicyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Text)
+-&gt; (FirewallPolicyResponse -&gt; Text -&gt; FirewallPolicyResponse)
+-&gt; Lens FirewallPolicyResponse FirewallPolicyResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242796"><span class="annot"><span class="annottext">Text
+firewallPolicyArn :: Text
+$sel:firewallPolicyArn:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Text
+</span><a href="#local-6989586621679242796"><span class="hs-identifier hs-var hs-var">firewallPolicyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242796"><span class="hs-identifier hs-var">firewallPolicyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242795"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242794"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallPolicyArn:FirewallPolicyResponse' :: Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyArn%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The unique identifier for the firewall policy.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyId"><span class="hs-identifier hs-type">firewallPolicyResponse_firewallPolicyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-166"></span><span id="firewallPolicyResponse_firewallPolicyId"><span class="annot"><span class="annottext">firewallPolicyResponse_firewallPolicyId :: (Text -&gt; f Text)
+-&gt; FirewallPolicyResponse -&gt; f FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#firewallPolicyResponse_firewallPolicyId"><span class="hs-identifier hs-var hs-var">firewallPolicyResponse_firewallPolicyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FirewallPolicyResponse -&gt; Text)
+-&gt; (FirewallPolicyResponse -&gt; Text -&gt; FirewallPolicyResponse)
+-&gt; Lens FirewallPolicyResponse FirewallPolicyResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242792"><span class="annot"><span class="annottext">Text
+firewallPolicyId :: Text
+$sel:firewallPolicyId:FirewallPolicyResponse' :: FirewallPolicyResponse -&gt; Text
+</span><a href="#local-6989586621679242792"><span class="hs-identifier hs-var hs-var">firewallPolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242792"><span class="hs-identifier hs-var">firewallPolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242791"><span class="annot"><span class="annottext">s :: FirewallPolicyResponse
+</span><a href="#local-6989586621679242791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-type">FirewallPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FirewallPolicyResponse
+</span><a href="#local-6989586621679242791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallPolicyId:FirewallPolicyResponse' :: Text
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#%24sel%3AfirewallPolicyId%3AFirewallPolicyResponse%27"><span class="hs-identifier hs-var">firewallPolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242787"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679242785"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FirewallPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FirewallPolicyResponse)
+-&gt; Value
+-&gt; Parser FirewallPolicyResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FirewallPolicyResponse&quot;</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242782"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe ResourceStatus
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; FirewallPolicyResponse
+</span><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse%27"><span class="hs-identifier hs-var">FirewallPolicyResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe ResourceStatus
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty Tag)
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; FirewallPolicyResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ResourceStatus
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumedStatelessRuleCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ResourceStatus
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; FirewallPolicyResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ResourceStatus
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumberOfAssociations&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ResourceStatus
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; FirewallPolicyResponse)
+-&gt; Parser (Maybe ResourceStatus)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallPolicyStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; FirewallPolicyResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumedStatefulRuleCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; FirewallPolicyResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty Tag)
+      -&gt; Text -&gt; Text -&gt; Text -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Tag)
+   -&gt; Text -&gt; Text -&gt; Text -&gt; FirewallPolicyResponse)
+-&gt; Parser (Maybe (NonEmpty Tag))
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Tag))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; FirewallPolicyResponse)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallPolicyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; FirewallPolicyResponse)
+-&gt; Parser Text -&gt; Parser (Text -&gt; FirewallPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallPolicyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; FirewallPolicyResponse)
+-&gt; Parser Text -&gt; Parser FirewallPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallPolicyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242775"><span id="local-6989586621679242777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallPolicyResponse.html#FirewallPolicyResponse"><span class="hs-identifier hs-type">FirewallPolicyResponse</span></a></span></span><span>
+</span><span id="line-188"></span></pre></body></html>

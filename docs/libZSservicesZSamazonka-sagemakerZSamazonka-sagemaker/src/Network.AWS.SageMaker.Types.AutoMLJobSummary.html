@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Provides a summary about an AutoML job.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAutoMLJobSummary' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680294061"><span id="local-6989586621680294062"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLJobSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-var">AutoMLJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-var">AutoMLJobSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680294070"><span id="local-6989586621680294071"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLJobSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-var">AutoMLJobSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLJobSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-var">AutoMLJobSummary'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The failure reason of an AutoML job.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfailureReason%3AAutoMLJobSummary%27"><span class="annot"><span class="annottext">AutoMLJobSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AfailureReason%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AAutoMLJobSummary%27"><span class="annot"><span class="annottext">AutoMLJobSummary -&gt; POSIX
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AlastModifiedTime%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680294047"><span id="local-6989586621680294049"><span class="annot"><span class="annottext">AutoMLJobSummary -&gt; AutoMLJobSummary -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680294056"><span id="local-6989586621680294058"><span class="annot"><span class="annottext">AutoMLJobSummary -&gt; AutoMLJobSummary -&gt; Bool
 (AutoMLJobSummary -&gt; AutoMLJobSummary -&gt; Bool)
 -&gt; (AutoMLJobSummary -&gt; AutoMLJobSummary -&gt; Bool)
 -&gt; Eq AutoMLJobSummary
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoMLJobSummary -&gt; AutoMLJobSummary -&gt; Bool
 == :: AutoMLJobSummary -&gt; AutoMLJobSummary -&gt; Bool
 $c== :: AutoMLJobSummary -&gt; AutoMLJobSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294038"><span id="local-6989586621680294040"><span id="local-6989586621680294042"><span id="local-6989586621680294044"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294047"><span id="local-6989586621680294049"><span id="local-6989586621680294051"><span id="local-6989586621680294053"><span class="annot"><span class="annottext">ReadPrec [AutoMLJobSummary]
 ReadPrec AutoMLJobSummary
 Int -&gt; ReadS AutoMLJobSummary
 ReadS [AutoMLJobSummary]
@@ -87,7 +87,7 @@ readList :: ReadS [AutoMLJobSummary]
 $creadList :: ReadS [AutoMLJobSummary]
 readsPrec :: Int -&gt; ReadS AutoMLJobSummary
 $creadsPrec :: Int -&gt; ReadS AutoMLJobSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294031"><span id="local-6989586621680294033"><span id="local-6989586621680294035"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294040"><span id="local-6989586621680294042"><span id="local-6989586621680294044"><span class="annot"><span class="annottext">Int -&gt; AutoMLJobSummary -&gt; ShowS
 [AutoMLJobSummary] -&gt; ShowS
 AutoMLJobSummary -&gt; String
 (Int -&gt; AutoMLJobSummary -&gt; ShowS)
@@ -160,18 +160,18 @@ $cfrom :: forall x. AutoMLJobSummary -&gt; Rep AutoMLJobSummary x
 -&gt; UTCTime
 -&gt; AutoMLJobSummary
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#newAutoMLJobSummary"><span class="hs-identifier hs-var hs-var">newAutoMLJobSummary</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621680294025"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680294025"><span class="hs-identifier hs-var">pAutoMLJobName_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621680294024"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680294024"><span class="hs-identifier hs-var">pAutoMLJobArn_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621680294023"><span class="annot"><span class="annottext">AutoMLJobStatus
-</span><a href="#local-6989586621680294023"><span class="hs-identifier hs-var">pAutoMLJobStatus_</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621680294022"><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
-</span><a href="#local-6989586621680294022"><span class="hs-identifier hs-var">pAutoMLJobSecondaryStatus_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680294021"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680294021"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680294020"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680294020"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621680294034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680294034"><span class="hs-identifier hs-var">pAutoMLJobName_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621680294033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680294033"><span class="hs-identifier hs-var">pAutoMLJobArn_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621680294032"><span class="annot"><span class="annottext">AutoMLJobStatus
+</span><a href="#local-6989586621680294032"><span class="hs-identifier hs-var">pAutoMLJobStatus_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621680294031"><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
+</span><a href="#local-6989586621680294031"><span class="hs-identifier hs-var">pAutoMLJobSecondaryStatus_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680294030"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680294030"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680294029"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680294029"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">AutoMLJobSummary' :: Maybe Text
 -&gt; Maybe (NonEmpty AutoMLPartialFailureReason)
 -&gt; Maybe POSIX
@@ -197,17 +197,17 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobName:AutoMLJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobName%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680294025"><span class="hs-identifier hs-var">pAutoMLJobName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680294034"><span class="hs-identifier hs-var">pAutoMLJobName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobArn:AutoMLJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobArn%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680294024"><span class="hs-identifier hs-var">pAutoMLJobArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680294033"><span class="hs-identifier hs-var">pAutoMLJobArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobStatus:AutoMLJobSummary' :: AutoMLJobStatus
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobStatus%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLJobStatus
-</span><a href="#local-6989586621680294023"><span class="hs-identifier hs-var">pAutoMLJobStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680294032"><span class="hs-identifier hs-var">pAutoMLJobStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoMLJobSecondaryStatus:AutoMLJobSummary' :: AutoMLJobSecondaryStatus
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobSecondaryStatus%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobSecondaryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
-</span><a href="#local-6989586621680294022"><span class="hs-identifier hs-var">pAutoMLJobSecondaryStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680294031"><span class="hs-identifier hs-var">pAutoMLJobSecondaryStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:AutoMLJobSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AcreationTime%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -216,7 +216,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680294021"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680294030"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:AutoMLJobSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AlastModifiedTime%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -226,7 +226,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680294020"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
+</span><a href="#local-6989586621680294029"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The failure reason of an AutoML job.</span><span>
@@ -237,16 +237,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (AutoMLJobSummary -&gt; Maybe Text -&gt; AutoMLJobSummary)
 -&gt; Lens AutoMLJobSummary AutoMLJobSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294014"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294023"><span class="annot"><span class="annottext">Maybe Text
 failureReason :: Maybe Text
 $sel:failureReason:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680294014"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680294014"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294013"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680294013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294012"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680294012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680294013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:AutoMLJobSummary' :: Maybe Text
+</span><a href="#local-6989586621680294023"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680294023"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294022"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680294022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294021"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680294021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680294022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:AutoMLJobSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AfailureReason%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680294012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680294021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The list of reasons for partial failures within an AutoML job.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#autoMLJobSummary_partialFailureReasons"><span class="hs-identifier hs-type">autoMLJobSummary_partialFailureReasons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLPartialFailureReason.html#AutoMLPartialFailureReason"><span class="hs-identifier hs-type">AutoMLPartialFailureReason</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -262,16 +262,16 @@ $sel:failureReason:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Maybe Text
      (Maybe (NonEmpty AutoMLPartialFailureReason))
      (Maybe (NonEmpty AutoMLPartialFailureReason))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294010"><span class="annot"><span class="annottext">Maybe (NonEmpty AutoMLPartialFailureReason)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294019"><span class="annot"><span class="annottext">Maybe (NonEmpty AutoMLPartialFailureReason)
 partialFailureReasons :: Maybe (NonEmpty AutoMLPartialFailureReason)
 $sel:partialFailureReasons:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Maybe (NonEmpty AutoMLPartialFailureReason)
-</span><a href="#local-6989586621680294010"><span class="hs-identifier hs-var hs-var">partialFailureReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AutoMLPartialFailureReason)
-</span><a href="#local-6989586621680294010"><span class="hs-identifier hs-var">partialFailureReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294009"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680294009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294008"><span class="annot"><span class="annottext">Maybe (NonEmpty AutoMLPartialFailureReason)
-</span><a href="#local-6989586621680294008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680294009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partialFailureReasons:AutoMLJobSummary' :: Maybe (NonEmpty AutoMLPartialFailureReason)
+</span><a href="#local-6989586621680294019"><span class="hs-identifier hs-var hs-var">partialFailureReasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AutoMLPartialFailureReason)
+</span><a href="#local-6989586621680294019"><span class="hs-identifier hs-var">partialFailureReasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294018"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680294018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294017"><span class="annot"><span class="annottext">Maybe (NonEmpty AutoMLPartialFailureReason)
+</span><a href="#local-6989586621680294017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680294018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partialFailureReasons:AutoMLJobSummary' :: Maybe (NonEmpty AutoMLPartialFailureReason)
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3ApartialFailureReasons%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">partialFailureReasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty AutoMLPartialFailureReason)
-</span><a href="#local-6989586621680294008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AutoMLPartialFailureReason)
+</span><a href="#local-6989586621680294017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty AutoMLPartialFailureReason)
   -&gt; f (Maybe (NonEmpty AutoMLPartialFailureReason)))
  -&gt; AutoMLJobSummary -&gt; f AutoMLJobSummary)
 -&gt; ((Maybe (NonEmpty AutoMLPartialFailureReason)
@@ -313,16 +313,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      AutoMLJobSummary AutoMLJobSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294003"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294012"><span class="annot"><span class="annottext">Maybe POSIX
 endTime :: Maybe POSIX
 $sel:endTime:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680294003"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680294003"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294002"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680294002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294001"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680294001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680294002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:AutoMLJobSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680294012"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680294012"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294011"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680294011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294010"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680294010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680294011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:AutoMLJobSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AendTime%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680294001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680294010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AutoMLJobSummary -&gt; f AutoMLJobSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -346,16 +346,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (AutoMLJobSummary -&gt; Text -&gt; AutoMLJobSummary)
 -&gt; Lens AutoMLJobSummary AutoMLJobSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293999"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294008"><span class="annot"><span class="annottext">Text
 autoMLJobName :: Text
 $sel:autoMLJobName:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Text
-</span><a href="#local-6989586621680293999"><span class="hs-identifier hs-var hs-var">autoMLJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680293999"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293998"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680293998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293997"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680293997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680293998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobName:AutoMLJobSummary' :: Text
+</span><a href="#local-6989586621680294008"><span class="hs-identifier hs-var hs-var">autoMLJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680294008"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294007"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680294007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294006"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680294006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680294007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobName:AutoMLJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobName%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680293997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680294006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The ARN of the AutoML job.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#autoMLJobSummary_autoMLJobArn"><span class="hs-identifier hs-type">autoMLJobSummary_autoMLJobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -364,16 +364,16 @@ $sel:autoMLJobName:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Text
 -&gt; (AutoMLJobSummary -&gt; Text -&gt; AutoMLJobSummary)
 -&gt; Lens AutoMLJobSummary AutoMLJobSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293995"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294004"><span class="annot"><span class="annottext">Text
 autoMLJobArn :: Text
 $sel:autoMLJobArn:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Text
-</span><a href="#local-6989586621680293995"><span class="hs-identifier hs-var hs-var">autoMLJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680293995"><span class="hs-identifier hs-var">autoMLJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293994"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680293994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293993"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680293993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680293994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobArn:AutoMLJobSummary' :: Text
+</span><a href="#local-6989586621680294004"><span class="hs-identifier hs-var hs-var">autoMLJobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680294004"><span class="hs-identifier hs-var">autoMLJobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294003"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680294003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294002"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680294002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680294003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobArn:AutoMLJobSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobArn%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680293993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680294002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The status of the AutoML job.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#autoMLJobSummary_autoMLJobStatus"><span class="hs-identifier hs-type">autoMLJobSummary_autoMLJobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobStatus.html#AutoMLJobStatus"><span class="hs-identifier hs-type">AutoMLJobStatus</span></a></span><span>
@@ -384,16 +384,16 @@ $sel:autoMLJobArn:AutoMLJobSummary' :: AutoMLJobSummary -&gt; Text
 -&gt; Lens
      AutoMLJobSummary AutoMLJobSummary AutoMLJobStatus AutoMLJobStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293991"><span class="annot"><span class="annottext">AutoMLJobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294000"><span class="annot"><span class="annottext">AutoMLJobStatus
 autoMLJobStatus :: AutoMLJobStatus
 $sel:autoMLJobStatus:AutoMLJobSummary' :: AutoMLJobSummary -&gt; AutoMLJobStatus
-</span><a href="#local-6989586621680293991"><span class="hs-identifier hs-var hs-var">autoMLJobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobStatus
-</span><a href="#local-6989586621680293991"><span class="hs-identifier hs-var">autoMLJobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293990"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680293990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293989"><span class="annot"><span class="annottext">AutoMLJobStatus
-</span><a href="#local-6989586621680293989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680293990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobStatus:AutoMLJobSummary' :: AutoMLJobStatus
+</span><a href="#local-6989586621680294000"><span class="hs-identifier hs-var hs-var">autoMLJobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobStatus
+</span><a href="#local-6989586621680294000"><span class="hs-identifier hs-var">autoMLJobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293999"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680293999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293998"><span class="annot"><span class="annottext">AutoMLJobStatus
+</span><a href="#local-6989586621680293998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680293999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobStatus:AutoMLJobSummary' :: AutoMLJobStatus
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobStatus%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLJobStatus
-</span><a href="#local-6989586621680293989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680293998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The secondary status of the AutoML job.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#autoMLJobSummary_autoMLJobSecondaryStatus"><span class="hs-identifier hs-type">autoMLJobSummary_autoMLJobSecondaryStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSecondaryStatus.html#AutoMLJobSecondaryStatus"><span class="hs-identifier hs-type">AutoMLJobSecondaryStatus</span></a></span><span>
@@ -408,16 +408,16 @@ $sel:autoMLJobStatus:AutoMLJobSummary' :: AutoMLJobSummary -&gt; AutoMLJobStatus
      AutoMLJobSecondaryStatus
      AutoMLJobSecondaryStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293987"><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293996"><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
 autoMLJobSecondaryStatus :: AutoMLJobSecondaryStatus
 $sel:autoMLJobSecondaryStatus:AutoMLJobSummary' :: AutoMLJobSummary -&gt; AutoMLJobSecondaryStatus
-</span><a href="#local-6989586621680293987"><span class="hs-identifier hs-var hs-var">autoMLJobSecondaryStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
-</span><a href="#local-6989586621680293987"><span class="hs-identifier hs-var">autoMLJobSecondaryStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293986"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680293986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293985"><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
-</span><a href="#local-6989586621680293985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680293986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobSecondaryStatus:AutoMLJobSummary' :: AutoMLJobSecondaryStatus
+</span><a href="#local-6989586621680293996"><span class="hs-identifier hs-var hs-var">autoMLJobSecondaryStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
+</span><a href="#local-6989586621680293996"><span class="hs-identifier hs-var">autoMLJobSecondaryStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293995"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680293995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293994"><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
+</span><a href="#local-6989586621680293994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680293995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoMLJobSecondaryStatus:AutoMLJobSummary' :: AutoMLJobSecondaryStatus
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AautoMLJobSecondaryStatus%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">autoMLJobSecondaryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSecondaryStatus
-</span><a href="#local-6989586621680293985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680293994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | When the AutoML job was created.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#autoMLJobSummary_creationTime"><span class="hs-identifier hs-type">autoMLJobSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -426,16 +426,16 @@ $sel:autoMLJobSecondaryStatus:AutoMLJobSummary' :: AutoMLJobSummary -&gt; AutoML
 -&gt; (AutoMLJobSummary -&gt; POSIX -&gt; AutoMLJobSummary)
 -&gt; Lens AutoMLJobSummary AutoMLJobSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293983"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293992"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:AutoMLJobSummary' :: AutoMLJobSummary -&gt; POSIX
-</span><a href="#local-6989586621680293983"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680293983"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293982"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680293982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293981"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680293981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680293982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:AutoMLJobSummary' :: POSIX
+</span><a href="#local-6989586621680293992"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680293992"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293991"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680293991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293990"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680293990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680293991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:AutoMLJobSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AcreationTime%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680293981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AutoMLJobSummary -&gt; f AutoMLJobSummary)
+</span><a href="#local-6989586621680293990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AutoMLJobSummary -&gt; f AutoMLJobSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; AutoMLJobSummary
@@ -452,16 +452,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (AutoMLJobSummary -&gt; POSIX -&gt; AutoMLJobSummary)
 -&gt; Lens AutoMLJobSummary AutoMLJobSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293979"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680293988"><span class="annot"><span class="annottext">POSIX
 lastModifiedTime :: POSIX
 $sel:lastModifiedTime:AutoMLJobSummary' :: AutoMLJobSummary -&gt; POSIX
-</span><a href="#local-6989586621680293979"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680293979"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293978"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
-</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293977"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680293977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
-</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:AutoMLJobSummary' :: POSIX
+</span><a href="#local-6989586621680293988"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680293988"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680293987"><span class="annot"><span class="annottext">s :: AutoMLJobSummary
+</span><a href="#local-6989586621680293987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary%27"><span class="hs-identifier hs-type">AutoMLJobSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680293986"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680293986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLJobSummary
+</span><a href="#local-6989586621680293987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:AutoMLJobSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#%24sel%3AlastModifiedTime%3AAutoMLJobSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680293977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AutoMLJobSummary -&gt; f AutoMLJobSummary)
+</span><a href="#local-6989586621680293986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AutoMLJobSummary -&gt; f AutoMLJobSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; AutoMLJobSummary
@@ -471,8 +471,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293974"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621680293972"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLJobSummary
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293983"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621680293981"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLJobSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoMLJobSummary)
@@ -482,8 +482,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoMLJobSummary&quot;</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680293969"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680293978"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (NonEmpty AutoMLPartialFailureReason)
 -&gt; Maybe POSIX
@@ -518,7 +518,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
@@ -544,7 +544,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (NonEmpty AutoMLPartialFailureReason))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -569,7 +569,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -591,7 +591,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoMLJobName&quot;</span></span><span class="hs-special">)</span><span>
@@ -608,7 +608,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; AutoMLJobSecondaryStatus -&gt; POSIX -&gt; POSIX -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoMLJobArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -620,7 +620,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (AutoMLJobSecondaryStatus -&gt; POSIX -&gt; POSIX -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLJobStatus
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLJobStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoMLJobStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -630,7 +630,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; POSIX -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLJobSecondaryStatus
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLJobSecondaryStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoMLJobSecondaryStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -638,7 +638,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser (POSIX -&gt; AutoMLJobSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -646,13 +646,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser AutoMLJobSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680293969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680293978"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293962"><span id="local-6989586621680293964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293971"><span id="local-6989586621680293973"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680293968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLJobSummary.html#AutoMLJobSummary"><span class="hs-identifier hs-type">AutoMLJobSummary</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

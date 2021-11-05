@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetJobs' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679727179"><span id="local-6989586621679727180"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobs"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-var">GetJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobs%27"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-var">GetJobs'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679727188"><span id="local-6989586621679727189"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobs"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-var">GetJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobs%27"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-var">GetJobs'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation call.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AGetJobs%27"><span class="annot"><span class="annottext">GetJobs -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AnextToken%3AGetJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetJobs%27"><span class="annot"><span class="annottext">GetJobs -&gt; Maybe Natural
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AmaxResults%3AGetJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727172"><span id="local-6989586621679727174"><span class="annot"><span class="annottext">GetJobs -&gt; GetJobs -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727181"><span id="local-6989586621679727183"><span class="annot"><span class="annottext">GetJobs -&gt; GetJobs -&gt; Bool
 (GetJobs -&gt; GetJobs -&gt; Bool)
 -&gt; (GetJobs -&gt; GetJobs -&gt; Bool) -&gt; Eq GetJobs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobs -&gt; GetJobs -&gt; Bool
 == :: GetJobs -&gt; GetJobs -&gt; Bool
 $c== :: GetJobs -&gt; GetJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727163"><span id="local-6989586621679727165"><span id="local-6989586621679727167"><span id="local-6989586621679727169"><span class="annot"><span class="annottext">ReadPrec [GetJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727172"><span id="local-6989586621679727174"><span id="local-6989586621679727176"><span id="local-6989586621679727178"><span class="annot"><span class="annottext">ReadPrec [GetJobs]
 ReadPrec GetJobs
 Int -&gt; ReadS GetJobs
 ReadS [GetJobs]
@@ -87,7 +87,7 @@ readList :: ReadS [GetJobs]
 $creadList :: ReadS [GetJobs]
 readsPrec :: Int -&gt; ReadS GetJobs
 $creadsPrec :: Int -&gt; ReadS GetJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727156"><span id="local-6989586621679727158"><span id="local-6989586621679727160"><span class="annot"><span class="annottext">Int -&gt; GetJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727165"><span id="local-6989586621679727167"><span id="local-6989586621679727169"><span class="annot"><span class="annottext">Int -&gt; GetJobs -&gt; ShowS
 [GetJobs] -&gt; ShowS
 GetJobs -&gt; String
 (Int -&gt; GetJobs -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
 -&gt; (GetJobs -&gt; Maybe Text -&gt; GetJobs)
 -&gt; Lens GetJobs GetJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727150"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727159"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetJobs' :: GetJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679727150"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727150"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727149"><span class="annot"><span class="annottext">s :: GetJobs
-</span><a href="#local-6989586621679727149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727148"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobs
-</span><a href="#local-6989586621679727149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetJobs' :: Maybe Text
+</span><a href="#local-6989586621679727159"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679727159"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727158"><span class="annot"><span class="annottext">s :: GetJobs
+</span><a href="#local-6989586621679727158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679727157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobs
+</span><a href="#local-6989586621679727158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetJobs' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AnextToken%3AGetJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679727157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The maximum size of the response.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#getJobs_maxResults"><span class="hs-identifier hs-type">getJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -162,28 +162,28 @@ $sel:nextToken:GetJobs' :: GetJobs -&gt; Maybe Text
 -&gt; (GetJobs -&gt; Maybe Natural -&gt; GetJobs)
 -&gt; Lens GetJobs GetJobs (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727147"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727156"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetJobs' :: GetJobs -&gt; Maybe Natural
-</span><a href="#local-6989586621679727147"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679727147"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727146"><span class="annot"><span class="annottext">s :: GetJobs
-</span><a href="#local-6989586621679727146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727145"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679727145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobs
-</span><a href="#local-6989586621679727146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetJobs' :: Maybe Natural
+</span><a href="#local-6989586621679727156"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679727156"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727155"><span class="annot"><span class="annottext">s :: GetJobs
+</span><a href="#local-6989586621679727155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727154"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679727154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobs
+</span><a href="#local-6989586621679727155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetJobs' :: Maybe Natural
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AmaxResults%3AGetJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679727145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679727154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679727141"><span class="annot"><span class="annottext">page :: GetJobs -&gt; AWSResponse GetJobs -&gt; Maybe GetJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679727139"><span class="annot"><span class="annottext">GetJobs
-</span><a href="#local-6989586621679727139"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679727138"><span class="annot"><span class="annottext">AWSResponse GetJobs
-</span><a href="#local-6989586621679727138"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679727150"><span class="annot"><span class="annottext">page :: GetJobs -&gt; AWSResponse GetJobs -&gt; Maybe GetJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679727148"><span class="annot"><span class="annottext">GetJobs
+</span><a href="#local-6989586621679727148"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679727147"><span class="annot"><span class="annottext">AWSResponse GetJobs
+</span><a href="#local-6989586621679727147"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-92"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetJobs
 GetJobsResponse
-</span><a href="#local-6989586621679727138"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679727147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">GetJobsResponse
 -&gt; Getting (First Text) GetJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -209,7 +209,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetJobs
 GetJobsResponse
-</span><a href="#local-6989586621679727138"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679727147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">GetJobsResponse
 -&gt; Getting (First [Job]) GetJobsResponse [Job] -&gt; Maybe [Job]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -238,7 +238,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">GetJobs
-</span><a href="#local-6989586621679727139"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679727148"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">GetJobs -&gt; (GetJobs -&gt; GetJobs) -&gt; GetJobs
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -251,7 +251,7 @@ Lens GetJobs GetJobs (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetJobs
 GetJobsResponse
-</span><a href="#local-6989586621679727138"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679727147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">GetJobsResponse
 -&gt; Getting (First Text) GetJobsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -271,12 +271,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679727128"><span class="annot"><span class="annottext">request :: GetJobs -&gt; Request GetJobs
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679727137"><span class="annot"><span class="annottext">request :: GetJobs -&gt; Request GetJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetJobs -&gt; Request GetJobs
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679727124"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679727133"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetJobs
 -&gt; ClientResponse ClientBody
@@ -300,10 +300,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679727121"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727121"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679727120"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679727120"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679727119"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679727130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679727129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679727129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679727128"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679727128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Job] -&gt; Int -&gt; GetJobsResponse
 </span><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-var">GetJobsResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Job] -&gt; Int -&gt; GetJobsResponse)
@@ -311,7 +311,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Job] -&gt; Int -&gt; GetJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679727128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,7 +320,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetJobsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679727119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Job]))
+</span><a href="#local-6989586621679727128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Job]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Jobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Job]))
@@ -337,15 +337,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727121"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679727130"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727110"><span id="local-6989586621679727112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727119"><span id="local-6989586621679727121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679727103"><span class="annot"><span class="annottext">toHeaders :: GetJobs -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679727112"><span class="annot"><span class="annottext">toHeaders :: GetJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -370,15 +370,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727093"><span id="local-6989586621679727095"><span id="local-6989586621679727097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679727091"><span class="annot"><span class="annottext">toJSON :: GetJobs -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727088"><span id="local-6989586621679727089"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727102"><span id="local-6989586621679727104"><span id="local-6989586621679727106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679727100"><span class="annot"><span class="annottext">toJSON :: GetJobs -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs%27"><span class="hs-identifier hs-type">GetJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727097"><span id="local-6989586621679727098"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:GetJobs' :: GetJobs -&gt; Maybe Natural
 $sel:nextToken:GetJobs' :: GetJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679727088"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679727097"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -390,26 +390,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727089"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679727098"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679727088"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679727097"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679727082"><span class="annot"><span class="annottext">toPath :: GetJobs -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679727091"><span class="annot"><span class="annottext">toPath :: GetJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobs"><span class="hs-identifier hs-type">GetJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679727078"><span class="annot"><span class="annottext">toQuery :: GetJobs -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679727087"><span class="annot"><span class="annottext">toQuery :: GetJobs -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJobs -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -417,7 +417,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | /See:/ 'newGetJobsResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679727075"><span id="local-6989586621679727076"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobsResponse"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-var">GetJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-var">GetJobsResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679727084"><span id="local-6989586621679727085"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobsResponse"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-var">GetJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobsResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-var">GetJobsResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if not all job definitions have yet been returned.</span><span>
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AnextToken%3AGetJobsResponse%27"><span class="annot"><span class="annottext">GetJobsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AnextToken%3AGetJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -428,7 +428,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJobsResponse%27"><span class="annot"><span class="annottext">GetJobsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AhttpStatus%3AGetJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727068"><span id="local-6989586621679727070"><span class="annot"><span class="annottext">GetJobsResponse -&gt; GetJobsResponse -&gt; Bool
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679727077"><span id="local-6989586621679727079"><span class="annot"><span class="annottext">GetJobsResponse -&gt; GetJobsResponse -&gt; Bool
 (GetJobsResponse -&gt; GetJobsResponse -&gt; Bool)
 -&gt; (GetJobsResponse -&gt; GetJobsResponse -&gt; Bool)
 -&gt; Eq GetJobsResponse
@@ -437,7 +437,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobsResponse -&gt; GetJobsResponse -&gt; Bool
 == :: GetJobsResponse -&gt; GetJobsResponse -&gt; Bool
 $c== :: GetJobsResponse -&gt; GetJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727060"><span id="local-6989586621679727062"><span id="local-6989586621679727064"><span id="local-6989586621679727066"><span class="annot"><span class="annottext">ReadPrec [GetJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727069"><span id="local-6989586621679727071"><span id="local-6989586621679727073"><span id="local-6989586621679727075"><span class="annot"><span class="annottext">ReadPrec [GetJobsResponse]
 ReadPrec GetJobsResponse
 Int -&gt; ReadS GetJobsResponse
 ReadS [GetJobsResponse]
@@ -457,7 +457,7 @@ readList :: ReadS [GetJobsResponse]
 $creadList :: ReadS [GetJobsResponse]
 readsPrec :: Int -&gt; ReadS GetJobsResponse
 $creadsPrec :: Int -&gt; ReadS GetJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727054"><span id="local-6989586621679727056"><span id="local-6989586621679727058"><span class="annot"><span class="annottext">Int -&gt; GetJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679727063"><span id="local-6989586621679727065"><span id="local-6989586621679727067"><span class="annot"><span class="annottext">Int -&gt; GetJobsResponse -&gt; ShowS
 [GetJobsResponse] -&gt; ShowS
 GetJobsResponse -&gt; String
 (Int -&gt; GetJobsResponse -&gt; ShowS)
@@ -501,8 +501,8 @@ $cfrom :: forall x. GetJobsResponse -&gt; Rep GetJobsResponse x
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newGetJobsResponse"><span class="annot"><span class="annottext">newGetJobsResponse :: Int -&gt; GetJobsResponse
-</span><a href="Network.AWS.Glue.GetJobs.html#newGetJobsResponse"><span class="hs-identifier hs-var hs-var">newGetJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679727051"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetJobs.html#newGetJobsResponse"><span class="hs-identifier hs-var hs-var">newGetJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679727060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">GetJobsResponse' :: Maybe Text -&gt; Maybe [Job] -&gt; Int -&gt; GetJobsResponse
 </span><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetJobsResponse' :: Maybe Text
@@ -515,7 +515,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AhttpStatus%3AGetJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679727060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | A continuation token, if not all job definitions have yet been returned.</span><span>
@@ -526,16 +526,16 @@ forall a. Maybe a
 -&gt; (GetJobsResponse -&gt; Maybe Text -&gt; GetJobsResponse)
 -&gt; Lens' GetJobsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727050"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727059"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetJobsResponse' :: GetJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679727050"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727050"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727049"><span class="annot"><span class="annottext">s :: GetJobsResponse
-</span><a href="#local-6989586621679727049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobsResponse
-</span><a href="#local-6989586621679727049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetJobsResponse' :: Maybe Text
+</span><a href="#local-6989586621679727059"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679727059"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727058"><span class="annot"><span class="annottext">s :: GetJobsResponse
+</span><a href="#local-6989586621679727058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679727057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobsResponse
+</span><a href="#local-6989586621679727058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetJobsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AnextToken%3AGetJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679727048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679727057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | A list of job definitions.</span><span>
 </span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#getJobsResponse_jobs"><span class="hs-identifier hs-type">getJobsResponse_jobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -545,16 +545,16 @@ $sel:nextToken:GetJobsResponse' :: GetJobsResponse -&gt; Maybe Text
 -&gt; (GetJobsResponse -&gt; Maybe [Job] -&gt; GetJobsResponse)
 -&gt; Lens' GetJobsResponse (Maybe [Job])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727047"><span class="annot"><span class="annottext">Maybe [Job]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727056"><span class="annot"><span class="annottext">Maybe [Job]
 jobs :: Maybe [Job]
 $sel:jobs:GetJobsResponse' :: GetJobsResponse -&gt; Maybe [Job]
-</span><a href="#local-6989586621679727047"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679727047"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727046"><span class="annot"><span class="annottext">s :: GetJobsResponse
-</span><a href="#local-6989586621679727046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727045"><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679727045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobsResponse
-</span><a href="#local-6989586621679727046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:GetJobsResponse' :: Maybe [Job]
+</span><a href="#local-6989586621679727056"><span class="hs-identifier hs-var hs-var">jobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
+</span><a href="#local-6989586621679727056"><span class="hs-identifier hs-var">jobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727055"><span class="annot"><span class="annottext">s :: GetJobsResponse
+</span><a href="#local-6989586621679727055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727054"><span class="annot"><span class="annottext">Maybe [Job]
+</span><a href="#local-6989586621679727054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobsResponse
+</span><a href="#local-6989586621679727055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobs:GetJobsResponse' :: Maybe [Job]
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3Ajobs%3AGetJobsResponse%27"><span class="hs-identifier hs-var">jobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Job]
-</span><a href="#local-6989586621679727045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Job] -&gt; f (Maybe [Job]))
+</span><a href="#local-6989586621679727054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Job] -&gt; f (Maybe [Job]))
  -&gt; GetJobsResponse -&gt; f GetJobsResponse)
 -&gt; ((Maybe [Job] -&gt; f (Maybe [Job]))
     -&gt; Maybe [Job] -&gt; f (Maybe [Job]))
@@ -578,16 +578,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetJobsResponse -&gt; Int -&gt; GetJobsResponse)
 -&gt; Lens GetJobsResponse GetJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727042"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679727051"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetJobsResponse' :: GetJobsResponse -&gt; Int
-</span><a href="#local-6989586621679727042"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727042"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727041"><span class="annot"><span class="annottext">s :: GetJobsResponse
-</span><a href="#local-6989586621679727041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727040"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobsResponse
-</span><a href="#local-6989586621679727041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobsResponse' :: Int
+</span><a href="#local-6989586621679727051"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727051"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679727050"><span class="annot"><span class="annottext">s :: GetJobsResponse
+</span><a href="#local-6989586621679727050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse%27"><span class="hs-identifier hs-type">GetJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679727049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679727049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobsResponse
+</span><a href="#local-6989586621679727050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobsResponse' :: Int
 </span><a href="Network.AWS.Glue.GetJobs.html#%24sel%3AhttpStatus%3AGetJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679727040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679727049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727038"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679727047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetJobs.html#GetJobsResponse"><span class="hs-identifier hs-type">GetJobsResponse</span></a></span></span><span>
 </span><span id="line-200"></span></pre></body></html>

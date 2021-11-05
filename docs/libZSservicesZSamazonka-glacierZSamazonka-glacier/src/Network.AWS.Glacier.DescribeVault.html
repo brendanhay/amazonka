@@ -77,7 +77,7 @@
 </span><span id="line-77"></span><span class="hs-comment">-- Glacier.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- /See:/ 'newDescribeVault' smart constructor.</span><span>
-</span><span id="line-80"></span><span id="local-6989586621679224354"><span id="local-6989586621679224355"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVault"><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-var">DescribeVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVault%27"><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-var">DescribeVault'</span></a></span></span><span>
+</span><span id="line-80"></span><span id="local-6989586621679224363"><span id="local-6989586621679224364"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVault"><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-var">DescribeVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVault%27"><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-var">DescribeVault'</span></a></span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
@@ -89,7 +89,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AvaultName%3ADescribeVault%27"><span class="annot"><span class="annottext">DescribeVault -&gt; Text
 </span><a href="Network.AWS.Glacier.DescribeVault.html#%24sel%3AvaultName%3ADescribeVault%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224347"><span id="local-6989586621679224349"><span class="annot"><span class="annottext">DescribeVault -&gt; DescribeVault -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224356"><span id="local-6989586621679224358"><span class="annot"><span class="annottext">DescribeVault -&gt; DescribeVault -&gt; Bool
 (DescribeVault -&gt; DescribeVault -&gt; Bool)
 -&gt; (DescribeVault -&gt; DescribeVault -&gt; Bool) -&gt; Eq DescribeVault
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeVault -&gt; DescribeVault -&gt; Bool
 == :: DescribeVault -&gt; DescribeVault -&gt; Bool
 $c== :: DescribeVault -&gt; DescribeVault -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224338"><span id="local-6989586621679224340"><span id="local-6989586621679224342"><span id="local-6989586621679224344"><span class="annot"><span class="annottext">ReadPrec [DescribeVault]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224347"><span id="local-6989586621679224349"><span id="local-6989586621679224351"><span id="local-6989586621679224353"><span class="annot"><span class="annottext">ReadPrec [DescribeVault]
 ReadPrec DescribeVault
 Int -&gt; ReadS DescribeVault
 ReadS [DescribeVault]
@@ -117,7 +117,7 @@ readList :: ReadS [DescribeVault]
 $creadList :: ReadS [DescribeVault]
 readsPrec :: Int -&gt; ReadS DescribeVault
 $creadsPrec :: Int -&gt; ReadS DescribeVault
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224331"><span id="local-6989586621679224333"><span id="local-6989586621679224335"><span class="annot"><span class="annottext">Int -&gt; DescribeVault -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224340"><span id="local-6989586621679224342"><span id="local-6989586621679224344"><span class="annot"><span class="annottext">Int -&gt; DescribeVault -&gt; ShowS
 [DescribeVault] -&gt; ShowS
 DescribeVault -&gt; String
 (Int -&gt; DescribeVault -&gt; ShowS)
@@ -165,17 +165,17 @@ $cfrom :: forall x. DescribeVault -&gt; Rep DescribeVault x
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span>
 </span><span id="line-113"></span><span id="newDescribeVault"><span class="annot"><span class="annottext">newDescribeVault :: Text -&gt; Text -&gt; DescribeVault
-</span><a href="Network.AWS.Glacier.DescribeVault.html#newDescribeVault"><span class="hs-identifier hs-var hs-var">newDescribeVault</span></a></span></span><span> </span><span id="local-6989586621679224326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224326"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679224325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224325"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.DescribeVault.html#newDescribeVault"><span class="hs-identifier hs-var hs-var">newDescribeVault</span></a></span></span><span> </span><span id="local-6989586621679224335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224335"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679224334"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224334"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">DescribeVault' :: Text -&gt; Text -&gt; DescribeVault
 </span><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DescribeVault' :: Text
 </span><a href="Network.AWS.Glacier.DescribeVault.html#%24sel%3AaccountId%3ADescribeVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224326"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224335"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:DescribeVault' :: Text
 </span><a href="Network.AWS.Glacier.DescribeVault.html#%24sel%3AvaultName%3ADescribeVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224325"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679224334"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
@@ -189,16 +189,16 @@ $cfrom :: forall x. DescribeVault -&gt; Rep DescribeVault x
 -&gt; (DescribeVault -&gt; Text -&gt; DescribeVault)
 -&gt; Lens DescribeVault DescribeVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224322"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224331"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:DescribeVault' :: DescribeVault -&gt; Text
-</span><a href="#local-6989586621679224322"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224322"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224321"><span class="annot"><span class="annottext">s :: DescribeVault
-</span><a href="#local-6989586621679224321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224320"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVault
-</span><a href="#local-6989586621679224321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DescribeVault' :: Text
+</span><a href="#local-6989586621679224331"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224331"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224330"><span class="annot"><span class="annottext">s :: DescribeVault
+</span><a href="#local-6989586621679224330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVault
+</span><a href="#local-6989586621679224330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DescribeVault' :: Text
 </span><a href="Network.AWS.Glacier.DescribeVault.html#%24sel%3AaccountId%3ADescribeVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#describeVault_vaultName"><span class="hs-identifier hs-type">describeVault_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,20 +207,20 @@ $sel:accountId:DescribeVault' :: DescribeVault -&gt; Text
 -&gt; (DescribeVault -&gt; Text -&gt; DescribeVault)
 -&gt; Lens DescribeVault DescribeVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224319"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224328"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:DescribeVault' :: DescribeVault -&gt; Text
-</span><a href="#local-6989586621679224319"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224319"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224318"><span class="annot"><span class="annottext">s :: DescribeVault
-</span><a href="#local-6989586621679224318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224317"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVault
-</span><a href="#local-6989586621679224318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DescribeVault' :: Text
+</span><a href="#local-6989586621679224328"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224328"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224327"><span class="annot"><span class="annottext">s :: DescribeVault
+</span><a href="#local-6989586621679224327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224326"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVault
+</span><a href="#local-6989586621679224327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DescribeVault' :: Text
 </span><a href="Network.AWS.Glacier.DescribeVault.html#%24sel%3AvaultName%3ADescribeVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DescribeVaultOutput.html#DescribeVaultOutput"><span class="hs-identifier hs-type">DescribeVaultOutput</span></a></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679224313"><span class="annot"><span class="annottext">request :: DescribeVault -&gt; Request DescribeVault
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679224322"><span class="annot"><span class="annottext">request :: DescribeVault -&gt; Request DescribeVault
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request DescribeVault -&gt; Request DescribeVault
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -236,7 +236,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679224306"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679224315"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeVault
 -&gt; ClientResponse ClientBody
@@ -260,20 +260,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224303"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224303"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224302"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679224302"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224301"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String DescribeVaultOutput
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224312"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679224312"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679224311"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679224311"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679224310"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String DescribeVaultOutput
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679224301"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224310"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224296"><span id="local-6989586621679224298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224305"><span id="local-6989586621679224307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679224289"><span class="annot"><span class="annottext">toHeaders :: DescribeVault -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679224298"><span class="annot"><span class="annottext">toHeaders :: DescribeVault -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVault -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -281,13 +281,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679224284"><span class="annot"><span class="annottext">toPath :: DescribeVault -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224281"><span id="local-6989586621679224282"><span class="annot"><span class="annottext">Text
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679224293"><span class="annot"><span class="annottext">toPath :: DescribeVault -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault%27"><span class="hs-identifier hs-type">DescribeVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224290"><span id="local-6989586621679224291"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 accountId :: Text
 $sel:vaultName:DescribeVault' :: DescribeVault -&gt; Text
 $sel:accountId:DescribeVault' :: DescribeVault -&gt; Text
-</span><a href="#local-6989586621679224281"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224290"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -296,17 +296,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224282"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224291"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224281"><span class="hs-identifier hs-var">vaultName</span></a></span><span>
+</span><a href="#local-6989586621679224290"><span class="hs-identifier hs-var">vaultName</span></a></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679224277"><span class="annot"><span class="annottext">toQuery :: DescribeVault -&gt; QueryString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679224286"><span class="annot"><span class="annottext">toQuery :: DescribeVault -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeVault -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

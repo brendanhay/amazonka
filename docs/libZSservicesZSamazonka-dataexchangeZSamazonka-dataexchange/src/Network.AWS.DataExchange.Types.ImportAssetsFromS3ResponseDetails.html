@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.AssetSourceEntry.html"><span class="hs-identifier">Network.AWS.DataExchange.Types.AssetSourceEntry</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Details from an import from Amazon S3 response.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newImportAssetsFromS3ResponseDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679235759"><span id="local-6989586621679235760"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportAssetsFromS3ResponseDetails"><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-var">ImportAssetsFromS3ResponseDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportAssetsFromS3ResponseDetails%27"><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">ImportAssetsFromS3ResponseDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the data set associated with this import job.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdataSetId%3AImportAssetsFromS3ResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3AdataSetId%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Is a list of Amazon S3 bucket and object key pairs.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AassetSources%3AImportAssetsFromS3ResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails -&gt; [AssetSourceEntry]
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3AassetSources%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var hs-var">assetSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataExchange.Types.AssetSourceEntry.html#AssetSourceEntry"><span class="hs-identifier hs-type">AssetSourceEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the revision associated with this import</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ArevisionId%3AImportAssetsFromS3ResponseDetails%27"><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails -&gt; Text
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3ArevisionId%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235751"><span id="local-6989586621679235753"><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails
+-&gt; ImportAssetsFromS3ResponseDetails -&gt; Bool
+(ImportAssetsFromS3ResponseDetails
+ -&gt; ImportAssetsFromS3ResponseDetails -&gt; Bool)
+-&gt; (ImportAssetsFromS3ResponseDetails
+    -&gt; ImportAssetsFromS3ResponseDetails -&gt; Bool)
+-&gt; Eq ImportAssetsFromS3ResponseDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImportAssetsFromS3ResponseDetails
+-&gt; ImportAssetsFromS3ResponseDetails -&gt; Bool
+$c/= :: ImportAssetsFromS3ResponseDetails
+-&gt; ImportAssetsFromS3ResponseDetails -&gt; Bool
+== :: ImportAssetsFromS3ResponseDetails
+-&gt; ImportAssetsFromS3ResponseDetails -&gt; Bool
+$c== :: ImportAssetsFromS3ResponseDetails
+-&gt; ImportAssetsFromS3ResponseDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235742"><span id="local-6989586621679235744"><span id="local-6989586621679235746"><span id="local-6989586621679235748"><span class="annot"><span class="annottext">ReadPrec [ImportAssetsFromS3ResponseDetails]
+ReadPrec ImportAssetsFromS3ResponseDetails
+Int -&gt; ReadS ImportAssetsFromS3ResponseDetails
+ReadS [ImportAssetsFromS3ResponseDetails]
+(Int -&gt; ReadS ImportAssetsFromS3ResponseDetails)
+-&gt; ReadS [ImportAssetsFromS3ResponseDetails]
+-&gt; ReadPrec ImportAssetsFromS3ResponseDetails
+-&gt; ReadPrec [ImportAssetsFromS3ResponseDetails]
+-&gt; Read ImportAssetsFromS3ResponseDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImportAssetsFromS3ResponseDetails]
+$creadListPrec :: ReadPrec [ImportAssetsFromS3ResponseDetails]
+readPrec :: ReadPrec ImportAssetsFromS3ResponseDetails
+$creadPrec :: ReadPrec ImportAssetsFromS3ResponseDetails
+readList :: ReadS [ImportAssetsFromS3ResponseDetails]
+$creadList :: ReadS [ImportAssetsFromS3ResponseDetails]
+readsPrec :: Int -&gt; ReadS ImportAssetsFromS3ResponseDetails
+$creadsPrec :: Int -&gt; ReadS ImportAssetsFromS3ResponseDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235735"><span id="local-6989586621679235737"><span id="local-6989586621679235739"><span class="annot"><span class="annottext">Int -&gt; ImportAssetsFromS3ResponseDetails -&gt; ShowS
+[ImportAssetsFromS3ResponseDetails] -&gt; ShowS
+ImportAssetsFromS3ResponseDetails -&gt; String
+(Int -&gt; ImportAssetsFromS3ResponseDetails -&gt; ShowS)
+-&gt; (ImportAssetsFromS3ResponseDetails -&gt; String)
+-&gt; ([ImportAssetsFromS3ResponseDetails] -&gt; ShowS)
+-&gt; Show ImportAssetsFromS3ResponseDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImportAssetsFromS3ResponseDetails] -&gt; ShowS
+$cshowList :: [ImportAssetsFromS3ResponseDetails] -&gt; ShowS
+show :: ImportAssetsFromS3ResponseDetails -&gt; String
+$cshow :: ImportAssetsFromS3ResponseDetails -&gt; String
+showsPrec :: Int -&gt; ImportAssetsFromS3ResponseDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImportAssetsFromS3ResponseDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ImportAssetsFromS3ResponseDetails
+ -&gt; Rep ImportAssetsFromS3ResponseDetails x)
+-&gt; (forall x.
+    Rep ImportAssetsFromS3ResponseDetails x
+    -&gt; ImportAssetsFromS3ResponseDetails)
+-&gt; Generic ImportAssetsFromS3ResponseDetails
+forall x.
+Rep ImportAssetsFromS3ResponseDetails x
+-&gt; ImportAssetsFromS3ResponseDetails
+forall x.
+ImportAssetsFromS3ResponseDetails
+-&gt; Rep ImportAssetsFromS3ResponseDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ImportAssetsFromS3ResponseDetails x
+-&gt; ImportAssetsFromS3ResponseDetails
+$cfrom :: forall x.
+ImportAssetsFromS3ResponseDetails
+-&gt; Rep ImportAssetsFromS3ResponseDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'ImportAssetsFromS3ResponseDetails' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'dataSetId', 'importAssetsFromS3ResponseDetails_dataSetId' - The unique identifier for the data set associated with this import job.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'assetSources', 'importAssetsFromS3ResponseDetails_assetSources' - Is a list of Amazon S3 bucket and object key pairs.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'revisionId', 'importAssetsFromS3ResponseDetails_revisionId' - The unique identifier for the revision associated with this import</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#newImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">newImportAssetsFromS3ResponseDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'dataSetId'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'revisionId'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span><span>
+</span><span id="line-61"></span><span id="newImportAssetsFromS3ResponseDetails"><span class="annot"><span class="annottext">newImportAssetsFromS3ResponseDetails :: Text -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#newImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-var hs-var">newImportAssetsFromS3ResponseDetails</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679235729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235729"><span class="hs-identifier hs-var">pDataSetId_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679235728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235728"><span class="hs-identifier hs-var">pRevisionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails' :: Text
+-&gt; [AssetSourceEntry] -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails'</span></a></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSetId:ImportAssetsFromS3ResponseDetails' :: Text
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3AdataSetId%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235729"><span class="hs-identifier hs-var">pDataSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">$sel:assetSources:ImportAssetsFromS3ResponseDetails' :: [AssetSourceEntry]
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3AassetSources%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">assetSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssetSourceEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:revisionId:ImportAssetsFromS3ResponseDetails' :: Text
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3ArevisionId%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235728"><span class="hs-identifier hs-var">pRevisionId_</span></a></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The unique identifier for the data set associated with this import job.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_dataSetId"><span class="hs-identifier hs-type">importAssetsFromS3ResponseDetails_dataSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="importAssetsFromS3ResponseDetails_dataSetId"><span class="annot"><span class="annottext">importAssetsFromS3ResponseDetails_dataSetId :: (Text -&gt; f Text)
+-&gt; ImportAssetsFromS3ResponseDetails
+-&gt; f ImportAssetsFromS3ResponseDetails
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_dataSetId"><span class="hs-identifier hs-var hs-var">importAssetsFromS3ResponseDetails_dataSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetsFromS3ResponseDetails -&gt; Text)
+-&gt; (ImportAssetsFromS3ResponseDetails
+    -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails)
+-&gt; Lens
+     ImportAssetsFromS3ResponseDetails
+     ImportAssetsFromS3ResponseDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235724"><span class="annot"><span class="annottext">Text
+dataSetId :: Text
+$sel:dataSetId:ImportAssetsFromS3ResponseDetails' :: ImportAssetsFromS3ResponseDetails -&gt; Text
+</span><a href="#local-6989586621679235724"><span class="hs-identifier hs-var hs-var">dataSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235724"><span class="hs-identifier hs-var">dataSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235723"><span class="annot"><span class="annottext">s :: ImportAssetsFromS3ResponseDetails
+</span><a href="#local-6989586621679235723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails
+</span><a href="#local-6989586621679235723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetId:ImportAssetsFromS3ResponseDetails' :: Text
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3AdataSetId%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">dataSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | Is a list of Amazon S3 bucket and object key pairs.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_assetSources"><span class="hs-identifier hs-type">importAssetsFromS3ResponseDetails_assetSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataExchange.Types.AssetSourceEntry.html#AssetSourceEntry"><span class="hs-identifier hs-type">AssetSourceEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span id="importAssetsFromS3ResponseDetails_assetSources"><span class="annot"><span class="annottext">importAssetsFromS3ResponseDetails_assetSources :: ([AssetSourceEntry] -&gt; f [AssetSourceEntry])
+-&gt; ImportAssetsFromS3ResponseDetails
+-&gt; f ImportAssetsFromS3ResponseDetails
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_assetSources"><span class="hs-identifier hs-var hs-var">importAssetsFromS3ResponseDetails_assetSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetsFromS3ResponseDetails -&gt; [AssetSourceEntry])
+-&gt; (ImportAssetsFromS3ResponseDetails
+    -&gt; [AssetSourceEntry] -&gt; ImportAssetsFromS3ResponseDetails)
+-&gt; Lens
+     ImportAssetsFromS3ResponseDetails
+     ImportAssetsFromS3ResponseDetails
+     [AssetSourceEntry]
+     [AssetSourceEntry]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235720"><span class="annot"><span class="annottext">[AssetSourceEntry]
+assetSources :: [AssetSourceEntry]
+$sel:assetSources:ImportAssetsFromS3ResponseDetails' :: ImportAssetsFromS3ResponseDetails -&gt; [AssetSourceEntry]
+</span><a href="#local-6989586621679235720"><span class="hs-identifier hs-var hs-var">assetSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssetSourceEntry]
+</span><a href="#local-6989586621679235720"><span class="hs-identifier hs-var">assetSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235719"><span class="annot"><span class="annottext">s :: ImportAssetsFromS3ResponseDetails
+</span><a href="#local-6989586621679235719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235718"><span class="annot"><span class="annottext">[AssetSourceEntry]
+</span><a href="#local-6989586621679235718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails
+</span><a href="#local-6989586621679235719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assetSources:ImportAssetsFromS3ResponseDetails' :: [AssetSourceEntry]
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3AassetSources%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">assetSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssetSourceEntry]
+</span><a href="#local-6989586621679235718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssetSourceEntry] -&gt; f [AssetSourceEntry])
+ -&gt; ImportAssetsFromS3ResponseDetails
+ -&gt; f ImportAssetsFromS3ResponseDetails)
+-&gt; (([AssetSourceEntry] -&gt; f [AssetSourceEntry])
+    -&gt; [AssetSourceEntry] -&gt; f [AssetSourceEntry])
+-&gt; ([AssetSourceEntry] -&gt; f [AssetSourceEntry])
+-&gt; ImportAssetsFromS3ResponseDetails
+-&gt; f ImportAssetsFromS3ResponseDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AssetSourceEntry] -&gt; f [AssetSourceEntry])
+-&gt; [AssetSourceEntry] -&gt; f [AssetSourceEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The unique identifier for the revision associated with this import</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- response.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_revisionId"><span class="hs-identifier hs-type">importAssetsFromS3ResponseDetails_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="importAssetsFromS3ResponseDetails_revisionId"><span class="annot"><span class="annottext">importAssetsFromS3ResponseDetails_revisionId :: (Text -&gt; f Text)
+-&gt; ImportAssetsFromS3ResponseDetails
+-&gt; f ImportAssetsFromS3ResponseDetails
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_revisionId"><span class="hs-identifier hs-var hs-var">importAssetsFromS3ResponseDetails_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportAssetsFromS3ResponseDetails -&gt; Text)
+-&gt; (ImportAssetsFromS3ResponseDetails
+    -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails)
+-&gt; Lens
+     ImportAssetsFromS3ResponseDetails
+     ImportAssetsFromS3ResponseDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235714"><span class="annot"><span class="annottext">Text
+revisionId :: Text
+$sel:revisionId:ImportAssetsFromS3ResponseDetails' :: ImportAssetsFromS3ResponseDetails -&gt; Text
+</span><a href="#local-6989586621679235714"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235714"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235713"><span class="annot"><span class="annottext">s :: ImportAssetsFromS3ResponseDetails
+</span><a href="#local-6989586621679235713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235712"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportAssetsFromS3ResponseDetails
+</span><a href="#local-6989586621679235713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:ImportAssetsFromS3ResponseDetails' :: Text
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#%24sel%3ArevisionId%3AImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679235712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679235709"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679235707"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportAssetsFromS3ResponseDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ImportAssetsFromS3ResponseDetails)
+-&gt; Value
+-&gt; Parser ImportAssetsFromS3ResponseDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ImportAssetsFromS3ResponseDetails&quot;</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235704"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235704"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Text
+-&gt; [AssetSourceEntry] -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails
+</span><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails%27"><span class="hs-identifier hs-var">ImportAssetsFromS3ResponseDetails'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; [AssetSourceEntry] -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails)
+-&gt; Parser Text
+-&gt; Parser
+     ([AssetSourceEntry] -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  ([AssetSourceEntry] -&gt; Text -&gt; ImportAssetsFromS3ResponseDetails)
+-&gt; Parser [AssetSourceEntry]
+-&gt; Parser (Text -&gt; ImportAssetsFromS3ResponseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [AssetSourceEntry])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssetSources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [AssetSourceEntry])
+-&gt; [AssetSourceEntry] -&gt; Parser [AssetSourceEntry]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[AssetSourceEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ImportAssetsFromS3ResponseDetails)
+-&gt; Parser Text -&gt; Parser ImportAssetsFromS3ResponseDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235704"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679235696"><span id="local-6989586621679235698"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679235693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier hs-type">ImportAssetsFromS3ResponseDetails</span></a></span></span><span>
+</span><span id="line-105"></span></pre></body></html>

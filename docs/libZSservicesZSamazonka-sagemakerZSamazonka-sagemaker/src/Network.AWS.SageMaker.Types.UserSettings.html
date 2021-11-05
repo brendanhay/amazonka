@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- @CreateDomain@.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newUserSettings' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621680358477"><span id="local-6989586621680358478"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-var">UserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-var">UserSettings'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680358486"><span id="local-6989586621680358487"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-var">UserSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-var">UserSettings'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The TensorBoard app settings.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AtensorBoardAppSettings%3AUserSettings%27"><span class="annot"><span class="annottext">UserSettings -&gt; Maybe TensorBoardAppSettings
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AtensorBoardAppSettings%3AUserSettings%27"><span class="hs-identifier hs-var hs-var">tensorBoardAppSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TensorBoardAppSettings.html#TensorBoardAppSettings"><span class="hs-identifier hs-type">TensorBoardAppSettings</span></a></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AexecutionRole%3AUserSettings%27"><span class="annot"><span class="annottext">UserSettings -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AexecutionRole%3AUserSettings%27"><span class="hs-identifier hs-var hs-var">executionRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680358466"><span id="local-6989586621680358468"><span class="annot"><span class="annottext">UserSettings -&gt; UserSettings -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680358475"><span id="local-6989586621680358477"><span class="annot"><span class="annottext">UserSettings -&gt; UserSettings -&gt; Bool
 (UserSettings -&gt; UserSettings -&gt; Bool)
 -&gt; (UserSettings -&gt; UserSettings -&gt; Bool) -&gt; Eq UserSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserSettings -&gt; UserSettings -&gt; Bool
 == :: UserSettings -&gt; UserSettings -&gt; Bool
 $c== :: UserSettings -&gt; UserSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358457"><span id="local-6989586621680358459"><span id="local-6989586621680358461"><span id="local-6989586621680358463"><span class="annot"><span class="annottext">ReadPrec [UserSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358466"><span id="local-6989586621680358468"><span id="local-6989586621680358470"><span id="local-6989586621680358472"><span class="annot"><span class="annottext">ReadPrec [UserSettings]
 ReadPrec UserSettings
 Int -&gt; ReadS UserSettings
 ReadS [UserSettings]
@@ -96,7 +96,7 @@ readList :: ReadS [UserSettings]
 $creadList :: ReadS [UserSettings]
 readsPrec :: Int -&gt; ReadS UserSettings
 $creadsPrec :: Int -&gt; ReadS UserSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358450"><span id="local-6989586621680358452"><span id="local-6989586621680358454"><span class="annot"><span class="annottext">Int -&gt; UserSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358459"><span id="local-6989586621680358461"><span id="local-6989586621680358463"><span class="annot"><span class="annottext">Int -&gt; UserSettings -&gt; ShowS
 [UserSettings] -&gt; ShowS
 UserSettings -&gt; String
 (Int -&gt; UserSettings -&gt; ShowS)
@@ -203,16 +203,16 @@ forall a. Maybe a
      (Maybe TensorBoardAppSettings)
      (Maybe TensorBoardAppSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358441"><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358450"><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
 tensorBoardAppSettings :: Maybe TensorBoardAppSettings
 $sel:tensorBoardAppSettings:UserSettings' :: UserSettings -&gt; Maybe TensorBoardAppSettings
-</span><a href="#local-6989586621680358441"><span class="hs-identifier hs-var hs-var">tensorBoardAppSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
-</span><a href="#local-6989586621680358441"><span class="hs-identifier hs-var">tensorBoardAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358440"><span class="annot"><span class="annottext">s :: UserSettings
-</span><a href="#local-6989586621680358440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358439"><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
-</span><a href="#local-6989586621680358439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680358440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tensorBoardAppSettings:UserSettings' :: Maybe TensorBoardAppSettings
+</span><a href="#local-6989586621680358450"><span class="hs-identifier hs-var hs-var">tensorBoardAppSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
+</span><a href="#local-6989586621680358450"><span class="hs-identifier hs-var">tensorBoardAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358449"><span class="annot"><span class="annottext">s :: UserSettings
+</span><a href="#local-6989586621680358449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358448"><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
+</span><a href="#local-6989586621680358448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680358449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tensorBoardAppSettings:UserSettings' :: Maybe TensorBoardAppSettings
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AtensorBoardAppSettings%3AUserSettings%27"><span class="hs-identifier hs-var">tensorBoardAppSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
-</span><a href="#local-6989586621680358439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680358448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The kernel gateway app settings.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#userSettings_kernelGatewayAppSettings"><span class="hs-identifier hs-type">userSettings_kernelGatewayAppSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.KernelGatewayAppSettings.html#KernelGatewayAppSettings"><span class="hs-identifier hs-type">KernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span>
@@ -227,16 +227,16 @@ $sel:tensorBoardAppSettings:UserSettings' :: UserSettings -&gt; Maybe TensorBoar
      (Maybe KernelGatewayAppSettings)
      (Maybe KernelGatewayAppSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358437"><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358446"><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
 kernelGatewayAppSettings :: Maybe KernelGatewayAppSettings
 $sel:kernelGatewayAppSettings:UserSettings' :: UserSettings -&gt; Maybe KernelGatewayAppSettings
-</span><a href="#local-6989586621680358437"><span class="hs-identifier hs-var hs-var">kernelGatewayAppSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
-</span><a href="#local-6989586621680358437"><span class="hs-identifier hs-var">kernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358436"><span class="annot"><span class="annottext">s :: UserSettings
-</span><a href="#local-6989586621680358436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358435"><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
-</span><a href="#local-6989586621680358435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680358436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kernelGatewayAppSettings:UserSettings' :: Maybe KernelGatewayAppSettings
+</span><a href="#local-6989586621680358446"><span class="hs-identifier hs-var hs-var">kernelGatewayAppSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
+</span><a href="#local-6989586621680358446"><span class="hs-identifier hs-var">kernelGatewayAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358445"><span class="annot"><span class="annottext">s :: UserSettings
+</span><a href="#local-6989586621680358445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358444"><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
+</span><a href="#local-6989586621680358444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680358445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kernelGatewayAppSettings:UserSettings' :: Maybe KernelGatewayAppSettings
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AkernelGatewayAppSettings%3AUserSettings%27"><span class="hs-identifier hs-var">kernelGatewayAppSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
-</span><a href="#local-6989586621680358435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680358444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The security groups for the Amazon Virtual Private Cloud (VPC) that</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- Studio uses for communication.</span><span>
@@ -257,16 +257,16 @@ $sel:kernelGatewayAppSettings:UserSettings' :: UserSettings -&gt; Maybe KernelGa
 -&gt; (UserSettings -&gt; Maybe [Text] -&gt; UserSettings)
 -&gt; Lens UserSettings UserSettings (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358433"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358442"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroups :: Maybe [Text]
 $sel:securityGroups:UserSettings' :: UserSettings -&gt; Maybe [Text]
-</span><a href="#local-6989586621680358433"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680358433"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358432"><span class="annot"><span class="annottext">s :: UserSettings
-</span><a href="#local-6989586621680358432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358431"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680358431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680358432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:UserSettings' :: Maybe [Text]
+</span><a href="#local-6989586621680358442"><span class="hs-identifier hs-var hs-var">securityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680358442"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358441"><span class="annot"><span class="annottext">s :: UserSettings
+</span><a href="#local-6989586621680358441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358440"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680358440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680358441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroups:UserSettings' :: Maybe [Text]
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AsecurityGroups%3AUserSettings%27"><span class="hs-identifier hs-var">securityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680358431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621680358440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UserSettings -&gt; f UserSettings)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -296,16 +296,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe JupyterServerAppSettings)
      (Maybe JupyterServerAppSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358426"><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358435"><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
 jupyterServerAppSettings :: Maybe JupyterServerAppSettings
 $sel:jupyterServerAppSettings:UserSettings' :: UserSettings -&gt; Maybe JupyterServerAppSettings
-</span><a href="#local-6989586621680358426"><span class="hs-identifier hs-var hs-var">jupyterServerAppSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
-</span><a href="#local-6989586621680358426"><span class="hs-identifier hs-var">jupyterServerAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358425"><span class="annot"><span class="annottext">s :: UserSettings
-</span><a href="#local-6989586621680358425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358424"><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
-</span><a href="#local-6989586621680358424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680358425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jupyterServerAppSettings:UserSettings' :: Maybe JupyterServerAppSettings
+</span><a href="#local-6989586621680358435"><span class="hs-identifier hs-var hs-var">jupyterServerAppSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
+</span><a href="#local-6989586621680358435"><span class="hs-identifier hs-var">jupyterServerAppSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358434"><span class="annot"><span class="annottext">s :: UserSettings
+</span><a href="#local-6989586621680358434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358433"><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
+</span><a href="#local-6989586621680358433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680358434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jupyterServerAppSettings:UserSettings' :: Maybe JupyterServerAppSettings
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AjupyterServerAppSettings%3AUserSettings%27"><span class="hs-identifier hs-var">jupyterServerAppSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
-</span><a href="#local-6989586621680358424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680358433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | Specifies options for sharing SageMaker Studio notebooks.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#userSettings_sharingSettings"><span class="hs-identifier hs-type">userSettings_sharingSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span><span class="hs-special">)</span><span>
@@ -319,16 +319,16 @@ $sel:jupyterServerAppSettings:UserSettings' :: UserSettings -&gt; Maybe JupyterS
      (Maybe SharingSettings)
      (Maybe SharingSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358422"><span class="annot"><span class="annottext">Maybe SharingSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358431"><span class="annot"><span class="annottext">Maybe SharingSettings
 sharingSettings :: Maybe SharingSettings
 $sel:sharingSettings:UserSettings' :: UserSettings -&gt; Maybe SharingSettings
-</span><a href="#local-6989586621680358422"><span class="hs-identifier hs-var hs-var">sharingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SharingSettings
-</span><a href="#local-6989586621680358422"><span class="hs-identifier hs-var">sharingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358421"><span class="annot"><span class="annottext">s :: UserSettings
-</span><a href="#local-6989586621680358421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358420"><span class="annot"><span class="annottext">Maybe SharingSettings
-</span><a href="#local-6989586621680358420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680358421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharingSettings:UserSettings' :: Maybe SharingSettings
+</span><a href="#local-6989586621680358431"><span class="hs-identifier hs-var hs-var">sharingSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SharingSettings
+</span><a href="#local-6989586621680358431"><span class="hs-identifier hs-var">sharingSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358430"><span class="annot"><span class="annottext">s :: UserSettings
+</span><a href="#local-6989586621680358430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358429"><span class="annot"><span class="annottext">Maybe SharingSettings
+</span><a href="#local-6989586621680358429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680358430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharingSettings:UserSettings' :: Maybe SharingSettings
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AsharingSettings%3AUserSettings%27"><span class="hs-identifier hs-var">sharingSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SharingSettings
-</span><a href="#local-6989586621680358420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680358429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The execution role for the user.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#userSettings_executionRole"><span class="hs-identifier hs-type">userSettings_executionRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -337,19 +337,19 @@ $sel:sharingSettings:UserSettings' :: UserSettings -&gt; Maybe SharingSettings
 -&gt; (UserSettings -&gt; Maybe Text -&gt; UserSettings)
 -&gt; Lens UserSettings UserSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358418"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358427"><span class="annot"><span class="annottext">Maybe Text
 executionRole :: Maybe Text
 $sel:executionRole:UserSettings' :: UserSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680358418"><span class="hs-identifier hs-var hs-var">executionRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358418"><span class="hs-identifier hs-var">executionRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358417"><span class="annot"><span class="annottext">s :: UserSettings
-</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358416"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
-</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRole:UserSettings' :: Maybe Text
+</span><a href="#local-6989586621680358427"><span class="hs-identifier hs-var hs-var">executionRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680358427"><span class="hs-identifier hs-var">executionRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358426"><span class="annot"><span class="annottext">s :: UserSettings
+</span><a href="#local-6989586621680358426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358425"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680358425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserSettings
+</span><a href="#local-6989586621680358426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRole:UserSettings' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.UserSettings.html#%24sel%3AexecutionRole%3AUserSettings%27"><span class="hs-identifier hs-var">executionRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680358425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358413"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621680358411"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserSettings
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358422"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680358420"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserSettings) -&gt; Value -&gt; Parser UserSettings
@@ -357,8 +357,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserSettings&quot;</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680358408"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358408"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680358417"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
 -&gt; Maybe KernelGatewayAppSettings
 -&gt; Maybe [Text]
@@ -384,7 +384,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; UserSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TensorBoardAppSettings)
+</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TensorBoardAppSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TensorBoardAppSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,7 +404,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; UserSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KernelGatewayAppSettings)
+</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KernelGatewayAppSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KernelGatewayAppSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -420,7 +420,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe SharingSettings -&gt; Maybe Text -&gt; UserSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -436,7 +436,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe SharingSettings -&gt; Maybe Text -&gt; UserSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JupyterServerAppSettings)
+</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JupyterServerAppSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JupyterServerAppSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -445,7 +445,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; UserSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SharingSettings)
+</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SharingSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SharingSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -453,19 +453,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser UserSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680358408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680358417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExecutionRole&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358401"><span id="local-6989586621680358403"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358410"><span id="local-6989586621680358412"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358390"><span id="local-6989586621680358392"><span id="local-6989586621680358394"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621680358388"><span class="annot"><span class="annottext">toJSON :: UserSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358381"><span id="local-6989586621680358382"><span id="local-6989586621680358383"><span id="local-6989586621680358384"><span id="local-6989586621680358385"><span id="local-6989586621680358386"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358399"><span id="local-6989586621680358401"><span id="local-6989586621680358403"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings"><span class="hs-identifier hs-type">UserSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621680358397"><span class="annot"><span class="annottext">toJSON :: UserSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.UserSettings.html#UserSettings%27"><span class="hs-identifier hs-type">UserSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358390"><span id="local-6989586621680358391"><span id="local-6989586621680358392"><span id="local-6989586621680358393"><span id="local-6989586621680358394"><span id="local-6989586621680358395"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Maybe KernelGatewayAppSettings
 Maybe JupyterServerAppSettings
@@ -483,7 +483,7 @@ $sel:jupyterServerAppSettings:UserSettings' :: UserSettings -&gt; Maybe JupyterS
 $sel:securityGroups:UserSettings' :: UserSettings -&gt; Maybe [Text]
 $sel:kernelGatewayAppSettings:UserSettings' :: UserSettings -&gt; Maybe KernelGatewayAppSettings
 $sel:tensorBoardAppSettings:UserSettings' :: UserSettings -&gt; Maybe TensorBoardAppSettings
-</span><a href="#local-6989586621680358381"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680358390"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -497,7 +497,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TensorBoardAppSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TensorBoardAppSettings
-</span><a href="#local-6989586621680358386"><span class="hs-identifier hs-var">tensorBoardAppSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680358395"><span class="hs-identifier hs-var">tensorBoardAppSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KernelGatewayAppSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KernelGatewayAppSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -506,7 +506,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe KernelGatewayAppSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KernelGatewayAppSettings
-</span><a href="#local-6989586621680358385"><span class="hs-identifier hs-var">kernelGatewayAppSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680358394"><span class="hs-identifier hs-var">kernelGatewayAppSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -514,7 +514,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-172"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680358384"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680358393"><span class="hs-identifier hs-var">securityGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JupyterServerAppSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JupyterServerAppSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -523,7 +523,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe JupyterServerAppSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JupyterServerAppSettings
-</span><a href="#local-6989586621680358383"><span class="hs-identifier hs-var">jupyterServerAppSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680358392"><span class="hs-identifier hs-var">jupyterServerAppSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SharingSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SharingSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -531,14 +531,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(SharingSettings -&gt; Pair) -&gt; Maybe SharingSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SharingSettings
-</span><a href="#local-6989586621680358382"><span class="hs-identifier hs-var">sharingSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680358391"><span class="hs-identifier hs-var">sharingSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExecutionRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680358381"><span class="hs-identifier hs-var">executionRole</span></a></span><span>
+</span><a href="#local-6989586621680358390"><span class="hs-identifier hs-var">executionRole</span></a></span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span></pre></body></html>

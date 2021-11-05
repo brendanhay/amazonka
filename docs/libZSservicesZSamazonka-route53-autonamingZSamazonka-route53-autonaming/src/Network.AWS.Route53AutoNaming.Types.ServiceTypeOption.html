@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679225418"><span id="local-6989586621679225419"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceTypeOption"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceTypeOption.html#ServiceTypeOption"><span class="hs-identifier hs-var">ServiceTypeOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceTypeOption%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceTypeOption.html#ServiceTypeOption%27"><span class="hs-identifier hs-var">ServiceTypeOption'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679225427"><span id="local-6989586621679225428"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceTypeOption"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceTypeOption.html#ServiceTypeOption"><span class="hs-identifier hs-var">ServiceTypeOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceTypeOption%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceTypeOption.html#ServiceTypeOption%27"><span class="hs-identifier hs-var">ServiceTypeOption'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceTypeOption"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.ServiceTypeOption.html#fromServiceTypeOption"><span class="hs-identifier hs-var hs-var">fromServiceTypeOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225410"><span id="local-6989586621679225412"><span id="local-6989586621679225414"><span class="annot"><span class="annottext">Int -&gt; ServiceTypeOption -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225419"><span id="local-6989586621679225421"><span id="local-6989586621679225423"><span class="annot"><span class="annottext">Int -&gt; ServiceTypeOption -&gt; ShowS
 [ServiceTypeOption] -&gt; ShowS
 ServiceTypeOption -&gt; String
 (Int -&gt; ServiceTypeOption -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ServiceTypeOption -&gt; String
 showsPrec :: Int -&gt; ServiceTypeOption -&gt; ShowS
 $cshowsPrec :: Int -&gt; ServiceTypeOption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679225401"><span id="local-6989586621679225403"><span id="local-6989586621679225405"><span id="local-6989586621679225407"><span class="annot"><span class="annottext">ReadPrec [ServiceTypeOption]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679225410"><span id="local-6989586621679225412"><span id="local-6989586621679225414"><span id="local-6989586621679225416"><span class="annot"><span class="annottext">ReadPrec [ServiceTypeOption]
 ReadPrec ServiceTypeOption
 Int -&gt; ReadS ServiceTypeOption
 ReadS [ServiceTypeOption]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ServiceTypeOption]
 readsPrec :: Int -&gt; ReadS ServiceTypeOption
 $creadsPrec :: Int -&gt; ReadS ServiceTypeOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679225396"><span id="local-6989586621679225398"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679225405"><span id="local-6989586621679225407"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool
 (ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool)
 -&gt; (ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool)
 -&gt; Eq ServiceTypeOption
@@ -81,7 +81,7 @@ $c/= :: ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool
 == :: ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool
 $c== :: ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679225380"><span id="local-6989586621679225382"><span id="local-6989586621679225384"><span id="local-6989586621679225386"><span id="local-6989586621679225388"><span id="local-6989586621679225390"><span id="local-6989586621679225392"><span class="annot"><span class="annottext">Eq ServiceTypeOption
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679225389"><span id="local-6989586621679225391"><span id="local-6989586621679225393"><span id="local-6989586621679225395"><span id="local-6989586621679225397"><span id="local-6989586621679225399"><span id="local-6989586621679225401"><span class="annot"><span class="annottext">Eq ServiceTypeOption
 Eq ServiceTypeOption
 -&gt; (ServiceTypeOption -&gt; ServiceTypeOption -&gt; Ordering)
 -&gt; (ServiceTypeOption -&gt; ServiceTypeOption -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ServiceTypeOption -&gt; Rep ServiceTypeOption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225372"><span id="local-6989586621679225374"><span class="annot"><span class="annottext">Int -&gt; ServiceTypeOption -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679225381"><span id="local-6989586621679225383"><span class="annot"><span class="annottext">Int -&gt; ServiceTypeOption -&gt; Int
 ServiceTypeOption -&gt; Int
 (Int -&gt; ServiceTypeOption -&gt; Int)
 -&gt; (ServiceTypeOption -&gt; Int) -&gt; Hashable ServiceTypeOption
@@ -142,51 +142,51 @@ $chash :: ServiceTypeOption -&gt; Int
 hashWithSalt :: Int -&gt; ServiceTypeOption -&gt; Int
 $chashWithSalt :: Int -&gt; ServiceTypeOption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679225369"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679225378"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ()
 (ServiceTypeOption -&gt; ()) -&gt; NFData ServiceTypeOption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ServiceTypeOption -&gt; ()
 $crnf :: ServiceTypeOption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679225366"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceTypeOption
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679225375"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceTypeOption
 (Text -&gt; Either String ServiceTypeOption)
 -&gt; FromText ServiceTypeOption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ServiceTypeOption
 $cfromText :: Text -&gt; Either String ServiceTypeOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679225363"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679225372"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; Text
 (ServiceTypeOption -&gt; Text) -&gt; ToText ServiceTypeOption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ServiceTypeOption -&gt; Text
 $ctoText :: ServiceTypeOption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679225360"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679225369"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ByteString
 (ServiceTypeOption -&gt; ByteString) -&gt; ToByteString ServiceTypeOption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ServiceTypeOption -&gt; ByteString
 $ctoBS :: ServiceTypeOption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679225357"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679225366"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; ByteStringBuilder
 (ServiceTypeOption -&gt; ByteStringBuilder) -&gt; ToLog ServiceTypeOption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ServiceTypeOption -&gt; ByteStringBuilder
 $cbuild :: ServiceTypeOption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679225354"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceTypeOption -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679225363"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceTypeOption -&gt; [Header]
 (HeaderName -&gt; ServiceTypeOption -&gt; [Header])
 -&gt; ToHeader ServiceTypeOption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ServiceTypeOption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ServiceTypeOption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679225351"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679225360"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; QueryString
 (ServiceTypeOption -&gt; QueryString) -&gt; ToQuery ServiceTypeOption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ServiceTypeOption -&gt; QueryString
 $ctoQuery :: ServiceTypeOption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679225346"><span id="local-6989586621679225348"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceTypeOption]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679225355"><span id="local-6989586621679225357"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceTypeOption]
 Value -&gt; Parser ServiceTypeOption
 (Value -&gt; Parser ServiceTypeOption)
 -&gt; (Value -&gt; Parser [ServiceTypeOption])
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ServiceTypeOption]
 parseJSON :: Value -&gt; Parser ServiceTypeOption
 $cparseJSON :: Value -&gt; Parser ServiceTypeOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679225341"><span id="local-6989586621679225343"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceTypeOption]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679225350"><span id="local-6989586621679225352"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceTypeOption]
 FromJSONKeyFunction ServiceTypeOption
 FromJSONKeyFunction ServiceTypeOption
 -&gt; FromJSONKeyFunction [ServiceTypeOption]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ServiceTypeOption]
 fromJSONKey :: FromJSONKeyFunction ServiceTypeOption
 $cfromJSONKey :: FromJSONKeyFunction ServiceTypeOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679225332"><span id="local-6989586621679225334"><span id="local-6989586621679225336"><span id="local-6989586621679225338"><span class="annot"><span class="annottext">[ServiceTypeOption] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679225341"><span id="local-6989586621679225343"><span id="local-6989586621679225345"><span id="local-6989586621679225347"><span class="annot"><span class="annottext">[ServiceTypeOption] -&gt; Encoding
 [ServiceTypeOption] -&gt; Value
 ServiceTypeOption -&gt; Encoding
 ServiceTypeOption -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ServiceTypeOption -&gt; Encoding
 toJSON :: ServiceTypeOption -&gt; Value
 $ctoJSON :: ServiceTypeOption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679225327"><span id="local-6989586621679225329"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceTypeOption]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679225336"><span id="local-6989586621679225338"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceTypeOption]
 ToJSONKeyFunction ServiceTypeOption
 ToJSONKeyFunction ServiceTypeOption
 -&gt; ToJSONKeyFunction [ServiceTypeOption]
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ServiceTypeOption]
 toJSONKey :: ToJSONKeyFunction ServiceTypeOption
 $ctoJSONKey :: ToJSONKeyFunction ServiceTypeOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679225324"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceTypeOption
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679225333"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceTypeOption
 ([Node] -&gt; Either String ServiceTypeOption)
 -&gt; FromXML ServiceTypeOption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ServiceTypeOption
 $cparseXML :: [Node] -&gt; Either String ServiceTypeOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679225321"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679225330"><span class="annot"><span class="annottext">ServiceTypeOption -&gt; XML
 (ServiceTypeOption -&gt; XML) -&gt; ToXML ServiceTypeOption
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ServiceTypeOption -&gt; XML

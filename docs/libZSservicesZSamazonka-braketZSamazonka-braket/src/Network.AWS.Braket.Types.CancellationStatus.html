@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Braket.Types.CancellationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Braket.Types.CancellationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus"><span class="hs-identifier">CancellationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus_CANCELLED"><span class="hs-identifier">CancellationStatus_CANCELLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus_CANCELLING"><span class="hs-identifier">CancellationStatus_CANCELLING</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679160798"><span id="local-6989586621679160799"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CancellationStatus"><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus"><span class="hs-identifier hs-var">CancellationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancellationStatus%27"><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus%27"><span class="hs-identifier hs-var">CancellationStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCancellationStatus"><span class="annot"><span class="annottext">CancellationStatus -&gt; Text
+</span><a href="Network.AWS.Braket.Types.CancellationStatus.html#fromCancellationStatus"><span class="hs-identifier hs-var hs-var">fromCancellationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679160790"><span id="local-6989586621679160792"><span id="local-6989586621679160794"><span class="annot"><span class="annottext">Int -&gt; CancellationStatus -&gt; ShowS
+[CancellationStatus] -&gt; ShowS
+CancellationStatus -&gt; String
+(Int -&gt; CancellationStatus -&gt; ShowS)
+-&gt; (CancellationStatus -&gt; String)
+-&gt; ([CancellationStatus] -&gt; ShowS)
+-&gt; Show CancellationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CancellationStatus] -&gt; ShowS
+$cshowList :: [CancellationStatus] -&gt; ShowS
+show :: CancellationStatus -&gt; String
+$cshow :: CancellationStatus -&gt; String
+showsPrec :: Int -&gt; CancellationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; CancellationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679160781"><span id="local-6989586621679160783"><span id="local-6989586621679160785"><span id="local-6989586621679160787"><span class="annot"><span class="annottext">ReadPrec [CancellationStatus]
+ReadPrec CancellationStatus
+Int -&gt; ReadS CancellationStatus
+ReadS [CancellationStatus]
+(Int -&gt; ReadS CancellationStatus)
+-&gt; ReadS [CancellationStatus]
+-&gt; ReadPrec CancellationStatus
+-&gt; ReadPrec [CancellationStatus]
+-&gt; Read CancellationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CancellationStatus]
+$creadListPrec :: ReadPrec [CancellationStatus]
+readPrec :: ReadPrec CancellationStatus
+$creadPrec :: ReadPrec CancellationStatus
+readList :: ReadS [CancellationStatus]
+$creadList :: ReadS [CancellationStatus]
+readsPrec :: Int -&gt; ReadS CancellationStatus
+$creadsPrec :: Int -&gt; ReadS CancellationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679160776"><span id="local-6989586621679160778"><span class="annot"><span class="annottext">CancellationStatus -&gt; CancellationStatus -&gt; Bool
+(CancellationStatus -&gt; CancellationStatus -&gt; Bool)
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; Bool)
+-&gt; Eq CancellationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+$c/= :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+== :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+$c== :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679160760"><span id="local-6989586621679160762"><span id="local-6989586621679160764"><span id="local-6989586621679160766"><span id="local-6989586621679160768"><span id="local-6989586621679160770"><span id="local-6989586621679160772"><span class="annot"><span class="annottext">Eq CancellationStatus
+Eq CancellationStatus
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; Ordering)
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; Bool)
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; Bool)
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; Bool)
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; Bool)
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; CancellationStatus)
+-&gt; (CancellationStatus -&gt; CancellationStatus -&gt; CancellationStatus)
+-&gt; Ord CancellationStatus
+CancellationStatus -&gt; CancellationStatus -&gt; Bool
+CancellationStatus -&gt; CancellationStatus -&gt; Ordering
+CancellationStatus -&gt; CancellationStatus -&gt; CancellationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CancellationStatus -&gt; CancellationStatus -&gt; CancellationStatus
+$cmin :: CancellationStatus -&gt; CancellationStatus -&gt; CancellationStatus
+max :: CancellationStatus -&gt; CancellationStatus -&gt; CancellationStatus
+$cmax :: CancellationStatus -&gt; CancellationStatus -&gt; CancellationStatus
+&gt;= :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+$c&gt;= :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+&gt; :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+$c&gt; :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+&lt;= :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+$c&lt;= :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+&lt; :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+$c&lt; :: CancellationStatus -&gt; CancellationStatus -&gt; Bool
+compare :: CancellationStatus -&gt; CancellationStatus -&gt; Ordering
+$ccompare :: CancellationStatus -&gt; CancellationStatus -&gt; Ordering
+$cp1Ord :: Eq CancellationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CancellationStatus -&gt; Rep CancellationStatus x)
+-&gt; (forall x. Rep CancellationStatus x -&gt; CancellationStatus)
+-&gt; Generic CancellationStatus
+forall x. Rep CancellationStatus x -&gt; CancellationStatus
+forall x. CancellationStatus -&gt; Rep CancellationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CancellationStatus x -&gt; CancellationStatus
+$cfrom :: forall x. CancellationStatus -&gt; Rep CancellationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679160752"><span id="local-6989586621679160754"><span class="annot"><span class="annottext">Int -&gt; CancellationStatus -&gt; Int
+CancellationStatus -&gt; Int
+(Int -&gt; CancellationStatus -&gt; Int)
+-&gt; (CancellationStatus -&gt; Int) -&gt; Hashable CancellationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CancellationStatus -&gt; Int
+$chash :: CancellationStatus -&gt; Int
+hashWithSalt :: Int -&gt; CancellationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; CancellationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679160749"><span class="annot"><span class="annottext">CancellationStatus -&gt; ()
+(CancellationStatus -&gt; ()) -&gt; NFData CancellationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CancellationStatus -&gt; ()
+$crnf :: CancellationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679160746"><span class="annot"><span class="annottext">Text -&gt; Either String CancellationStatus
+(Text -&gt; Either String CancellationStatus)
+-&gt; FromText CancellationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CancellationStatus
+$cfromText :: Text -&gt; Either String CancellationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679160743"><span class="annot"><span class="annottext">CancellationStatus -&gt; Text
+(CancellationStatus -&gt; Text) -&gt; ToText CancellationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CancellationStatus -&gt; Text
+$ctoText :: CancellationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679160740"><span class="annot"><span class="annottext">CancellationStatus -&gt; ByteString
+(CancellationStatus -&gt; ByteString)
+-&gt; ToByteString CancellationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CancellationStatus -&gt; ByteString
+$ctoBS :: CancellationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679160737"><span class="annot"><span class="annottext">CancellationStatus -&gt; ByteStringBuilder
+(CancellationStatus -&gt; ByteStringBuilder)
+-&gt; ToLog CancellationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CancellationStatus -&gt; ByteStringBuilder
+$cbuild :: CancellationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679160734"><span class="annot"><span class="annottext">HeaderName -&gt; CancellationStatus -&gt; [Header]
+(HeaderName -&gt; CancellationStatus -&gt; [Header])
+-&gt; ToHeader CancellationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CancellationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CancellationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679160731"><span class="annot"><span class="annottext">CancellationStatus -&gt; QueryString
+(CancellationStatus -&gt; QueryString) -&gt; ToQuery CancellationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CancellationStatus -&gt; QueryString
+$ctoQuery :: CancellationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679160726"><span id="local-6989586621679160728"><span class="annot"><span class="annottext">Value -&gt; Parser [CancellationStatus]
+Value -&gt; Parser CancellationStatus
+(Value -&gt; Parser CancellationStatus)
+-&gt; (Value -&gt; Parser [CancellationStatus])
+-&gt; FromJSON CancellationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CancellationStatus]
+$cparseJSONList :: Value -&gt; Parser [CancellationStatus]
+parseJSON :: Value -&gt; Parser CancellationStatus
+$cparseJSON :: Value -&gt; Parser CancellationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679160721"><span id="local-6989586621679160723"><span class="annot"><span class="annottext">FromJSONKeyFunction [CancellationStatus]
+FromJSONKeyFunction CancellationStatus
+FromJSONKeyFunction CancellationStatus
+-&gt; FromJSONKeyFunction [CancellationStatus]
+-&gt; FromJSONKey CancellationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CancellationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [CancellationStatus]
+fromJSONKey :: FromJSONKeyFunction CancellationStatus
+$cfromJSONKey :: FromJSONKeyFunction CancellationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679160712"><span id="local-6989586621679160714"><span id="local-6989586621679160716"><span id="local-6989586621679160718"><span class="annot"><span class="annottext">[CancellationStatus] -&gt; Encoding
+[CancellationStatus] -&gt; Value
+CancellationStatus -&gt; Encoding
+CancellationStatus -&gt; Value
+(CancellationStatus -&gt; Value)
+-&gt; (CancellationStatus -&gt; Encoding)
+-&gt; ([CancellationStatus] -&gt; Value)
+-&gt; ([CancellationStatus] -&gt; Encoding)
+-&gt; ToJSON CancellationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CancellationStatus] -&gt; Encoding
+$ctoEncodingList :: [CancellationStatus] -&gt; Encoding
+toJSONList :: [CancellationStatus] -&gt; Value
+$ctoJSONList :: [CancellationStatus] -&gt; Value
+toEncoding :: CancellationStatus -&gt; Encoding
+$ctoEncoding :: CancellationStatus -&gt; Encoding
+toJSON :: CancellationStatus -&gt; Value
+$ctoJSON :: CancellationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679160707"><span id="local-6989586621679160709"><span class="annot"><span class="annottext">ToJSONKeyFunction [CancellationStatus]
+ToJSONKeyFunction CancellationStatus
+ToJSONKeyFunction CancellationStatus
+-&gt; ToJSONKeyFunction [CancellationStatus]
+-&gt; ToJSONKey CancellationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CancellationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [CancellationStatus]
+toJSONKey :: ToJSONKeyFunction CancellationStatus
+$ctoJSONKey :: ToJSONKeyFunction CancellationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679160704"><span class="annot"><span class="annottext">[Node] -&gt; Either String CancellationStatus
+([Node] -&gt; Either String CancellationStatus)
+-&gt; FromXML CancellationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CancellationStatus
+$cparseXML :: [Node] -&gt; Either String CancellationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679160701"><span class="annot"><span class="annottext">CancellationStatus -&gt; XML
+(CancellationStatus -&gt; XML) -&gt; ToXML CancellationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CancellationStatus -&gt; XML
+$ctoXML :: CancellationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus_CANCELLED"><span class="hs-identifier hs-type">CancellationStatus_CANCELLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus"><span class="hs-identifier hs-type">CancellationStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCancellationStatus_CANCELLED"><span id="%24mCancellationStatus_CANCELLED"><span id="CancellationStatus_CANCELLED"><span class="annot"><span class="annottext">$bCancellationStatus_CANCELLED :: CancellationStatus
+$mCancellationStatus_CANCELLED :: forall r. CancellationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Braket.Types.CancellationStatus.html#%24bCancellationStatus_CANCELLED"><span class="hs-identifier hs-var hs-var hs-var">CancellationStatus_CANCELLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus%27"><span class="hs-identifier hs-type">CancellationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELLED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus_CANCELLING"><span class="hs-identifier hs-type">CancellationStatus_CANCELLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus"><span class="hs-identifier hs-type">CancellationStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCancellationStatus_CANCELLING"><span id="%24mCancellationStatus_CANCELLING"><span id="CancellationStatus_CANCELLING"><span class="annot"><span class="annottext">$bCancellationStatus_CANCELLING :: CancellationStatus
+$mCancellationStatus_CANCELLING :: forall r. CancellationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Braket.Types.CancellationStatus.html#%24bCancellationStatus_CANCELLING"><span class="hs-identifier hs-var hs-var hs-var">CancellationStatus_CANCELLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus%27"><span class="hs-identifier hs-type">CancellationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELLING&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus_CANCELLED"><span class="hs-pragma hs-type">CancellationStatus_CANCELLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus_CANCELLING"><span class="hs-pragma hs-type">CancellationStatus_CANCELLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Braket.Types.CancellationStatus.html#CancellationStatus%27"><span class="hs-pragma hs-type">CancellationStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

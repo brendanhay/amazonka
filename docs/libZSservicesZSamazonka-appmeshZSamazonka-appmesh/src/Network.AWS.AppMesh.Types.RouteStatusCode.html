@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.RouteStatusCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.RouteStatusCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode"><span class="hs-identifier">RouteStatusCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_ACTIVE"><span class="hs-identifier">RouteStatusCode_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_DELETED"><span class="hs-identifier">RouteStatusCode_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_INACTIVE"><span class="hs-identifier">RouteStatusCode_INACTIVE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679331866"><span id="local-6989586621679331867"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RouteStatusCode"><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode"><span class="hs-identifier hs-var">RouteStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RouteStatusCode%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode%27"><span class="hs-identifier hs-var">RouteStatusCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRouteStatusCode"><span class="annot"><span class="annottext">RouteStatusCode -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#fromRouteStatusCode"><span class="hs-identifier hs-var hs-var">fromRouteStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331858"><span id="local-6989586621679331860"><span id="local-6989586621679331862"><span class="annot"><span class="annottext">Int -&gt; RouteStatusCode -&gt; ShowS
+[RouteStatusCode] -&gt; ShowS
+RouteStatusCode -&gt; String
+(Int -&gt; RouteStatusCode -&gt; ShowS)
+-&gt; (RouteStatusCode -&gt; String)
+-&gt; ([RouteStatusCode] -&gt; ShowS)
+-&gt; Show RouteStatusCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RouteStatusCode] -&gt; ShowS
+$cshowList :: [RouteStatusCode] -&gt; ShowS
+show :: RouteStatusCode -&gt; String
+$cshow :: RouteStatusCode -&gt; String
+showsPrec :: Int -&gt; RouteStatusCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; RouteStatusCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679331849"><span id="local-6989586621679331851"><span id="local-6989586621679331853"><span id="local-6989586621679331855"><span class="annot"><span class="annottext">ReadPrec [RouteStatusCode]
+ReadPrec RouteStatusCode
+Int -&gt; ReadS RouteStatusCode
+ReadS [RouteStatusCode]
+(Int -&gt; ReadS RouteStatusCode)
+-&gt; ReadS [RouteStatusCode]
+-&gt; ReadPrec RouteStatusCode
+-&gt; ReadPrec [RouteStatusCode]
+-&gt; Read RouteStatusCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RouteStatusCode]
+$creadListPrec :: ReadPrec [RouteStatusCode]
+readPrec :: ReadPrec RouteStatusCode
+$creadPrec :: ReadPrec RouteStatusCode
+readList :: ReadS [RouteStatusCode]
+$creadList :: ReadS [RouteStatusCode]
+readsPrec :: Int -&gt; ReadS RouteStatusCode
+$creadsPrec :: Int -&gt; ReadS RouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679331844"><span id="local-6989586621679331846"><span class="annot"><span class="annottext">RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+(RouteStatusCode -&gt; RouteStatusCode -&gt; Bool)
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; Bool)
+-&gt; Eq RouteStatusCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+$c/= :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+== :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+$c== :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679331828"><span id="local-6989586621679331830"><span id="local-6989586621679331832"><span id="local-6989586621679331834"><span id="local-6989586621679331836"><span id="local-6989586621679331838"><span id="local-6989586621679331840"><span class="annot"><span class="annottext">Eq RouteStatusCode
+Eq RouteStatusCode
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; Ordering)
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; Bool)
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; Bool)
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; Bool)
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; Bool)
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; RouteStatusCode)
+-&gt; (RouteStatusCode -&gt; RouteStatusCode -&gt; RouteStatusCode)
+-&gt; Ord RouteStatusCode
+RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+RouteStatusCode -&gt; RouteStatusCode -&gt; Ordering
+RouteStatusCode -&gt; RouteStatusCode -&gt; RouteStatusCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RouteStatusCode -&gt; RouteStatusCode -&gt; RouteStatusCode
+$cmin :: RouteStatusCode -&gt; RouteStatusCode -&gt; RouteStatusCode
+max :: RouteStatusCode -&gt; RouteStatusCode -&gt; RouteStatusCode
+$cmax :: RouteStatusCode -&gt; RouteStatusCode -&gt; RouteStatusCode
+&gt;= :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+$c&gt;= :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+&gt; :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+$c&gt; :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+&lt;= :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+$c&lt;= :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+&lt; :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+$c&lt; :: RouteStatusCode -&gt; RouteStatusCode -&gt; Bool
+compare :: RouteStatusCode -&gt; RouteStatusCode -&gt; Ordering
+$ccompare :: RouteStatusCode -&gt; RouteStatusCode -&gt; Ordering
+$cp1Ord :: Eq RouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RouteStatusCode -&gt; Rep RouteStatusCode x)
+-&gt; (forall x. Rep RouteStatusCode x -&gt; RouteStatusCode)
+-&gt; Generic RouteStatusCode
+forall x. Rep RouteStatusCode x -&gt; RouteStatusCode
+forall x. RouteStatusCode -&gt; Rep RouteStatusCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RouteStatusCode x -&gt; RouteStatusCode
+$cfrom :: forall x. RouteStatusCode -&gt; Rep RouteStatusCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331820"><span id="local-6989586621679331822"><span class="annot"><span class="annottext">Int -&gt; RouteStatusCode -&gt; Int
+RouteStatusCode -&gt; Int
+(Int -&gt; RouteStatusCode -&gt; Int)
+-&gt; (RouteStatusCode -&gt; Int) -&gt; Hashable RouteStatusCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RouteStatusCode -&gt; Int
+$chash :: RouteStatusCode -&gt; Int
+hashWithSalt :: Int -&gt; RouteStatusCode -&gt; Int
+$chashWithSalt :: Int -&gt; RouteStatusCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679331817"><span class="annot"><span class="annottext">RouteStatusCode -&gt; ()
+(RouteStatusCode -&gt; ()) -&gt; NFData RouteStatusCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RouteStatusCode -&gt; ()
+$crnf :: RouteStatusCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679331814"><span class="annot"><span class="annottext">Text -&gt; Either String RouteStatusCode
+(Text -&gt; Either String RouteStatusCode) -&gt; FromText RouteStatusCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RouteStatusCode
+$cfromText :: Text -&gt; Either String RouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679331811"><span class="annot"><span class="annottext">RouteStatusCode -&gt; Text
+(RouteStatusCode -&gt; Text) -&gt; ToText RouteStatusCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RouteStatusCode -&gt; Text
+$ctoText :: RouteStatusCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679331808"><span class="annot"><span class="annottext">RouteStatusCode -&gt; ByteString
+(RouteStatusCode -&gt; ByteString) -&gt; ToByteString RouteStatusCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RouteStatusCode -&gt; ByteString
+$ctoBS :: RouteStatusCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679331805"><span class="annot"><span class="annottext">RouteStatusCode -&gt; ByteStringBuilder
+(RouteStatusCode -&gt; ByteStringBuilder) -&gt; ToLog RouteStatusCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RouteStatusCode -&gt; ByteStringBuilder
+$cbuild :: RouteStatusCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679331802"><span class="annot"><span class="annottext">HeaderName -&gt; RouteStatusCode -&gt; [Header]
+(HeaderName -&gt; RouteStatusCode -&gt; [Header])
+-&gt; ToHeader RouteStatusCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RouteStatusCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RouteStatusCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679331799"><span class="annot"><span class="annottext">RouteStatusCode -&gt; QueryString
+(RouteStatusCode -&gt; QueryString) -&gt; ToQuery RouteStatusCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RouteStatusCode -&gt; QueryString
+$ctoQuery :: RouteStatusCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679331794"><span id="local-6989586621679331796"><span class="annot"><span class="annottext">Value -&gt; Parser [RouteStatusCode]
+Value -&gt; Parser RouteStatusCode
+(Value -&gt; Parser RouteStatusCode)
+-&gt; (Value -&gt; Parser [RouteStatusCode]) -&gt; FromJSON RouteStatusCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RouteStatusCode]
+$cparseJSONList :: Value -&gt; Parser [RouteStatusCode]
+parseJSON :: Value -&gt; Parser RouteStatusCode
+$cparseJSON :: Value -&gt; Parser RouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679331789"><span id="local-6989586621679331791"><span class="annot"><span class="annottext">FromJSONKeyFunction [RouteStatusCode]
+FromJSONKeyFunction RouteStatusCode
+FromJSONKeyFunction RouteStatusCode
+-&gt; FromJSONKeyFunction [RouteStatusCode]
+-&gt; FromJSONKey RouteStatusCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RouteStatusCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [RouteStatusCode]
+fromJSONKey :: FromJSONKeyFunction RouteStatusCode
+$cfromJSONKey :: FromJSONKeyFunction RouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679331780"><span id="local-6989586621679331782"><span id="local-6989586621679331784"><span id="local-6989586621679331786"><span class="annot"><span class="annottext">[RouteStatusCode] -&gt; Encoding
+[RouteStatusCode] -&gt; Value
+RouteStatusCode -&gt; Encoding
+RouteStatusCode -&gt; Value
+(RouteStatusCode -&gt; Value)
+-&gt; (RouteStatusCode -&gt; Encoding)
+-&gt; ([RouteStatusCode] -&gt; Value)
+-&gt; ([RouteStatusCode] -&gt; Encoding)
+-&gt; ToJSON RouteStatusCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RouteStatusCode] -&gt; Encoding
+$ctoEncodingList :: [RouteStatusCode] -&gt; Encoding
+toJSONList :: [RouteStatusCode] -&gt; Value
+$ctoJSONList :: [RouteStatusCode] -&gt; Value
+toEncoding :: RouteStatusCode -&gt; Encoding
+$ctoEncoding :: RouteStatusCode -&gt; Encoding
+toJSON :: RouteStatusCode -&gt; Value
+$ctoJSON :: RouteStatusCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679331775"><span id="local-6989586621679331777"><span class="annot"><span class="annottext">ToJSONKeyFunction [RouteStatusCode]
+ToJSONKeyFunction RouteStatusCode
+ToJSONKeyFunction RouteStatusCode
+-&gt; ToJSONKeyFunction [RouteStatusCode] -&gt; ToJSONKey RouteStatusCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RouteStatusCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [RouteStatusCode]
+toJSONKey :: ToJSONKeyFunction RouteStatusCode
+$ctoJSONKey :: ToJSONKeyFunction RouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679331772"><span class="annot"><span class="annottext">[Node] -&gt; Either String RouteStatusCode
+([Node] -&gt; Either String RouteStatusCode)
+-&gt; FromXML RouteStatusCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RouteStatusCode
+$cparseXML :: [Node] -&gt; Either String RouteStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679331769"><span class="annot"><span class="annottext">RouteStatusCode -&gt; XML
+(RouteStatusCode -&gt; XML) -&gt; ToXML RouteStatusCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RouteStatusCode -&gt; XML
+$ctoXML :: RouteStatusCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_ACTIVE"><span class="hs-identifier hs-type">RouteStatusCode_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode"><span class="hs-identifier hs-type">RouteStatusCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRouteStatusCode_ACTIVE"><span id="%24mRouteStatusCode_ACTIVE"><span id="RouteStatusCode_ACTIVE"><span class="annot"><span class="annottext">$bRouteStatusCode_ACTIVE :: RouteStatusCode
+$mRouteStatusCode_ACTIVE :: forall r. RouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#%24bRouteStatusCode_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">RouteStatusCode_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode%27"><span class="hs-identifier hs-type">RouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_DELETED"><span class="hs-identifier hs-type">RouteStatusCode_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode"><span class="hs-identifier hs-type">RouteStatusCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRouteStatusCode_DELETED"><span id="%24mRouteStatusCode_DELETED"><span id="RouteStatusCode_DELETED"><span class="annot"><span class="annottext">$bRouteStatusCode_DELETED :: RouteStatusCode
+$mRouteStatusCode_DELETED :: forall r. RouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#%24bRouteStatusCode_DELETED"><span class="hs-identifier hs-var hs-var hs-var">RouteStatusCode_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode%27"><span class="hs-identifier hs-type">RouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_INACTIVE"><span class="hs-identifier hs-type">RouteStatusCode_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode"><span class="hs-identifier hs-type">RouteStatusCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRouteStatusCode_INACTIVE"><span id="%24mRouteStatusCode_INACTIVE"><span id="RouteStatusCode_INACTIVE"><span class="annot"><span class="annottext">$bRouteStatusCode_INACTIVE :: RouteStatusCode
+$mRouteStatusCode_INACTIVE :: forall r. RouteStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#%24bRouteStatusCode_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">RouteStatusCode_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode%27"><span class="hs-identifier hs-type">RouteStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_ACTIVE"><span class="hs-pragma hs-type">RouteStatusCode_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_DELETED"><span class="hs-pragma hs-type">RouteStatusCode_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode_INACTIVE"><span class="hs-pragma hs-type">RouteStatusCode_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.RouteStatusCode.html#RouteStatusCode%27"><span class="hs-pragma hs-type">RouteStatusCode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

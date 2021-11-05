@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Specification to use (RFC-6381 or the default RFC-4281) during m3u8</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- playlist generation.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679977562"><span id="local-6989586621679977563"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsCodecSpecification"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsCodecSpecification.html#HlsCodecSpecification"><span class="hs-identifier hs-var">HlsCodecSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsCodecSpecification%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsCodecSpecification.html#HlsCodecSpecification%27"><span class="hs-identifier hs-var">HlsCodecSpecification'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679977571"><span id="local-6989586621679977572"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsCodecSpecification"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsCodecSpecification.html#HlsCodecSpecification"><span class="hs-identifier hs-var">HlsCodecSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsCodecSpecification%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsCodecSpecification.html#HlsCodecSpecification%27"><span class="hs-identifier hs-var">HlsCodecSpecification'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsCodecSpecification"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsCodecSpecification.html#fromHlsCodecSpecification"><span class="hs-identifier hs-var hs-var">fromHlsCodecSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977554"><span id="local-6989586621679977556"><span id="local-6989586621679977558"><span class="annot"><span class="annottext">Int -&gt; HlsCodecSpecification -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977563"><span id="local-6989586621679977565"><span id="local-6989586621679977567"><span class="annot"><span class="annottext">Int -&gt; HlsCodecSpecification -&gt; ShowS
 [HlsCodecSpecification] -&gt; ShowS
 HlsCodecSpecification -&gt; String
 (Int -&gt; HlsCodecSpecification -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: HlsCodecSpecification -&gt; String
 showsPrec :: Int -&gt; HlsCodecSpecification -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsCodecSpecification -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679977545"><span id="local-6989586621679977547"><span id="local-6989586621679977549"><span id="local-6989586621679977551"><span class="annot"><span class="annottext">ReadPrec [HlsCodecSpecification]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679977554"><span id="local-6989586621679977556"><span id="local-6989586621679977558"><span id="local-6989586621679977560"><span class="annot"><span class="annottext">ReadPrec [HlsCodecSpecification]
 ReadPrec HlsCodecSpecification
 Int -&gt; ReadS HlsCodecSpecification
 ReadS [HlsCodecSpecification]
@@ -74,7 +74,7 @@ $creadList :: ReadS [HlsCodecSpecification]
 readsPrec :: Int -&gt; ReadS HlsCodecSpecification
 $creadsPrec :: Int -&gt; ReadS HlsCodecSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679977540"><span id="local-6989586621679977542"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679977549"><span id="local-6989586621679977551"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool
 (HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool)
 -&gt; (HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool)
 -&gt; Eq HlsCodecSpecification
@@ -84,7 +84,7 @@ $c/= :: HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool
 == :: HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool
 $c== :: HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679977524"><span id="local-6989586621679977526"><span id="local-6989586621679977528"><span id="local-6989586621679977530"><span id="local-6989586621679977532"><span id="local-6989586621679977534"><span id="local-6989586621679977536"><span class="annot"><span class="annottext">Eq HlsCodecSpecification
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679977533"><span id="local-6989586621679977535"><span id="local-6989586621679977537"><span id="local-6989586621679977539"><span id="local-6989586621679977541"><span id="local-6989586621679977543"><span id="local-6989586621679977545"><span class="annot"><span class="annottext">Eq HlsCodecSpecification
 Eq HlsCodecSpecification
 -&gt; (HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Ordering)
 -&gt; (HlsCodecSpecification -&gt; HlsCodecSpecification -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. HlsCodecSpecification -&gt; Rep HlsCodecSpecification x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977516"><span id="local-6989586621679977518"><span class="annot"><span class="annottext">Int -&gt; HlsCodecSpecification -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679977525"><span id="local-6989586621679977527"><span class="annot"><span class="annottext">Int -&gt; HlsCodecSpecification -&gt; Int
 HlsCodecSpecification -&gt; Int
 (Int -&gt; HlsCodecSpecification -&gt; Int)
 -&gt; (HlsCodecSpecification -&gt; Int) -&gt; Hashable HlsCodecSpecification
@@ -152,54 +152,54 @@ $chash :: HlsCodecSpecification -&gt; Int
 hashWithSalt :: Int -&gt; HlsCodecSpecification -&gt; Int
 $chashWithSalt :: Int -&gt; HlsCodecSpecification -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679977513"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679977522"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; ()
 (HlsCodecSpecification -&gt; ()) -&gt; NFData HlsCodecSpecification
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsCodecSpecification -&gt; ()
 $crnf :: HlsCodecSpecification -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679977510"><span class="annot"><span class="annottext">Text -&gt; Either String HlsCodecSpecification
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679977519"><span class="annot"><span class="annottext">Text -&gt; Either String HlsCodecSpecification
 (Text -&gt; Either String HlsCodecSpecification)
 -&gt; FromText HlsCodecSpecification
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsCodecSpecification
 $cfromText :: Text -&gt; Either String HlsCodecSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679977507"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679977516"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; Text
 (HlsCodecSpecification -&gt; Text) -&gt; ToText HlsCodecSpecification
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsCodecSpecification -&gt; Text
 $ctoText :: HlsCodecSpecification -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679977504"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679977513"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; ByteString
 (HlsCodecSpecification -&gt; ByteString)
 -&gt; ToByteString HlsCodecSpecification
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsCodecSpecification -&gt; ByteString
 $ctoBS :: HlsCodecSpecification -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679977501"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679977510"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; ByteStringBuilder
 (HlsCodecSpecification -&gt; ByteStringBuilder)
 -&gt; ToLog HlsCodecSpecification
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsCodecSpecification -&gt; ByteStringBuilder
 $cbuild :: HlsCodecSpecification -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679977498"><span class="annot"><span class="annottext">HeaderName -&gt; HlsCodecSpecification -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679977507"><span class="annot"><span class="annottext">HeaderName -&gt; HlsCodecSpecification -&gt; [Header]
 (HeaderName -&gt; HlsCodecSpecification -&gt; [Header])
 -&gt; ToHeader HlsCodecSpecification
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsCodecSpecification -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsCodecSpecification -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679977495"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679977504"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; QueryString
 (HlsCodecSpecification -&gt; QueryString)
 -&gt; ToQuery HlsCodecSpecification
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsCodecSpecification -&gt; QueryString
 $ctoQuery :: HlsCodecSpecification -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679977490"><span id="local-6989586621679977492"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsCodecSpecification]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679977499"><span id="local-6989586621679977501"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsCodecSpecification]
 Value -&gt; Parser HlsCodecSpecification
 (Value -&gt; Parser HlsCodecSpecification)
 -&gt; (Value -&gt; Parser [HlsCodecSpecification])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsCodecSpecification]
 parseJSON :: Value -&gt; Parser HlsCodecSpecification
 $cparseJSON :: Value -&gt; Parser HlsCodecSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679977485"><span id="local-6989586621679977487"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsCodecSpecification]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679977494"><span id="local-6989586621679977496"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsCodecSpecification]
 FromJSONKeyFunction HlsCodecSpecification
 FromJSONKeyFunction HlsCodecSpecification
 -&gt; FromJSONKeyFunction [HlsCodecSpecification]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsCodecSpecification]
 fromJSONKey :: FromJSONKeyFunction HlsCodecSpecification
 $cfromJSONKey :: FromJSONKeyFunction HlsCodecSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679977476"><span id="local-6989586621679977478"><span id="local-6989586621679977480"><span id="local-6989586621679977482"><span class="annot"><span class="annottext">[HlsCodecSpecification] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679977485"><span id="local-6989586621679977487"><span id="local-6989586621679977489"><span id="local-6989586621679977491"><span class="annot"><span class="annottext">[HlsCodecSpecification] -&gt; Encoding
 [HlsCodecSpecification] -&gt; Value
 HlsCodecSpecification -&gt; Encoding
 HlsCodecSpecification -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: HlsCodecSpecification -&gt; Encoding
 toJSON :: HlsCodecSpecification -&gt; Value
 $ctoJSON :: HlsCodecSpecification -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679977471"><span id="local-6989586621679977473"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsCodecSpecification]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679977480"><span id="local-6989586621679977482"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsCodecSpecification]
 ToJSONKeyFunction HlsCodecSpecification
 ToJSONKeyFunction HlsCodecSpecification
 -&gt; ToJSONKeyFunction [HlsCodecSpecification]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsCodecSpecification]
 toJSONKey :: ToJSONKeyFunction HlsCodecSpecification
 $ctoJSONKey :: ToJSONKeyFunction HlsCodecSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679977468"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsCodecSpecification
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679977477"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsCodecSpecification
 ([Node] -&gt; Either String HlsCodecSpecification)
 -&gt; FromXML HlsCodecSpecification
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsCodecSpecification
 $cparseXML :: [Node] -&gt; Either String HlsCodecSpecification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679977465"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679977474"><span class="annot"><span class="annottext">HlsCodecSpecification -&gt; XML
 (HlsCodecSpecification -&gt; XML) -&gt; ToXML HlsCodecSpecification
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsCodecSpecification -&gt; XML

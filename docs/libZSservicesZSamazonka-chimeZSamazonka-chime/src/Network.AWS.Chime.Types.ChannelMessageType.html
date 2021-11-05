@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.ChannelMessageType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.ChannelMessageType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType"><span class="hs-identifier">ChannelMessageType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType_CONTROL"><span class="hs-identifier">ChannelMessageType_CONTROL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType_STANDARD"><span class="hs-identifier">ChannelMessageType_STANDARD</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679507228"><span id="local-6989586621679507229"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelMessageType"><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType"><span class="hs-identifier hs-var">ChannelMessageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelMessageType%27"><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType%27"><span class="hs-identifier hs-var">ChannelMessageType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChannelMessageType"><span class="annot"><span class="annottext">ChannelMessageType -&gt; Text
+</span><a href="Network.AWS.Chime.Types.ChannelMessageType.html#fromChannelMessageType"><span class="hs-identifier hs-var hs-var">fromChannelMessageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679507220"><span id="local-6989586621679507222"><span id="local-6989586621679507224"><span class="annot"><span class="annottext">Int -&gt; ChannelMessageType -&gt; ShowS
+[ChannelMessageType] -&gt; ShowS
+ChannelMessageType -&gt; String
+(Int -&gt; ChannelMessageType -&gt; ShowS)
+-&gt; (ChannelMessageType -&gt; String)
+-&gt; ([ChannelMessageType] -&gt; ShowS)
+-&gt; Show ChannelMessageType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChannelMessageType] -&gt; ShowS
+$cshowList :: [ChannelMessageType] -&gt; ShowS
+show :: ChannelMessageType -&gt; String
+$cshow :: ChannelMessageType -&gt; String
+showsPrec :: Int -&gt; ChannelMessageType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChannelMessageType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679507211"><span id="local-6989586621679507213"><span id="local-6989586621679507215"><span id="local-6989586621679507217"><span class="annot"><span class="annottext">ReadPrec [ChannelMessageType]
+ReadPrec ChannelMessageType
+Int -&gt; ReadS ChannelMessageType
+ReadS [ChannelMessageType]
+(Int -&gt; ReadS ChannelMessageType)
+-&gt; ReadS [ChannelMessageType]
+-&gt; ReadPrec ChannelMessageType
+-&gt; ReadPrec [ChannelMessageType]
+-&gt; Read ChannelMessageType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChannelMessageType]
+$creadListPrec :: ReadPrec [ChannelMessageType]
+readPrec :: ReadPrec ChannelMessageType
+$creadPrec :: ReadPrec ChannelMessageType
+readList :: ReadS [ChannelMessageType]
+$creadList :: ReadS [ChannelMessageType]
+readsPrec :: Int -&gt; ReadS ChannelMessageType
+$creadsPrec :: Int -&gt; ReadS ChannelMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679507206"><span id="local-6989586621679507208"><span class="annot"><span class="annottext">ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+(ChannelMessageType -&gt; ChannelMessageType -&gt; Bool)
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; Bool)
+-&gt; Eq ChannelMessageType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+$c/= :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+== :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+$c== :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679507190"><span id="local-6989586621679507192"><span id="local-6989586621679507194"><span id="local-6989586621679507196"><span id="local-6989586621679507198"><span id="local-6989586621679507200"><span id="local-6989586621679507202"><span class="annot"><span class="annottext">Eq ChannelMessageType
+Eq ChannelMessageType
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; Ordering)
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; Bool)
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; Bool)
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; Bool)
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; Bool)
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; ChannelMessageType)
+-&gt; (ChannelMessageType -&gt; ChannelMessageType -&gt; ChannelMessageType)
+-&gt; Ord ChannelMessageType
+ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+ChannelMessageType -&gt; ChannelMessageType -&gt; Ordering
+ChannelMessageType -&gt; ChannelMessageType -&gt; ChannelMessageType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChannelMessageType -&gt; ChannelMessageType -&gt; ChannelMessageType
+$cmin :: ChannelMessageType -&gt; ChannelMessageType -&gt; ChannelMessageType
+max :: ChannelMessageType -&gt; ChannelMessageType -&gt; ChannelMessageType
+$cmax :: ChannelMessageType -&gt; ChannelMessageType -&gt; ChannelMessageType
+&gt;= :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+$c&gt;= :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+&gt; :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+$c&gt; :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+&lt;= :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+$c&lt;= :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+&lt; :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+$c&lt; :: ChannelMessageType -&gt; ChannelMessageType -&gt; Bool
+compare :: ChannelMessageType -&gt; ChannelMessageType -&gt; Ordering
+$ccompare :: ChannelMessageType -&gt; ChannelMessageType -&gt; Ordering
+$cp1Ord :: Eq ChannelMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ChannelMessageType -&gt; Rep ChannelMessageType x)
+-&gt; (forall x. Rep ChannelMessageType x -&gt; ChannelMessageType)
+-&gt; Generic ChannelMessageType
+forall x. Rep ChannelMessageType x -&gt; ChannelMessageType
+forall x. ChannelMessageType -&gt; Rep ChannelMessageType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChannelMessageType x -&gt; ChannelMessageType
+$cfrom :: forall x. ChannelMessageType -&gt; Rep ChannelMessageType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679507182"><span id="local-6989586621679507184"><span class="annot"><span class="annottext">Int -&gt; ChannelMessageType -&gt; Int
+ChannelMessageType -&gt; Int
+(Int -&gt; ChannelMessageType -&gt; Int)
+-&gt; (ChannelMessageType -&gt; Int) -&gt; Hashable ChannelMessageType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChannelMessageType -&gt; Int
+$chash :: ChannelMessageType -&gt; Int
+hashWithSalt :: Int -&gt; ChannelMessageType -&gt; Int
+$chashWithSalt :: Int -&gt; ChannelMessageType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679507179"><span class="annot"><span class="annottext">ChannelMessageType -&gt; ()
+(ChannelMessageType -&gt; ()) -&gt; NFData ChannelMessageType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChannelMessageType -&gt; ()
+$crnf :: ChannelMessageType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679507176"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelMessageType
+(Text -&gt; Either String ChannelMessageType)
+-&gt; FromText ChannelMessageType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ChannelMessageType
+$cfromText :: Text -&gt; Either String ChannelMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679507173"><span class="annot"><span class="annottext">ChannelMessageType -&gt; Text
+(ChannelMessageType -&gt; Text) -&gt; ToText ChannelMessageType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChannelMessageType -&gt; Text
+$ctoText :: ChannelMessageType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679507170"><span class="annot"><span class="annottext">ChannelMessageType -&gt; ByteString
+(ChannelMessageType -&gt; ByteString)
+-&gt; ToByteString ChannelMessageType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChannelMessageType -&gt; ByteString
+$ctoBS :: ChannelMessageType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679507167"><span class="annot"><span class="annottext">ChannelMessageType -&gt; ByteStringBuilder
+(ChannelMessageType -&gt; ByteStringBuilder)
+-&gt; ToLog ChannelMessageType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChannelMessageType -&gt; ByteStringBuilder
+$cbuild :: ChannelMessageType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679507164"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelMessageType -&gt; [Header]
+(HeaderName -&gt; ChannelMessageType -&gt; [Header])
+-&gt; ToHeader ChannelMessageType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ChannelMessageType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ChannelMessageType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679507161"><span class="annot"><span class="annottext">ChannelMessageType -&gt; QueryString
+(ChannelMessageType -&gt; QueryString) -&gt; ToQuery ChannelMessageType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChannelMessageType -&gt; QueryString
+$ctoQuery :: ChannelMessageType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679507156"><span id="local-6989586621679507158"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelMessageType]
+Value -&gt; Parser ChannelMessageType
+(Value -&gt; Parser ChannelMessageType)
+-&gt; (Value -&gt; Parser [ChannelMessageType])
+-&gt; FromJSON ChannelMessageType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ChannelMessageType]
+$cparseJSONList :: Value -&gt; Parser [ChannelMessageType]
+parseJSON :: Value -&gt; Parser ChannelMessageType
+$cparseJSON :: Value -&gt; Parser ChannelMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679507151"><span id="local-6989586621679507153"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelMessageType]
+FromJSONKeyFunction ChannelMessageType
+FromJSONKeyFunction ChannelMessageType
+-&gt; FromJSONKeyFunction [ChannelMessageType]
+-&gt; FromJSONKey ChannelMessageType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ChannelMessageType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ChannelMessageType]
+fromJSONKey :: FromJSONKeyFunction ChannelMessageType
+$cfromJSONKey :: FromJSONKeyFunction ChannelMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679507142"><span id="local-6989586621679507144"><span id="local-6989586621679507146"><span id="local-6989586621679507148"><span class="annot"><span class="annottext">[ChannelMessageType] -&gt; Encoding
+[ChannelMessageType] -&gt; Value
+ChannelMessageType -&gt; Encoding
+ChannelMessageType -&gt; Value
+(ChannelMessageType -&gt; Value)
+-&gt; (ChannelMessageType -&gt; Encoding)
+-&gt; ([ChannelMessageType] -&gt; Value)
+-&gt; ([ChannelMessageType] -&gt; Encoding)
+-&gt; ToJSON ChannelMessageType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChannelMessageType] -&gt; Encoding
+$ctoEncodingList :: [ChannelMessageType] -&gt; Encoding
+toJSONList :: [ChannelMessageType] -&gt; Value
+$ctoJSONList :: [ChannelMessageType] -&gt; Value
+toEncoding :: ChannelMessageType -&gt; Encoding
+$ctoEncoding :: ChannelMessageType -&gt; Encoding
+toJSON :: ChannelMessageType -&gt; Value
+$ctoJSON :: ChannelMessageType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679507137"><span id="local-6989586621679507139"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelMessageType]
+ToJSONKeyFunction ChannelMessageType
+ToJSONKeyFunction ChannelMessageType
+-&gt; ToJSONKeyFunction [ChannelMessageType]
+-&gt; ToJSONKey ChannelMessageType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ChannelMessageType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ChannelMessageType]
+toJSONKey :: ToJSONKeyFunction ChannelMessageType
+$ctoJSONKey :: ToJSONKeyFunction ChannelMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679507134"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelMessageType
+([Node] -&gt; Either String ChannelMessageType)
+-&gt; FromXML ChannelMessageType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ChannelMessageType
+$cparseXML :: [Node] -&gt; Either String ChannelMessageType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679507131"><span class="annot"><span class="annottext">ChannelMessageType -&gt; XML
+(ChannelMessageType -&gt; XML) -&gt; ToXML ChannelMessageType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChannelMessageType -&gt; XML
+$ctoXML :: ChannelMessageType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType_CONTROL"><span class="hs-identifier hs-type">ChannelMessageType_CONTROL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType"><span class="hs-identifier hs-type">ChannelMessageType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelMessageType_CONTROL"><span id="%24mChannelMessageType_CONTROL"><span id="ChannelMessageType_CONTROL"><span class="annot"><span class="annottext">$bChannelMessageType_CONTROL :: ChannelMessageType
+$mChannelMessageType_CONTROL :: forall r. ChannelMessageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.ChannelMessageType.html#%24bChannelMessageType_CONTROL"><span class="hs-identifier hs-var hs-var hs-var">ChannelMessageType_CONTROL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType%27"><span class="hs-identifier hs-type">ChannelMessageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTROL&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType_STANDARD"><span class="hs-identifier hs-type">ChannelMessageType_STANDARD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType"><span class="hs-identifier hs-type">ChannelMessageType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChannelMessageType_STANDARD"><span id="%24mChannelMessageType_STANDARD"><span id="ChannelMessageType_STANDARD"><span class="annot"><span class="annottext">$bChannelMessageType_STANDARD :: ChannelMessageType
+$mChannelMessageType_STANDARD :: forall r. ChannelMessageType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.ChannelMessageType.html#%24bChannelMessageType_STANDARD"><span class="hs-identifier hs-var hs-var hs-var">ChannelMessageType_STANDARD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType%27"><span class="hs-identifier hs-type">ChannelMessageType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STANDARD&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType_CONTROL"><span class="hs-pragma hs-type">ChannelMessageType_CONTROL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType_STANDARD"><span class="hs-pragma hs-type">ChannelMessageType_STANDARD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.ChannelMessageType.html#ChannelMessageType%27"><span class="hs-pragma hs-type">ChannelMessageType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

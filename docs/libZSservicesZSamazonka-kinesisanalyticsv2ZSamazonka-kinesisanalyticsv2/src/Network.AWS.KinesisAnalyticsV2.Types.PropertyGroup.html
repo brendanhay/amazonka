@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Property key-value pairs passed into an application.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPropertyGroup' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679292219"><span id="local-6989586621679292220"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyGroup"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-var">PropertyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyGroup%27"><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-var">PropertyGroup'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the key of an application execution property key-value pair.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3ApropertyGroupId%3APropertyGroup%27"><span class="annot"><span class="annottext">PropertyGroup -&gt; Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#%24sel%3ApropertyGroupId%3APropertyGroup%27"><span class="hs-identifier hs-var hs-var">propertyGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Describes the value of an application execution property key-value pair.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ApropertyMap%3APropertyGroup%27"><span class="annot"><span class="annottext">PropertyGroup -&gt; HashMap Text Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#%24sel%3ApropertyMap%3APropertyGroup%27"><span class="hs-identifier hs-var hs-var">propertyMap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292212"><span id="local-6989586621679292214"><span class="annot"><span class="annottext">PropertyGroup -&gt; PropertyGroup -&gt; Bool
+(PropertyGroup -&gt; PropertyGroup -&gt; Bool)
+-&gt; (PropertyGroup -&gt; PropertyGroup -&gt; Bool) -&gt; Eq PropertyGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PropertyGroup -&gt; PropertyGroup -&gt; Bool
+$c/= :: PropertyGroup -&gt; PropertyGroup -&gt; Bool
+== :: PropertyGroup -&gt; PropertyGroup -&gt; Bool
+$c== :: PropertyGroup -&gt; PropertyGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292203"><span id="local-6989586621679292205"><span id="local-6989586621679292207"><span id="local-6989586621679292209"><span class="annot"><span class="annottext">ReadPrec [PropertyGroup]
+ReadPrec PropertyGroup
+Int -&gt; ReadS PropertyGroup
+ReadS [PropertyGroup]
+(Int -&gt; ReadS PropertyGroup)
+-&gt; ReadS [PropertyGroup]
+-&gt; ReadPrec PropertyGroup
+-&gt; ReadPrec [PropertyGroup]
+-&gt; Read PropertyGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PropertyGroup]
+$creadListPrec :: ReadPrec [PropertyGroup]
+readPrec :: ReadPrec PropertyGroup
+$creadPrec :: ReadPrec PropertyGroup
+readList :: ReadS [PropertyGroup]
+$creadList :: ReadS [PropertyGroup]
+readsPrec :: Int -&gt; ReadS PropertyGroup
+$creadsPrec :: Int -&gt; ReadS PropertyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292196"><span id="local-6989586621679292198"><span id="local-6989586621679292200"><span class="annot"><span class="annottext">Int -&gt; PropertyGroup -&gt; ShowS
+[PropertyGroup] -&gt; ShowS
+PropertyGroup -&gt; String
+(Int -&gt; PropertyGroup -&gt; ShowS)
+-&gt; (PropertyGroup -&gt; String)
+-&gt; ([PropertyGroup] -&gt; ShowS)
+-&gt; Show PropertyGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PropertyGroup] -&gt; ShowS
+$cshowList :: [PropertyGroup] -&gt; ShowS
+show :: PropertyGroup -&gt; String
+$cshow :: PropertyGroup -&gt; String
+showsPrec :: Int -&gt; PropertyGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; PropertyGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PropertyGroup -&gt; Rep PropertyGroup x)
+-&gt; (forall x. Rep PropertyGroup x -&gt; PropertyGroup)
+-&gt; Generic PropertyGroup
+forall x. Rep PropertyGroup x -&gt; PropertyGroup
+forall x. PropertyGroup -&gt; Rep PropertyGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PropertyGroup x -&gt; PropertyGroup
+$cfrom :: forall x. PropertyGroup -&gt; Rep PropertyGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'PropertyGroup' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'propertyGroupId', 'propertyGroup_propertyGroupId' - Describes the key of an application execution property key-value pair.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'propertyMap', 'propertyGroup_propertyMap' - Describes the value of an application execution property key-value pair.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#newPropertyGroup"><span class="hs-identifier hs-type">newPropertyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-comment">-- | 'propertyGroupId'</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span><span>
+</span><span id="line-52"></span><span id="newPropertyGroup"><span class="annot"><span class="annottext">newPropertyGroup :: Text -&gt; PropertyGroup
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#newPropertyGroup"><span class="hs-identifier hs-var hs-var">newPropertyGroup</span></a></span></span><span> </span><span id="local-6989586621679292190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292190"><span class="hs-identifier hs-var">pPropertyGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">PropertyGroup' :: Text -&gt; HashMap Text Text -&gt; PropertyGroup
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-type">PropertyGroup'</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:propertyGroupId:PropertyGroup' :: Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#%24sel%3ApropertyGroupId%3APropertyGroup%27"><span class="hs-identifier hs-var">propertyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292190"><span class="hs-identifier hs-var">pPropertyGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:propertyMap:PropertyGroup' :: HashMap Text Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#%24sel%3ApropertyMap%3APropertyGroup%27"><span class="hs-identifier hs-var">propertyMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | Describes the key of an application execution property key-value pair.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#propertyGroup_propertyGroupId"><span class="hs-identifier hs-type">propertyGroup_propertyGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span id="propertyGroup_propertyGroupId"><span class="annot"><span class="annottext">propertyGroup_propertyGroupId :: (Text -&gt; f Text) -&gt; PropertyGroup -&gt; f PropertyGroup
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#propertyGroup_propertyGroupId"><span class="hs-identifier hs-var hs-var">propertyGroup_propertyGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyGroup -&gt; Text)
+-&gt; (PropertyGroup -&gt; Text -&gt; PropertyGroup)
+-&gt; Lens PropertyGroup PropertyGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-type">PropertyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292186"><span class="annot"><span class="annottext">Text
+propertyGroupId :: Text
+$sel:propertyGroupId:PropertyGroup' :: PropertyGroup -&gt; Text
+</span><a href="#local-6989586621679292186"><span class="hs-identifier hs-var hs-var">propertyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292186"><span class="hs-identifier hs-var">propertyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292185"><span class="annot"><span class="annottext">s :: PropertyGroup
+</span><a href="#local-6989586621679292185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-type">PropertyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292184"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyGroup
+</span><a href="#local-6989586621679292185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyGroupId:PropertyGroup' :: Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#%24sel%3ApropertyGroupId%3APropertyGroup%27"><span class="hs-identifier hs-var">propertyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Describes the value of an application execution property key-value pair.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#propertyGroup_propertyMap"><span class="hs-identifier hs-type">propertyGroup_propertyMap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="propertyGroup_propertyMap"><span class="annot"><span class="annottext">propertyGroup_propertyMap :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; PropertyGroup -&gt; f PropertyGroup
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#propertyGroup_propertyMap"><span class="hs-identifier hs-var hs-var">propertyGroup_propertyMap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyGroup -&gt; HashMap Text Text)
+-&gt; (PropertyGroup -&gt; HashMap Text Text -&gt; PropertyGroup)
+-&gt; Lens
+     PropertyGroup PropertyGroup (HashMap Text Text) (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-type">PropertyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292182"><span class="annot"><span class="annottext">HashMap Text Text
+propertyMap :: HashMap Text Text
+$sel:propertyMap:PropertyGroup' :: PropertyGroup -&gt; HashMap Text Text
+</span><a href="#local-6989586621679292182"><span class="hs-identifier hs-var hs-var">propertyMap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679292182"><span class="hs-identifier hs-var">propertyMap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292181"><span class="annot"><span class="annottext">s :: PropertyGroup
+</span><a href="#local-6989586621679292181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-type">PropertyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292180"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679292180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyGroup
+</span><a href="#local-6989586621679292181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyMap:PropertyGroup' :: HashMap Text Text
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#%24sel%3ApropertyMap%3APropertyGroup%27"><span class="hs-identifier hs-var">propertyMap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679292180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; PropertyGroup -&gt; f PropertyGroup)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; PropertyGroup
+-&gt; f PropertyGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292175"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679292173"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PropertyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PropertyGroup)
+-&gt; Value
+-&gt; Parser PropertyGroup
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PropertyGroup&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679292170"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; PropertyGroup
+</span><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-var">PropertyGroup'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; HashMap Text Text -&gt; PropertyGroup)
+-&gt; Parser Text -&gt; Parser (HashMap Text Text -&gt; PropertyGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PropertyGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (HashMap Text Text -&gt; PropertyGroup)
+-&gt; Parser (HashMap Text Text) -&gt; Parser PropertyGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679292170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PropertyMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; Parser (HashMap Text Text)
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292162"><span id="local-6989586621679292164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292151"><span id="local-6989586621679292153"><span id="local-6989586621679292155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup"><span class="hs-identifier hs-type">PropertyGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679292149"><span class="annot"><span class="annottext">toJSON :: PropertyGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalyticsV2.Types.PropertyGroup.html#PropertyGroup%27"><span class="hs-identifier hs-type">PropertyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292146"><span id="local-6989586621679292147"><span class="annot"><span class="annottext">Text
+HashMap Text Text
+propertyMap :: HashMap Text Text
+propertyGroupId :: Text
+$sel:propertyMap:PropertyGroup' :: PropertyGroup -&gt; HashMap Text Text
+$sel:propertyGroupId:PropertyGroup' :: PropertyGroup -&gt; Text
+</span><a href="#local-6989586621679292146"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-84"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-85"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PropertyGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292147"><span class="hs-identifier hs-var">propertyGroupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PropertyMap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679292146"><span class="hs-identifier hs-var">propertyMap</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span></pre></body></html>

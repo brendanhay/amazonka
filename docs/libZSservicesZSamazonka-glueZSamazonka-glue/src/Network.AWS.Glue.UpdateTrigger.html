@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateTrigger' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679750159"><span id="local-6989586621679750160"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrigger"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-var">UpdateTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrigger%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-var">UpdateTrigger'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679750168"><span id="local-6989586621679750169"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTrigger"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-var">UpdateTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTrigger%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-var">UpdateTrigger'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the trigger to update.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Aname%3AUpdateTrigger%27"><span class="annot"><span class="annottext">UpdateTrigger -&gt; Text
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3Aname%3AUpdateTrigger%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AtriggerUpdate%3AUpdateTrigger%27"><span class="annot"><span class="annottext">UpdateTrigger -&gt; TriggerUpdate
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3AtriggerUpdate%3AUpdateTrigger%27"><span class="hs-identifier hs-var hs-var">triggerUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerUpdate.html#TriggerUpdate"><span class="hs-identifier hs-type">TriggerUpdate</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679750152"><span id="local-6989586621679750154"><span class="annot"><span class="annottext">UpdateTrigger -&gt; UpdateTrigger -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679750161"><span id="local-6989586621679750163"><span class="annot"><span class="annottext">UpdateTrigger -&gt; UpdateTrigger -&gt; Bool
 (UpdateTrigger -&gt; UpdateTrigger -&gt; Bool)
 -&gt; (UpdateTrigger -&gt; UpdateTrigger -&gt; Bool) -&gt; Eq UpdateTrigger
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTrigger -&gt; UpdateTrigger -&gt; Bool
 == :: UpdateTrigger -&gt; UpdateTrigger -&gt; Bool
 $c== :: UpdateTrigger -&gt; UpdateTrigger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750143"><span id="local-6989586621679750145"><span id="local-6989586621679750147"><span id="local-6989586621679750149"><span class="annot"><span class="annottext">ReadPrec [UpdateTrigger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750152"><span id="local-6989586621679750154"><span id="local-6989586621679750156"><span id="local-6989586621679750158"><span class="annot"><span class="annottext">ReadPrec [UpdateTrigger]
 ReadPrec UpdateTrigger
 Int -&gt; ReadS UpdateTrigger
 ReadS [UpdateTrigger]
@@ -84,7 +84,7 @@ readList :: ReadS [UpdateTrigger]
 $creadList :: ReadS [UpdateTrigger]
 readsPrec :: Int -&gt; ReadS UpdateTrigger
 $creadsPrec :: Int -&gt; ReadS UpdateTrigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750136"><span id="local-6989586621679750138"><span id="local-6989586621679750140"><span class="annot"><span class="annottext">Int -&gt; UpdateTrigger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750145"><span id="local-6989586621679750147"><span id="local-6989586621679750149"><span class="annot"><span class="annottext">Int -&gt; UpdateTrigger -&gt; ShowS
 [UpdateTrigger] -&gt; ShowS
 UpdateTrigger -&gt; String
 (Int -&gt; UpdateTrigger -&gt; ShowS)
@@ -128,17 +128,17 @@ $cfrom :: forall x. UpdateTrigger -&gt; Rep UpdateTrigger x
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerUpdate.html#TriggerUpdate"><span class="hs-identifier hs-type">TriggerUpdate</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span>
 </span><span id="line-76"></span><span id="newUpdateTrigger"><span class="annot"><span class="annottext">newUpdateTrigger :: Text -&gt; TriggerUpdate -&gt; UpdateTrigger
-</span><a href="Network.AWS.Glue.UpdateTrigger.html#newUpdateTrigger"><span class="hs-identifier hs-var hs-var">newUpdateTrigger</span></a></span></span><span> </span><span id="local-6989586621679750131"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679750131"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679750130"><span class="annot"><span class="annottext">TriggerUpdate
-</span><a href="#local-6989586621679750130"><span class="hs-identifier hs-var">pTriggerUpdate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateTrigger.html#newUpdateTrigger"><span class="hs-identifier hs-var hs-var">newUpdateTrigger</span></a></span></span><span> </span><span id="local-6989586621679750140"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679750140"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679750139"><span class="annot"><span class="annottext">TriggerUpdate
+</span><a href="#local-6989586621679750139"><span class="hs-identifier hs-var">pTriggerUpdate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">UpdateTrigger' :: Text -&gt; TriggerUpdate -&gt; UpdateTrigger
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UpdateTrigger' :: Text
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3Aname%3AUpdateTrigger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679750131"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679750140"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggerUpdate:UpdateTrigger' :: TriggerUpdate
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3AtriggerUpdate%3AUpdateTrigger%27"><span class="hs-identifier hs-var">triggerUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TriggerUpdate
-</span><a href="#local-6989586621679750130"><span class="hs-identifier hs-var">pTriggerUpdate_</span></a></span><span>
+</span><a href="#local-6989586621679750139"><span class="hs-identifier hs-var">pTriggerUpdate_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the trigger to update.</span><span>
@@ -148,16 +148,16 @@ $cfrom :: forall x. UpdateTrigger -&gt; Rep UpdateTrigger x
 -&gt; (UpdateTrigger -&gt; Text -&gt; UpdateTrigger)
 -&gt; Lens UpdateTrigger UpdateTrigger Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750127"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750136"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateTrigger' :: UpdateTrigger -&gt; Text
-</span><a href="#local-6989586621679750127"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679750127"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750126"><span class="annot"><span class="annottext">s :: UpdateTrigger
-</span><a href="#local-6989586621679750126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679750125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrigger
-</span><a href="#local-6989586621679750126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateTrigger' :: Text
+</span><a href="#local-6989586621679750136"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679750136"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750135"><span class="annot"><span class="annottext">s :: UpdateTrigger
+</span><a href="#local-6989586621679750135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679750134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrigger
+</span><a href="#local-6989586621679750135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateTrigger' :: Text
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3Aname%3AUpdateTrigger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679750125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679750134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The new values with which to update the trigger.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#updateTrigger_triggerUpdate"><span class="hs-identifier hs-type">updateTrigger_triggerUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TriggerUpdate.html#TriggerUpdate"><span class="hs-identifier hs-type">TriggerUpdate</span></a></span><span>
@@ -167,27 +167,27 @@ $sel:name:UpdateTrigger' :: UpdateTrigger -&gt; Text
 -&gt; (UpdateTrigger -&gt; TriggerUpdate -&gt; UpdateTrigger)
 -&gt; Lens UpdateTrigger UpdateTrigger TriggerUpdate TriggerUpdate
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750124"><span class="annot"><span class="annottext">TriggerUpdate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750133"><span class="annot"><span class="annottext">TriggerUpdate
 triggerUpdate :: TriggerUpdate
 $sel:triggerUpdate:UpdateTrigger' :: UpdateTrigger -&gt; TriggerUpdate
-</span><a href="#local-6989586621679750124"><span class="hs-identifier hs-var hs-var">triggerUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerUpdate
-</span><a href="#local-6989586621679750124"><span class="hs-identifier hs-var">triggerUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750123"><span class="annot"><span class="annottext">s :: UpdateTrigger
-</span><a href="#local-6989586621679750123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750122"><span class="annot"><span class="annottext">TriggerUpdate
-</span><a href="#local-6989586621679750122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrigger
-</span><a href="#local-6989586621679750123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerUpdate:UpdateTrigger' :: TriggerUpdate
+</span><a href="#local-6989586621679750133"><span class="hs-identifier hs-var hs-var">triggerUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerUpdate
+</span><a href="#local-6989586621679750133"><span class="hs-identifier hs-var">triggerUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750132"><span class="annot"><span class="annottext">s :: UpdateTrigger
+</span><a href="#local-6989586621679750132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750131"><span class="annot"><span class="annottext">TriggerUpdate
+</span><a href="#local-6989586621679750131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTrigger
+</span><a href="#local-6989586621679750132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerUpdate:UpdateTrigger' :: TriggerUpdate
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3AtriggerUpdate%3AUpdateTrigger%27"><span class="hs-identifier hs-var">triggerUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TriggerUpdate
-</span><a href="#local-6989586621679750122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679750131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679750118"><span class="annot"><span class="annottext">request :: UpdateTrigger -&gt; Request UpdateTrigger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679750127"><span class="annot"><span class="annottext">request :: UpdateTrigger -&gt; Request UpdateTrigger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTrigger -&gt; Request UpdateTrigger
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679750114"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679750123"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateTrigger
 -&gt; ClientResponse ClientBody
@@ -211,10 +211,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679750111"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679750111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679750110"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679750110"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679750109"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679750109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679750120"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679750120"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679750119"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679750119"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679750118"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679750118"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Trigger -&gt; Int -&gt; UpdateTriggerResponse
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-var">UpdateTriggerResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Trigger -&gt; Int -&gt; UpdateTriggerResponse)
@@ -222,7 +222,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateTriggerResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679750109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Trigger)
+</span><a href="#local-6989586621679750118"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Trigger)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Trigger&quot;</span></span><span class="hs-special">)</span><span>
@@ -234,15 +234,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679750111"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679750120"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750101"><span id="local-6989586621679750103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750110"><span id="local-6989586621679750112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679750094"><span class="annot"><span class="annottext">toHeaders :: UpdateTrigger -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679750103"><span class="annot"><span class="annottext">toHeaders :: UpdateTrigger -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTrigger -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -267,15 +267,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750084"><span id="local-6989586621679750086"><span id="local-6989586621679750088"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679750082"><span class="annot"><span class="annottext">toJSON :: UpdateTrigger -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750079"><span id="local-6989586621679750080"><span class="annot"><span class="annottext">Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750093"><span id="local-6989586621679750095"><span id="local-6989586621679750097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679750091"><span class="annot"><span class="annottext">toJSON :: UpdateTrigger -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger%27"><span class="hs-identifier hs-type">UpdateTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750088"><span id="local-6989586621679750089"><span class="annot"><span class="annottext">Text
 TriggerUpdate
 triggerUpdate :: TriggerUpdate
 name :: Text
 $sel:triggerUpdate:UpdateTrigger' :: UpdateTrigger -&gt; TriggerUpdate
 $sel:name:UpdateTrigger' :: UpdateTrigger -&gt; Text
-</span><a href="#local-6989586621679750079"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679750088"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -287,7 +287,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679750080"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679750089"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -295,19 +295,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TriggerUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TriggerUpdate -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TriggerUpdate
-</span><a href="#local-6989586621679750079"><span class="hs-identifier hs-var">triggerUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679750088"><span class="hs-identifier hs-var">triggerUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679750073"><span class="annot"><span class="annottext">toPath :: UpdateTrigger -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679750082"><span class="annot"><span class="annottext">toPath :: UpdateTrigger -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTrigger -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTrigger"><span class="hs-identifier hs-type">UpdateTrigger</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679750069"><span class="annot"><span class="annottext">toQuery :: UpdateTrigger -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679750078"><span class="annot"><span class="annottext">toQuery :: UpdateTrigger -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTrigger -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -315,7 +315,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newUpdateTriggerResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679750066"><span id="local-6989586621679750067"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTriggerResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-var">UpdateTriggerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTriggerResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-var">UpdateTriggerResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679750075"><span id="local-6989586621679750076"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTriggerResponse"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-var">UpdateTriggerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTriggerResponse%27"><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-var">UpdateTriggerResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resulting trigger definition.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3Atrigger%3AUpdateTriggerResponse%27"><span class="annot"><span class="annottext">UpdateTriggerResponse -&gt; Maybe Trigger
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3Atrigger%3AUpdateTriggerResponse%27"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">,</span><span>
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTriggerResponse%27"><span class="annot"><span class="annottext">UpdateTriggerResponse -&gt; Int
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3AhttpStatus%3AUpdateTriggerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679750060"><span id="local-6989586621679750062"><span class="annot"><span class="annottext">UpdateTriggerResponse -&gt; UpdateTriggerResponse -&gt; Bool
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679750069"><span id="local-6989586621679750071"><span class="annot"><span class="annottext">UpdateTriggerResponse -&gt; UpdateTriggerResponse -&gt; Bool
 (UpdateTriggerResponse -&gt; UpdateTriggerResponse -&gt; Bool)
 -&gt; (UpdateTriggerResponse -&gt; UpdateTriggerResponse -&gt; Bool)
 -&gt; Eq UpdateTriggerResponse
@@ -332,7 +332,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateTriggerResponse -&gt; UpdateTriggerResponse -&gt; Bool
 == :: UpdateTriggerResponse -&gt; UpdateTriggerResponse -&gt; Bool
 $c== :: UpdateTriggerResponse -&gt; UpdateTriggerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750052"><span id="local-6989586621679750054"><span id="local-6989586621679750056"><span id="local-6989586621679750058"><span class="annot"><span class="annottext">ReadPrec [UpdateTriggerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750061"><span id="local-6989586621679750063"><span id="local-6989586621679750065"><span id="local-6989586621679750067"><span class="annot"><span class="annottext">ReadPrec [UpdateTriggerResponse]
 ReadPrec UpdateTriggerResponse
 Int -&gt; ReadS UpdateTriggerResponse
 ReadS [UpdateTriggerResponse]
@@ -352,7 +352,7 @@ readList :: ReadS [UpdateTriggerResponse]
 $creadList :: ReadS [UpdateTriggerResponse]
 readsPrec :: Int -&gt; ReadS UpdateTriggerResponse
 $creadsPrec :: Int -&gt; ReadS UpdateTriggerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750046"><span id="local-6989586621679750048"><span id="local-6989586621679750050"><span class="annot"><span class="annottext">Int -&gt; UpdateTriggerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679750055"><span id="local-6989586621679750057"><span id="local-6989586621679750059"><span class="annot"><span class="annottext">Int -&gt; UpdateTriggerResponse -&gt; ShowS
 [UpdateTriggerResponse] -&gt; ShowS
 UpdateTriggerResponse -&gt; String
 (Int -&gt; UpdateTriggerResponse -&gt; ShowS)
@@ -394,8 +394,8 @@ $cfrom :: forall x. UpdateTriggerResponse -&gt; Rep UpdateTriggerResponse x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span><span>
 </span><span id="line-160"></span><span id="newUpdateTriggerResponse"><span class="annot"><span class="annottext">newUpdateTriggerResponse :: Int -&gt; UpdateTriggerResponse
-</span><a href="Network.AWS.Glue.UpdateTrigger.html#newUpdateTriggerResponse"><span class="hs-identifier hs-var hs-var">newUpdateTriggerResponse</span></a></span></span><span> </span><span id="local-6989586621679750043"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679750043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.UpdateTrigger.html#newUpdateTriggerResponse"><span class="hs-identifier hs-var hs-var">newUpdateTriggerResponse</span></a></span></span><span> </span><span id="local-6989586621679750052"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679750052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">UpdateTriggerResponse' :: Maybe Trigger -&gt; Int -&gt; UpdateTriggerResponse
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trigger:UpdateTriggerResponse' :: Maybe Trigger
@@ -404,7 +404,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTriggerResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3AhttpStatus%3AUpdateTriggerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679750043"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679750052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The resulting trigger definition.</span><span>
@@ -420,16 +420,16 @@ forall a. Maybe a
      (Maybe Trigger)
      (Maybe Trigger)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750042"><span class="annot"><span class="annottext">Maybe Trigger
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750051"><span class="annot"><span class="annottext">Maybe Trigger
 trigger :: Maybe Trigger
 $sel:trigger:UpdateTriggerResponse' :: UpdateTriggerResponse -&gt; Maybe Trigger
-</span><a href="#local-6989586621679750042"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Trigger
-</span><a href="#local-6989586621679750042"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750041"><span class="annot"><span class="annottext">s :: UpdateTriggerResponse
-</span><a href="#local-6989586621679750041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750040"><span class="annot"><span class="annottext">Maybe Trigger
-</span><a href="#local-6989586621679750040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTriggerResponse
-</span><a href="#local-6989586621679750041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:UpdateTriggerResponse' :: Maybe Trigger
+</span><a href="#local-6989586621679750051"><span class="hs-identifier hs-var hs-var">trigger</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Trigger
+</span><a href="#local-6989586621679750051"><span class="hs-identifier hs-var">trigger</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750050"><span class="annot"><span class="annottext">s :: UpdateTriggerResponse
+</span><a href="#local-6989586621679750050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750049"><span class="annot"><span class="annottext">Maybe Trigger
+</span><a href="#local-6989586621679750049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTriggerResponse
+</span><a href="#local-6989586621679750050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trigger:UpdateTriggerResponse' :: Maybe Trigger
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3Atrigger%3AUpdateTriggerResponse%27"><span class="hs-identifier hs-var">trigger</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Trigger
-</span><a href="#local-6989586621679750040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679750049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#updateTriggerResponse_httpStatus"><span class="hs-identifier hs-type">updateTriggerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -438,16 +438,16 @@ $sel:trigger:UpdateTriggerResponse' :: UpdateTriggerResponse -&gt; Maybe Trigger
 -&gt; (UpdateTriggerResponse -&gt; Int -&gt; UpdateTriggerResponse)
 -&gt; Lens UpdateTriggerResponse UpdateTriggerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750039"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679750048"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateTriggerResponse' :: UpdateTriggerResponse -&gt; Int
-</span><a href="#local-6989586621679750039"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679750039"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750038"><span class="annot"><span class="annottext">s :: UpdateTriggerResponse
-</span><a href="#local-6989586621679750038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750037"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679750037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTriggerResponse
-</span><a href="#local-6989586621679750038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTriggerResponse' :: Int
+</span><a href="#local-6989586621679750048"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679750048"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679750047"><span class="annot"><span class="annottext">s :: UpdateTriggerResponse
+</span><a href="#local-6989586621679750047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse%27"><span class="hs-identifier hs-type">UpdateTriggerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679750046"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679750046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTriggerResponse
+</span><a href="#local-6989586621679750047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTriggerResponse' :: Int
 </span><a href="Network.AWS.Glue.UpdateTrigger.html#%24sel%3AhttpStatus%3AUpdateTriggerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679750037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679750046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679750044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.UpdateTrigger.html#UpdateTriggerResponse"><span class="hs-identifier hs-type">UpdateTriggerResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

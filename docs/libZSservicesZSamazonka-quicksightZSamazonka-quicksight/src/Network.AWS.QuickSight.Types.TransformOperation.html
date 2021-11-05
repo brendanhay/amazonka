@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.TransformOperation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.TransformOperation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.CastColumnTypeOperation.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.CastColumnTypeOperation</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.CreateColumnsOperation.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.CreateColumnsOperation</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FilterOperation.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.FilterOperation</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ProjectOperation.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.ProjectOperation</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RenameColumnOperation.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.RenameColumnOperation</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TagColumnOperation.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.TagColumnOperation</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.UntagColumnOperation.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.UntagColumnOperation</span></a></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | A data transformation on a logical table. This is a variant type</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- structure. For this structure to be valid, only one of the attributes</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- can be non-null.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newTransformOperation' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679571555"><span id="local-6989586621679571556"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformOperation"><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-var">TransformOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformOperation%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-var">TransformOperation'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A transform operation that casts a column to a different type.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcastColumnTypeOperation%3ATransformOperation%27"><span class="annot"><span class="annottext">TransformOperation -&gt; Maybe CastColumnTypeOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AcastColumnTypeOperation%3ATransformOperation%27"><span class="hs-identifier hs-var hs-var">castColumnTypeOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.CastColumnTypeOperation.html#CastColumnTypeOperation"><span class="hs-identifier hs-type">CastColumnTypeOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | An operation that tags a column with additional information.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtagColumnOperation%3ATransformOperation%27"><span class="annot"><span class="annottext">TransformOperation -&gt; Maybe TagColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AtagColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var hs-var">tagColumnOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TagColumnOperation.html#TagColumnOperation"><span class="hs-identifier hs-type">TagColumnOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | An operation that creates calculated columns. Columns created in one</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- such operation form a lexical closure.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreateColumnsOperation%3ATransformOperation%27"><span class="annot"><span class="annottext">TransformOperation -&gt; Maybe CreateColumnsOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AcreateColumnsOperation%3ATransformOperation%27"><span class="hs-identifier hs-var hs-var">createColumnsOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.CreateColumnsOperation.html#CreateColumnsOperation"><span class="hs-identifier hs-type">CreateColumnsOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AuntagColumnOperation%3ATransformOperation%27"><span class="annot"><span class="annottext">TransformOperation -&gt; Maybe UntagColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AuntagColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var hs-var">untagColumnOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.UntagColumnOperation.html#UntagColumnOperation"><span class="hs-identifier hs-type">UntagColumnOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | An operation that filters rows based on some condition.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AfilterOperation%3ATransformOperation%27"><span class="annot"><span class="annottext">TransformOperation -&gt; Maybe FilterOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AfilterOperation%3ATransformOperation%27"><span class="hs-identifier hs-var hs-var">filterOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FilterOperation.html#FilterOperation"><span class="hs-identifier hs-type">FilterOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | An operation that projects columns. Operations that come after a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- projection can only refer to projected columns.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AprojectOperation%3ATransformOperation%27"><span class="annot"><span class="annottext">TransformOperation -&gt; Maybe ProjectOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AprojectOperation%3ATransformOperation%27"><span class="hs-identifier hs-var hs-var">projectOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ProjectOperation.html#ProjectOperation"><span class="hs-identifier hs-type">ProjectOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | An operation that renames a column.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArenameColumnOperation%3ATransformOperation%27"><span class="annot"><span class="annottext">TransformOperation -&gt; Maybe RenameColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3ArenameColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var hs-var">renameColumnOperation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RenameColumnOperation.html#RenameColumnOperation"><span class="hs-identifier hs-type">RenameColumnOperation</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679571543"><span id="local-6989586621679571545"><span class="annot"><span class="annottext">TransformOperation -&gt; TransformOperation -&gt; Bool
+(TransformOperation -&gt; TransformOperation -&gt; Bool)
+-&gt; (TransformOperation -&gt; TransformOperation -&gt; Bool)
+-&gt; Eq TransformOperation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransformOperation -&gt; TransformOperation -&gt; Bool
+$c/= :: TransformOperation -&gt; TransformOperation -&gt; Bool
+== :: TransformOperation -&gt; TransformOperation -&gt; Bool
+$c== :: TransformOperation -&gt; TransformOperation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571534"><span id="local-6989586621679571536"><span id="local-6989586621679571538"><span id="local-6989586621679571540"><span class="annot"><span class="annottext">ReadPrec [TransformOperation]
+ReadPrec TransformOperation
+Int -&gt; ReadS TransformOperation
+ReadS [TransformOperation]
+(Int -&gt; ReadS TransformOperation)
+-&gt; ReadS [TransformOperation]
+-&gt; ReadPrec TransformOperation
+-&gt; ReadPrec [TransformOperation]
+-&gt; Read TransformOperation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransformOperation]
+$creadListPrec :: ReadPrec [TransformOperation]
+readPrec :: ReadPrec TransformOperation
+$creadPrec :: ReadPrec TransformOperation
+readList :: ReadS [TransformOperation]
+$creadList :: ReadS [TransformOperation]
+readsPrec :: Int -&gt; ReadS TransformOperation
+$creadsPrec :: Int -&gt; ReadS TransformOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571527"><span id="local-6989586621679571529"><span id="local-6989586621679571531"><span class="annot"><span class="annottext">Int -&gt; TransformOperation -&gt; ShowS
+[TransformOperation] -&gt; ShowS
+TransformOperation -&gt; String
+(Int -&gt; TransformOperation -&gt; ShowS)
+-&gt; (TransformOperation -&gt; String)
+-&gt; ([TransformOperation] -&gt; ShowS)
+-&gt; Show TransformOperation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransformOperation] -&gt; ShowS
+$cshowList :: [TransformOperation] -&gt; ShowS
+show :: TransformOperation -&gt; String
+$cshow :: TransformOperation -&gt; String
+showsPrec :: Int -&gt; TransformOperation -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransformOperation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TransformOperation -&gt; Rep TransformOperation x)
+-&gt; (forall x. Rep TransformOperation x -&gt; TransformOperation)
+-&gt; Generic TransformOperation
+forall x. Rep TransformOperation x -&gt; TransformOperation
+forall x. TransformOperation -&gt; Rep TransformOperation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransformOperation x -&gt; TransformOperation
+$cfrom :: forall x. TransformOperation -&gt; Rep TransformOperation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'TransformOperation' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'castColumnTypeOperation', 'transformOperation_castColumnTypeOperation' - A transform operation that casts a column to a different type.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'tagColumnOperation', 'transformOperation_tagColumnOperation' - An operation that tags a column with additional information.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'createColumnsOperation', 'transformOperation_createColumnsOperation' - An operation that creates calculated columns. Columns created in one</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- such operation form a lexical closure.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'untagColumnOperation', 'transformOperation_untagColumnOperation' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'filterOperation', 'transformOperation_filterOperation' - An operation that filters rows based on some condition.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'projectOperation', 'transformOperation_projectOperation' - An operation that projects columns. Operations that come after a</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- projection can only refer to projected columns.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'renameColumnOperation', 'transformOperation_renameColumnOperation' - An operation that renames a column.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#newTransformOperation"><span class="hs-identifier hs-type">newTransformOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span>
+</span><span id="line-82"></span><span id="newTransformOperation"><span class="annot"><span class="annottext">newTransformOperation :: TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#newTransformOperation"><span class="hs-identifier hs-var hs-var">newTransformOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">TransformOperation' :: Maybe CastColumnTypeOperation
+-&gt; Maybe TagColumnOperation
+-&gt; Maybe CreateColumnsOperation
+-&gt; Maybe UntagColumnOperation
+-&gt; Maybe FilterOperation
+-&gt; Maybe ProjectOperation
+-&gt; Maybe RenameColumnOperation
+-&gt; TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:castColumnTypeOperation:TransformOperation' :: Maybe CastColumnTypeOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AcastColumnTypeOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">castColumnTypeOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagColumnOperation:TransformOperation' :: Maybe TagColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AtagColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">tagColumnOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagColumnOperation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:createColumnsOperation:TransformOperation' :: Maybe CreateColumnsOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AcreateColumnsOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">createColumnsOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateColumnsOperation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:untagColumnOperation:TransformOperation' :: Maybe UntagColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AuntagColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">untagColumnOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UntagColumnOperation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterOperation:TransformOperation' :: Maybe FilterOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AfilterOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">filterOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterOperation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectOperation:TransformOperation' :: Maybe ProjectOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AprojectOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">projectOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectOperation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:renameColumnOperation:TransformOperation' :: Maybe RenameColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3ArenameColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">renameColumnOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RenameColumnOperation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | A transform operation that casts a column to a different type.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_castColumnTypeOperation"><span class="hs-identifier hs-type">transformOperation_castColumnTypeOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.CastColumnTypeOperation.html#CastColumnTypeOperation"><span class="hs-identifier hs-type">CastColumnTypeOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="transformOperation_castColumnTypeOperation"><span class="annot"><span class="annottext">transformOperation_castColumnTypeOperation :: (Maybe CastColumnTypeOperation
+ -&gt; f (Maybe CastColumnTypeOperation))
+-&gt; TransformOperation -&gt; f TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_castColumnTypeOperation"><span class="hs-identifier hs-var hs-var">transformOperation_castColumnTypeOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOperation -&gt; Maybe CastColumnTypeOperation)
+-&gt; (TransformOperation
+    -&gt; Maybe CastColumnTypeOperation -&gt; TransformOperation)
+-&gt; Lens
+     TransformOperation
+     TransformOperation
+     (Maybe CastColumnTypeOperation)
+     (Maybe CastColumnTypeOperation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571518"><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+castColumnTypeOperation :: Maybe CastColumnTypeOperation
+$sel:castColumnTypeOperation:TransformOperation' :: TransformOperation -&gt; Maybe CastColumnTypeOperation
+</span><a href="#local-6989586621679571518"><span class="hs-identifier hs-var hs-var">castColumnTypeOperation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+</span><a href="#local-6989586621679571518"><span class="hs-identifier hs-var">castColumnTypeOperation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571517"><span class="annot"><span class="annottext">s :: TransformOperation
+</span><a href="#local-6989586621679571517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571516"><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+</span><a href="#local-6989586621679571516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOperation
+</span><a href="#local-6989586621679571517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:castColumnTypeOperation:TransformOperation' :: Maybe CastColumnTypeOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AcastColumnTypeOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">castColumnTypeOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+</span><a href="#local-6989586621679571516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | An operation that tags a column with additional information.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_tagColumnOperation"><span class="hs-identifier hs-type">transformOperation_tagColumnOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TagColumnOperation.html#TagColumnOperation"><span class="hs-identifier hs-type">TagColumnOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="transformOperation_tagColumnOperation"><span class="annot"><span class="annottext">transformOperation_tagColumnOperation :: (Maybe TagColumnOperation -&gt; f (Maybe TagColumnOperation))
+-&gt; TransformOperation -&gt; f TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_tagColumnOperation"><span class="hs-identifier hs-var hs-var">transformOperation_tagColumnOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOperation -&gt; Maybe TagColumnOperation)
+-&gt; (TransformOperation
+    -&gt; Maybe TagColumnOperation -&gt; TransformOperation)
+-&gt; Lens
+     TransformOperation
+     TransformOperation
+     (Maybe TagColumnOperation)
+     (Maybe TagColumnOperation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571514"><span class="annot"><span class="annottext">Maybe TagColumnOperation
+tagColumnOperation :: Maybe TagColumnOperation
+$sel:tagColumnOperation:TransformOperation' :: TransformOperation -&gt; Maybe TagColumnOperation
+</span><a href="#local-6989586621679571514"><span class="hs-identifier hs-var hs-var">tagColumnOperation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TagColumnOperation
+</span><a href="#local-6989586621679571514"><span class="hs-identifier hs-var">tagColumnOperation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571513"><span class="annot"><span class="annottext">s :: TransformOperation
+</span><a href="#local-6989586621679571513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571512"><span class="annot"><span class="annottext">Maybe TagColumnOperation
+</span><a href="#local-6989586621679571512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOperation
+</span><a href="#local-6989586621679571513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagColumnOperation:TransformOperation' :: Maybe TagColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AtagColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">tagColumnOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TagColumnOperation
+</span><a href="#local-6989586621679571512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | An operation that creates calculated columns. Columns created in one</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- such operation form a lexical closure.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_createColumnsOperation"><span class="hs-identifier hs-type">transformOperation_createColumnsOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.CreateColumnsOperation.html#CreateColumnsOperation"><span class="hs-identifier hs-type">CreateColumnsOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="transformOperation_createColumnsOperation"><span class="annot"><span class="annottext">transformOperation_createColumnsOperation :: (Maybe CreateColumnsOperation -&gt; f (Maybe CreateColumnsOperation))
+-&gt; TransformOperation -&gt; f TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_createColumnsOperation"><span class="hs-identifier hs-var hs-var">transformOperation_createColumnsOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOperation -&gt; Maybe CreateColumnsOperation)
+-&gt; (TransformOperation
+    -&gt; Maybe CreateColumnsOperation -&gt; TransformOperation)
+-&gt; Lens
+     TransformOperation
+     TransformOperation
+     (Maybe CreateColumnsOperation)
+     (Maybe CreateColumnsOperation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571510"><span class="annot"><span class="annottext">Maybe CreateColumnsOperation
+createColumnsOperation :: Maybe CreateColumnsOperation
+$sel:createColumnsOperation:TransformOperation' :: TransformOperation -&gt; Maybe CreateColumnsOperation
+</span><a href="#local-6989586621679571510"><span class="hs-identifier hs-var hs-var">createColumnsOperation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateColumnsOperation
+</span><a href="#local-6989586621679571510"><span class="hs-identifier hs-var">createColumnsOperation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571509"><span class="annot"><span class="annottext">s :: TransformOperation
+</span><a href="#local-6989586621679571509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571508"><span class="annot"><span class="annottext">Maybe CreateColumnsOperation
+</span><a href="#local-6989586621679571508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOperation
+</span><a href="#local-6989586621679571509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createColumnsOperation:TransformOperation' :: Maybe CreateColumnsOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AcreateColumnsOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">createColumnsOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateColumnsOperation
+</span><a href="#local-6989586621679571508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_untagColumnOperation"><span class="hs-identifier hs-type">transformOperation_untagColumnOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.UntagColumnOperation.html#UntagColumnOperation"><span class="hs-identifier hs-type">UntagColumnOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="transformOperation_untagColumnOperation"><span class="annot"><span class="annottext">transformOperation_untagColumnOperation :: (Maybe UntagColumnOperation -&gt; f (Maybe UntagColumnOperation))
+-&gt; TransformOperation -&gt; f TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_untagColumnOperation"><span class="hs-identifier hs-var hs-var">transformOperation_untagColumnOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOperation -&gt; Maybe UntagColumnOperation)
+-&gt; (TransformOperation
+    -&gt; Maybe UntagColumnOperation -&gt; TransformOperation)
+-&gt; Lens
+     TransformOperation
+     TransformOperation
+     (Maybe UntagColumnOperation)
+     (Maybe UntagColumnOperation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571506"><span class="annot"><span class="annottext">Maybe UntagColumnOperation
+untagColumnOperation :: Maybe UntagColumnOperation
+$sel:untagColumnOperation:TransformOperation' :: TransformOperation -&gt; Maybe UntagColumnOperation
+</span><a href="#local-6989586621679571506"><span class="hs-identifier hs-var hs-var">untagColumnOperation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UntagColumnOperation
+</span><a href="#local-6989586621679571506"><span class="hs-identifier hs-var">untagColumnOperation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571505"><span class="annot"><span class="annottext">s :: TransformOperation
+</span><a href="#local-6989586621679571505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571504"><span class="annot"><span class="annottext">Maybe UntagColumnOperation
+</span><a href="#local-6989586621679571504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOperation
+</span><a href="#local-6989586621679571505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:untagColumnOperation:TransformOperation' :: Maybe UntagColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AuntagColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">untagColumnOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UntagColumnOperation
+</span><a href="#local-6989586621679571504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | An operation that filters rows based on some condition.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_filterOperation"><span class="hs-identifier hs-type">transformOperation_filterOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.FilterOperation.html#FilterOperation"><span class="hs-identifier hs-type">FilterOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="transformOperation_filterOperation"><span class="annot"><span class="annottext">transformOperation_filterOperation :: (Maybe FilterOperation -&gt; f (Maybe FilterOperation))
+-&gt; TransformOperation -&gt; f TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_filterOperation"><span class="hs-identifier hs-var hs-var">transformOperation_filterOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOperation -&gt; Maybe FilterOperation)
+-&gt; (TransformOperation
+    -&gt; Maybe FilterOperation -&gt; TransformOperation)
+-&gt; Lens
+     TransformOperation
+     TransformOperation
+     (Maybe FilterOperation)
+     (Maybe FilterOperation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571502"><span class="annot"><span class="annottext">Maybe FilterOperation
+filterOperation :: Maybe FilterOperation
+$sel:filterOperation:TransformOperation' :: TransformOperation -&gt; Maybe FilterOperation
+</span><a href="#local-6989586621679571502"><span class="hs-identifier hs-var hs-var">filterOperation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterOperation
+</span><a href="#local-6989586621679571502"><span class="hs-identifier hs-var">filterOperation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571501"><span class="annot"><span class="annottext">s :: TransformOperation
+</span><a href="#local-6989586621679571501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571500"><span class="annot"><span class="annottext">Maybe FilterOperation
+</span><a href="#local-6989586621679571500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOperation
+</span><a href="#local-6989586621679571501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterOperation:TransformOperation' :: Maybe FilterOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AfilterOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">filterOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterOperation
+</span><a href="#local-6989586621679571500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | An operation that projects columns. Operations that come after a</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- projection can only refer to projected columns.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_projectOperation"><span class="hs-identifier hs-type">transformOperation_projectOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ProjectOperation.html#ProjectOperation"><span class="hs-identifier hs-type">ProjectOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="transformOperation_projectOperation"><span class="annot"><span class="annottext">transformOperation_projectOperation :: (Maybe ProjectOperation -&gt; f (Maybe ProjectOperation))
+-&gt; TransformOperation -&gt; f TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_projectOperation"><span class="hs-identifier hs-var hs-var">transformOperation_projectOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOperation -&gt; Maybe ProjectOperation)
+-&gt; (TransformOperation
+    -&gt; Maybe ProjectOperation -&gt; TransformOperation)
+-&gt; Lens
+     TransformOperation
+     TransformOperation
+     (Maybe ProjectOperation)
+     (Maybe ProjectOperation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571498"><span class="annot"><span class="annottext">Maybe ProjectOperation
+projectOperation :: Maybe ProjectOperation
+$sel:projectOperation:TransformOperation' :: TransformOperation -&gt; Maybe ProjectOperation
+</span><a href="#local-6989586621679571498"><span class="hs-identifier hs-var hs-var">projectOperation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectOperation
+</span><a href="#local-6989586621679571498"><span class="hs-identifier hs-var">projectOperation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571497"><span class="annot"><span class="annottext">s :: TransformOperation
+</span><a href="#local-6989586621679571497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571496"><span class="annot"><span class="annottext">Maybe ProjectOperation
+</span><a href="#local-6989586621679571496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOperation
+</span><a href="#local-6989586621679571497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectOperation:TransformOperation' :: Maybe ProjectOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3AprojectOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">projectOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProjectOperation
+</span><a href="#local-6989586621679571496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | An operation that renames a column.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_renameColumnOperation"><span class="hs-identifier hs-type">transformOperation_renameColumnOperation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.RenameColumnOperation.html#RenameColumnOperation"><span class="hs-identifier hs-type">RenameColumnOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="transformOperation_renameColumnOperation"><span class="annot"><span class="annottext">transformOperation_renameColumnOperation :: (Maybe RenameColumnOperation -&gt; f (Maybe RenameColumnOperation))
+-&gt; TransformOperation -&gt; f TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#transformOperation_renameColumnOperation"><span class="hs-identifier hs-var hs-var">transformOperation_renameColumnOperation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOperation -&gt; Maybe RenameColumnOperation)
+-&gt; (TransformOperation
+    -&gt; Maybe RenameColumnOperation -&gt; TransformOperation)
+-&gt; Lens
+     TransformOperation
+     TransformOperation
+     (Maybe RenameColumnOperation)
+     (Maybe RenameColumnOperation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571494"><span class="annot"><span class="annottext">Maybe RenameColumnOperation
+renameColumnOperation :: Maybe RenameColumnOperation
+$sel:renameColumnOperation:TransformOperation' :: TransformOperation -&gt; Maybe RenameColumnOperation
+</span><a href="#local-6989586621679571494"><span class="hs-identifier hs-var hs-var">renameColumnOperation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RenameColumnOperation
+</span><a href="#local-6989586621679571494"><span class="hs-identifier hs-var">renameColumnOperation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571493"><span class="annot"><span class="annottext">s :: TransformOperation
+</span><a href="#local-6989586621679571493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571492"><span class="annot"><span class="annottext">Maybe RenameColumnOperation
+</span><a href="#local-6989586621679571492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOperation
+</span><a href="#local-6989586621679571493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:renameColumnOperation:TransformOperation' :: Maybe RenameColumnOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#%24sel%3ArenameColumnOperation%3ATransformOperation%27"><span class="hs-identifier hs-var">renameColumnOperation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RenameColumnOperation
+</span><a href="#local-6989586621679571492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571489"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679571487"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformOperation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TransformOperation)
+-&gt; Value
+-&gt; Parser TransformOperation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TransformOperation&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679571484"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+-&gt; Maybe TagColumnOperation
+-&gt; Maybe CreateColumnsOperation
+-&gt; Maybe UntagColumnOperation
+-&gt; Maybe FilterOperation
+-&gt; Maybe ProjectOperation
+-&gt; Maybe RenameColumnOperation
+-&gt; TransformOperation
+</span><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-var">TransformOperation'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CastColumnTypeOperation
+ -&gt; Maybe TagColumnOperation
+ -&gt; Maybe CreateColumnsOperation
+ -&gt; Maybe UntagColumnOperation
+ -&gt; Maybe FilterOperation
+ -&gt; Maybe ProjectOperation
+ -&gt; Maybe RenameColumnOperation
+ -&gt; TransformOperation)
+-&gt; Parser (Maybe CastColumnTypeOperation)
+-&gt; Parser
+     (Maybe TagColumnOperation
+      -&gt; Maybe CreateColumnsOperation
+      -&gt; Maybe UntagColumnOperation
+      -&gt; Maybe FilterOperation
+      -&gt; Maybe ProjectOperation
+      -&gt; Maybe RenameColumnOperation
+      -&gt; TransformOperation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CastColumnTypeOperation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CastColumnTypeOperation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TagColumnOperation
+   -&gt; Maybe CreateColumnsOperation
+   -&gt; Maybe UntagColumnOperation
+   -&gt; Maybe FilterOperation
+   -&gt; Maybe ProjectOperation
+   -&gt; Maybe RenameColumnOperation
+   -&gt; TransformOperation)
+-&gt; Parser (Maybe TagColumnOperation)
+-&gt; Parser
+     (Maybe CreateColumnsOperation
+      -&gt; Maybe UntagColumnOperation
+      -&gt; Maybe FilterOperation
+      -&gt; Maybe ProjectOperation
+      -&gt; Maybe RenameColumnOperation
+      -&gt; TransformOperation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TagColumnOperation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagColumnOperation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CreateColumnsOperation
+   -&gt; Maybe UntagColumnOperation
+   -&gt; Maybe FilterOperation
+   -&gt; Maybe ProjectOperation
+   -&gt; Maybe RenameColumnOperation
+   -&gt; TransformOperation)
+-&gt; Parser (Maybe CreateColumnsOperation)
+-&gt; Parser
+     (Maybe UntagColumnOperation
+      -&gt; Maybe FilterOperation
+      -&gt; Maybe ProjectOperation
+      -&gt; Maybe RenameColumnOperation
+      -&gt; TransformOperation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CreateColumnsOperation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateColumnsOperation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe UntagColumnOperation
+   -&gt; Maybe FilterOperation
+   -&gt; Maybe ProjectOperation
+   -&gt; Maybe RenameColumnOperation
+   -&gt; TransformOperation)
+-&gt; Parser (Maybe UntagColumnOperation)
+-&gt; Parser
+     (Maybe FilterOperation
+      -&gt; Maybe ProjectOperation
+      -&gt; Maybe RenameColumnOperation
+      -&gt; TransformOperation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe UntagColumnOperation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UntagColumnOperation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FilterOperation
+   -&gt; Maybe ProjectOperation
+   -&gt; Maybe RenameColumnOperation
+   -&gt; TransformOperation)
+-&gt; Parser (Maybe FilterOperation)
+-&gt; Parser
+     (Maybe ProjectOperation
+      -&gt; Maybe RenameColumnOperation -&gt; TransformOperation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FilterOperation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FilterOperation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProjectOperation
+   -&gt; Maybe RenameColumnOperation -&gt; TransformOperation)
+-&gt; Parser (Maybe ProjectOperation)
+-&gt; Parser (Maybe RenameColumnOperation -&gt; TransformOperation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProjectOperation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectOperation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RenameColumnOperation -&gt; TransformOperation)
+-&gt; Parser (Maybe RenameColumnOperation)
+-&gt; Parser TransformOperation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679571484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RenameColumnOperation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RenameColumnOperation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571478"><span id="local-6989586621679571480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571467"><span id="local-6989586621679571469"><span id="local-6989586621679571471"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation"><span class="hs-identifier hs-type">TransformOperation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679571465"><span class="annot"><span class="annottext">toJSON :: TransformOperation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.TransformOperation.html#TransformOperation%27"><span class="hs-identifier hs-type">TransformOperation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571457"><span id="local-6989586621679571458"><span id="local-6989586621679571459"><span id="local-6989586621679571460"><span id="local-6989586621679571461"><span id="local-6989586621679571462"><span id="local-6989586621679571463"><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+Maybe CreateColumnsOperation
+Maybe FilterOperation
+Maybe ProjectOperation
+Maybe RenameColumnOperation
+Maybe TagColumnOperation
+Maybe UntagColumnOperation
+renameColumnOperation :: Maybe RenameColumnOperation
+projectOperation :: Maybe ProjectOperation
+filterOperation :: Maybe FilterOperation
+untagColumnOperation :: Maybe UntagColumnOperation
+createColumnsOperation :: Maybe CreateColumnsOperation
+tagColumnOperation :: Maybe TagColumnOperation
+castColumnTypeOperation :: Maybe CastColumnTypeOperation
+$sel:renameColumnOperation:TransformOperation' :: TransformOperation -&gt; Maybe RenameColumnOperation
+$sel:projectOperation:TransformOperation' :: TransformOperation -&gt; Maybe ProjectOperation
+$sel:filterOperation:TransformOperation' :: TransformOperation -&gt; Maybe FilterOperation
+$sel:untagColumnOperation:TransformOperation' :: TransformOperation -&gt; Maybe UntagColumnOperation
+$sel:createColumnsOperation:TransformOperation' :: TransformOperation -&gt; Maybe CreateColumnsOperation
+$sel:tagColumnOperation:TransformOperation' :: TransformOperation -&gt; Maybe TagColumnOperation
+$sel:castColumnTypeOperation:TransformOperation' :: TransformOperation -&gt; Maybe CastColumnTypeOperation
+</span><a href="#local-6989586621679571457"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CastColumnTypeOperation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CastColumnTypeOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(CastColumnTypeOperation -&gt; Pair)
+-&gt; Maybe CastColumnTypeOperation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CastColumnTypeOperation
+</span><a href="#local-6989586621679571463"><span class="hs-identifier hs-var">castColumnTypeOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagColumnOperation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TagColumnOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">(TagColumnOperation -&gt; Pair)
+-&gt; Maybe TagColumnOperation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TagColumnOperation
+</span><a href="#local-6989586621679571462"><span class="hs-identifier hs-var">tagColumnOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateColumnsOperation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CreateColumnsOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(CreateColumnsOperation -&gt; Pair)
+-&gt; Maybe CreateColumnsOperation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CreateColumnsOperation
+</span><a href="#local-6989586621679571461"><span class="hs-identifier hs-var">createColumnsOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UntagColumnOperation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UntagColumnOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(UntagColumnOperation -&gt; Pair)
+-&gt; Maybe UntagColumnOperation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UntagColumnOperation
+</span><a href="#local-6989586621679571460"><span class="hs-identifier hs-var">untagColumnOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FilterOperation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(FilterOperation -&gt; Pair) -&gt; Maybe FilterOperation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterOperation
+</span><a href="#local-6989586621679571459"><span class="hs-identifier hs-var">filterOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProjectOperation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProjectOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">(ProjectOperation -&gt; Pair) -&gt; Maybe ProjectOperation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProjectOperation
+</span><a href="#local-6989586621679571458"><span class="hs-identifier hs-var">projectOperation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RenameColumnOperation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RenameColumnOperation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(RenameColumnOperation -&gt; Pair)
+-&gt; Maybe RenameColumnOperation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RenameColumnOperation
+</span><a href="#local-6989586621679571457"><span class="hs-identifier hs-var">renameColumnOperation</span></a></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span></pre></body></html>

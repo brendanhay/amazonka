@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaTailor.Types.ScheduleEntryType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaTailor.Types.ScheduleEntryType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType"><span class="hs-identifier">ScheduleEntryType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType_FILLER_SLATE"><span class="hs-identifier">ScheduleEntryType_FILLER_SLATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType_PROGRAM"><span class="hs-identifier">ScheduleEntryType_PROGRAM</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679267436"><span id="local-6989586621679267437"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScheduleEntryType"><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType"><span class="hs-identifier hs-var">ScheduleEntryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleEntryType%27"><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType%27"><span class="hs-identifier hs-var">ScheduleEntryType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScheduleEntryType"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; Text
+</span><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#fromScheduleEntryType"><span class="hs-identifier hs-var hs-var">fromScheduleEntryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267428"><span id="local-6989586621679267430"><span id="local-6989586621679267432"><span class="annot"><span class="annottext">Int -&gt; ScheduleEntryType -&gt; ShowS
+[ScheduleEntryType] -&gt; ShowS
+ScheduleEntryType -&gt; String
+(Int -&gt; ScheduleEntryType -&gt; ShowS)
+-&gt; (ScheduleEntryType -&gt; String)
+-&gt; ([ScheduleEntryType] -&gt; ShowS)
+-&gt; Show ScheduleEntryType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduleEntryType] -&gt; ShowS
+$cshowList :: [ScheduleEntryType] -&gt; ShowS
+show :: ScheduleEntryType -&gt; String
+$cshow :: ScheduleEntryType -&gt; String
+showsPrec :: Int -&gt; ScheduleEntryType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduleEntryType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679267419"><span id="local-6989586621679267421"><span id="local-6989586621679267423"><span id="local-6989586621679267425"><span class="annot"><span class="annottext">ReadPrec [ScheduleEntryType]
+ReadPrec ScheduleEntryType
+Int -&gt; ReadS ScheduleEntryType
+ReadS [ScheduleEntryType]
+(Int -&gt; ReadS ScheduleEntryType)
+-&gt; ReadS [ScheduleEntryType]
+-&gt; ReadPrec ScheduleEntryType
+-&gt; ReadPrec [ScheduleEntryType]
+-&gt; Read ScheduleEntryType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduleEntryType]
+$creadListPrec :: ReadPrec [ScheduleEntryType]
+readPrec :: ReadPrec ScheduleEntryType
+$creadPrec :: ReadPrec ScheduleEntryType
+readList :: ReadS [ScheduleEntryType]
+$creadList :: ReadS [ScheduleEntryType]
+readsPrec :: Int -&gt; ReadS ScheduleEntryType
+$creadsPrec :: Int -&gt; ReadS ScheduleEntryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679267414"><span id="local-6989586621679267416"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+(ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool)
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool)
+-&gt; Eq ScheduleEntryType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+$c/= :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+== :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+$c== :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679267398"><span id="local-6989586621679267400"><span id="local-6989586621679267402"><span id="local-6989586621679267404"><span id="local-6989586621679267406"><span id="local-6989586621679267408"><span id="local-6989586621679267410"><span class="annot"><span class="annottext">Eq ScheduleEntryType
+Eq ScheduleEntryType
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; Ordering)
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool)
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool)
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool)
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool)
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; ScheduleEntryType)
+-&gt; (ScheduleEntryType -&gt; ScheduleEntryType -&gt; ScheduleEntryType)
+-&gt; Ord ScheduleEntryType
+ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+ScheduleEntryType -&gt; ScheduleEntryType -&gt; Ordering
+ScheduleEntryType -&gt; ScheduleEntryType -&gt; ScheduleEntryType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; ScheduleEntryType
+$cmin :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; ScheduleEntryType
+max :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; ScheduleEntryType
+$cmax :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; ScheduleEntryType
+&gt;= :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+$c&gt;= :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+&gt; :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+$c&gt; :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+&lt;= :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+$c&lt;= :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+&lt; :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+$c&lt; :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Bool
+compare :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Ordering
+$ccompare :: ScheduleEntryType -&gt; ScheduleEntryType -&gt; Ordering
+$cp1Ord :: Eq ScheduleEntryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ScheduleEntryType -&gt; Rep ScheduleEntryType x)
+-&gt; (forall x. Rep ScheduleEntryType x -&gt; ScheduleEntryType)
+-&gt; Generic ScheduleEntryType
+forall x. Rep ScheduleEntryType x -&gt; ScheduleEntryType
+forall x. ScheduleEntryType -&gt; Rep ScheduleEntryType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScheduleEntryType x -&gt; ScheduleEntryType
+$cfrom :: forall x. ScheduleEntryType -&gt; Rep ScheduleEntryType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679267390"><span id="local-6989586621679267392"><span class="annot"><span class="annottext">Int -&gt; ScheduleEntryType -&gt; Int
+ScheduleEntryType -&gt; Int
+(Int -&gt; ScheduleEntryType -&gt; Int)
+-&gt; (ScheduleEntryType -&gt; Int) -&gt; Hashable ScheduleEntryType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScheduleEntryType -&gt; Int
+$chash :: ScheduleEntryType -&gt; Int
+hashWithSalt :: Int -&gt; ScheduleEntryType -&gt; Int
+$chashWithSalt :: Int -&gt; ScheduleEntryType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679267387"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; ()
+(ScheduleEntryType -&gt; ()) -&gt; NFData ScheduleEntryType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScheduleEntryType -&gt; ()
+$crnf :: ScheduleEntryType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679267384"><span class="annot"><span class="annottext">Text -&gt; Either String ScheduleEntryType
+(Text -&gt; Either String ScheduleEntryType)
+-&gt; FromText ScheduleEntryType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScheduleEntryType
+$cfromText :: Text -&gt; Either String ScheduleEntryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679267381"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; Text
+(ScheduleEntryType -&gt; Text) -&gt; ToText ScheduleEntryType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScheduleEntryType -&gt; Text
+$ctoText :: ScheduleEntryType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679267378"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; ByteString
+(ScheduleEntryType -&gt; ByteString) -&gt; ToByteString ScheduleEntryType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScheduleEntryType -&gt; ByteString
+$ctoBS :: ScheduleEntryType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679267375"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; ByteStringBuilder
+(ScheduleEntryType -&gt; ByteStringBuilder) -&gt; ToLog ScheduleEntryType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScheduleEntryType -&gt; ByteStringBuilder
+$cbuild :: ScheduleEntryType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679267372"><span class="annot"><span class="annottext">HeaderName -&gt; ScheduleEntryType -&gt; [Header]
+(HeaderName -&gt; ScheduleEntryType -&gt; [Header])
+-&gt; ToHeader ScheduleEntryType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScheduleEntryType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScheduleEntryType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679267369"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; QueryString
+(ScheduleEntryType -&gt; QueryString) -&gt; ToQuery ScheduleEntryType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScheduleEntryType -&gt; QueryString
+$ctoQuery :: ScheduleEntryType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679267364"><span id="local-6989586621679267366"><span class="annot"><span class="annottext">Value -&gt; Parser [ScheduleEntryType]
+Value -&gt; Parser ScheduleEntryType
+(Value -&gt; Parser ScheduleEntryType)
+-&gt; (Value -&gt; Parser [ScheduleEntryType])
+-&gt; FromJSON ScheduleEntryType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScheduleEntryType]
+$cparseJSONList :: Value -&gt; Parser [ScheduleEntryType]
+parseJSON :: Value -&gt; Parser ScheduleEntryType
+$cparseJSON :: Value -&gt; Parser ScheduleEntryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679267359"><span id="local-6989586621679267361"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScheduleEntryType]
+FromJSONKeyFunction ScheduleEntryType
+FromJSONKeyFunction ScheduleEntryType
+-&gt; FromJSONKeyFunction [ScheduleEntryType]
+-&gt; FromJSONKey ScheduleEntryType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScheduleEntryType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScheduleEntryType]
+fromJSONKey :: FromJSONKeyFunction ScheduleEntryType
+$cfromJSONKey :: FromJSONKeyFunction ScheduleEntryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679267350"><span id="local-6989586621679267352"><span id="local-6989586621679267354"><span id="local-6989586621679267356"><span class="annot"><span class="annottext">[ScheduleEntryType] -&gt; Encoding
+[ScheduleEntryType] -&gt; Value
+ScheduleEntryType -&gt; Encoding
+ScheduleEntryType -&gt; Value
+(ScheduleEntryType -&gt; Value)
+-&gt; (ScheduleEntryType -&gt; Encoding)
+-&gt; ([ScheduleEntryType] -&gt; Value)
+-&gt; ([ScheduleEntryType] -&gt; Encoding)
+-&gt; ToJSON ScheduleEntryType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScheduleEntryType] -&gt; Encoding
+$ctoEncodingList :: [ScheduleEntryType] -&gt; Encoding
+toJSONList :: [ScheduleEntryType] -&gt; Value
+$ctoJSONList :: [ScheduleEntryType] -&gt; Value
+toEncoding :: ScheduleEntryType -&gt; Encoding
+$ctoEncoding :: ScheduleEntryType -&gt; Encoding
+toJSON :: ScheduleEntryType -&gt; Value
+$ctoJSON :: ScheduleEntryType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679267345"><span id="local-6989586621679267347"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScheduleEntryType]
+ToJSONKeyFunction ScheduleEntryType
+ToJSONKeyFunction ScheduleEntryType
+-&gt; ToJSONKeyFunction [ScheduleEntryType]
+-&gt; ToJSONKey ScheduleEntryType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScheduleEntryType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScheduleEntryType]
+toJSONKey :: ToJSONKeyFunction ScheduleEntryType
+$ctoJSONKey :: ToJSONKeyFunction ScheduleEntryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679267342"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScheduleEntryType
+([Node] -&gt; Either String ScheduleEntryType)
+-&gt; FromXML ScheduleEntryType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScheduleEntryType
+$cparseXML :: [Node] -&gt; Either String ScheduleEntryType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679267339"><span class="annot"><span class="annottext">ScheduleEntryType -&gt; XML
+(ScheduleEntryType -&gt; XML) -&gt; ToXML ScheduleEntryType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScheduleEntryType -&gt; XML
+$ctoXML :: ScheduleEntryType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType_FILLER_SLATE"><span class="hs-identifier hs-type">ScheduleEntryType_FILLER_SLATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType"><span class="hs-identifier hs-type">ScheduleEntryType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScheduleEntryType_FILLER_SLATE"><span id="%24mScheduleEntryType_FILLER_SLATE"><span id="ScheduleEntryType_FILLER_SLATE"><span class="annot"><span class="annottext">$bScheduleEntryType_FILLER_SLATE :: ScheduleEntryType
+$mScheduleEntryType_FILLER_SLATE :: forall r. ScheduleEntryType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#%24bScheduleEntryType_FILLER_SLATE"><span class="hs-identifier hs-var hs-var hs-var">ScheduleEntryType_FILLER_SLATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType%27"><span class="hs-identifier hs-type">ScheduleEntryType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FILLER_SLATE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType_PROGRAM"><span class="hs-identifier hs-type">ScheduleEntryType_PROGRAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType"><span class="hs-identifier hs-type">ScheduleEntryType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScheduleEntryType_PROGRAM"><span id="%24mScheduleEntryType_PROGRAM"><span id="ScheduleEntryType_PROGRAM"><span class="annot"><span class="annottext">$bScheduleEntryType_PROGRAM :: ScheduleEntryType
+$mScheduleEntryType_PROGRAM :: forall r. ScheduleEntryType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#%24bScheduleEntryType_PROGRAM"><span class="hs-identifier hs-var hs-var hs-var">ScheduleEntryType_PROGRAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType%27"><span class="hs-identifier hs-type">ScheduleEntryType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROGRAM&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType_FILLER_SLATE"><span class="hs-pragma hs-type">ScheduleEntryType_FILLER_SLATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType_PROGRAM"><span class="hs-pragma hs-type">ScheduleEntryType_PROGRAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaTailor.Types.ScheduleEntryType.html#ScheduleEntryType%27"><span class="hs-pragma hs-type">ScheduleEntryType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

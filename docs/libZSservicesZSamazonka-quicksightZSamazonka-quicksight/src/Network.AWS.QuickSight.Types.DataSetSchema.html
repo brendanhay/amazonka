@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.DataSetSchema</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.DataSetSchema</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ColumnSchema.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.ColumnSchema</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Dataset schema.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDataSetSchema' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679553152"><span id="local-6989586621679553153"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataSetSchema"><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema"><span class="hs-identifier hs-var">DataSetSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSetSchema%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema%27"><span class="hs-identifier hs-var">DataSetSchema'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure containing the list of column schemas.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcolumnSchemaList%3ADataSetSchema%27"><span class="annot"><span class="annottext">DataSetSchema -&gt; Maybe [ColumnSchema]
+</span><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#%24sel%3AcolumnSchemaList%3ADataSetSchema%27"><span class="hs-identifier hs-var hs-var">columnSchemaList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.ColumnSchema.html#ColumnSchema"><span class="hs-identifier hs-type">ColumnSchema</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553146"><span id="local-6989586621679553148"><span class="annot"><span class="annottext">DataSetSchema -&gt; DataSetSchema -&gt; Bool
+(DataSetSchema -&gt; DataSetSchema -&gt; Bool)
+-&gt; (DataSetSchema -&gt; DataSetSchema -&gt; Bool) -&gt; Eq DataSetSchema
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataSetSchema -&gt; DataSetSchema -&gt; Bool
+$c/= :: DataSetSchema -&gt; DataSetSchema -&gt; Bool
+== :: DataSetSchema -&gt; DataSetSchema -&gt; Bool
+$c== :: DataSetSchema -&gt; DataSetSchema -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553137"><span id="local-6989586621679553139"><span id="local-6989586621679553141"><span id="local-6989586621679553143"><span class="annot"><span class="annottext">ReadPrec [DataSetSchema]
+ReadPrec DataSetSchema
+Int -&gt; ReadS DataSetSchema
+ReadS [DataSetSchema]
+(Int -&gt; ReadS DataSetSchema)
+-&gt; ReadS [DataSetSchema]
+-&gt; ReadPrec DataSetSchema
+-&gt; ReadPrec [DataSetSchema]
+-&gt; Read DataSetSchema
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataSetSchema]
+$creadListPrec :: ReadPrec [DataSetSchema]
+readPrec :: ReadPrec DataSetSchema
+$creadPrec :: ReadPrec DataSetSchema
+readList :: ReadS [DataSetSchema]
+$creadList :: ReadS [DataSetSchema]
+readsPrec :: Int -&gt; ReadS DataSetSchema
+$creadsPrec :: Int -&gt; ReadS DataSetSchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553130"><span id="local-6989586621679553132"><span id="local-6989586621679553134"><span class="annot"><span class="annottext">Int -&gt; DataSetSchema -&gt; ShowS
+[DataSetSchema] -&gt; ShowS
+DataSetSchema -&gt; String
+(Int -&gt; DataSetSchema -&gt; ShowS)
+-&gt; (DataSetSchema -&gt; String)
+-&gt; ([DataSetSchema] -&gt; ShowS)
+-&gt; Show DataSetSchema
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataSetSchema] -&gt; ShowS
+$cshowList :: [DataSetSchema] -&gt; ShowS
+show :: DataSetSchema -&gt; String
+$cshow :: DataSetSchema -&gt; String
+showsPrec :: Int -&gt; DataSetSchema -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataSetSchema -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DataSetSchema -&gt; Rep DataSetSchema x)
+-&gt; (forall x. Rep DataSetSchema x -&gt; DataSetSchema)
+-&gt; Generic DataSetSchema
+forall x. Rep DataSetSchema x -&gt; DataSetSchema
+forall x. DataSetSchema -&gt; Rep DataSetSchema x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DataSetSchema x -&gt; DataSetSchema
+$cfrom :: forall x. DataSetSchema -&gt; Rep DataSetSchema x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'DataSetSchema' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'columnSchemaList', 'dataSetSchema_columnSchemaList' - A structure containing the list of column schemas.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#newDataSetSchema"><span class="hs-identifier hs-type">newDataSetSchema</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema"><span class="hs-identifier hs-type">DataSetSchema</span></a></span><span>
+</span><span id="line-47"></span><span id="newDataSetSchema"><span class="annot"><span class="annottext">newDataSetSchema :: DataSetSchema
+</span><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#newDataSetSchema"><span class="hs-identifier hs-var hs-var">newDataSetSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">DataSetSchema' :: Maybe [ColumnSchema] -&gt; DataSetSchema
+</span><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema%27"><span class="hs-identifier hs-type">DataSetSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnSchemaList:DataSetSchema' :: Maybe [ColumnSchema]
+</span><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#%24sel%3AcolumnSchemaList%3ADataSetSchema%27"><span class="hs-identifier hs-var">columnSchemaList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnSchema]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | A structure containing the list of column schemas.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#dataSetSchema_columnSchemaList"><span class="hs-identifier hs-type">dataSetSchema_columnSchemaList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema"><span class="hs-identifier hs-type">DataSetSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.ColumnSchema.html#ColumnSchema"><span class="hs-identifier hs-type">ColumnSchema</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span id="dataSetSchema_columnSchemaList"><span class="annot"><span class="annottext">dataSetSchema_columnSchemaList :: (Maybe [ColumnSchema] -&gt; f (Maybe [ColumnSchema]))
+-&gt; DataSetSchema -&gt; f DataSetSchema
+</span><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#dataSetSchema_columnSchemaList"><span class="hs-identifier hs-var hs-var">dataSetSchema_columnSchemaList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataSetSchema -&gt; Maybe [ColumnSchema])
+-&gt; (DataSetSchema -&gt; Maybe [ColumnSchema] -&gt; DataSetSchema)
+-&gt; Lens
+     DataSetSchema
+     DataSetSchema
+     (Maybe [ColumnSchema])
+     (Maybe [ColumnSchema])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema%27"><span class="hs-identifier hs-type">DataSetSchema'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553121"><span class="annot"><span class="annottext">Maybe [ColumnSchema]
+columnSchemaList :: Maybe [ColumnSchema]
+$sel:columnSchemaList:DataSetSchema' :: DataSetSchema -&gt; Maybe [ColumnSchema]
+</span><a href="#local-6989586621679553121"><span class="hs-identifier hs-var hs-var">columnSchemaList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnSchema]
+</span><a href="#local-6989586621679553121"><span class="hs-identifier hs-var">columnSchemaList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553120"><span class="annot"><span class="annottext">s :: DataSetSchema
+</span><a href="#local-6989586621679553120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema%27"><span class="hs-identifier hs-type">DataSetSchema'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553119"><span class="annot"><span class="annottext">Maybe [ColumnSchema]
+</span><a href="#local-6989586621679553119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataSetSchema
+</span><a href="#local-6989586621679553120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnSchemaList:DataSetSchema' :: Maybe [ColumnSchema]
+</span><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#%24sel%3AcolumnSchemaList%3ADataSetSchema%27"><span class="hs-identifier hs-var">columnSchemaList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnSchema]
+</span><a href="#local-6989586621679553119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema"><span class="hs-identifier hs-type">DataSetSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ColumnSchema] -&gt; f (Maybe [ColumnSchema]))
+ -&gt; DataSetSchema -&gt; f DataSetSchema)
+-&gt; ((Maybe [ColumnSchema] -&gt; f (Maybe [ColumnSchema]))
+    -&gt; Maybe [ColumnSchema] -&gt; f (Maybe [ColumnSchema]))
+-&gt; (Maybe [ColumnSchema] -&gt; f (Maybe [ColumnSchema]))
+-&gt; DataSetSchema
+-&gt; f DataSetSchema
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ColumnSchema] [ColumnSchema] [ColumnSchema] [ColumnSchema]
+-&gt; Iso
+     (Maybe [ColumnSchema])
+     (Maybe [ColumnSchema])
+     (Maybe [ColumnSchema])
+     (Maybe [ColumnSchema])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ColumnSchema] [ColumnSchema] [ColumnSchema] [ColumnSchema]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553113"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema"><span class="hs-identifier hs-type">DataSetSchema</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679553111"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataSetSchema
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DataSetSchema)
+-&gt; Value
+-&gt; Parser DataSetSchema
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DataSetSchema&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679553108"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679553108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ColumnSchema] -&gt; DataSetSchema
+</span><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema%27"><span class="hs-identifier hs-var">DataSetSchema'</span></a></span><span>
+</span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ColumnSchema] -&gt; DataSetSchema)
+-&gt; Parser (Maybe [ColumnSchema]) -&gt; Parser DataSetSchema
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679553108"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ColumnSchema]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ColumnSchemaList&quot;</span></span><span>
+</span><span id="line-61"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ColumnSchema]))
+-&gt; Maybe [ColumnSchema] -&gt; Parser (Maybe [ColumnSchema])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ColumnSchema]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-62"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553101"><span id="local-6989586621679553103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema"><span class="hs-identifier hs-type">DataSetSchema</span></a></span></span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DataSetSchema.html#DataSetSchema"><span class="hs-identifier hs-type">DataSetSchema</span></a></span></span><span>
+</span><span id="line-68"></span></pre></body></html>

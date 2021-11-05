@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Includes tokenization dictionary for Japanese.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAnalysisOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679206426"><span id="local-6989586621679206427"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-var">AnalysisOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-var">AnalysisOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679206435"><span id="local-6989586621679206436"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-var">AnalysisOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-var">AnalysisOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of algorithmic stemming to perform: @none@, @minimal@,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @light@, or @full@. The available levels vary depending on the language.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AstemmingDictionary%3AAnalysisOptions%27"><span class="annot"><span class="annottext">AnalysisOptions -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#%24sel%3AstemmingDictionary%3AAnalysisOptions%27"><span class="hs-identifier hs-var hs-var">stemmingDictionary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206416"><span id="local-6989586621679206418"><span class="annot"><span class="annottext">AnalysisOptions -&gt; AnalysisOptions -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679206425"><span id="local-6989586621679206427"><span class="annot"><span class="annottext">AnalysisOptions -&gt; AnalysisOptions -&gt; Bool
 (AnalysisOptions -&gt; AnalysisOptions -&gt; Bool)
 -&gt; (AnalysisOptions -&gt; AnalysisOptions -&gt; Bool)
 -&gt; Eq AnalysisOptions
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AnalysisOptions -&gt; AnalysisOptions -&gt; Bool
 == :: AnalysisOptions -&gt; AnalysisOptions -&gt; Bool
 $c== :: AnalysisOptions -&gt; AnalysisOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206407"><span id="local-6989586621679206409"><span id="local-6989586621679206411"><span id="local-6989586621679206413"><span class="annot"><span class="annottext">ReadPrec [AnalysisOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206416"><span id="local-6989586621679206418"><span id="local-6989586621679206420"><span id="local-6989586621679206422"><span class="annot"><span class="annottext">ReadPrec [AnalysisOptions]
 ReadPrec AnalysisOptions
 Int -&gt; ReadS AnalysisOptions
 ReadS [AnalysisOptions]
@@ -100,7 +100,7 @@ readList :: ReadS [AnalysisOptions]
 $creadList :: ReadS [AnalysisOptions]
 readsPrec :: Int -&gt; ReadS AnalysisOptions
 $creadsPrec :: Int -&gt; ReadS AnalysisOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206400"><span id="local-6989586621679206402"><span id="local-6989586621679206404"><span class="annot"><span class="annottext">Int -&gt; AnalysisOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679206409"><span id="local-6989586621679206411"><span id="local-6989586621679206413"><span class="annot"><span class="annottext">Int -&gt; AnalysisOptions -&gt; ShowS
 [AnalysisOptions] -&gt; ShowS
 AnalysisOptions -&gt; String
 (Int -&gt; AnalysisOptions -&gt; ShowS)
@@ -220,16 +220,16 @@ forall a. Maybe a
      (Maybe AlgorithmicStemming)
      (Maybe AlgorithmicStemming)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206391"><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206400"><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
 algorithmicStemming :: Maybe AlgorithmicStemming
 $sel:algorithmicStemming:AnalysisOptions' :: AnalysisOptions -&gt; Maybe AlgorithmicStemming
-</span><a href="#local-6989586621679206391"><span class="hs-identifier hs-var hs-var">algorithmicStemming</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
-</span><a href="#local-6989586621679206391"><span class="hs-identifier hs-var">algorithmicStemming</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206390"><span class="annot"><span class="annottext">s :: AnalysisOptions
-</span><a href="#local-6989586621679206390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206389"><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
-</span><a href="#local-6989586621679206389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
-</span><a href="#local-6989586621679206390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmicStemming:AnalysisOptions' :: Maybe AlgorithmicStemming
+</span><a href="#local-6989586621679206400"><span class="hs-identifier hs-var hs-var">algorithmicStemming</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
+</span><a href="#local-6989586621679206400"><span class="hs-identifier hs-var">algorithmicStemming</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206399"><span class="annot"><span class="annottext">s :: AnalysisOptions
+</span><a href="#local-6989586621679206399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206398"><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
+</span><a href="#local-6989586621679206398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
+</span><a href="#local-6989586621679206399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmicStemming:AnalysisOptions' :: Maybe AlgorithmicStemming
 </span><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#%24sel%3AalgorithmicStemming%3AAnalysisOptions%27"><span class="hs-identifier hs-var">algorithmicStemming</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
-</span><a href="#local-6989586621679206389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | A JSON array of terms to ignore during indexing and searching. For</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- example, @[\&quot;a\&quot;, \&quot;an\&quot;, \&quot;the\&quot;, \&quot;of\&quot;]@. The stopwords dictionary</span><span>
@@ -242,16 +242,16 @@ $sel:algorithmicStemming:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Algorit
 -&gt; (AnalysisOptions -&gt; Maybe Text -&gt; AnalysisOptions)
 -&gt; Lens AnalysisOptions AnalysisOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206387"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206396"><span class="annot"><span class="annottext">Maybe Text
 stopwords :: Maybe Text
 $sel:stopwords:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679206387"><span class="hs-identifier hs-var hs-var">stopwords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206387"><span class="hs-identifier hs-var">stopwords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206386"><span class="annot"><span class="annottext">s :: AnalysisOptions
-</span><a href="#local-6989586621679206386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
-</span><a href="#local-6989586621679206386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopwords:AnalysisOptions' :: Maybe Text
+</span><a href="#local-6989586621679206396"><span class="hs-identifier hs-var hs-var">stopwords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206396"><span class="hs-identifier hs-var">stopwords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206395"><span class="annot"><span class="annottext">s :: AnalysisOptions
+</span><a href="#local-6989586621679206395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
+</span><a href="#local-6989586621679206395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopwords:AnalysisOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#%24sel%3Astopwords%3AAnalysisOptions%27"><span class="hs-identifier hs-var">stopwords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | A JSON array that contains a collection of terms, tokens, readings and</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- part of speech for Japanese Tokenizaiton. The Japanese tokenization</span><span>
@@ -264,16 +264,16 @@ $sel:stopwords:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
 -&gt; (AnalysisOptions -&gt; Maybe Text -&gt; AnalysisOptions)
 -&gt; Lens AnalysisOptions AnalysisOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206383"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206392"><span class="annot"><span class="annottext">Maybe Text
 japaneseTokenizationDictionary :: Maybe Text
 $sel:japaneseTokenizationDictionary:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679206383"><span class="hs-identifier hs-var hs-var">japaneseTokenizationDictionary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206383"><span class="hs-identifier hs-var">japaneseTokenizationDictionary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206382"><span class="annot"><span class="annottext">s :: AnalysisOptions
-</span><a href="#local-6989586621679206382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206381"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
-</span><a href="#local-6989586621679206382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:japaneseTokenizationDictionary:AnalysisOptions' :: Maybe Text
+</span><a href="#local-6989586621679206392"><span class="hs-identifier hs-var hs-var">japaneseTokenizationDictionary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206392"><span class="hs-identifier hs-var">japaneseTokenizationDictionary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206391"><span class="annot"><span class="annottext">s :: AnalysisOptions
+</span><a href="#local-6989586621679206391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206390"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
+</span><a href="#local-6989586621679206391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:japaneseTokenizationDictionary:AnalysisOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#%24sel%3AjapaneseTokenizationDictionary%3AAnalysisOptions%27"><span class="hs-identifier hs-var">japaneseTokenizationDictionary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | A JSON object that defines synonym groups and aliases. A synonym group</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- is an array of arrays, where each sub-array is a group of terms where</span><span>
@@ -293,16 +293,16 @@ $sel:japaneseTokenizationDictionary:AnalysisOptions' :: AnalysisOptions -&gt; Ma
 -&gt; (AnalysisOptions -&gt; Maybe Text -&gt; AnalysisOptions)
 -&gt; Lens AnalysisOptions AnalysisOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206379"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206388"><span class="annot"><span class="annottext">Maybe Text
 synonyms :: Maybe Text
 $sel:synonyms:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679206379"><span class="hs-identifier hs-var hs-var">synonyms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206379"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206378"><span class="annot"><span class="annottext">s :: AnalysisOptions
-</span><a href="#local-6989586621679206378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206377"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
-</span><a href="#local-6989586621679206378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:synonyms:AnalysisOptions' :: Maybe Text
+</span><a href="#local-6989586621679206388"><span class="hs-identifier hs-var hs-var">synonyms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206388"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206387"><span class="annot"><span class="annottext">s :: AnalysisOptions
+</span><a href="#local-6989586621679206387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206386"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
+</span><a href="#local-6989586621679206387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:synonyms:AnalysisOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#%24sel%3Asynonyms%3AAnalysisOptions%27"><span class="hs-identifier hs-var">synonyms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | A JSON object that contains a collection of string:value pairs that each</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- map a term to its stem. For example,</span><span>
@@ -318,21 +318,21 @@ $sel:synonyms:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
 -&gt; (AnalysisOptions -&gt; Maybe Text -&gt; AnalysisOptions)
 -&gt; Lens AnalysisOptions AnalysisOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206375"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206384"><span class="annot"><span class="annottext">Maybe Text
 stemmingDictionary :: Maybe Text
 $sel:stemmingDictionary:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679206375"><span class="hs-identifier hs-var hs-var">stemmingDictionary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206375"><span class="hs-identifier hs-var">stemmingDictionary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206374"><span class="annot"><span class="annottext">s :: AnalysisOptions
-</span><a href="#local-6989586621679206374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206373"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
-</span><a href="#local-6989586621679206374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stemmingDictionary:AnalysisOptions' :: Maybe Text
+</span><a href="#local-6989586621679206384"><span class="hs-identifier hs-var hs-var">stemmingDictionary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206384"><span class="hs-identifier hs-var">stemmingDictionary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206383"><span class="annot"><span class="annottext">s :: AnalysisOptions
+</span><a href="#local-6989586621679206383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679206382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisOptions
+</span><a href="#local-6989586621679206383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stemmingDictionary:AnalysisOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#%24sel%3AstemmingDictionary%3AAnalysisOptions%27"><span class="hs-identifier hs-var">stemmingDictionary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679206382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679206370"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnalysisOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679206368"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679206368"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679206379"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnalysisOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679206377"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -353,7 +353,7 @@ $sel:stemmingDictionary:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AnalysisOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679206368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AlgorithmicStemming)
+</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AlgorithmicStemming)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmicStemming&quot;</span></span><span class="hs-special">)</span><span>
@@ -366,7 +366,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AnalysisOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679206368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Stopwords&quot;</span></span><span class="hs-special">)</span><span>
@@ -376,7 +376,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; AnalysisOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679206368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JapaneseTokenizationDictionary&quot;</span></span><span class="hs-special">)</span><span>
@@ -385,7 +385,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; AnalysisOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679206368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Synonyms&quot;</span></span><span class="hs-special">)</span><span>
@@ -393,18 +393,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String AnalysisOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679206368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679206377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StemmingDictionary&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206362"><span id="local-6989586621679206364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206371"><span id="local-6989586621679206373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions"><span class="hs-identifier hs-type">AnalysisOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679206355"><span class="annot"><span class="annottext">toQuery :: AnalysisOptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206349"><span id="local-6989586621679206350"><span id="local-6989586621679206351"><span id="local-6989586621679206352"><span id="local-6989586621679206353"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679206364"><span class="annot"><span class="annottext">toQuery :: AnalysisOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.AnalysisOptions.html#AnalysisOptions%27"><span class="hs-identifier hs-type">AnalysisOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206358"><span id="local-6989586621679206359"><span id="local-6989586621679206360"><span id="local-6989586621679206361"><span id="local-6989586621679206362"><span class="annot"><span class="annottext">Maybe Text
 Maybe AlgorithmicStemming
 stemmingDictionary :: Maybe Text
 synonyms :: Maybe Text
@@ -416,7 +416,7 @@ $sel:synonyms:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
 $sel:japaneseTokenizationDictionary:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
 $sel:stopwords:AnalysisOptions' :: AnalysisOptions -&gt; Maybe Text
 $sel:algorithmicStemming:AnalysisOptions' :: AnalysisOptions -&gt; Maybe AlgorithmicStemming
-</span><a href="#local-6989586621679206349"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679206358"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -424,27 +424,27 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;AlgorithmicStemming&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AlgorithmicStemming -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmicStemming
-</span><a href="#local-6989586621679206353"><span class="hs-identifier hs-var">algorithmicStemming</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206362"><span class="hs-identifier hs-var">algorithmicStemming</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Stopwords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206352"><span class="hs-identifier hs-var">stopwords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206361"><span class="hs-identifier hs-var">stopwords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;JapaneseTokenizationDictionary&quot;</span></span><span>
 </span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206351"><span class="hs-identifier hs-var">japaneseTokenizationDictionary</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206360"><span class="hs-identifier hs-var">japaneseTokenizationDictionary</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Synonyms&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206350"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679206359"><span class="hs-identifier hs-var">synonyms</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StemmingDictionary&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679206349"><span class="hs-identifier hs-var">stemmingDictionary</span></a></span><span>
+</span><a href="#local-6989586621679206358"><span class="hs-identifier hs-var">stemmingDictionary</span></a></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span></pre></body></html>

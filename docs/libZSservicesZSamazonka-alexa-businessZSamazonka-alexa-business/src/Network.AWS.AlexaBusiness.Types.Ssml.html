@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html SSML Reference&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSsml' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679373356"><span id="local-6989586621679373357"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ssml"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-var">Ssml</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ssml%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-var">Ssml'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679373365"><span id="local-6989586621679373366"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ssml"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-var">Ssml</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ssml%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-var">Ssml'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The locale of the SSML message. Currently, en-US is supported.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Alocale%3ASsml%27"><span class="annot"><span class="annottext">Ssml -&gt; Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#%24sel%3Alocale%3ASsml%27"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">,</span><span>
@@ -37,14 +37,14 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalue%3ASsml%27"><span class="annot"><span class="annottext">Ssml -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#%24sel%3Avalue%3ASsml%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373349"><span id="local-6989586621679373351"><span class="annot"><span class="annottext">Ssml -&gt; Ssml -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373358"><span id="local-6989586621679373360"><span class="annot"><span class="annottext">Ssml -&gt; Ssml -&gt; Bool
 (Ssml -&gt; Ssml -&gt; Bool) -&gt; (Ssml -&gt; Ssml -&gt; Bool) -&gt; Eq Ssml
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Ssml -&gt; Ssml -&gt; Bool
 $c/= :: Ssml -&gt; Ssml -&gt; Bool
 == :: Ssml -&gt; Ssml -&gt; Bool
 $c== :: Ssml -&gt; Ssml -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373340"><span id="local-6989586621679373342"><span id="local-6989586621679373344"><span id="local-6989586621679373346"><span class="annot"><span class="annottext">ReadPrec [Ssml]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373349"><span id="local-6989586621679373351"><span id="local-6989586621679373353"><span id="local-6989586621679373355"><span class="annot"><span class="annottext">ReadPrec [Ssml]
 ReadPrec Ssml
 Int -&gt; ReadS Ssml
 ReadS [Ssml]
@@ -61,7 +61,7 @@ readList :: ReadS [Ssml]
 $creadList :: ReadS [Ssml]
 readsPrec :: Int -&gt; ReadS Ssml
 $creadsPrec :: Int -&gt; ReadS Ssml
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373333"><span id="local-6989586621679373335"><span id="local-6989586621679373337"><span class="annot"><span class="annottext">Int -&gt; Ssml -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373342"><span id="local-6989586621679373344"><span id="local-6989586621679373346"><span class="annot"><span class="annottext">Int -&gt; Ssml -&gt; ShowS
 [Ssml] -&gt; ShowS
 Ssml -&gt; String
 (Int -&gt; Ssml -&gt; ShowS)
@@ -103,15 +103,15 @@ $cfrom :: forall x. Ssml -&gt; Rep Ssml x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span>
 </span><span id="line-58"></span><span id="newSsml"><span class="annot"><span class="annottext">newSsml :: Locale -&gt; Text -&gt; Ssml
-</span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#newSsml"><span class="hs-identifier hs-var hs-var">newSsml</span></a></span></span><span> </span><span id="local-6989586621679373327"><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679373327"><span class="hs-identifier hs-var">pLocale_</span></a></span></span><span> </span><span id="local-6989586621679373326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373326"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#newSsml"><span class="hs-identifier hs-var hs-var">newSsml</span></a></span></span><span> </span><span id="local-6989586621679373336"><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679373336"><span class="hs-identifier hs-var">pLocale_</span></a></span></span><span> </span><span id="local-6989586621679373335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373335"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Ssml' :: Locale -&gt; Text -&gt; Ssml
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:Ssml' :: Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#%24sel%3Alocale%3ASsml%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679373327"><span class="hs-identifier hs-var">pLocale_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Ssml' :: Text
+</span><a href="#local-6989586621679373336"><span class="hs-identifier hs-var">pLocale_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Ssml' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#%24sel%3Avalue%3ASsml%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373326"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679373335"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The locale of the SSML message. Currently, en-US is supported.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#ssml_locale"><span class="hs-identifier hs-type">ssml_locale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span>
@@ -119,16 +119,16 @@ $cfrom :: forall x. Ssml -&gt; Rep Ssml x
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#ssml_locale"><span class="hs-identifier hs-var hs-var">ssml_locale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ssml -&gt; Locale)
 -&gt; (Ssml -&gt; Locale -&gt; Ssml) -&gt; Lens Ssml Ssml Locale Locale
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373322"><span class="annot"><span class="annottext">Locale
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373331"><span class="annot"><span class="annottext">Locale
 locale :: Locale
 $sel:locale:Ssml' :: Ssml -&gt; Locale
-</span><a href="#local-6989586621679373322"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679373322"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373321"><span class="annot"><span class="annottext">s :: Ssml
-</span><a href="#local-6989586621679373321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373320"><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679373320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ssml
-</span><a href="#local-6989586621679373321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:Ssml' :: Locale
+</span><a href="#local-6989586621679373331"><span class="hs-identifier hs-var hs-var">locale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679373331"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373330"><span class="annot"><span class="annottext">s :: Ssml
+</span><a href="#local-6989586621679373330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373329"><span class="annot"><span class="annottext">Locale
+</span><a href="#local-6989586621679373329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ssml
+</span><a href="#local-6989586621679373330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locale:Ssml' :: Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#%24sel%3Alocale%3ASsml%27"><span class="hs-identifier hs-var">locale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679373320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The value of the SSML message in the correct SSML format. The audio tag</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- is not supported.</span><span>
@@ -137,30 +137,30 @@ $sel:locale:Ssml' :: Ssml -&gt; Locale
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#ssml_value"><span class="hs-identifier hs-var hs-var">ssml_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ssml -&gt; Text)
 -&gt; (Ssml -&gt; Text -&gt; Ssml) -&gt; Lens Ssml Ssml Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373318"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373327"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:Ssml' :: Ssml -&gt; Text
-</span><a href="#local-6989586621679373318"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373318"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373317"><span class="annot"><span class="annottext">s :: Ssml
-</span><a href="#local-6989586621679373317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373316"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ssml
-</span><a href="#local-6989586621679373317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Ssml' :: Text
+</span><a href="#local-6989586621679373327"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373327"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373326"><span class="annot"><span class="annottext">s :: Ssml
+</span><a href="#local-6989586621679373326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373325"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ssml
+</span><a href="#local-6989586621679373326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Ssml' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#%24sel%3Avalue%3ASsml%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373312"><span id="local-6989586621679373314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373321"><span id="local-6989586621679373323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373301"><span id="local-6989586621679373303"><span id="local-6989586621679373305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679373299"><span class="annot"><span class="annottext">toJSON :: Ssml -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373296"><span id="local-6989586621679373297"><span class="annot"><span class="annottext">Text
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373310"><span id="local-6989586621679373312"><span id="local-6989586621679373314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml"><span class="hs-identifier hs-type">Ssml</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679373308"><span class="annot"><span class="annottext">toJSON :: Ssml -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Ssml.html#Ssml%27"><span class="hs-identifier hs-type">Ssml'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373305"><span id="local-6989586621679373306"><span class="annot"><span class="annottext">Text
 Locale
 value :: Text
 locale :: Locale
 $sel:value:Ssml' :: Ssml -&gt; Text
 $sel:locale:Ssml' :: Ssml -&gt; Locale
-</span><a href="#local-6989586621679373296"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373305"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -172,14 +172,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Locale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Locale -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Locale
-</span><a href="#local-6989586621679373297"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373306"><span class="hs-identifier hs-var">locale</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373296"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373305"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

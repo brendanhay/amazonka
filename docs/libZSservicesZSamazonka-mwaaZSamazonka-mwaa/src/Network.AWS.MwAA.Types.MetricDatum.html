@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MwAA.Types.MetricDatum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MwAA.Types.MetricDatum</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html"><span class="hs-identifier">Network.AWS.MwAA.Types.Dimension</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.StatisticSet.html"><span class="hs-identifier">Network.AWS.MwAA.Types.StatisticSet</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Unit.html"><span class="hs-identifier">Network.AWS.MwAA.Types.Unit</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMetricDatum' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679181702"><span id="local-6989586621679181703"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDatum"><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-var">MetricDatum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDatum%27"><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-var">MetricDatum'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AMetricDatum%27"><span class="annot"><span class="annottext">MetricDatum -&gt; Maybe Double
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Avalue%3AMetricDatum%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Adimensions%3AMetricDatum%27"><span class="annot"><span class="annottext">MetricDatum -&gt; Maybe [Dimension]
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Adimensions%3AMetricDatum%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aunit%3AMetricDatum%27"><span class="annot"><span class="annottext">MetricDatum -&gt; Maybe Unit
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Aunit%3AMetricDatum%27"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstatisticValues%3AMetricDatum%27"><span class="annot"><span class="annottext">MetricDatum -&gt; Maybe StatisticSet
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3AstatisticValues%3AMetricDatum%27"><span class="hs-identifier hs-var hs-var">statisticValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.StatisticSet.html#StatisticSet"><span class="hs-identifier hs-type">StatisticSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmetricName%3AMetricDatum%27"><span class="annot"><span class="annottext">MetricDatum -&gt; Text
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3AmetricName%3AMetricDatum%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atimestamp%3AMetricDatum%27"><span class="annot"><span class="annottext">MetricDatum -&gt; POSIX
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Atimestamp%3AMetricDatum%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181691"><span id="local-6989586621679181693"><span class="annot"><span class="annottext">MetricDatum -&gt; MetricDatum -&gt; Bool
+(MetricDatum -&gt; MetricDatum -&gt; Bool)
+-&gt; (MetricDatum -&gt; MetricDatum -&gt; Bool) -&gt; Eq MetricDatum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MetricDatum -&gt; MetricDatum -&gt; Bool
+$c/= :: MetricDatum -&gt; MetricDatum -&gt; Bool
+== :: MetricDatum -&gt; MetricDatum -&gt; Bool
+$c== :: MetricDatum -&gt; MetricDatum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181682"><span id="local-6989586621679181684"><span id="local-6989586621679181686"><span id="local-6989586621679181688"><span class="annot"><span class="annottext">ReadPrec [MetricDatum]
+ReadPrec MetricDatum
+Int -&gt; ReadS MetricDatum
+ReadS [MetricDatum]
+(Int -&gt; ReadS MetricDatum)
+-&gt; ReadS [MetricDatum]
+-&gt; ReadPrec MetricDatum
+-&gt; ReadPrec [MetricDatum]
+-&gt; Read MetricDatum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MetricDatum]
+$creadListPrec :: ReadPrec [MetricDatum]
+readPrec :: ReadPrec MetricDatum
+$creadPrec :: ReadPrec MetricDatum
+readList :: ReadS [MetricDatum]
+$creadList :: ReadS [MetricDatum]
+readsPrec :: Int -&gt; ReadS MetricDatum
+$creadsPrec :: Int -&gt; ReadS MetricDatum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181675"><span id="local-6989586621679181677"><span id="local-6989586621679181679"><span class="annot"><span class="annottext">Int -&gt; MetricDatum -&gt; ShowS
+[MetricDatum] -&gt; ShowS
+MetricDatum -&gt; String
+(Int -&gt; MetricDatum -&gt; ShowS)
+-&gt; (MetricDatum -&gt; String)
+-&gt; ([MetricDatum] -&gt; ShowS)
+-&gt; Show MetricDatum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MetricDatum] -&gt; ShowS
+$cshowList :: [MetricDatum] -&gt; ShowS
+show :: MetricDatum -&gt; String
+$cshow :: MetricDatum -&gt; String
+showsPrec :: Int -&gt; MetricDatum -&gt; ShowS
+$cshowsPrec :: Int -&gt; MetricDatum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MetricDatum -&gt; Rep MetricDatum x)
+-&gt; (forall x. Rep MetricDatum x -&gt; MetricDatum)
+-&gt; Generic MetricDatum
+forall x. Rep MetricDatum x -&gt; MetricDatum
+forall x. MetricDatum -&gt; Rep MetricDatum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MetricDatum x -&gt; MetricDatum
+$cfrom :: forall x. MetricDatum -&gt; Rep MetricDatum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'MetricDatum' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'value', 'metricDatum_value' - Internal only API.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'dimensions', 'metricDatum_dimensions' - Internal only API.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'unit', 'metricDatum_unit' - Undocumented member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'statisticValues', 'metricDatum_statisticValues' - Internal only API.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'metricName', 'metricDatum_metricName' - Internal only API.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'timestamp', 'metricDatum_timestamp' - Internal only API.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#newMetricDatum"><span class="hs-identifier hs-type">newMetricDatum</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'metricName'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'timestamp'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span>
+</span><span id="line-72"></span><span id="newMetricDatum"><span class="annot"><span class="annottext">newMetricDatum :: Text -&gt; UTCTime -&gt; MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#newMetricDatum"><span class="hs-identifier hs-var hs-var">newMetricDatum</span></a></span></span><span> </span><span id="local-6989586621679181669"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181669"><span class="hs-identifier hs-var">pMetricName_</span></a></span></span><span> </span><span id="local-6989586621679181668"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679181668"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">MetricDatum' :: Maybe Double
+-&gt; Maybe [Dimension]
+-&gt; Maybe Unit
+-&gt; Maybe StatisticSet
+-&gt; Text
+-&gt; POSIX
+-&gt; MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:MetricDatum' :: Maybe Double
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Avalue%3AMetricDatum%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:MetricDatum' :: Maybe [Dimension]
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Adimensions%3AMetricDatum%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:unit:MetricDatum' :: Maybe Unit
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Aunit%3AMetricDatum%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:statisticValues:MetricDatum' :: Maybe StatisticSet
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3AstatisticValues%3AMetricDatum%27"><span class="hs-identifier hs-var">statisticValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatisticSet
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricName:MetricDatum' :: Text
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3AmetricName%3AMetricDatum%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181669"><span class="hs-identifier hs-var">pMetricName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:MetricDatum' :: POSIX
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Atimestamp%3AMetricDatum%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679181668"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_value"><span class="hs-identifier hs-type">metricDatum_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="metricDatum_value"><span class="annot"><span class="annottext">metricDatum_value :: (Maybe Double -&gt; f (Maybe Double)) -&gt; MetricDatum -&gt; f MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_value"><span class="hs-identifier hs-var hs-var">metricDatum_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricDatum -&gt; Maybe Double)
+-&gt; (MetricDatum -&gt; Maybe Double -&gt; MetricDatum)
+-&gt; Lens MetricDatum MetricDatum (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181662"><span class="annot"><span class="annottext">Maybe Double
+value :: Maybe Double
+$sel:value:MetricDatum' :: MetricDatum -&gt; Maybe Double
+</span><a href="#local-6989586621679181662"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679181662"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181661"><span class="annot"><span class="annottext">s :: MetricDatum
+</span><a href="#local-6989586621679181661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181660"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679181660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDatum
+</span><a href="#local-6989586621679181661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:MetricDatum' :: Maybe Double
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Avalue%3AMetricDatum%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679181660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_dimensions"><span class="hs-identifier hs-type">metricDatum_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MwAA.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="metricDatum_dimensions"><span class="annot"><span class="annottext">metricDatum_dimensions :: (Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; MetricDatum -&gt; f MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_dimensions"><span class="hs-identifier hs-var hs-var">metricDatum_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricDatum -&gt; Maybe [Dimension])
+-&gt; (MetricDatum -&gt; Maybe [Dimension] -&gt; MetricDatum)
+-&gt; Lens
+     MetricDatum MetricDatum (Maybe [Dimension]) (Maybe [Dimension])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181658"><span class="annot"><span class="annottext">Maybe [Dimension]
+dimensions :: Maybe [Dimension]
+$sel:dimensions:MetricDatum' :: MetricDatum -&gt; Maybe [Dimension]
+</span><a href="#local-6989586621679181658"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679181658"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181657"><span class="annot"><span class="annottext">s :: MetricDatum
+</span><a href="#local-6989586621679181657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181656"><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679181656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDatum
+</span><a href="#local-6989586621679181657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:MetricDatum' :: Maybe [Dimension]
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Adimensions%3AMetricDatum%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679181656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+ -&gt; MetricDatum -&gt; f MetricDatum)
+-&gt; ((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+    -&gt; Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; (Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+-&gt; MetricDatum
+-&gt; f MetricDatum
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Dimension] [Dimension] [Dimension] [Dimension]
+-&gt; Iso
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+     (Maybe [Dimension])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Dimension] [Dimension] [Dimension] [Dimension]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_unit"><span class="hs-identifier hs-type">metricDatum_unit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Unit.html#Unit"><span class="hs-identifier hs-type">Unit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="metricDatum_unit"><span class="annot"><span class="annottext">metricDatum_unit :: (Maybe Unit -&gt; f (Maybe Unit)) -&gt; MetricDatum -&gt; f MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_unit"><span class="hs-identifier hs-var hs-var">metricDatum_unit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricDatum -&gt; Maybe Unit)
+-&gt; (MetricDatum -&gt; Maybe Unit -&gt; MetricDatum)
+-&gt; Lens MetricDatum MetricDatum (Maybe Unit) (Maybe Unit)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181651"><span class="annot"><span class="annottext">Maybe Unit
+unit :: Maybe Unit
+$sel:unit:MetricDatum' :: MetricDatum -&gt; Maybe Unit
+</span><a href="#local-6989586621679181651"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679181651"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181650"><span class="annot"><span class="annottext">s :: MetricDatum
+</span><a href="#local-6989586621679181650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181649"><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679181649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDatum
+</span><a href="#local-6989586621679181650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:MetricDatum' :: Maybe Unit
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Aunit%3AMetricDatum%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679181649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_statisticValues"><span class="hs-identifier hs-type">metricDatum_statisticValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.StatisticSet.html#StatisticSet"><span class="hs-identifier hs-type">StatisticSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="metricDatum_statisticValues"><span class="annot"><span class="annottext">metricDatum_statisticValues :: (Maybe StatisticSet -&gt; f (Maybe StatisticSet))
+-&gt; MetricDatum -&gt; f MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_statisticValues"><span class="hs-identifier hs-var hs-var">metricDatum_statisticValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricDatum -&gt; Maybe StatisticSet)
+-&gt; (MetricDatum -&gt; Maybe StatisticSet -&gt; MetricDatum)
+-&gt; Lens
+     MetricDatum MetricDatum (Maybe StatisticSet) (Maybe StatisticSet)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181647"><span class="annot"><span class="annottext">Maybe StatisticSet
+statisticValues :: Maybe StatisticSet
+$sel:statisticValues:MetricDatum' :: MetricDatum -&gt; Maybe StatisticSet
+</span><a href="#local-6989586621679181647"><span class="hs-identifier hs-var hs-var">statisticValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatisticSet
+</span><a href="#local-6989586621679181647"><span class="hs-identifier hs-var">statisticValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181646"><span class="annot"><span class="annottext">s :: MetricDatum
+</span><a href="#local-6989586621679181646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181645"><span class="annot"><span class="annottext">Maybe StatisticSet
+</span><a href="#local-6989586621679181645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDatum
+</span><a href="#local-6989586621679181646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statisticValues:MetricDatum' :: Maybe StatisticSet
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3AstatisticValues%3AMetricDatum%27"><span class="hs-identifier hs-var">statisticValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatisticSet
+</span><a href="#local-6989586621679181645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_metricName"><span class="hs-identifier hs-type">metricDatum_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="metricDatum_metricName"><span class="annot"><span class="annottext">metricDatum_metricName :: (Text -&gt; f Text) -&gt; MetricDatum -&gt; f MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_metricName"><span class="hs-identifier hs-var hs-var">metricDatum_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricDatum -&gt; Text)
+-&gt; (MetricDatum -&gt; Text -&gt; MetricDatum)
+-&gt; Lens MetricDatum MetricDatum Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181643"><span class="annot"><span class="annottext">Text
+metricName :: Text
+$sel:metricName:MetricDatum' :: MetricDatum -&gt; Text
+</span><a href="#local-6989586621679181643"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181643"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181642"><span class="annot"><span class="annottext">s :: MetricDatum
+</span><a href="#local-6989586621679181642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDatum
+</span><a href="#local-6989586621679181642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:MetricDatum' :: Text
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3AmetricName%3AMetricDatum%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Internal only API.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_timestamp"><span class="hs-identifier hs-type">metricDatum_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-104"></span><span id="metricDatum_timestamp"><span class="annot"><span class="annottext">metricDatum_timestamp :: (UTCTime -&gt; f UTCTime) -&gt; MetricDatum -&gt; f MetricDatum
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#metricDatum_timestamp"><span class="hs-identifier hs-var hs-var">metricDatum_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetricDatum -&gt; POSIX)
+-&gt; (MetricDatum -&gt; POSIX -&gt; MetricDatum)
+-&gt; Lens MetricDatum MetricDatum POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181639"><span class="annot"><span class="annottext">POSIX
+timestamp :: POSIX
+$sel:timestamp:MetricDatum' :: MetricDatum -&gt; POSIX
+</span><a href="#local-6989586621679181639"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679181639"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679181638"><span class="annot"><span class="annottext">s :: MetricDatum
+</span><a href="#local-6989586621679181638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679181637"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679181637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDatum
+</span><a href="#local-6989586621679181638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:MetricDatum' :: POSIX
+</span><a href="Network.AWS.MwAA.Types.MetricDatum.html#%24sel%3Atimestamp%3AMetricDatum%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679181637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; MetricDatum -&gt; f MetricDatum)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; MetricDatum
+-&gt; f MetricDatum
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181633"><span id="local-6989586621679181635"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679181622"><span id="local-6989586621679181624"><span id="local-6989586621679181626"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum"><span class="hs-identifier hs-type">MetricDatum</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679181620"><span class="annot"><span class="annottext">toJSON :: MetricDatum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.MetricDatum.html#MetricDatum%27"><span class="hs-identifier hs-type">MetricDatum'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679181613"><span id="local-6989586621679181614"><span id="local-6989586621679181615"><span id="local-6989586621679181616"><span id="local-6989586621679181617"><span id="local-6989586621679181618"><span class="annot"><span class="annottext">Maybe Double
+Maybe [Dimension]
+Maybe StatisticSet
+Maybe Unit
+Text
+POSIX
+timestamp :: POSIX
+metricName :: Text
+statisticValues :: Maybe StatisticSet
+unit :: Maybe Unit
+dimensions :: Maybe [Dimension]
+value :: Maybe Double
+$sel:timestamp:MetricDatum' :: MetricDatum -&gt; POSIX
+$sel:metricName:MetricDatum' :: MetricDatum -&gt; Text
+$sel:statisticValues:MetricDatum' :: MetricDatum -&gt; Maybe StatisticSet
+$sel:unit:MetricDatum' :: MetricDatum -&gt; Maybe Unit
+$sel:dimensions:MetricDatum' :: MetricDatum -&gt; Maybe [Dimension]
+$sel:value:MetricDatum' :: MetricDatum -&gt; Maybe Double
+</span><a href="#local-6989586621679181613"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679181618"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Dimension] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Dimension] -&gt; Pair) -&gt; Maybe [Dimension] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679181617"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Unit -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Unit -&gt; Pair) -&gt; Maybe Unit -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Unit
+</span><a href="#local-6989586621679181616"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatisticValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StatisticSet -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">(StatisticSet -&gt; Pair) -&gt; Maybe StatisticSet -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StatisticSet
+</span><a href="#local-6989586621679181615"><span class="hs-identifier hs-var">statisticValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679181614"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679181613"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span></pre></body></html>

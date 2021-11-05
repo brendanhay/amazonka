@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Information about the build environment of the build project.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newProjectEnvironment' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679374602"><span id="local-6989586621679374603"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectEnvironment"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-var">ProjectEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectEnvironment%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-var">ProjectEnvironment'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679374611"><span id="local-6989586621679374612"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectEnvironment"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-var">ProjectEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectEnvironment%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-var">ProjectEnvironment'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of credentials CodeBuild uses to pull images in your build.</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- There are two valid values:</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -165,7 +165,7 @@
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AcomputeType%3AProjectEnvironment%27"><span class="annot"><span class="annottext">ProjectEnvironment -&gt; ComputeType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3AcomputeType%3AProjectEnvironment%27"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374589"><span id="local-6989586621679374591"><span class="annot"><span class="annottext">ProjectEnvironment -&gt; ProjectEnvironment -&gt; Bool
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374598"><span id="local-6989586621679374600"><span class="annot"><span class="annottext">ProjectEnvironment -&gt; ProjectEnvironment -&gt; Bool
 (ProjectEnvironment -&gt; ProjectEnvironment -&gt; Bool)
 -&gt; (ProjectEnvironment -&gt; ProjectEnvironment -&gt; Bool)
 -&gt; Eq ProjectEnvironment
@@ -174,7 +174,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectEnvironment -&gt; ProjectEnvironment -&gt; Bool
 == :: ProjectEnvironment -&gt; ProjectEnvironment -&gt; Bool
 $c== :: ProjectEnvironment -&gt; ProjectEnvironment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374580"><span id="local-6989586621679374582"><span id="local-6989586621679374584"><span id="local-6989586621679374586"><span class="annot"><span class="annottext">ReadPrec [ProjectEnvironment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374589"><span id="local-6989586621679374591"><span id="local-6989586621679374593"><span id="local-6989586621679374595"><span class="annot"><span class="annottext">ReadPrec [ProjectEnvironment]
 ReadPrec ProjectEnvironment
 Int -&gt; ReadS ProjectEnvironment
 ReadS [ProjectEnvironment]
@@ -194,7 +194,7 @@ readList :: ReadS [ProjectEnvironment]
 $creadList :: ReadS [ProjectEnvironment]
 readsPrec :: Int -&gt; ReadS ProjectEnvironment
 $creadsPrec :: Int -&gt; ReadS ProjectEnvironment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374573"><span id="local-6989586621679374575"><span id="local-6989586621679374577"><span class="annot"><span class="annottext">Int -&gt; ProjectEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374582"><span id="local-6989586621679374584"><span id="local-6989586621679374586"><span class="annot"><span class="annottext">Int -&gt; ProjectEnvironment -&gt; ShowS
 [ProjectEnvironment] -&gt; ShowS
 ProjectEnvironment -&gt; String
 (Int -&gt; ProjectEnvironment -&gt; ShowS)
@@ -360,10 +360,10 @@ $cfrom :: forall x. ProjectEnvironment -&gt; Rep ProjectEnvironment x
 </span><span id="line-299"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-type">ComputeType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-300"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span>
 </span><span id="line-301"></span><span id="newProjectEnvironment"><span class="annot"><span class="annottext">newProjectEnvironment :: EnvironmentType -&gt; Text -&gt; ComputeType -&gt; ProjectEnvironment
-</span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#newProjectEnvironment"><span class="hs-identifier hs-var hs-var">newProjectEnvironment</span></a></span></span><span> </span><span id="local-6989586621679374567"><span class="annot"><span class="annottext">EnvironmentType
-</span><a href="#local-6989586621679374567"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679374566"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374566"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span id="local-6989586621679374565"><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679374565"><span class="hs-identifier hs-var">pComputeType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#newProjectEnvironment"><span class="hs-identifier hs-var hs-var">newProjectEnvironment</span></a></span></span><span> </span><span id="local-6989586621679374576"><span class="annot"><span class="annottext">EnvironmentType
+</span><a href="#local-6989586621679374576"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679374575"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374575"><span class="hs-identifier hs-var">pImage_</span></a></span></span><span> </span><span id="local-6989586621679374574"><span class="annot"><span class="annottext">ComputeType
+</span><a href="#local-6989586621679374574"><span class="hs-identifier hs-var">pComputeType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-302"></span><span>  </span><span class="annot"><span class="annottext">ProjectEnvironment' :: Maybe ImagePullCredentialsType
 -&gt; Maybe Bool
 -&gt; Maybe RegistryCredential
@@ -397,13 +397,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-309"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProjectEnvironment' :: EnvironmentType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3Atype%27%3AProjectEnvironment%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnvironmentType
-</span><a href="#local-6989586621679374567"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374576"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">$sel:image:ProjectEnvironment' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3Aimage%3AProjectEnvironment%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374566"><span class="hs-identifier hs-var">pImage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374575"><span class="hs-identifier hs-var">pImage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:computeType:ProjectEnvironment' :: ComputeType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3AcomputeType%3AProjectEnvironment%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679374565"><span class="hs-identifier hs-var">pComputeType_</span></a></span><span>
+</span><a href="#local-6989586621679374574"><span class="hs-identifier hs-var">pComputeType_</span></a></span><span>
 </span><span id="line-312"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-313"></span><span>
 </span><span id="line-314"></span><span class="hs-comment">-- | The type of credentials CodeBuild uses to pull images in your build.</span><span>
@@ -432,16 +432,16 @@ forall a. Maybe a
      (Maybe ImagePullCredentialsType)
      (Maybe ImagePullCredentialsType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374561"><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374570"><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
 imagePullCredentialsType :: Maybe ImagePullCredentialsType
 $sel:imagePullCredentialsType:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe ImagePullCredentialsType
-</span><a href="#local-6989586621679374561"><span class="hs-identifier hs-var hs-var">imagePullCredentialsType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
-</span><a href="#local-6989586621679374561"><span class="hs-identifier hs-var">imagePullCredentialsType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374560"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374559"><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
-</span><a href="#local-6989586621679374559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imagePullCredentialsType:ProjectEnvironment' :: Maybe ImagePullCredentialsType
+</span><a href="#local-6989586621679374570"><span class="hs-identifier hs-var hs-var">imagePullCredentialsType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
+</span><a href="#local-6989586621679374570"><span class="hs-identifier hs-var">imagePullCredentialsType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374569"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374568"><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
+</span><a href="#local-6989586621679374568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imagePullCredentialsType:ProjectEnvironment' :: Maybe ImagePullCredentialsType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3AimagePullCredentialsType%3AProjectEnvironment%27"><span class="hs-identifier hs-var">imagePullCredentialsType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
-</span><a href="#local-6989586621679374559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | Enables running the Docker daemon inside a Docker container. Set to true</span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- only if the build project is used to build Docker images. Otherwise, a</span><span>
@@ -472,16 +472,16 @@ $sel:imagePullCredentialsType:ProjectEnvironment' :: ProjectEnvironment -&gt; Ma
 -&gt; Lens
      ProjectEnvironment ProjectEnvironment (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374557"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374566"><span class="annot"><span class="annottext">Maybe Bool
 privilegedMode :: Maybe Bool
 $sel:privilegedMode:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe Bool
-</span><a href="#local-6989586621679374557"><span class="hs-identifier hs-var hs-var">privilegedMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374557"><span class="hs-identifier hs-var">privilegedMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374556"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374555"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privilegedMode:ProjectEnvironment' :: Maybe Bool
+</span><a href="#local-6989586621679374566"><span class="hs-identifier hs-var hs-var">privilegedMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374566"><span class="hs-identifier hs-var">privilegedMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374565"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374564"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679374564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privilegedMode:ProjectEnvironment' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3AprivilegedMode%3AProjectEnvironment%27"><span class="hs-identifier hs-var">privilegedMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-353"></span><span>
 </span><span id="line-354"></span><span class="hs-comment">-- | The credentials for access to a private registry.</span><span>
 </span><span id="line-355"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#projectEnvironment_registryCredential"><span class="hs-identifier hs-type">projectEnvironment_registryCredential</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.RegistryCredential.html#RegistryCredential"><span class="hs-identifier hs-type">RegistryCredential</span></a></span><span class="hs-special">)</span><span>
@@ -496,16 +496,16 @@ $sel:privilegedMode:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe Bool
      (Maybe RegistryCredential)
      (Maybe RegistryCredential)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374553"><span class="annot"><span class="annottext">Maybe RegistryCredential
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374562"><span class="annot"><span class="annottext">Maybe RegistryCredential
 registryCredential :: Maybe RegistryCredential
 $sel:registryCredential:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe RegistryCredential
-</span><a href="#local-6989586621679374553"><span class="hs-identifier hs-var hs-var">registryCredential</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryCredential
-</span><a href="#local-6989586621679374553"><span class="hs-identifier hs-var">registryCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374552"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374551"><span class="annot"><span class="annottext">Maybe RegistryCredential
-</span><a href="#local-6989586621679374551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryCredential:ProjectEnvironment' :: Maybe RegistryCredential
+</span><a href="#local-6989586621679374562"><span class="hs-identifier hs-var hs-var">registryCredential</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryCredential
+</span><a href="#local-6989586621679374562"><span class="hs-identifier hs-var">registryCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374561"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374560"><span class="annot"><span class="annottext">Maybe RegistryCredential
+</span><a href="#local-6989586621679374560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryCredential:ProjectEnvironment' :: Maybe RegistryCredential
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3AregistryCredential%3AProjectEnvironment%27"><span class="hs-identifier hs-var">registryCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryCredential
-</span><a href="#local-6989586621679374551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-357"></span><span>
 </span><span id="line-358"></span><span class="hs-comment">-- | The ARN of the Amazon S3 bucket, path prefix, and object key that</span><span>
 </span><span id="line-359"></span><span class="hs-comment">-- contains the PEM-encoded certificate for the build project. For more</span><span>
@@ -520,16 +520,16 @@ $sel:registryCredential:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe Re
 -&gt; Lens
      ProjectEnvironment ProjectEnvironment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374549"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374558"><span class="annot"><span class="annottext">Maybe Text
 certificate :: Maybe Text
 $sel:certificate:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe Text
-</span><a href="#local-6989586621679374549"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374549"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374548"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374547"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ProjectEnvironment' :: Maybe Text
+</span><a href="#local-6989586621679374558"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374558"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374557"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679374556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:ProjectEnvironment' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3Acertificate%3AProjectEnvironment%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-365"></span><span>
 </span><span id="line-366"></span><span class="hs-comment">-- | A set of environment variables to make available to builds for this</span><span>
 </span><span id="line-367"></span><span class="hs-comment">-- build project.</span><span>
@@ -545,16 +545,16 @@ $sel:certificate:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe Text
      (Maybe [EnvironmentVariable])
      (Maybe [EnvironmentVariable])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374545"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374554"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
 environmentVariables :: Maybe [EnvironmentVariable]
 $sel:environmentVariables:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679374545"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679374545"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374544"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374543"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679374543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentVariables:ProjectEnvironment' :: Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679374554"><span class="hs-identifier hs-var hs-var">environmentVariables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679374554"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374553"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374552"><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
+</span><a href="#local-6989586621679374552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentVariables:ProjectEnvironment' :: Maybe [EnvironmentVariable]
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3AenvironmentVariables%3AProjectEnvironment%27"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679374543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentVariable] -&gt; f (Maybe [EnvironmentVariable]))
+</span><a href="#local-6989586621679374552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EnvironmentVariable] -&gt; f (Maybe [EnvironmentVariable]))
  -&gt; ProjectEnvironment -&gt; f ProjectEnvironment)
 -&gt; ((Maybe [EnvironmentVariable]
      -&gt; f (Maybe [EnvironmentVariable]))
@@ -623,16 +623,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      EnvironmentType
      EnvironmentType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374538"><span class="annot"><span class="annottext">EnvironmentType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374547"><span class="annot"><span class="annottext">EnvironmentType
 type' :: EnvironmentType
 $sel:type':ProjectEnvironment' :: ProjectEnvironment -&gt; EnvironmentType
-</span><a href="#local-6989586621679374538"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentType
-</span><a href="#local-6989586621679374538"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374537"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374536"><span class="annot"><span class="annottext">EnvironmentType
-</span><a href="#local-6989586621679374536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectEnvironment' :: EnvironmentType
+</span><a href="#local-6989586621679374547"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentType
+</span><a href="#local-6989586621679374547"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374546"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374545"><span class="annot"><span class="annottext">EnvironmentType
+</span><a href="#local-6989586621679374545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectEnvironment' :: EnvironmentType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3Atype%27%3AProjectEnvironment%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnvironmentType
-</span><a href="#local-6989586621679374536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-401"></span><span>
 </span><span id="line-402"></span><span class="hs-comment">-- | The image tag or image digest that identifies the Docker image to use</span><span>
 </span><span id="line-403"></span><span class="hs-comment">-- for this build project. Use the following formats:</span><span>
@@ -656,16 +656,16 @@ $sel:type':ProjectEnvironment' :: ProjectEnvironment -&gt; EnvironmentType
 -&gt; (ProjectEnvironment -&gt; Text -&gt; ProjectEnvironment)
 -&gt; Lens ProjectEnvironment ProjectEnvironment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374534"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374543"><span class="annot"><span class="annottext">Text
 image :: Text
 $sel:image:ProjectEnvironment' :: ProjectEnvironment -&gt; Text
-</span><a href="#local-6989586621679374534"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374534"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374533"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ProjectEnvironment' :: Text
+</span><a href="#local-6989586621679374543"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374543"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374542"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ProjectEnvironment' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3Aimage%3AProjectEnvironment%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-420"></span><span>
 </span><span id="line-421"></span><span class="hs-comment">-- | Information about the compute resources the build project uses.</span><span>
 </span><span id="line-422"></span><span class="hs-comment">-- Available values include:</span><span>
@@ -705,19 +705,19 @@ $sel:image:ProjectEnvironment' :: ProjectEnvironment -&gt; Text
 -&gt; Lens
      ProjectEnvironment ProjectEnvironment ComputeType ComputeType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374530"><span class="annot"><span class="annottext">ComputeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374539"><span class="annot"><span class="annottext">ComputeType
 computeType :: ComputeType
 $sel:computeType:ProjectEnvironment' :: ProjectEnvironment -&gt; ComputeType
-</span><a href="#local-6989586621679374530"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679374530"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374529"><span class="annot"><span class="annottext">s :: ProjectEnvironment
-</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374528"><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679374528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
-</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeType:ProjectEnvironment' :: ComputeType
+</span><a href="#local-6989586621679374539"><span class="hs-identifier hs-var hs-var">computeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeType
+</span><a href="#local-6989586621679374539"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374538"><span class="annot"><span class="annottext">s :: ProjectEnvironment
+</span><a href="#local-6989586621679374538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374537"><span class="annot"><span class="annottext">ComputeType
+</span><a href="#local-6989586621679374537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectEnvironment
+</span><a href="#local-6989586621679374538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeType:ProjectEnvironment' :: ComputeType
 </span><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#%24sel%3AcomputeType%3AProjectEnvironment%27"><span class="hs-identifier hs-var">computeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679374528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-453"></span><span>
-</span><span id="line-454"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374525"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-455"></span><span>  </span><span id="local-6989586621679374523"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectEnvironment
+</span><span id="line-454"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-455"></span><span>  </span><span id="local-6989586621679374532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectEnvironment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-456"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectEnvironment)
@@ -727,8 +727,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-457"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectEnvironment&quot;</span></span><span>
-</span><span id="line-458"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374520"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-458"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374529"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-459"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
 -&gt; Maybe Bool
 -&gt; Maybe RegistryCredential
@@ -760,7 +760,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ProjectEnvironment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImagePullCredentialsType)
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImagePullCredentialsType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imagePullCredentialsType&quot;</span></span><span class="hs-special">)</span><span>
@@ -784,7 +784,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectEnvironment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;privilegedMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -806,7 +806,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ProjectEnvironment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RegistryCredential)
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RegistryCredential)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryCredential&quot;</span></span><span class="hs-special">)</span><span>
@@ -823,7 +823,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; EnvironmentType -&gt; Text -&gt; ComputeType -&gt; ProjectEnvironment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificate&quot;</span></span><span class="hs-special">)</span><span>
@@ -835,7 +835,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (EnvironmentType -&gt; Text -&gt; ComputeType -&gt; ProjectEnvironment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EnvironmentVariable]))
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [EnvironmentVariable]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;environmentVariables&quot;</span></span><span>
@@ -853,7 +853,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Text -&gt; ComputeType -&gt; ProjectEnvironment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EnvironmentType
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EnvironmentType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -861,7 +861,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (ComputeType -&gt; ProjectEnvironment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;image&quot;</span></span><span class="hs-special">)</span><span>
@@ -869,19 +869,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ComputeType -&gt; Parser ProjectEnvironment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679374520"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComputeType
+</span><a href="#local-6989586621679374529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComputeType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;computeType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-470"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-471"></span><span>
-</span><span id="line-472"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374512"><span id="local-6989586621679374514"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span></span><span>
+</span><span id="line-472"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374521"><span id="local-6989586621679374523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span></span><span>
 </span><span id="line-473"></span><span>
-</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span><span>
 </span><span id="line-475"></span><span>
-</span><span id="line-476"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374501"><span id="local-6989586621679374503"><span id="local-6989586621679374505"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-477"></span><span>  </span><span id="local-6989586621679374499"><span class="annot"><span class="annottext">toJSON :: ProjectEnvironment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374490"><span id="local-6989586621679374491"><span id="local-6989586621679374492"><span id="local-6989586621679374493"><span id="local-6989586621679374494"><span id="local-6989586621679374495"><span id="local-6989586621679374496"><span id="local-6989586621679374497"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-476"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374510"><span id="local-6989586621679374512"><span id="local-6989586621679374514"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment"><span class="hs-identifier hs-type">ProjectEnvironment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-477"></span><span>  </span><span id="local-6989586621679374508"><span class="annot"><span class="annottext">toJSON :: ProjectEnvironment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectEnvironment.html#ProjectEnvironment%27"><span class="hs-identifier hs-type">ProjectEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374499"><span id="local-6989586621679374500"><span id="local-6989586621679374501"><span id="local-6989586621679374502"><span id="local-6989586621679374503"><span id="local-6989586621679374504"><span id="local-6989586621679374505"><span id="local-6989586621679374506"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [EnvironmentVariable]
 Maybe Text
 Maybe ImagePullCredentialsType
@@ -905,7 +905,7 @@ $sel:certificate:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe Text
 $sel:registryCredential:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe RegistryCredential
 $sel:privilegedMode:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe Bool
 $sel:imagePullCredentialsType:ProjectEnvironment' :: ProjectEnvironment -&gt; Maybe ImagePullCredentialsType
-</span><a href="#local-6989586621679374490"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374499"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-479"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -919,7 +919,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ImagePullCredentialsType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ImagePullCredentialsType
-</span><a href="#local-6989586621679374497"><span class="hs-identifier hs-var">imagePullCredentialsType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374506"><span class="hs-identifier hs-var">imagePullCredentialsType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-482"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;privilegedMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -927,7 +927,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-483"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679374496"><span class="hs-identifier hs-var">privilegedMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374505"><span class="hs-identifier hs-var">privilegedMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-484"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registryCredential&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegistryCredential -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -936,14 +936,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RegistryCredential -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistryCredential
-</span><a href="#local-6989586621679374495"><span class="hs-identifier hs-var">registryCredential</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374504"><span class="hs-identifier hs-var">registryCredential</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-486"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679374494"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374503"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-487"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;environmentVariables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EnvironmentVariable] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -952,28 +952,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [EnvironmentVariable] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EnvironmentVariable]
-</span><a href="#local-6989586621679374493"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374502"><span class="hs-identifier hs-var">environmentVariables</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-489"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EnvironmentType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">EnvironmentType
-</span><a href="#local-6989586621679374492"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374501"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-490"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;image&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679374491"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374500"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-491"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;computeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComputeType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComputeType
-</span><a href="#local-6989586621679374490"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374499"><span class="hs-identifier hs-var">computeType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-492"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-493"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-494"></span></pre></body></html>

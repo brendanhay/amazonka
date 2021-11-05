@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents an amount of money in United States dollars.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUSD' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680355116"><span id="local-6989586621680355117"></span></span><span class="hs-keyword">data</span><span> </span><span id="USD"><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-var">USD</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="USD%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-var">USD'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680355125"><span id="local-6989586621680355126"></span></span><span class="hs-keyword">data</span><span> </span><span id="USD"><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-var">USD</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="USD%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-var">USD'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fractional portion, in cents, of the amount.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Acents%3AUSD%27"><span class="annot"><span class="annottext">USD -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.USD.html#%24sel%3Acents%3AUSD%27"><span class="hs-identifier hs-var hs-var">cents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -37,14 +37,14 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AtenthFractionsOfACent%3AUSD%27"><span class="annot"><span class="annottext">USD -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.USD.html#%24sel%3AtenthFractionsOfACent%3AUSD%27"><span class="hs-identifier hs-var hs-var">tenthFractionsOfACent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355108"><span id="local-6989586621680355110"><span class="annot"><span class="annottext">USD -&gt; USD -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680355117"><span id="local-6989586621680355119"><span class="annot"><span class="annottext">USD -&gt; USD -&gt; Bool
 (USD -&gt; USD -&gt; Bool) -&gt; (USD -&gt; USD -&gt; Bool) -&gt; Eq USD
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: USD -&gt; USD -&gt; Bool
 $c/= :: USD -&gt; USD -&gt; Bool
 == :: USD -&gt; USD -&gt; Bool
 $c== :: USD -&gt; USD -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355099"><span id="local-6989586621680355101"><span id="local-6989586621680355103"><span id="local-6989586621680355105"><span class="annot"><span class="annottext">ReadPrec [USD]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355108"><span id="local-6989586621680355110"><span id="local-6989586621680355112"><span id="local-6989586621680355114"><span class="annot"><span class="annottext">ReadPrec [USD]
 ReadPrec USD
 Int -&gt; ReadS USD
 ReadS [USD]
@@ -61,7 +61,7 @@ readList :: ReadS [USD]
 $creadList :: ReadS [USD]
 readsPrec :: Int -&gt; ReadS USD
 $creadsPrec :: Int -&gt; ReadS USD
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355092"><span id="local-6989586621680355094"><span id="local-6989586621680355096"><span class="annot"><span class="annottext">Int -&gt; USD -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680355101"><span id="local-6989586621680355103"><span id="local-6989586621680355105"><span class="annot"><span class="annottext">Int -&gt; USD -&gt; ShowS
 [USD] -&gt; ShowS
 USD -&gt; String
 (Int -&gt; USD -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (USD -&gt; Maybe Natural -&gt; USD)
 -&gt; Lens USD USD (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355083"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355092"><span class="annot"><span class="annottext">Maybe Natural
 cents :: Maybe Natural
 $sel:cents:USD' :: USD -&gt; Maybe Natural
-</span><a href="#local-6989586621680355083"><span class="hs-identifier hs-var hs-var">cents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355083"><span class="hs-identifier hs-var">cents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355082"><span class="annot"><span class="annottext">s :: USD
-</span><a href="#local-6989586621680355082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355081"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">USD
-</span><a href="#local-6989586621680355082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cents:USD' :: Maybe Natural
+</span><a href="#local-6989586621680355092"><span class="hs-identifier hs-var hs-var">cents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355092"><span class="hs-identifier hs-var">cents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355091"><span class="annot"><span class="annottext">s :: USD
+</span><a href="#local-6989586621680355091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355090"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">USD
+</span><a href="#local-6989586621680355091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cents:USD' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.USD.html#%24sel%3Acents%3AUSD%27"><span class="hs-identifier hs-var">cents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The whole number of dollars in the amount.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#usd_dollars"><span class="hs-identifier hs-type">usd_dollars</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -142,16 +142,16 @@ $sel:cents:USD' :: USD -&gt; Maybe Natural
 -&gt; (USD -&gt; Maybe Natural -&gt; USD)
 -&gt; Lens USD USD (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355079"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355088"><span class="annot"><span class="annottext">Maybe Natural
 dollars :: Maybe Natural
 $sel:dollars:USD' :: USD -&gt; Maybe Natural
-</span><a href="#local-6989586621680355079"><span class="hs-identifier hs-var hs-var">dollars</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355079"><span class="hs-identifier hs-var">dollars</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355078"><span class="annot"><span class="annottext">s :: USD
-</span><a href="#local-6989586621680355078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355077"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">USD
-</span><a href="#local-6989586621680355078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dollars:USD' :: Maybe Natural
+</span><a href="#local-6989586621680355088"><span class="hs-identifier hs-var hs-var">dollars</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355088"><span class="hs-identifier hs-var">dollars</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355087"><span class="annot"><span class="annottext">s :: USD
+</span><a href="#local-6989586621680355087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355086"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">USD
+</span><a href="#local-6989586621680355087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dollars:USD' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.USD.html#%24sel%3Adollars%3AUSD%27"><span class="hs-identifier hs-var">dollars</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Fractions of a cent, in tenths.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#usd_tenthFractionsOfACent"><span class="hs-identifier hs-type">usd_tenthFractionsOfACent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -160,27 +160,27 @@ $sel:dollars:USD' :: USD -&gt; Maybe Natural
 -&gt; (USD -&gt; Maybe Natural -&gt; USD)
 -&gt; Lens USD USD (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355075"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355084"><span class="annot"><span class="annottext">Maybe Natural
 tenthFractionsOfACent :: Maybe Natural
 $sel:tenthFractionsOfACent:USD' :: USD -&gt; Maybe Natural
-</span><a href="#local-6989586621680355075"><span class="hs-identifier hs-var hs-var">tenthFractionsOfACent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355075"><span class="hs-identifier hs-var">tenthFractionsOfACent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355074"><span class="annot"><span class="annottext">s :: USD
-</span><a href="#local-6989586621680355074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355073"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">USD
-</span><a href="#local-6989586621680355074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenthFractionsOfACent:USD' :: Maybe Natural
+</span><a href="#local-6989586621680355084"><span class="hs-identifier hs-var hs-var">tenthFractionsOfACent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355084"><span class="hs-identifier hs-var">tenthFractionsOfACent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680355083"><span class="annot"><span class="annottext">s :: USD
+</span><a href="#local-6989586621680355083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680355082"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680355082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">USD
+</span><a href="#local-6989586621680355083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tenthFractionsOfACent:USD' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.USD.html#%24sel%3AtenthFractionsOfACent%3AUSD%27"><span class="hs-identifier hs-var">tenthFractionsOfACent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680355082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355070"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621680355068"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser USD
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355079"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621680355077"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser USD
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser USD) -&gt; Value -&gt; Parser USD
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;USD&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680355065"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355065"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680355074"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680355074"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; USD
 </span><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-var">USD'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Natural -&gt; Maybe Natural -&gt; USD)
@@ -188,7 +188,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; USD)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680355074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cents&quot;</span></span><span class="hs-special">)</span><span>
@@ -196,7 +196,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser (Maybe Natural -&gt; USD)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680355074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dollars&quot;</span></span><span class="hs-special">)</span><span>
@@ -204,26 +204,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Natural) -&gt; Parser USD
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680355065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680355074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TenthFractionsOfACent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355059"><span id="local-6989586621680355061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355068"><span id="local-6989586621680355070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355048"><span id="local-6989586621680355050"><span id="local-6989586621680355052"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621680355046"><span class="annot"><span class="annottext">toJSON :: USD -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355042"><span id="local-6989586621680355043"><span id="local-6989586621680355044"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680355057"><span id="local-6989586621680355059"><span id="local-6989586621680355061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD"><span class="hs-identifier hs-type">USD</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680355055"><span class="annot"><span class="annottext">toJSON :: USD -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.USD.html#USD%27"><span class="hs-identifier hs-type">USD'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680355051"><span id="local-6989586621680355052"><span id="local-6989586621680355053"><span class="annot"><span class="annottext">Maybe Natural
 tenthFractionsOfACent :: Maybe Natural
 dollars :: Maybe Natural
 cents :: Maybe Natural
 $sel:tenthFractionsOfACent:USD' :: USD -&gt; Maybe Natural
 $sel:dollars:USD' :: USD -&gt; Maybe Natural
 $sel:cents:USD' :: USD -&gt; Maybe Natural
-</span><a href="#local-6989586621680355042"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680355051"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -235,14 +235,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355044"><span class="hs-identifier hs-var">cents</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355053"><span class="hs-identifier hs-var">cents</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dollars&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355043"><span class="hs-identifier hs-var">dollars</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680355052"><span class="hs-identifier hs-var">dollars</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TenthFractionsOfACent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -250,7 +250,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680355042"><span class="hs-identifier hs-var">tenthFractionsOfACent</span></a></span><span>
+</span><a href="#local-6989586621680355051"><span class="hs-identifier hs-var">tenthFractionsOfACent</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

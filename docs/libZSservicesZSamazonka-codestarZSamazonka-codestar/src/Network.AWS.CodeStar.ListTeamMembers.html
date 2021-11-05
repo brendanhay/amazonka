@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListTeamMembers' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679175441"><span id="local-6989586621679175442"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTeamMembers"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-var">ListTeamMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTeamMembers%27"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-var">ListTeamMembers'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679175450"><span id="local-6989586621679175451"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTeamMembers"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-var">ListTeamMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTeamMembers%27"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-var">ListTeamMembers'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The continuation token for the next set of results, if the results</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- cannot be returned in one response.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListTeamMembers%27"><span class="annot"><span class="annottext">ListTeamMembers -&gt; Maybe Text
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AprojectId%3AListTeamMembers%27"><span class="annot"><span class="annottext">ListTeamMembers -&gt; Text
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AprojectId%3AListTeamMembers%27"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175433"><span id="local-6989586621679175435"><span class="annot"><span class="annottext">ListTeamMembers -&gt; ListTeamMembers -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175442"><span id="local-6989586621679175444"><span class="annot"><span class="annottext">ListTeamMembers -&gt; ListTeamMembers -&gt; Bool
 (ListTeamMembers -&gt; ListTeamMembers -&gt; Bool)
 -&gt; (ListTeamMembers -&gt; ListTeamMembers -&gt; Bool)
 -&gt; Eq ListTeamMembers
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTeamMembers -&gt; ListTeamMembers -&gt; Bool
 == :: ListTeamMembers -&gt; ListTeamMembers -&gt; Bool
 $c== :: ListTeamMembers -&gt; ListTeamMembers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175424"><span id="local-6989586621679175426"><span id="local-6989586621679175428"><span id="local-6989586621679175430"><span class="annot"><span class="annottext">ReadPrec [ListTeamMembers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175433"><span id="local-6989586621679175435"><span id="local-6989586621679175437"><span id="local-6989586621679175439"><span class="annot"><span class="annottext">ReadPrec [ListTeamMembers]
 ReadPrec ListTeamMembers
 Int -&gt; ReadS ListTeamMembers
 ReadS [ListTeamMembers]
@@ -93,7 +93,7 @@ readList :: ReadS [ListTeamMembers]
 $creadList :: ReadS [ListTeamMembers]
 readsPrec :: Int -&gt; ReadS ListTeamMembers
 $creadsPrec :: Int -&gt; ReadS ListTeamMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175417"><span id="local-6989586621679175419"><span id="local-6989586621679175421"><span class="annot"><span class="annottext">Int -&gt; ListTeamMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175426"><span id="local-6989586621679175428"><span id="local-6989586621679175430"><span class="annot"><span class="annottext">Int -&gt; ListTeamMembers -&gt; ShowS
 [ListTeamMembers] -&gt; ShowS
 ListTeamMembers -&gt; String
 (Int -&gt; ListTeamMembers -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. ListTeamMembers -&gt; Rep ListTeamMembers x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span>
 </span><span id="line-84"></span><span id="newListTeamMembers"><span class="annot"><span class="annottext">newListTeamMembers :: Text -&gt; ListTeamMembers
-</span><a href="Network.AWS.CodeStar.ListTeamMembers.html#newListTeamMembers"><span class="hs-identifier hs-var hs-var">newListTeamMembers</span></a></span></span><span> </span><span id="local-6989586621679175412"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175412"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.ListTeamMembers.html#newListTeamMembers"><span class="hs-identifier hs-var hs-var">newListTeamMembers</span></a></span></span><span> </span><span id="local-6989586621679175421"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175421"><span class="hs-identifier hs-var">pProjectId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListTeamMembers' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListTeamMembers
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTeamMembers' :: Maybe Text
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectId:ListTeamMembers' :: Text
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AprojectId%3AListTeamMembers%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175412"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span>
+</span><a href="#local-6989586621679175421"><span class="hs-identifier hs-var">pProjectId_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The continuation token for the next set of results, if the results</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
 -&gt; (ListTeamMembers -&gt; Maybe Text -&gt; ListTeamMembers)
 -&gt; Lens ListTeamMembers ListTeamMembers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175410"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175419"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTeamMembers' :: ListTeamMembers -&gt; Maybe Text
-</span><a href="#local-6989586621679175410"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175410"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175409"><span class="annot"><span class="annottext">s :: ListTeamMembers
-</span><a href="#local-6989586621679175409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175408"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembers
-</span><a href="#local-6989586621679175409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTeamMembers' :: Maybe Text
+</span><a href="#local-6989586621679175419"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175419"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175418"><span class="annot"><span class="annottext">s :: ListTeamMembers
+</span><a href="#local-6989586621679175418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembers
+</span><a href="#local-6989586621679175418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTeamMembers' :: Maybe Text
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AnextToken%3AListTeamMembers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of team members you want returned in a response.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#listTeamMembers_maxResults"><span class="hs-identifier hs-type">listTeamMembers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -184,16 +184,16 @@ $sel:nextToken:ListTeamMembers' :: ListTeamMembers -&gt; Maybe Text
 -&gt; Lens
      ListTeamMembers ListTeamMembers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175407"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175416"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListTeamMembers' :: ListTeamMembers -&gt; Maybe Natural
-</span><a href="#local-6989586621679175407"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175407"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175406"><span class="annot"><span class="annottext">s :: ListTeamMembers
-</span><a href="#local-6989586621679175406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175405"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembers
-</span><a href="#local-6989586621679175406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTeamMembers' :: Maybe Natural
+</span><a href="#local-6989586621679175416"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175416"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175415"><span class="annot"><span class="annottext">s :: ListTeamMembers
+</span><a href="#local-6989586621679175415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175414"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679175414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembers
+</span><a href="#local-6989586621679175415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListTeamMembers' :: Maybe Natural
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AmaxResults%3AListTeamMembers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The ID of the project for which you want to list team members.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#listTeamMembers_projectId"><span class="hs-identifier hs-type">listTeamMembers_projectId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,29 +202,29 @@ $sel:maxResults:ListTeamMembers' :: ListTeamMembers -&gt; Maybe Natural
 -&gt; (ListTeamMembers -&gt; Text -&gt; ListTeamMembers)
 -&gt; Lens ListTeamMembers ListTeamMembers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175404"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175413"><span class="annot"><span class="annottext">Text
 projectId :: Text
 $sel:projectId:ListTeamMembers' :: ListTeamMembers -&gt; Text
-</span><a href="#local-6989586621679175404"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175404"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175403"><span class="annot"><span class="annottext">s :: ListTeamMembers
-</span><a href="#local-6989586621679175403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175402"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembers
-</span><a href="#local-6989586621679175403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ListTeamMembers' :: Text
+</span><a href="#local-6989586621679175413"><span class="hs-identifier hs-var hs-var">projectId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175413"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175412"><span class="annot"><span class="annottext">s :: ListTeamMembers
+</span><a href="#local-6989586621679175412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembers
+</span><a href="#local-6989586621679175412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectId:ListTeamMembers' :: Text
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AprojectId%3AListTeamMembers%27"><span class="hs-identifier hs-var">projectId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679175398"><span class="annot"><span class="annottext">page :: ListTeamMembers
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679175407"><span class="annot"><span class="annottext">page :: ListTeamMembers
 -&gt; AWSResponse ListTeamMembers -&gt; Maybe ListTeamMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679175396"><span class="annot"><span class="annottext">ListTeamMembers
-</span><a href="#local-6989586621679175396"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679175395"><span class="annot"><span class="annottext">AWSResponse ListTeamMembers
-</span><a href="#local-6989586621679175395"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679175405"><span class="annot"><span class="annottext">ListTeamMembers
+</span><a href="#local-6989586621679175405"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679175404"><span class="annot"><span class="annottext">AWSResponse ListTeamMembers
+</span><a href="#local-6989586621679175404"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTeamMembers
 ListTeamMembersResponse
-</span><a href="#local-6989586621679175395"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679175404"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListTeamMembersResponse
 -&gt; Getting (First Text) ListTeamMembersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -253,7 +253,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListTeamMembers
 ListTeamMembersResponse
-</span><a href="#local-6989586621679175395"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
+</span><a href="#local-6989586621679175404"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
 -&gt; Getting [TeamMember] ListTeamMembersResponse [TeamMember]
 -&gt; [TeamMember]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -272,7 +272,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ListTeamMembers
-</span><a href="#local-6989586621679175396"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679175405"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListTeamMembers
 -&gt; (ListTeamMembers -&gt; ListTeamMembers) -&gt; ListTeamMembers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -286,7 +286,7 @@ Lens ListTeamMembers ListTeamMembers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTeamMembers
 ListTeamMembersResponse
-</span><a href="#local-6989586621679175395"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679175404"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListTeamMembersResponse
 -&gt; Getting (First Text) ListTeamMembersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -311,12 +311,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679175384"><span class="annot"><span class="annottext">request :: ListTeamMembers -&gt; Request ListTeamMembers
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679175393"><span class="annot"><span class="annottext">request :: ListTeamMembers -&gt; Request ListTeamMembers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTeamMembers -&gt; Request ListTeamMembers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679175380"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679175389"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTeamMembers
 -&gt; ClientResponse ClientBody
@@ -340,10 +340,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175377"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175377"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175376"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175376"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175375"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175386"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175385"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175385"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175384"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175384"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [TeamMember] -&gt; ListTeamMembersResponse
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-var">ListTeamMembersResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [TeamMember] -&gt; ListTeamMembersResponse)
@@ -351,7 +351,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [TeamMember] -&gt; ListTeamMembersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -364,13 +364,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175377"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175386"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String ([TeamMember] -&gt; ListTeamMembersResponse)
 -&gt; Either String [TeamMember]
 -&gt; Either String ListTeamMembersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [TeamMember])
+</span><a href="#local-6989586621679175384"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [TeamMember])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;teamMembers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [TeamMember])
@@ -381,12 +381,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175366"><span id="local-6989586621679175368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175375"><span id="local-6989586621679175377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679175359"><span class="annot"><span class="annottext">toHeaders :: ListTeamMembers -&gt; ResponseHeaders
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679175368"><span class="annot"><span class="annottext">toHeaders :: ListTeamMembers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTeamMembers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -413,9 +413,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175349"><span id="local-6989586621679175351"><span id="local-6989586621679175353"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679175347"><span class="annot"><span class="annottext">toJSON :: ListTeamMembers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175343"><span id="local-6989586621679175344"><span id="local-6989586621679175345"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175358"><span id="local-6989586621679175360"><span id="local-6989586621679175362"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679175356"><span class="annot"><span class="annottext">toJSON :: ListTeamMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers%27"><span class="hs-identifier hs-type">ListTeamMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175352"><span id="local-6989586621679175353"><span id="local-6989586621679175354"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 projectId :: Text
@@ -424,7 +424,7 @@ nextToken :: Maybe Text
 $sel:projectId:ListTeamMembers' :: ListTeamMembers -&gt; Text
 $sel:maxResults:ListTeamMembers' :: ListTeamMembers -&gt; Maybe Natural
 $sel:nextToken:ListTeamMembers' :: ListTeamMembers -&gt; Maybe Text
-</span><a href="#local-6989586621679175343"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175352"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -436,33 +436,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175345"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175354"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679175344"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175353"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175343"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175352"><span class="hs-identifier hs-var">projectId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679175337"><span class="annot"><span class="annottext">toPath :: ListTeamMembers -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679175346"><span class="annot"><span class="annottext">toPath :: ListTeamMembers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListTeamMembers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembers"><span class="hs-identifier hs-type">ListTeamMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679175333"><span class="annot"><span class="annottext">toQuery :: ListTeamMembers -&gt; QueryString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679175342"><span class="annot"><span class="annottext">toQuery :: ListTeamMembers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListTeamMembers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -470,7 +470,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newListTeamMembersResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679175330"><span id="local-6989586621679175331"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTeamMembersResponse"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-var">ListTeamMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTeamMembersResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-var">ListTeamMembersResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679175339"><span id="local-6989586621679175340"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTeamMembersResponse"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-var">ListTeamMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTeamMembersResponse%27"><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-var">ListTeamMembersResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The continuation token to use when requesting the next set of results,</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- if there are more results to be returned.</span><span>
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AnextToken%3AListTeamMembersResponse%27"><span class="annot"><span class="annottext">ListTeamMembersResponse -&gt; Maybe Text
@@ -482,7 +482,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AteamMembers%3AListTeamMembersResponse%27"><span class="annot"><span class="annottext">ListTeamMembersResponse -&gt; [TeamMember]
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AteamMembers%3AListTeamMembersResponse%27"><span class="hs-identifier hs-var hs-var">teamMembers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175323"><span id="local-6989586621679175325"><span class="annot"><span class="annottext">ListTeamMembersResponse -&gt; ListTeamMembersResponse -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175332"><span id="local-6989586621679175334"><span class="annot"><span class="annottext">ListTeamMembersResponse -&gt; ListTeamMembersResponse -&gt; Bool
 (ListTeamMembersResponse -&gt; ListTeamMembersResponse -&gt; Bool)
 -&gt; (ListTeamMembersResponse -&gt; ListTeamMembersResponse -&gt; Bool)
 -&gt; Eq ListTeamMembersResponse
@@ -491,7 +491,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTeamMembersResponse -&gt; ListTeamMembersResponse -&gt; Bool
 == :: ListTeamMembersResponse -&gt; ListTeamMembersResponse -&gt; Bool
 $c== :: ListTeamMembersResponse -&gt; ListTeamMembersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175315"><span id="local-6989586621679175317"><span id="local-6989586621679175319"><span id="local-6989586621679175321"><span class="annot"><span class="annottext">ReadPrec [ListTeamMembersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175324"><span id="local-6989586621679175326"><span id="local-6989586621679175328"><span id="local-6989586621679175330"><span class="annot"><span class="annottext">ReadPrec [ListTeamMembersResponse]
 ReadPrec ListTeamMembersResponse
 Int -&gt; ReadS ListTeamMembersResponse
 ReadS [ListTeamMembersResponse]
@@ -511,7 +511,7 @@ readList :: ReadS [ListTeamMembersResponse]
 $creadList :: ReadS [ListTeamMembersResponse]
 readsPrec :: Int -&gt; ReadS ListTeamMembersResponse
 $creadsPrec :: Int -&gt; ReadS ListTeamMembersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175309"><span id="local-6989586621679175311"><span id="local-6989586621679175313"><span class="annot"><span class="annottext">Int -&gt; ListTeamMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175318"><span id="local-6989586621679175320"><span id="local-6989586621679175322"><span class="annot"><span class="annottext">Int -&gt; ListTeamMembersResponse -&gt; ShowS
 [ListTeamMembersResponse] -&gt; ShowS
 ListTeamMembersResponse -&gt; String
 (Int -&gt; ListTeamMembersResponse -&gt; ShowS)
@@ -558,8 +558,8 @@ $cfrom :: forall x. ListTeamMembersResponse -&gt; Rep ListTeamMembersResponse x
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span>
 </span><span id="line-202"></span><span id="newListTeamMembersResponse"><span class="annot"><span class="annottext">newListTeamMembersResponse :: Int -&gt; ListTeamMembersResponse
-</span><a href="Network.AWS.CodeStar.ListTeamMembers.html#newListTeamMembersResponse"><span class="hs-identifier hs-var hs-var">newListTeamMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679175306"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175306"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeStar.ListTeamMembers.html#newListTeamMembersResponse"><span class="hs-identifier hs-var hs-var">newListTeamMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679175315"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">ListTeamMembersResponse' :: Maybe Text -&gt; Int -&gt; [TeamMember] -&gt; ListTeamMembersResponse
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListTeamMembersResponse' :: Maybe Text
@@ -569,7 +569,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTeamMembersResponse' :: Int
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AhttpStatus%3AListTeamMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175306"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:teamMembers:ListTeamMembersResponse' :: [TeamMember]
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AteamMembers%3AListTeamMembersResponse%27"><span class="hs-identifier hs-var">teamMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TeamMember]
 forall a. Monoid a =&gt; a
@@ -586,16 +586,16 @@ forall a. Monoid a =&gt; a
     -&gt; Maybe Text -&gt; ListTeamMembersResponse)
 -&gt; Lens' ListTeamMembersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175305"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175314"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListTeamMembersResponse' :: ListTeamMembersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679175305"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175305"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175304"><span class="annot"><span class="annottext">s :: ListTeamMembersResponse
-</span><a href="#local-6989586621679175304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175303"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
-</span><a href="#local-6989586621679175304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTeamMembersResponse' :: Maybe Text
+</span><a href="#local-6989586621679175314"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175314"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175313"><span class="annot"><span class="annottext">s :: ListTeamMembersResponse
+</span><a href="#local-6989586621679175313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
+</span><a href="#local-6989586621679175313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListTeamMembersResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AnextToken%3AListTeamMembersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#listTeamMembersResponse_httpStatus"><span class="hs-identifier hs-type">listTeamMembersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -605,16 +605,16 @@ $sel:nextToken:ListTeamMembersResponse' :: ListTeamMembersResponse -&gt; Maybe T
 -&gt; (ListTeamMembersResponse -&gt; Int -&gt; ListTeamMembersResponse)
 -&gt; Lens ListTeamMembersResponse ListTeamMembersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175302"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175311"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTeamMembersResponse' :: ListTeamMembersResponse -&gt; Int
-</span><a href="#local-6989586621679175302"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175302"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175301"><span class="annot"><span class="annottext">s :: ListTeamMembersResponse
-</span><a href="#local-6989586621679175301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175300"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
-</span><a href="#local-6989586621679175301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTeamMembersResponse' :: Int
+</span><a href="#local-6989586621679175311"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175311"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175310"><span class="annot"><span class="annottext">s :: ListTeamMembersResponse
+</span><a href="#local-6989586621679175310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
+</span><a href="#local-6989586621679175310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTeamMembersResponse' :: Int
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AhttpStatus%3AListTeamMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | A list of team member objects for the project.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#listTeamMembersResponse_teamMembers"><span class="hs-identifier hs-type">listTeamMembersResponse_teamMembers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeStar.Types.TeamMember.html#TeamMember"><span class="hs-identifier hs-type">TeamMember</span></a></span><span class="hs-special">]</span><span>
@@ -625,16 +625,16 @@ $sel:httpStatus:ListTeamMembersResponse' :: ListTeamMembersResponse -&gt; Int
     -&gt; [TeamMember] -&gt; ListTeamMembersResponse)
 -&gt; Lens' ListTeamMembersResponse [TeamMember]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175299"><span class="annot"><span class="annottext">[TeamMember]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175308"><span class="annot"><span class="annottext">[TeamMember]
 teamMembers :: [TeamMember]
 $sel:teamMembers:ListTeamMembersResponse' :: ListTeamMembersResponse -&gt; [TeamMember]
-</span><a href="#local-6989586621679175299"><span class="hs-identifier hs-var hs-var">teamMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TeamMember]
-</span><a href="#local-6989586621679175299"><span class="hs-identifier hs-var">teamMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175298"><span class="annot"><span class="annottext">s :: ListTeamMembersResponse
-</span><a href="#local-6989586621679175298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175297"><span class="annot"><span class="annottext">[TeamMember]
-</span><a href="#local-6989586621679175297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
-</span><a href="#local-6989586621679175298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:teamMembers:ListTeamMembersResponse' :: [TeamMember]
+</span><a href="#local-6989586621679175308"><span class="hs-identifier hs-var hs-var">teamMembers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TeamMember]
+</span><a href="#local-6989586621679175308"><span class="hs-identifier hs-var">teamMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175307"><span class="annot"><span class="annottext">s :: ListTeamMembersResponse
+</span><a href="#local-6989586621679175307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse%27"><span class="hs-identifier hs-type">ListTeamMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175306"><span class="annot"><span class="annottext">[TeamMember]
+</span><a href="#local-6989586621679175306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTeamMembersResponse
+</span><a href="#local-6989586621679175307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:teamMembers:ListTeamMembersResponse' :: [TeamMember]
 </span><a href="Network.AWS.CodeStar.ListTeamMembers.html#%24sel%3AteamMembers%3AListTeamMembersResponse%27"><span class="hs-identifier hs-var">teamMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TeamMember]
-</span><a href="#local-6989586621679175297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TeamMember] -&gt; f [TeamMember])
+</span><a href="#local-6989586621679175306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TeamMember] -&gt; f [TeamMember])
  -&gt; ListTeamMembersResponse -&gt; f ListTeamMembersResponse)
 -&gt; (([TeamMember] -&gt; f [TeamMember])
     -&gt; [TeamMember] -&gt; f [TeamMember])
@@ -646,5 +646,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175303"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.ListTeamMembers.html#ListTeamMembersResponse"><span class="hs-identifier hs-type">ListTeamMembersResponse</span></a></span></span><span>
 </span><span id="line-224"></span></pre></body></html>

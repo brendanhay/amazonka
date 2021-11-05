@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679369638"><span id="local-6989586621679369639"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkSecurityType"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-var">NetworkSecurityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkSecurityType%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-var">NetworkSecurityType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679369647"><span id="local-6989586621679369648"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkSecurityType"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType"><span class="hs-identifier hs-var">NetworkSecurityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkSecurityType%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#NetworkSecurityType%27"><span class="hs-identifier hs-var">NetworkSecurityType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkSecurityType"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.NetworkSecurityType.html#fromNetworkSecurityType"><span class="hs-identifier hs-var hs-var">fromNetworkSecurityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369630"><span id="local-6989586621679369632"><span id="local-6989586621679369634"><span class="annot"><span class="annottext">Int -&gt; NetworkSecurityType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369639"><span id="local-6989586621679369641"><span id="local-6989586621679369643"><span class="annot"><span class="annottext">Int -&gt; NetworkSecurityType -&gt; ShowS
 [NetworkSecurityType] -&gt; ShowS
 NetworkSecurityType -&gt; String
 (Int -&gt; NetworkSecurityType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: NetworkSecurityType -&gt; String
 showsPrec :: Int -&gt; NetworkSecurityType -&gt; ShowS
 $cshowsPrec :: Int -&gt; NetworkSecurityType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679369621"><span id="local-6989586621679369623"><span id="local-6989586621679369625"><span id="local-6989586621679369627"><span class="annot"><span class="annottext">ReadPrec [NetworkSecurityType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679369630"><span id="local-6989586621679369632"><span id="local-6989586621679369634"><span id="local-6989586621679369636"><span class="annot"><span class="annottext">ReadPrec [NetworkSecurityType]
 ReadPrec NetworkSecurityType
 Int -&gt; ReadS NetworkSecurityType
 ReadS [NetworkSecurityType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [NetworkSecurityType]
 readsPrec :: Int -&gt; ReadS NetworkSecurityType
 $creadsPrec :: Int -&gt; ReadS NetworkSecurityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679369616"><span id="local-6989586621679369618"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679369625"><span id="local-6989586621679369627"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
 (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
 -&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
 -&gt; Eq NetworkSecurityType
@@ -85,7 +85,7 @@ $c/= :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
 == :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
 $c== :: NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679369600"><span id="local-6989586621679369602"><span id="local-6989586621679369604"><span id="local-6989586621679369606"><span id="local-6989586621679369608"><span id="local-6989586621679369610"><span id="local-6989586621679369612"><span class="annot"><span class="annottext">Eq NetworkSecurityType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679369609"><span id="local-6989586621679369611"><span id="local-6989586621679369613"><span id="local-6989586621679369615"><span id="local-6989586621679369617"><span id="local-6989586621679369619"><span id="local-6989586621679369621"><span class="annot"><span class="annottext">Eq NetworkSecurityType
 Eq NetworkSecurityType
 -&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Ordering)
 -&gt; (NetworkSecurityType -&gt; NetworkSecurityType -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. NetworkSecurityType -&gt; Rep NetworkSecurityType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369592"><span id="local-6989586621679369594"><span class="annot"><span class="annottext">Int -&gt; NetworkSecurityType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679369601"><span id="local-6989586621679369603"><span class="annot"><span class="annottext">Int -&gt; NetworkSecurityType -&gt; Int
 NetworkSecurityType -&gt; Int
 (Int -&gt; NetworkSecurityType -&gt; Int)
 -&gt; (NetworkSecurityType -&gt; Int) -&gt; Hashable NetworkSecurityType
@@ -148,53 +148,53 @@ $chash :: NetworkSecurityType -&gt; Int
 hashWithSalt :: Int -&gt; NetworkSecurityType -&gt; Int
 $chashWithSalt :: Int -&gt; NetworkSecurityType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369589"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679369598"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ()
 (NetworkSecurityType -&gt; ()) -&gt; NFData NetworkSecurityType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NetworkSecurityType -&gt; ()
 $crnf :: NetworkSecurityType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369586"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkSecurityType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679369595"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkSecurityType
 (Text -&gt; Either String NetworkSecurityType)
 -&gt; FromText NetworkSecurityType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NetworkSecurityType
 $cfromText :: Text -&gt; Either String NetworkSecurityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369583"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679369592"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; Text
 (NetworkSecurityType -&gt; Text) -&gt; ToText NetworkSecurityType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NetworkSecurityType -&gt; Text
 $ctoText :: NetworkSecurityType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369580"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679369589"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ByteString
 (NetworkSecurityType -&gt; ByteString)
 -&gt; ToByteString NetworkSecurityType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NetworkSecurityType -&gt; ByteString
 $ctoBS :: NetworkSecurityType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369577"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679369586"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; ByteStringBuilder
 (NetworkSecurityType -&gt; ByteStringBuilder)
 -&gt; ToLog NetworkSecurityType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NetworkSecurityType -&gt; ByteStringBuilder
 $cbuild :: NetworkSecurityType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369574"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkSecurityType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679369583"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkSecurityType -&gt; [Header]
 (HeaderName -&gt; NetworkSecurityType -&gt; [Header])
 -&gt; ToHeader NetworkSecurityType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NetworkSecurityType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NetworkSecurityType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369571"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679369580"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; QueryString
 (NetworkSecurityType -&gt; QueryString) -&gt; ToQuery NetworkSecurityType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NetworkSecurityType -&gt; QueryString
 $ctoQuery :: NetworkSecurityType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369566"><span id="local-6989586621679369568"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkSecurityType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679369575"><span id="local-6989586621679369577"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkSecurityType]
 Value -&gt; Parser NetworkSecurityType
 (Value -&gt; Parser NetworkSecurityType)
 -&gt; (Value -&gt; Parser [NetworkSecurityType])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [NetworkSecurityType]
 parseJSON :: Value -&gt; Parser NetworkSecurityType
 $cparseJSON :: Value -&gt; Parser NetworkSecurityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369561"><span id="local-6989586621679369563"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkSecurityType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679369570"><span id="local-6989586621679369572"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkSecurityType]
 FromJSONKeyFunction NetworkSecurityType
 FromJSONKeyFunction NetworkSecurityType
 -&gt; FromJSONKeyFunction [NetworkSecurityType]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NetworkSecurityType]
 fromJSONKey :: FromJSONKeyFunction NetworkSecurityType
 $cfromJSONKey :: FromJSONKeyFunction NetworkSecurityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369552"><span id="local-6989586621679369554"><span id="local-6989586621679369556"><span id="local-6989586621679369558"><span class="annot"><span class="annottext">[NetworkSecurityType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679369561"><span id="local-6989586621679369563"><span id="local-6989586621679369565"><span id="local-6989586621679369567"><span class="annot"><span class="annottext">[NetworkSecurityType] -&gt; Encoding
 [NetworkSecurityType] -&gt; Value
 NetworkSecurityType -&gt; Encoding
 NetworkSecurityType -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: NetworkSecurityType -&gt; Encoding
 toJSON :: NetworkSecurityType -&gt; Value
 $ctoJSON :: NetworkSecurityType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369547"><span id="local-6989586621679369549"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkSecurityType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679369556"><span id="local-6989586621679369558"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkSecurityType]
 ToJSONKeyFunction NetworkSecurityType
 ToJSONKeyFunction NetworkSecurityType
 -&gt; ToJSONKeyFunction [NetworkSecurityType]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NetworkSecurityType]
 toJSONKey :: ToJSONKeyFunction NetworkSecurityType
 $ctoJSONKey :: ToJSONKeyFunction NetworkSecurityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369544"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkSecurityType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679369553"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkSecurityType
 ([Node] -&gt; Either String NetworkSecurityType)
 -&gt; FromXML NetworkSecurityType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NetworkSecurityType
 $cparseXML :: [Node] -&gt; Either String NetworkSecurityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369541"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679369550"><span class="annot"><span class="annottext">NetworkSecurityType -&gt; XML
 (NetworkSecurityType -&gt; XML) -&gt; ToXML NetworkSecurityType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NetworkSecurityType -&gt; XML

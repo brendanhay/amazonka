@@ -55,13 +55,13 @@
 </span><span id="line-55"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newCreateTemplate' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679288137"><span id="local-6989586621679288138"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTemplate"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-var">CreateTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTemplate%27"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-var">CreateTemplate'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679288146"><span id="local-6989586621679288147"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTemplate"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-var">CreateTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTemplate%27"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-var">CreateTemplate'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The content of the email, composed of a subject line, an HTML part, and</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- a text-only part.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Atemplate%3ACreateTemplate%27"><span class="annot"><span class="annottext">CreateTemplate -&gt; Template
 </span><a href="Network.AWS.SES.CreateTemplate.html#%24sel%3Atemplate%3ACreateTemplate%27"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288131"><span id="local-6989586621679288133"><span class="annot"><span class="annottext">CreateTemplate -&gt; CreateTemplate -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288140"><span id="local-6989586621679288142"><span class="annot"><span class="annottext">CreateTemplate -&gt; CreateTemplate -&gt; Bool
 (CreateTemplate -&gt; CreateTemplate -&gt; Bool)
 -&gt; (CreateTemplate -&gt; CreateTemplate -&gt; Bool) -&gt; Eq CreateTemplate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTemplate -&gt; CreateTemplate -&gt; Bool
 == :: CreateTemplate -&gt; CreateTemplate -&gt; Bool
 $c== :: CreateTemplate -&gt; CreateTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288122"><span id="local-6989586621679288124"><span id="local-6989586621679288126"><span id="local-6989586621679288128"><span class="annot"><span class="annottext">ReadPrec [CreateTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288131"><span id="local-6989586621679288133"><span id="local-6989586621679288135"><span id="local-6989586621679288137"><span class="annot"><span class="annottext">ReadPrec [CreateTemplate]
 ReadPrec CreateTemplate
 Int -&gt; ReadS CreateTemplate
 ReadS [CreateTemplate]
@@ -89,7 +89,7 @@ readList :: ReadS [CreateTemplate]
 $creadList :: ReadS [CreateTemplate]
 readsPrec :: Int -&gt; ReadS CreateTemplate
 $creadsPrec :: Int -&gt; ReadS CreateTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288115"><span id="local-6989586621679288117"><span id="local-6989586621679288119"><span class="annot"><span class="annottext">Int -&gt; CreateTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288124"><span id="local-6989586621679288126"><span id="local-6989586621679288128"><span class="annot"><span class="annottext">Int -&gt; CreateTemplate -&gt; ShowS
 [CreateTemplate] -&gt; ShowS
 CreateTemplate -&gt; String
 (Int -&gt; CreateTemplate -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. CreateTemplate -&gt; Rep CreateTemplate x
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.Template.html#Template"><span class="hs-identifier hs-type">Template</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span>
 </span><span id="line-79"></span><span id="newCreateTemplate"><span class="annot"><span class="annottext">newCreateTemplate :: Template -&gt; CreateTemplate
-</span><a href="Network.AWS.SES.CreateTemplate.html#newCreateTemplate"><span class="hs-identifier hs-var hs-var">newCreateTemplate</span></a></span></span><span> </span><span id="local-6989586621679288110"><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679288110"><span class="hs-identifier hs-var">pTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.CreateTemplate.html#newCreateTemplate"><span class="hs-identifier hs-var hs-var">newCreateTemplate</span></a></span></span><span> </span><span id="local-6989586621679288119"><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679288119"><span class="hs-identifier hs-var">pTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">CreateTemplate' :: Template -&gt; CreateTemplate
 </span><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-type">CreateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:CreateTemplate' :: Template
 </span><a href="Network.AWS.SES.CreateTemplate.html#%24sel%3Atemplate%3ACreateTemplate%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679288110"><span class="hs-identifier hs-var">pTemplate_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679288119"><span class="hs-identifier hs-var">pTemplate_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The content of the email, composed of a subject line, an HTML part, and</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- a text-only part.</span><span>
@@ -145,27 +145,27 @@ $cfrom :: forall x. CreateTemplate -&gt; Rep CreateTemplate x
 -&gt; (CreateTemplate -&gt; Template -&gt; CreateTemplate)
 -&gt; Lens CreateTemplate CreateTemplate Template Template
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-type">CreateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288107"><span class="annot"><span class="annottext">Template
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-type">CreateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288116"><span class="annot"><span class="annottext">Template
 template :: Template
 $sel:template:CreateTemplate' :: CreateTemplate -&gt; Template
-</span><a href="#local-6989586621679288107"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679288107"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288106"><span class="annot"><span class="annottext">s :: CreateTemplate
-</span><a href="#local-6989586621679288106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-type">CreateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288105"><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679288105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTemplate
-</span><a href="#local-6989586621679288106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:CreateTemplate' :: Template
+</span><a href="#local-6989586621679288116"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679288116"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288115"><span class="annot"><span class="annottext">s :: CreateTemplate
+</span><a href="#local-6989586621679288115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-type">CreateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288114"><span class="annot"><span class="annottext">Template
+</span><a href="#local-6989586621679288114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTemplate
+</span><a href="#local-6989586621679288115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:CreateTemplate' :: Template
 </span><a href="Network.AWS.SES.CreateTemplate.html#%24sel%3Atemplate%3ACreateTemplate%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679288105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-type">CreateTemplateResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679288101"><span class="annot"><span class="annottext">request :: CreateTemplate -&gt; Request CreateTemplate
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679288110"><span class="annot"><span class="annottext">request :: CreateTemplate -&gt; Request CreateTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTemplate -&gt; Request CreateTemplate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679288097"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679288106"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateTemplate
 -&gt; ClientResponse ClientBody
@@ -194,10 +194,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateTemplateResult&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288094"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288093"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679288093"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288092"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679288092"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288103"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288102"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679288102"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288101"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679288101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateTemplateResponse
 </span><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-var">CreateTemplateResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateTemplateResponse)
@@ -208,15 +208,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288094"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288103"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288085"><span id="local-6989586621679288087"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288094"><span id="local-6989586621679288096"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288082"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679288078"><span class="annot"><span class="annottext">toHeaders :: CreateTemplate -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679288087"><span class="annot"><span class="annottext">toHeaders :: CreateTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTemplate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -224,18 +224,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679288073"><span class="annot"><span class="annottext">toPath :: CreateTemplate -&gt; ByteString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679288082"><span class="annot"><span class="annottext">toPath :: CreateTemplate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTemplate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate"><span class="hs-identifier hs-type">CreateTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679288069"><span class="annot"><span class="annottext">toQuery :: CreateTemplate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-type">CreateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288067"><span class="annot"><span class="annottext">Template
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679288078"><span class="annot"><span class="annottext">toQuery :: CreateTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplate%27"><span class="hs-identifier hs-type">CreateTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288076"><span class="annot"><span class="annottext">Template
 template :: Template
 $sel:template:CreateTemplate' :: CreateTemplate -&gt; Template
-</span><a href="#local-6989586621679288067"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679288076"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -255,16 +255,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Template&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Template -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Template
-</span><a href="#local-6989586621679288067"><span class="hs-identifier hs-var">template</span></a></span><span>
+</span><a href="#local-6989586621679288076"><span class="hs-identifier hs-var">template</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newCreateTemplateResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679288064"><span id="local-6989586621679288065"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTemplateResponse"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-var">CreateTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-var">CreateTemplateResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679288073"><span id="local-6989586621679288074"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTemplateResponse"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-var">CreateTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTemplateResponse%27"><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-var">CreateTemplateResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTemplateResponse%27"><span class="annot"><span class="annottext">CreateTemplateResponse -&gt; Int
 </span><a href="Network.AWS.SES.CreateTemplate.html#%24sel%3AhttpStatus%3ACreateTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288059"><span id="local-6989586621679288061"><span class="annot"><span class="annottext">CreateTemplateResponse -&gt; CreateTemplateResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288068"><span id="local-6989586621679288070"><span class="annot"><span class="annottext">CreateTemplateResponse -&gt; CreateTemplateResponse -&gt; Bool
 (CreateTemplateResponse -&gt; CreateTemplateResponse -&gt; Bool)
 -&gt; (CreateTemplateResponse -&gt; CreateTemplateResponse -&gt; Bool)
 -&gt; Eq CreateTemplateResponse
@@ -273,7 +273,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTemplateResponse -&gt; CreateTemplateResponse -&gt; Bool
 == :: CreateTemplateResponse -&gt; CreateTemplateResponse -&gt; Bool
 $c== :: CreateTemplateResponse -&gt; CreateTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288051"><span id="local-6989586621679288053"><span id="local-6989586621679288055"><span id="local-6989586621679288057"><span class="annot"><span class="annottext">ReadPrec [CreateTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288060"><span id="local-6989586621679288062"><span id="local-6989586621679288064"><span id="local-6989586621679288066"><span class="annot"><span class="annottext">ReadPrec [CreateTemplateResponse]
 ReadPrec CreateTemplateResponse
 Int -&gt; ReadS CreateTemplateResponse
 ReadS [CreateTemplateResponse]
@@ -293,7 +293,7 @@ readList :: ReadS [CreateTemplateResponse]
 $creadList :: ReadS [CreateTemplateResponse]
 readsPrec :: Int -&gt; ReadS CreateTemplateResponse
 $creadsPrec :: Int -&gt; ReadS CreateTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288045"><span id="local-6989586621679288047"><span id="local-6989586621679288049"><span class="annot"><span class="annottext">Int -&gt; CreateTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288054"><span id="local-6989586621679288056"><span id="local-6989586621679288058"><span class="annot"><span class="annottext">Int -&gt; CreateTemplateResponse -&gt; ShowS
 [CreateTemplateResponse] -&gt; ShowS
 CreateTemplateResponse -&gt; String
 (Int -&gt; CreateTemplateResponse -&gt; ShowS)
@@ -334,12 +334,12 @@ $cfrom :: forall x. CreateTemplateResponse -&gt; Rep CreateTemplateResponse x
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-type">CreateTemplateResponse</span></a></span><span>
 </span><span id="line-140"></span><span id="newCreateTemplateResponse"><span class="annot"><span class="annottext">newCreateTemplateResponse :: Int -&gt; CreateTemplateResponse
-</span><a href="Network.AWS.SES.CreateTemplate.html#newCreateTemplateResponse"><span class="hs-identifier hs-var hs-var">newCreateTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679288042"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288042"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.CreateTemplate.html#newCreateTemplateResponse"><span class="hs-identifier hs-var hs-var">newCreateTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679288051"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">CreateTemplateResponse' :: Int -&gt; CreateTemplateResponse
 </span><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-type">CreateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.CreateTemplate.html#%24sel%3AhttpStatus%3ACreateTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288042"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679288051"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#createTemplateResponse_httpStatus"><span class="hs-identifier hs-type">createTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-type">CreateTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -349,16 +349,16 @@ $cfrom :: forall x. CreateTemplateResponse -&gt; Rep CreateTemplateResponse x
 -&gt; (CreateTemplateResponse -&gt; Int -&gt; CreateTemplateResponse)
 -&gt; Lens CreateTemplateResponse CreateTemplateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-type">CreateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288041"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-type">CreateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288050"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateTemplateResponse' :: CreateTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679288041"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288041"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288040"><span class="annot"><span class="annottext">s :: CreateTemplateResponse
-</span><a href="#local-6989586621679288040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-type">CreateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288039"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTemplateResponse
-</span><a href="#local-6989586621679288040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTemplateResponse' :: Int
+</span><a href="#local-6989586621679288050"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288050"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288049"><span class="annot"><span class="annottext">s :: CreateTemplateResponse
+</span><a href="#local-6989586621679288049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse%27"><span class="hs-identifier hs-type">CreateTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288048"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTemplateResponse
+</span><a href="#local-6989586621679288049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTemplateResponse' :: Int
 </span><a href="Network.AWS.SES.CreateTemplate.html#%24sel%3AhttpStatus%3ACreateTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679288039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-type">CreateTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-type">CreateTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-type">CreateTemplateResponse</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288046"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.CreateTemplate.html#CreateTemplateResponse"><span class="hs-identifier hs-type">CreateTemplateResponse</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

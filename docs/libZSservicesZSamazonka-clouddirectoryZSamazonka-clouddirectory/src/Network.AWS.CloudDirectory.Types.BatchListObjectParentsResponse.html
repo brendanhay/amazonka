@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the output of a ListObjectParents response operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchListObjectParentsResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679324754"><span id="local-6989586621679324755"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchListObjectParentsResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-var">BatchListObjectParentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchListObjectParentsResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-var">BatchListObjectParentsResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679324763"><span id="local-6989586621679324764"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchListObjectParentsResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-var">BatchListObjectParentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchListObjectParentsResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-var">BatchListObjectParentsResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AnextToken%3ABatchListObjectParentsResponse%27"><span class="annot"><span class="annottext">BatchListObjectParentsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#%24sel%3AnextToken%3ABatchListObjectParentsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 -&gt; Maybe [ObjectIdentifierAndLinkNameTuple]
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#%24sel%3AparentLinks%3ABatchListObjectParentsResponse%27"><span class="hs-identifier hs-var hs-var">parentLinks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple.html#ObjectIdentifierAndLinkNameTuple"><span class="hs-identifier hs-type">ObjectIdentifierAndLinkNameTuple</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324747"><span id="local-6989586621679324749"><span class="annot"><span class="annottext">BatchListObjectParentsResponse
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324756"><span id="local-6989586621679324758"><span class="annot"><span class="annottext">BatchListObjectParentsResponse
 -&gt; BatchListObjectParentsResponse -&gt; Bool
 (BatchListObjectParentsResponse
  -&gt; BatchListObjectParentsResponse -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: BatchListObjectParentsResponse
 -&gt; BatchListObjectParentsResponse -&gt; Bool
 $c== :: BatchListObjectParentsResponse
 -&gt; BatchListObjectParentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324738"><span id="local-6989586621679324740"><span id="local-6989586621679324742"><span id="local-6989586621679324744"><span class="annot"><span class="annottext">ReadPrec [BatchListObjectParentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324747"><span id="local-6989586621679324749"><span id="local-6989586621679324751"><span id="local-6989586621679324753"><span class="annot"><span class="annottext">ReadPrec [BatchListObjectParentsResponse]
 ReadPrec BatchListObjectParentsResponse
 Int -&gt; ReadS BatchListObjectParentsResponse
 ReadS [BatchListObjectParentsResponse]
@@ -72,7 +72,7 @@ readList :: ReadS [BatchListObjectParentsResponse]
 $creadList :: ReadS [BatchListObjectParentsResponse]
 readsPrec :: Int -&gt; ReadS BatchListObjectParentsResponse
 $creadsPrec :: Int -&gt; ReadS BatchListObjectParentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324731"><span id="local-6989586621679324733"><span id="local-6989586621679324735"><span class="annot"><span class="annottext">Int -&gt; BatchListObjectParentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324740"><span id="local-6989586621679324742"><span id="local-6989586621679324744"><span class="annot"><span class="annottext">Int -&gt; BatchListObjectParentsResponse -&gt; ShowS
 [BatchListObjectParentsResponse] -&gt; ShowS
 BatchListObjectParentsResponse -&gt; String
 (Int -&gt; BatchListObjectParentsResponse -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324722"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324731"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:BatchListObjectParentsResponse' :: BatchListObjectParentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679324722"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324722"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324721"><span class="annot"><span class="annottext">s :: BatchListObjectParentsResponse
-</span><a href="#local-6989586621679324721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324720"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListObjectParentsResponse
-</span><a href="#local-6989586621679324721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:BatchListObjectParentsResponse' :: Maybe Text
+</span><a href="#local-6989586621679324731"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324731"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324730"><span class="annot"><span class="annottext">s :: BatchListObjectParentsResponse
+</span><a href="#local-6989586621679324730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679324729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListObjectParentsResponse
+</span><a href="#local-6989586621679324730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:BatchListObjectParentsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#%24sel%3AnextToken%3ABatchListObjectParentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679324720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Returns a list of parent reference and LinkName Tuples.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#batchListObjectParentsResponse_parentLinks"><span class="hs-identifier hs-type">batchListObjectParentsResponse_parentLinks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple.html#ObjectIdentifierAndLinkNameTuple"><span class="hs-identifier hs-type">ObjectIdentifierAndLinkNameTuple</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -182,17 +182,17 @@ $sel:nextToken:BatchListObjectParentsResponse' :: BatchListObjectParentsResponse
      (Maybe [ObjectIdentifierAndLinkNameTuple])
      (Maybe [ObjectIdentifierAndLinkNameTuple])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324718"><span class="annot"><span class="annottext">Maybe [ObjectIdentifierAndLinkNameTuple]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324727"><span class="annot"><span class="annottext">Maybe [ObjectIdentifierAndLinkNameTuple]
 parentLinks :: Maybe [ObjectIdentifierAndLinkNameTuple]
 $sel:parentLinks:BatchListObjectParentsResponse' :: BatchListObjectParentsResponse
 -&gt; Maybe [ObjectIdentifierAndLinkNameTuple]
-</span><a href="#local-6989586621679324718"><span class="hs-identifier hs-var hs-var">parentLinks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ObjectIdentifierAndLinkNameTuple]
-</span><a href="#local-6989586621679324718"><span class="hs-identifier hs-var">parentLinks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324717"><span class="annot"><span class="annottext">s :: BatchListObjectParentsResponse
-</span><a href="#local-6989586621679324717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324716"><span class="annot"><span class="annottext">Maybe [ObjectIdentifierAndLinkNameTuple]
-</span><a href="#local-6989586621679324716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListObjectParentsResponse
-</span><a href="#local-6989586621679324717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentLinks:BatchListObjectParentsResponse' :: Maybe [ObjectIdentifierAndLinkNameTuple]
+</span><a href="#local-6989586621679324727"><span class="hs-identifier hs-var hs-var">parentLinks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ObjectIdentifierAndLinkNameTuple]
+</span><a href="#local-6989586621679324727"><span class="hs-identifier hs-var">parentLinks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324726"><span class="annot"><span class="annottext">s :: BatchListObjectParentsResponse
+</span><a href="#local-6989586621679324726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse%27"><span class="hs-identifier hs-type">BatchListObjectParentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324725"><span class="annot"><span class="annottext">Maybe [ObjectIdentifierAndLinkNameTuple]
+</span><a href="#local-6989586621679324725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchListObjectParentsResponse
+</span><a href="#local-6989586621679324726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentLinks:BatchListObjectParentsResponse' :: Maybe [ObjectIdentifierAndLinkNameTuple]
 </span><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#%24sel%3AparentLinks%3ABatchListObjectParentsResponse%27"><span class="hs-identifier hs-var">parentLinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ObjectIdentifierAndLinkNameTuple]
-</span><a href="#local-6989586621679324716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ObjectIdentifierAndLinkNameTuple]
+</span><a href="#local-6989586621679324725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ObjectIdentifierAndLinkNameTuple]
   -&gt; f (Maybe [ObjectIdentifierAndLinkNameTuple]))
  -&gt; BatchListObjectParentsResponse
  -&gt; f BatchListObjectParentsResponse)
@@ -226,8 +226,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324710"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679324708"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchListObjectParentsResponse
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679324717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchListObjectParentsResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchListObjectParentsResponse)
@@ -237,8 +237,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchListObjectParentsResponse&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324705"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324705"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679324714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ObjectIdentifierAndLinkNameTuple]
 -&gt; BatchListObjectParentsResponse
@@ -252,7 +252,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; BatchListObjectParentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679324714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,7 +263,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser BatchListObjectParentsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679324705"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679324714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe (Maybe [ObjectIdentifierAndLinkNameTuple]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -278,10 +278,10 @@ forall a. Monoid a =&gt; a
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679324698"><span id="local-6989586621679324700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679324707"><span id="local-6989586621679324709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679324695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679324704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse.html#BatchListObjectParentsResponse"><span class="hs-identifier hs-type">BatchListObjectParentsResponse</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

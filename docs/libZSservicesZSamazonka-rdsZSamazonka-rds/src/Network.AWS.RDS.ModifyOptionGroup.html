@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newModifyOptionGroup' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679780805"><span id="local-6989586621679780806"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyOptionGroup"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-var">ModifyOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyOptionGroup%27"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-var">ModifyOptionGroup'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679780814"><span id="local-6989586621679780815"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyOptionGroup"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-var">ModifyOptionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyOptionGroup%27"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-var">ModifyOptionGroup'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Options in this list are added to the option group or, if already</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- present, the specified configuration is used to update the existing</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AoptionGroupName%3AModifyOptionGroup%27"><span class="annot"><span class="annottext">ModifyOptionGroup -&gt; Text
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AoptionGroupName%3AModifyOptionGroup%27"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780796"><span id="local-6989586621679780798"><span class="annot"><span class="annottext">ModifyOptionGroup -&gt; ModifyOptionGroup -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780805"><span id="local-6989586621679780807"><span class="annot"><span class="annottext">ModifyOptionGroup -&gt; ModifyOptionGroup -&gt; Bool
 (ModifyOptionGroup -&gt; ModifyOptionGroup -&gt; Bool)
 -&gt; (ModifyOptionGroup -&gt; ModifyOptionGroup -&gt; Bool)
 -&gt; Eq ModifyOptionGroup
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyOptionGroup -&gt; ModifyOptionGroup -&gt; Bool
 == :: ModifyOptionGroup -&gt; ModifyOptionGroup -&gt; Bool
 $c== :: ModifyOptionGroup -&gt; ModifyOptionGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780787"><span id="local-6989586621679780789"><span id="local-6989586621679780791"><span id="local-6989586621679780793"><span class="annot"><span class="annottext">ReadPrec [ModifyOptionGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780796"><span id="local-6989586621679780798"><span id="local-6989586621679780800"><span id="local-6989586621679780802"><span class="annot"><span class="annottext">ReadPrec [ModifyOptionGroup]
 ReadPrec ModifyOptionGroup
 Int -&gt; ReadS ModifyOptionGroup
 ReadS [ModifyOptionGroup]
@@ -104,7 +104,7 @@ readList :: ReadS [ModifyOptionGroup]
 $creadList :: ReadS [ModifyOptionGroup]
 readsPrec :: Int -&gt; ReadS ModifyOptionGroup
 $creadsPrec :: Int -&gt; ReadS ModifyOptionGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780780"><span id="local-6989586621679780782"><span id="local-6989586621679780784"><span class="annot"><span class="annottext">Int -&gt; ModifyOptionGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780789"><span id="local-6989586621679780791"><span id="local-6989586621679780793"><span class="annot"><span class="annottext">Int -&gt; ModifyOptionGroup -&gt; ShowS
 [ModifyOptionGroup] -&gt; ShowS
 ModifyOptionGroup -&gt; String
 (Int -&gt; ModifyOptionGroup -&gt; ShowS)
@@ -159,8 +159,8 @@ $cfrom :: forall x. ModifyOptionGroup -&gt; Rep ModifyOptionGroup x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span>
 </span><span id="line-104"></span><span id="newModifyOptionGroup"><span class="annot"><span class="annottext">newModifyOptionGroup :: Text -&gt; ModifyOptionGroup
-</span><a href="Network.AWS.RDS.ModifyOptionGroup.html#newModifyOptionGroup"><span class="hs-identifier hs-var hs-var">newModifyOptionGroup</span></a></span></span><span> </span><span id="local-6989586621679780775"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780775"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.ModifyOptionGroup.html#newModifyOptionGroup"><span class="hs-identifier hs-var hs-var">newModifyOptionGroup</span></a></span></span><span> </span><span id="local-6989586621679780784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780784"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ModifyOptionGroup' :: Maybe [OptionConfiguration]
 -&gt; Maybe [Text] -&gt; Maybe Bool -&gt; Text -&gt; ModifyOptionGroup
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span>
@@ -179,7 +179,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AoptionGroupName%3AModifyOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780775"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679780784"><span class="hs-identifier hs-var">pOptionGroupName_</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Options in this list are added to the option group or, if already</span><span>
@@ -197,16 +197,16 @@ forall a. Maybe a
      (Maybe [OptionConfiguration])
      (Maybe [OptionConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780772"><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780781"><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
 optionsToInclude :: Maybe [OptionConfiguration]
 $sel:optionsToInclude:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Maybe [OptionConfiguration]
-</span><a href="#local-6989586621679780772"><span class="hs-identifier hs-var hs-var">optionsToInclude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
-</span><a href="#local-6989586621679780772"><span class="hs-identifier hs-var">optionsToInclude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780771"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
-</span><a href="#local-6989586621679780771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780770"><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
-</span><a href="#local-6989586621679780770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
-</span><a href="#local-6989586621679780771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionsToInclude:ModifyOptionGroup' :: Maybe [OptionConfiguration]
+</span><a href="#local-6989586621679780781"><span class="hs-identifier hs-var hs-var">optionsToInclude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
+</span><a href="#local-6989586621679780781"><span class="hs-identifier hs-var">optionsToInclude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780780"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
+</span><a href="#local-6989586621679780780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780779"><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
+</span><a href="#local-6989586621679780779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
+</span><a href="#local-6989586621679780780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionsToInclude:ModifyOptionGroup' :: Maybe [OptionConfiguration]
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AoptionsToInclude%3AModifyOptionGroup%27"><span class="hs-identifier hs-var">optionsToInclude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
-</span><a href="#local-6989586621679780770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OptionConfiguration] -&gt; f (Maybe [OptionConfiguration]))
+</span><a href="#local-6989586621679780779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OptionConfiguration] -&gt; f (Maybe [OptionConfiguration]))
  -&gt; ModifyOptionGroup -&gt; f ModifyOptionGroup)
 -&gt; ((Maybe [OptionConfiguration]
      -&gt; f (Maybe [OptionConfiguration]))
@@ -245,16 +245,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ModifyOptionGroup ModifyOptionGroup (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780766"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780775"><span class="annot"><span class="annottext">Maybe [Text]
 optionsToRemove :: Maybe [Text]
 $sel:optionsToRemove:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679780766"><span class="hs-identifier hs-var hs-var">optionsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679780766"><span class="hs-identifier hs-var">optionsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780765"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
-</span><a href="#local-6989586621679780765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780764"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679780764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
-</span><a href="#local-6989586621679780765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionsToRemove:ModifyOptionGroup' :: Maybe [Text]
+</span><a href="#local-6989586621679780775"><span class="hs-identifier hs-var hs-var">optionsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679780775"><span class="hs-identifier hs-var">optionsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780774"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
+</span><a href="#local-6989586621679780774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780773"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679780773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
+</span><a href="#local-6989586621679780774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionsToRemove:ModifyOptionGroup' :: Maybe [Text]
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AoptionsToRemove%3AModifyOptionGroup%27"><span class="hs-identifier hs-var">optionsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679780764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679780773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ModifyOptionGroup -&gt; f ModifyOptionGroup)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -282,16 +282,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ModifyOptionGroup ModifyOptionGroup (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780763"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780772"><span class="annot"><span class="annottext">Maybe Bool
 applyImmediately :: Maybe Bool
 $sel:applyImmediately:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Maybe Bool
-</span><a href="#local-6989586621679780763"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679780763"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780762"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
-</span><a href="#local-6989586621679780762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780761"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679780761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
-</span><a href="#local-6989586621679780762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:ModifyOptionGroup' :: Maybe Bool
+</span><a href="#local-6989586621679780772"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780772"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780771"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
+</span><a href="#local-6989586621679780771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780770"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679780770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
+</span><a href="#local-6989586621679780771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:ModifyOptionGroup' :: Maybe Bool
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AapplyImmediately%3AModifyOptionGroup%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679780761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The name of the option group to be modified.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
@@ -305,27 +305,27 @@ $sel:applyImmediately:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Maybe Bool
 -&gt; (ModifyOptionGroup -&gt; Text -&gt; ModifyOptionGroup)
 -&gt; Lens ModifyOptionGroup ModifyOptionGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780760"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780769"><span class="annot"><span class="annottext">Text
 optionGroupName :: Text
 $sel:optionGroupName:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Text
-</span><a href="#local-6989586621679780760"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780760"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780759"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
-</span><a href="#local-6989586621679780759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780758"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
-</span><a href="#local-6989586621679780759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyOptionGroup' :: Text
+</span><a href="#local-6989586621679780769"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780769"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780768"><span class="annot"><span class="annottext">s :: ModifyOptionGroup
+</span><a href="#local-6989586621679780768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679780767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroup
+</span><a href="#local-6989586621679780768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyOptionGroup' :: Text
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AoptionGroupName%3AModifyOptionGroup%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679780754"><span class="annot"><span class="annottext">request :: ModifyOptionGroup -&gt; Request ModifyOptionGroup
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679780763"><span class="annot"><span class="annottext">request :: ModifyOptionGroup -&gt; Request ModifyOptionGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyOptionGroup -&gt; Request ModifyOptionGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679780750"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679780759"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyOptionGroup
 -&gt; ClientResponse ClientBody
@@ -356,10 +356,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyOptionGroupResult&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780747"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780747"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679780746"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679780746"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679780745"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679780745"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780756"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780756"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679780755"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679780755"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679780754"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679780754"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe OptionGroup -&gt; Int -&gt; ModifyOptionGroupResponse
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-var">ModifyOptionGroupResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OptionGroup -&gt; Int -&gt; ModifyOptionGroupResponse)
@@ -367,7 +367,7 @@ Text
 -&gt; Either String (Int -&gt; ModifyOptionGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679780745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OptionGroup)
+</span><a href="#local-6989586621679780754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe OptionGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OptionGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -379,15 +379,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780747"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780756"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780737"><span id="local-6989586621679780739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780746"><span id="local-6989586621679780748"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780743"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679780730"><span class="annot"><span class="annottext">toHeaders :: ModifyOptionGroup -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679780739"><span class="annot"><span class="annottext">toHeaders :: ModifyOptionGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyOptionGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -395,15 +395,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679780725"><span class="annot"><span class="annottext">toPath :: ModifyOptionGroup -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679780734"><span class="annot"><span class="annottext">toPath :: ModifyOptionGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyOptionGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup"><span class="hs-identifier hs-type">ModifyOptionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679780721"><span class="annot"><span class="annottext">toQuery :: ModifyOptionGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780716"><span id="local-6989586621679780717"><span id="local-6989586621679780718"><span id="local-6989586621679780719"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679780730"><span class="annot"><span class="annottext">toQuery :: ModifyOptionGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroup%27"><span class="hs-identifier hs-type">ModifyOptionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780725"><span id="local-6989586621679780726"><span id="local-6989586621679780727"><span id="local-6989586621679780728"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [OptionConfiguration]
 Text
@@ -415,7 +415,7 @@ $sel:optionGroupName:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Text
 $sel:applyImmediately:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Maybe Bool
 $sel:optionsToRemove:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Maybe [Text]
 $sel:optionsToInclude:ModifyOptionGroup' :: ModifyOptionGroup -&gt; Maybe [OptionConfiguration]
-</span><a href="#local-6989586621679780716"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679780725"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -448,7 +448,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [OptionConfiguration] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OptionConfiguration]
-</span><a href="#local-6989586621679780719"><span class="hs-identifier hs-var">optionsToInclude</span></a></span><span>
+</span><a href="#local-6989586621679780728"><span class="hs-identifier hs-var">optionsToInclude</span></a></span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OptionsToRemove&quot;</span></span><span>
@@ -466,29 +466,29 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-177"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679780718"><span class="hs-identifier hs-var">optionsToRemove</span></a></span><span>
+</span><a href="#local-6989586621679780727"><span class="hs-identifier hs-var">optionsToRemove</span></a></span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ApplyImmediately&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679780717"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679780726"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OptionGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780716"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span>
+</span><a href="#local-6989586621679780725"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span>
 </span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newModifyOptionGroupResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679780712"><span id="local-6989586621679780713"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyOptionGroupResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-var">ModifyOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyOptionGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-var">ModifyOptionGroupResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679780721"><span id="local-6989586621679780722"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyOptionGroupResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-var">ModifyOptionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyOptionGroupResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-var">ModifyOptionGroupResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AoptionGroup%3AModifyOptionGroupResponse%27"><span class="annot"><span class="annottext">ModifyOptionGroupResponse -&gt; Maybe OptionGroup
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AoptionGroup%3AModifyOptionGroupResponse%27"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.OptionGroup.html#OptionGroup"><span class="hs-identifier hs-type">OptionGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyOptionGroupResponse%27"><span class="annot"><span class="annottext">ModifyOptionGroupResponse -&gt; Int
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AhttpStatus%3AModifyOptionGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780706"><span id="local-6989586621679780708"><span class="annot"><span class="annottext">ModifyOptionGroupResponse -&gt; ModifyOptionGroupResponse -&gt; Bool
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780715"><span id="local-6989586621679780717"><span class="annot"><span class="annottext">ModifyOptionGroupResponse -&gt; ModifyOptionGroupResponse -&gt; Bool
 (ModifyOptionGroupResponse -&gt; ModifyOptionGroupResponse -&gt; Bool)
 -&gt; (ModifyOptionGroupResponse -&gt; ModifyOptionGroupResponse -&gt; Bool)
 -&gt; Eq ModifyOptionGroupResponse
@@ -497,7 +497,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyOptionGroupResponse -&gt; ModifyOptionGroupResponse -&gt; Bool
 == :: ModifyOptionGroupResponse -&gt; ModifyOptionGroupResponse -&gt; Bool
 $c== :: ModifyOptionGroupResponse -&gt; ModifyOptionGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780698"><span id="local-6989586621679780700"><span id="local-6989586621679780702"><span id="local-6989586621679780704"><span class="annot"><span class="annottext">ReadPrec [ModifyOptionGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780707"><span id="local-6989586621679780709"><span id="local-6989586621679780711"><span id="local-6989586621679780713"><span class="annot"><span class="annottext">ReadPrec [ModifyOptionGroupResponse]
 ReadPrec ModifyOptionGroupResponse
 Int -&gt; ReadS ModifyOptionGroupResponse
 ReadS [ModifyOptionGroupResponse]
@@ -517,7 +517,7 @@ readList :: ReadS [ModifyOptionGroupResponse]
 $creadList :: ReadS [ModifyOptionGroupResponse]
 readsPrec :: Int -&gt; ReadS ModifyOptionGroupResponse
 $creadsPrec :: Int -&gt; ReadS ModifyOptionGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780692"><span id="local-6989586621679780694"><span id="local-6989586621679780696"><span class="annot"><span class="annottext">Int -&gt; ModifyOptionGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780701"><span id="local-6989586621679780703"><span id="local-6989586621679780705"><span class="annot"><span class="annottext">Int -&gt; ModifyOptionGroupResponse -&gt; ShowS
 [ModifyOptionGroupResponse] -&gt; ShowS
 ModifyOptionGroupResponse -&gt; String
 (Int -&gt; ModifyOptionGroupResponse -&gt; ShowS)
@@ -565,8 +565,8 @@ ModifyOptionGroupResponse -&gt; Rep ModifyOptionGroupResponse x
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-205"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span><span>
 </span><span id="line-206"></span><span id="newModifyOptionGroupResponse"><span class="annot"><span class="annottext">newModifyOptionGroupResponse :: Int -&gt; ModifyOptionGroupResponse
-</span><a href="Network.AWS.RDS.ModifyOptionGroup.html#newModifyOptionGroupResponse"><span class="hs-identifier hs-var hs-var">newModifyOptionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679780689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.ModifyOptionGroup.html#newModifyOptionGroupResponse"><span class="hs-identifier hs-var hs-var">newModifyOptionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679780698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="annottext">ModifyOptionGroupResponse' :: Maybe OptionGroup -&gt; Int -&gt; ModifyOptionGroupResponse
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionGroup:ModifyOptionGroupResponse' :: Maybe OptionGroup
@@ -576,7 +576,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyOptionGroupResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AhttpStatus%3AModifyOptionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679780698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -592,16 +592,16 @@ forall a. Maybe a
      (Maybe OptionGroup)
      (Maybe OptionGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780688"><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780697"><span class="annot"><span class="annottext">Maybe OptionGroup
 optionGroup :: Maybe OptionGroup
 $sel:optionGroup:ModifyOptionGroupResponse' :: ModifyOptionGroupResponse -&gt; Maybe OptionGroup
-</span><a href="#local-6989586621679780688"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
-</span><a href="#local-6989586621679780688"><span class="hs-identifier hs-var">optionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780687"><span class="annot"><span class="annottext">s :: ModifyOptionGroupResponse
-</span><a href="#local-6989586621679780687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780686"><span class="annot"><span class="annottext">Maybe OptionGroup
-</span><a href="#local-6989586621679780686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroupResponse
-</span><a href="#local-6989586621679780687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroup:ModifyOptionGroupResponse' :: Maybe OptionGroup
+</span><a href="#local-6989586621679780697"><span class="hs-identifier hs-var hs-var">optionGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><a href="#local-6989586621679780697"><span class="hs-identifier hs-var">optionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780696"><span class="annot"><span class="annottext">s :: ModifyOptionGroupResponse
+</span><a href="#local-6989586621679780696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780695"><span class="annot"><span class="annottext">Maybe OptionGroup
+</span><a href="#local-6989586621679780695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroupResponse
+</span><a href="#local-6989586621679780696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroup:ModifyOptionGroupResponse' :: Maybe OptionGroup
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AoptionGroup%3AModifyOptionGroupResponse%27"><span class="hs-identifier hs-var">optionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OptionGroup
-</span><a href="#local-6989586621679780686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-218"></span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#modifyOptionGroupResponse_httpStatus"><span class="hs-identifier hs-type">modifyOptionGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -611,16 +611,16 @@ $sel:optionGroup:ModifyOptionGroupResponse' :: ModifyOptionGroupResponse -&gt; M
 -&gt; (ModifyOptionGroupResponse -&gt; Int -&gt; ModifyOptionGroupResponse)
 -&gt; Lens ModifyOptionGroupResponse ModifyOptionGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780685"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780694"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyOptionGroupResponse' :: ModifyOptionGroupResponse -&gt; Int
-</span><a href="#local-6989586621679780685"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780685"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780684"><span class="annot"><span class="annottext">s :: ModifyOptionGroupResponse
-</span><a href="#local-6989586621679780684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780683"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroupResponse
-</span><a href="#local-6989586621679780684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyOptionGroupResponse' :: Int
+</span><a href="#local-6989586621679780694"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780694"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780693"><span class="annot"><span class="annottext">s :: ModifyOptionGroupResponse
+</span><a href="#local-6989586621679780693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse%27"><span class="hs-identifier hs-type">ModifyOptionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780692"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679780692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyOptionGroupResponse
+</span><a href="#local-6989586621679780693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyOptionGroupResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyOptionGroup.html#%24sel%3AhttpStatus%3AModifyOptionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679780692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780690"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyOptionGroup.html#ModifyOptionGroupResponse"><span class="hs-identifier hs-type">ModifyOptionGroupResponse</span></a></span></span><span>
 </span><span id="line-222"></span></pre></body></html>

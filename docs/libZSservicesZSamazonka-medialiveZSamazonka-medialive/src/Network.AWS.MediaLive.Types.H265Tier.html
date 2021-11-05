@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | H265 Tier</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679884480"><span id="local-6989586621679884481"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265Tier"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265Tier.html#H265Tier"><span class="hs-identifier hs-var">H265Tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265Tier%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265Tier.html#H265Tier%27"><span class="hs-identifier hs-var">H265Tier'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679884489"><span id="local-6989586621679884490"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265Tier"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265Tier.html#H265Tier"><span class="hs-identifier hs-var">H265Tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265Tier%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H265Tier.html#H265Tier%27"><span class="hs-identifier hs-var">H265Tier'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265Tier"><span class="annot"><span class="annottext">H265Tier -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.H265Tier.html#fromH265Tier"><span class="hs-identifier hs-var hs-var">fromH265Tier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679884472"><span id="local-6989586621679884474"><span id="local-6989586621679884476"><span class="annot"><span class="annottext">Int -&gt; H265Tier -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679884481"><span id="local-6989586621679884483"><span id="local-6989586621679884485"><span class="annot"><span class="annottext">Int -&gt; H265Tier -&gt; ShowS
 [H265Tier] -&gt; ShowS
 H265Tier -&gt; String
 (Int -&gt; H265Tier -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: H265Tier -&gt; String
 showsPrec :: Int -&gt; H265Tier -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265Tier -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679884463"><span id="local-6989586621679884465"><span id="local-6989586621679884467"><span id="local-6989586621679884469"><span class="annot"><span class="annottext">ReadPrec [H265Tier]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679884472"><span id="local-6989586621679884474"><span id="local-6989586621679884476"><span id="local-6989586621679884478"><span class="annot"><span class="annottext">ReadPrec [H265Tier]
 ReadPrec H265Tier
 Int -&gt; ReadS H265Tier
 ReadS [H265Tier]
@@ -71,7 +71,7 @@ $creadList :: ReadS [H265Tier]
 readsPrec :: Int -&gt; ReadS H265Tier
 $creadsPrec :: Int -&gt; ReadS H265Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679884458"><span id="local-6989586621679884460"><span class="annot"><span class="annottext">H265Tier -&gt; H265Tier -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679884467"><span id="local-6989586621679884469"><span class="annot"><span class="annottext">H265Tier -&gt; H265Tier -&gt; Bool
 (H265Tier -&gt; H265Tier -&gt; Bool)
 -&gt; (H265Tier -&gt; H265Tier -&gt; Bool) -&gt; Eq H265Tier
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: H265Tier -&gt; H265Tier -&gt; Bool
 == :: H265Tier -&gt; H265Tier -&gt; Bool
 $c== :: H265Tier -&gt; H265Tier -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679884442"><span id="local-6989586621679884444"><span id="local-6989586621679884446"><span id="local-6989586621679884448"><span id="local-6989586621679884450"><span id="local-6989586621679884452"><span id="local-6989586621679884454"><span class="annot"><span class="annottext">Eq H265Tier
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679884451"><span id="local-6989586621679884453"><span id="local-6989586621679884455"><span id="local-6989586621679884457"><span id="local-6989586621679884459"><span id="local-6989586621679884461"><span id="local-6989586621679884463"><span class="annot"><span class="annottext">Eq H265Tier
 Eq H265Tier
 -&gt; (H265Tier -&gt; H265Tier -&gt; Ordering)
 -&gt; (H265Tier -&gt; H265Tier -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. H265Tier -&gt; Rep H265Tier x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679884434"><span id="local-6989586621679884436"><span class="annot"><span class="annottext">Int -&gt; H265Tier -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679884443"><span id="local-6989586621679884445"><span class="annot"><span class="annottext">Int -&gt; H265Tier -&gt; Int
 H265Tier -&gt; Int
 (Int -&gt; H265Tier -&gt; Int) -&gt; (H265Tier -&gt; Int) -&gt; Hashable H265Tier
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -139,49 +139,49 @@ $chash :: H265Tier -&gt; Int
 hashWithSalt :: Int -&gt; H265Tier -&gt; Int
 $chashWithSalt :: Int -&gt; H265Tier -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679884431"><span class="annot"><span class="annottext">H265Tier -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679884440"><span class="annot"><span class="annottext">H265Tier -&gt; ()
 (H265Tier -&gt; ()) -&gt; NFData H265Tier
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265Tier -&gt; ()
 $crnf :: H265Tier -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679884428"><span class="annot"><span class="annottext">Text -&gt; Either String H265Tier
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679884437"><span class="annot"><span class="annottext">Text -&gt; Either String H265Tier
 (Text -&gt; Either String H265Tier) -&gt; FromText H265Tier
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265Tier
 $cfromText :: Text -&gt; Either String H265Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679884425"><span class="annot"><span class="annottext">H265Tier -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679884434"><span class="annot"><span class="annottext">H265Tier -&gt; Text
 (H265Tier -&gt; Text) -&gt; ToText H265Tier
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265Tier -&gt; Text
 $ctoText :: H265Tier -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679884422"><span class="annot"><span class="annottext">H265Tier -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679884431"><span class="annot"><span class="annottext">H265Tier -&gt; ByteString
 (H265Tier -&gt; ByteString) -&gt; ToByteString H265Tier
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265Tier -&gt; ByteString
 $ctoBS :: H265Tier -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679884419"><span class="annot"><span class="annottext">H265Tier -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679884428"><span class="annot"><span class="annottext">H265Tier -&gt; ByteStringBuilder
 (H265Tier -&gt; ByteStringBuilder) -&gt; ToLog H265Tier
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265Tier -&gt; ByteStringBuilder
 $cbuild :: H265Tier -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679884416"><span class="annot"><span class="annottext">HeaderName -&gt; H265Tier -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679884425"><span class="annot"><span class="annottext">HeaderName -&gt; H265Tier -&gt; [Header]
 (HeaderName -&gt; H265Tier -&gt; [Header]) -&gt; ToHeader H265Tier
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265Tier -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265Tier -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679884413"><span class="annot"><span class="annottext">H265Tier -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679884422"><span class="annot"><span class="annottext">H265Tier -&gt; QueryString
 (H265Tier -&gt; QueryString) -&gt; ToQuery H265Tier
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265Tier -&gt; QueryString
 $ctoQuery :: H265Tier -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679884408"><span id="local-6989586621679884410"><span class="annot"><span class="annottext">Value -&gt; Parser [H265Tier]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679884417"><span id="local-6989586621679884419"><span class="annot"><span class="annottext">Value -&gt; Parser [H265Tier]
 Value -&gt; Parser H265Tier
 (Value -&gt; Parser H265Tier)
 -&gt; (Value -&gt; Parser [H265Tier]) -&gt; FromJSON H265Tier
@@ -192,7 +192,7 @@ $cparseJSONList :: Value -&gt; Parser [H265Tier]
 parseJSON :: Value -&gt; Parser H265Tier
 $cparseJSON :: Value -&gt; Parser H265Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679884403"><span id="local-6989586621679884405"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265Tier]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679884412"><span id="local-6989586621679884414"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265Tier]
 FromJSONKeyFunction H265Tier
 FromJSONKeyFunction H265Tier
 -&gt; FromJSONKeyFunction [H265Tier] -&gt; FromJSONKey H265Tier
@@ -203,7 +203,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265Tier]
 fromJSONKey :: FromJSONKeyFunction H265Tier
 $cfromJSONKey :: FromJSONKeyFunction H265Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679884394"><span id="local-6989586621679884396"><span id="local-6989586621679884398"><span id="local-6989586621679884400"><span class="annot"><span class="annottext">[H265Tier] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679884403"><span id="local-6989586621679884405"><span id="local-6989586621679884407"><span id="local-6989586621679884409"><span class="annot"><span class="annottext">[H265Tier] -&gt; Encoding
 [H265Tier] -&gt; Value
 H265Tier -&gt; Encoding
 H265Tier -&gt; Value
@@ -227,7 +227,7 @@ $ctoEncoding :: H265Tier -&gt; Encoding
 toJSON :: H265Tier -&gt; Value
 $ctoJSON :: H265Tier -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679884389"><span id="local-6989586621679884391"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265Tier]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679884398"><span id="local-6989586621679884400"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265Tier]
 ToJSONKeyFunction H265Tier
 ToJSONKeyFunction H265Tier
 -&gt; ToJSONKeyFunction [H265Tier] -&gt; ToJSONKey H265Tier
@@ -238,13 +238,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265Tier]
 toJSONKey :: ToJSONKeyFunction H265Tier
 $ctoJSONKey :: ToJSONKeyFunction H265Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679884386"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265Tier
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679884395"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265Tier
 ([Node] -&gt; Either String H265Tier) -&gt; FromXML H265Tier
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265Tier
 $cparseXML :: [Node] -&gt; Either String H265Tier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679884383"><span class="annot"><span class="annottext">H265Tier -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679884392"><span class="annot"><span class="annottext">H265Tier -&gt; XML
 (H265Tier -&gt; XML) -&gt; ToXML H265Tier
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H265Tier -&gt; XML

@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MGN.Types.Job</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MGN.Types.Job</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.InitiatedBy.html"><span class="hs-identifier">Network.AWS.MGN.Types.InitiatedBy</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobStatus.html"><span class="hs-identifier">Network.AWS.MGN.Types.JobStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html"><span class="hs-identifier">Network.AWS.MGN.Types.JobType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.ParticipatingServer.html"><span class="hs-identifier">Network.AWS.MGN.Types.ParticipatingServer</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Job.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newJob' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679228843"><span id="local-6989586621679228844"></span></span><span class="hs-keyword">data</span><span> </span><span id="Job"><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-var">Job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Job%27"><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Job initiated by field.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinitiatedBy%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe InitiatedBy
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AinitiatedBy%3AJob%27"><span class="hs-identifier hs-var hs-var">initiatedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.InitiatedBy.html#InitiatedBy"><span class="hs-identifier hs-type">InitiatedBy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Job status.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe JobStatus
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Servers participating in a specific Job.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AparticipatingServers%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe [ParticipatingServer]
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AparticipatingServers%3AJob%27"><span class="hs-identifier hs-var hs-var">participatingServers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MGN.Types.ParticipatingServer.html#ParticipatingServer"><span class="hs-identifier hs-type">ParticipatingServer</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | the ARN of the specific Job.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aarn%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Job creation time.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcreationDateTime%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AcreationDateTime%3AJob%27"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Job type.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atype%27%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe JobType
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Atype%27%3AJob%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Job end time.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AendDateTime%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AendDateTime%3AJob%27"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Tags associated with spcific Job.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atags%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Atags%3AJob%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Job ID.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AjobID%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AjobID%3AJob%27"><span class="hs-identifier hs-var hs-var">jobID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228829"><span id="local-6989586621679228831"><span class="annot"><span class="annottext">Job -&gt; Job -&gt; Bool
+(Job -&gt; Job -&gt; Bool) -&gt; (Job -&gt; Job -&gt; Bool) -&gt; Eq Job
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Job -&gt; Job -&gt; Bool
+$c/= :: Job -&gt; Job -&gt; Bool
+== :: Job -&gt; Job -&gt; Bool
+$c== :: Job -&gt; Job -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228822"><span id="local-6989586621679228824"><span id="local-6989586621679228826"><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ShowS
+[Job] -&gt; ShowS
+Job -&gt; String
+(Int -&gt; Job -&gt; ShowS)
+-&gt; (Job -&gt; String) -&gt; ([Job] -&gt; ShowS) -&gt; Show Job
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Job] -&gt; ShowS
+$cshowList :: [Job] -&gt; ShowS
+show :: Job -&gt; String
+$cshow :: Job -&gt; String
+showsPrec :: Int -&gt; Job -&gt; ShowS
+$cshowsPrec :: Int -&gt; Job -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Job -&gt; Rep Job x)
+-&gt; (forall x. Rep Job x -&gt; Job) -&gt; Generic Job
+forall x. Rep Job x -&gt; Job
+forall x. Job -&gt; Rep Job x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Job x -&gt; Job
+$cfrom :: forall x. Job -&gt; Rep Job x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'Job' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'initiatedBy', 'job_initiatedBy' - Job initiated by field.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'status', 'job_status' - Job status.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'participatingServers', 'job_participatingServers' - Servers participating in a specific Job.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'arn', 'job_arn' - the ARN of the specific Job.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'creationDateTime', 'job_creationDateTime' - Job creation time.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'type'', 'job_type' - Job type.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'endDateTime', 'job_endDateTime' - Job end time.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'tags', 'job_tags' - Tags associated with spcific Job.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'jobID', 'job_jobID' - Job ID.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#newJob"><span class="hs-identifier hs-type">newJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'jobID'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span>
+</span><span id="line-84"></span><span id="newJob"><span class="annot"><span class="annottext">newJob :: Text -&gt; Job
+</span><a href="Network.AWS.MGN.Types.Job.html#newJob"><span class="hs-identifier hs-var hs-var">newJob</span></a></span></span><span> </span><span id="local-6989586621679228816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228816"><span class="hs-identifier hs-var">pJobID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">Job' :: Maybe InitiatedBy
+-&gt; Maybe JobStatus
+-&gt; Maybe [ParticipatingServer]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Text
+-&gt; Job
+</span><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:initiatedBy:Job' :: Maybe InitiatedBy
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AinitiatedBy%3AJob%27"><span class="hs-identifier hs-var">initiatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InitiatedBy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe JobStatus
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:participatingServers:Job' :: Maybe [ParticipatingServer]
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AparticipatingServers%3AJob%27"><span class="hs-identifier hs-var">participatingServers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParticipatingServer]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDateTime:Job' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AcreationDateTime%3AJob%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Job' :: Maybe JobType
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Atype%27%3AJob%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDateTime:Job' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AendDateTime%3AJob%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Job' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Atags%3AJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobID:Job' :: Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AjobID%3AJob%27"><span class="hs-identifier hs-var">jobID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228816"><span class="hs-identifier hs-var">pJobID_</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Job initiated by field.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_initiatedBy"><span class="hs-identifier hs-type">job_initiatedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.InitiatedBy.html#InitiatedBy"><span class="hs-identifier hs-type">InitiatedBy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="job_initiatedBy"><span class="annot"><span class="annottext">job_initiatedBy :: (Maybe InitiatedBy -&gt; f (Maybe InitiatedBy)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_initiatedBy"><span class="hs-identifier hs-var hs-var">job_initiatedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe InitiatedBy)
+-&gt; (Job -&gt; Maybe InitiatedBy -&gt; Job)
+-&gt; Lens Job Job (Maybe InitiatedBy) (Maybe InitiatedBy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228812"><span class="annot"><span class="annottext">Maybe InitiatedBy
+initiatedBy :: Maybe InitiatedBy
+$sel:initiatedBy:Job' :: Job -&gt; Maybe InitiatedBy
+</span><a href="#local-6989586621679228812"><span class="hs-identifier hs-var hs-var">initiatedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InitiatedBy
+</span><a href="#local-6989586621679228812"><span class="hs-identifier hs-var">initiatedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228811"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228810"><span class="annot"><span class="annottext">Maybe InitiatedBy
+</span><a href="#local-6989586621679228810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatedBy:Job' :: Maybe InitiatedBy
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AinitiatedBy%3AJob%27"><span class="hs-identifier hs-var">initiatedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InitiatedBy
+</span><a href="#local-6989586621679228810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Job status.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_status"><span class="hs-identifier hs-type">job_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="job_status"><span class="annot"><span class="annottext">job_status :: (Maybe JobStatus -&gt; f (Maybe JobStatus)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_status"><span class="hs-identifier hs-var hs-var">job_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe JobStatus)
+-&gt; (Job -&gt; Maybe JobStatus -&gt; Job)
+-&gt; Lens Job Job (Maybe JobStatus) (Maybe JobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228808"><span class="annot"><span class="annottext">Maybe JobStatus
+status :: Maybe JobStatus
+$sel:status:Job' :: Job -&gt; Maybe JobStatus
+</span><a href="#local-6989586621679228808"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679228808"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228807"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228806"><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679228806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe JobStatus
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobStatus
+</span><a href="#local-6989586621679228806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Servers participating in a specific Job.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_participatingServers"><span class="hs-identifier hs-type">job_participatingServers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MGN.Types.ParticipatingServer.html#ParticipatingServer"><span class="hs-identifier hs-type">ParticipatingServer</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="job_participatingServers"><span class="annot"><span class="annottext">job_participatingServers :: (Maybe [ParticipatingServer] -&gt; f (Maybe [ParticipatingServer]))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_participatingServers"><span class="hs-identifier hs-var hs-var">job_participatingServers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe [ParticipatingServer])
+-&gt; (Job -&gt; Maybe [ParticipatingServer] -&gt; Job)
+-&gt; Lens
+     Job Job (Maybe [ParticipatingServer]) (Maybe [ParticipatingServer])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228804"><span class="annot"><span class="annottext">Maybe [ParticipatingServer]
+participatingServers :: Maybe [ParticipatingServer]
+$sel:participatingServers:Job' :: Job -&gt; Maybe [ParticipatingServer]
+</span><a href="#local-6989586621679228804"><span class="hs-identifier hs-var hs-var">participatingServers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ParticipatingServer]
+</span><a href="#local-6989586621679228804"><span class="hs-identifier hs-var">participatingServers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228803"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228802"><span class="annot"><span class="annottext">Maybe [ParticipatingServer]
+</span><a href="#local-6989586621679228802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participatingServers:Job' :: Maybe [ParticipatingServer]
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AparticipatingServers%3AJob%27"><span class="hs-identifier hs-var">participatingServers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ParticipatingServer]
+</span><a href="#local-6989586621679228802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ParticipatingServer] -&gt; f (Maybe [ParticipatingServer]))
+ -&gt; Job -&gt; f Job)
+-&gt; ((Maybe [ParticipatingServer]
+     -&gt; f (Maybe [ParticipatingServer]))
+    -&gt; Maybe [ParticipatingServer] -&gt; f (Maybe [ParticipatingServer]))
+-&gt; (Maybe [ParticipatingServer] -&gt; f (Maybe [ParticipatingServer]))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ParticipatingServer]
+  [ParticipatingServer]
+  [ParticipatingServer]
+  [ParticipatingServer]
+-&gt; Iso
+     (Maybe [ParticipatingServer])
+     (Maybe [ParticipatingServer])
+     (Maybe [ParticipatingServer])
+     (Maybe [ParticipatingServer])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ParticipatingServer]
+  [ParticipatingServer]
+  [ParticipatingServer]
+  [ParticipatingServer]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | the ARN of the specific Job.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_arn"><span class="hs-identifier hs-type">job_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="job_arn"><span class="annot"><span class="annottext">job_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_arn"><span class="hs-identifier hs-var hs-var">job_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228797"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679228797"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228797"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228796"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228795"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Job creation time.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_creationDateTime"><span class="hs-identifier hs-type">job_creationDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="job_creationDateTime"><span class="annot"><span class="annottext">job_creationDateTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_creationDateTime"><span class="hs-identifier hs-var hs-var">job_creationDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228793"><span class="annot"><span class="annottext">Maybe Text
+creationDateTime :: Maybe Text
+$sel:creationDateTime:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679228793"><span class="hs-identifier hs-var hs-var">creationDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228793"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228792"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDateTime:Job' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AcreationDateTime%3AJob%27"><span class="hs-identifier hs-var">creationDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Job type.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_type"><span class="hs-identifier hs-type">job_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.JobType.html#JobType"><span class="hs-identifier hs-type">JobType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="job_type"><span class="annot"><span class="annottext">job_type :: (Maybe JobType -&gt; f (Maybe JobType)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_type"><span class="hs-identifier hs-var hs-var">job_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe JobType)
+-&gt; (Job -&gt; Maybe JobType -&gt; Job)
+-&gt; Lens Job Job (Maybe JobType) (Maybe JobType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228789"><span class="annot"><span class="annottext">Maybe JobType
+type' :: Maybe JobType
+$sel:type':Job' :: Job -&gt; Maybe JobType
+</span><a href="#local-6989586621679228789"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679228789"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228788"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228787"><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679228787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Job' :: Maybe JobType
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Atype%27%3AJob%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobType
+</span><a href="#local-6989586621679228787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Job end time.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_endDateTime"><span class="hs-identifier hs-type">job_endDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="job_endDateTime"><span class="annot"><span class="annottext">job_endDateTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_endDateTime"><span class="hs-identifier hs-var hs-var">job_endDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228785"><span class="annot"><span class="annottext">Maybe Text
+endDateTime :: Maybe Text
+$sel:endDateTime:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679228785"><span class="hs-identifier hs-var hs-var">endDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228785"><span class="hs-identifier hs-var">endDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228784"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228783"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDateTime:Job' :: Maybe Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AendDateTime%3AJob%27"><span class="hs-identifier hs-var">endDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Tags associated with spcific Job.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_tags"><span class="hs-identifier hs-type">job_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="job_tags"><span class="annot"><span class="annottext">job_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_tags"><span class="hs-identifier hs-var hs-var">job_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe (Sensitive (HashMap Text Text)))
+-&gt; (Job -&gt; Maybe (Sensitive (HashMap Text Text)) -&gt; Job)
+-&gt; Lens
+     Job
+     Job
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228781"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+tags :: Maybe (Sensitive (HashMap Text Text))
+$sel:tags:Job' :: Job -&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679228781"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679228781"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228780"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228779"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679228779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Job' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3Atags%3AJob%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679228779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+  -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+ -&gt; Job -&gt; f Job)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; (Exchange
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (Identity (HashMap Text Text))
+    -&gt; Exchange
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (Identity (HashMap Text Text)))
+-&gt; AnIso
+     (Sensitive (HashMap Text Text))
+     (Sensitive (HashMap Text Text))
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (Identity (HashMap Text Text))
+-&gt; Exchange
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (Identity (HashMap Text Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | Job ID.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#job_jobID"><span class="hs-identifier hs-type">job_jobID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="job_jobID"><span class="annot"><span class="annottext">job_jobID :: (Text -&gt; f Text) -&gt; Job -&gt; f Job
+</span><a href="Network.AWS.MGN.Types.Job.html#job_jobID"><span class="hs-identifier hs-var hs-var">job_jobID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Text) -&gt; (Job -&gt; Text -&gt; Job) -&gt; Lens Job Job Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228776"><span class="annot"><span class="annottext">Text
+jobID :: Text
+$sel:jobID:Job' :: Job -&gt; Text
+</span><a href="#local-6989586621679228776"><span class="hs-identifier hs-var hs-var">jobID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228776"><span class="hs-identifier hs-var">jobID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228775"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679228775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228774"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679228775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobID:Job' :: Text
+</span><a href="Network.AWS.MGN.Types.Job.html#%24sel%3AjobID%3AJob%27"><span class="hs-identifier hs-var">jobID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228771"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679228769"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Job) -&gt; Value -&gt; Parser Job
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Job&quot;</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228766"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe InitiatedBy
+-&gt; Maybe JobStatus
+-&gt; Maybe [ParticipatingServer]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe JobType
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Text
+-&gt; Job
+</span><a href="Network.AWS.MGN.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InitiatedBy
+ -&gt; Maybe JobStatus
+ -&gt; Maybe [ParticipatingServer]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe JobType
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive (HashMap Text Text))
+ -&gt; Text
+ -&gt; Job)
+-&gt; Parser (Maybe InitiatedBy)
+-&gt; Parser
+     (Maybe JobStatus
+      -&gt; Maybe [ParticipatingServer]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InitiatedBy)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initiatedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobStatus
+   -&gt; Maybe [ParticipatingServer]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; Job)
+-&gt; Parser (Maybe JobStatus)
+-&gt; Parser
+     (Maybe [ParticipatingServer]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [ParticipatingServer]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; Job)
+-&gt; Parser (Maybe [ParticipatingServer])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ParticipatingServer]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;participatingServers&quot;</span></span><span>
+</span><span id="line-142"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ParticipatingServer]))
+-&gt; Maybe [ParticipatingServer]
+-&gt; Parser (Maybe [ParticipatingServer])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ParticipatingServer]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-143"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe JobType
+      -&gt; Maybe Text
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobType
+   -&gt; Maybe Text
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; Job)
+-&gt; Parser (Maybe JobType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (Sensitive (HashMap Text Text)) -&gt; Text -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (Sensitive (HashMap Text Text)) -&gt; Text -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (Sensitive (HashMap Text Text)) -&gt; Text -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive (HashMap Text Text)) -&gt; Text -&gt; Job)
+-&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
+-&gt; Parser (Text -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Job) -&gt; Parser Text -&gt; Parser Job
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;jobID&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228758"><span id="local-6989586621679228760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MGN.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

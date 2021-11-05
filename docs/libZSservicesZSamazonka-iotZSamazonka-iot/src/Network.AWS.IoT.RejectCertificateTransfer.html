@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | The input for the RejectCertificateTransfer operation.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newRejectCertificateTransfer' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679814805"><span id="local-6989586621679814806"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectCertificateTransfer"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-var">RejectCertificateTransfer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectCertificateTransfer%27"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-var">RejectCertificateTransfer'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679814814"><span id="local-6989586621679814815"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectCertificateTransfer"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-var">RejectCertificateTransfer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectCertificateTransfer%27"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-var">RejectCertificateTransfer'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason the certificate transfer was rejected.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3ArejectReason%3ARejectCertificateTransfer%27"><span class="annot"><span class="annottext">RejectCertificateTransfer -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#%24sel%3ArejectReason%3ARejectCertificateTransfer%27"><span class="hs-identifier hs-var hs-var">rejectReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AcertificateId%3ARejectCertificateTransfer%27"><span class="annot"><span class="annottext">RejectCertificateTransfer -&gt; Text
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#%24sel%3AcertificateId%3ARejectCertificateTransfer%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814798"><span id="local-6989586621679814800"><span class="annot"><span class="annottext">RejectCertificateTransfer -&gt; RejectCertificateTransfer -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814807"><span id="local-6989586621679814809"><span class="annot"><span class="annottext">RejectCertificateTransfer -&gt; RejectCertificateTransfer -&gt; Bool
 (RejectCertificateTransfer -&gt; RejectCertificateTransfer -&gt; Bool)
 -&gt; (RejectCertificateTransfer -&gt; RejectCertificateTransfer -&gt; Bool)
 -&gt; Eq RejectCertificateTransfer
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RejectCertificateTransfer -&gt; RejectCertificateTransfer -&gt; Bool
 == :: RejectCertificateTransfer -&gt; RejectCertificateTransfer -&gt; Bool
 $c== :: RejectCertificateTransfer -&gt; RejectCertificateTransfer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814789"><span id="local-6989586621679814791"><span id="local-6989586621679814793"><span id="local-6989586621679814795"><span class="annot"><span class="annottext">ReadPrec [RejectCertificateTransfer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814798"><span id="local-6989586621679814800"><span id="local-6989586621679814802"><span id="local-6989586621679814804"><span class="annot"><span class="annottext">ReadPrec [RejectCertificateTransfer]
 ReadPrec RejectCertificateTransfer
 Int -&gt; ReadS RejectCertificateTransfer
 ReadS [RejectCertificateTransfer]
@@ -97,7 +97,7 @@ readList :: ReadS [RejectCertificateTransfer]
 $creadList :: ReadS [RejectCertificateTransfer]
 readsPrec :: Int -&gt; ReadS RejectCertificateTransfer
 $creadsPrec :: Int -&gt; ReadS RejectCertificateTransfer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814782"><span id="local-6989586621679814784"><span id="local-6989586621679814786"><span class="annot"><span class="annottext">Int -&gt; RejectCertificateTransfer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814791"><span id="local-6989586621679814793"><span id="local-6989586621679814795"><span class="annot"><span class="annottext">Int -&gt; RejectCertificateTransfer -&gt; ShowS
 [RejectCertificateTransfer] -&gt; ShowS
 RejectCertificateTransfer -&gt; String
 (Int -&gt; RejectCertificateTransfer -&gt; ShowS)
@@ -146,8 +146,8 @@ RejectCertificateTransfer -&gt; Rep RejectCertificateTransfer x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span>
 </span><span id="line-87"></span><span id="newRejectCertificateTransfer"><span class="annot"><span class="annottext">newRejectCertificateTransfer :: Text -&gt; RejectCertificateTransfer
-</span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#newRejectCertificateTransfer"><span class="hs-identifier hs-var hs-var">newRejectCertificateTransfer</span></a></span></span><span> </span><span id="local-6989586621679814777"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814777"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#newRejectCertificateTransfer"><span class="hs-identifier hs-var hs-var">newRejectCertificateTransfer</span></a></span></span><span> </span><span id="local-6989586621679814786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814786"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">RejectCertificateTransfer' :: Maybe Text -&gt; Text -&gt; RejectCertificateTransfer
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rejectReason:RejectCertificateTransfer' :: Maybe Text
@@ -157,7 +157,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateId:RejectCertificateTransfer' :: Text
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#%24sel%3AcertificateId%3ARejectCertificateTransfer%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814777"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
+</span><a href="#local-6989586621679814786"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The reason the certificate transfer was rejected.</span><span>
@@ -173,16 +173,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814774"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814783"><span class="annot"><span class="annottext">Maybe Text
 rejectReason :: Maybe Text
 $sel:rejectReason:RejectCertificateTransfer' :: RejectCertificateTransfer -&gt; Maybe Text
-</span><a href="#local-6989586621679814774"><span class="hs-identifier hs-var hs-var">rejectReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814774"><span class="hs-identifier hs-var">rejectReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814773"><span class="annot"><span class="annottext">s :: RejectCertificateTransfer
-</span><a href="#local-6989586621679814773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814772"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectCertificateTransfer
-</span><a href="#local-6989586621679814773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectReason:RejectCertificateTransfer' :: Maybe Text
+</span><a href="#local-6989586621679814783"><span class="hs-identifier hs-var hs-var">rejectReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814783"><span class="hs-identifier hs-var">rejectReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814782"><span class="annot"><span class="annottext">s :: RejectCertificateTransfer
+</span><a href="#local-6989586621679814782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectCertificateTransfer
+</span><a href="#local-6989586621679814782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rejectReason:RejectCertificateTransfer' :: Maybe Text
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#%24sel%3ArejectReason%3ARejectCertificateTransfer%27"><span class="hs-identifier hs-var">rejectReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The ID of the certificate. (The last part of the certificate ARN</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- contains the certificate ID.)</span><span>
@@ -194,28 +194,28 @@ $sel:rejectReason:RejectCertificateTransfer' :: RejectCertificateTransfer -&gt; 
 -&gt; Lens
      RejectCertificateTransfer RejectCertificateTransfer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814771"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814780"><span class="annot"><span class="annottext">Text
 certificateId :: Text
 $sel:certificateId:RejectCertificateTransfer' :: RejectCertificateTransfer -&gt; Text
-</span><a href="#local-6989586621679814771"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814771"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814770"><span class="annot"><span class="annottext">s :: RejectCertificateTransfer
-</span><a href="#local-6989586621679814770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814769"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectCertificateTransfer
-</span><a href="#local-6989586621679814770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:RejectCertificateTransfer' :: Text
+</span><a href="#local-6989586621679814780"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814780"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814779"><span class="annot"><span class="annottext">s :: RejectCertificateTransfer
+</span><a href="#local-6989586621679814779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814778"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679814778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectCertificateTransfer
+</span><a href="#local-6989586621679814779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:RejectCertificateTransfer' :: Text
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#%24sel%3AcertificateId%3ARejectCertificateTransfer%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse"><span class="hs-identifier hs-type">RejectCertificateTransferResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679814765"><span class="annot"><span class="annottext">request :: RejectCertificateTransfer -&gt; Request RejectCertificateTransfer
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679814774"><span class="annot"><span class="annottext">request :: RejectCertificateTransfer -&gt; Request RejectCertificateTransfer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RejectCertificateTransfer -&gt; Request RejectCertificateTransfer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679814761"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679814770"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RejectCertificateTransfer
 -&gt; ClientResponse ClientBody
@@ -242,27 +242,27 @@ AWSResponse a
 RejectCertificateTransferResponse
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse%27"><span class="hs-identifier hs-var">RejectCertificateTransferResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814754"><span id="local-6989586621679814756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814763"><span id="local-6989586621679814765"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814760"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679814747"><span class="annot"><span class="annottext">toHeaders :: RejectCertificateTransfer -&gt; [Header]
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679814756"><span class="annot"><span class="annottext">toHeaders :: RejectCertificateTransfer -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; RejectCertificateTransfer -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814738"><span id="local-6989586621679814740"><span id="local-6989586621679814742"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679814736"><span class="annot"><span class="annottext">toJSON :: RejectCertificateTransfer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814733"><span id="local-6989586621679814734"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814747"><span id="local-6989586621679814749"><span id="local-6989586621679814751"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679814745"><span class="annot"><span class="annottext">toJSON :: RejectCertificateTransfer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814742"><span id="local-6989586621679814743"><span class="annot"><span class="annottext">Maybe Text
 Text
 certificateId :: Text
 rejectReason :: Maybe Text
 $sel:certificateId:RejectCertificateTransfer' :: RejectCertificateTransfer -&gt; Text
 $sel:rejectReason:RejectCertificateTransfer' :: RejectCertificateTransfer -&gt; Maybe Text
-</span><a href="#local-6989586621679814733"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679814742"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -274,18 +274,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814734"><span class="hs-identifier hs-var">rejectReason</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679814743"><span class="hs-identifier hs-var">rejectReason</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679814726"><span class="annot"><span class="annottext">toPath :: RejectCertificateTransfer -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814723"><span id="local-6989586621679814724"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679814735"><span class="annot"><span class="annottext">toPath :: RejectCertificateTransfer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer%27"><span class="hs-identifier hs-type">RejectCertificateTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814732"><span id="local-6989586621679814733"><span class="annot"><span class="annottext">Maybe Text
 Text
 certificateId :: Text
 rejectReason :: Maybe Text
 $sel:certificateId:RejectCertificateTransfer' :: RejectCertificateTransfer -&gt; Text
 $sel:rejectReason:RejectCertificateTransfer' :: RejectCertificateTransfer -&gt; Maybe Text
-</span><a href="#local-6989586621679814723"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679814732"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -294,11 +294,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814723"><span class="hs-identifier hs-var">certificateId</span></a></span><span>
+</span><a href="#local-6989586621679814732"><span class="hs-identifier hs-var">certificateId</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransfer"><span class="hs-identifier hs-type">RejectCertificateTransfer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679814719"><span class="annot"><span class="annottext">toQuery :: RejectCertificateTransfer -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679814728"><span class="annot"><span class="annottext">toQuery :: RejectCertificateTransfer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RejectCertificateTransfer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -306,10 +306,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newRejectCertificateTransferResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679814716"><span id="local-6989586621679814717"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectCertificateTransferResponse"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse"><span class="hs-identifier hs-var">RejectCertificateTransferResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectCertificateTransferResponse%27"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse%27"><span class="hs-identifier hs-var">RejectCertificateTransferResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679814725"><span id="local-6989586621679814726"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectCertificateTransferResponse"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse"><span class="hs-identifier hs-var">RejectCertificateTransferResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectCertificateTransferResponse%27"><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse%27"><span class="hs-identifier hs-var">RejectCertificateTransferResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814712"><span id="local-6989586621679814714"><span class="annot"><span class="annottext">RejectCertificateTransferResponse
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814721"><span id="local-6989586621679814723"><span class="annot"><span class="annottext">RejectCertificateTransferResponse
 -&gt; RejectCertificateTransferResponse -&gt; Bool
 (RejectCertificateTransferResponse
  -&gt; RejectCertificateTransferResponse -&gt; Bool)
@@ -325,7 +325,7 @@ $c/= :: RejectCertificateTransferResponse
 -&gt; RejectCertificateTransferResponse -&gt; Bool
 $c== :: RejectCertificateTransferResponse
 -&gt; RejectCertificateTransferResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814704"><span id="local-6989586621679814706"><span id="local-6989586621679814708"><span id="local-6989586621679814710"><span class="annot"><span class="annottext">ReadPrec [RejectCertificateTransferResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814713"><span id="local-6989586621679814715"><span id="local-6989586621679814717"><span id="local-6989586621679814719"><span class="annot"><span class="annottext">ReadPrec [RejectCertificateTransferResponse]
 ReadPrec RejectCertificateTransferResponse
 Int -&gt; ReadS RejectCertificateTransferResponse
 ReadS [RejectCertificateTransferResponse]
@@ -345,7 +345,7 @@ readList :: ReadS [RejectCertificateTransferResponse]
 $creadList :: ReadS [RejectCertificateTransferResponse]
 readsPrec :: Int -&gt; ReadS RejectCertificateTransferResponse
 $creadsPrec :: Int -&gt; ReadS RejectCertificateTransferResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814698"><span id="local-6989586621679814700"><span id="local-6989586621679814702"><span class="annot"><span class="annottext">Int -&gt; RejectCertificateTransferResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814707"><span id="local-6989586621679814709"><span id="local-6989586621679814711"><span class="annot"><span class="annottext">Int -&gt; RejectCertificateTransferResponse -&gt; ShowS
 [RejectCertificateTransferResponse] -&gt; ShowS
 RejectCertificateTransferResponse -&gt; String
 (Int -&gt; RejectCertificateTransferResponse -&gt; ShowS)
@@ -395,6 +395,6 @@ RejectCertificateTransferResponse
 </span><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse%27"><span class="hs-identifier hs-var">RejectCertificateTransferResponse'</span></a></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679814694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679814703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RejectCertificateTransfer.html#RejectCertificateTransferResponse"><span class="hs-identifier hs-type">RejectCertificateTransferResponse</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

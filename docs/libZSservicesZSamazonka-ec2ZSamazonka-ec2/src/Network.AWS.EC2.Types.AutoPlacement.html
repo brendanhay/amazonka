@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681088182"><span id="local-6989586621681088183"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoPlacement"><span class="annot"><a href="Network.AWS.EC2.Types.AutoPlacement.html#AutoPlacement"><span class="hs-identifier hs-var">AutoPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoPlacement%27"><span class="annot"><a href="Network.AWS.EC2.Types.AutoPlacement.html#AutoPlacement%27"><span class="hs-identifier hs-var">AutoPlacement'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681088191"><span id="local-6989586621681088192"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoPlacement"><span class="annot"><a href="Network.AWS.EC2.Types.AutoPlacement.html#AutoPlacement"><span class="hs-identifier hs-var">AutoPlacement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoPlacement%27"><span class="annot"><a href="Network.AWS.EC2.Types.AutoPlacement.html#AutoPlacement%27"><span class="hs-identifier hs-var">AutoPlacement'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoPlacement"><span class="annot"><span class="annottext">AutoPlacement -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AutoPlacement.html#fromAutoPlacement"><span class="hs-identifier hs-var hs-var">fromAutoPlacement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088174"><span id="local-6989586621681088176"><span id="local-6989586621681088178"><span class="annot"><span class="annottext">Int -&gt; AutoPlacement -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088183"><span id="local-6989586621681088185"><span id="local-6989586621681088187"><span class="annot"><span class="annottext">Int -&gt; AutoPlacement -&gt; ShowS
 [AutoPlacement] -&gt; ShowS
 AutoPlacement -&gt; String
 (Int -&gt; AutoPlacement -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AutoPlacement -&gt; String
 showsPrec :: Int -&gt; AutoPlacement -&gt; ShowS
 $cshowsPrec :: Int -&gt; AutoPlacement -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681088165"><span id="local-6989586621681088167"><span id="local-6989586621681088169"><span id="local-6989586621681088171"><span class="annot"><span class="annottext">ReadPrec [AutoPlacement]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681088174"><span id="local-6989586621681088176"><span id="local-6989586621681088178"><span id="local-6989586621681088180"><span class="annot"><span class="annottext">ReadPrec [AutoPlacement]
 ReadPrec AutoPlacement
 Int -&gt; ReadS AutoPlacement
 ReadS [AutoPlacement]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AutoPlacement]
 readsPrec :: Int -&gt; ReadS AutoPlacement
 $creadsPrec :: Int -&gt; ReadS AutoPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681088160"><span id="local-6989586621681088162"><span class="annot"><span class="annottext">AutoPlacement -&gt; AutoPlacement -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681088169"><span id="local-6989586621681088171"><span class="annot"><span class="annottext">AutoPlacement -&gt; AutoPlacement -&gt; Bool
 (AutoPlacement -&gt; AutoPlacement -&gt; Bool)
 -&gt; (AutoPlacement -&gt; AutoPlacement -&gt; Bool) -&gt; Eq AutoPlacement
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: AutoPlacement -&gt; AutoPlacement -&gt; Bool
 == :: AutoPlacement -&gt; AutoPlacement -&gt; Bool
 $c== :: AutoPlacement -&gt; AutoPlacement -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681088144"><span id="local-6989586621681088146"><span id="local-6989586621681088148"><span id="local-6989586621681088150"><span id="local-6989586621681088152"><span id="local-6989586621681088154"><span id="local-6989586621681088156"><span class="annot"><span class="annottext">Eq AutoPlacement
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681088153"><span id="local-6989586621681088155"><span id="local-6989586621681088157"><span id="local-6989586621681088159"><span id="local-6989586621681088161"><span id="local-6989586621681088163"><span id="local-6989586621681088165"><span class="annot"><span class="annottext">Eq AutoPlacement
 Eq AutoPlacement
 -&gt; (AutoPlacement -&gt; AutoPlacement -&gt; Ordering)
 -&gt; (AutoPlacement -&gt; AutoPlacement -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. AutoPlacement -&gt; Rep AutoPlacement x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088136"><span id="local-6989586621681088138"><span class="annot"><span class="annottext">Int -&gt; AutoPlacement -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681088145"><span id="local-6989586621681088147"><span class="annot"><span class="annottext">Int -&gt; AutoPlacement -&gt; Int
 AutoPlacement -&gt; Int
 (Int -&gt; AutoPlacement -&gt; Int)
 -&gt; (AutoPlacement -&gt; Int) -&gt; Hashable AutoPlacement
@@ -143,49 +143,49 @@ $chash :: AutoPlacement -&gt; Int
 hashWithSalt :: Int -&gt; AutoPlacement -&gt; Int
 $chashWithSalt :: Int -&gt; AutoPlacement -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681088133"><span class="annot"><span class="annottext">AutoPlacement -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681088142"><span class="annot"><span class="annottext">AutoPlacement -&gt; ()
 (AutoPlacement -&gt; ()) -&gt; NFData AutoPlacement
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AutoPlacement -&gt; ()
 $crnf :: AutoPlacement -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681088130"><span class="annot"><span class="annottext">Text -&gt; Either String AutoPlacement
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681088139"><span class="annot"><span class="annottext">Text -&gt; Either String AutoPlacement
 (Text -&gt; Either String AutoPlacement) -&gt; FromText AutoPlacement
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AutoPlacement
 $cfromText :: Text -&gt; Either String AutoPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681088127"><span class="annot"><span class="annottext">AutoPlacement -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681088136"><span class="annot"><span class="annottext">AutoPlacement -&gt; Text
 (AutoPlacement -&gt; Text) -&gt; ToText AutoPlacement
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AutoPlacement -&gt; Text
 $ctoText :: AutoPlacement -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681088124"><span class="annot"><span class="annottext">AutoPlacement -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681088133"><span class="annot"><span class="annottext">AutoPlacement -&gt; ByteString
 (AutoPlacement -&gt; ByteString) -&gt; ToByteString AutoPlacement
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AutoPlacement -&gt; ByteString
 $ctoBS :: AutoPlacement -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681088121"><span class="annot"><span class="annottext">AutoPlacement -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681088130"><span class="annot"><span class="annottext">AutoPlacement -&gt; ByteStringBuilder
 (AutoPlacement -&gt; ByteStringBuilder) -&gt; ToLog AutoPlacement
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AutoPlacement -&gt; ByteStringBuilder
 $cbuild :: AutoPlacement -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681088118"><span class="annot"><span class="annottext">HeaderName -&gt; AutoPlacement -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681088127"><span class="annot"><span class="annottext">HeaderName -&gt; AutoPlacement -&gt; [Header]
 (HeaderName -&gt; AutoPlacement -&gt; [Header]) -&gt; ToHeader AutoPlacement
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AutoPlacement -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AutoPlacement -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681088115"><span class="annot"><span class="annottext">AutoPlacement -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681088124"><span class="annot"><span class="annottext">AutoPlacement -&gt; QueryString
 (AutoPlacement -&gt; QueryString) -&gt; ToQuery AutoPlacement
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AutoPlacement -&gt; QueryString
 $ctoQuery :: AutoPlacement -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681088110"><span id="local-6989586621681088112"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoPlacement]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681088119"><span id="local-6989586621681088121"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoPlacement]
 Value -&gt; Parser AutoPlacement
 (Value -&gt; Parser AutoPlacement)
 -&gt; (Value -&gt; Parser [AutoPlacement]) -&gt; FromJSON AutoPlacement
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AutoPlacement]
 parseJSON :: Value -&gt; Parser AutoPlacement
 $cparseJSON :: Value -&gt; Parser AutoPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681088105"><span id="local-6989586621681088107"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoPlacement]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681088114"><span id="local-6989586621681088116"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoPlacement]
 FromJSONKeyFunction AutoPlacement
 FromJSONKeyFunction AutoPlacement
 -&gt; FromJSONKeyFunction [AutoPlacement] -&gt; FromJSONKey AutoPlacement
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AutoPlacement]
 fromJSONKey :: FromJSONKeyFunction AutoPlacement
 $cfromJSONKey :: FromJSONKeyFunction AutoPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681088096"><span id="local-6989586621681088098"><span id="local-6989586621681088100"><span id="local-6989586621681088102"><span class="annot"><span class="annottext">[AutoPlacement] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681088105"><span id="local-6989586621681088107"><span id="local-6989586621681088109"><span id="local-6989586621681088111"><span class="annot"><span class="annottext">[AutoPlacement] -&gt; Encoding
 [AutoPlacement] -&gt; Value
 AutoPlacement -&gt; Encoding
 AutoPlacement -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: AutoPlacement -&gt; Encoding
 toJSON :: AutoPlacement -&gt; Value
 $ctoJSON :: AutoPlacement -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681088091"><span id="local-6989586621681088093"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoPlacement]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681088100"><span id="local-6989586621681088102"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoPlacement]
 ToJSONKeyFunction AutoPlacement
 ToJSONKeyFunction AutoPlacement
 -&gt; ToJSONKeyFunction [AutoPlacement] -&gt; ToJSONKey AutoPlacement
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AutoPlacement]
 toJSONKey :: ToJSONKeyFunction AutoPlacement
 $ctoJSONKey :: ToJSONKeyFunction AutoPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681088088"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoPlacement
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681088097"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoPlacement
 ([Node] -&gt; Either String AutoPlacement) -&gt; FromXML AutoPlacement
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AutoPlacement
 $cparseXML :: [Node] -&gt; Either String AutoPlacement
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681088085"><span class="annot"><span class="annottext">AutoPlacement -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681088094"><span class="annot"><span class="annottext">AutoPlacement -&gt; XML
 (AutoPlacement -&gt; XML) -&gt; ToXML AutoPlacement
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AutoPlacement -&gt; XML

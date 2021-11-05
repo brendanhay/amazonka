@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppFlow.Types.SlackConnectorOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppFlow.Types.SlackConnectorOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_ADDITION"><span class="hs-identifier">SlackConnectorOperator_ADDITION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_BETWEEN"><span class="hs-identifier">SlackConnectorOperator_BETWEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_DIVISION"><span class="hs-identifier">SlackConnectorOperator_DIVISION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_EQUAL_TO"><span class="hs-identifier">SlackConnectorOperator_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_GREATER_THAN"><span class="hs-identifier">SlackConnectorOperator_GREATER_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-identifier">SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_LESS_THAN"><span class="hs-identifier">SlackConnectorOperator_LESS_THAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-identifier">SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_ALL"><span class="hs-identifier">SlackConnectorOperator_MASK_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_FIRST_N"><span class="hs-identifier">SlackConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_LAST_N"><span class="hs-identifier">SlackConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MULTIPLICATION"><span class="hs-identifier">SlackConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_NO_OP"><span class="hs-identifier">SlackConnectorOperator_NO_OP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_PROJECTION"><span class="hs-identifier">SlackConnectorOperator_PROJECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_SUBTRACTION"><span class="hs-identifier">SlackConnectorOperator_SUBTRACTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier">SlackConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier">SlackConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier">SlackConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier">SlackConnectorOperator_VALIDATE_NUMERIC</span></a></span><span>
+</span><span id="line-42"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679324635"><span id="local-6989586621679324636"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SlackConnectorOperator"><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-var">SlackConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlackConnectorOperator%27"><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-var">SlackConnectorOperator'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSlackConnectorOperator"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; Text
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#fromSlackConnectorOperator"><span class="hs-identifier hs-var hs-var">fromSlackConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324627"><span id="local-6989586621679324629"><span id="local-6989586621679324631"><span class="annot"><span class="annottext">Int -&gt; SlackConnectorOperator -&gt; ShowS
+[SlackConnectorOperator] -&gt; ShowS
+SlackConnectorOperator -&gt; String
+(Int -&gt; SlackConnectorOperator -&gt; ShowS)
+-&gt; (SlackConnectorOperator -&gt; String)
+-&gt; ([SlackConnectorOperator] -&gt; ShowS)
+-&gt; Show SlackConnectorOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SlackConnectorOperator] -&gt; ShowS
+$cshowList :: [SlackConnectorOperator] -&gt; ShowS
+show :: SlackConnectorOperator -&gt; String
+$cshow :: SlackConnectorOperator -&gt; String
+showsPrec :: Int -&gt; SlackConnectorOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; SlackConnectorOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324618"><span id="local-6989586621679324620"><span id="local-6989586621679324622"><span id="local-6989586621679324624"><span class="annot"><span class="annottext">ReadPrec [SlackConnectorOperator]
+ReadPrec SlackConnectorOperator
+Int -&gt; ReadS SlackConnectorOperator
+ReadS [SlackConnectorOperator]
+(Int -&gt; ReadS SlackConnectorOperator)
+-&gt; ReadS [SlackConnectorOperator]
+-&gt; ReadPrec SlackConnectorOperator
+-&gt; ReadPrec [SlackConnectorOperator]
+-&gt; Read SlackConnectorOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SlackConnectorOperator]
+$creadListPrec :: ReadPrec [SlackConnectorOperator]
+readPrec :: ReadPrec SlackConnectorOperator
+$creadPrec :: ReadPrec SlackConnectorOperator
+readList :: ReadS [SlackConnectorOperator]
+$creadList :: ReadS [SlackConnectorOperator]
+readsPrec :: Int -&gt; ReadS SlackConnectorOperator
+$creadsPrec :: Int -&gt; ReadS SlackConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324613"><span id="local-6989586621679324615"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+(SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool)
+-&gt; (SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool)
+-&gt; Eq SlackConnectorOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+$c/= :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+== :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+$c== :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324597"><span id="local-6989586621679324599"><span id="local-6989586621679324601"><span id="local-6989586621679324603"><span id="local-6989586621679324605"><span id="local-6989586621679324607"><span id="local-6989586621679324609"><span class="annot"><span class="annottext">Eq SlackConnectorOperator
+Eq SlackConnectorOperator
+-&gt; (SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Ordering)
+-&gt; (SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool)
+-&gt; (SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool)
+-&gt; (SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool)
+-&gt; (SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool)
+-&gt; (SlackConnectorOperator
+    -&gt; SlackConnectorOperator -&gt; SlackConnectorOperator)
+-&gt; (SlackConnectorOperator
+    -&gt; SlackConnectorOperator -&gt; SlackConnectorOperator)
+-&gt; Ord SlackConnectorOperator
+SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Ordering
+SlackConnectorOperator
+-&gt; SlackConnectorOperator -&gt; SlackConnectorOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SlackConnectorOperator
+-&gt; SlackConnectorOperator -&gt; SlackConnectorOperator
+$cmin :: SlackConnectorOperator
+-&gt; SlackConnectorOperator -&gt; SlackConnectorOperator
+max :: SlackConnectorOperator
+-&gt; SlackConnectorOperator -&gt; SlackConnectorOperator
+$cmax :: SlackConnectorOperator
+-&gt; SlackConnectorOperator -&gt; SlackConnectorOperator
+&gt;= :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+$c&gt;= :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+&gt; :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+$c&gt; :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+&lt;= :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+$c&lt;= :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+&lt; :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+$c&lt; :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Bool
+compare :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Ordering
+$ccompare :: SlackConnectorOperator -&gt; SlackConnectorOperator -&gt; Ordering
+$cp1Ord :: Eq SlackConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SlackConnectorOperator -&gt; Rep SlackConnectorOperator x)
+-&gt; (forall x.
+    Rep SlackConnectorOperator x -&gt; SlackConnectorOperator)
+-&gt; Generic SlackConnectorOperator
+forall x. Rep SlackConnectorOperator x -&gt; SlackConnectorOperator
+forall x. SlackConnectorOperator -&gt; Rep SlackConnectorOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SlackConnectorOperator x -&gt; SlackConnectorOperator
+$cfrom :: forall x. SlackConnectorOperator -&gt; Rep SlackConnectorOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324589"><span id="local-6989586621679324591"><span class="annot"><span class="annottext">Int -&gt; SlackConnectorOperator -&gt; Int
+SlackConnectorOperator -&gt; Int
+(Int -&gt; SlackConnectorOperator -&gt; Int)
+-&gt; (SlackConnectorOperator -&gt; Int)
+-&gt; Hashable SlackConnectorOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SlackConnectorOperator -&gt; Int
+$chash :: SlackConnectorOperator -&gt; Int
+hashWithSalt :: Int -&gt; SlackConnectorOperator -&gt; Int
+$chashWithSalt :: Int -&gt; SlackConnectorOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679324586"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; ()
+(SlackConnectorOperator -&gt; ()) -&gt; NFData SlackConnectorOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SlackConnectorOperator -&gt; ()
+$crnf :: SlackConnectorOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679324583"><span class="annot"><span class="annottext">Text -&gt; Either String SlackConnectorOperator
+(Text -&gt; Either String SlackConnectorOperator)
+-&gt; FromText SlackConnectorOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SlackConnectorOperator
+$cfromText :: Text -&gt; Either String SlackConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679324580"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; Text
+(SlackConnectorOperator -&gt; Text) -&gt; ToText SlackConnectorOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SlackConnectorOperator -&gt; Text
+$ctoText :: SlackConnectorOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679324577"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; ByteString
+(SlackConnectorOperator -&gt; ByteString)
+-&gt; ToByteString SlackConnectorOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SlackConnectorOperator -&gt; ByteString
+$ctoBS :: SlackConnectorOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679324574"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; ByteStringBuilder
+(SlackConnectorOperator -&gt; ByteStringBuilder)
+-&gt; ToLog SlackConnectorOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SlackConnectorOperator -&gt; ByteStringBuilder
+$cbuild :: SlackConnectorOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679324571"><span class="annot"><span class="annottext">HeaderName -&gt; SlackConnectorOperator -&gt; [Header]
+(HeaderName -&gt; SlackConnectorOperator -&gt; [Header])
+-&gt; ToHeader SlackConnectorOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SlackConnectorOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SlackConnectorOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679324568"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; QueryString
+(SlackConnectorOperator -&gt; QueryString)
+-&gt; ToQuery SlackConnectorOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SlackConnectorOperator -&gt; QueryString
+$ctoQuery :: SlackConnectorOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679324563"><span id="local-6989586621679324565"><span class="annot"><span class="annottext">Value -&gt; Parser [SlackConnectorOperator]
+Value -&gt; Parser SlackConnectorOperator
+(Value -&gt; Parser SlackConnectorOperator)
+-&gt; (Value -&gt; Parser [SlackConnectorOperator])
+-&gt; FromJSON SlackConnectorOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SlackConnectorOperator]
+$cparseJSONList :: Value -&gt; Parser [SlackConnectorOperator]
+parseJSON :: Value -&gt; Parser SlackConnectorOperator
+$cparseJSON :: Value -&gt; Parser SlackConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679324558"><span id="local-6989586621679324560"><span class="annot"><span class="annottext">FromJSONKeyFunction [SlackConnectorOperator]
+FromJSONKeyFunction SlackConnectorOperator
+FromJSONKeyFunction SlackConnectorOperator
+-&gt; FromJSONKeyFunction [SlackConnectorOperator]
+-&gt; FromJSONKey SlackConnectorOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SlackConnectorOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [SlackConnectorOperator]
+fromJSONKey :: FromJSONKeyFunction SlackConnectorOperator
+$cfromJSONKey :: FromJSONKeyFunction SlackConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679324549"><span id="local-6989586621679324551"><span id="local-6989586621679324553"><span id="local-6989586621679324555"><span class="annot"><span class="annottext">[SlackConnectorOperator] -&gt; Encoding
+[SlackConnectorOperator] -&gt; Value
+SlackConnectorOperator -&gt; Encoding
+SlackConnectorOperator -&gt; Value
+(SlackConnectorOperator -&gt; Value)
+-&gt; (SlackConnectorOperator -&gt; Encoding)
+-&gt; ([SlackConnectorOperator] -&gt; Value)
+-&gt; ([SlackConnectorOperator] -&gt; Encoding)
+-&gt; ToJSON SlackConnectorOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SlackConnectorOperator] -&gt; Encoding
+$ctoEncodingList :: [SlackConnectorOperator] -&gt; Encoding
+toJSONList :: [SlackConnectorOperator] -&gt; Value
+$ctoJSONList :: [SlackConnectorOperator] -&gt; Value
+toEncoding :: SlackConnectorOperator -&gt; Encoding
+$ctoEncoding :: SlackConnectorOperator -&gt; Encoding
+toJSON :: SlackConnectorOperator -&gt; Value
+$ctoJSON :: SlackConnectorOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679324544"><span id="local-6989586621679324546"><span class="annot"><span class="annottext">ToJSONKeyFunction [SlackConnectorOperator]
+ToJSONKeyFunction SlackConnectorOperator
+ToJSONKeyFunction SlackConnectorOperator
+-&gt; ToJSONKeyFunction [SlackConnectorOperator]
+-&gt; ToJSONKey SlackConnectorOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SlackConnectorOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [SlackConnectorOperator]
+toJSONKey :: ToJSONKeyFunction SlackConnectorOperator
+$ctoJSONKey :: ToJSONKeyFunction SlackConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679324541"><span class="annot"><span class="annottext">[Node] -&gt; Either String SlackConnectorOperator
+([Node] -&gt; Either String SlackConnectorOperator)
+-&gt; FromXML SlackConnectorOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SlackConnectorOperator
+$cparseXML :: [Node] -&gt; Either String SlackConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679324538"><span class="annot"><span class="annottext">SlackConnectorOperator -&gt; XML
+(SlackConnectorOperator -&gt; XML) -&gt; ToXML SlackConnectorOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SlackConnectorOperator -&gt; XML
+$ctoXML :: SlackConnectorOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_ADDITION"><span class="hs-identifier hs-type">SlackConnectorOperator_ADDITION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_ADDITION"><span id="%24mSlackConnectorOperator_ADDITION"><span id="SlackConnectorOperator_ADDITION"><span class="annot"><span class="annottext">$bSlackConnectorOperator_ADDITION :: SlackConnectorOperator
+$mSlackConnectorOperator_ADDITION :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_ADDITION"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_ADDITION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDITION&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_BETWEEN"><span class="hs-identifier hs-type">SlackConnectorOperator_BETWEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_BETWEEN"><span id="%24mSlackConnectorOperator_BETWEEN"><span id="SlackConnectorOperator_BETWEEN"><span class="annot"><span class="annottext">$bSlackConnectorOperator_BETWEEN :: SlackConnectorOperator
+$mSlackConnectorOperator_BETWEEN :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_BETWEEN"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_BETWEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BETWEEN&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_DIVISION"><span class="hs-identifier hs-type">SlackConnectorOperator_DIVISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_DIVISION"><span id="%24mSlackConnectorOperator_DIVISION"><span id="SlackConnectorOperator_DIVISION"><span class="annot"><span class="annottext">$bSlackConnectorOperator_DIVISION :: SlackConnectorOperator
+$mSlackConnectorOperator_DIVISION :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_DIVISION"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_DIVISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIVISION&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-type">SlackConnectorOperator_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_EQUAL_TO"><span id="%24mSlackConnectorOperator_EQUAL_TO"><span id="SlackConnectorOperator_EQUAL_TO"><span class="annot"><span class="annottext">$bSlackConnectorOperator_EQUAL_TO :: SlackConnectorOperator
+$mSlackConnectorOperator_EQUAL_TO :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUAL_TO&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-type">SlackConnectorOperator_GREATER_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_GREATER_THAN"><span id="%24mSlackConnectorOperator_GREATER_THAN"><span id="SlackConnectorOperator_GREATER_THAN"><span class="annot"><span class="annottext">$bSlackConnectorOperator_GREATER_THAN :: SlackConnectorOperator
+$mSlackConnectorOperator_GREATER_THAN :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_GREATER_THAN"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_GREATER_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-type">SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span id="%24mSlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span id="SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="annot"><span class="annottext">$bSlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO :: SlackConnectorOperator
+$mSlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREATER_THAN_OR_EQUAL_TO&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_LESS_THAN"><span class="hs-identifier hs-type">SlackConnectorOperator_LESS_THAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_LESS_THAN"><span id="%24mSlackConnectorOperator_LESS_THAN"><span id="SlackConnectorOperator_LESS_THAN"><span class="annot"><span class="annottext">$bSlackConnectorOperator_LESS_THAN :: SlackConnectorOperator
+$mSlackConnectorOperator_LESS_THAN :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_LESS_THAN"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_LESS_THAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-type">SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span id="%24mSlackConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span id="SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="annot"><span class="annottext">$bSlackConnectorOperator_LESS_THAN_OR_EQUAL_TO :: SlackConnectorOperator
+$mSlackConnectorOperator_LESS_THAN_OR_EQUAL_TO :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LESS_THAN_OR_EQUAL_TO&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_ALL"><span class="hs-identifier hs-type">SlackConnectorOperator_MASK_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_MASK_ALL"><span id="%24mSlackConnectorOperator_MASK_ALL"><span id="SlackConnectorOperator_MASK_ALL"><span class="annot"><span class="annottext">$bSlackConnectorOperator_MASK_ALL :: SlackConnectorOperator
+$mSlackConnectorOperator_MASK_ALL :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_MASK_ALL"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_MASK_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_ALL&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-type">SlackConnectorOperator_MASK_FIRST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_MASK_FIRST_N"><span id="%24mSlackConnectorOperator_MASK_FIRST_N"><span id="SlackConnectorOperator_MASK_FIRST_N"><span class="annot"><span class="annottext">$bSlackConnectorOperator_MASK_FIRST_N :: SlackConnectorOperator
+$mSlackConnectorOperator_MASK_FIRST_N :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_MASK_FIRST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_FIRST_N&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-type">SlackConnectorOperator_MASK_LAST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_MASK_LAST_N"><span id="%24mSlackConnectorOperator_MASK_LAST_N"><span id="SlackConnectorOperator_MASK_LAST_N"><span class="annot"><span class="annottext">$bSlackConnectorOperator_MASK_LAST_N :: SlackConnectorOperator
+$mSlackConnectorOperator_MASK_LAST_N :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_MASK_LAST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_LAST_N&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-type">SlackConnectorOperator_MULTIPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_MULTIPLICATION"><span id="%24mSlackConnectorOperator_MULTIPLICATION"><span id="SlackConnectorOperator_MULTIPLICATION"><span class="annot"><span class="annottext">$bSlackConnectorOperator_MULTIPLICATION :: SlackConnectorOperator
+$mSlackConnectorOperator_MULTIPLICATION :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_MULTIPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTIPLICATION&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_NO_OP"><span class="hs-identifier hs-type">SlackConnectorOperator_NO_OP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_NO_OP"><span id="%24mSlackConnectorOperator_NO_OP"><span id="SlackConnectorOperator_NO_OP"><span class="annot"><span class="annottext">$bSlackConnectorOperator_NO_OP :: SlackConnectorOperator
+$mSlackConnectorOperator_NO_OP :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_NO_OP"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_NO_OP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_OP&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_PROJECTION"><span class="hs-identifier hs-type">SlackConnectorOperator_PROJECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_PROJECTION"><span id="%24mSlackConnectorOperator_PROJECTION"><span id="SlackConnectorOperator_PROJECTION"><span class="annot"><span class="annottext">$bSlackConnectorOperator_PROJECTION :: SlackConnectorOperator
+$mSlackConnectorOperator_PROJECTION :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_PROJECTION"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_PROJECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROJECTION&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-type">SlackConnectorOperator_SUBTRACTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_SUBTRACTION"><span id="%24mSlackConnectorOperator_SUBTRACTION"><span id="SlackConnectorOperator_SUBTRACTION"><span class="annot"><span class="annottext">$bSlackConnectorOperator_SUBTRACTION :: SlackConnectorOperator
+$mSlackConnectorOperator_SUBTRACTION :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_SUBTRACTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBTRACTION&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-type">SlackConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="%24mSlackConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="SlackConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="annot"><span class="annottext">$bSlackConnectorOperator_VALIDATE_NON_NEGATIVE :: SlackConnectorOperator
+$mSlackConnectorOperator_VALIDATE_NON_NEGATIVE :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NEGATIVE&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-type">SlackConnectorOperator_VALIDATE_NON_NULL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_VALIDATE_NON_NULL"><span id="%24mSlackConnectorOperator_VALIDATE_NON_NULL"><span id="SlackConnectorOperator_VALIDATE_NON_NULL"><span class="annot"><span class="annottext">$bSlackConnectorOperator_VALIDATE_NON_NULL :: SlackConnectorOperator
+$mSlackConnectorOperator_VALIDATE_NON_NULL :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_VALIDATE_NON_NULL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NULL&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-type">SlackConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_VALIDATE_NON_ZERO"><span id="%24mSlackConnectorOperator_VALIDATE_NON_ZERO"><span id="SlackConnectorOperator_VALIDATE_NON_ZERO"><span class="annot"><span class="annottext">$bSlackConnectorOperator_VALIDATE_NON_ZERO :: SlackConnectorOperator
+$mSlackConnectorOperator_VALIDATE_NON_ZERO :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_VALIDATE_NON_ZERO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_ZERO&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-type">SlackConnectorOperator_VALIDATE_NUMERIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator"><span class="hs-identifier hs-type">SlackConnectorOperator</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSlackConnectorOperator_VALIDATE_NUMERIC"><span id="%24mSlackConnectorOperator_VALIDATE_NUMERIC"><span id="SlackConnectorOperator_VALIDATE_NUMERIC"><span class="annot"><span class="annottext">$bSlackConnectorOperator_VALIDATE_NUMERIC :: SlackConnectorOperator
+$mSlackConnectorOperator_VALIDATE_NUMERIC :: forall r.
+SlackConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#%24bSlackConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-var hs-var hs-var">SlackConnectorOperator_VALIDATE_NUMERIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-identifier hs-type">SlackConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NUMERIC&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_ADDITION"><span class="hs-pragma hs-type">SlackConnectorOperator_ADDITION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_BETWEEN"><span class="hs-pragma hs-type">SlackConnectorOperator_BETWEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_DIVISION"><span class="hs-pragma hs-type">SlackConnectorOperator_DIVISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_EQUAL_TO"><span class="hs-pragma hs-type">SlackConnectorOperator_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_GREATER_THAN"><span class="hs-pragma hs-type">SlackConnectorOperator_GREATER_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO"><span class="hs-pragma hs-type">SlackConnectorOperator_GREATER_THAN_OR_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_LESS_THAN"><span class="hs-pragma hs-type">SlackConnectorOperator_LESS_THAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO"><span class="hs-pragma hs-type">SlackConnectorOperator_LESS_THAN_OR_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_ALL"><span class="hs-pragma hs-type">SlackConnectorOperator_MASK_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_FIRST_N"><span class="hs-pragma hs-type">SlackConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MASK_LAST_N"><span class="hs-pragma hs-type">SlackConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_MULTIPLICATION"><span class="hs-pragma hs-type">SlackConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_NO_OP"><span class="hs-pragma hs-type">SlackConnectorOperator_NO_OP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_PROJECTION"><span class="hs-pragma hs-type">SlackConnectorOperator_PROJECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_SUBTRACTION"><span class="hs-pragma hs-type">SlackConnectorOperator_SUBTRACTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-pragma hs-type">SlackConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_NULL"><span class="hs-pragma hs-type">SlackConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-pragma hs-type">SlackConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator_VALIDATE_NUMERIC"><span class="hs-pragma hs-type">SlackConnectorOperator_VALIDATE_NUMERIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.AppFlow.Types.SlackConnectorOperator.html#SlackConnectorOperator%27"><span class="hs-pragma hs-type">SlackConnectorOperator'</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-156"></span></pre></body></html>

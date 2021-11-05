@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.Colorimetry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.Colorimetry</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier">Colorimetry</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT2020"><span class="hs-identifier">Colorimetry_BT2020</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT2100"><span class="hs-identifier">Colorimetry_BT2100</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT601"><span class="hs-identifier">Colorimetry_BT601</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT709"><span class="hs-identifier">Colorimetry_BT709</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_ST2065_1"><span class="hs-identifier">Colorimetry_ST2065_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_ST2065_3"><span class="hs-identifier">Colorimetry_ST2065_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_XYZ"><span class="hs-identifier">Colorimetry_XYZ</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679265072"><span id="local-6989586621679265073"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Colorimetry"><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-var">Colorimetry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Colorimetry%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-var">Colorimetry'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromColorimetry"><span class="annot"><span class="annottext">Colorimetry -&gt; Text
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#fromColorimetry"><span class="hs-identifier hs-var hs-var">fromColorimetry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265064"><span id="local-6989586621679265066"><span id="local-6989586621679265068"><span class="annot"><span class="annottext">Int -&gt; Colorimetry -&gt; ShowS
+[Colorimetry] -&gt; ShowS
+Colorimetry -&gt; String
+(Int -&gt; Colorimetry -&gt; ShowS)
+-&gt; (Colorimetry -&gt; String)
+-&gt; ([Colorimetry] -&gt; ShowS)
+-&gt; Show Colorimetry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Colorimetry] -&gt; ShowS
+$cshowList :: [Colorimetry] -&gt; ShowS
+show :: Colorimetry -&gt; String
+$cshow :: Colorimetry -&gt; String
+showsPrec :: Int -&gt; Colorimetry -&gt; ShowS
+$cshowsPrec :: Int -&gt; Colorimetry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679265055"><span id="local-6989586621679265057"><span id="local-6989586621679265059"><span id="local-6989586621679265061"><span class="annot"><span class="annottext">ReadPrec [Colorimetry]
+ReadPrec Colorimetry
+Int -&gt; ReadS Colorimetry
+ReadS [Colorimetry]
+(Int -&gt; ReadS Colorimetry)
+-&gt; ReadS [Colorimetry]
+-&gt; ReadPrec Colorimetry
+-&gt; ReadPrec [Colorimetry]
+-&gt; Read Colorimetry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Colorimetry]
+$creadListPrec :: ReadPrec [Colorimetry]
+readPrec :: ReadPrec Colorimetry
+$creadPrec :: ReadPrec Colorimetry
+readList :: ReadS [Colorimetry]
+$creadList :: ReadS [Colorimetry]
+readsPrec :: Int -&gt; ReadS Colorimetry
+$creadsPrec :: Int -&gt; ReadS Colorimetry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679265050"><span id="local-6989586621679265052"><span class="annot"><span class="annottext">Colorimetry -&gt; Colorimetry -&gt; Bool
+(Colorimetry -&gt; Colorimetry -&gt; Bool)
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Bool) -&gt; Eq Colorimetry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Colorimetry -&gt; Colorimetry -&gt; Bool
+$c/= :: Colorimetry -&gt; Colorimetry -&gt; Bool
+== :: Colorimetry -&gt; Colorimetry -&gt; Bool
+$c== :: Colorimetry -&gt; Colorimetry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679265034"><span id="local-6989586621679265036"><span id="local-6989586621679265038"><span id="local-6989586621679265040"><span id="local-6989586621679265042"><span id="local-6989586621679265044"><span id="local-6989586621679265046"><span class="annot"><span class="annottext">Eq Colorimetry
+Eq Colorimetry
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Ordering)
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Bool)
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Bool)
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Bool)
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Bool)
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Colorimetry)
+-&gt; (Colorimetry -&gt; Colorimetry -&gt; Colorimetry)
+-&gt; Ord Colorimetry
+Colorimetry -&gt; Colorimetry -&gt; Bool
+Colorimetry -&gt; Colorimetry -&gt; Ordering
+Colorimetry -&gt; Colorimetry -&gt; Colorimetry
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Colorimetry -&gt; Colorimetry -&gt; Colorimetry
+$cmin :: Colorimetry -&gt; Colorimetry -&gt; Colorimetry
+max :: Colorimetry -&gt; Colorimetry -&gt; Colorimetry
+$cmax :: Colorimetry -&gt; Colorimetry -&gt; Colorimetry
+&gt;= :: Colorimetry -&gt; Colorimetry -&gt; Bool
+$c&gt;= :: Colorimetry -&gt; Colorimetry -&gt; Bool
+&gt; :: Colorimetry -&gt; Colorimetry -&gt; Bool
+$c&gt; :: Colorimetry -&gt; Colorimetry -&gt; Bool
+&lt;= :: Colorimetry -&gt; Colorimetry -&gt; Bool
+$c&lt;= :: Colorimetry -&gt; Colorimetry -&gt; Bool
+&lt; :: Colorimetry -&gt; Colorimetry -&gt; Bool
+$c&lt; :: Colorimetry -&gt; Colorimetry -&gt; Bool
+compare :: Colorimetry -&gt; Colorimetry -&gt; Ordering
+$ccompare :: Colorimetry -&gt; Colorimetry -&gt; Ordering
+$cp1Ord :: Eq Colorimetry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Colorimetry -&gt; Rep Colorimetry x)
+-&gt; (forall x. Rep Colorimetry x -&gt; Colorimetry)
+-&gt; Generic Colorimetry
+forall x. Rep Colorimetry x -&gt; Colorimetry
+forall x. Colorimetry -&gt; Rep Colorimetry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Colorimetry x -&gt; Colorimetry
+$cfrom :: forall x. Colorimetry -&gt; Rep Colorimetry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265026"><span id="local-6989586621679265028"><span class="annot"><span class="annottext">Int -&gt; Colorimetry -&gt; Int
+Colorimetry -&gt; Int
+(Int -&gt; Colorimetry -&gt; Int)
+-&gt; (Colorimetry -&gt; Int) -&gt; Hashable Colorimetry
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Colorimetry -&gt; Int
+$chash :: Colorimetry -&gt; Int
+hashWithSalt :: Int -&gt; Colorimetry -&gt; Int
+$chashWithSalt :: Int -&gt; Colorimetry -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265023"><span class="annot"><span class="annottext">Colorimetry -&gt; ()
+(Colorimetry -&gt; ()) -&gt; NFData Colorimetry
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Colorimetry -&gt; ()
+$crnf :: Colorimetry -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265020"><span class="annot"><span class="annottext">Text -&gt; Either String Colorimetry
+(Text -&gt; Either String Colorimetry) -&gt; FromText Colorimetry
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Colorimetry
+$cfromText :: Text -&gt; Either String Colorimetry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265017"><span class="annot"><span class="annottext">Colorimetry -&gt; Text
+(Colorimetry -&gt; Text) -&gt; ToText Colorimetry
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Colorimetry -&gt; Text
+$ctoText :: Colorimetry -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265014"><span class="annot"><span class="annottext">Colorimetry -&gt; ByteString
+(Colorimetry -&gt; ByteString) -&gt; ToByteString Colorimetry
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Colorimetry -&gt; ByteString
+$ctoBS :: Colorimetry -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265011"><span class="annot"><span class="annottext">Colorimetry -&gt; ByteStringBuilder
+(Colorimetry -&gt; ByteStringBuilder) -&gt; ToLog Colorimetry
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Colorimetry -&gt; ByteStringBuilder
+$cbuild :: Colorimetry -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265008"><span class="annot"><span class="annottext">HeaderName -&gt; Colorimetry -&gt; [Header]
+(HeaderName -&gt; Colorimetry -&gt; [Header]) -&gt; ToHeader Colorimetry
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Colorimetry -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Colorimetry -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265005"><span class="annot"><span class="annottext">Colorimetry -&gt; QueryString
+(Colorimetry -&gt; QueryString) -&gt; ToQuery Colorimetry
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Colorimetry -&gt; QueryString
+$ctoQuery :: Colorimetry -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265000"><span id="local-6989586621679265002"><span class="annot"><span class="annottext">Value -&gt; Parser [Colorimetry]
+Value -&gt; Parser Colorimetry
+(Value -&gt; Parser Colorimetry)
+-&gt; (Value -&gt; Parser [Colorimetry]) -&gt; FromJSON Colorimetry
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Colorimetry]
+$cparseJSONList :: Value -&gt; Parser [Colorimetry]
+parseJSON :: Value -&gt; Parser Colorimetry
+$cparseJSON :: Value -&gt; Parser Colorimetry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679264995"><span id="local-6989586621679264997"><span class="annot"><span class="annottext">FromJSONKeyFunction [Colorimetry]
+FromJSONKeyFunction Colorimetry
+FromJSONKeyFunction Colorimetry
+-&gt; FromJSONKeyFunction [Colorimetry] -&gt; FromJSONKey Colorimetry
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Colorimetry]
+$cfromJSONKeyList :: FromJSONKeyFunction [Colorimetry]
+fromJSONKey :: FromJSONKeyFunction Colorimetry
+$cfromJSONKey :: FromJSONKeyFunction Colorimetry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679264986"><span id="local-6989586621679264988"><span id="local-6989586621679264990"><span id="local-6989586621679264992"><span class="annot"><span class="annottext">[Colorimetry] -&gt; Encoding
+[Colorimetry] -&gt; Value
+Colorimetry -&gt; Encoding
+Colorimetry -&gt; Value
+(Colorimetry -&gt; Value)
+-&gt; (Colorimetry -&gt; Encoding)
+-&gt; ([Colorimetry] -&gt; Value)
+-&gt; ([Colorimetry] -&gt; Encoding)
+-&gt; ToJSON Colorimetry
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Colorimetry] -&gt; Encoding
+$ctoEncodingList :: [Colorimetry] -&gt; Encoding
+toJSONList :: [Colorimetry] -&gt; Value
+$ctoJSONList :: [Colorimetry] -&gt; Value
+toEncoding :: Colorimetry -&gt; Encoding
+$ctoEncoding :: Colorimetry -&gt; Encoding
+toJSON :: Colorimetry -&gt; Value
+$ctoJSON :: Colorimetry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679264981"><span id="local-6989586621679264983"><span class="annot"><span class="annottext">ToJSONKeyFunction [Colorimetry]
+ToJSONKeyFunction Colorimetry
+ToJSONKeyFunction Colorimetry
+-&gt; ToJSONKeyFunction [Colorimetry] -&gt; ToJSONKey Colorimetry
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Colorimetry]
+$ctoJSONKeyList :: ToJSONKeyFunction [Colorimetry]
+toJSONKey :: ToJSONKeyFunction Colorimetry
+$ctoJSONKey :: ToJSONKeyFunction Colorimetry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679264978"><span class="annot"><span class="annottext">[Node] -&gt; Either String Colorimetry
+([Node] -&gt; Either String Colorimetry) -&gt; FromXML Colorimetry
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Colorimetry
+$cparseXML :: [Node] -&gt; Either String Colorimetry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679264975"><span class="annot"><span class="annottext">Colorimetry -&gt; XML
+(Colorimetry -&gt; XML) -&gt; ToXML Colorimetry
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Colorimetry -&gt; XML
+$ctoXML :: Colorimetry -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT2020"><span class="hs-identifier hs-type">Colorimetry_BT2020</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bColorimetry_BT2020"><span id="%24mColorimetry_BT2020"><span id="Colorimetry_BT2020"><span class="annot"><span class="annottext">$bColorimetry_BT2020 :: Colorimetry
+$mColorimetry_BT2020 :: forall r. Colorimetry -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#%24bColorimetry_BT2020"><span class="hs-identifier hs-var hs-var hs-var">Colorimetry_BT2020</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-type">Colorimetry'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BT2020&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT2100"><span class="hs-identifier hs-type">Colorimetry_BT2100</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bColorimetry_BT2100"><span id="%24mColorimetry_BT2100"><span id="Colorimetry_BT2100"><span class="annot"><span class="annottext">$bColorimetry_BT2100 :: Colorimetry
+$mColorimetry_BT2100 :: forall r. Colorimetry -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#%24bColorimetry_BT2100"><span class="hs-identifier hs-var hs-var hs-var">Colorimetry_BT2100</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-type">Colorimetry'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BT2100&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT601"><span class="hs-identifier hs-type">Colorimetry_BT601</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bColorimetry_BT601"><span id="%24mColorimetry_BT601"><span id="Colorimetry_BT601"><span class="annot"><span class="annottext">$bColorimetry_BT601 :: Colorimetry
+$mColorimetry_BT601 :: forall r. Colorimetry -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#%24bColorimetry_BT601"><span class="hs-identifier hs-var hs-var hs-var">Colorimetry_BT601</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-type">Colorimetry'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BT601&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT709"><span class="hs-identifier hs-type">Colorimetry_BT709</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bColorimetry_BT709"><span id="%24mColorimetry_BT709"><span id="Colorimetry_BT709"><span class="annot"><span class="annottext">$bColorimetry_BT709 :: Colorimetry
+$mColorimetry_BT709 :: forall r. Colorimetry -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#%24bColorimetry_BT709"><span class="hs-identifier hs-var hs-var hs-var">Colorimetry_BT709</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-type">Colorimetry'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BT709&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_ST2065_1"><span class="hs-identifier hs-type">Colorimetry_ST2065_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bColorimetry_ST2065_1"><span id="%24mColorimetry_ST2065_1"><span id="Colorimetry_ST2065_1"><span class="annot"><span class="annottext">$bColorimetry_ST2065_1 :: Colorimetry
+$mColorimetry_ST2065_1 :: forall r. Colorimetry -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#%24bColorimetry_ST2065_1"><span class="hs-identifier hs-var hs-var hs-var">Colorimetry_ST2065_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-type">Colorimetry'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ST2065-1&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_ST2065_3"><span class="hs-identifier hs-type">Colorimetry_ST2065_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bColorimetry_ST2065_3"><span id="%24mColorimetry_ST2065_3"><span id="Colorimetry_ST2065_3"><span class="annot"><span class="annottext">$bColorimetry_ST2065_3 :: Colorimetry
+$mColorimetry_ST2065_3 :: forall r. Colorimetry -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#%24bColorimetry_ST2065_3"><span class="hs-identifier hs-var hs-var hs-var">Colorimetry_ST2065_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-type">Colorimetry'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ST2065-3&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_XYZ"><span class="hs-identifier hs-type">Colorimetry_XYZ</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry"><span class="hs-identifier hs-type">Colorimetry</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bColorimetry_XYZ"><span id="%24mColorimetry_XYZ"><span id="Colorimetry_XYZ"><span class="annot"><span class="annottext">$bColorimetry_XYZ :: Colorimetry
+$mColorimetry_XYZ :: forall r. Colorimetry -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#%24bColorimetry_XYZ"><span class="hs-identifier hs-var hs-var hs-var">Colorimetry_XYZ</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-identifier hs-type">Colorimetry'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;XYZ&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT2020"><span class="hs-pragma hs-type">Colorimetry_BT2020</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT2100"><span class="hs-pragma hs-type">Colorimetry_BT2100</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT601"><span class="hs-pragma hs-type">Colorimetry_BT601</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_BT709"><span class="hs-pragma hs-type">Colorimetry_BT709</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_ST2065_1"><span class="hs-pragma hs-type">Colorimetry_ST2065_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_ST2065_3"><span class="hs-pragma hs-type">Colorimetry_ST2065_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry_XYZ"><span class="hs-pragma hs-type">Colorimetry_XYZ</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Colorimetry.html#Colorimetry%27"><span class="hs-pragma hs-type">Colorimetry'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

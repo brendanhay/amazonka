@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- server (or /instance/).</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMonthlyTransfer' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679616420"><span id="local-6989586621679616421"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonthlyTransfer"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-var">MonthlyTransfer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonthlyTransfer%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer%27"><span class="hs-identifier hs-var">MonthlyTransfer'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679616429"><span id="local-6989586621679616430"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonthlyTransfer"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-var">MonthlyTransfer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonthlyTransfer%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer%27"><span class="hs-identifier hs-var">MonthlyTransfer'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount allocated per month (in GB).</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AgbPerMonthAllocated%3AMonthlyTransfer%27"><span class="annot"><span class="annottext">MonthlyTransfer -&gt; Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#%24sel%3AgbPerMonthAllocated%3AMonthlyTransfer%27"><span class="hs-identifier hs-var hs-var">gbPerMonthAllocated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679616414"><span id="local-6989586621679616416"><span class="annot"><span class="annottext">MonthlyTransfer -&gt; MonthlyTransfer -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679616423"><span id="local-6989586621679616425"><span class="annot"><span class="annottext">MonthlyTransfer -&gt; MonthlyTransfer -&gt; Bool
 (MonthlyTransfer -&gt; MonthlyTransfer -&gt; Bool)
 -&gt; (MonthlyTransfer -&gt; MonthlyTransfer -&gt; Bool)
 -&gt; Eq MonthlyTransfer
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MonthlyTransfer -&gt; MonthlyTransfer -&gt; Bool
 == :: MonthlyTransfer -&gt; MonthlyTransfer -&gt; Bool
 $c== :: MonthlyTransfer -&gt; MonthlyTransfer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616405"><span id="local-6989586621679616407"><span id="local-6989586621679616409"><span id="local-6989586621679616411"><span class="annot"><span class="annottext">ReadPrec [MonthlyTransfer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616414"><span id="local-6989586621679616416"><span id="local-6989586621679616418"><span id="local-6989586621679616420"><span class="annot"><span class="annottext">ReadPrec [MonthlyTransfer]
 ReadPrec MonthlyTransfer
 Int -&gt; ReadS MonthlyTransfer
 ReadS [MonthlyTransfer]
@@ -61,7 +61,7 @@ readList :: ReadS [MonthlyTransfer]
 $creadList :: ReadS [MonthlyTransfer]
 readsPrec :: Int -&gt; ReadS MonthlyTransfer
 $creadsPrec :: Int -&gt; ReadS MonthlyTransfer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616398"><span id="local-6989586621679616400"><span id="local-6989586621679616402"><span class="annot"><span class="annottext">Int -&gt; MonthlyTransfer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616407"><span id="local-6989586621679616409"><span id="local-6989586621679616411"><span class="annot"><span class="annottext">Int -&gt; MonthlyTransfer -&gt; ShowS
 [MonthlyTransfer] -&gt; ShowS
 MonthlyTransfer -&gt; String
 (Int -&gt; MonthlyTransfer -&gt; ShowS)
@@ -117,19 +117,19 @@ forall a. Maybe a
 -&gt; (MonthlyTransfer -&gt; Maybe Int -&gt; MonthlyTransfer)
 -&gt; Lens MonthlyTransfer MonthlyTransfer (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer%27"><span class="hs-identifier hs-type">MonthlyTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616389"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer%27"><span class="hs-identifier hs-type">MonthlyTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616398"><span class="annot"><span class="annottext">Maybe Int
 gbPerMonthAllocated :: Maybe Int
 $sel:gbPerMonthAllocated:MonthlyTransfer' :: MonthlyTransfer -&gt; Maybe Int
-</span><a href="#local-6989586621679616389"><span class="hs-identifier hs-var hs-var">gbPerMonthAllocated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679616389"><span class="hs-identifier hs-var">gbPerMonthAllocated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616388"><span class="annot"><span class="annottext">s :: MonthlyTransfer
-</span><a href="#local-6989586621679616388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer%27"><span class="hs-identifier hs-type">MonthlyTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616387"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679616387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonthlyTransfer
-</span><a href="#local-6989586621679616388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gbPerMonthAllocated:MonthlyTransfer' :: Maybe Int
+</span><a href="#local-6989586621679616398"><span class="hs-identifier hs-var hs-var">gbPerMonthAllocated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679616398"><span class="hs-identifier hs-var">gbPerMonthAllocated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616397"><span class="annot"><span class="annottext">s :: MonthlyTransfer
+</span><a href="#local-6989586621679616397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer%27"><span class="hs-identifier hs-type">MonthlyTransfer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616396"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679616396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonthlyTransfer
+</span><a href="#local-6989586621679616397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gbPerMonthAllocated:MonthlyTransfer' :: Maybe Int
 </span><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#%24sel%3AgbPerMonthAllocated%3AMonthlyTransfer%27"><span class="hs-identifier hs-var">gbPerMonthAllocated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679616387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679616396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616384"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679616382"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonthlyTransfer
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616393"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679616391"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MonthlyTransfer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MonthlyTransfer)
@@ -139,21 +139,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MonthlyTransfer&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679616379"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679616379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679616388"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679616388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; MonthlyTransfer
 </span><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer%27"><span class="hs-identifier hs-var">MonthlyTransfer'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; MonthlyTransfer)
 -&gt; Parser (Maybe Int) -&gt; Parser MonthlyTransfer
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679616379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679616388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gbPerMonthAllocated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616373"><span id="local-6989586621679616375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616382"><span id="local-6989586621679616384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

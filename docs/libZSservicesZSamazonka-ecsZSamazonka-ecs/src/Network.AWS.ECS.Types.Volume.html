@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html Using Data Volumes in Tasks&gt;.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newVolume' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679466851"><span id="local-6989586621679466852"></span></span><span class="hs-keyword">data</span><span> </span><span id="Volume"><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-var">Volume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Volume%27"><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-var">Volume'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679466860"><span id="local-6989586621679466861"></span></span><span class="hs-keyword">data</span><span> </span><span id="Volume"><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-var">Volume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Volume%27"><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-var">Volume'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This parameter is specified when you are using Docker volumes.</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Windows containers only support the use of the @local@ driver. To use</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Ahost%3AVolume%27"><span class="annot"><span class="annottext">Volume -&gt; Maybe HostVolumeProperties
 </span><a href="Network.AWS.ECS.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.HostVolumeProperties.html#HostVolumeProperties"><span class="hs-identifier hs-type">HostVolumeProperties</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679466841"><span id="local-6989586621679466843"><span class="annot"><span class="annottext">Volume -&gt; Volume -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679466850"><span id="local-6989586621679466852"><span class="annot"><span class="annottext">Volume -&gt; Volume -&gt; Bool
 (Volume -&gt; Volume -&gt; Bool)
 -&gt; (Volume -&gt; Volume -&gt; Bool) -&gt; Eq Volume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Volume -&gt; Volume -&gt; Bool
 == :: Volume -&gt; Volume -&gt; Bool
 $c== :: Volume -&gt; Volume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466832"><span id="local-6989586621679466834"><span id="local-6989586621679466836"><span id="local-6989586621679466838"><span class="annot"><span class="annottext">ReadPrec [Volume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466841"><span id="local-6989586621679466843"><span id="local-6989586621679466845"><span id="local-6989586621679466847"><span class="annot"><span class="annottext">ReadPrec [Volume]
 ReadPrec Volume
 Int -&gt; ReadS Volume
 ReadS [Volume]
@@ -102,7 +102,7 @@ readList :: ReadS [Volume]
 $creadList :: ReadS [Volume]
 readsPrec :: Int -&gt; ReadS Volume
 $creadsPrec :: Int -&gt; ReadS Volume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466825"><span id="local-6989586621679466827"><span id="local-6989586621679466829"><span class="annot"><span class="annottext">Int -&gt; Volume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466834"><span id="local-6989586621679466836"><span id="local-6989586621679466838"><span class="annot"><span class="annottext">Int -&gt; Volume -&gt; ShowS
 [Volume] -&gt; ShowS
 Volume -&gt; String
 (Int -&gt; Volume -&gt; ShowS)
@@ -215,16 +215,16 @@ forall a. Maybe a
      (Maybe DockerVolumeConfiguration)
      (Maybe DockerVolumeConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466816"><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466825"><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
 dockerVolumeConfiguration :: Maybe DockerVolumeConfiguration
 $sel:dockerVolumeConfiguration:Volume' :: Volume -&gt; Maybe DockerVolumeConfiguration
-</span><a href="#local-6989586621679466816"><span class="hs-identifier hs-var hs-var">dockerVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
-</span><a href="#local-6989586621679466816"><span class="hs-identifier hs-var">dockerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466815"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679466815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466814"><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
-</span><a href="#local-6989586621679466814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679466815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dockerVolumeConfiguration:Volume' :: Maybe DockerVolumeConfiguration
+</span><a href="#local-6989586621679466825"><span class="hs-identifier hs-var hs-var">dockerVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
+</span><a href="#local-6989586621679466825"><span class="hs-identifier hs-var">dockerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466824"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679466824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466823"><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
+</span><a href="#local-6989586621679466823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679466824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dockerVolumeConfiguration:Volume' :: Maybe DockerVolumeConfiguration
 </span><a href="Network.AWS.ECS.Types.Volume.html#%24sel%3AdockerVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var">dockerVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
-</span><a href="#local-6989586621679466814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | This parameter is specified when you are using Amazon FSx for Windows</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- File Server file system for task storage.</span><span>
@@ -241,16 +241,16 @@ $sel:dockerVolumeConfiguration:Volume' :: Volume -&gt; Maybe DockerVolumeConfigu
      (Maybe FSxWindowsFileServerVolumeConfiguration)
      (Maybe FSxWindowsFileServerVolumeConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466812"><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466821"><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
 fsxWindowsFileServerVolumeConfiguration :: Maybe FSxWindowsFileServerVolumeConfiguration
 $sel:fsxWindowsFileServerVolumeConfiguration:Volume' :: Volume -&gt; Maybe FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679466812"><span class="hs-identifier hs-var hs-var">fsxWindowsFileServerVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679466812"><span class="hs-identifier hs-var">fsxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466811"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679466811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466810"><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679466810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679466811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fsxWindowsFileServerVolumeConfiguration:Volume' :: Maybe FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679466821"><span class="hs-identifier hs-var hs-var">fsxWindowsFileServerVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679466821"><span class="hs-identifier hs-var">fsxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466820"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679466820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466819"><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
+</span><a href="#local-6989586621679466819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679466820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fsxWindowsFileServerVolumeConfiguration:Volume' :: Maybe FSxWindowsFileServerVolumeConfiguration
 </span><a href="Network.AWS.ECS.Types.Volume.html#%24sel%3AfsxWindowsFileServerVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var">fsxWindowsFileServerVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679466810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The name of the volume. Up to 255 letters (uppercase and lowercase),</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- numbers, underscores, and hyphens are allowed. This name is referenced</span><span>
@@ -261,16 +261,16 @@ $sel:fsxWindowsFileServerVolumeConfiguration:Volume' :: Volume -&gt; Maybe FSxWi
 -&gt; (Volume -&gt; Maybe Text -&gt; Volume)
 -&gt; Lens Volume Volume (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466808"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466817"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Volume' :: Volume -&gt; Maybe Text
-</span><a href="#local-6989586621679466808"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466808"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466807"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679466807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679466807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Volume' :: Maybe Text
+</span><a href="#local-6989586621679466817"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679466817"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466816"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679466816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466815"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679466815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679466816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Volume' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.Volume.html#%24sel%3Aname%3AVolume%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | This parameter is specified when you are using an Amazon Elastic File</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- System file system for task storage.</span><span>
@@ -285,16 +285,16 @@ $sel:name:Volume' :: Volume -&gt; Maybe Text
      (Maybe EFSVolumeConfiguration)
      (Maybe EFSVolumeConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466804"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466813"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
 efsVolumeConfiguration :: Maybe EFSVolumeConfiguration
 $sel:efsVolumeConfiguration:Volume' :: Volume -&gt; Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679466804"><span class="hs-identifier hs-var hs-var">efsVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679466804"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466803"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679466803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466802"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679466802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679466803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:efsVolumeConfiguration:Volume' :: Maybe EFSVolumeConfiguration
+</span><a href="#local-6989586621679466813"><span class="hs-identifier hs-var hs-var">efsVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><a href="#local-6989586621679466813"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466812"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679466812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466811"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><a href="#local-6989586621679466811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679466812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:efsVolumeConfiguration:Volume' :: Maybe EFSVolumeConfiguration
 </span><a href="Network.AWS.ECS.Types.Volume.html#%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679466802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | This parameter is specified when you are using bind mount host volumes.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- The contents of the @host@ parameter determine whether your bind mount</span><span>
@@ -319,27 +319,27 @@ $sel:efsVolumeConfiguration:Volume' :: Volume -&gt; Maybe EFSVolumeConfiguration
      (Maybe HostVolumeProperties)
      (Maybe HostVolumeProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466800"><span class="annot"><span class="annottext">Maybe HostVolumeProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466809"><span class="annot"><span class="annottext">Maybe HostVolumeProperties
 host :: Maybe HostVolumeProperties
 $sel:host:Volume' :: Volume -&gt; Maybe HostVolumeProperties
-</span><a href="#local-6989586621679466800"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HostVolumeProperties
-</span><a href="#local-6989586621679466800"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466799"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466798"><span class="annot"><span class="annottext">Maybe HostVolumeProperties
-</span><a href="#local-6989586621679466798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:host:Volume' :: Maybe HostVolumeProperties
+</span><a href="#local-6989586621679466809"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HostVolumeProperties
+</span><a href="#local-6989586621679466809"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466808"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679466808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466807"><span class="annot"><span class="annottext">Maybe HostVolumeProperties
+</span><a href="#local-6989586621679466807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679466808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:host:Volume' :: Maybe HostVolumeProperties
 </span><a href="Network.AWS.ECS.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var">host</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HostVolumeProperties
-</span><a href="#local-6989586621679466798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466795"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679466793"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Volume
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466804"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679466802"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Volume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Volume) -&gt; Value -&gt; Parser Volume
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Volume&quot;</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679466790"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466790"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679466799"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
 -&gt; Maybe FSxWindowsFileServerVolumeConfiguration
 -&gt; Maybe Text
@@ -362,7 +362,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Volume)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DockerVolumeConfiguration)
+</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DockerVolumeConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dockerVolumeConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -380,7 +380,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Volume)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466790"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-172"></span><span>                            </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe FSxWindowsFileServerVolumeConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -398,7 +398,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe HostVolumeProperties -&gt; Volume)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -409,7 +409,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe HostVolumeProperties -&gt; Volume)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSVolumeConfiguration)
+</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSVolumeConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;efsVolumeConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,19 +417,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe HostVolumeProperties) -&gt; Parser Volume
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466790"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HostVolumeProperties)
+</span><a href="#local-6989586621679466799"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HostVolumeProperties)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;host&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466784"><span id="local-6989586621679466786"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466793"><span id="local-6989586621679466795"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466773"><span id="local-6989586621679466775"><span id="local-6989586621679466777"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679466771"><span class="annot"><span class="annottext">toJSON :: Volume -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466765"><span id="local-6989586621679466766"><span id="local-6989586621679466767"><span id="local-6989586621679466768"><span id="local-6989586621679466769"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466782"><span id="local-6989586621679466784"><span id="local-6989586621679466786"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679466780"><span class="annot"><span class="annottext">toJSON :: Volume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466774"><span id="local-6989586621679466775"><span id="local-6989586621679466776"><span id="local-6989586621679466777"><span id="local-6989586621679466778"><span class="annot"><span class="annottext">Maybe Text
 Maybe EFSVolumeConfiguration
 Maybe FSxWindowsFileServerVolumeConfiguration
 Maybe HostVolumeProperties
@@ -444,7 +444,7 @@ $sel:efsVolumeConfiguration:Volume' :: Volume -&gt; Maybe EFSVolumeConfiguration
 $sel:name:Volume' :: Volume -&gt; Maybe Text
 $sel:fsxWindowsFileServerVolumeConfiguration:Volume' :: Volume -&gt; Maybe FSxWindowsFileServerVolumeConfiguration
 $sel:dockerVolumeConfiguration:Volume' :: Volume -&gt; Maybe DockerVolumeConfiguration
-</span><a href="#local-6989586621679466765"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679466774"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -458,7 +458,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DockerVolumeConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DockerVolumeConfiguration
-</span><a href="#local-6989586621679466769"><span class="hs-identifier hs-var">dockerVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466778"><span class="hs-identifier hs-var">dockerVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fsxWindowsFileServerVolumeConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FSxWindowsFileServerVolumeConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -467,14 +467,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe FSxWindowsFileServerVolumeConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FSxWindowsFileServerVolumeConfiguration
-</span><a href="#local-6989586621679466768"><span class="hs-identifier hs-var">fsxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466777"><span class="hs-identifier hs-var">fsxWindowsFileServerVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466767"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466776"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;efsVolumeConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EFSVolumeConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -483,7 +483,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EFSVolumeConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679466766"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679466775"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;host&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HostVolumeProperties -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -491,7 +491,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe HostVolumeProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HostVolumeProperties
-</span><a href="#local-6989586621679466765"><span class="hs-identifier hs-var">host</span></a></span><span>
+</span><a href="#local-6989586621679466774"><span class="hs-identifier hs-var">host</span></a></span><span>
 </span><span id="line-195"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span></pre></body></html>

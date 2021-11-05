@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteAppReplicationConfiguration' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679258126"><span id="local-6989586621679258127"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAppReplicationConfiguration"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-var">DeleteAppReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAppReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-var">DeleteAppReplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679258135"><span id="local-6989586621679258136"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAppReplicationConfiguration"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-var">DeleteAppReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAppReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-var">DeleteAppReplicationConfiguration'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the application.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AappId%3ADeleteAppReplicationConfiguration%27"><span class="annot"><span class="annottext">DeleteAppReplicationConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#%24sel%3AappId%3ADeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258120"><span id="local-6989586621679258122"><span class="annot"><span class="annottext">DeleteAppReplicationConfiguration
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258129"><span id="local-6989586621679258131"><span class="annot"><span class="annottext">DeleteAppReplicationConfiguration
 -&gt; DeleteAppReplicationConfiguration -&gt; Bool
 (DeleteAppReplicationConfiguration
  -&gt; DeleteAppReplicationConfiguration -&gt; Bool)
@@ -67,7 +67,7 @@ $c/= :: DeleteAppReplicationConfiguration
 -&gt; DeleteAppReplicationConfiguration -&gt; Bool
 $c== :: DeleteAppReplicationConfiguration
 -&gt; DeleteAppReplicationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258111"><span id="local-6989586621679258113"><span id="local-6989586621679258115"><span id="local-6989586621679258117"><span class="annot"><span class="annottext">ReadPrec [DeleteAppReplicationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258120"><span id="local-6989586621679258122"><span id="local-6989586621679258124"><span id="local-6989586621679258126"><span class="annot"><span class="annottext">ReadPrec [DeleteAppReplicationConfiguration]
 ReadPrec DeleteAppReplicationConfiguration
 Int -&gt; ReadS DeleteAppReplicationConfiguration
 ReadS [DeleteAppReplicationConfiguration]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteAppReplicationConfiguration]
 $creadList :: ReadS [DeleteAppReplicationConfiguration]
 readsPrec :: Int -&gt; ReadS DeleteAppReplicationConfiguration
 $creadsPrec :: Int -&gt; ReadS DeleteAppReplicationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258104"><span id="local-6989586621679258106"><span id="local-6989586621679258108"><span class="annot"><span class="annottext">Int -&gt; DeleteAppReplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258113"><span id="local-6989586621679258115"><span id="local-6989586621679258117"><span class="annot"><span class="annottext">Int -&gt; DeleteAppReplicationConfiguration -&gt; ShowS
 [DeleteAppReplicationConfiguration] -&gt; ShowS
 DeleteAppReplicationConfiguration -&gt; String
 (Int -&gt; DeleteAppReplicationConfiguration -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258097"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258106"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:DeleteAppReplicationConfiguration' :: DeleteAppReplicationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679258097"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258097"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258096"><span class="annot"><span class="annottext">s :: DeleteAppReplicationConfiguration
-</span><a href="#local-6989586621679258096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258095"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAppReplicationConfiguration
-</span><a href="#local-6989586621679258096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:DeleteAppReplicationConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679258106"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258106"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258105"><span class="annot"><span class="annottext">s :: DeleteAppReplicationConfiguration
+</span><a href="#local-6989586621679258105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAppReplicationConfiguration
+</span><a href="#local-6989586621679258105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:DeleteAppReplicationConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#%24sel%3AappId%3ADeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -179,7 +179,7 @@ $sel:appId:DeleteAppReplicationConfiguration' :: DeleteAppReplicationConfigurati
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679258091"><span class="annot"><span class="annottext">request :: DeleteAppReplicationConfiguration
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679258100"><span class="annot"><span class="annottext">request :: DeleteAppReplicationConfiguration
 -&gt; Request DeleteAppReplicationConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteAppReplicationConfiguration
@@ -187,7 +187,7 @@ $sel:appId:DeleteAppReplicationConfiguration' :: DeleteAppReplicationConfigurati
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679258087"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679258096"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAppReplicationConfiguration
 -&gt; ClientResponse ClientBody
@@ -215,10 +215,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258084"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258084"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258083"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679258083"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258082"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679258082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258093"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258093"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258092"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258092"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258091"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679258091"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteAppReplicationConfigurationResponse
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteAppReplicationConfigurationResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteAppReplicationConfigurationResponse)
@@ -230,22 +230,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258084"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258093"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679258075"><span id="local-6989586621679258077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679258084"><span id="local-6989586621679258086"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679258072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679258081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679258068"><span class="annot"><span class="annottext">toHeaders :: DeleteAppReplicationConfiguration -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679258077"><span class="annot"><span class="annottext">toHeaders :: DeleteAppReplicationConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DeleteAppReplicationConfiguration -&gt; ResponseHeaders
@@ -274,14 +274,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679258058"><span id="local-6989586621679258060"><span id="local-6989586621679258062"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679258067"><span id="local-6989586621679258069"><span id="local-6989586621679258071"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span></span></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679258056"><span class="annot"><span class="annottext">toJSON :: DeleteAppReplicationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258054"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679258065"><span class="annot"><span class="annottext">toJSON :: DeleteAppReplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258063"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:DeleteAppReplicationConfiguration' :: DeleteAppReplicationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679258054"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679258063"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,14 +293,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258054"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679258063"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679258048"><span class="annot"><span class="annottext">toPath :: DeleteAppReplicationConfiguration -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679258057"><span class="annot"><span class="annottext">toPath :: DeleteAppReplicationConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAppReplicationConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -310,7 +310,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfiguration"><span class="hs-identifier hs-type">DeleteAppReplicationConfiguration</span></a></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679258044"><span class="annot"><span class="annottext">toQuery :: DeleteAppReplicationConfiguration -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679258053"><span class="annot"><span class="annottext">toQuery :: DeleteAppReplicationConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAppReplicationConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,12 +318,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newDeleteAppReplicationConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679258041"><span id="local-6989586621679258042"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAppReplicationConfigurationResponse"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-var">DeleteAppReplicationConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAppReplicationConfigurationResponse%27"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteAppReplicationConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679258050"><span id="local-6989586621679258051"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAppReplicationConfigurationResponse"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-var">DeleteAppReplicationConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAppReplicationConfigurationResponse%27"><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">DeleteAppReplicationConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAppReplicationConfigurationResponse%27"><span class="annot"><span class="annottext">DeleteAppReplicationConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#%24sel%3AhttpStatus%3ADeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258036"><span id="local-6989586621679258038"><span class="annot"><span class="annottext">DeleteAppReplicationConfigurationResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258045"><span id="local-6989586621679258047"><span class="annot"><span class="annottext">DeleteAppReplicationConfigurationResponse
 -&gt; DeleteAppReplicationConfigurationResponse -&gt; Bool
 (DeleteAppReplicationConfigurationResponse
  -&gt; DeleteAppReplicationConfigurationResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: DeleteAppReplicationConfigurationResponse
 -&gt; DeleteAppReplicationConfigurationResponse -&gt; Bool
 $c== :: DeleteAppReplicationConfigurationResponse
 -&gt; DeleteAppReplicationConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258028"><span id="local-6989586621679258030"><span id="local-6989586621679258032"><span id="local-6989586621679258034"><span class="annot"><span class="annottext">ReadPrec [DeleteAppReplicationConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258037"><span id="local-6989586621679258039"><span id="local-6989586621679258041"><span id="local-6989586621679258043"><span class="annot"><span class="annottext">ReadPrec [DeleteAppReplicationConfigurationResponse]
 ReadPrec DeleteAppReplicationConfigurationResponse
 Int -&gt; ReadS DeleteAppReplicationConfigurationResponse
 ReadS [DeleteAppReplicationConfigurationResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [DeleteAppReplicationConfigurationResponse]
 $creadList :: ReadS [DeleteAppReplicationConfigurationResponse]
 readsPrec :: Int -&gt; ReadS DeleteAppReplicationConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAppReplicationConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258022"><span id="local-6989586621679258024"><span id="local-6989586621679258026"><span class="annot"><span class="annottext">Int -&gt; DeleteAppReplicationConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258031"><span id="local-6989586621679258033"><span id="local-6989586621679258035"><span class="annot"><span class="annottext">Int -&gt; DeleteAppReplicationConfigurationResponse -&gt; ShowS
 [DeleteAppReplicationConfigurationResponse] -&gt; ShowS
 DeleteAppReplicationConfigurationResponse -&gt; String
 (Int -&gt; DeleteAppReplicationConfigurationResponse -&gt; ShowS)
@@ -412,14 +412,14 @@ DeleteAppReplicationConfigurationResponse
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newDeleteAppReplicationConfigurationResponse"><span class="annot"><span class="annottext">newDeleteAppReplicationConfigurationResponse :: Int -&gt; DeleteAppReplicationConfigurationResponse
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#newDeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDeleteAppReplicationConfigurationResponse</span></a></span></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679258019"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258019"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679258028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">DeleteAppReplicationConfigurationResponse' :: Int -&gt; DeleteAppReplicationConfigurationResponse
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAppReplicationConfigurationResponse' :: Int
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#%24sel%3AhttpStatus%3ADeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258019"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679258028"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -436,18 +436,18 @@ DeleteAppReplicationConfigurationResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258018"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258027"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteAppReplicationConfigurationResponse' :: DeleteAppReplicationConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679258018"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258018"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258017"><span class="annot"><span class="annottext">s :: DeleteAppReplicationConfigurationResponse
-</span><a href="#local-6989586621679258017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAppReplicationConfigurationResponse
-</span><a href="#local-6989586621679258017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAppReplicationConfigurationResponse' :: Int
+</span><a href="#local-6989586621679258027"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258027"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258026"><span class="annot"><span class="annottext">s :: DeleteAppReplicationConfigurationResponse
+</span><a href="#local-6989586621679258026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAppReplicationConfigurationResponse
+</span><a href="#local-6989586621679258026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAppReplicationConfigurationResponse' :: Int
 </span><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#%24sel%3AhttpStatus%3ADeleteAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679258016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679258025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679258014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679258023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.DeleteAppReplicationConfiguration.html#DeleteAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">DeleteAppReplicationConfigurationResponse</span></a></span></span><span>
 </span><span id="line-173"></span></pre></body></html>

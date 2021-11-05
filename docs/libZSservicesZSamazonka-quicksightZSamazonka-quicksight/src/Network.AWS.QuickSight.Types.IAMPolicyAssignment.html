@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.IAMPolicyAssignment</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.IAMPolicyAssignment</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AssignmentStatus.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.AssignmentStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An Identity and Access Management (IAM) policy assignment.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIAMPolicyAssignment' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679557370"><span id="local-6989586621679557371"></span></span><span class="hs-keyword">data</span><span> </span><span id="IAMPolicyAssignment"><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-var">IAMPolicyAssignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IAMPolicyAssignment%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-var">IAMPolicyAssignment'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Assignment name.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AassignmentName%3AIAMPolicyAssignment%27"><span class="annot"><span class="annottext">IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentName%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var hs-var">assignmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AawsAccountId%3AIAMPolicyAssignment%27"><span class="annot"><span class="annottext">IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AawsAccountId%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Assignment status.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AassignmentStatus%3AIAMPolicyAssignment%27"><span class="annot"><span class="annottext">IAMPolicyAssignment -&gt; Maybe AssignmentStatus
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentStatus%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var hs-var">assignmentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AssignmentStatus.html#AssignmentStatus"><span class="hs-identifier hs-type">AssignmentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the IAMpolicy.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApolicyArn%3AIAMPolicyAssignment%27"><span class="annot"><span class="annottext">IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3ApolicyArn%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Identities.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aidentities%3AIAMPolicyAssignment%27"><span class="annot"><span class="annottext">IAMPolicyAssignment -&gt; Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3Aidentities%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Assignment ID.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AassignmentId%3AIAMPolicyAssignment%27"><span class="annot"><span class="annottext">IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentId%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var hs-var">assignmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557359"><span id="local-6989586621679557361"><span class="annot"><span class="annottext">IAMPolicyAssignment -&gt; IAMPolicyAssignment -&gt; Bool
+(IAMPolicyAssignment -&gt; IAMPolicyAssignment -&gt; Bool)
+-&gt; (IAMPolicyAssignment -&gt; IAMPolicyAssignment -&gt; Bool)
+-&gt; Eq IAMPolicyAssignment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IAMPolicyAssignment -&gt; IAMPolicyAssignment -&gt; Bool
+$c/= :: IAMPolicyAssignment -&gt; IAMPolicyAssignment -&gt; Bool
+== :: IAMPolicyAssignment -&gt; IAMPolicyAssignment -&gt; Bool
+$c== :: IAMPolicyAssignment -&gt; IAMPolicyAssignment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557350"><span id="local-6989586621679557352"><span id="local-6989586621679557354"><span id="local-6989586621679557356"><span class="annot"><span class="annottext">ReadPrec [IAMPolicyAssignment]
+ReadPrec IAMPolicyAssignment
+Int -&gt; ReadS IAMPolicyAssignment
+ReadS [IAMPolicyAssignment]
+(Int -&gt; ReadS IAMPolicyAssignment)
+-&gt; ReadS [IAMPolicyAssignment]
+-&gt; ReadPrec IAMPolicyAssignment
+-&gt; ReadPrec [IAMPolicyAssignment]
+-&gt; Read IAMPolicyAssignment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IAMPolicyAssignment]
+$creadListPrec :: ReadPrec [IAMPolicyAssignment]
+readPrec :: ReadPrec IAMPolicyAssignment
+$creadPrec :: ReadPrec IAMPolicyAssignment
+readList :: ReadS [IAMPolicyAssignment]
+$creadList :: ReadS [IAMPolicyAssignment]
+readsPrec :: Int -&gt; ReadS IAMPolicyAssignment
+$creadsPrec :: Int -&gt; ReadS IAMPolicyAssignment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557343"><span id="local-6989586621679557345"><span id="local-6989586621679557347"><span class="annot"><span class="annottext">Int -&gt; IAMPolicyAssignment -&gt; ShowS
+[IAMPolicyAssignment] -&gt; ShowS
+IAMPolicyAssignment -&gt; String
+(Int -&gt; IAMPolicyAssignment -&gt; ShowS)
+-&gt; (IAMPolicyAssignment -&gt; String)
+-&gt; ([IAMPolicyAssignment] -&gt; ShowS)
+-&gt; Show IAMPolicyAssignment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IAMPolicyAssignment] -&gt; ShowS
+$cshowList :: [IAMPolicyAssignment] -&gt; ShowS
+show :: IAMPolicyAssignment -&gt; String
+$cshow :: IAMPolicyAssignment -&gt; String
+showsPrec :: Int -&gt; IAMPolicyAssignment -&gt; ShowS
+$cshowsPrec :: Int -&gt; IAMPolicyAssignment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. IAMPolicyAssignment -&gt; Rep IAMPolicyAssignment x)
+-&gt; (forall x. Rep IAMPolicyAssignment x -&gt; IAMPolicyAssignment)
+-&gt; Generic IAMPolicyAssignment
+forall x. Rep IAMPolicyAssignment x -&gt; IAMPolicyAssignment
+forall x. IAMPolicyAssignment -&gt; Rep IAMPolicyAssignment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep IAMPolicyAssignment x -&gt; IAMPolicyAssignment
+$cfrom :: forall x. IAMPolicyAssignment -&gt; Rep IAMPolicyAssignment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'IAMPolicyAssignment' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'assignmentName', 'iAMPolicyAssignment_assignmentName' - Assignment name.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'awsAccountId', 'iAMPolicyAssignment_awsAccountId' - The Amazon Web Services account ID.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'assignmentStatus', 'iAMPolicyAssignment_assignmentStatus' - Assignment status.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'policyArn', 'iAMPolicyAssignment_policyArn' - The Amazon Resource Name (ARN) for the IAMpolicy.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'identities', 'iAMPolicyAssignment_identities' - Identities.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'assignmentId', 'iAMPolicyAssignment_assignmentId' - Assignment ID.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#newIAMPolicyAssignment"><span class="hs-identifier hs-type">newIAMPolicyAssignment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span>
+</span><span id="line-67"></span><span id="newIAMPolicyAssignment"><span class="annot"><span class="annottext">newIAMPolicyAssignment :: IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#newIAMPolicyAssignment"><span class="hs-identifier hs-var hs-var">newIAMPolicyAssignment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">IAMPolicyAssignment' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssignmentStatus
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Maybe Text
+-&gt; IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assignmentName:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentName%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">assignmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AawsAccountId%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:assignmentStatus:IAMPolicyAssignment' :: Maybe AssignmentStatus
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentStatus%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">assignmentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssignmentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3ApolicyArn%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:identities:IAMPolicyAssignment' :: Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3Aidentities%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">identities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:assignmentId:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentId%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">assignmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Assignment name.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_assignmentName"><span class="hs-identifier hs-type">iAMPolicyAssignment_assignmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="iAMPolicyAssignment_assignmentName"><span class="annot"><span class="annottext">iAMPolicyAssignment_assignmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IAMPolicyAssignment -&gt; f IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_assignmentName"><span class="hs-identifier hs-var hs-var">iAMPolicyAssignment_assignmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IAMPolicyAssignment -&gt; Maybe Text)
+-&gt; (IAMPolicyAssignment -&gt; Maybe Text -&gt; IAMPolicyAssignment)
+-&gt; Lens
+     IAMPolicyAssignment IAMPolicyAssignment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557334"><span class="annot"><span class="annottext">Maybe Text
+assignmentName :: Maybe Text
+$sel:assignmentName:IAMPolicyAssignment' :: IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="#local-6989586621679557334"><span class="hs-identifier hs-var hs-var">assignmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557334"><span class="hs-identifier hs-var">assignmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557333"><span class="annot"><span class="annottext">s :: IAMPolicyAssignment
+</span><a href="#local-6989586621679557333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557332"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IAMPolicyAssignment
+</span><a href="#local-6989586621679557333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentName:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentName%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">assignmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_awsAccountId"><span class="hs-identifier hs-type">iAMPolicyAssignment_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="iAMPolicyAssignment_awsAccountId"><span class="annot"><span class="annottext">iAMPolicyAssignment_awsAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IAMPolicyAssignment -&gt; f IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_awsAccountId"><span class="hs-identifier hs-var hs-var">iAMPolicyAssignment_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IAMPolicyAssignment -&gt; Maybe Text)
+-&gt; (IAMPolicyAssignment -&gt; Maybe Text -&gt; IAMPolicyAssignment)
+-&gt; Lens
+     IAMPolicyAssignment IAMPolicyAssignment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557330"><span class="annot"><span class="annottext">Maybe Text
+awsAccountId :: Maybe Text
+$sel:awsAccountId:IAMPolicyAssignment' :: IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="#local-6989586621679557330"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557330"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557329"><span class="annot"><span class="annottext">s :: IAMPolicyAssignment
+</span><a href="#local-6989586621679557329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557328"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IAMPolicyAssignment
+</span><a href="#local-6989586621679557329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AawsAccountId%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Assignment status.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_assignmentStatus"><span class="hs-identifier hs-type">iAMPolicyAssignment_assignmentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.AssignmentStatus.html#AssignmentStatus"><span class="hs-identifier hs-type">AssignmentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="iAMPolicyAssignment_assignmentStatus"><span class="annot"><span class="annottext">iAMPolicyAssignment_assignmentStatus :: (Maybe AssignmentStatus -&gt; f (Maybe AssignmentStatus))
+-&gt; IAMPolicyAssignment -&gt; f IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_assignmentStatus"><span class="hs-identifier hs-var hs-var">iAMPolicyAssignment_assignmentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IAMPolicyAssignment -&gt; Maybe AssignmentStatus)
+-&gt; (IAMPolicyAssignment
+    -&gt; Maybe AssignmentStatus -&gt; IAMPolicyAssignment)
+-&gt; Lens
+     IAMPolicyAssignment
+     IAMPolicyAssignment
+     (Maybe AssignmentStatus)
+     (Maybe AssignmentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557326"><span class="annot"><span class="annottext">Maybe AssignmentStatus
+assignmentStatus :: Maybe AssignmentStatus
+$sel:assignmentStatus:IAMPolicyAssignment' :: IAMPolicyAssignment -&gt; Maybe AssignmentStatus
+</span><a href="#local-6989586621679557326"><span class="hs-identifier hs-var hs-var">assignmentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssignmentStatus
+</span><a href="#local-6989586621679557326"><span class="hs-identifier hs-var">assignmentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557325"><span class="annot"><span class="annottext">s :: IAMPolicyAssignment
+</span><a href="#local-6989586621679557325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557324"><span class="annot"><span class="annottext">Maybe AssignmentStatus
+</span><a href="#local-6989586621679557324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IAMPolicyAssignment
+</span><a href="#local-6989586621679557325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentStatus:IAMPolicyAssignment' :: Maybe AssignmentStatus
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentStatus%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">assignmentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssignmentStatus
+</span><a href="#local-6989586621679557324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the IAMpolicy.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_policyArn"><span class="hs-identifier hs-type">iAMPolicyAssignment_policyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="iAMPolicyAssignment_policyArn"><span class="annot"><span class="annottext">iAMPolicyAssignment_policyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IAMPolicyAssignment -&gt; f IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_policyArn"><span class="hs-identifier hs-var hs-var">iAMPolicyAssignment_policyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IAMPolicyAssignment -&gt; Maybe Text)
+-&gt; (IAMPolicyAssignment -&gt; Maybe Text -&gt; IAMPolicyAssignment)
+-&gt; Lens
+     IAMPolicyAssignment IAMPolicyAssignment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557322"><span class="annot"><span class="annottext">Maybe Text
+policyArn :: Maybe Text
+$sel:policyArn:IAMPolicyAssignment' :: IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="#local-6989586621679557322"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557322"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557321"><span class="annot"><span class="annottext">s :: IAMPolicyAssignment
+</span><a href="#local-6989586621679557321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IAMPolicyAssignment
+</span><a href="#local-6989586621679557321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3ApolicyArn%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Identities.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_identities"><span class="hs-identifier hs-type">iAMPolicyAssignment_identities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="iAMPolicyAssignment_identities"><span class="annot"><span class="annottext">iAMPolicyAssignment_identities :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; IAMPolicyAssignment -&gt; f IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_identities"><span class="hs-identifier hs-var hs-var">iAMPolicyAssignment_identities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IAMPolicyAssignment -&gt; Maybe (HashMap Text [Text]))
+-&gt; (IAMPolicyAssignment
+    -&gt; Maybe (HashMap Text [Text]) -&gt; IAMPolicyAssignment)
+-&gt; Lens
+     IAMPolicyAssignment
+     IAMPolicyAssignment
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557318"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+identities :: Maybe (HashMap Text [Text])
+$sel:identities:IAMPolicyAssignment' :: IAMPolicyAssignment -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679557318"><span class="hs-identifier hs-var hs-var">identities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679557318"><span class="hs-identifier hs-var">identities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557317"><span class="annot"><span class="annottext">s :: IAMPolicyAssignment
+</span><a href="#local-6989586621679557317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557316"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679557316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IAMPolicyAssignment
+</span><a href="#local-6989586621679557317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identities:IAMPolicyAssignment' :: Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3Aidentities%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">identities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679557316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+ -&gt; IAMPolicyAssignment -&gt; f IAMPolicyAssignment)
+-&gt; ((Maybe (HashMap Text [Text])
+     -&gt; f (Maybe (HashMap Text [Text])))
+    -&gt; Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; IAMPolicyAssignment
+-&gt; f IAMPolicyAssignment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+-&gt; Iso
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Assignment ID.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_assignmentId"><span class="hs-identifier hs-type">iAMPolicyAssignment_assignmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="iAMPolicyAssignment_assignmentId"><span class="annot"><span class="annottext">iAMPolicyAssignment_assignmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IAMPolicyAssignment -&gt; f IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#iAMPolicyAssignment_assignmentId"><span class="hs-identifier hs-var hs-var">iAMPolicyAssignment_assignmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IAMPolicyAssignment -&gt; Maybe Text)
+-&gt; (IAMPolicyAssignment -&gt; Maybe Text -&gt; IAMPolicyAssignment)
+-&gt; Lens
+     IAMPolicyAssignment IAMPolicyAssignment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557311"><span class="annot"><span class="annottext">Maybe Text
+assignmentId :: Maybe Text
+$sel:assignmentId:IAMPolicyAssignment' :: IAMPolicyAssignment -&gt; Maybe Text
+</span><a href="#local-6989586621679557311"><span class="hs-identifier hs-var hs-var">assignmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557311"><span class="hs-identifier hs-var">assignmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557310"><span class="annot"><span class="annottext">s :: IAMPolicyAssignment
+</span><a href="#local-6989586621679557310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-type">IAMPolicyAssignment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557309"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IAMPolicyAssignment
+</span><a href="#local-6989586621679557310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignmentId:IAMPolicyAssignment' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#%24sel%3AassignmentId%3AIAMPolicyAssignment%27"><span class="hs-identifier hs-var">assignmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679557309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557306"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679557304"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IAMPolicyAssignment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser IAMPolicyAssignment)
+-&gt; Value
+-&gt; Parser IAMPolicyAssignment
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;IAMPolicyAssignment&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679557301"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AssignmentStatus
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Maybe Text
+-&gt; IAMPolicyAssignment
+</span><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment%27"><span class="hs-identifier hs-var">IAMPolicyAssignment'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AssignmentStatus
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text [Text])
+ -&gt; Maybe Text
+ -&gt; IAMPolicyAssignment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AssignmentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [Text])
+      -&gt; Maybe Text
+      -&gt; IAMPolicyAssignment)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssignmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AssignmentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [Text])
+   -&gt; Maybe Text
+   -&gt; IAMPolicyAssignment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AssignmentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text [Text])
+      -&gt; Maybe Text
+      -&gt; IAMPolicyAssignment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsAccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AssignmentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text [Text])
+   -&gt; Maybe Text
+   -&gt; IAMPolicyAssignment)
+-&gt; Parser (Maybe AssignmentStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text [Text])
+      -&gt; Maybe Text
+      -&gt; IAMPolicyAssignment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssignmentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssignmentStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text [Text])
+   -&gt; Maybe Text
+   -&gt; IAMPolicyAssignment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text [Text]) -&gt; Maybe Text -&gt; IAMPolicyAssignment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text [Text]) -&gt; Maybe Text -&gt; IAMPolicyAssignment)
+-&gt; Parser (Maybe (HashMap Text [Text]))
+-&gt; Parser (Maybe Text -&gt; IAMPolicyAssignment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Identities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text [Text])))
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Parser (Maybe (HashMap Text [Text]))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; IAMPolicyAssignment)
+-&gt; Parser (Maybe Text) -&gt; Parser IAMPolicyAssignment
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssignmentId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557294"><span id="local-6989586621679557296"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557291"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.IAMPolicyAssignment.html#IAMPolicyAssignment"><span class="hs-identifier hs-type">IAMPolicyAssignment</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

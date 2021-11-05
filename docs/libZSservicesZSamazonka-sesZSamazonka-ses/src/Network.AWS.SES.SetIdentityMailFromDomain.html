@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- /See:/ 'newSetIdentityMailFromDomain' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679278510"><span id="local-6989586621679278511"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityMailFromDomain"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-var">SetIdentityMailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityMailFromDomain%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomain'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679278519"><span id="local-6989586621679278520"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityMailFromDomain"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-var">SetIdentityMailFromDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityMailFromDomain%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomain'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The custom MAIL FROM domain that you want the verified identity to use.</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The MAIL FROM domain must 1) be a subdomain of the verified identity, 2)</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- not be used in a \&quot;From\&quot; address if the MAIL FROM domain is the</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="annot"><span class="annottext">SetIdentityMailFromDomain -&gt; Text
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278502"><span id="local-6989586621679278504"><span class="annot"><span class="annottext">SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278511"><span id="local-6989586621679278513"><span class="annot"><span class="annottext">SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
 (SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool)
 -&gt; (SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool)
 -&gt; Eq SetIdentityMailFromDomain
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
 == :: SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
 $c== :: SetIdentityMailFromDomain -&gt; SetIdentityMailFromDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278493"><span id="local-6989586621679278495"><span id="local-6989586621679278497"><span id="local-6989586621679278499"><span class="annot"><span class="annottext">ReadPrec [SetIdentityMailFromDomain]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278502"><span id="local-6989586621679278504"><span id="local-6989586621679278506"><span id="local-6989586621679278508"><span class="annot"><span class="annottext">ReadPrec [SetIdentityMailFromDomain]
 ReadPrec SetIdentityMailFromDomain
 Int -&gt; ReadS SetIdentityMailFromDomain
 ReadS [SetIdentityMailFromDomain]
@@ -117,7 +117,7 @@ readList :: ReadS [SetIdentityMailFromDomain]
 $creadList :: ReadS [SetIdentityMailFromDomain]
 readsPrec :: Int -&gt; ReadS SetIdentityMailFromDomain
 $creadsPrec :: Int -&gt; ReadS SetIdentityMailFromDomain
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278486"><span id="local-6989586621679278488"><span id="local-6989586621679278490"><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278495"><span id="local-6989586621679278497"><span id="local-6989586621679278499"><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomain -&gt; ShowS
 [SetIdentityMailFromDomain] -&gt; ShowS
 SetIdentityMailFromDomain -&gt; String
 (Int -&gt; SetIdentityMailFromDomain -&gt; ShowS)
@@ -182,8 +182,8 @@ SetIdentityMailFromDomain -&gt; Rep SetIdentityMailFromDomain x
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span>
 </span><span id="line-122"></span><span id="newSetIdentityMailFromDomain"><span class="annot"><span class="annottext">newSetIdentityMailFromDomain :: Text -&gt; SetIdentityMailFromDomain
-</span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomain"><span class="hs-identifier hs-var hs-var">newSetIdentityMailFromDomain</span></a></span></span><span> </span><span id="local-6989586621679278481"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278481"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomain"><span class="hs-identifier hs-var hs-var">newSetIdentityMailFromDomain</span></a></span></span><span> </span><span id="local-6989586621679278490"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278490"><span class="hs-identifier hs-var">pIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain' :: Maybe Text
 -&gt; Maybe BehaviorOnMXFailure -&gt; Text -&gt; SetIdentityMailFromDomain
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span>
@@ -198,7 +198,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:identity:SetIdentityMailFromDomain' :: Text
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278481"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span>
+</span><a href="#local-6989586621679278490"><span class="hs-identifier hs-var">pIdentity_</span></a></span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The custom MAIL FROM domain that you want the verified identity to use.</span><span>
@@ -220,16 +220,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278478"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278487"><span class="annot"><span class="annottext">Maybe Text
 mailFromDomain :: Maybe Text
 $sel:mailFromDomain:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe Text
-</span><a href="#local-6989586621679278478"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278478"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278477"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
-</span><a href="#local-6989586621679278477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278476"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
-</span><a href="#local-6989586621679278477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomain:SetIdentityMailFromDomain' :: Maybe Text
+</span><a href="#local-6989586621679278487"><span class="hs-identifier hs-var hs-var">mailFromDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278487"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278486"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278485"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679278485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mailFromDomain:SetIdentityMailFromDomain' :: Maybe Text
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3AmailFromDomain%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The action that you want Amazon SES to take if it cannot successfully</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- read the required MX record when you send an email. If you choose</span><span>
@@ -252,16 +252,16 @@ $sel:mailFromDomain:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt
      (Maybe BehaviorOnMXFailure)
      (Maybe BehaviorOnMXFailure)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278475"><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278484"><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
 behaviorOnMXFailure :: Maybe BehaviorOnMXFailure
 $sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe BehaviorOnMXFailure
-</span><a href="#local-6989586621679278475"><span class="hs-identifier hs-var hs-var">behaviorOnMXFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
-</span><a href="#local-6989586621679278475"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278474"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
-</span><a href="#local-6989586621679278474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278473"><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
-</span><a href="#local-6989586621679278473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
-</span><a href="#local-6989586621679278474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278484"><span class="hs-identifier hs-var hs-var">behaviorOnMXFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278484"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278483"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278482"><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
+</span><a href="#local-6989586621679278482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: Maybe BehaviorOnMXFailure
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3AbehaviorOnMXFailure%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
-</span><a href="#local-6989586621679278473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The verified identity for which you want to enable or disable the</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- specified custom MAIL FROM domain.</span><span>
@@ -273,28 +273,28 @@ $sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain
 -&gt; Lens
      SetIdentityMailFromDomain SetIdentityMailFromDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278472"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278481"><span class="annot"><span class="annottext">Text
 identity :: Text
 $sel:identity:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Text
-</span><a href="#local-6989586621679278472"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278472"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278471"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
-</span><a href="#local-6989586621679278471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278470"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
-</span><a href="#local-6989586621679278471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:SetIdentityMailFromDomain' :: Text
+</span><a href="#local-6989586621679278481"><span class="hs-identifier hs-var hs-var">identity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278481"><span class="hs-identifier hs-var">identity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278480"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomain
+</span><a href="#local-6989586621679278480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identity:SetIdentityMailFromDomain' :: Text
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3Aidentity%3ASetIdentityMailFromDomain%27"><span class="hs-identifier hs-var">identity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-159"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679278466"><span class="annot"><span class="annottext">request :: SetIdentityMailFromDomain -&gt; Request SetIdentityMailFromDomain
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679278475"><span class="annot"><span class="annottext">request :: SetIdentityMailFromDomain -&gt; Request SetIdentityMailFromDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; SetIdentityMailFromDomain -&gt; Request SetIdentityMailFromDomain
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679278462"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679278471"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetIdentityMailFromDomain
 -&gt; ClientResponse ClientBody
@@ -325,10 +325,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SetIdentityMailFromDomainResult&quot;</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278459"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278459"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278458"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679278458"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278457"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679278457"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278468"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278467"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278467"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278466"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679278466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomainResponse
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SetIdentityMailFromDomainResponse)
@@ -340,15 +340,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278459"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278468"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278450"><span id="local-6989586621679278452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278459"><span id="local-6989586621679278461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679278443"><span class="annot"><span class="annottext">toHeaders :: SetIdentityMailFromDomain -&gt; ResponseHeaders
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679278452"><span class="annot"><span class="annottext">toHeaders :: SetIdentityMailFromDomain -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SetIdentityMailFromDomain -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -356,15 +356,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679278438"><span class="annot"><span class="annottext">toPath :: SetIdentityMailFromDomain -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679278447"><span class="annot"><span class="annottext">toPath :: SetIdentityMailFromDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetIdentityMailFromDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain"><span class="hs-identifier hs-type">SetIdentityMailFromDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679278434"><span class="annot"><span class="annottext">toQuery :: SetIdentityMailFromDomain -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278430"><span id="local-6989586621679278431"><span id="local-6989586621679278432"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679278443"><span class="annot"><span class="annottext">toQuery :: SetIdentityMailFromDomain -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomain%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278439"><span id="local-6989586621679278440"><span id="local-6989586621679278441"><span class="annot"><span class="annottext">Maybe Text
 Maybe BehaviorOnMXFailure
 Text
 identity :: Text
@@ -373,7 +373,7 @@ mailFromDomain :: Maybe Text
 $sel:identity:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Text
 $sel:behaviorOnMXFailure:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe BehaviorOnMXFailure
 $sel:mailFromDomain:SetIdentityMailFromDomain' :: SetIdentityMailFromDomain -&gt; Maybe Text
-</span><a href="#local-6989586621679278430"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278439"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -393,28 +393,28 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;MailFromDomain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278432"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278441"><span class="hs-identifier hs-var">mailFromDomain</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BehaviorOnMXFailure&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe BehaviorOnMXFailure -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe BehaviorOnMXFailure
-</span><a href="#local-6989586621679278431"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278440"><span class="hs-identifier hs-var">behaviorOnMXFailure</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Identity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679278430"><span class="hs-identifier hs-var">identity</span></a></span><span>
+</span><a href="#local-6989586621679278439"><span class="hs-identifier hs-var">identity</span></a></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- /See:/ 'newSetIdentityMailFromDomainResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679278427"><span id="local-6989586621679278428"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityMailFromDomainResponse"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityMailFromDomainResponse%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679278436"><span id="local-6989586621679278437"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetIdentityMailFromDomainResponse"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetIdentityMailFromDomainResponse%27"><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">SetIdentityMailFromDomainResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse -&gt; Int
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278422"><span id="local-6989586621679278424"><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278431"><span id="local-6989586621679278433"><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse
 -&gt; SetIdentityMailFromDomainResponse -&gt; Bool
 (SetIdentityMailFromDomainResponse
  -&gt; SetIdentityMailFromDomainResponse -&gt; Bool)
@@ -430,7 +430,7 @@ $c/= :: SetIdentityMailFromDomainResponse
 -&gt; SetIdentityMailFromDomainResponse -&gt; Bool
 $c== :: SetIdentityMailFromDomainResponse
 -&gt; SetIdentityMailFromDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278414"><span id="local-6989586621679278416"><span id="local-6989586621679278418"><span id="local-6989586621679278420"><span class="annot"><span class="annottext">ReadPrec [SetIdentityMailFromDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278423"><span id="local-6989586621679278425"><span id="local-6989586621679278427"><span id="local-6989586621679278429"><span class="annot"><span class="annottext">ReadPrec [SetIdentityMailFromDomainResponse]
 ReadPrec SetIdentityMailFromDomainResponse
 Int -&gt; ReadS SetIdentityMailFromDomainResponse
 ReadS [SetIdentityMailFromDomainResponse]
@@ -450,7 +450,7 @@ readList :: ReadS [SetIdentityMailFromDomainResponse]
 $creadList :: ReadS [SetIdentityMailFromDomainResponse]
 readsPrec :: Int -&gt; ReadS SetIdentityMailFromDomainResponse
 $creadsPrec :: Int -&gt; ReadS SetIdentityMailFromDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278408"><span id="local-6989586621679278410"><span id="local-6989586621679278412"><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278417"><span id="local-6989586621679278419"><span id="local-6989586621679278421"><span class="annot"><span class="annottext">Int -&gt; SetIdentityMailFromDomainResponse -&gt; ShowS
 [SetIdentityMailFromDomainResponse] -&gt; ShowS
 SetIdentityMailFromDomainResponse -&gt; String
 (Int -&gt; SetIdentityMailFromDomainResponse -&gt; ShowS)
@@ -502,14 +502,14 @@ SetIdentityMailFromDomainResponse
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newSetIdentityMailFromDomainResponse"><span class="annot"><span class="annottext">newSetIdentityMailFromDomainResponse :: Int -&gt; SetIdentityMailFromDomainResponse
-</span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomainResponse"><span class="hs-identifier hs-var hs-var">newSetIdentityMailFromDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679278405"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#newSetIdentityMailFromDomainResponse"><span class="hs-identifier hs-var hs-var">newSetIdentityMailFromDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679278414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse' :: Int -&gt; SetIdentityMailFromDomainResponse
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityMailFromDomainResponse' :: Int
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679278414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -526,18 +526,18 @@ SetIdentityMailFromDomainResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278404"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278413"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SetIdentityMailFromDomainResponse' :: SetIdentityMailFromDomainResponse -&gt; Int
-</span><a href="#local-6989586621679278404"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278404"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278403"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomainResponse
-</span><a href="#local-6989586621679278403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278402"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse
-</span><a href="#local-6989586621679278403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityMailFromDomainResponse' :: Int
+</span><a href="#local-6989586621679278413"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278413"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278412"><span class="annot"><span class="annottext">s :: SetIdentityMailFromDomainResponse
+</span><a href="#local-6989586621679278412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278411"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetIdentityMailFromDomainResponse
+</span><a href="#local-6989586621679278412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SetIdentityMailFromDomainResponse' :: Int
 </span><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#%24sel%3AhttpStatus%3ASetIdentityMailFromDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679278400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679278409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.SES.SetIdentityMailFromDomain.html#SetIdentityMailFromDomainResponse"><span class="hs-identifier hs-type">SetIdentityMailFromDomainResponse</span></a></span></span><span>
 </span><span id="line-227"></span></pre></body></html>

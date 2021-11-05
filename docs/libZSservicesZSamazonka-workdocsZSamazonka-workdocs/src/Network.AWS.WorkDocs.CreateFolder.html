@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.html"><span class="hs-identifier">Network.AWS.WorkDocs.Types</span></a></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateFolder' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679274570"><span id="local-6989586621679274571"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFolder"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-var">CreateFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFolder%27"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-var">CreateFolder'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679274579"><span id="local-6989586621679274580"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFolder"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-var">CreateFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFolder%27"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-var">CreateFolder'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ACreateFolder%27"><span class="annot"><span class="annottext">CreateFolder -&gt; Maybe (Sensitive Text)
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AparentFolderId%3ACreateFolder%27"><span class="annot"><span class="annottext">CreateFolder -&gt; Text
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3AparentFolderId%3ACreateFolder%27"><span class="hs-identifier hs-var hs-var">parentFolderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274562"><span id="local-6989586621679274564"><span class="annot"><span class="annottext">CreateFolder -&gt; CreateFolder -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274571"><span id="local-6989586621679274573"><span class="annot"><span class="annottext">CreateFolder -&gt; CreateFolder -&gt; Bool
 (CreateFolder -&gt; CreateFolder -&gt; Bool)
 -&gt; (CreateFolder -&gt; CreateFolder -&gt; Bool) -&gt; Eq CreateFolder
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateFolder -&gt; CreateFolder -&gt; Bool
 == :: CreateFolder -&gt; CreateFolder -&gt; Bool
 $c== :: CreateFolder -&gt; CreateFolder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274555"><span id="local-6989586621679274557"><span id="local-6989586621679274559"><span class="annot"><span class="annottext">Int -&gt; CreateFolder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274564"><span id="local-6989586621679274566"><span id="local-6989586621679274568"><span class="annot"><span class="annottext">Int -&gt; CreateFolder -&gt; ShowS
 [CreateFolder] -&gt; ShowS
 CreateFolder -&gt; String
 (Int -&gt; CreateFolder -&gt; ShowS)
@@ -114,8 +114,8 @@ $cfrom :: forall x. CreateFolder -&gt; Rep CreateFolder x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span>
 </span><span id="line-81"></span><span id="newCreateFolder"><span class="annot"><span class="annottext">newCreateFolder :: Text -&gt; CreateFolder
-</span><a href="Network.AWS.WorkDocs.CreateFolder.html#newCreateFolder"><span class="hs-identifier hs-var hs-var">newCreateFolder</span></a></span></span><span> </span><span id="local-6989586621679274550"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274550"><span class="hs-identifier hs-var">pParentFolderId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.CreateFolder.html#newCreateFolder"><span class="hs-identifier hs-var hs-var">newCreateFolder</span></a></span></span><span> </span><span id="local-6989586621679274559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274559"><span class="hs-identifier hs-var">pParentFolderId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">CreateFolder' :: Maybe (Sensitive Text) -&gt; Maybe Text -&gt; Text -&gt; CreateFolder
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationToken:CreateFolder' :: Maybe (Sensitive Text)
@@ -129,7 +129,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:parentFolderId:CreateFolder' :: Text
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3AparentFolderId%3ACreateFolder%27"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274550"><span class="hs-identifier hs-var">pParentFolderId_</span></a></span><span>
+</span><a href="#local-6989586621679274559"><span class="hs-identifier hs-var">pParentFolderId_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274547"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274556"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authenticationToken :: Maybe (Sensitive Text)
 $sel:authenticationToken:CreateFolder' :: CreateFolder -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679274547"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679274547"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274546"><span class="annot"><span class="annottext">s :: CreateFolder
-</span><a href="#local-6989586621679274546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274545"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679274545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolder
-</span><a href="#local-6989586621679274546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:CreateFolder' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274556"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274556"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274555"><span class="annot"><span class="annottext">s :: CreateFolder
+</span><a href="#local-6989586621679274555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274554"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679274554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolder
+</span><a href="#local-6989586621679274555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:CreateFolder' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3AauthenticationToken%3ACreateFolder%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679274545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679274554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; CreateFolder -&gt; f CreateFolder)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -181,16 +181,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (CreateFolder -&gt; Maybe Text -&gt; CreateFolder)
 -&gt; Lens CreateFolder CreateFolder (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274541"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274550"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:CreateFolder' :: CreateFolder -&gt; Maybe Text
-</span><a href="#local-6989586621679274541"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274541"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274540"><span class="annot"><span class="annottext">s :: CreateFolder
-</span><a href="#local-6989586621679274540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274539"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolder
-</span><a href="#local-6989586621679274540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateFolder' :: Maybe Text
+</span><a href="#local-6989586621679274550"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274550"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274549"><span class="annot"><span class="annottext">s :: CreateFolder
+</span><a href="#local-6989586621679274549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274548"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolder
+</span><a href="#local-6989586621679274549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateFolder' :: Maybe Text
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3Aname%3ACreateFolder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The ID of the parent folder.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#createFolder_parentFolderId"><span class="hs-identifier hs-type">createFolder_parentFolderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -199,25 +199,25 @@ $sel:name:CreateFolder' :: CreateFolder -&gt; Maybe Text
 -&gt; (CreateFolder -&gt; Text -&gt; CreateFolder)
 -&gt; Lens CreateFolder CreateFolder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274538"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274547"><span class="annot"><span class="annottext">Text
 parentFolderId :: Text
 $sel:parentFolderId:CreateFolder' :: CreateFolder -&gt; Text
-</span><a href="#local-6989586621679274538"><span class="hs-identifier hs-var hs-var">parentFolderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274538"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274537"><span class="annot"><span class="annottext">s :: CreateFolder
-</span><a href="#local-6989586621679274537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274536"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolder
-</span><a href="#local-6989586621679274537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentFolderId:CreateFolder' :: Text
+</span><a href="#local-6989586621679274547"><span class="hs-identifier hs-var hs-var">parentFolderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274547"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274546"><span class="annot"><span class="annottext">s :: CreateFolder
+</span><a href="#local-6989586621679274546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274545"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolder
+</span><a href="#local-6989586621679274546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentFolderId:CreateFolder' :: Text
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3AparentFolderId%3ACreateFolder%27"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679274532"><span class="annot"><span class="annottext">request :: CreateFolder -&gt; Request CreateFolder
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679274541"><span class="annot"><span class="annottext">request :: CreateFolder -&gt; Request CreateFolder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateFolder -&gt; Request CreateFolder
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679274528"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679274537"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateFolder
 -&gt; ClientResponse ClientBody
@@ -241,10 +241,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274525"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274525"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274524"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679274524"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274523"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274523"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274534"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274534"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274533"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274533"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe FolderMetadata -&gt; Int -&gt; CreateFolderResponse
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-var">CreateFolderResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FolderMetadata -&gt; Int -&gt; CreateFolderResponse)
@@ -252,7 +252,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateFolderResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274523"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FolderMetadata)
+</span><a href="#local-6989586621679274532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FolderMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,16 +264,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274525"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274534"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274515"><span id="local-6989586621679274517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274524"><span id="local-6989586621679274526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679274508"><span class="annot"><span class="annottext">toHeaders :: CreateFolder -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274504"><span id="local-6989586621679274505"><span id="local-6989586621679274506"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679274517"><span class="annot"><span class="annottext">toHeaders :: CreateFolder -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274513"><span id="local-6989586621679274514"><span id="local-6989586621679274515"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Text
 parentFolderId :: Text
@@ -282,7 +282,7 @@ authenticationToken :: Maybe (Sensitive Text)
 $sel:parentFolderId:CreateFolder' :: CreateFolder -&gt; Text
 $sel:name:CreateFolder' :: CreateFolder -&gt; Maybe Text
 $sel:authenticationToken:CreateFolder' :: CreateFolder -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679274504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274513"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -290,7 +290,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679274506"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274515"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
@@ -299,9 +299,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274496"><span id="local-6989586621679274498"><span id="local-6989586621679274500"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679274494"><span class="annot"><span class="annottext">toJSON :: CreateFolder -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274490"><span id="local-6989586621679274491"><span id="local-6989586621679274492"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274505"><span id="local-6989586621679274507"><span id="local-6989586621679274509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679274503"><span class="annot"><span class="annottext">toJSON :: CreateFolder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder%27"><span class="hs-identifier hs-type">CreateFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274499"><span id="local-6989586621679274500"><span id="local-6989586621679274501"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Text
 parentFolderId :: Text
@@ -310,7 +310,7 @@ authenticationToken :: Maybe (Sensitive Text)
 $sel:parentFolderId:CreateFolder' :: CreateFolder -&gt; Text
 $sel:name:CreateFolder' :: CreateFolder -&gt; Maybe Text
 $sel:authenticationToken:CreateFolder' :: CreateFolder -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679274490"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274499"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -322,7 +322,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274491"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274500"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -330,19 +330,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ParentFolderId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274490"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274499"><span class="hs-identifier hs-var">parentFolderId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679274484"><span class="annot"><span class="annottext">toPath :: CreateFolder -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679274493"><span class="annot"><span class="annottext">toPath :: CreateFolder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateFolder -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/api/v1/folders&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolder"><span class="hs-identifier hs-type">CreateFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679274479"><span class="annot"><span class="annottext">toQuery :: CreateFolder -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679274488"><span class="annot"><span class="annottext">toQuery :: CreateFolder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateFolder -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -350,7 +350,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newCreateFolderResponse' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679274476"><span id="local-6989586621679274477"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFolderResponse"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-var">CreateFolderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFolderResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-var">CreateFolderResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679274485"><span id="local-6989586621679274486"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFolderResponse"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-var">CreateFolderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFolderResponse%27"><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-var">CreateFolderResponse'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The metadata of the folder.</span><span>
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3Ametadata%3ACreateFolderResponse%27"><span class="annot"><span class="annottext">CreateFolderResponse -&gt; Maybe FolderMetadata
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3Ametadata%3ACreateFolderResponse%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.Types.FolderMetadata.html#FolderMetadata"><span class="hs-identifier hs-type">FolderMetadata</span></a></span><span class="hs-special">,</span><span>
@@ -358,7 +358,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateFolderResponse%27"><span class="annot"><span class="annottext">CreateFolderResponse -&gt; Int
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3AhttpStatus%3ACreateFolderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274470"><span id="local-6989586621679274472"><span class="annot"><span class="annottext">CreateFolderResponse -&gt; CreateFolderResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274479"><span id="local-6989586621679274481"><span class="annot"><span class="annottext">CreateFolderResponse -&gt; CreateFolderResponse -&gt; Bool
 (CreateFolderResponse -&gt; CreateFolderResponse -&gt; Bool)
 -&gt; (CreateFolderResponse -&gt; CreateFolderResponse -&gt; Bool)
 -&gt; Eq CreateFolderResponse
@@ -367,7 +367,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateFolderResponse -&gt; CreateFolderResponse -&gt; Bool
 == :: CreateFolderResponse -&gt; CreateFolderResponse -&gt; Bool
 $c== :: CreateFolderResponse -&gt; CreateFolderResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274462"><span id="local-6989586621679274464"><span id="local-6989586621679274466"><span id="local-6989586621679274468"><span class="annot"><span class="annottext">ReadPrec [CreateFolderResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274471"><span id="local-6989586621679274473"><span id="local-6989586621679274475"><span id="local-6989586621679274477"><span class="annot"><span class="annottext">ReadPrec [CreateFolderResponse]
 ReadPrec CreateFolderResponse
 Int -&gt; ReadS CreateFolderResponse
 ReadS [CreateFolderResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [CreateFolderResponse]
 $creadList :: ReadS [CreateFolderResponse]
 readsPrec :: Int -&gt; ReadS CreateFolderResponse
 $creadsPrec :: Int -&gt; ReadS CreateFolderResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274455"><span id="local-6989586621679274457"><span id="local-6989586621679274459"><span class="annot"><span class="annottext">Int -&gt; CreateFolderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274464"><span id="local-6989586621679274466"><span id="local-6989586621679274468"><span class="annot"><span class="annottext">Int -&gt; CreateFolderResponse -&gt; ShowS
 [CreateFolderResponse] -&gt; ShowS
 CreateFolderResponse -&gt; String
 (Int -&gt; CreateFolderResponse -&gt; ShowS)
@@ -429,8 +429,8 @@ $cfrom :: forall x. CreateFolderResponse -&gt; Rep CreateFolderResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newCreateFolderResponse"><span class="annot"><span class="annottext">newCreateFolderResponse :: Int -&gt; CreateFolderResponse
-</span><a href="Network.AWS.WorkDocs.CreateFolder.html#newCreateFolderResponse"><span class="hs-identifier hs-var hs-var">newCreateFolderResponse</span></a></span></span><span> </span><span id="local-6989586621679274452"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274452"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkDocs.CreateFolder.html#newCreateFolderResponse"><span class="hs-identifier hs-var hs-var">newCreateFolderResponse</span></a></span></span><span> </span><span id="local-6989586621679274461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">CreateFolderResponse' :: Maybe FolderMetadata -&gt; Int -&gt; CreateFolderResponse
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metadata:CreateFolderResponse' :: Maybe FolderMetadata
@@ -439,7 +439,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFolderResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3AhttpStatus%3ACreateFolderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274452"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679274461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The metadata of the folder.</span><span>
@@ -455,16 +455,16 @@ forall a. Maybe a
      (Maybe FolderMetadata)
      (Maybe FolderMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274451"><span class="annot"><span class="annottext">Maybe FolderMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274460"><span class="annot"><span class="annottext">Maybe FolderMetadata
 metadata :: Maybe FolderMetadata
 $sel:metadata:CreateFolderResponse' :: CreateFolderResponse -&gt; Maybe FolderMetadata
-</span><a href="#local-6989586621679274451"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FolderMetadata
-</span><a href="#local-6989586621679274451"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274450"><span class="annot"><span class="annottext">s :: CreateFolderResponse
-</span><a href="#local-6989586621679274450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274449"><span class="annot"><span class="annottext">Maybe FolderMetadata
-</span><a href="#local-6989586621679274449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolderResponse
-</span><a href="#local-6989586621679274450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:CreateFolderResponse' :: Maybe FolderMetadata
+</span><a href="#local-6989586621679274460"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FolderMetadata
+</span><a href="#local-6989586621679274460"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274459"><span class="annot"><span class="annottext">s :: CreateFolderResponse
+</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274458"><span class="annot"><span class="annottext">Maybe FolderMetadata
+</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolderResponse
+</span><a href="#local-6989586621679274459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:CreateFolderResponse' :: Maybe FolderMetadata
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3Ametadata%3ACreateFolderResponse%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FolderMetadata
-</span><a href="#local-6989586621679274449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#createFolderResponse_httpStatus"><span class="hs-identifier hs-type">createFolderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -473,16 +473,16 @@ $sel:metadata:CreateFolderResponse' :: CreateFolderResponse -&gt; Maybe FolderMe
 -&gt; (CreateFolderResponse -&gt; Int -&gt; CreateFolderResponse)
 -&gt; Lens CreateFolderResponse CreateFolderResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274448"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274457"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateFolderResponse' :: CreateFolderResponse -&gt; Int
-</span><a href="#local-6989586621679274448"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274448"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274447"><span class="annot"><span class="annottext">s :: CreateFolderResponse
-</span><a href="#local-6989586621679274447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274446"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolderResponse
-</span><a href="#local-6989586621679274447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFolderResponse' :: Int
+</span><a href="#local-6989586621679274457"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274457"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274456"><span class="annot"><span class="annottext">s :: CreateFolderResponse
+</span><a href="#local-6989586621679274456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse%27"><span class="hs-identifier hs-type">CreateFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274455"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFolderResponse
+</span><a href="#local-6989586621679274456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFolderResponse' :: Int
 </span><a href="Network.AWS.WorkDocs.CreateFolder.html#%24sel%3AhttpStatus%3ACreateFolderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkDocs.CreateFolder.html#CreateFolderResponse"><span class="hs-identifier hs-type">CreateFolderResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

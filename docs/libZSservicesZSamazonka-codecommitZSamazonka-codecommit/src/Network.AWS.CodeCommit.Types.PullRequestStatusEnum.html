@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679352211"><span id="local-6989586621679352212"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PullRequestStatusEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusEnum.html#PullRequestStatusEnum"><span class="hs-identifier hs-var">PullRequestStatusEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PullRequestStatusEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusEnum.html#PullRequestStatusEnum%27"><span class="hs-identifier hs-var">PullRequestStatusEnum'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679352220"><span id="local-6989586621679352221"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PullRequestStatusEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusEnum.html#PullRequestStatusEnum"><span class="hs-identifier hs-var">PullRequestStatusEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PullRequestStatusEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.PullRequestStatusEnum.html#PullRequestStatusEnum%27"><span class="hs-identifier hs-var">PullRequestStatusEnum'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPullRequestStatusEnum"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; Text
 </span><a href="Network.AWS.CodeCommit.Types.PullRequestStatusEnum.html#fromPullRequestStatusEnum"><span class="hs-identifier hs-var hs-var">fromPullRequestStatusEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352203"><span id="local-6989586621679352205"><span id="local-6989586621679352207"><span class="annot"><span class="annottext">Int -&gt; PullRequestStatusEnum -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352212"><span id="local-6989586621679352214"><span id="local-6989586621679352216"><span class="annot"><span class="annottext">Int -&gt; PullRequestStatusEnum -&gt; ShowS
 [PullRequestStatusEnum] -&gt; ShowS
 PullRequestStatusEnum -&gt; String
 (Int -&gt; PullRequestStatusEnum -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PullRequestStatusEnum -&gt; String
 showsPrec :: Int -&gt; PullRequestStatusEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; PullRequestStatusEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679352194"><span id="local-6989586621679352196"><span id="local-6989586621679352198"><span id="local-6989586621679352200"><span class="annot"><span class="annottext">ReadPrec [PullRequestStatusEnum]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679352203"><span id="local-6989586621679352205"><span id="local-6989586621679352207"><span id="local-6989586621679352209"><span class="annot"><span class="annottext">ReadPrec [PullRequestStatusEnum]
 ReadPrec PullRequestStatusEnum
 Int -&gt; ReadS PullRequestStatusEnum
 ReadS [PullRequestStatusEnum]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PullRequestStatusEnum]
 readsPrec :: Int -&gt; ReadS PullRequestStatusEnum
 $creadsPrec :: Int -&gt; ReadS PullRequestStatusEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679352189"><span id="local-6989586621679352191"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679352198"><span id="local-6989586621679352200"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool
 (PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool)
 -&gt; (PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool)
 -&gt; Eq PullRequestStatusEnum
@@ -82,7 +82,7 @@ $c/= :: PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool
 == :: PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool
 $c== :: PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679352173"><span id="local-6989586621679352175"><span id="local-6989586621679352177"><span id="local-6989586621679352179"><span id="local-6989586621679352181"><span id="local-6989586621679352183"><span id="local-6989586621679352185"><span class="annot"><span class="annottext">Eq PullRequestStatusEnum
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679352182"><span id="local-6989586621679352184"><span id="local-6989586621679352186"><span id="local-6989586621679352188"><span id="local-6989586621679352190"><span id="local-6989586621679352192"><span id="local-6989586621679352194"><span class="annot"><span class="annottext">Eq PullRequestStatusEnum
 Eq PullRequestStatusEnum
 -&gt; (PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Ordering)
 -&gt; (PullRequestStatusEnum -&gt; PullRequestStatusEnum -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. PullRequestStatusEnum -&gt; Rep PullRequestStatusEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352165"><span id="local-6989586621679352167"><span class="annot"><span class="annottext">Int -&gt; PullRequestStatusEnum -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679352174"><span id="local-6989586621679352176"><span class="annot"><span class="annottext">Int -&gt; PullRequestStatusEnum -&gt; Int
 PullRequestStatusEnum -&gt; Int
 (Int -&gt; PullRequestStatusEnum -&gt; Int)
 -&gt; (PullRequestStatusEnum -&gt; Int) -&gt; Hashable PullRequestStatusEnum
@@ -150,54 +150,54 @@ $chash :: PullRequestStatusEnum -&gt; Int
 hashWithSalt :: Int -&gt; PullRequestStatusEnum -&gt; Int
 $chashWithSalt :: Int -&gt; PullRequestStatusEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679352162"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679352171"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; ()
 (PullRequestStatusEnum -&gt; ()) -&gt; NFData PullRequestStatusEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PullRequestStatusEnum -&gt; ()
 $crnf :: PullRequestStatusEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679352159"><span class="annot"><span class="annottext">Text -&gt; Either String PullRequestStatusEnum
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679352168"><span class="annot"><span class="annottext">Text -&gt; Either String PullRequestStatusEnum
 (Text -&gt; Either String PullRequestStatusEnum)
 -&gt; FromText PullRequestStatusEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PullRequestStatusEnum
 $cfromText :: Text -&gt; Either String PullRequestStatusEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679352156"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679352165"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; Text
 (PullRequestStatusEnum -&gt; Text) -&gt; ToText PullRequestStatusEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PullRequestStatusEnum -&gt; Text
 $ctoText :: PullRequestStatusEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679352153"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679352162"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; ByteString
 (PullRequestStatusEnum -&gt; ByteString)
 -&gt; ToByteString PullRequestStatusEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PullRequestStatusEnum -&gt; ByteString
 $ctoBS :: PullRequestStatusEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679352150"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679352159"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; ByteStringBuilder
 (PullRequestStatusEnum -&gt; ByteStringBuilder)
 -&gt; ToLog PullRequestStatusEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PullRequestStatusEnum -&gt; ByteStringBuilder
 $cbuild :: PullRequestStatusEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679352147"><span class="annot"><span class="annottext">HeaderName -&gt; PullRequestStatusEnum -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679352156"><span class="annot"><span class="annottext">HeaderName -&gt; PullRequestStatusEnum -&gt; [Header]
 (HeaderName -&gt; PullRequestStatusEnum -&gt; [Header])
 -&gt; ToHeader PullRequestStatusEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PullRequestStatusEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PullRequestStatusEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679352144"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679352153"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; QueryString
 (PullRequestStatusEnum -&gt; QueryString)
 -&gt; ToQuery PullRequestStatusEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PullRequestStatusEnum -&gt; QueryString
 $ctoQuery :: PullRequestStatusEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679352139"><span id="local-6989586621679352141"><span class="annot"><span class="annottext">Value -&gt; Parser [PullRequestStatusEnum]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679352148"><span id="local-6989586621679352150"><span class="annot"><span class="annottext">Value -&gt; Parser [PullRequestStatusEnum]
 Value -&gt; Parser PullRequestStatusEnum
 (Value -&gt; Parser PullRequestStatusEnum)
 -&gt; (Value -&gt; Parser [PullRequestStatusEnum])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [PullRequestStatusEnum]
 parseJSON :: Value -&gt; Parser PullRequestStatusEnum
 $cparseJSON :: Value -&gt; Parser PullRequestStatusEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679352134"><span id="local-6989586621679352136"><span class="annot"><span class="annottext">FromJSONKeyFunction [PullRequestStatusEnum]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679352143"><span id="local-6989586621679352145"><span class="annot"><span class="annottext">FromJSONKeyFunction [PullRequestStatusEnum]
 FromJSONKeyFunction PullRequestStatusEnum
 FromJSONKeyFunction PullRequestStatusEnum
 -&gt; FromJSONKeyFunction [PullRequestStatusEnum]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PullRequestStatusEnum]
 fromJSONKey :: FromJSONKeyFunction PullRequestStatusEnum
 $cfromJSONKey :: FromJSONKeyFunction PullRequestStatusEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679352125"><span id="local-6989586621679352127"><span id="local-6989586621679352129"><span id="local-6989586621679352131"><span class="annot"><span class="annottext">[PullRequestStatusEnum] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679352134"><span id="local-6989586621679352136"><span id="local-6989586621679352138"><span id="local-6989586621679352140"><span class="annot"><span class="annottext">[PullRequestStatusEnum] -&gt; Encoding
 [PullRequestStatusEnum] -&gt; Value
 PullRequestStatusEnum -&gt; Encoding
 PullRequestStatusEnum -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: PullRequestStatusEnum -&gt; Encoding
 toJSON :: PullRequestStatusEnum -&gt; Value
 $ctoJSON :: PullRequestStatusEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679352120"><span id="local-6989586621679352122"><span class="annot"><span class="annottext">ToJSONKeyFunction [PullRequestStatusEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679352129"><span id="local-6989586621679352131"><span class="annot"><span class="annottext">ToJSONKeyFunction [PullRequestStatusEnum]
 ToJSONKeyFunction PullRequestStatusEnum
 ToJSONKeyFunction PullRequestStatusEnum
 -&gt; ToJSONKeyFunction [PullRequestStatusEnum]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PullRequestStatusEnum]
 toJSONKey :: ToJSONKeyFunction PullRequestStatusEnum
 $ctoJSONKey :: ToJSONKeyFunction PullRequestStatusEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679352117"><span class="annot"><span class="annottext">[Node] -&gt; Either String PullRequestStatusEnum
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679352126"><span class="annot"><span class="annottext">[Node] -&gt; Either String PullRequestStatusEnum
 ([Node] -&gt; Either String PullRequestStatusEnum)
 -&gt; FromXML PullRequestStatusEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PullRequestStatusEnum
 $cparseXML :: [Node] -&gt; Either String PullRequestStatusEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679352114"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679352123"><span class="annot"><span class="annottext">PullRequestStatusEnum -&gt; XML
 (PullRequestStatusEnum -&gt; XML) -&gt; ToXML PullRequestStatusEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PullRequestStatusEnum -&gt; XML

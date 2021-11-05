@@ -38,7 +38,7 @@
 </span><span id="line-38"></span><span class="hs-comment">-- that match @PathPattern@, specify @0@ for @Quantity@ and omit @Items@.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newLambdaFunctionAssociations' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679394753"><span id="local-6989586621679394754"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionAssociations"><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-var">LambdaFunctionAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionAssociations%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-var">LambdaFunctionAssociations'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679394762"><span id="local-6989586621679394763"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionAssociations"><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-var">LambdaFunctionAssociations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionAssociations%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-var">LambdaFunctionAssociations'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | __Optional__: A complex type that contains @LambdaFunctionAssociation@</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- items for this cache behavior. If @Quantity@ is @0@, you can omit</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @Items@.</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Aquantity%3ALambdaFunctionAssociations%27"><span class="annot"><span class="annottext">LambdaFunctionAssociations -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#%24sel%3Aquantity%3ALambdaFunctionAssociations%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394746"><span id="local-6989586621679394748"><span class="annot"><span class="annottext">LambdaFunctionAssociations -&gt; LambdaFunctionAssociations -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394755"><span id="local-6989586621679394757"><span class="annot"><span class="annottext">LambdaFunctionAssociations -&gt; LambdaFunctionAssociations -&gt; Bool
 (LambdaFunctionAssociations -&gt; LambdaFunctionAssociations -&gt; Bool)
 -&gt; (LambdaFunctionAssociations
     -&gt; LambdaFunctionAssociations -&gt; Bool)
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaFunctionAssociations -&gt; LambdaFunctionAssociations -&gt; Bool
 == :: LambdaFunctionAssociations -&gt; LambdaFunctionAssociations -&gt; Bool
 $c== :: LambdaFunctionAssociations -&gt; LambdaFunctionAssociations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394737"><span id="local-6989586621679394739"><span id="local-6989586621679394741"><span id="local-6989586621679394743"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionAssociations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394746"><span id="local-6989586621679394748"><span id="local-6989586621679394750"><span id="local-6989586621679394752"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionAssociations]
 ReadPrec LambdaFunctionAssociations
 Int -&gt; ReadS LambdaFunctionAssociations
 ReadS [LambdaFunctionAssociations]
@@ -79,7 +79,7 @@ readList :: ReadS [LambdaFunctionAssociations]
 $creadList :: ReadS [LambdaFunctionAssociations]
 readsPrec :: Int -&gt; ReadS LambdaFunctionAssociations
 $creadsPrec :: Int -&gt; ReadS LambdaFunctionAssociations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394730"><span id="local-6989586621679394732"><span id="local-6989586621679394734"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionAssociations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394739"><span id="local-6989586621679394741"><span id="local-6989586621679394743"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionAssociations -&gt; ShowS
 [LambdaFunctionAssociations] -&gt; ShowS
 LambdaFunctionAssociations -&gt; String
 (Int -&gt; LambdaFunctionAssociations -&gt; ShowS)
@@ -130,8 +130,8 @@ LambdaFunctionAssociations -&gt; Rep LambdaFunctionAssociations x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span><span>
 </span><span id="line-70"></span><span id="newLambdaFunctionAssociations"><span class="annot"><span class="annottext">newLambdaFunctionAssociations :: Int -&gt; LambdaFunctionAssociations
-</span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#newLambdaFunctionAssociations"><span class="hs-identifier hs-var hs-var">newLambdaFunctionAssociations</span></a></span></span><span> </span><span id="local-6989586621679394724"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394724"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#newLambdaFunctionAssociations"><span class="hs-identifier hs-var hs-var">newLambdaFunctionAssociations</span></a></span></span><span> </span><span id="local-6989586621679394733"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394733"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LambdaFunctionAssociations' :: Maybe [LambdaFunctionAssociation]
 -&gt; Int -&gt; LambdaFunctionAssociations
 </span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span>
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:quantity:LambdaFunctionAssociations' :: Int
 </span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#%24sel%3Aquantity%3ALambdaFunctionAssociations%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394724"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679394733"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | __Optional__: A complex type that contains @LambdaFunctionAssociation@</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
      (Maybe [LambdaFunctionAssociation])
      (Maybe [LambdaFunctionAssociation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394720"><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394729"><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
 items :: Maybe [LambdaFunctionAssociation]
 $sel:items:LambdaFunctionAssociations' :: LambdaFunctionAssociations -&gt; Maybe [LambdaFunctionAssociation]
-</span><a href="#local-6989586621679394720"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
-</span><a href="#local-6989586621679394720"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394719"><span class="annot"><span class="annottext">s :: LambdaFunctionAssociations
-</span><a href="#local-6989586621679394719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394718"><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
-</span><a href="#local-6989586621679394718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionAssociations
-</span><a href="#local-6989586621679394719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:LambdaFunctionAssociations' :: Maybe [LambdaFunctionAssociation]
+</span><a href="#local-6989586621679394729"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
+</span><a href="#local-6989586621679394729"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394728"><span class="annot"><span class="annottext">s :: LambdaFunctionAssociations
+</span><a href="#local-6989586621679394728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394727"><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
+</span><a href="#local-6989586621679394727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionAssociations
+</span><a href="#local-6989586621679394728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:LambdaFunctionAssociations' :: Maybe [LambdaFunctionAssociation]
 </span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#%24sel%3Aitems%3ALambdaFunctionAssociations%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
-</span><a href="#local-6989586621679394718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LambdaFunctionAssociation]
+</span><a href="#local-6989586621679394727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LambdaFunctionAssociation]
   -&gt; f (Maybe [LambdaFunctionAssociation]))
  -&gt; LambdaFunctionAssociations -&gt; f LambdaFunctionAssociations)
 -&gt; ((Maybe [LambdaFunctionAssociation]
@@ -214,21 +214,21 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      LambdaFunctionAssociations LambdaFunctionAssociations Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394713"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394722"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:LambdaFunctionAssociations' :: LambdaFunctionAssociations -&gt; Int
-</span><a href="#local-6989586621679394713"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394713"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394712"><span class="annot"><span class="annottext">s :: LambdaFunctionAssociations
-</span><a href="#local-6989586621679394712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394711"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionAssociations
-</span><a href="#local-6989586621679394712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:LambdaFunctionAssociations' :: Int
+</span><a href="#local-6989586621679394722"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394722"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394721"><span class="annot"><span class="annottext">s :: LambdaFunctionAssociations
+</span><a href="#local-6989586621679394721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394720"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionAssociations
+</span><a href="#local-6989586621679394721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:LambdaFunctionAssociations' :: Int
 </span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#%24sel%3Aquantity%3ALambdaFunctionAssociations%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679394708"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LambdaFunctionAssociations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679394706"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679394706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679394717"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LambdaFunctionAssociations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679394715"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679394715"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
 -&gt; Int -&gt; LambdaFunctionAssociations
 </span><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-var">LambdaFunctionAssociations'</span></a></span><span>
@@ -238,7 +238,7 @@ $sel:quantity:LambdaFunctionAssociations' :: LambdaFunctionAssociations -&gt; In
 -&gt; Either String (Int -&gt; LambdaFunctionAssociations)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679394706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679394715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -265,24 +265,24 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String Int -&gt; Either String LambdaFunctionAssociations
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679394706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679394715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394696"><span id="local-6989586621679394698"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394705"><span id="local-6989586621679394707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations"><span class="hs-identifier hs-type">LambdaFunctionAssociations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679394689"><span class="annot"><span class="annottext">toXML :: LambdaFunctionAssociations -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394686"><span id="local-6989586621679394687"><span class="annot"><span class="annottext">Int
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679394698"><span class="annot"><span class="annottext">toXML :: LambdaFunctionAssociations -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.LambdaFunctionAssociations.html#LambdaFunctionAssociations%27"><span class="hs-identifier hs-type">LambdaFunctionAssociations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394695"><span id="local-6989586621679394696"><span class="annot"><span class="annottext">Int
 Maybe [LambdaFunctionAssociation]
 quantity :: Int
 items :: Maybe [LambdaFunctionAssociation]
 $sel:quantity:LambdaFunctionAssociations' :: LambdaFunctionAssociations -&gt; Int
 $sel:items:LambdaFunctionAssociations' :: LambdaFunctionAssociations -&gt; Maybe [LambdaFunctionAssociation]
-</span><a href="#local-6989586621679394686"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394695"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -301,12 +301,12 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 -&gt; Maybe [LambdaFunctionAssociation] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LambdaFunctionAssociation]
-</span><a href="#local-6989586621679394687"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><a href="#local-6989586621679394696"><span class="hs-identifier hs-var">items</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394686"><span class="hs-identifier hs-var">quantity</span></a></span><span>
+</span><a href="#local-6989586621679394695"><span class="hs-identifier hs-var">quantity</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679273646"><span id="local-6989586621679273647"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParticipantRole"><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-var">ParticipantRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParticipantRole%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole%27"><span class="hs-identifier hs-var">ParticipantRole'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679273655"><span id="local-6989586621679273656"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParticipantRole"><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-var">ParticipantRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParticipantRole%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#ParticipantRole%27"><span class="hs-identifier hs-var">ParticipantRole'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromParticipantRole"><span class="annot"><span class="annottext">ParticipantRole -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.ParticipantRole.html#fromParticipantRole"><span class="hs-identifier hs-var hs-var">fromParticipantRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273638"><span id="local-6989586621679273640"><span id="local-6989586621679273642"><span class="annot"><span class="annottext">Int -&gt; ParticipantRole -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273647"><span id="local-6989586621679273649"><span id="local-6989586621679273651"><span class="annot"><span class="annottext">Int -&gt; ParticipantRole -&gt; ShowS
 [ParticipantRole] -&gt; ShowS
 ParticipantRole -&gt; String
 (Int -&gt; ParticipantRole -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ParticipantRole -&gt; String
 showsPrec :: Int -&gt; ParticipantRole -&gt; ShowS
 $cshowsPrec :: Int -&gt; ParticipantRole -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273629"><span id="local-6989586621679273631"><span id="local-6989586621679273633"><span id="local-6989586621679273635"><span class="annot"><span class="annottext">ReadPrec [ParticipantRole]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679273638"><span id="local-6989586621679273640"><span id="local-6989586621679273642"><span id="local-6989586621679273644"><span class="annot"><span class="annottext">ReadPrec [ParticipantRole]
 ReadPrec ParticipantRole
 Int -&gt; ReadS ParticipantRole
 ReadS [ParticipantRole]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ParticipantRole]
 readsPrec :: Int -&gt; ReadS ParticipantRole
 $creadsPrec :: Int -&gt; ReadS ParticipantRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273624"><span id="local-6989586621679273626"><span class="annot"><span class="annottext">ParticipantRole -&gt; ParticipantRole -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273633"><span id="local-6989586621679273635"><span class="annot"><span class="annottext">ParticipantRole -&gt; ParticipantRole -&gt; Bool
 (ParticipantRole -&gt; ParticipantRole -&gt; Bool)
 -&gt; (ParticipantRole -&gt; ParticipantRole -&gt; Bool)
 -&gt; Eq ParticipantRole
@@ -82,7 +82,7 @@ $c/= :: ParticipantRole -&gt; ParticipantRole -&gt; Bool
 == :: ParticipantRole -&gt; ParticipantRole -&gt; Bool
 $c== :: ParticipantRole -&gt; ParticipantRole -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273608"><span id="local-6989586621679273610"><span id="local-6989586621679273612"><span id="local-6989586621679273614"><span id="local-6989586621679273616"><span id="local-6989586621679273618"><span id="local-6989586621679273620"><span class="annot"><span class="annottext">Eq ParticipantRole
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273617"><span id="local-6989586621679273619"><span id="local-6989586621679273621"><span id="local-6989586621679273623"><span id="local-6989586621679273625"><span id="local-6989586621679273627"><span id="local-6989586621679273629"><span class="annot"><span class="annottext">Eq ParticipantRole
 Eq ParticipantRole
 -&gt; (ParticipantRole -&gt; ParticipantRole -&gt; Ordering)
 -&gt; (ParticipantRole -&gt; ParticipantRole -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ParticipantRole -&gt; Rep ParticipantRole x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273600"><span id="local-6989586621679273602"><span class="annot"><span class="annottext">Int -&gt; ParticipantRole -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273609"><span id="local-6989586621679273611"><span class="annot"><span class="annottext">Int -&gt; ParticipantRole -&gt; Int
 ParticipantRole -&gt; Int
 (Int -&gt; ParticipantRole -&gt; Int)
 -&gt; (ParticipantRole -&gt; Int) -&gt; Hashable ParticipantRole
@@ -143,50 +143,50 @@ $chash :: ParticipantRole -&gt; Int
 hashWithSalt :: Int -&gt; ParticipantRole -&gt; Int
 $chashWithSalt :: Int -&gt; ParticipantRole -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273597"><span class="annot"><span class="annottext">ParticipantRole -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679273606"><span class="annot"><span class="annottext">ParticipantRole -&gt; ()
 (ParticipantRole -&gt; ()) -&gt; NFData ParticipantRole
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ParticipantRole -&gt; ()
 $crnf :: ParticipantRole -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273594"><span class="annot"><span class="annottext">Text -&gt; Either String ParticipantRole
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273603"><span class="annot"><span class="annottext">Text -&gt; Either String ParticipantRole
 (Text -&gt; Either String ParticipantRole) -&gt; FromText ParticipantRole
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ParticipantRole
 $cfromText :: Text -&gt; Either String ParticipantRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273591"><span class="annot"><span class="annottext">ParticipantRole -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273600"><span class="annot"><span class="annottext">ParticipantRole -&gt; Text
 (ParticipantRole -&gt; Text) -&gt; ToText ParticipantRole
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ParticipantRole -&gt; Text
 $ctoText :: ParticipantRole -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273588"><span class="annot"><span class="annottext">ParticipantRole -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273597"><span class="annot"><span class="annottext">ParticipantRole -&gt; ByteString
 (ParticipantRole -&gt; ByteString) -&gt; ToByteString ParticipantRole
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ParticipantRole -&gt; ByteString
 $ctoBS :: ParticipantRole -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273585"><span class="annot"><span class="annottext">ParticipantRole -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273594"><span class="annot"><span class="annottext">ParticipantRole -&gt; ByteStringBuilder
 (ParticipantRole -&gt; ByteStringBuilder) -&gt; ToLog ParticipantRole
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ParticipantRole -&gt; ByteStringBuilder
 $cbuild :: ParticipantRole -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273582"><span class="annot"><span class="annottext">HeaderName -&gt; ParticipantRole -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273591"><span class="annot"><span class="annottext">HeaderName -&gt; ParticipantRole -&gt; [Header]
 (HeaderName -&gt; ParticipantRole -&gt; [Header])
 -&gt; ToHeader ParticipantRole
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ParticipantRole -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ParticipantRole -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273579"><span class="annot"><span class="annottext">ParticipantRole -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273588"><span class="annot"><span class="annottext">ParticipantRole -&gt; QueryString
 (ParticipantRole -&gt; QueryString) -&gt; ToQuery ParticipantRole
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ParticipantRole -&gt; QueryString
 $ctoQuery :: ParticipantRole -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273574"><span id="local-6989586621679273576"><span class="annot"><span class="annottext">Value -&gt; Parser [ParticipantRole]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273583"><span id="local-6989586621679273585"><span class="annot"><span class="annottext">Value -&gt; Parser [ParticipantRole]
 Value -&gt; Parser ParticipantRole
 (Value -&gt; Parser ParticipantRole)
 -&gt; (Value -&gt; Parser [ParticipantRole]) -&gt; FromJSON ParticipantRole
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ParticipantRole]
 parseJSON :: Value -&gt; Parser ParticipantRole
 $cparseJSON :: Value -&gt; Parser ParticipantRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273569"><span id="local-6989586621679273571"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParticipantRole]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273578"><span id="local-6989586621679273580"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParticipantRole]
 FromJSONKeyFunction ParticipantRole
 FromJSONKeyFunction ParticipantRole
 -&gt; FromJSONKeyFunction [ParticipantRole]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ParticipantRole]
 fromJSONKey :: FromJSONKeyFunction ParticipantRole
 $cfromJSONKey :: FromJSONKeyFunction ParticipantRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273560"><span id="local-6989586621679273562"><span id="local-6989586621679273564"><span id="local-6989586621679273566"><span class="annot"><span class="annottext">[ParticipantRole] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273569"><span id="local-6989586621679273571"><span id="local-6989586621679273573"><span id="local-6989586621679273575"><span class="annot"><span class="annottext">[ParticipantRole] -&gt; Encoding
 [ParticipantRole] -&gt; Value
 ParticipantRole -&gt; Encoding
 ParticipantRole -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ParticipantRole -&gt; Encoding
 toJSON :: ParticipantRole -&gt; Value
 $ctoJSON :: ParticipantRole -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273555"><span id="local-6989586621679273557"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParticipantRole]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273564"><span id="local-6989586621679273566"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParticipantRole]
 ToJSONKeyFunction ParticipantRole
 ToJSONKeyFunction ParticipantRole
 -&gt; ToJSONKeyFunction [ParticipantRole] -&gt; ToJSONKey ParticipantRole
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ParticipantRole]
 toJSONKey :: ToJSONKeyFunction ParticipantRole
 $ctoJSONKey :: ToJSONKeyFunction ParticipantRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273552"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParticipantRole
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273561"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParticipantRole
 ([Node] -&gt; Either String ParticipantRole)
 -&gt; FromXML ParticipantRole
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ParticipantRole
 $cparseXML :: [Node] -&gt; Either String ParticipantRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273549"><span class="annot"><span class="annottext">ParticipantRole -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273558"><span class="annot"><span class="annottext">ParticipantRole -&gt; XML
 (ParticipantRole -&gt; XML) -&gt; ToXML ParticipantRole
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ParticipantRole -&gt; XML

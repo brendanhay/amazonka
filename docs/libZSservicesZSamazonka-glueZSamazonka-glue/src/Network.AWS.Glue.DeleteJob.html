@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteJob' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679735757"><span id="local-6989586621679735758"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJob"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-var">DeleteJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJob%27"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-var">DeleteJob'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679735766"><span id="local-6989586621679735767"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJob"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-var">DeleteJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJob%27"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-var">DeleteJob'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the job definition to delete.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AjobName%3ADeleteJob%27"><span class="annot"><span class="annottext">DeleteJob -&gt; Text
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AjobName%3ADeleteJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735751"><span id="local-6989586621679735753"><span class="annot"><span class="annottext">DeleteJob -&gt; DeleteJob -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735760"><span id="local-6989586621679735762"><span class="annot"><span class="annottext">DeleteJob -&gt; DeleteJob -&gt; Bool
 (DeleteJob -&gt; DeleteJob -&gt; Bool)
 -&gt; (DeleteJob -&gt; DeleteJob -&gt; Bool) -&gt; Eq DeleteJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteJob -&gt; DeleteJob -&gt; Bool
 == :: DeleteJob -&gt; DeleteJob -&gt; Bool
 $c== :: DeleteJob -&gt; DeleteJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735742"><span id="local-6989586621679735744"><span id="local-6989586621679735746"><span id="local-6989586621679735748"><span class="annot"><span class="annottext">ReadPrec [DeleteJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735751"><span id="local-6989586621679735753"><span id="local-6989586621679735755"><span id="local-6989586621679735757"><span class="annot"><span class="annottext">ReadPrec [DeleteJob]
 ReadPrec DeleteJob
 Int -&gt; ReadS DeleteJob
 ReadS [DeleteJob]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteJob]
 $creadList :: ReadS [DeleteJob]
 readsPrec :: Int -&gt; ReadS DeleteJob
 $creadsPrec :: Int -&gt; ReadS DeleteJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735735"><span id="local-6989586621679735737"><span id="local-6989586621679735739"><span class="annot"><span class="annottext">Int -&gt; DeleteJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735744"><span id="local-6989586621679735746"><span id="local-6989586621679735748"><span class="annot"><span class="annottext">Int -&gt; DeleteJob -&gt; ShowS
 [DeleteJob] -&gt; ShowS
 DeleteJob -&gt; String
 (Int -&gt; DeleteJob -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteJob -&gt; Rep DeleteJob x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span>
 </span><span id="line-70"></span><span id="newDeleteJob"><span class="annot"><span class="annottext">newDeleteJob :: Text -&gt; DeleteJob
-</span><a href="Network.AWS.Glue.DeleteJob.html#newDeleteJob"><span class="hs-identifier hs-var hs-var">newDeleteJob</span></a></span></span><span> </span><span id="local-6989586621679735730"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735730"><span class="hs-identifier hs-var">pJobName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteJob.html#newDeleteJob"><span class="hs-identifier hs-var hs-var">newDeleteJob</span></a></span></span><span> </span><span id="local-6989586621679735739"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735739"><span class="hs-identifier hs-var">pJobName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteJob' :: Text -&gt; DeleteJob
 </span><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:DeleteJob' :: Text
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AjobName%3ADeleteJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735730"><span class="hs-identifier hs-var">pJobName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679735739"><span class="hs-identifier hs-var">pJobName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The name of the job definition to delete.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#deleteJob_jobName"><span class="hs-identifier hs-type">deleteJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. DeleteJob -&gt; Rep DeleteJob x
 -&gt; (DeleteJob -&gt; Text -&gt; DeleteJob)
 -&gt; Lens DeleteJob DeleteJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735727"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735736"><span class="annot"><span class="annottext">Text
 jobName :: Text
 $sel:jobName:DeleteJob' :: DeleteJob -&gt; Text
-</span><a href="#local-6989586621679735727"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735727"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735726"><span class="annot"><span class="annottext">s :: DeleteJob
-</span><a href="#local-6989586621679735726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735725"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
-</span><a href="#local-6989586621679735726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:DeleteJob' :: Text
+</span><a href="#local-6989586621679735736"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735736"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735735"><span class="annot"><span class="annottext">s :: DeleteJob
+</span><a href="#local-6989586621679735735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735734"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679735734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJob
+</span><a href="#local-6989586621679735735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:DeleteJob' :: Text
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AjobName%3ADeleteJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679735721"><span class="annot"><span class="annottext">request :: DeleteJob -&gt; Request DeleteJob
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679735730"><span class="annot"><span class="annottext">request :: DeleteJob -&gt; Request DeleteJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteJob -&gt; Request DeleteJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679735717"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679735726"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteJob
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679735714"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735714"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679735713"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679735713"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679735712"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679735712"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679735723"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679735723"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679735722"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679735722"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679735721"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679735721"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteJobResponse
 </span><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-var">DeleteJobResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteJobResponse)
@@ -187,7 +187,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679735712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679735721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735714"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735723"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735704"><span id="local-6989586621679735706"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735713"><span id="local-6989586621679735715"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679735697"><span class="annot"><span class="annottext">toHeaders :: DeleteJob -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679735706"><span class="annot"><span class="annottext">toHeaders :: DeleteJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735687"><span id="local-6989586621679735689"><span id="local-6989586621679735691"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679735685"><span class="annot"><span class="annottext">toJSON :: DeleteJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735683"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735696"><span id="local-6989586621679735698"><span id="local-6989586621679735700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679735694"><span class="annot"><span class="annottext">toJSON :: DeleteJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob%27"><span class="hs-identifier hs-type">DeleteJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735692"><span class="annot"><span class="annottext">Text
 jobName :: Text
 $sel:jobName:DeleteJob' :: DeleteJob -&gt; Text
-</span><a href="#local-6989586621679735683"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679735692"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,18 +249,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679735683"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679735692"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679735677"><span class="annot"><span class="annottext">toPath :: DeleteJob -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679735686"><span class="annot"><span class="annottext">toPath :: DeleteJob -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteJob -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJob"><span class="hs-identifier hs-type">DeleteJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679735673"><span class="annot"><span class="annottext">toQuery :: DeleteJob -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679735682"><span class="annot"><span class="annottext">toQuery :: DeleteJob -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteJob -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -268,7 +268,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDeleteJobResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679735670"><span id="local-6989586621679735671"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-var">DeleteJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-var">DeleteJobResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679735679"><span id="local-6989586621679735680"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJobResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-var">DeleteJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJobResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-var">DeleteJobResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the job definition that was deleted.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AjobName%3ADeleteJobResponse%27"><span class="annot"><span class="annottext">DeleteJobResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AjobName%3ADeleteJobResponse%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -276,7 +276,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteJobResponse%27"><span class="annot"><span class="annottext">DeleteJobResponse -&gt; Int
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AhttpStatus%3ADeleteJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735664"><span id="local-6989586621679735666"><span class="annot"><span class="annottext">DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679735673"><span id="local-6989586621679735675"><span class="annot"><span class="annottext">DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
 (DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool)
 -&gt; (DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool)
 -&gt; Eq DeleteJobResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
 == :: DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
 $c== :: DeleteJobResponse -&gt; DeleteJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735656"><span id="local-6989586621679735658"><span id="local-6989586621679735660"><span id="local-6989586621679735662"><span class="annot"><span class="annottext">ReadPrec [DeleteJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735665"><span id="local-6989586621679735667"><span id="local-6989586621679735669"><span id="local-6989586621679735671"><span class="annot"><span class="annottext">ReadPrec [DeleteJobResponse]
 ReadPrec DeleteJobResponse
 Int -&gt; ReadS DeleteJobResponse
 ReadS [DeleteJobResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [DeleteJobResponse]
 $creadList :: ReadS [DeleteJobResponse]
 readsPrec :: Int -&gt; ReadS DeleteJobResponse
 $creadsPrec :: Int -&gt; ReadS DeleteJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735650"><span id="local-6989586621679735652"><span id="local-6989586621679735654"><span class="annot"><span class="annottext">Int -&gt; DeleteJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679735659"><span id="local-6989586621679735661"><span id="local-6989586621679735663"><span class="annot"><span class="annottext">Int -&gt; DeleteJobResponse -&gt; ShowS
 [DeleteJobResponse] -&gt; ShowS
 DeleteJobResponse -&gt; String
 (Int -&gt; DeleteJobResponse -&gt; ShowS)
@@ -347,8 +347,8 @@ $cfrom :: forall x. DeleteJobResponse -&gt; Rep DeleteJobResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newDeleteJobResponse"><span class="annot"><span class="annottext">newDeleteJobResponse :: Int -&gt; DeleteJobResponse
-</span><a href="Network.AWS.Glue.DeleteJob.html#newDeleteJobResponse"><span class="hs-identifier hs-var hs-var">newDeleteJobResponse</span></a></span></span><span> </span><span id="local-6989586621679735647"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735647"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteJob.html#newDeleteJobResponse"><span class="hs-identifier hs-var hs-var">newDeleteJobResponse</span></a></span></span><span> </span><span id="local-6989586621679735656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679735656"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">DeleteJobResponse' :: Maybe Text -&gt; Int -&gt; DeleteJobResponse
 </span><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobName:DeleteJobResponse' :: Maybe Text
@@ -357,7 +357,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJobResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AhttpStatus%3ADeleteJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735647"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679735656"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The name of the job definition that was deleted.</span><span>
@@ -369,16 +369,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteJobResponse DeleteJobResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735646"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735655"><span class="annot"><span class="annottext">Maybe Text
 jobName :: Maybe Text
 $sel:jobName:DeleteJobResponse' :: DeleteJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679735646"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679735646"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735645"><span class="annot"><span class="annottext">s :: DeleteJobResponse
-</span><a href="#local-6989586621679735645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735644"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679735644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobResponse
-</span><a href="#local-6989586621679735645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:DeleteJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679735655"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679735655"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735654"><span class="annot"><span class="annottext">s :: DeleteJobResponse
+</span><a href="#local-6989586621679735654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735653"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679735653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobResponse
+</span><a href="#local-6989586621679735654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:DeleteJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AjobName%3ADeleteJobResponse%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679735644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#deleteJobResponse_httpStatus"><span class="hs-identifier hs-type">deleteJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -387,16 +387,16 @@ $sel:jobName:DeleteJobResponse' :: DeleteJobResponse -&gt; Maybe Text
 -&gt; (DeleteJobResponse -&gt; Int -&gt; DeleteJobResponse)
 -&gt; Lens DeleteJobResponse DeleteJobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735643"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679735652"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteJobResponse' :: DeleteJobResponse -&gt; Int
-</span><a href="#local-6989586621679735643"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735643"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735642"><span class="annot"><span class="annottext">s :: DeleteJobResponse
-</span><a href="#local-6989586621679735642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735641"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobResponse
-</span><a href="#local-6989586621679735642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJobResponse' :: Int
+</span><a href="#local-6989586621679735652"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679735652"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679735651"><span class="annot"><span class="annottext">s :: DeleteJobResponse
+</span><a href="#local-6989586621679735651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse%27"><span class="hs-identifier hs-type">DeleteJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679735650"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679735650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJobResponse
+</span><a href="#local-6989586621679735651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJobResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteJob.html#%24sel%3AhttpStatus%3ADeleteJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679735641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679735650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735639"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679735648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteJob.html#DeleteJobResponse"><span class="hs-identifier hs-type">DeleteJobResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

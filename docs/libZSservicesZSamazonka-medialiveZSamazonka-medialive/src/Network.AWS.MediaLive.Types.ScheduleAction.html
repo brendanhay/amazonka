@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information on a single schedule action.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScheduleAction' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679924457"><span id="local-6989586621679924458"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleAction"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-var">ScheduleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleAction%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-var">ScheduleAction'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679924466"><span id="local-6989586621679924467"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleAction"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-var">ScheduleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleAction%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-var">ScheduleAction'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the action, must be unique within the schedule. This name</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- provides the main reference to an action once it is added to the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- schedule. A name is unique if it is no longer in the schedule. The</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AscheduleActionSettings%3AScheduleAction%27"><span class="annot"><span class="annottext">ScheduleAction -&gt; ScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#%24sel%3AscheduleActionSettings%3AScheduleAction%27"><span class="hs-identifier hs-var hs-var">scheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679924449"><span id="local-6989586621679924451"><span class="annot"><span class="annottext">ScheduleAction -&gt; ScheduleAction -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679924458"><span id="local-6989586621679924460"><span class="annot"><span class="annottext">ScheduleAction -&gt; ScheduleAction -&gt; Bool
 (ScheduleAction -&gt; ScheduleAction -&gt; Bool)
 -&gt; (ScheduleAction -&gt; ScheduleAction -&gt; Bool) -&gt; Eq ScheduleAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScheduleAction -&gt; ScheduleAction -&gt; Bool
 == :: ScheduleAction -&gt; ScheduleAction -&gt; Bool
 $c== :: ScheduleAction -&gt; ScheduleAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679924440"><span id="local-6989586621679924442"><span id="local-6989586621679924444"><span id="local-6989586621679924446"><span class="annot"><span class="annottext">ReadPrec [ScheduleAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679924449"><span id="local-6989586621679924451"><span id="local-6989586621679924453"><span id="local-6989586621679924455"><span class="annot"><span class="annottext">ReadPrec [ScheduleAction]
 ReadPrec ScheduleAction
 Int -&gt; ReadS ScheduleAction
 ReadS [ScheduleAction]
@@ -72,7 +72,7 @@ readList :: ReadS [ScheduleAction]
 $creadList :: ReadS [ScheduleAction]
 readsPrec :: Int -&gt; ReadS ScheduleAction
 $creadsPrec :: Int -&gt; ReadS ScheduleAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679924433"><span id="local-6989586621679924435"><span id="local-6989586621679924437"><span class="annot"><span class="annottext">Int -&gt; ScheduleAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679924442"><span id="local-6989586621679924444"><span id="local-6989586621679924446"><span class="annot"><span class="annottext">Int -&gt; ScheduleAction -&gt; ShowS
 [ScheduleAction] -&gt; ShowS
 ScheduleAction -&gt; String
 (Int -&gt; ScheduleAction -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. ScheduleAction -&gt; Rep ScheduleAction x
 -&gt; ScheduleActionSettings
 -&gt; ScheduleAction
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#newScheduleAction"><span class="hs-identifier hs-var hs-var">newScheduleAction</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679924427"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679924427"><span class="hs-identifier hs-var">pActionName_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679924426"><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679924426"><span class="hs-identifier hs-var">pScheduleActionStartSettings_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679924425"><span class="annot"><span class="annottext">ScheduleActionSettings
-</span><a href="#local-6989586621679924425"><span class="hs-identifier hs-var">pScheduleActionSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679924436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679924436"><span class="hs-identifier hs-var">pActionName_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679924435"><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><a href="#local-6989586621679924435"><span class="hs-identifier hs-var">pScheduleActionStartSettings_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679924434"><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679924434"><span class="hs-identifier hs-var">pScheduleActionSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">ScheduleAction' :: Text
 -&gt; ScheduleActionStartSettings
 -&gt; ScheduleActionSettings
@@ -142,14 +142,14 @@ $cfrom :: forall x. ScheduleAction -&gt; Rep ScheduleAction x
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:actionName:ScheduleAction' :: Text
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#%24sel%3AactionName%3AScheduleAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679924427"><span class="hs-identifier hs-var">pActionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679924436"><span class="hs-identifier hs-var">pActionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduleActionStartSettings:ScheduleAction' :: ScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#%24sel%3AscheduleActionStartSettings%3AScheduleAction%27"><span class="hs-identifier hs-var">scheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679924426"><span class="hs-identifier hs-var">pScheduleActionStartSettings_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679924435"><span class="hs-identifier hs-var">pScheduleActionStartSettings_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduleActionSettings:ScheduleAction' :: ScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#%24sel%3AscheduleActionSettings%3AScheduleAction%27"><span class="hs-identifier hs-var">scheduleActionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
-</span><a href="#local-6989586621679924425"><span class="hs-identifier hs-var">pScheduleActionSettings_</span></a></span><span>
+</span><a href="#local-6989586621679924434"><span class="hs-identifier hs-var">pScheduleActionSettings_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name of the action, must be unique within the schedule. This name</span><span>
@@ -164,16 +164,16 @@ $cfrom :: forall x. ScheduleAction -&gt; Rep ScheduleAction x
 -&gt; (ScheduleAction -&gt; Text -&gt; ScheduleAction)
 -&gt; Lens ScheduleAction ScheduleAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924421"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924430"><span class="annot"><span class="annottext">Text
 actionName :: Text
 $sel:actionName:ScheduleAction' :: ScheduleAction -&gt; Text
-</span><a href="#local-6989586621679924421"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679924421"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679924420"><span class="annot"><span class="annottext">s :: ScheduleAction
-</span><a href="#local-6989586621679924420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679924419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679924419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleAction
-</span><a href="#local-6989586621679924420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:ScheduleAction' :: Text
+</span><a href="#local-6989586621679924430"><span class="hs-identifier hs-var hs-var">actionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679924430"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679924429"><span class="annot"><span class="annottext">s :: ScheduleAction
+</span><a href="#local-6989586621679924429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679924428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679924428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleAction
+</span><a href="#local-6989586621679924429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionName:ScheduleAction' :: Text
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#%24sel%3AactionName%3AScheduleAction%27"><span class="hs-identifier hs-var">actionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679924419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679924428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The time for the action to start in the channel.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#scheduleAction_scheduleActionStartSettings"><span class="hs-identifier hs-type">scheduleAction_scheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionStartSettings.html#ScheduleActionStartSettings"><span class="hs-identifier hs-type">ScheduleActionStartSettings</span></a></span><span>
@@ -188,16 +188,16 @@ $sel:actionName:ScheduleAction' :: ScheduleAction -&gt; Text
      ScheduleActionStartSettings
      ScheduleActionStartSettings
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924417"><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924426"><span class="annot"><span class="annottext">ScheduleActionStartSettings
 scheduleActionStartSettings :: ScheduleActionStartSettings
 $sel:scheduleActionStartSettings:ScheduleAction' :: ScheduleAction -&gt; ScheduleActionStartSettings
-</span><a href="#local-6989586621679924417"><span class="hs-identifier hs-var hs-var">scheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679924417"><span class="hs-identifier hs-var">scheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679924416"><span class="annot"><span class="annottext">s :: ScheduleAction
-</span><a href="#local-6989586621679924416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679924415"><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679924415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleAction
-</span><a href="#local-6989586621679924416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleActionStartSettings:ScheduleAction' :: ScheduleActionStartSettings
+</span><a href="#local-6989586621679924426"><span class="hs-identifier hs-var hs-var">scheduleActionStartSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><a href="#local-6989586621679924426"><span class="hs-identifier hs-var">scheduleActionStartSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679924425"><span class="annot"><span class="annottext">s :: ScheduleAction
+</span><a href="#local-6989586621679924425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679924424"><span class="annot"><span class="annottext">ScheduleActionStartSettings
+</span><a href="#local-6989586621679924424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleAction
+</span><a href="#local-6989586621679924425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleActionStartSettings:ScheduleAction' :: ScheduleActionStartSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#%24sel%3AscheduleActionStartSettings%3AScheduleAction%27"><span class="hs-identifier hs-var">scheduleActionStartSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679924415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679924424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | Settings for this schedule action.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#scheduleAction_scheduleActionSettings"><span class="hs-identifier hs-type">scheduleAction_scheduleActionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleActionSettings.html#ScheduleActionSettings"><span class="hs-identifier hs-type">ScheduleActionSettings</span></a></span><span>
@@ -211,19 +211,19 @@ $sel:scheduleActionStartSettings:ScheduleAction' :: ScheduleAction -&gt; Schedul
      ScheduleActionSettings
      ScheduleActionSettings
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924413"><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924422"><span class="annot"><span class="annottext">ScheduleActionSettings
 scheduleActionSettings :: ScheduleActionSettings
 $sel:scheduleActionSettings:ScheduleAction' :: ScheduleAction -&gt; ScheduleActionSettings
-</span><a href="#local-6989586621679924413"><span class="hs-identifier hs-var hs-var">scheduleActionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
-</span><a href="#local-6989586621679924413"><span class="hs-identifier hs-var">scheduleActionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679924412"><span class="annot"><span class="annottext">s :: ScheduleAction
-</span><a href="#local-6989586621679924412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679924411"><span class="annot"><span class="annottext">ScheduleActionSettings
-</span><a href="#local-6989586621679924411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleAction
-</span><a href="#local-6989586621679924412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleActionSettings:ScheduleAction' :: ScheduleActionSettings
+</span><a href="#local-6989586621679924422"><span class="hs-identifier hs-var hs-var">scheduleActionSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679924422"><span class="hs-identifier hs-var">scheduleActionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679924421"><span class="annot"><span class="annottext">s :: ScheduleAction
+</span><a href="#local-6989586621679924421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679924420"><span class="annot"><span class="annottext">ScheduleActionSettings
+</span><a href="#local-6989586621679924420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleAction
+</span><a href="#local-6989586621679924421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleActionSettings:ScheduleAction' :: ScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#%24sel%3AscheduleActionSettings%3AScheduleAction%27"><span class="hs-identifier hs-var">scheduleActionSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
-</span><a href="#local-6989586621679924411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679924420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924408"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679924406"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScheduleAction
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924417"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679924415"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScheduleAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ScheduleAction)
@@ -233,8 +233,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ScheduleAction&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679924403"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679924403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679924412"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679924412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; ScheduleActionStartSettings
 -&gt; ScheduleActionSettings
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ScheduleActionSettings -&gt; ScheduleAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679924403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679924412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;actionName&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,7 +261,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (ScheduleActionSettings -&gt; ScheduleAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679924403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScheduleActionStartSettings
+</span><a href="#local-6989586621679924412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScheduleActionStartSettings
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduleActionStartSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,19 +269,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ScheduleActionSettings -&gt; Parser ScheduleAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679924403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScheduleActionSettings
+</span><a href="#local-6989586621679924412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScheduleActionSettings
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduleActionSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924397"><span id="local-6989586621679924399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924406"><span id="local-6989586621679924408"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924386"><span id="local-6989586621679924388"><span id="local-6989586621679924390"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679924384"><span class="annot"><span class="annottext">toJSON :: ScheduleAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924380"><span id="local-6989586621679924381"><span id="local-6989586621679924382"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679924395"><span id="local-6989586621679924397"><span id="local-6989586621679924399"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction"><span class="hs-identifier hs-type">ScheduleAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679924393"><span class="annot"><span class="annottext">toJSON :: ScheduleAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ScheduleAction.html#ScheduleAction%27"><span class="hs-identifier hs-type">ScheduleAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679924389"><span id="local-6989586621679924390"><span id="local-6989586621679924391"><span class="annot"><span class="annottext">Text
 ScheduleActionStartSettings
 ScheduleActionSettings
 scheduleActionSettings :: ScheduleActionSettings
@@ -290,7 +290,7 @@ actionName :: Text
 $sel:scheduleActionSettings:ScheduleAction' :: ScheduleAction -&gt; ScheduleActionSettings
 $sel:scheduleActionStartSettings:ScheduleAction' :: ScheduleAction -&gt; ScheduleActionStartSettings
 $sel:actionName:ScheduleAction' :: ScheduleAction -&gt; Text
-</span><a href="#local-6989586621679924380"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679924389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -302,7 +302,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;actionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679924382"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679924391"><span class="hs-identifier hs-var">actionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -311,7 +311,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-122"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ScheduleActionStartSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScheduleActionStartSettings
-</span><a href="#local-6989586621679924381"><span class="hs-identifier hs-var">scheduleActionStartSettings</span></a></span><span>
+</span><a href="#local-6989586621679924390"><span class="hs-identifier hs-var">scheduleActionStartSettings</span></a></span><span>
 </span><span id="line-123"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -321,7 +321,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-126"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; ScheduleActionSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScheduleActionSettings
-</span><a href="#local-6989586621679924380"><span class="hs-identifier hs-var">scheduleActionSettings</span></a></span><span>
+</span><a href="#local-6989586621679924389"><span class="hs-identifier hs-var">scheduleActionSettings</span></a></span><span>
 </span><span id="line-127"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>

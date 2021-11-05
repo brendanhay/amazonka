@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkspaces' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679287523"><span id="local-6989586621679287524"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspaces"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-var">CreateWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspaces%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-var">CreateWorkspaces'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679287532"><span id="local-6989586621679287533"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspaces"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-var">CreateWorkspaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspaces%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-var">CreateWorkspaces'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The WorkSpaces to create. You can specify up to 25 WorkSpaces.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Aworkspaces%3ACreateWorkspaces%27"><span class="annot"><span class="annottext">CreateWorkspaces -&gt; NonEmpty WorkspaceRequest
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3Aworkspaces%3ACreateWorkspaces%27"><span class="hs-identifier hs-var hs-var">workspaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287517"><span id="local-6989586621679287519"><span class="annot"><span class="annottext">CreateWorkspaces -&gt; CreateWorkspaces -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287526"><span id="local-6989586621679287528"><span class="annot"><span class="annottext">CreateWorkspaces -&gt; CreateWorkspaces -&gt; Bool
 (CreateWorkspaces -&gt; CreateWorkspaces -&gt; Bool)
 -&gt; (CreateWorkspaces -&gt; CreateWorkspaces -&gt; Bool)
 -&gt; Eq CreateWorkspaces
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateWorkspaces -&gt; CreateWorkspaces -&gt; Bool
 == :: CreateWorkspaces -&gt; CreateWorkspaces -&gt; Bool
 $c== :: CreateWorkspaces -&gt; CreateWorkspaces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287508"><span id="local-6989586621679287510"><span id="local-6989586621679287512"><span id="local-6989586621679287514"><span class="annot"><span class="annottext">ReadPrec [CreateWorkspaces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287517"><span id="local-6989586621679287519"><span id="local-6989586621679287521"><span id="local-6989586621679287523"><span class="annot"><span class="annottext">ReadPrec [CreateWorkspaces]
 ReadPrec CreateWorkspaces
 Int -&gt; ReadS CreateWorkspaces
 ReadS [CreateWorkspaces]
@@ -85,7 +85,7 @@ readList :: ReadS [CreateWorkspaces]
 $creadList :: ReadS [CreateWorkspaces]
 readsPrec :: Int -&gt; ReadS CreateWorkspaces
 $creadsPrec :: Int -&gt; ReadS CreateWorkspaces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287501"><span id="local-6989586621679287503"><span id="local-6989586621679287505"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspaces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287510"><span id="local-6989586621679287512"><span id="local-6989586621679287514"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspaces -&gt; ShowS
 [CreateWorkspaces] -&gt; ShowS
 CreateWorkspaces -&gt; String
 (Int -&gt; CreateWorkspaces -&gt; ShowS)
@@ -125,8 +125,8 @@ $cfrom :: forall x. CreateWorkspaces -&gt; Rep CreateWorkspaces x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceRequest.html#WorkspaceRequest"><span class="hs-identifier hs-type">WorkspaceRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span><span>
 </span><span id="line-73"></span><span id="newCreateWorkspaces"><span class="annot"><span class="annottext">newCreateWorkspaces :: NonEmpty WorkspaceRequest -&gt; CreateWorkspaces
-</span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#newCreateWorkspaces"><span class="hs-identifier hs-var hs-var">newCreateWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679287496"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287496"><span class="hs-identifier hs-var">pWorkspaces_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#newCreateWorkspaces"><span class="hs-identifier hs-var hs-var">newCreateWorkspaces</span></a></span></span><span> </span><span id="local-6989586621679287505"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
+</span><a href="#local-6989586621679287505"><span class="hs-identifier hs-var">pWorkspaces_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">CreateWorkspaces' :: NonEmpty WorkspaceRequest -&gt; CreateWorkspaces
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-type">CreateWorkspaces'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workspaces:CreateWorkspaces' :: NonEmpty WorkspaceRequest
@@ -143,7 +143,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty WorkspaceRequest -&gt; NonEmpty WorkspaceRequest
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287496"><span class="hs-identifier hs-var">pWorkspaces_</span></a></span><span>
+</span><a href="#local-6989586621679287505"><span class="hs-identifier hs-var">pWorkspaces_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The WorkSpaces to create. You can specify up to 25 WorkSpaces.</span><span>
@@ -159,16 +159,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty WorkspaceRequest)
      (NonEmpty WorkspaceRequest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-type">CreateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287491"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-type">CreateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287500"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
 workspaces :: NonEmpty WorkspaceRequest
 $sel:workspaces:CreateWorkspaces' :: CreateWorkspaces -&gt; NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287491"><span class="hs-identifier hs-var hs-var">workspaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287491"><span class="hs-identifier hs-var">workspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287490"><span class="annot"><span class="annottext">s :: CreateWorkspaces
-</span><a href="#local-6989586621679287490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-type">CreateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287489"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaces
-</span><a href="#local-6989586621679287490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaces:CreateWorkspaces' :: NonEmpty WorkspaceRequest
+</span><a href="#local-6989586621679287500"><span class="hs-identifier hs-var hs-var">workspaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
+</span><a href="#local-6989586621679287500"><span class="hs-identifier hs-var">workspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287499"><span class="annot"><span class="annottext">s :: CreateWorkspaces
+</span><a href="#local-6989586621679287499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-type">CreateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287498"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
+</span><a href="#local-6989586621679287498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspaces
+</span><a href="#local-6989586621679287499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaces:CreateWorkspaces' :: NonEmpty WorkspaceRequest
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3Aworkspaces%3ACreateWorkspaces%27"><span class="hs-identifier hs-var">workspaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty WorkspaceRequest -&gt; f (NonEmpty WorkspaceRequest))
+</span><a href="#local-6989586621679287498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty WorkspaceRequest -&gt; f (NonEmpty WorkspaceRequest))
  -&gt; CreateWorkspaces -&gt; f CreateWorkspaces)
 -&gt; ((NonEmpty WorkspaceRequest -&gt; f (NonEmpty WorkspaceRequest))
     -&gt; NonEmpty WorkspaceRequest -&gt; f (NonEmpty WorkspaceRequest))
@@ -185,12 +185,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679287484"><span class="annot"><span class="annottext">request :: CreateWorkspaces -&gt; Request CreateWorkspaces
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679287493"><span class="annot"><span class="annottext">request :: CreateWorkspaces -&gt; Request CreateWorkspaces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWorkspaces -&gt; Request CreateWorkspaces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679287480"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679287489"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateWorkspaces
 -&gt; ClientResponse ClientBody
@@ -214,10 +214,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287477"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287477"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287476"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679287476"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287475"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287486"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287486"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287485"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679287485"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287484"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287484"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
 -&gt; Maybe [Workspace] -&gt; Int -&gt; CreateWorkspacesResponse
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-var">CreateWorkspacesResponse'</span></a></span><span>
@@ -228,7 +228,7 @@ MonadResource m =&gt;
      String (Maybe [Workspace] -&gt; Int -&gt; CreateWorkspacesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [FailedCreateWorkspaceRequest]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -246,7 +246,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; CreateWorkspacesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Workspace]))
+</span><a href="#local-6989586621679287484"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Workspace]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PendingRequests&quot;</span></span><span>
@@ -265,15 +265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287477"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287486"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287466"><span id="local-6989586621679287468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287475"><span id="local-6989586621679287477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679287459"><span class="annot"><span class="annottext">toHeaders :: CreateWorkspaces -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679287468"><span class="annot"><span class="annottext">toHeaders :: CreateWorkspaces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWorkspaces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -300,12 +300,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287449"><span id="local-6989586621679287451"><span id="local-6989586621679287453"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679287447"><span class="annot"><span class="annottext">toJSON :: CreateWorkspaces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-type">CreateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287445"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287458"><span id="local-6989586621679287460"><span id="local-6989586621679287462"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679287456"><span class="annot"><span class="annottext">toJSON :: CreateWorkspaces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces%27"><span class="hs-identifier hs-type">CreateWorkspaces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287454"><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
 workspaces :: NonEmpty WorkspaceRequest
 $sel:workspaces:CreateWorkspaces' :: CreateWorkspaces -&gt; NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287445"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679287454"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -317,18 +317,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Workspaces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty WorkspaceRequest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty WorkspaceRequest
-</span><a href="#local-6989586621679287445"><span class="hs-identifier hs-var">workspaces</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679287454"><span class="hs-identifier hs-var">workspaces</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679287439"><span class="annot"><span class="annottext">toPath :: CreateWorkspaces -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679287448"><span class="annot"><span class="annottext">toPath :: CreateWorkspaces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWorkspaces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspaces"><span class="hs-identifier hs-type">CreateWorkspaces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679287435"><span class="annot"><span class="annottext">toQuery :: CreateWorkspaces -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679287444"><span class="annot"><span class="annottext">toQuery :: CreateWorkspaces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWorkspaces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkspacesResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679287432"><span id="local-6989586621679287433"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspacesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-var">CreateWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspacesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-var">CreateWorkspacesResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679287441"><span id="local-6989586621679287442"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkspacesResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-var">CreateWorkspacesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkspacesResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-var">CreateWorkspacesResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the WorkSpaces that could not be created.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AfailedRequests%3ACreateWorkspacesResponse%27"><span class="annot"><span class="annottext">CreateWorkspacesResponse -&gt; Maybe [FailedCreateWorkspaceRequest]
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3AfailedRequests%3ACreateWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.FailedCreateWorkspaceRequest.html#FailedCreateWorkspaceRequest"><span class="hs-identifier hs-type">FailedCreateWorkspaceRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -352,7 +352,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWorkspacesResponse%27"><span class="annot"><span class="annottext">CreateWorkspacesResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3AhttpStatus%3ACreateWorkspacesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287425"><span id="local-6989586621679287427"><span class="annot"><span class="annottext">CreateWorkspacesResponse -&gt; CreateWorkspacesResponse -&gt; Bool
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287434"><span id="local-6989586621679287436"><span class="annot"><span class="annottext">CreateWorkspacesResponse -&gt; CreateWorkspacesResponse -&gt; Bool
 (CreateWorkspacesResponse -&gt; CreateWorkspacesResponse -&gt; Bool)
 -&gt; (CreateWorkspacesResponse -&gt; CreateWorkspacesResponse -&gt; Bool)
 -&gt; Eq CreateWorkspacesResponse
@@ -361,7 +361,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateWorkspacesResponse -&gt; CreateWorkspacesResponse -&gt; Bool
 == :: CreateWorkspacesResponse -&gt; CreateWorkspacesResponse -&gt; Bool
 $c== :: CreateWorkspacesResponse -&gt; CreateWorkspacesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287417"><span id="local-6989586621679287419"><span id="local-6989586621679287421"><span id="local-6989586621679287423"><span class="annot"><span class="annottext">ReadPrec [CreateWorkspacesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287426"><span id="local-6989586621679287428"><span id="local-6989586621679287430"><span id="local-6989586621679287432"><span class="annot"><span class="annottext">ReadPrec [CreateWorkspacesResponse]
 ReadPrec CreateWorkspacesResponse
 Int -&gt; ReadS CreateWorkspacesResponse
 ReadS [CreateWorkspacesResponse]
@@ -381,7 +381,7 @@ readList :: ReadS [CreateWorkspacesResponse]
 $creadList :: ReadS [CreateWorkspacesResponse]
 readsPrec :: Int -&gt; ReadS CreateWorkspacesResponse
 $creadsPrec :: Int -&gt; ReadS CreateWorkspacesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287411"><span id="local-6989586621679287413"><span id="local-6989586621679287415"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspacesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287420"><span id="local-6989586621679287422"><span id="local-6989586621679287424"><span class="annot"><span class="annottext">Int -&gt; CreateWorkspacesResponse -&gt; ShowS
 [CreateWorkspacesResponse] -&gt; ShowS
 CreateWorkspacesResponse -&gt; String
 (Int -&gt; CreateWorkspacesResponse -&gt; ShowS)
@@ -436,8 +436,8 @@ CreateWorkspacesResponse -&gt; Rep CreateWorkspacesResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newCreateWorkspacesResponse"><span class="annot"><span class="annottext">newCreateWorkspacesResponse :: Int -&gt; CreateWorkspacesResponse
-</span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#newCreateWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newCreateWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679287408"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287408"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#newCreateWorkspacesResponse"><span class="hs-identifier hs-var hs-var">newCreateWorkspacesResponse</span></a></span></span><span> </span><span id="local-6989586621679287417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">CreateWorkspacesResponse' :: Maybe [FailedCreateWorkspaceRequest]
 -&gt; Maybe [Workspace] -&gt; Int -&gt; CreateWorkspacesResponse
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span>
@@ -452,7 +452,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkspacesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3AhttpStatus%3ACreateWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287408"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679287417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | Information about the WorkSpaces that could not be created.</span><span>
@@ -470,16 +470,16 @@ forall a. Maybe a
      (Maybe [FailedCreateWorkspaceRequest])
      (Maybe [FailedCreateWorkspaceRequest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287407"><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287416"><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
 failedRequests :: Maybe [FailedCreateWorkspaceRequest]
 $sel:failedRequests:CreateWorkspacesResponse' :: CreateWorkspacesResponse -&gt; Maybe [FailedCreateWorkspaceRequest]
-</span><a href="#local-6989586621679287407"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
-</span><a href="#local-6989586621679287407"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287406"><span class="annot"><span class="annottext">s :: CreateWorkspacesResponse
-</span><a href="#local-6989586621679287406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287405"><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
-</span><a href="#local-6989586621679287405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspacesResponse
-</span><a href="#local-6989586621679287406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:CreateWorkspacesResponse' :: Maybe [FailedCreateWorkspaceRequest]
+</span><a href="#local-6989586621679287416"><span class="hs-identifier hs-var hs-var">failedRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
+</span><a href="#local-6989586621679287416"><span class="hs-identifier hs-var">failedRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287415"><span class="annot"><span class="annottext">s :: CreateWorkspacesResponse
+</span><a href="#local-6989586621679287415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287414"><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
+</span><a href="#local-6989586621679287414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspacesResponse
+</span><a href="#local-6989586621679287415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRequests:CreateWorkspacesResponse' :: Maybe [FailedCreateWorkspaceRequest]
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3AfailedRequests%3ACreateWorkspacesResponse%27"><span class="hs-identifier hs-var">failedRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedCreateWorkspaceRequest]
-</span><a href="#local-6989586621679287405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedCreateWorkspaceRequest]
+</span><a href="#local-6989586621679287414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedCreateWorkspaceRequest]
   -&gt; f (Maybe [FailedCreateWorkspaceRequest]))
  -&gt; CreateWorkspacesResponse -&gt; f CreateWorkspacesResponse)
 -&gt; ((Maybe [FailedCreateWorkspaceRequest]
@@ -530,16 +530,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Workspace])
      (Maybe [Workspace])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287403"><span class="annot"><span class="annottext">Maybe [Workspace]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287412"><span class="annot"><span class="annottext">Maybe [Workspace]
 pendingRequests :: Maybe [Workspace]
 $sel:pendingRequests:CreateWorkspacesResponse' :: CreateWorkspacesResponse -&gt; Maybe [Workspace]
-</span><a href="#local-6989586621679287403"><span class="hs-identifier hs-var hs-var">pendingRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Workspace]
-</span><a href="#local-6989586621679287403"><span class="hs-identifier hs-var">pendingRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287402"><span class="annot"><span class="annottext">s :: CreateWorkspacesResponse
-</span><a href="#local-6989586621679287402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287401"><span class="annot"><span class="annottext">Maybe [Workspace]
-</span><a href="#local-6989586621679287401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspacesResponse
-</span><a href="#local-6989586621679287402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingRequests:CreateWorkspacesResponse' :: Maybe [Workspace]
+</span><a href="#local-6989586621679287412"><span class="hs-identifier hs-var hs-var">pendingRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Workspace]
+</span><a href="#local-6989586621679287412"><span class="hs-identifier hs-var">pendingRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287411"><span class="annot"><span class="annottext">s :: CreateWorkspacesResponse
+</span><a href="#local-6989586621679287411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287410"><span class="annot"><span class="annottext">Maybe [Workspace]
+</span><a href="#local-6989586621679287410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspacesResponse
+</span><a href="#local-6989586621679287411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingRequests:CreateWorkspacesResponse' :: Maybe [Workspace]
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3ApendingRequests%3ACreateWorkspacesResponse%27"><span class="hs-identifier hs-var">pendingRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Workspace]
-</span><a href="#local-6989586621679287401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Workspace] -&gt; f (Maybe [Workspace]))
+</span><a href="#local-6989586621679287410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Workspace] -&gt; f (Maybe [Workspace]))
  -&gt; CreateWorkspacesResponse -&gt; f CreateWorkspacesResponse)
 -&gt; ((Maybe [Workspace] -&gt; f (Maybe [Workspace]))
     -&gt; Maybe [Workspace] -&gt; f (Maybe [Workspace]))
@@ -568,16 +568,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateWorkspacesResponse -&gt; Int -&gt; CreateWorkspacesResponse)
 -&gt; Lens CreateWorkspacesResponse CreateWorkspacesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287400"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287409"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateWorkspacesResponse' :: CreateWorkspacesResponse -&gt; Int
-</span><a href="#local-6989586621679287400"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287400"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287399"><span class="annot"><span class="annottext">s :: CreateWorkspacesResponse
-</span><a href="#local-6989586621679287399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287398"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspacesResponse
-</span><a href="#local-6989586621679287399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkspacesResponse' :: Int
+</span><a href="#local-6989586621679287409"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287409"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287408"><span class="annot"><span class="annottext">s :: CreateWorkspacesResponse
+</span><a href="#local-6989586621679287408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse%27"><span class="hs-identifier hs-type">CreateWorkspacesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287407"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkspacesResponse
+</span><a href="#local-6989586621679287408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkspacesResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#%24sel%3AhttpStatus%3ACreateWorkspacesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CreateWorkspaces.html#CreateWorkspacesResponse"><span class="hs-identifier hs-type">CreateWorkspacesResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

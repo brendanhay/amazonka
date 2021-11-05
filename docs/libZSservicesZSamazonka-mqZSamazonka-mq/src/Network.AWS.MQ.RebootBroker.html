@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newRebootBroker' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679225845"><span id="local-6989586621679225846"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootBroker"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-var">RebootBroker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootBroker%27"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-var">RebootBroker'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679225854"><span id="local-6989586621679225855"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootBroker"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-var">RebootBroker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootBroker%27"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-var">RebootBroker'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AbrokerId%3ARebootBroker%27"><span class="annot"><span class="annottext">RebootBroker -&gt; Text
 </span><a href="Network.AWS.MQ.RebootBroker.html#%24sel%3AbrokerId%3ARebootBroker%27"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225839"><span id="local-6989586621679225841"><span class="annot"><span class="annottext">RebootBroker -&gt; RebootBroker -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225848"><span id="local-6989586621679225850"><span class="annot"><span class="annottext">RebootBroker -&gt; RebootBroker -&gt; Bool
 (RebootBroker -&gt; RebootBroker -&gt; Bool)
 -&gt; (RebootBroker -&gt; RebootBroker -&gt; Bool) -&gt; Eq RebootBroker
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootBroker -&gt; RebootBroker -&gt; Bool
 == :: RebootBroker -&gt; RebootBroker -&gt; Bool
 $c== :: RebootBroker -&gt; RebootBroker -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225830"><span id="local-6989586621679225832"><span id="local-6989586621679225834"><span id="local-6989586621679225836"><span class="annot"><span class="annottext">ReadPrec [RebootBroker]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225839"><span id="local-6989586621679225841"><span id="local-6989586621679225843"><span id="local-6989586621679225845"><span class="annot"><span class="annottext">ReadPrec [RebootBroker]
 ReadPrec RebootBroker
 Int -&gt; ReadS RebootBroker
 ReadS [RebootBroker]
@@ -79,7 +79,7 @@ readList :: ReadS [RebootBroker]
 $creadList :: ReadS [RebootBroker]
 readsPrec :: Int -&gt; ReadS RebootBroker
 $creadsPrec :: Int -&gt; ReadS RebootBroker
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225823"><span id="local-6989586621679225825"><span id="local-6989586621679225827"><span class="annot"><span class="annottext">Int -&gt; RebootBroker -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225832"><span id="local-6989586621679225834"><span id="local-6989586621679225836"><span class="annot"><span class="annottext">Int -&gt; RebootBroker -&gt; ShowS
 [RebootBroker] -&gt; ShowS
 RebootBroker -&gt; String
 (Int -&gt; RebootBroker -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. RebootBroker -&gt; Rep RebootBroker x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span>
 </span><span id="line-68"></span><span id="newRebootBroker"><span class="annot"><span class="annottext">newRebootBroker :: Text -&gt; RebootBroker
-</span><a href="Network.AWS.MQ.RebootBroker.html#newRebootBroker"><span class="hs-identifier hs-var hs-var">newRebootBroker</span></a></span></span><span> </span><span id="local-6989586621679225818"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225818"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.RebootBroker.html#newRebootBroker"><span class="hs-identifier hs-var hs-var">newRebootBroker</span></a></span></span><span> </span><span id="local-6989586621679225827"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225827"><span class="hs-identifier hs-var">pBrokerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">RebootBroker' :: Text -&gt; RebootBroker
 </span><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-type">RebootBroker'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:RebootBroker' :: Text
 </span><a href="Network.AWS.MQ.RebootBroker.html#%24sel%3AbrokerId%3ARebootBroker%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225818"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679225827"><span class="hs-identifier hs-var">pBrokerId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The unique ID that Amazon MQ generates for the broker.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#rebootBroker_brokerId"><span class="hs-identifier hs-type">rebootBroker_brokerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. RebootBroker -&gt; Rep RebootBroker x
 -&gt; (RebootBroker -&gt; Text -&gt; RebootBroker)
 -&gt; Lens RebootBroker RebootBroker Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-type">RebootBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225815"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-type">RebootBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225824"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:RebootBroker' :: RebootBroker -&gt; Text
-</span><a href="#local-6989586621679225815"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225815"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225814"><span class="annot"><span class="annottext">s :: RebootBroker
-</span><a href="#local-6989586621679225814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-type">RebootBroker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225813"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootBroker
-</span><a href="#local-6989586621679225814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:RebootBroker' :: Text
+</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var hs-var">brokerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225824"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225823"><span class="annot"><span class="annottext">s :: RebootBroker
+</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-type">RebootBroker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225822"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootBroker
+</span><a href="#local-6989586621679225823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerId:RebootBroker' :: Text
 </span><a href="Network.AWS.MQ.RebootBroker.html#%24sel%3AbrokerId%3ARebootBroker%27"><span class="hs-identifier hs-var">brokerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-type">RebootBrokerResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679225809"><span class="annot"><span class="annottext">request :: RebootBroker -&gt; Request RebootBroker
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679225818"><span class="annot"><span class="annottext">request :: RebootBroker -&gt; Request RebootBroker
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebootBroker -&gt; Request RebootBroker
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679225805"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679225814"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebootBroker
 -&gt; ClientResponse ClientBody
@@ -175,10 +175,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225802"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225802"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225801"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679225801"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225800"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679225800"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225811"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225810"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679225810"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225809"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679225809"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RebootBrokerResponse
 </span><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-var">RebootBrokerResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RebootBrokerResponse)
@@ -189,15 +189,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225802"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225811"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225793"><span id="local-6989586621679225795"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225802"><span id="local-6989586621679225804"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679225786"><span class="annot"><span class="annottext">toHeaders :: RebootBroker -&gt; ResponseHeaders
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679225795"><span class="annot"><span class="annottext">toHeaders :: RebootBroker -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RebootBroker -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -216,8 +216,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225776"><span id="local-6989586621679225778"><span id="local-6989586621679225780"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679225774"><span class="annot"><span class="annottext">toJSON :: RebootBroker -&gt; Value
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225785"><span id="local-6989586621679225787"><span id="local-6989586621679225789"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679225783"><span class="annot"><span class="annottext">toJSON :: RebootBroker -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; RebootBroker -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -226,11 +226,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679225769"><span class="annot"><span class="annottext">toPath :: RebootBroker -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-type">RebootBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225767"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679225778"><span class="annot"><span class="annottext">toPath :: RebootBroker -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker%27"><span class="hs-identifier hs-type">RebootBroker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225776"><span class="annot"><span class="annottext">Text
 brokerId :: Text
 $sel:brokerId:RebootBroker' :: RebootBroker -&gt; Text
-</span><a href="#local-6989586621679225767"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225776"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -238,11 +238,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/brokers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225767"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679225776"><span class="hs-identifier hs-var">brokerId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/reboot&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBroker"><span class="hs-identifier hs-type">RebootBroker</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679225763"><span class="annot"><span class="annottext">toQuery :: RebootBroker -&gt; QueryString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679225772"><span class="annot"><span class="annottext">toQuery :: RebootBroker -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RebootBroker -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -250,12 +250,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newRebootBrokerResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679225760"><span id="local-6989586621679225761"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootBrokerResponse"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-var">RebootBrokerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootBrokerResponse%27"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-var">RebootBrokerResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679225769"><span id="local-6989586621679225770"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebootBrokerResponse"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-var">RebootBrokerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebootBrokerResponse%27"><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-var">RebootBrokerResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARebootBrokerResponse%27"><span class="annot"><span class="annottext">RebootBrokerResponse -&gt; Int
 </span><a href="Network.AWS.MQ.RebootBroker.html#%24sel%3AhttpStatus%3ARebootBrokerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225755"><span id="local-6989586621679225757"><span class="annot"><span class="annottext">RebootBrokerResponse -&gt; RebootBrokerResponse -&gt; Bool
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225764"><span id="local-6989586621679225766"><span class="annot"><span class="annottext">RebootBrokerResponse -&gt; RebootBrokerResponse -&gt; Bool
 (RebootBrokerResponse -&gt; RebootBrokerResponse -&gt; Bool)
 -&gt; (RebootBrokerResponse -&gt; RebootBrokerResponse -&gt; Bool)
 -&gt; Eq RebootBrokerResponse
@@ -264,7 +264,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebootBrokerResponse -&gt; RebootBrokerResponse -&gt; Bool
 == :: RebootBrokerResponse -&gt; RebootBrokerResponse -&gt; Bool
 $c== :: RebootBrokerResponse -&gt; RebootBrokerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225747"><span id="local-6989586621679225749"><span id="local-6989586621679225751"><span id="local-6989586621679225753"><span class="annot"><span class="annottext">ReadPrec [RebootBrokerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225756"><span id="local-6989586621679225758"><span id="local-6989586621679225760"><span id="local-6989586621679225762"><span class="annot"><span class="annottext">ReadPrec [RebootBrokerResponse]
 ReadPrec RebootBrokerResponse
 Int -&gt; ReadS RebootBrokerResponse
 ReadS [RebootBrokerResponse]
@@ -284,7 +284,7 @@ readList :: ReadS [RebootBrokerResponse]
 $creadList :: ReadS [RebootBrokerResponse]
 readsPrec :: Int -&gt; ReadS RebootBrokerResponse
 $creadsPrec :: Int -&gt; ReadS RebootBrokerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225741"><span id="local-6989586621679225743"><span id="local-6989586621679225745"><span class="annot"><span class="annottext">Int -&gt; RebootBrokerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225750"><span id="local-6989586621679225752"><span id="local-6989586621679225754"><span class="annot"><span class="annottext">Int -&gt; RebootBrokerResponse -&gt; ShowS
 [RebootBrokerResponse] -&gt; ShowS
 RebootBrokerResponse -&gt; String
 (Int -&gt; RebootBrokerResponse -&gt; ShowS)
@@ -324,12 +324,12 @@ $cfrom :: forall x. RebootBrokerResponse -&gt; Rep RebootBrokerResponse x
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-type">RebootBrokerResponse</span></a></span><span>
 </span><span id="line-131"></span><span id="newRebootBrokerResponse"><span class="annot"><span class="annottext">newRebootBrokerResponse :: Int -&gt; RebootBrokerResponse
-</span><a href="Network.AWS.MQ.RebootBroker.html#newRebootBrokerResponse"><span class="hs-identifier hs-var hs-var">newRebootBrokerResponse</span></a></span></span><span> </span><span id="local-6989586621679225738"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225738"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.RebootBroker.html#newRebootBrokerResponse"><span class="hs-identifier hs-var hs-var">newRebootBrokerResponse</span></a></span></span><span> </span><span id="local-6989586621679225747"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">RebootBrokerResponse' :: Int -&gt; RebootBrokerResponse
 </span><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-type">RebootBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootBrokerResponse' :: Int
 </span><a href="Network.AWS.MQ.RebootBroker.html#%24sel%3AhttpStatus%3ARebootBrokerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225738"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679225747"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#rebootBrokerResponse_httpStatus"><span class="hs-identifier hs-type">rebootBrokerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-type">RebootBrokerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -338,16 +338,16 @@ $cfrom :: forall x. RebootBrokerResponse -&gt; Rep RebootBrokerResponse x
 -&gt; (RebootBrokerResponse -&gt; Int -&gt; RebootBrokerResponse)
 -&gt; Lens RebootBrokerResponse RebootBrokerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-type">RebootBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225737"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-type">RebootBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225746"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RebootBrokerResponse' :: RebootBrokerResponse -&gt; Int
-</span><a href="#local-6989586621679225737"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225737"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225736"><span class="annot"><span class="annottext">s :: RebootBrokerResponse
-</span><a href="#local-6989586621679225736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-type">RebootBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225735"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootBrokerResponse
-</span><a href="#local-6989586621679225736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootBrokerResponse' :: Int
+</span><a href="#local-6989586621679225746"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225746"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225745"><span class="annot"><span class="annottext">s :: RebootBrokerResponse
+</span><a href="#local-6989586621679225745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse%27"><span class="hs-identifier hs-type">RebootBrokerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225744"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebootBrokerResponse
+</span><a href="#local-6989586621679225745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RebootBrokerResponse' :: Int
 </span><a href="Network.AWS.MQ.RebootBroker.html#%24sel%3AhttpStatus%3ARebootBrokerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-type">RebootBrokerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-type">RebootBrokerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-type">RebootBrokerResponse</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.RebootBroker.html#RebootBrokerResponse"><span class="hs-identifier hs-type">RebootBrokerResponse</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

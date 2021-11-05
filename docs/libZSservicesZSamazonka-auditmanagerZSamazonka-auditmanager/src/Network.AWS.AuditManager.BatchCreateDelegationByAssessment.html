@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.AuditManager.BatchCreateDelegationByAssessment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Create a batch of delegations for a specified assessment in Audit</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Manager.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AuditManager.BatchCreateDelegationByAssessment</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier">BatchCreateDelegationByAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#newBatchCreateDelegationByAssessment"><span class="hs-identifier">newBatchCreateDelegationByAssessment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessment_createDelegationRequests"><span class="hs-identifier">batchCreateDelegationByAssessment_createDelegationRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessment_assessmentId"><span class="hs-identifier">batchCreateDelegationByAssessment_assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier">BatchCreateDelegationByAssessmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#newBatchCreateDelegationByAssessmentResponse"><span class="hs-identifier">newBatchCreateDelegationByAssessmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_delegations"><span class="hs-identifier">batchCreateDelegationByAssessmentResponse_delegations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_errors"><span class="hs-identifier">batchCreateDelegationByAssessmentResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_httpStatus"><span class="hs-identifier">batchCreateDelegationByAssessmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.html"><span class="hs-identifier">Network.AWS.AuditManager.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchCreateDelegationByAssessment' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679307375"><span id="local-6989586621679307376"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCreateDelegationByAssessment"><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-var">BatchCreateDelegationByAssessment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCreateDelegationByAssessment%27"><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-var">BatchCreateDelegationByAssessment'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The API request to batch create delegations in Audit Manager.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcreateDelegationRequests%3ABatchCreateDelegationByAssessment%27"><span class="annot"><span class="annottext">BatchCreateDelegationByAssessment
+-&gt; NonEmpty CreateDelegationRequest
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AcreateDelegationRequests%3ABatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-var hs-var">createDelegationRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.CreateDelegationRequest.html#CreateDelegationRequest"><span class="hs-identifier hs-type">CreateDelegationRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AassessmentId%3ABatchCreateDelegationByAssessment%27"><span class="annot"><span class="annottext">BatchCreateDelegationByAssessment -&gt; Text
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AassessmentId%3ABatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307368"><span id="local-6989586621679307370"><span class="annot"><span class="annottext">BatchCreateDelegationByAssessment
+-&gt; BatchCreateDelegationByAssessment -&gt; Bool
+(BatchCreateDelegationByAssessment
+ -&gt; BatchCreateDelegationByAssessment -&gt; Bool)
+-&gt; (BatchCreateDelegationByAssessment
+    -&gt; BatchCreateDelegationByAssessment -&gt; Bool)
+-&gt; Eq BatchCreateDelegationByAssessment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchCreateDelegationByAssessment
+-&gt; BatchCreateDelegationByAssessment -&gt; Bool
+$c/= :: BatchCreateDelegationByAssessment
+-&gt; BatchCreateDelegationByAssessment -&gt; Bool
+== :: BatchCreateDelegationByAssessment
+-&gt; BatchCreateDelegationByAssessment -&gt; Bool
+$c== :: BatchCreateDelegationByAssessment
+-&gt; BatchCreateDelegationByAssessment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307359"><span id="local-6989586621679307361"><span id="local-6989586621679307363"><span id="local-6989586621679307365"><span class="annot"><span class="annottext">ReadPrec [BatchCreateDelegationByAssessment]
+ReadPrec BatchCreateDelegationByAssessment
+Int -&gt; ReadS BatchCreateDelegationByAssessment
+ReadS [BatchCreateDelegationByAssessment]
+(Int -&gt; ReadS BatchCreateDelegationByAssessment)
+-&gt; ReadS [BatchCreateDelegationByAssessment]
+-&gt; ReadPrec BatchCreateDelegationByAssessment
+-&gt; ReadPrec [BatchCreateDelegationByAssessment]
+-&gt; Read BatchCreateDelegationByAssessment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchCreateDelegationByAssessment]
+$creadListPrec :: ReadPrec [BatchCreateDelegationByAssessment]
+readPrec :: ReadPrec BatchCreateDelegationByAssessment
+$creadPrec :: ReadPrec BatchCreateDelegationByAssessment
+readList :: ReadS [BatchCreateDelegationByAssessment]
+$creadList :: ReadS [BatchCreateDelegationByAssessment]
+readsPrec :: Int -&gt; ReadS BatchCreateDelegationByAssessment
+$creadsPrec :: Int -&gt; ReadS BatchCreateDelegationByAssessment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307352"><span id="local-6989586621679307354"><span id="local-6989586621679307356"><span class="annot"><span class="annottext">Int -&gt; BatchCreateDelegationByAssessment -&gt; ShowS
+[BatchCreateDelegationByAssessment] -&gt; ShowS
+BatchCreateDelegationByAssessment -&gt; String
+(Int -&gt; BatchCreateDelegationByAssessment -&gt; ShowS)
+-&gt; (BatchCreateDelegationByAssessment -&gt; String)
+-&gt; ([BatchCreateDelegationByAssessment] -&gt; ShowS)
+-&gt; Show BatchCreateDelegationByAssessment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchCreateDelegationByAssessment] -&gt; ShowS
+$cshowList :: [BatchCreateDelegationByAssessment] -&gt; ShowS
+show :: BatchCreateDelegationByAssessment -&gt; String
+$cshow :: BatchCreateDelegationByAssessment -&gt; String
+showsPrec :: Int -&gt; BatchCreateDelegationByAssessment -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchCreateDelegationByAssessment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchCreateDelegationByAssessment
+ -&gt; Rep BatchCreateDelegationByAssessment x)
+-&gt; (forall x.
+    Rep BatchCreateDelegationByAssessment x
+    -&gt; BatchCreateDelegationByAssessment)
+-&gt; Generic BatchCreateDelegationByAssessment
+forall x.
+Rep BatchCreateDelegationByAssessment x
+-&gt; BatchCreateDelegationByAssessment
+forall x.
+BatchCreateDelegationByAssessment
+-&gt; Rep BatchCreateDelegationByAssessment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchCreateDelegationByAssessment x
+-&gt; BatchCreateDelegationByAssessment
+$cfrom :: forall x.
+BatchCreateDelegationByAssessment
+-&gt; Rep BatchCreateDelegationByAssessment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'BatchCreateDelegationByAssessment' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'createDelegationRequests', 'batchCreateDelegationByAssessment_createDelegationRequests' - The API request to batch create delegations in Audit Manager.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'assessmentId', 'batchCreateDelegationByAssessment_assessmentId' - The identifier for the specified assessment.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#newBatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">newBatchCreateDelegationByAssessment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'createDelegationRequests'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.CreateDelegationRequest.html#CreateDelegationRequest"><span class="hs-identifier hs-type">CreateDelegationRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-comment">-- | 'assessmentId'</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span>
+</span><span id="line-78"></span><span id="newBatchCreateDelegationByAssessment"><span class="annot"><span class="annottext">newBatchCreateDelegationByAssessment :: NonEmpty CreateDelegationRequest
+-&gt; Text -&gt; BatchCreateDelegationByAssessment
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#newBatchCreateDelegationByAssessment"><span class="hs-identifier hs-var hs-var">newBatchCreateDelegationByAssessment</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679307347"><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307347"><span class="hs-identifier hs-var">pCreateDelegationRequests_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679307346"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307346"><span class="hs-identifier hs-var">pAssessmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">BatchCreateDelegationByAssessment' :: NonEmpty CreateDelegationRequest
+-&gt; Text -&gt; BatchCreateDelegationByAssessment
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment'</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createDelegationRequests:BatchCreateDelegationByAssessment' :: NonEmpty CreateDelegationRequest
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AcreateDelegationRequests%3ABatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-var">createDelegationRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty CreateDelegationRequest)
+  (Identity (NonEmpty CreateDelegationRequest))
+-&gt; Tagged
+     (NonEmpty CreateDelegationRequest)
+     (Identity (NonEmpty CreateDelegationRequest))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty CreateDelegationRequest)
+   (Identity (NonEmpty CreateDelegationRequest))
+ -&gt; Tagged
+      (NonEmpty CreateDelegationRequest)
+      (Identity (NonEmpty CreateDelegationRequest)))
+-&gt; NonEmpty CreateDelegationRequest
+-&gt; NonEmpty CreateDelegationRequest
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307347"><span class="hs-identifier hs-var">pCreateDelegationRequests_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:assessmentId:BatchCreateDelegationByAssessment' :: Text
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AassessmentId%3ABatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307346"><span class="hs-identifier hs-var">pAssessmentId_</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The API request to batch create delegations in Audit Manager.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessment_createDelegationRequests"><span class="hs-identifier hs-type">batchCreateDelegationByAssessment_createDelegationRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.Types.CreateDelegationRequest.html#CreateDelegationRequest"><span class="hs-identifier hs-type">CreateDelegationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="batchCreateDelegationByAssessment_createDelegationRequests"><span class="annot"><span class="annottext">batchCreateDelegationByAssessment_createDelegationRequests :: (NonEmpty CreateDelegationRequest
+ -&gt; f (NonEmpty CreateDelegationRequest))
+-&gt; BatchCreateDelegationByAssessment
+-&gt; f BatchCreateDelegationByAssessment
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessment_createDelegationRequests"><span class="hs-identifier hs-var hs-var">batchCreateDelegationByAssessment_createDelegationRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateDelegationByAssessment
+ -&gt; NonEmpty CreateDelegationRequest)
+-&gt; (BatchCreateDelegationByAssessment
+    -&gt; NonEmpty CreateDelegationRequest
+    -&gt; BatchCreateDelegationByAssessment)
+-&gt; Lens
+     BatchCreateDelegationByAssessment
+     BatchCreateDelegationByAssessment
+     (NonEmpty CreateDelegationRequest)
+     (NonEmpty CreateDelegationRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307341"><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+createDelegationRequests :: NonEmpty CreateDelegationRequest
+$sel:createDelegationRequests:BatchCreateDelegationByAssessment' :: BatchCreateDelegationByAssessment
+-&gt; NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307341"><span class="hs-identifier hs-var hs-var">createDelegationRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307341"><span class="hs-identifier hs-var">createDelegationRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307340"><span class="annot"><span class="annottext">s :: BatchCreateDelegationByAssessment
+</span><a href="#local-6989586621679307340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307339"><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateDelegationByAssessment
+</span><a href="#local-6989586621679307340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDelegationRequests:BatchCreateDelegationByAssessment' :: NonEmpty CreateDelegationRequest
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AcreateDelegationRequests%3ABatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-var">createDelegationRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CreateDelegationRequest
+  -&gt; f (NonEmpty CreateDelegationRequest))
+ -&gt; BatchCreateDelegationByAssessment
+ -&gt; f BatchCreateDelegationByAssessment)
+-&gt; ((NonEmpty CreateDelegationRequest
+     -&gt; f (NonEmpty CreateDelegationRequest))
+    -&gt; NonEmpty CreateDelegationRequest
+    -&gt; f (NonEmpty CreateDelegationRequest))
+-&gt; (NonEmpty CreateDelegationRequest
+    -&gt; f (NonEmpty CreateDelegationRequest))
+-&gt; BatchCreateDelegationByAssessment
+-&gt; f BatchCreateDelegationByAssessment
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty CreateDelegationRequest
+ -&gt; f (NonEmpty CreateDelegationRequest))
+-&gt; NonEmpty CreateDelegationRequest
+-&gt; f (NonEmpty CreateDelegationRequest)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The identifier for the specified assessment.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessment_assessmentId"><span class="hs-identifier hs-type">batchCreateDelegationByAssessment_assessmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="batchCreateDelegationByAssessment_assessmentId"><span class="annot"><span class="annottext">batchCreateDelegationByAssessment_assessmentId :: (Text -&gt; f Text)
+-&gt; BatchCreateDelegationByAssessment
+-&gt; f BatchCreateDelegationByAssessment
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessment_assessmentId"><span class="hs-identifier hs-var hs-var">batchCreateDelegationByAssessment_assessmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateDelegationByAssessment -&gt; Text)
+-&gt; (BatchCreateDelegationByAssessment
+    -&gt; Text -&gt; BatchCreateDelegationByAssessment)
+-&gt; Lens
+     BatchCreateDelegationByAssessment
+     BatchCreateDelegationByAssessment
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307337"><span class="annot"><span class="annottext">Text
+assessmentId :: Text
+$sel:assessmentId:BatchCreateDelegationByAssessment' :: BatchCreateDelegationByAssessment -&gt; Text
+</span><a href="#local-6989586621679307337"><span class="hs-identifier hs-var hs-var">assessmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307337"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307336"><span class="annot"><span class="annottext">s :: BatchCreateDelegationByAssessment
+</span><a href="#local-6989586621679307336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307335"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateDelegationByAssessment
+</span><a href="#local-6989586621679307336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentId:BatchCreateDelegationByAssessment' :: Text
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AassessmentId%3ABatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-var">assessmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679307331"><span class="annot"><span class="annottext">request :: BatchCreateDelegationByAssessment
+-&gt; Request BatchCreateDelegationByAssessment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; BatchCreateDelegationByAssessment
+-&gt; Request BatchCreateDelegationByAssessment
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.AuditManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679307327"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchCreateDelegationByAssessment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse BatchCreateDelegationByAssessment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchCreateDelegationByAssessment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchCreateDelegationByAssessment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse BatchCreateDelegationByAssessment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307324"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307323"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679307323"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307322"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Delegation]
+-&gt; Maybe [BatchCreateDelegationByAssessmentError]
+-&gt; Int
+-&gt; BatchCreateDelegationByAssessmentResponse
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">BatchCreateDelegationByAssessmentResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Delegation]
+ -&gt; Maybe [BatchCreateDelegationByAssessmentError]
+ -&gt; Int
+ -&gt; BatchCreateDelegationByAssessmentResponse)
+-&gt; Either String (Maybe [Delegation])
+-&gt; Either
+     String
+     (Maybe [BatchCreateDelegationByAssessmentError]
+      -&gt; Int -&gt; BatchCreateDelegationByAssessmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Delegation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;delegations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Delegation]))
+-&gt; Maybe [Delegation] -&gt; Either String (Maybe [Delegation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Delegation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [BatchCreateDelegationByAssessmentError]
+   -&gt; Int -&gt; BatchCreateDelegationByAssessmentResponse)
+-&gt; Either String (Maybe [BatchCreateDelegationByAssessmentError])
+-&gt; Either String (Int -&gt; BatchCreateDelegationByAssessmentResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe [BatchCreateDelegationByAssessmentError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Maybe [BatchCreateDelegationByAssessmentError]))
+-&gt; Maybe [BatchCreateDelegationByAssessmentError]
+-&gt; Either String (Maybe [BatchCreateDelegationByAssessmentError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BatchCreateDelegationByAssessmentError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchCreateDelegationByAssessmentResponse)
+-&gt; Either String Int
+-&gt; Either String BatchCreateDelegationByAssessmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307324"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679307313"><span id="local-6989586621679307315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679307310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679307306"><span class="annot"><span class="annottext">toHeaders :: BatchCreateDelegationByAssessment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; BatchCreateDelegationByAssessment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679307296"><span id="local-6989586621679307298"><span id="local-6989586621679307300"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span></span></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679307294"><span class="annot"><span class="annottext">toJSON :: BatchCreateDelegationByAssessment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307291"><span id="local-6989586621679307292"><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+Text
+assessmentId :: Text
+createDelegationRequests :: NonEmpty CreateDelegationRequest
+$sel:assessmentId:BatchCreateDelegationByAssessment' :: BatchCreateDelegationByAssessment -&gt; Text
+$sel:createDelegationRequests:BatchCreateDelegationByAssessment' :: BatchCreateDelegationByAssessment
+-&gt; NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307291"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createDelegationRequests&quot;</span></span><span>
+</span><span id="line-144"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty CreateDelegationRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307292"><span class="hs-identifier hs-var">createDelegationRequests</span></a></span><span>
+</span><span id="line-145"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679307285"><span class="annot"><span class="annottext">toPath :: BatchCreateDelegationByAssessment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307282"><span id="local-6989586621679307283"><span class="annot"><span class="annottext">NonEmpty CreateDelegationRequest
+Text
+assessmentId :: Text
+createDelegationRequests :: NonEmpty CreateDelegationRequest
+$sel:assessmentId:BatchCreateDelegationByAssessment' :: BatchCreateDelegationByAssessment -&gt; Text
+$sel:createDelegationRequests:BatchCreateDelegationByAssessment' :: BatchCreateDelegationByAssessment
+-&gt; NonEmpty CreateDelegationRequest
+</span><a href="#local-6989586621679307282"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assessments/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307282"><span class="hs-identifier hs-var">assessmentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/delegations&quot;</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessment"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessment</span></a></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679307278"><span class="annot"><span class="annottext">toQuery :: BatchCreateDelegationByAssessment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchCreateDelegationByAssessment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newBatchCreateDelegationByAssessmentResponse' smart constructor.</span><span>
+</span><span id="line-167"></span><span id="local-6989586621679307275"><span id="local-6989586621679307276"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCreateDelegationByAssessmentResponse"><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-var">BatchCreateDelegationByAssessmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCreateDelegationByAssessmentResponse%27"><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">BatchCreateDelegationByAssessmentResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The delegations associated with the assessment.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3Adelegations%3ABatchCreateDelegationByAssessmentResponse%27"><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse -&gt; Maybe [Delegation]
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3Adelegations%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var hs-var">delegations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Delegation.html#Delegation"><span class="hs-identifier hs-type">Delegation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | A list of errors returned by the @BatchCreateDelegationByAssessment@</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchCreateDelegationByAssessmentResponse%27"><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse
+-&gt; Maybe [BatchCreateDelegationByAssessmentError]
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3Aerrors%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AuditManager.Types.BatchCreateDelegationByAssessmentError.html#BatchCreateDelegationByAssessmentError"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchCreateDelegationByAssessmentResponse%27"><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse -&gt; Int
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AhttpStatus%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307268"><span id="local-6989586621679307270"><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse
+-&gt; BatchCreateDelegationByAssessmentResponse -&gt; Bool
+(BatchCreateDelegationByAssessmentResponse
+ -&gt; BatchCreateDelegationByAssessmentResponse -&gt; Bool)
+-&gt; (BatchCreateDelegationByAssessmentResponse
+    -&gt; BatchCreateDelegationByAssessmentResponse -&gt; Bool)
+-&gt; Eq BatchCreateDelegationByAssessmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchCreateDelegationByAssessmentResponse
+-&gt; BatchCreateDelegationByAssessmentResponse -&gt; Bool
+$c/= :: BatchCreateDelegationByAssessmentResponse
+-&gt; BatchCreateDelegationByAssessmentResponse -&gt; Bool
+== :: BatchCreateDelegationByAssessmentResponse
+-&gt; BatchCreateDelegationByAssessmentResponse -&gt; Bool
+$c== :: BatchCreateDelegationByAssessmentResponse
+-&gt; BatchCreateDelegationByAssessmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307260"><span id="local-6989586621679307262"><span id="local-6989586621679307264"><span id="local-6989586621679307266"><span class="annot"><span class="annottext">ReadPrec [BatchCreateDelegationByAssessmentResponse]
+ReadPrec BatchCreateDelegationByAssessmentResponse
+Int -&gt; ReadS BatchCreateDelegationByAssessmentResponse
+ReadS [BatchCreateDelegationByAssessmentResponse]
+(Int -&gt; ReadS BatchCreateDelegationByAssessmentResponse)
+-&gt; ReadS [BatchCreateDelegationByAssessmentResponse]
+-&gt; ReadPrec BatchCreateDelegationByAssessmentResponse
+-&gt; ReadPrec [BatchCreateDelegationByAssessmentResponse]
+-&gt; Read BatchCreateDelegationByAssessmentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchCreateDelegationByAssessmentResponse]
+$creadListPrec :: ReadPrec [BatchCreateDelegationByAssessmentResponse]
+readPrec :: ReadPrec BatchCreateDelegationByAssessmentResponse
+$creadPrec :: ReadPrec BatchCreateDelegationByAssessmentResponse
+readList :: ReadS [BatchCreateDelegationByAssessmentResponse]
+$creadList :: ReadS [BatchCreateDelegationByAssessmentResponse]
+readsPrec :: Int -&gt; ReadS BatchCreateDelegationByAssessmentResponse
+$creadsPrec :: Int -&gt; ReadS BatchCreateDelegationByAssessmentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307254"><span id="local-6989586621679307256"><span id="local-6989586621679307258"><span class="annot"><span class="annottext">Int -&gt; BatchCreateDelegationByAssessmentResponse -&gt; ShowS
+[BatchCreateDelegationByAssessmentResponse] -&gt; ShowS
+BatchCreateDelegationByAssessmentResponse -&gt; String
+(Int -&gt; BatchCreateDelegationByAssessmentResponse -&gt; ShowS)
+-&gt; (BatchCreateDelegationByAssessmentResponse -&gt; String)
+-&gt; ([BatchCreateDelegationByAssessmentResponse] -&gt; ShowS)
+-&gt; Show BatchCreateDelegationByAssessmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchCreateDelegationByAssessmentResponse] -&gt; ShowS
+$cshowList :: [BatchCreateDelegationByAssessmentResponse] -&gt; ShowS
+show :: BatchCreateDelegationByAssessmentResponse -&gt; String
+$cshow :: BatchCreateDelegationByAssessmentResponse -&gt; String
+showsPrec :: Int -&gt; BatchCreateDelegationByAssessmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchCreateDelegationByAssessmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchCreateDelegationByAssessmentResponse
+ -&gt; Rep BatchCreateDelegationByAssessmentResponse x)
+-&gt; (forall x.
+    Rep BatchCreateDelegationByAssessmentResponse x
+    -&gt; BatchCreateDelegationByAssessmentResponse)
+-&gt; Generic BatchCreateDelegationByAssessmentResponse
+forall x.
+Rep BatchCreateDelegationByAssessmentResponse x
+-&gt; BatchCreateDelegationByAssessmentResponse
+forall x.
+BatchCreateDelegationByAssessmentResponse
+-&gt; Rep BatchCreateDelegationByAssessmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchCreateDelegationByAssessmentResponse x
+-&gt; BatchCreateDelegationByAssessmentResponse
+$cfrom :: forall x.
+BatchCreateDelegationByAssessmentResponse
+-&gt; Rep BatchCreateDelegationByAssessmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'BatchCreateDelegationByAssessmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'delegations', 'batchCreateDelegationByAssessmentResponse_delegations' - The delegations associated with the assessment.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'errors', 'batchCreateDelegationByAssessmentResponse_errors' - A list of errors returned by the @BatchCreateDelegationByAssessment@</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'httpStatus', 'batchCreateDelegationByAssessmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#newBatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">newBatchCreateDelegationByAssessmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span>
+</span><span id="line-196"></span><span id="newBatchCreateDelegationByAssessmentResponse"><span class="annot"><span class="annottext">newBatchCreateDelegationByAssessmentResponse :: Int -&gt; BatchCreateDelegationByAssessmentResponse
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#newBatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-var hs-var">newBatchCreateDelegationByAssessmentResponse</span></a></span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679307251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse' :: Maybe [Delegation]
+-&gt; Maybe [BatchCreateDelegationByAssessmentError]
+-&gt; Int
+-&gt; BatchCreateDelegationByAssessmentResponse
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:delegations:BatchCreateDelegationByAssessmentResponse' :: Maybe [Delegation]
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3Adelegations%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">delegations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Delegation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">$sel:errors:BatchCreateDelegationByAssessmentResponse' :: Maybe [BatchCreateDelegationByAssessmentError]
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3Aerrors%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchCreateDelegationByAssessmentError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCreateDelegationByAssessmentResponse' :: Int
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AhttpStatus%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The delegations associated with the assessment.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_delegations"><span class="hs-identifier hs-type">batchCreateDelegationByAssessmentResponse_delegations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AuditManager.Types.Delegation.html#Delegation"><span class="hs-identifier hs-type">Delegation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="batchCreateDelegationByAssessmentResponse_delegations"><span class="annot"><span class="annottext">batchCreateDelegationByAssessmentResponse_delegations :: (Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+-&gt; BatchCreateDelegationByAssessmentResponse
+-&gt; f BatchCreateDelegationByAssessmentResponse
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_delegations"><span class="hs-identifier hs-var hs-var">batchCreateDelegationByAssessmentResponse_delegations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateDelegationByAssessmentResponse -&gt; Maybe [Delegation])
+-&gt; (BatchCreateDelegationByAssessmentResponse
+    -&gt; Maybe [Delegation] -&gt; BatchCreateDelegationByAssessmentResponse)
+-&gt; Lens
+     BatchCreateDelegationByAssessmentResponse
+     BatchCreateDelegationByAssessmentResponse
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307250"><span class="annot"><span class="annottext">Maybe [Delegation]
+delegations :: Maybe [Delegation]
+$sel:delegations:BatchCreateDelegationByAssessmentResponse' :: BatchCreateDelegationByAssessmentResponse -&gt; Maybe [Delegation]
+</span><a href="#local-6989586621679307250"><span class="hs-identifier hs-var hs-var">delegations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Delegation]
+</span><a href="#local-6989586621679307250"><span class="hs-identifier hs-var">delegations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307249"><span class="annot"><span class="annottext">s :: BatchCreateDelegationByAssessmentResponse
+</span><a href="#local-6989586621679307249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307248"><span class="annot"><span class="annottext">Maybe [Delegation]
+</span><a href="#local-6989586621679307248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse
+</span><a href="#local-6989586621679307249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegations:BatchCreateDelegationByAssessmentResponse' :: Maybe [Delegation]
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3Adelegations%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">delegations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Delegation]
+</span><a href="#local-6989586621679307248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+ -&gt; BatchCreateDelegationByAssessmentResponse
+ -&gt; f BatchCreateDelegationByAssessmentResponse)
+-&gt; ((Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+    -&gt; Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+-&gt; (Maybe [Delegation] -&gt; f (Maybe [Delegation]))
+-&gt; BatchCreateDelegationByAssessmentResponse
+-&gt; f BatchCreateDelegationByAssessmentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Delegation] [Delegation] [Delegation] [Delegation]
+-&gt; Iso
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+     (Maybe [Delegation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Delegation] [Delegation] [Delegation] [Delegation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | A list of errors returned by the @BatchCreateDelegationByAssessment@</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- API.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_errors"><span class="hs-identifier hs-type">batchCreateDelegationByAssessmentResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AuditManager.Types.BatchCreateDelegationByAssessmentError.html#BatchCreateDelegationByAssessmentError"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="batchCreateDelegationByAssessmentResponse_errors"><span class="annot"><span class="annottext">batchCreateDelegationByAssessmentResponse_errors :: (Maybe [BatchCreateDelegationByAssessmentError]
+ -&gt; f (Maybe [BatchCreateDelegationByAssessmentError]))
+-&gt; BatchCreateDelegationByAssessmentResponse
+-&gt; f BatchCreateDelegationByAssessmentResponse
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_errors"><span class="hs-identifier hs-var hs-var">batchCreateDelegationByAssessmentResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateDelegationByAssessmentResponse
+ -&gt; Maybe [BatchCreateDelegationByAssessmentError])
+-&gt; (BatchCreateDelegationByAssessmentResponse
+    -&gt; Maybe [BatchCreateDelegationByAssessmentError]
+    -&gt; BatchCreateDelegationByAssessmentResponse)
+-&gt; Lens
+     BatchCreateDelegationByAssessmentResponse
+     BatchCreateDelegationByAssessmentResponse
+     (Maybe [BatchCreateDelegationByAssessmentError])
+     (Maybe [BatchCreateDelegationByAssessmentError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307246"><span class="annot"><span class="annottext">Maybe [BatchCreateDelegationByAssessmentError]
+errors :: Maybe [BatchCreateDelegationByAssessmentError]
+$sel:errors:BatchCreateDelegationByAssessmentResponse' :: BatchCreateDelegationByAssessmentResponse
+-&gt; Maybe [BatchCreateDelegationByAssessmentError]
+</span><a href="#local-6989586621679307246"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchCreateDelegationByAssessmentError]
+</span><a href="#local-6989586621679307246"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307245"><span class="annot"><span class="annottext">s :: BatchCreateDelegationByAssessmentResponse
+</span><a href="#local-6989586621679307245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307244"><span class="annot"><span class="annottext">Maybe [BatchCreateDelegationByAssessmentError]
+</span><a href="#local-6989586621679307244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse
+</span><a href="#local-6989586621679307245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchCreateDelegationByAssessmentResponse' :: Maybe [BatchCreateDelegationByAssessmentError]
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3Aerrors%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchCreateDelegationByAssessmentError]
+</span><a href="#local-6989586621679307244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchCreateDelegationByAssessmentError]
+  -&gt; f (Maybe [BatchCreateDelegationByAssessmentError]))
+ -&gt; BatchCreateDelegationByAssessmentResponse
+ -&gt; f BatchCreateDelegationByAssessmentResponse)
+-&gt; ((Maybe [BatchCreateDelegationByAssessmentError]
+     -&gt; f (Maybe [BatchCreateDelegationByAssessmentError]))
+    -&gt; Maybe [BatchCreateDelegationByAssessmentError]
+    -&gt; f (Maybe [BatchCreateDelegationByAssessmentError]))
+-&gt; (Maybe [BatchCreateDelegationByAssessmentError]
+    -&gt; f (Maybe [BatchCreateDelegationByAssessmentError]))
+-&gt; BatchCreateDelegationByAssessmentResponse
+-&gt; f BatchCreateDelegationByAssessmentResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchCreateDelegationByAssessmentError]
+  [BatchCreateDelegationByAssessmentError]
+  [BatchCreateDelegationByAssessmentError]
+  [BatchCreateDelegationByAssessmentError]
+-&gt; Iso
+     (Maybe [BatchCreateDelegationByAssessmentError])
+     (Maybe [BatchCreateDelegationByAssessmentError])
+     (Maybe [BatchCreateDelegationByAssessmentError])
+     (Maybe [BatchCreateDelegationByAssessmentError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchCreateDelegationByAssessmentError]
+  [BatchCreateDelegationByAssessmentError]
+  [BatchCreateDelegationByAssessmentError]
+  [BatchCreateDelegationByAssessmentError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_httpStatus"><span class="hs-identifier hs-type">batchCreateDelegationByAssessmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="batchCreateDelegationByAssessmentResponse_httpStatus"><span class="annot"><span class="annottext">batchCreateDelegationByAssessmentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchCreateDelegationByAssessmentResponse
+-&gt; f BatchCreateDelegationByAssessmentResponse
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#batchCreateDelegationByAssessmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchCreateDelegationByAssessmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateDelegationByAssessmentResponse -&gt; Int)
+-&gt; (BatchCreateDelegationByAssessmentResponse
+    -&gt; Int -&gt; BatchCreateDelegationByAssessmentResponse)
+-&gt; Lens
+     BatchCreateDelegationByAssessmentResponse
+     BatchCreateDelegationByAssessmentResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307243"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchCreateDelegationByAssessmentResponse' :: BatchCreateDelegationByAssessmentResponse -&gt; Int
+</span><a href="#local-6989586621679307243"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307243"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307242"><span class="annot"><span class="annottext">s :: BatchCreateDelegationByAssessmentResponse
+</span><a href="#local-6989586621679307242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307241"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateDelegationByAssessmentResponse
+</span><a href="#local-6989586621679307242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCreateDelegationByAssessmentResponse' :: Int
+</span><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#%24sel%3AhttpStatus%3ABatchCreateDelegationByAssessmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679307239"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.AuditManager.BatchCreateDelegationByAssessment.html#BatchCreateDelegationByAssessmentResponse"><span class="hs-identifier hs-type">BatchCreateDelegationByAssessmentResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

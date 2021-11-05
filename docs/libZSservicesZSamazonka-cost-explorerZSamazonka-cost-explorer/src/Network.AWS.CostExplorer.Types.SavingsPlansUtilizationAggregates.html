@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The aggregated utilization metrics for your Savings Plans usage.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSavingsPlansUtilizationAggregates' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679337019"><span id="local-6989586621679337020"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansUtilizationAggregates"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-var">SavingsPlansUtilizationAggregates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansUtilizationAggregates%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-var">SavingsPlansUtilizationAggregates'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679337028"><span id="local-6989586621679337029"></span></span><span class="hs-keyword">data</span><span> </span><span id="SavingsPlansUtilizationAggregates"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-var">SavingsPlansUtilizationAggregates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansUtilizationAggregates%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-var">SavingsPlansUtilizationAggregates'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total amortized commitment for a Savings Plans. This includes the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- sum of the upfront and recurring Savings Plans fees.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationAggregates%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
@@ -45,7 +45,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Autilization%3ASavingsPlansUtilizationAggregates%27"><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates -&gt; SavingsPlansUtilization
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#%24sel%3Autilization%3ASavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337011"><span id="local-6989586621679337013"><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337020"><span id="local-6989586621679337022"><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
 -&gt; SavingsPlansUtilizationAggregates -&gt; Bool
 (SavingsPlansUtilizationAggregates
  -&gt; SavingsPlansUtilizationAggregates -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: SavingsPlansUtilizationAggregates
 -&gt; SavingsPlansUtilizationAggregates -&gt; Bool
 $c== :: SavingsPlansUtilizationAggregates
 -&gt; SavingsPlansUtilizationAggregates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337002"><span id="local-6989586621679337004"><span id="local-6989586621679337006"><span id="local-6989586621679337008"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansUtilizationAggregates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337011"><span id="local-6989586621679337013"><span id="local-6989586621679337015"><span id="local-6989586621679337017"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansUtilizationAggregates]
 ReadPrec SavingsPlansUtilizationAggregates
 Int -&gt; ReadS SavingsPlansUtilizationAggregates
 ReadS [SavingsPlansUtilizationAggregates]
@@ -81,7 +81,7 @@ readList :: ReadS [SavingsPlansUtilizationAggregates]
 $creadList :: ReadS [SavingsPlansUtilizationAggregates]
 readsPrec :: Int -&gt; ReadS SavingsPlansUtilizationAggregates
 $creadsPrec :: Int -&gt; ReadS SavingsPlansUtilizationAggregates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336995"><span id="local-6989586621679336997"><span id="local-6989586621679336999"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansUtilizationAggregates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337004"><span id="local-6989586621679337006"><span id="local-6989586621679337008"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansUtilizationAggregates -&gt; ShowS
 [SavingsPlansUtilizationAggregates] -&gt; ShowS
 SavingsPlansUtilizationAggregates -&gt; String
 (Int -&gt; SavingsPlansUtilizationAggregates -&gt; ShowS)
@@ -141,8 +141,8 @@ SavingsPlansUtilizationAggregates
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilization.html#SavingsPlansUtilization"><span class="hs-identifier hs-type">SavingsPlansUtilization</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span><span>
 </span><span id="line-67"></span><span id="newSavingsPlansUtilizationAggregates"><span class="annot"><span class="annottext">newSavingsPlansUtilizationAggregates :: SavingsPlansUtilization -&gt; SavingsPlansUtilizationAggregates
-</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#newSavingsPlansUtilizationAggregates"><span class="hs-identifier hs-var hs-var">newSavingsPlansUtilizationAggregates</span></a></span></span><span> </span><span id="local-6989586621679336989"><span class="annot"><span class="annottext">SavingsPlansUtilization
-</span><a href="#local-6989586621679336989"><span class="hs-identifier hs-var">pUtilization_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#newSavingsPlansUtilizationAggregates"><span class="hs-identifier hs-var hs-var">newSavingsPlansUtilizationAggregates</span></a></span></span><span> </span><span id="local-6989586621679336998"><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><a href="#local-6989586621679336998"><span class="hs-identifier hs-var">pUtilization_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates' :: Maybe SavingsPlansAmortizedCommitment
 -&gt; Maybe SavingsPlansSavings
 -&gt; SavingsPlansUtilization
@@ -159,7 +159,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:utilization:SavingsPlansUtilizationAggregates' :: SavingsPlansUtilization
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#%24sel%3Autilization%3ASavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
-</span><a href="#local-6989586621679336989"><span class="hs-identifier hs-var">pUtilization_</span></a></span><span>
+</span><a href="#local-6989586621679336998"><span class="hs-identifier hs-var">pUtilization_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The total amortized commitment for a Savings Plans. This includes the</span><span>
@@ -180,17 +180,17 @@ forall a. Maybe a
      (Maybe SavingsPlansAmortizedCommitment)
      (Maybe SavingsPlansAmortizedCommitment)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336985"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336994"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
 amortizedCommitment :: Maybe SavingsPlansAmortizedCommitment
 $sel:amortizedCommitment:SavingsPlansUtilizationAggregates' :: SavingsPlansUtilizationAggregates
 -&gt; Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336985"><span class="hs-identifier hs-var hs-var">amortizedCommitment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336985"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336984"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationAggregates
-</span><a href="#local-6989586621679336984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336983"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
-</span><a href="#local-6989586621679336984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amortizedCommitment:SavingsPlansUtilizationAggregates' :: Maybe SavingsPlansAmortizedCommitment
+</span><a href="#local-6989586621679336994"><span class="hs-identifier hs-var hs-var">amortizedCommitment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+</span><a href="#local-6989586621679336994"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336993"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationAggregates
+</span><a href="#local-6989586621679336993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336992"><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
+</span><a href="#local-6989586621679336992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
+</span><a href="#local-6989586621679336993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amortizedCommitment:SavingsPlansUtilizationAggregates' :: Maybe SavingsPlansAmortizedCommitment
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#%24sel%3AamortizedCommitment%3ASavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-var">amortizedCommitment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
-</span><a href="#local-6989586621679336983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The amount saved by using existing Savings Plans. Savings returns both</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- net savings from Savings Plans, as well as the @onDemandCostEquivalent@</span><span>
@@ -208,16 +208,16 @@ $sel:amortizedCommitment:SavingsPlansUtilizationAggregates' :: SavingsPlansUtili
      (Maybe SavingsPlansSavings)
      (Maybe SavingsPlansSavings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336981"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336990"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
 savings :: Maybe SavingsPlansSavings
 $sel:savings:SavingsPlansUtilizationAggregates' :: SavingsPlansUtilizationAggregates -&gt; Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336981"><span class="hs-identifier hs-var hs-var">savings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336981"><span class="hs-identifier hs-var">savings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336980"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationAggregates
-</span><a href="#local-6989586621679336980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336979"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
-</span><a href="#local-6989586621679336980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savings:SavingsPlansUtilizationAggregates' :: Maybe SavingsPlansSavings
+</span><a href="#local-6989586621679336990"><span class="hs-identifier hs-var hs-var">savings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
+</span><a href="#local-6989586621679336990"><span class="hs-identifier hs-var">savings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336989"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationAggregates
+</span><a href="#local-6989586621679336989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336988"><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
+</span><a href="#local-6989586621679336988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
+</span><a href="#local-6989586621679336989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:savings:SavingsPlansUtilizationAggregates' :: Maybe SavingsPlansSavings
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#%24sel%3Asavings%3ASavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-var">savings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SavingsPlansSavings
-</span><a href="#local-6989586621679336979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | A ratio of your effectiveness of using existing Savings Plans to apply</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- to workloads that are Savings Plans eligible.</span><span>
@@ -234,22 +234,22 @@ $sel:savings:SavingsPlansUtilizationAggregates' :: SavingsPlansUtilizationAggreg
      SavingsPlansUtilization
      SavingsPlansUtilization
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336977"><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336986"><span class="annot"><span class="annottext">SavingsPlansUtilization
 utilization :: SavingsPlansUtilization
 $sel:utilization:SavingsPlansUtilizationAggregates' :: SavingsPlansUtilizationAggregates -&gt; SavingsPlansUtilization
-</span><a href="#local-6989586621679336977"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
-</span><a href="#local-6989586621679336977"><span class="hs-identifier hs-var">utilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336976"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationAggregates
-</span><a href="#local-6989586621679336976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336975"><span class="annot"><span class="annottext">SavingsPlansUtilization
-</span><a href="#local-6989586621679336975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
-</span><a href="#local-6989586621679336976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilization:SavingsPlansUtilizationAggregates' :: SavingsPlansUtilization
+</span><a href="#local-6989586621679336986"><span class="hs-identifier hs-var hs-var">utilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><a href="#local-6989586621679336986"><span class="hs-identifier hs-var">utilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336985"><span class="annot"><span class="annottext">s :: SavingsPlansUtilizationAggregates
+</span><a href="#local-6989586621679336985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336984"><span class="annot"><span class="annottext">SavingsPlansUtilization
+</span><a href="#local-6989586621679336984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilizationAggregates
+</span><a href="#local-6989586621679336985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utilization:SavingsPlansUtilizationAggregates' :: SavingsPlansUtilization
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#%24sel%3Autilization%3ASavingsPlansUtilizationAggregates%27"><span class="hs-identifier hs-var">utilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SavingsPlansUtilization
-</span><a href="#local-6989586621679336975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679336972"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679336981"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679336970"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansUtilizationAggregates
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679336979"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SavingsPlansUtilizationAggregates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SavingsPlansUtilizationAggregates)
@@ -259,8 +259,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SavingsPlansUtilizationAggregates&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336967"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336967"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336976"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679336976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe SavingsPlansAmortizedCommitment
 -&gt; Maybe SavingsPlansSavings
 -&gt; SavingsPlansUtilization
@@ -276,7 +276,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; SavingsPlansUtilization -&gt; SavingsPlansUtilizationAggregates)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansAmortizedCommitment)
+</span><a href="#local-6989586621679336976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansAmortizedCommitment)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AmortizedCommitment&quot;</span></span><span class="hs-special">)</span><span>
@@ -288,7 +288,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (SavingsPlansUtilization -&gt; SavingsPlansUtilizationAggregates)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansSavings)
+</span><a href="#local-6989586621679336976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SavingsPlansSavings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Savings&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,17 +298,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser SavingsPlansUtilizationAggregates
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679336967"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SavingsPlansUtilization
+</span><a href="#local-6989586621679336976"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SavingsPlansUtilization
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Utilization&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679336960"><span id="local-6989586621679336962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679336969"><span id="local-6989586621679336971"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679336957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679336966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates.html#SavingsPlansUtilizationAggregates"><span class="hs-identifier hs-type">SavingsPlansUtilizationAggregates</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

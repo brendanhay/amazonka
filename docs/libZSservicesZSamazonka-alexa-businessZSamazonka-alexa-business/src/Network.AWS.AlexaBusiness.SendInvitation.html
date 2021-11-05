@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newSendInvitation' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679376688"><span id="local-6989586621679376689"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendInvitation"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-var">SendInvitation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendInvitation%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-var">SendInvitation'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679376697"><span id="local-6989586621679376698"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendInvitation"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-var">SendInvitation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendInvitation%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-var">SendInvitation'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the user to whom to send an invitation. Required.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AuserArn%3ASendInvitation%27"><span class="annot"><span class="annottext">SendInvitation -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#%24sel%3AuserArn%3ASendInvitation%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376682"><span id="local-6989586621679376684"><span class="annot"><span class="annottext">SendInvitation -&gt; SendInvitation -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376691"><span id="local-6989586621679376693"><span class="annot"><span class="annottext">SendInvitation -&gt; SendInvitation -&gt; Bool
 (SendInvitation -&gt; SendInvitation -&gt; Bool)
 -&gt; (SendInvitation -&gt; SendInvitation -&gt; Bool) -&gt; Eq SendInvitation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendInvitation -&gt; SendInvitation -&gt; Bool
 == :: SendInvitation -&gt; SendInvitation -&gt; Bool
 $c== :: SendInvitation -&gt; SendInvitation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376673"><span id="local-6989586621679376675"><span id="local-6989586621679376677"><span id="local-6989586621679376679"><span class="annot"><span class="annottext">ReadPrec [SendInvitation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376682"><span id="local-6989586621679376684"><span id="local-6989586621679376686"><span id="local-6989586621679376688"><span class="annot"><span class="annottext">ReadPrec [SendInvitation]
 ReadPrec SendInvitation
 Int -&gt; ReadS SendInvitation
 ReadS [SendInvitation]
@@ -81,7 +81,7 @@ readList :: ReadS [SendInvitation]
 $creadList :: ReadS [SendInvitation]
 readsPrec :: Int -&gt; ReadS SendInvitation
 $creadsPrec :: Int -&gt; ReadS SendInvitation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376666"><span id="local-6989586621679376668"><span id="local-6989586621679376670"><span class="annot"><span class="annottext">Int -&gt; SendInvitation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376675"><span id="local-6989586621679376677"><span id="local-6989586621679376679"><span class="annot"><span class="annottext">Int -&gt; SendInvitation -&gt; ShowS
 [SendInvitation] -&gt; ShowS
 SendInvitation -&gt; String
 (Int -&gt; SendInvitation -&gt; ShowS)
@@ -134,27 +134,27 @@ forall a. Maybe a
 -&gt; (SendInvitation -&gt; Maybe Text -&gt; SendInvitation)
 -&gt; Lens SendInvitation SendInvitation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-type">SendInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376659"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-type">SendInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376668"><span class="annot"><span class="annottext">Maybe Text
 userArn :: Maybe Text
 $sel:userArn:SendInvitation' :: SendInvitation -&gt; Maybe Text
-</span><a href="#local-6989586621679376659"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376659"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376658"><span class="annot"><span class="annottext">s :: SendInvitation
-</span><a href="#local-6989586621679376658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-type">SendInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376657"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendInvitation
-</span><a href="#local-6989586621679376658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:SendInvitation' :: Maybe Text
+</span><a href="#local-6989586621679376668"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376668"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376667"><span class="annot"><span class="annottext">s :: SendInvitation
+</span><a href="#local-6989586621679376667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-type">SendInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679376666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendInvitation
+</span><a href="#local-6989586621679376667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:SendInvitation' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#%24sel%3AuserArn%3ASendInvitation%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-type">SendInvitationResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679376653"><span class="annot"><span class="annottext">request :: SendInvitation -&gt; Request SendInvitation
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679376662"><span class="annot"><span class="annottext">request :: SendInvitation -&gt; Request SendInvitation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendInvitation -&gt; Request SendInvitation
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679376649"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679376658"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SendInvitation
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376646"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679376645"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679376645"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679376644"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679376644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376655"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376655"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679376654"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679376654"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679376653"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679376653"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; SendInvitationResponse
 </span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-var">SendInvitationResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; SendInvitationResponse)
@@ -192,15 +192,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376646"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376655"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376637"><span id="local-6989586621679376639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376646"><span id="local-6989586621679376648"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679376630"><span class="annot"><span class="annottext">toHeaders :: SendInvitation -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679376639"><span class="annot"><span class="annottext">toHeaders :: SendInvitation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendInvitation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,12 +227,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376620"><span id="local-6989586621679376622"><span id="local-6989586621679376624"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679376618"><span class="annot"><span class="annottext">toJSON :: SendInvitation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-type">SendInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376616"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376629"><span id="local-6989586621679376631"><span id="local-6989586621679376633"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679376627"><span class="annot"><span class="annottext">toJSON :: SendInvitation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation%27"><span class="hs-identifier hs-type">SendInvitation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376625"><span class="annot"><span class="annottext">Maybe Text
 userArn :: Maybe Text
 $sel:userArn:SendInvitation' :: SendInvitation -&gt; Maybe Text
-</span><a href="#local-6989586621679376616"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679376625"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,18 +244,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376616"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679376625"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679376610"><span class="annot"><span class="annottext">toPath :: SendInvitation -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679376619"><span class="annot"><span class="annottext">toPath :: SendInvitation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendInvitation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitation"><span class="hs-identifier hs-type">SendInvitation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679376606"><span class="annot"><span class="annottext">toQuery :: SendInvitation -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679376615"><span class="annot"><span class="annottext">toQuery :: SendInvitation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SendInvitation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,12 +263,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newSendInvitationResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679376603"><span id="local-6989586621679376604"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendInvitationResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-var">SendInvitationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendInvitationResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-var">SendInvitationResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679376612"><span id="local-6989586621679376613"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendInvitationResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-var">SendInvitationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendInvitationResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-var">SendInvitationResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendInvitationResponse%27"><span class="annot"><span class="annottext">SendInvitationResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#%24sel%3AhttpStatus%3ASendInvitationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376598"><span id="local-6989586621679376600"><span class="annot"><span class="annottext">SendInvitationResponse -&gt; SendInvitationResponse -&gt; Bool
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376607"><span id="local-6989586621679376609"><span class="annot"><span class="annottext">SendInvitationResponse -&gt; SendInvitationResponse -&gt; Bool
 (SendInvitationResponse -&gt; SendInvitationResponse -&gt; Bool)
 -&gt; (SendInvitationResponse -&gt; SendInvitationResponse -&gt; Bool)
 -&gt; Eq SendInvitationResponse
@@ -277,7 +277,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SendInvitationResponse -&gt; SendInvitationResponse -&gt; Bool
 == :: SendInvitationResponse -&gt; SendInvitationResponse -&gt; Bool
 $c== :: SendInvitationResponse -&gt; SendInvitationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376590"><span id="local-6989586621679376592"><span id="local-6989586621679376594"><span id="local-6989586621679376596"><span class="annot"><span class="annottext">ReadPrec [SendInvitationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376599"><span id="local-6989586621679376601"><span id="local-6989586621679376603"><span id="local-6989586621679376605"><span class="annot"><span class="annottext">ReadPrec [SendInvitationResponse]
 ReadPrec SendInvitationResponse
 Int -&gt; ReadS SendInvitationResponse
 ReadS [SendInvitationResponse]
@@ -297,7 +297,7 @@ readList :: ReadS [SendInvitationResponse]
 $creadList :: ReadS [SendInvitationResponse]
 readsPrec :: Int -&gt; ReadS SendInvitationResponse
 $creadsPrec :: Int -&gt; ReadS SendInvitationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376584"><span id="local-6989586621679376586"><span id="local-6989586621679376588"><span class="annot"><span class="annottext">Int -&gt; SendInvitationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376593"><span id="local-6989586621679376595"><span id="local-6989586621679376597"><span class="annot"><span class="annottext">Int -&gt; SendInvitationResponse -&gt; ShowS
 [SendInvitationResponse] -&gt; ShowS
 SendInvitationResponse -&gt; String
 (Int -&gt; SendInvitationResponse -&gt; ShowS)
@@ -338,12 +338,12 @@ $cfrom :: forall x. SendInvitationResponse -&gt; Rep SendInvitationResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-type">SendInvitationResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newSendInvitationResponse"><span class="annot"><span class="annottext">newSendInvitationResponse :: Int -&gt; SendInvitationResponse
-</span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#newSendInvitationResponse"><span class="hs-identifier hs-var hs-var">newSendInvitationResponse</span></a></span></span><span> </span><span id="local-6989586621679376581"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#newSendInvitationResponse"><span class="hs-identifier hs-var hs-var">newSendInvitationResponse</span></a></span></span><span> </span><span id="local-6989586621679376590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">SendInvitationResponse' :: Int -&gt; SendInvitationResponse
 </span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-type">SendInvitationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendInvitationResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#%24sel%3AhttpStatus%3ASendInvitationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679376590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#sendInvitationResponse_httpStatus"><span class="hs-identifier hs-type">sendInvitationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-type">SendInvitationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -353,16 +353,16 @@ $cfrom :: forall x. SendInvitationResponse -&gt; Rep SendInvitationResponse x
 -&gt; (SendInvitationResponse -&gt; Int -&gt; SendInvitationResponse)
 -&gt; Lens SendInvitationResponse SendInvitationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-type">SendInvitationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376580"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-type">SendInvitationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376589"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SendInvitationResponse' :: SendInvitationResponse -&gt; Int
-</span><a href="#local-6989586621679376580"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376580"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376579"><span class="annot"><span class="annottext">s :: SendInvitationResponse
-</span><a href="#local-6989586621679376579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-type">SendInvitationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376578"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendInvitationResponse
-</span><a href="#local-6989586621679376579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendInvitationResponse' :: Int
+</span><a href="#local-6989586621679376589"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376589"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376588"><span class="annot"><span class="annottext">s :: SendInvitationResponse
+</span><a href="#local-6989586621679376588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse%27"><span class="hs-identifier hs-type">SendInvitationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376587"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679376587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendInvitationResponse
+</span><a href="#local-6989586621679376588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendInvitationResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.SendInvitation.html#%24sel%3AhttpStatus%3ASendInvitationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679376578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-type">SendInvitationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-type">SendInvitationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-type">SendInvitationResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.SendInvitation.html#SendInvitationResponse"><span class="hs-identifier hs-type">SendInvitationResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

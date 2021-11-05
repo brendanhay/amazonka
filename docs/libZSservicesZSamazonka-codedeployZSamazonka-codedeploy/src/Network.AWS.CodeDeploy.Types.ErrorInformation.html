@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a deployment error.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newErrorInformation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679308441"><span id="local-6989586621679308442"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorInformation"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-var">ErrorInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorInformation%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-var">ErrorInformation'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679308450"><span id="local-6989586621679308451"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorInformation"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-var">ErrorInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorInformation%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-var">ErrorInformation'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For more information, see</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html Error Codes for AWS CodeDeploy&gt;</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- in the</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3Amessage%3AErrorInformation%27"><span class="annot"><span class="annottext">ErrorInformation -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#%24sel%3Amessage%3AErrorInformation%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308434"><span id="local-6989586621679308436"><span class="annot"><span class="annottext">ErrorInformation -&gt; ErrorInformation -&gt; Bool
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308443"><span id="local-6989586621679308445"><span class="annot"><span class="annottext">ErrorInformation -&gt; ErrorInformation -&gt; Bool
 (ErrorInformation -&gt; ErrorInformation -&gt; Bool)
 -&gt; (ErrorInformation -&gt; ErrorInformation -&gt; Bool)
 -&gt; Eq ErrorInformation
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorInformation -&gt; ErrorInformation -&gt; Bool
 == :: ErrorInformation -&gt; ErrorInformation -&gt; Bool
 $c== :: ErrorInformation -&gt; ErrorInformation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308425"><span id="local-6989586621679308427"><span id="local-6989586621679308429"><span id="local-6989586621679308431"><span class="annot"><span class="annottext">ReadPrec [ErrorInformation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308434"><span id="local-6989586621679308436"><span id="local-6989586621679308438"><span id="local-6989586621679308440"><span class="annot"><span class="annottext">ReadPrec [ErrorInformation]
 ReadPrec ErrorInformation
 Int -&gt; ReadS ErrorInformation
 ReadS [ErrorInformation]
@@ -108,7 +108,7 @@ readList :: ReadS [ErrorInformation]
 $creadList :: ReadS [ErrorInformation]
 readsPrec :: Int -&gt; ReadS ErrorInformation
 $creadsPrec :: Int -&gt; ReadS ErrorInformation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308418"><span id="local-6989586621679308420"><span id="local-6989586621679308422"><span class="annot"><span class="annottext">Int -&gt; ErrorInformation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308427"><span id="local-6989586621679308429"><span id="local-6989586621679308431"><span class="annot"><span class="annottext">Int -&gt; ErrorInformation -&gt; ShowS
 [ErrorInformation] -&gt; ShowS
 ErrorInformation -&gt; String
 (Int -&gt; ErrorInformation -&gt; ShowS)
@@ -261,16 +261,16 @@ forall a. Maybe a
      (Maybe DeployErrorCode)
      (Maybe DeployErrorCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308409"><span class="annot"><span class="annottext">Maybe DeployErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308418"><span class="annot"><span class="annottext">Maybe DeployErrorCode
 code :: Maybe DeployErrorCode
 $sel:code:ErrorInformation' :: ErrorInformation -&gt; Maybe DeployErrorCode
-</span><a href="#local-6989586621679308409"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeployErrorCode
-</span><a href="#local-6989586621679308409"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308408"><span class="annot"><span class="annottext">s :: ErrorInformation
-</span><a href="#local-6989586621679308408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308407"><span class="annot"><span class="annottext">Maybe DeployErrorCode
-</span><a href="#local-6989586621679308407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInformation
-</span><a href="#local-6989586621679308408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ErrorInformation' :: Maybe DeployErrorCode
+</span><a href="#local-6989586621679308418"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeployErrorCode
+</span><a href="#local-6989586621679308418"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308417"><span class="annot"><span class="annottext">s :: ErrorInformation
+</span><a href="#local-6989586621679308417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308416"><span class="annot"><span class="annottext">Maybe DeployErrorCode
+</span><a href="#local-6989586621679308416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInformation
+</span><a href="#local-6989586621679308417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ErrorInformation' :: Maybe DeployErrorCode
 </span><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#%24sel%3Acode%3AErrorInformation%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeployErrorCode
-</span><a href="#local-6989586621679308407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | An accompanying error message.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#errorInformation_message"><span class="hs-identifier hs-type">errorInformation_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -280,19 +280,19 @@ $sel:code:ErrorInformation' :: ErrorInformation -&gt; Maybe DeployErrorCode
 -&gt; (ErrorInformation -&gt; Maybe Text -&gt; ErrorInformation)
 -&gt; Lens ErrorInformation ErrorInformation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308405"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308414"><span class="annot"><span class="annottext">Maybe Text
 message :: Maybe Text
 $sel:message:ErrorInformation' :: ErrorInformation -&gt; Maybe Text
-</span><a href="#local-6989586621679308405"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308405"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308404"><span class="annot"><span class="annottext">s :: ErrorInformation
-</span><a href="#local-6989586621679308404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308403"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInformation
-</span><a href="#local-6989586621679308404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ErrorInformation' :: Maybe Text
+</span><a href="#local-6989586621679308414"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308414"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308413"><span class="annot"><span class="annottext">s :: ErrorInformation
+</span><a href="#local-6989586621679308413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-type">ErrorInformation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorInformation
+</span><a href="#local-6989586621679308413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ErrorInformation' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#%24sel%3Amessage%3AErrorInformation%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308400"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679308398"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorInformation
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308409"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679308407"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ErrorInformation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ErrorInformation)
@@ -302,8 +302,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ErrorInformation&quot;</span></span><span>
-</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308395"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308404"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeployErrorCode -&gt; Maybe Text -&gt; ErrorInformation
 </span><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation%27"><span class="hs-identifier hs-var">ErrorInformation'</span></a></span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeployErrorCode -&gt; Maybe Text -&gt; ErrorInformation)
@@ -311,7 +311,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ErrorInformation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeployErrorCode)
+</span><a href="#local-6989586621679308404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeployErrorCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,13 +319,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ErrorInformation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679308404"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308389"><span id="local-6989586621679308391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308398"><span id="local-6989586621679308400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span></span></span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.ErrorInformation.html#ErrorInformation"><span class="hs-identifier hs-type">ErrorInformation</span></a></span></span><span>
 </span><span id="line-210"></span></pre></body></html>

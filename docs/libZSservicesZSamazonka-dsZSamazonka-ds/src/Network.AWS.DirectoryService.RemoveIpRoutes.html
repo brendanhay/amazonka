@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newRemoveIpRoutes' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679304520"><span id="local-6989586621679304521"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveIpRoutes"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-var">RemoveIpRoutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveIpRoutes%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-var">RemoveIpRoutes'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679304529"><span id="local-6989586621679304530"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveIpRoutes"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-var">RemoveIpRoutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveIpRoutes%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-var">RemoveIpRoutes'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier (ID) of the directory from which you want to remove the IP</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- addresses.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdirectoryId%3ARemoveIpRoutes%27"><span class="annot"><span class="annottext">RemoveIpRoutes -&gt; Text
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AcidrIps%3ARemoveIpRoutes%27"><span class="annot"><span class="annottext">RemoveIpRoutes -&gt; [Text]
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AcidrIps%3ARemoveIpRoutes%27"><span class="hs-identifier hs-var hs-var">cidrIps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304513"><span id="local-6989586621679304515"><span class="annot"><span class="annottext">RemoveIpRoutes -&gt; RemoveIpRoutes -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304522"><span id="local-6989586621679304524"><span class="annot"><span class="annottext">RemoveIpRoutes -&gt; RemoveIpRoutes -&gt; Bool
 (RemoveIpRoutes -&gt; RemoveIpRoutes -&gt; Bool)
 -&gt; (RemoveIpRoutes -&gt; RemoveIpRoutes -&gt; Bool) -&gt; Eq RemoveIpRoutes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveIpRoutes -&gt; RemoveIpRoutes -&gt; Bool
 == :: RemoveIpRoutes -&gt; RemoveIpRoutes -&gt; Bool
 $c== :: RemoveIpRoutes -&gt; RemoveIpRoutes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304504"><span id="local-6989586621679304506"><span id="local-6989586621679304508"><span id="local-6989586621679304510"><span class="annot"><span class="annottext">ReadPrec [RemoveIpRoutes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304513"><span id="local-6989586621679304515"><span id="local-6989586621679304517"><span id="local-6989586621679304519"><span class="annot"><span class="annottext">ReadPrec [RemoveIpRoutes]
 ReadPrec RemoveIpRoutes
 Int -&gt; ReadS RemoveIpRoutes
 ReadS [RemoveIpRoutes]
@@ -84,7 +84,7 @@ readList :: ReadS [RemoveIpRoutes]
 $creadList :: ReadS [RemoveIpRoutes]
 readsPrec :: Int -&gt; ReadS RemoveIpRoutes
 $creadsPrec :: Int -&gt; ReadS RemoveIpRoutes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304497"><span id="local-6989586621679304499"><span id="local-6989586621679304501"><span class="annot"><span class="annottext">Int -&gt; RemoveIpRoutes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304506"><span id="local-6989586621679304508"><span id="local-6989586621679304510"><span class="annot"><span class="annottext">Int -&gt; RemoveIpRoutes -&gt; ShowS
 [RemoveIpRoutes] -&gt; ShowS
 RemoveIpRoutes -&gt; String
 (Int -&gt; RemoveIpRoutes -&gt; ShowS)
@@ -127,13 +127,13 @@ $cfrom :: forall x. RemoveIpRoutes -&gt; Rep RemoveIpRoutes x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span>
 </span><span id="line-75"></span><span id="newRemoveIpRoutes"><span class="annot"><span class="annottext">newRemoveIpRoutes :: Text -&gt; RemoveIpRoutes
-</span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#newRemoveIpRoutes"><span class="hs-identifier hs-var hs-var">newRemoveIpRoutes</span></a></span></span><span> </span><span id="local-6989586621679304492"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304492"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#newRemoveIpRoutes"><span class="hs-identifier hs-var hs-var">newRemoveIpRoutes</span></a></span></span><span> </span><span id="local-6989586621679304501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304501"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">RemoveIpRoutes' :: Text -&gt; [Text] -&gt; RemoveIpRoutes
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:RemoveIpRoutes' :: Text
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AdirectoryId%3ARemoveIpRoutes%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304492"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304501"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrIps:RemoveIpRoutes' :: [Text]
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AcidrIps%3ARemoveIpRoutes%27"><span class="hs-identifier hs-var">cidrIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -148,16 +148,16 @@ forall a. Monoid a =&gt; a
 -&gt; (RemoveIpRoutes -&gt; Text -&gt; RemoveIpRoutes)
 -&gt; Lens RemoveIpRoutes RemoveIpRoutes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304489"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304498"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:RemoveIpRoutes' :: RemoveIpRoutes -&gt; Text
-</span><a href="#local-6989586621679304489"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304489"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304488"><span class="annot"><span class="annottext">s :: RemoveIpRoutes
-</span><a href="#local-6989586621679304488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304487"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveIpRoutes
-</span><a href="#local-6989586621679304488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:RemoveIpRoutes' :: Text
+</span><a href="#local-6989586621679304498"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304498"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304497"><span class="annot"><span class="annottext">s :: RemoveIpRoutes
+</span><a href="#local-6989586621679304497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304496"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveIpRoutes
+</span><a href="#local-6989586621679304497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:RemoveIpRoutes' :: Text
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AdirectoryId%3ARemoveIpRoutes%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | IP address blocks that you want to remove.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#removeIpRoutes_cidrIps"><span class="hs-identifier hs-type">removeIpRoutes_cidrIps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -166,16 +166,16 @@ $sel:directoryId:RemoveIpRoutes' :: RemoveIpRoutes -&gt; Text
 -&gt; (RemoveIpRoutes -&gt; [Text] -&gt; RemoveIpRoutes)
 -&gt; Lens RemoveIpRoutes RemoveIpRoutes [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304486"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304495"><span class="annot"><span class="annottext">[Text]
 cidrIps :: [Text]
 $sel:cidrIps:RemoveIpRoutes' :: RemoveIpRoutes -&gt; [Text]
-</span><a href="#local-6989586621679304486"><span class="hs-identifier hs-var hs-var">cidrIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679304486"><span class="hs-identifier hs-var">cidrIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304485"><span class="annot"><span class="annottext">s :: RemoveIpRoutes
-</span><a href="#local-6989586621679304485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304484"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679304484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveIpRoutes
-</span><a href="#local-6989586621679304485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrIps:RemoveIpRoutes' :: [Text]
+</span><a href="#local-6989586621679304495"><span class="hs-identifier hs-var hs-var">cidrIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679304495"><span class="hs-identifier hs-var">cidrIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304494"><span class="annot"><span class="annottext">s :: RemoveIpRoutes
+</span><a href="#local-6989586621679304494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304493"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679304493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveIpRoutes
+</span><a href="#local-6989586621679304494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrIps:RemoveIpRoutes' :: [Text]
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AcidrIps%3ARemoveIpRoutes%27"><span class="hs-identifier hs-var">cidrIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679304484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; RemoveIpRoutes -&gt; f RemoveIpRoutes)
+</span><a href="#local-6989586621679304493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; RemoveIpRoutes -&gt; f RemoveIpRoutes)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; RemoveIpRoutes
@@ -189,12 +189,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-type">RemoveIpRoutesResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679304478"><span class="annot"><span class="annottext">request :: RemoveIpRoutes -&gt; Request RemoveIpRoutes
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679304487"><span class="annot"><span class="annottext">request :: RemoveIpRoutes -&gt; Request RemoveIpRoutes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveIpRoutes -&gt; Request RemoveIpRoutes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679304474"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679304483"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveIpRoutes
 -&gt; ClientResponse ClientBody
@@ -218,10 +218,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304471"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304471"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304470"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679304470"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304469"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679304469"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304480"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304480"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304479"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304479"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304478"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679304478"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveIpRoutesResponse
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-var">RemoveIpRoutesResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveIpRoutesResponse)
@@ -232,15 +232,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304471"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304480"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304462"><span id="local-6989586621679304464"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304471"><span id="local-6989586621679304473"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679304455"><span class="annot"><span class="annottext">toHeaders :: RemoveIpRoutes -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679304464"><span class="annot"><span class="annottext">toHeaders :: RemoveIpRoutes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveIpRoutes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -267,15 +267,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304445"><span id="local-6989586621679304447"><span id="local-6989586621679304449"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679304443"><span class="annot"><span class="annottext">toJSON :: RemoveIpRoutes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304440"><span id="local-6989586621679304441"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304454"><span id="local-6989586621679304456"><span id="local-6989586621679304458"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679304452"><span class="annot"><span class="annottext">toJSON :: RemoveIpRoutes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes%27"><span class="hs-identifier hs-type">RemoveIpRoutes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304449"><span id="local-6989586621679304450"><span class="annot"><span class="annottext">[Text]
 Text
 cidrIps :: [Text]
 directoryId :: Text
 $sel:cidrIps:RemoveIpRoutes' :: RemoveIpRoutes -&gt; [Text]
 $sel:directoryId:RemoveIpRoutes' :: RemoveIpRoutes -&gt; Text
-</span><a href="#local-6989586621679304440"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304449"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -287,26 +287,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304441"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304450"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CidrIps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679304440"><span class="hs-identifier hs-var">cidrIps</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304449"><span class="hs-identifier hs-var">cidrIps</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679304434"><span class="annot"><span class="annottext">toPath :: RemoveIpRoutes -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679304443"><span class="annot"><span class="annottext">toPath :: RemoveIpRoutes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveIpRoutes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutes"><span class="hs-identifier hs-type">RemoveIpRoutes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679304430"><span class="annot"><span class="annottext">toQuery :: RemoveIpRoutes -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679304439"><span class="annot"><span class="annottext">toQuery :: RemoveIpRoutes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveIpRoutes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -314,12 +314,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newRemoveIpRoutesResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679304427"><span id="local-6989586621679304428"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveIpRoutesResponse"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-var">RemoveIpRoutesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveIpRoutesResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-var">RemoveIpRoutesResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679304436"><span id="local-6989586621679304437"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveIpRoutesResponse"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-var">RemoveIpRoutesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveIpRoutesResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-var">RemoveIpRoutesResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveIpRoutesResponse%27"><span class="annot"><span class="annottext">RemoveIpRoutesResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AhttpStatus%3ARemoveIpRoutesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304422"><span id="local-6989586621679304424"><span class="annot"><span class="annottext">RemoveIpRoutesResponse -&gt; RemoveIpRoutesResponse -&gt; Bool
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304431"><span id="local-6989586621679304433"><span class="annot"><span class="annottext">RemoveIpRoutesResponse -&gt; RemoveIpRoutesResponse -&gt; Bool
 (RemoveIpRoutesResponse -&gt; RemoveIpRoutesResponse -&gt; Bool)
 -&gt; (RemoveIpRoutesResponse -&gt; RemoveIpRoutesResponse -&gt; Bool)
 -&gt; Eq RemoveIpRoutesResponse
@@ -328,7 +328,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveIpRoutesResponse -&gt; RemoveIpRoutesResponse -&gt; Bool
 == :: RemoveIpRoutesResponse -&gt; RemoveIpRoutesResponse -&gt; Bool
 $c== :: RemoveIpRoutesResponse -&gt; RemoveIpRoutesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304414"><span id="local-6989586621679304416"><span id="local-6989586621679304418"><span id="local-6989586621679304420"><span class="annot"><span class="annottext">ReadPrec [RemoveIpRoutesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304423"><span id="local-6989586621679304425"><span id="local-6989586621679304427"><span id="local-6989586621679304429"><span class="annot"><span class="annottext">ReadPrec [RemoveIpRoutesResponse]
 ReadPrec RemoveIpRoutesResponse
 Int -&gt; ReadS RemoveIpRoutesResponse
 ReadS [RemoveIpRoutesResponse]
@@ -348,7 +348,7 @@ readList :: ReadS [RemoveIpRoutesResponse]
 $creadList :: ReadS [RemoveIpRoutesResponse]
 readsPrec :: Int -&gt; ReadS RemoveIpRoutesResponse
 $creadsPrec :: Int -&gt; ReadS RemoveIpRoutesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304408"><span id="local-6989586621679304410"><span id="local-6989586621679304412"><span class="annot"><span class="annottext">Int -&gt; RemoveIpRoutesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304417"><span id="local-6989586621679304419"><span id="local-6989586621679304421"><span class="annot"><span class="annottext">Int -&gt; RemoveIpRoutesResponse -&gt; ShowS
 [RemoveIpRoutesResponse] -&gt; ShowS
 RemoveIpRoutesResponse -&gt; String
 (Int -&gt; RemoveIpRoutesResponse -&gt; ShowS)
@@ -389,12 +389,12 @@ $cfrom :: forall x. RemoveIpRoutesResponse -&gt; Rep RemoveIpRoutesResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-type">RemoveIpRoutesResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newRemoveIpRoutesResponse"><span class="annot"><span class="annottext">newRemoveIpRoutesResponse :: Int -&gt; RemoveIpRoutesResponse
-</span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#newRemoveIpRoutesResponse"><span class="hs-identifier hs-var hs-var">newRemoveIpRoutesResponse</span></a></span></span><span> </span><span id="local-6989586621679304405"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#newRemoveIpRoutesResponse"><span class="hs-identifier hs-var hs-var">newRemoveIpRoutesResponse</span></a></span></span><span> </span><span id="local-6989586621679304414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">RemoveIpRoutesResponse' :: Int -&gt; RemoveIpRoutesResponse
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-type">RemoveIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveIpRoutesResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AhttpStatus%3ARemoveIpRoutesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679304414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#removeIpRoutesResponse_httpStatus"><span class="hs-identifier hs-type">removeIpRoutesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-type">RemoveIpRoutesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -404,16 +404,16 @@ $cfrom :: forall x. RemoveIpRoutesResponse -&gt; Rep RemoveIpRoutesResponse x
 -&gt; (RemoveIpRoutesResponse -&gt; Int -&gt; RemoveIpRoutesResponse)
 -&gt; Lens RemoveIpRoutesResponse RemoveIpRoutesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-type">RemoveIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304404"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-type">RemoveIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304413"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveIpRoutesResponse' :: RemoveIpRoutesResponse -&gt; Int
-</span><a href="#local-6989586621679304404"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304404"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304403"><span class="annot"><span class="annottext">s :: RemoveIpRoutesResponse
-</span><a href="#local-6989586621679304403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-type">RemoveIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304402"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveIpRoutesResponse
-</span><a href="#local-6989586621679304403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveIpRoutesResponse' :: Int
+</span><a href="#local-6989586621679304413"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304413"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304412"><span class="annot"><span class="annottext">s :: RemoveIpRoutesResponse
+</span><a href="#local-6989586621679304412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse%27"><span class="hs-identifier hs-type">RemoveIpRoutesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304411"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveIpRoutesResponse
+</span><a href="#local-6989586621679304412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveIpRoutesResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#%24sel%3AhttpStatus%3ARemoveIpRoutesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-type">RemoveIpRoutesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-type">RemoveIpRoutesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-type">RemoveIpRoutesResponse</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveIpRoutes.html#RemoveIpRoutesResponse"><span class="hs-identifier hs-type">RemoveIpRoutesResponse</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

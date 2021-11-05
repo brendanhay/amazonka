@@ -36,14 +36,14 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anBG
-_EncryptionError :: AsEncryptionError r_anBG => Prism' r_anBG EncryptionError
-_CipherFailure :: AsEncryptionError r_anBG => Prism' r_anBG CryptoError
-_PubKeyFailure :: AsEncryptionError r_anBG => Prism' r_anBG Error
-_IVInvalid :: AsEncryptionError r_anBG => Prism' r_anBG ByteString
-_EnvelopeMissing :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anBG => Prism' r_anBG ()
+class AsEncryptionError r_anBL
+_EncryptionError :: AsEncryptionError r_anBL => Prism' r_anBL EncryptionError
+_CipherFailure :: AsEncryptionError r_anBL => Prism' r_anBL CryptoError
+_PubKeyFailure :: AsEncryptionError r_anBL => Prism' r_anBL Error
+_IVInvalid :: AsEncryptionError r_anBL => Prism' r_anBL ByteString
+_EnvelopeMissing :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anBL => Prism' r_anBL ()
 data ContentAlgorithm
 
 -- | AES<i>CBC</i>PKCS5Padding
@@ -432,11 +432,11 @@ EnvelopeInvalid :: CI Text -> String -> EncryptionError
 
 -- | KMS error when retrieving decrypted plaintext.
 PlaintextUnavailable :: EncryptionError
-class AsEncryptionError r_anBG
-_EncryptionError :: AsEncryptionError r_anBG => Prism' r_anBG EncryptionError
-_CipherFailure :: AsEncryptionError r_anBG => Prism' r_anBG CryptoError
-_PubKeyFailure :: AsEncryptionError r_anBG => Prism' r_anBG Error
-_IVInvalid :: AsEncryptionError r_anBG => Prism' r_anBG ByteString
-_EnvelopeMissing :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text)
-_EnvelopeInvalid :: AsEncryptionError r_anBG => Prism' r_anBG (CI Text, String)
-_PlaintextUnavailable :: AsEncryptionError r_anBG => Prism' r_anBG ()
+class AsEncryptionError r_anBL
+_EncryptionError :: AsEncryptionError r_anBL => Prism' r_anBL EncryptionError
+_CipherFailure :: AsEncryptionError r_anBL => Prism' r_anBL CryptoError
+_PubKeyFailure :: AsEncryptionError r_anBL => Prism' r_anBL Error
+_IVInvalid :: AsEncryptionError r_anBL => Prism' r_anBL ByteString
+_EnvelopeMissing :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text)
+_EnvelopeInvalid :: AsEncryptionError r_anBL => Prism' r_anBL (CI Text, String)
+_PlaintextUnavailable :: AsEncryptionError r_anBL => Prism' r_anBL ()

@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newSNSDestination' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679275184"><span id="local-6989586621679275185"></span></span><span class="hs-keyword">data</span><span> </span><span id="SNSDestination"><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-var">SNSDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SNSDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-var">SNSDestination'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679275193"><span id="local-6989586621679275194"></span></span><span class="hs-keyword">data</span><span> </span><span id="SNSDestination"><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-var">SNSDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SNSDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-var">SNSDestination'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the Amazon SNS topic that email sending events will be</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- published to. An example of an Amazon SNS topic ARN is</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AtopicARN%3ASNSDestination%27"><span class="annot"><span class="annottext">SNSDestination -&gt; Text
 </span><a href="Network.AWS.SES.Types.SNSDestination.html#%24sel%3AtopicARN%3ASNSDestination%27"><span class="hs-identifier hs-var hs-var">topicARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275178"><span id="local-6989586621679275180"><span class="annot"><span class="annottext">SNSDestination -&gt; SNSDestination -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275187"><span id="local-6989586621679275189"><span class="annot"><span class="annottext">SNSDestination -&gt; SNSDestination -&gt; Bool
 (SNSDestination -&gt; SNSDestination -&gt; Bool)
 -&gt; (SNSDestination -&gt; SNSDestination -&gt; Bool) -&gt; Eq SNSDestination
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SNSDestination -&gt; SNSDestination -&gt; Bool
 == :: SNSDestination -&gt; SNSDestination -&gt; Bool
 $c== :: SNSDestination -&gt; SNSDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275169"><span id="local-6989586621679275171"><span id="local-6989586621679275173"><span id="local-6989586621679275175"><span class="annot"><span class="annottext">ReadPrec [SNSDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275178"><span id="local-6989586621679275180"><span id="local-6989586621679275182"><span id="local-6989586621679275184"><span class="annot"><span class="annottext">ReadPrec [SNSDestination]
 ReadPrec SNSDestination
 Int -&gt; ReadS SNSDestination
 ReadS [SNSDestination]
@@ -69,7 +69,7 @@ readList :: ReadS [SNSDestination]
 $creadList :: ReadS [SNSDestination]
 readsPrec :: Int -&gt; ReadS SNSDestination
 $creadsPrec :: Int -&gt; ReadS SNSDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275162"><span id="local-6989586621679275164"><span id="local-6989586621679275166"><span class="annot"><span class="annottext">Int -&gt; SNSDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275171"><span id="local-6989586621679275173"><span id="local-6989586621679275175"><span class="annot"><span class="annottext">Int -&gt; SNSDestination -&gt; ShowS
 [SNSDestination] -&gt; ShowS
 SNSDestination -&gt; String
 (Int -&gt; SNSDestination -&gt; ShowS)
@@ -113,12 +113,12 @@ $cfrom :: forall x. SNSDestination -&gt; Rep SNSDestination x
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span><span>
 </span><span id="line-62"></span><span id="newSNSDestination"><span class="annot"><span class="annottext">newSNSDestination :: Text -&gt; SNSDestination
-</span><a href="Network.AWS.SES.Types.SNSDestination.html#newSNSDestination"><span class="hs-identifier hs-var hs-var">newSNSDestination</span></a></span></span><span> </span><span id="local-6989586621679275156"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275156"><span class="hs-identifier hs-var">pTopicARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.SNSDestination.html#newSNSDestination"><span class="hs-identifier hs-var hs-var">newSNSDestination</span></a></span></span><span> </span><span id="local-6989586621679275165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275165"><span class="hs-identifier hs-var">pTopicARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">SNSDestination' :: Text -&gt; SNSDestination
 </span><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-type">SNSDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicARN:SNSDestination' :: Text
 </span><a href="Network.AWS.SES.Types.SNSDestination.html#%24sel%3AtopicARN%3ASNSDestination%27"><span class="hs-identifier hs-var">topicARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275156"><span class="hs-identifier hs-var">pTopicARN_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679275165"><span class="hs-identifier hs-var">pTopicARN_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The ARN of the Amazon SNS topic that email sending events will be</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- published to. An example of an Amazon SNS topic ARN is</span><span>
@@ -131,46 +131,46 @@ $cfrom :: forall x. SNSDestination -&gt; Rep SNSDestination x
 -&gt; (SNSDestination -&gt; Text -&gt; SNSDestination)
 -&gt; Lens SNSDestination SNSDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-type">SNSDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275152"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-type">SNSDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275161"><span class="annot"><span class="annottext">Text
 topicARN :: Text
 $sel:topicARN:SNSDestination' :: SNSDestination -&gt; Text
-</span><a href="#local-6989586621679275152"><span class="hs-identifier hs-var hs-var">topicARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275152"><span class="hs-identifier hs-var">topicARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275151"><span class="annot"><span class="annottext">s :: SNSDestination
-</span><a href="#local-6989586621679275151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-type">SNSDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275150"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SNSDestination
-</span><a href="#local-6989586621679275151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicARN:SNSDestination' :: Text
+</span><a href="#local-6989586621679275161"><span class="hs-identifier hs-var hs-var">topicARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275161"><span class="hs-identifier hs-var">topicARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275160"><span class="annot"><span class="annottext">s :: SNSDestination
+</span><a href="#local-6989586621679275160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-type">SNSDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275159"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SNSDestination
+</span><a href="#local-6989586621679275160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicARN:SNSDestination' :: Text
 </span><a href="Network.AWS.SES.Types.SNSDestination.html#%24sel%3AtopicARN%3ASNSDestination%27"><span class="hs-identifier hs-var">topicARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679275147"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SNSDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275145"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275145"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679275156"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SNSDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275154"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679275154"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; SNSDestination
 </span><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-var">SNSDestination'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; SNSDestination)
 -&gt; Either String Text -&gt; Either String SNSDestination
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679275154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275139"><span id="local-6989586621679275141"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275148"><span id="local-6989586621679275150"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275145"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination"><span class="hs-identifier hs-type">SNSDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679275132"><span class="annot"><span class="annottext">toQuery :: SNSDestination -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-type">SNSDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275130"><span class="annot"><span class="annottext">Text
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679275141"><span class="annot"><span class="annottext">toQuery :: SNSDestination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSDestination.html#SNSDestination%27"><span class="hs-identifier hs-type">SNSDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275139"><span class="annot"><span class="annottext">Text
 topicARN :: Text
 $sel:topicARN:SNSDestination' :: SNSDestination -&gt; Text
-</span><a href="#local-6989586621679275130"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275139"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TopicARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275130"><span class="hs-identifier hs-var">topicARN</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679275139"><span class="hs-identifier hs-var">topicARN</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span></pre></body></html>

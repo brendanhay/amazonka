@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679697075"><span id="local-6989586621679697076"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SchemaDiffType"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaDiffType.html#SchemaDiffType"><span class="hs-identifier hs-var">SchemaDiffType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaDiffType%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaDiffType.html#SchemaDiffType%27"><span class="hs-identifier hs-var">SchemaDiffType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679697084"><span id="local-6989586621679697085"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SchemaDiffType"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaDiffType.html#SchemaDiffType"><span class="hs-identifier hs-var">SchemaDiffType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SchemaDiffType%27"><span class="annot"><a href="Network.AWS.Glue.Types.SchemaDiffType.html#SchemaDiffType%27"><span class="hs-identifier hs-var">SchemaDiffType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSchemaDiffType"><span class="annot"><span class="annottext">SchemaDiffType -&gt; Text
 </span><a href="Network.AWS.Glue.Types.SchemaDiffType.html#fromSchemaDiffType"><span class="hs-identifier hs-var hs-var">fromSchemaDiffType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679697067"><span id="local-6989586621679697069"><span id="local-6989586621679697071"><span class="annot"><span class="annottext">Int -&gt; SchemaDiffType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679697076"><span id="local-6989586621679697078"><span id="local-6989586621679697080"><span class="annot"><span class="annottext">Int -&gt; SchemaDiffType -&gt; ShowS
 [SchemaDiffType] -&gt; ShowS
 SchemaDiffType -&gt; String
 (Int -&gt; SchemaDiffType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: SchemaDiffType -&gt; String
 showsPrec :: Int -&gt; SchemaDiffType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SchemaDiffType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679697058"><span id="local-6989586621679697060"><span id="local-6989586621679697062"><span id="local-6989586621679697064"><span class="annot"><span class="annottext">ReadPrec [SchemaDiffType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679697067"><span id="local-6989586621679697069"><span id="local-6989586621679697071"><span id="local-6989586621679697073"><span class="annot"><span class="annottext">ReadPrec [SchemaDiffType]
 ReadPrec SchemaDiffType
 Int -&gt; ReadS SchemaDiffType
 ReadS [SchemaDiffType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [SchemaDiffType]
 readsPrec :: Int -&gt; ReadS SchemaDiffType
 $creadsPrec :: Int -&gt; ReadS SchemaDiffType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679697053"><span id="local-6989586621679697055"><span class="annot"><span class="annottext">SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679697062"><span id="local-6989586621679697064"><span class="annot"><span class="annottext">SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
 (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool)
 -&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool) -&gt; Eq SchemaDiffType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
 == :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
 $c== :: SchemaDiffType -&gt; SchemaDiffType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679697037"><span id="local-6989586621679697039"><span id="local-6989586621679697041"><span id="local-6989586621679697043"><span id="local-6989586621679697045"><span id="local-6989586621679697047"><span id="local-6989586621679697049"><span class="annot"><span class="annottext">Eq SchemaDiffType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679697046"><span id="local-6989586621679697048"><span id="local-6989586621679697050"><span id="local-6989586621679697052"><span id="local-6989586621679697054"><span id="local-6989586621679697056"><span id="local-6989586621679697058"><span class="annot"><span class="annottext">Eq SchemaDiffType
 Eq SchemaDiffType
 -&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Ordering)
 -&gt; (SchemaDiffType -&gt; SchemaDiffType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. SchemaDiffType -&gt; Rep SchemaDiffType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679697029"><span id="local-6989586621679697031"><span class="annot"><span class="annottext">Int -&gt; SchemaDiffType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679697038"><span id="local-6989586621679697040"><span class="annot"><span class="annottext">Int -&gt; SchemaDiffType -&gt; Int
 SchemaDiffType -&gt; Int
 (Int -&gt; SchemaDiffType -&gt; Int)
 -&gt; (SchemaDiffType -&gt; Int) -&gt; Hashable SchemaDiffType
@@ -141,50 +141,50 @@ $chash :: SchemaDiffType -&gt; Int
 hashWithSalt :: Int -&gt; SchemaDiffType -&gt; Int
 $chashWithSalt :: Int -&gt; SchemaDiffType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679697026"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679697035"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ()
 (SchemaDiffType -&gt; ()) -&gt; NFData SchemaDiffType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SchemaDiffType -&gt; ()
 $crnf :: SchemaDiffType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679697023"><span class="annot"><span class="annottext">Text -&gt; Either String SchemaDiffType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679697032"><span class="annot"><span class="annottext">Text -&gt; Either String SchemaDiffType
 (Text -&gt; Either String SchemaDiffType) -&gt; FromText SchemaDiffType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SchemaDiffType
 $cfromText :: Text -&gt; Either String SchemaDiffType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679697020"><span class="annot"><span class="annottext">SchemaDiffType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679697029"><span class="annot"><span class="annottext">SchemaDiffType -&gt; Text
 (SchemaDiffType -&gt; Text) -&gt; ToText SchemaDiffType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SchemaDiffType -&gt; Text
 $ctoText :: SchemaDiffType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679697017"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679697026"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ByteString
 (SchemaDiffType -&gt; ByteString) -&gt; ToByteString SchemaDiffType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SchemaDiffType -&gt; ByteString
 $ctoBS :: SchemaDiffType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679697014"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679697023"><span class="annot"><span class="annottext">SchemaDiffType -&gt; ByteStringBuilder
 (SchemaDiffType -&gt; ByteStringBuilder) -&gt; ToLog SchemaDiffType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SchemaDiffType -&gt; ByteStringBuilder
 $cbuild :: SchemaDiffType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679697011"><span class="annot"><span class="annottext">HeaderName -&gt; SchemaDiffType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679697020"><span class="annot"><span class="annottext">HeaderName -&gt; SchemaDiffType -&gt; [Header]
 (HeaderName -&gt; SchemaDiffType -&gt; [Header])
 -&gt; ToHeader SchemaDiffType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SchemaDiffType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SchemaDiffType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679697008"><span class="annot"><span class="annottext">SchemaDiffType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679697017"><span class="annot"><span class="annottext">SchemaDiffType -&gt; QueryString
 (SchemaDiffType -&gt; QueryString) -&gt; ToQuery SchemaDiffType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SchemaDiffType -&gt; QueryString
 $ctoQuery :: SchemaDiffType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679697003"><span id="local-6989586621679697005"><span class="annot"><span class="annottext">Value -&gt; Parser [SchemaDiffType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679697012"><span id="local-6989586621679697014"><span class="annot"><span class="annottext">Value -&gt; Parser [SchemaDiffType]
 Value -&gt; Parser SchemaDiffType
 (Value -&gt; Parser SchemaDiffType)
 -&gt; (Value -&gt; Parser [SchemaDiffType]) -&gt; FromJSON SchemaDiffType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [SchemaDiffType]
 parseJSON :: Value -&gt; Parser SchemaDiffType
 $cparseJSON :: Value -&gt; Parser SchemaDiffType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679696998"><span id="local-6989586621679697000"><span class="annot"><span class="annottext">FromJSONKeyFunction [SchemaDiffType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679697007"><span id="local-6989586621679697009"><span class="annot"><span class="annottext">FromJSONKeyFunction [SchemaDiffType]
 FromJSONKeyFunction SchemaDiffType
 FromJSONKeyFunction SchemaDiffType
 -&gt; FromJSONKeyFunction [SchemaDiffType]
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SchemaDiffType]
 fromJSONKey :: FromJSONKeyFunction SchemaDiffType
 $cfromJSONKey :: FromJSONKeyFunction SchemaDiffType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679696989"><span id="local-6989586621679696991"><span id="local-6989586621679696993"><span id="local-6989586621679696995"><span class="annot"><span class="annottext">[SchemaDiffType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679696998"><span id="local-6989586621679697000"><span id="local-6989586621679697002"><span id="local-6989586621679697004"><span class="annot"><span class="annottext">[SchemaDiffType] -&gt; Encoding
 [SchemaDiffType] -&gt; Value
 SchemaDiffType -&gt; Encoding
 SchemaDiffType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: SchemaDiffType -&gt; Encoding
 toJSON :: SchemaDiffType -&gt; Value
 $ctoJSON :: SchemaDiffType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679696984"><span id="local-6989586621679696986"><span class="annot"><span class="annottext">ToJSONKeyFunction [SchemaDiffType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679696993"><span id="local-6989586621679696995"><span class="annot"><span class="annottext">ToJSONKeyFunction [SchemaDiffType]
 ToJSONKeyFunction SchemaDiffType
 ToJSONKeyFunction SchemaDiffType
 -&gt; ToJSONKeyFunction [SchemaDiffType] -&gt; ToJSONKey SchemaDiffType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SchemaDiffType]
 toJSONKey :: ToJSONKeyFunction SchemaDiffType
 $ctoJSONKey :: ToJSONKeyFunction SchemaDiffType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679696981"><span class="annot"><span class="annottext">[Node] -&gt; Either String SchemaDiffType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679696990"><span class="annot"><span class="annottext">[Node] -&gt; Either String SchemaDiffType
 ([Node] -&gt; Either String SchemaDiffType) -&gt; FromXML SchemaDiffType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SchemaDiffType
 $cparseXML :: [Node] -&gt; Either String SchemaDiffType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679696978"><span class="annot"><span class="annottext">SchemaDiffType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679696987"><span class="annot"><span class="annottext">SchemaDiffType -&gt; XML
 (SchemaDiffType -&gt; XML) -&gt; ToXML SchemaDiffType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SchemaDiffType -&gt; XML

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- the model was trained.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInputConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680311257"><span id="local-6989586621680311258"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-var">InputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-var">InputConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680311266"><span id="local-6989586621680311267"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-var">InputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-var">InputConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the framework version to use.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- This API field is only supported for PyTorch framework versions @1.4@,</span><span>
@@ -221,7 +221,7 @@
 </span><span id="line-218"></span><span>    </span><span id="%24sel%3Aframework%3AInputConfig%27"><span class="annot"><span class="annottext">InputConfig -&gt; Framework
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3Aframework%3AInputConfig%27"><span class="hs-identifier hs-var hs-var">framework</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span>
 </span><span id="line-219"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680311248"><span id="local-6989586621680311250"><span class="annot"><span class="annottext">InputConfig -&gt; InputConfig -&gt; Bool
+</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680311257"><span id="local-6989586621680311259"><span class="annot"><span class="annottext">InputConfig -&gt; InputConfig -&gt; Bool
 (InputConfig -&gt; InputConfig -&gt; Bool)
 -&gt; (InputConfig -&gt; InputConfig -&gt; Bool) -&gt; Eq InputConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -229,7 +229,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputConfig -&gt; InputConfig -&gt; Bool
 == :: InputConfig -&gt; InputConfig -&gt; Bool
 $c== :: InputConfig -&gt; InputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311239"><span id="local-6989586621680311241"><span id="local-6989586621680311243"><span id="local-6989586621680311245"><span class="annot"><span class="annottext">ReadPrec [InputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311248"><span id="local-6989586621680311250"><span id="local-6989586621680311252"><span id="local-6989586621680311254"><span class="annot"><span class="annottext">ReadPrec [InputConfig]
 ReadPrec InputConfig
 Int -&gt; ReadS InputConfig
 ReadS [InputConfig]
@@ -249,7 +249,7 @@ readList :: ReadS [InputConfig]
 $creadList :: ReadS [InputConfig]
 readsPrec :: Int -&gt; ReadS InputConfig
 $creadsPrec :: Int -&gt; ReadS InputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311232"><span id="local-6989586621680311234"><span id="local-6989586621680311236"><span class="annot"><span class="annottext">Int -&gt; InputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311241"><span id="local-6989586621680311243"><span id="local-6989586621680311245"><span class="annot"><span class="annottext">Int -&gt; InputConfig -&gt; ShowS
 [InputConfig] -&gt; ShowS
 InputConfig -&gt; String
 (Int -&gt; InputConfig -&gt; ShowS)
@@ -477,10 +477,10 @@ $cfrom :: forall x. InputConfig -&gt; Rep InputConfig x
 </span><span id="line-421"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Framework.html#Framework"><span class="hs-identifier hs-type">Framework</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-422"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span>
 </span><span id="line-423"></span><span id="newInputConfig"><span class="annot"><span class="annottext">newInputConfig :: Text -&gt; Text -&gt; Framework -&gt; InputConfig
-</span><a href="Network.AWS.SageMaker.Types.InputConfig.html#newInputConfig"><span class="hs-identifier hs-var hs-var">newInputConfig</span></a></span></span><span> </span><span id="local-6989586621680311226"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311226"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621680311225"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311225"><span class="hs-identifier hs-var">pDataInputConfig_</span></a></span></span><span> </span><span id="local-6989586621680311224"><span class="annot"><span class="annottext">Framework
-</span><a href="#local-6989586621680311224"><span class="hs-identifier hs-var">pFramework_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.InputConfig.html#newInputConfig"><span class="hs-identifier hs-var hs-var">newInputConfig</span></a></span></span><span> </span><span id="local-6989586621680311235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311235"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621680311234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311234"><span class="hs-identifier hs-var">pDataInputConfig_</span></a></span></span><span> </span><span id="local-6989586621680311233"><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621680311233"><span class="hs-identifier hs-var">pFramework_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-424"></span><span>  </span><span class="annot"><span class="annottext">InputConfig' :: Maybe Text -&gt; Text -&gt; Text -&gt; Framework -&gt; InputConfig
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span>
 </span><span id="line-425"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:frameworkVersion:InputConfig' :: Maybe Text
@@ -489,13 +489,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-426"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:InputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3As3Uri%3AInputConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311226"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311235"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-427"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataInputConfig:InputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3AdataInputConfig%3AInputConfig%27"><span class="hs-identifier hs-var">dataInputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311225"><span class="hs-identifier hs-var">pDataInputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311234"><span class="hs-identifier hs-var">pDataInputConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>      </span><span class="annot"><span class="annottext">$sel:framework:InputConfig' :: Framework
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3Aframework%3AInputConfig%27"><span class="hs-identifier hs-var">framework</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Framework
-</span><a href="#local-6989586621680311224"><span class="hs-identifier hs-var">pFramework_</span></a></span><span>
+</span><a href="#local-6989586621680311233"><span class="hs-identifier hs-var">pFramework_</span></a></span><span>
 </span><span id="line-429"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-430"></span><span>
 </span><span id="line-431"></span><span class="hs-comment">-- | Specifies the framework version to use.</span><span>
@@ -509,16 +509,16 @@ forall a. Maybe a
 -&gt; (InputConfig -&gt; Maybe Text -&gt; InputConfig)
 -&gt; Lens InputConfig InputConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311220"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311229"><span class="annot"><span class="annottext">Maybe Text
 frameworkVersion :: Maybe Text
 $sel:frameworkVersion:InputConfig' :: InputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680311220"><span class="hs-identifier hs-var hs-var">frameworkVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680311220"><span class="hs-identifier hs-var">frameworkVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311219"><span class="annot"><span class="annottext">s :: InputConfig
-</span><a href="#local-6989586621680311219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311218"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680311218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
-</span><a href="#local-6989586621680311219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkVersion:InputConfig' :: Maybe Text
+</span><a href="#local-6989586621680311229"><span class="hs-identifier hs-var hs-var">frameworkVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680311229"><span class="hs-identifier hs-var">frameworkVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311228"><span class="annot"><span class="annottext">s :: InputConfig
+</span><a href="#local-6989586621680311228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680311227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680311228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkVersion:InputConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3AframeworkVersion%3AInputConfig%27"><span class="hs-identifier hs-var">frameworkVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680311218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-438"></span><span>
 </span><span id="line-439"></span><span class="hs-comment">-- | The S3 path where the model artifacts, which result from model training,</span><span>
 </span><span id="line-440"></span><span class="hs-comment">-- are stored. This path must point to a single gzip compressed tar archive</span><span>
@@ -529,16 +529,16 @@ $sel:frameworkVersion:InputConfig' :: InputConfig -&gt; Maybe Text
 -&gt; (InputConfig -&gt; Text -&gt; InputConfig)
 -&gt; Lens InputConfig InputConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311216"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311225"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:InputConfig' :: InputConfig -&gt; Text
-</span><a href="#local-6989586621680311216"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311216"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311215"><span class="annot"><span class="annottext">s :: InputConfig
-</span><a href="#local-6989586621680311215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311214"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
-</span><a href="#local-6989586621680311215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:InputConfig' :: Text
+</span><a href="#local-6989586621680311225"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311225"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311224"><span class="annot"><span class="annottext">s :: InputConfig
+</span><a href="#local-6989586621680311224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311223"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680311224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:InputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3As3Uri%3AInputConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-444"></span><span>
 </span><span id="line-445"></span><span class="hs-comment">-- | Specifies the name and shape of the expected data inputs for your</span><span>
 </span><span id="line-446"></span><span class="hs-comment">-- trained model with a JSON dictionary form. The data inputs are</span><span>
@@ -718,16 +718,16 @@ $sel:s3Uri:InputConfig' :: InputConfig -&gt; Text
 -&gt; (InputConfig -&gt; Text -&gt; InputConfig)
 -&gt; Lens InputConfig InputConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311212"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311221"><span class="annot"><span class="annottext">Text
 dataInputConfig :: Text
 $sel:dataInputConfig:InputConfig' :: InputConfig -&gt; Text
-</span><a href="#local-6989586621680311212"><span class="hs-identifier hs-var hs-var">dataInputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311212"><span class="hs-identifier hs-var">dataInputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311211"><span class="annot"><span class="annottext">s :: InputConfig
-</span><a href="#local-6989586621680311211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311210"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
-</span><a href="#local-6989586621680311211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataInputConfig:InputConfig' :: Text
+</span><a href="#local-6989586621680311221"><span class="hs-identifier hs-var hs-var">dataInputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311221"><span class="hs-identifier hs-var">dataInputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311220"><span class="annot"><span class="annottext">s :: InputConfig
+</span><a href="#local-6989586621680311220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680311219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680311220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataInputConfig:InputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3AdataInputConfig%3AInputConfig%27"><span class="hs-identifier hs-var">dataInputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-619"></span><span>
 </span><span id="line-620"></span><span class="hs-comment">-- | Identifies the framework in which the model was trained. For example:</span><span>
 </span><span id="line-621"></span><span class="hs-comment">-- TENSORFLOW.</span><span>
@@ -737,19 +737,19 @@ $sel:dataInputConfig:InputConfig' :: InputConfig -&gt; Text
 -&gt; (InputConfig -&gt; Framework -&gt; InputConfig)
 -&gt; Lens InputConfig InputConfig Framework Framework
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311208"><span class="annot"><span class="annottext">Framework
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311217"><span class="annot"><span class="annottext">Framework
 framework :: Framework
 $sel:framework:InputConfig' :: InputConfig -&gt; Framework
-</span><a href="#local-6989586621680311208"><span class="hs-identifier hs-var hs-var">framework</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
-</span><a href="#local-6989586621680311208"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311207"><span class="annot"><span class="annottext">s :: InputConfig
-</span><a href="#local-6989586621680311207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311206"><span class="annot"><span class="annottext">Framework
-</span><a href="#local-6989586621680311206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
-</span><a href="#local-6989586621680311207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framework:InputConfig' :: Framework
+</span><a href="#local-6989586621680311217"><span class="hs-identifier hs-var hs-var">framework</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621680311217"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311216"><span class="annot"><span class="annottext">s :: InputConfig
+</span><a href="#local-6989586621680311216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311215"><span class="annot"><span class="annottext">Framework
+</span><a href="#local-6989586621680311215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputConfig
+</span><a href="#local-6989586621680311216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framework:InputConfig' :: Framework
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#%24sel%3Aframework%3AInputConfig%27"><span class="hs-identifier hs-var">framework</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Framework
-</span><a href="#local-6989586621680311206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-624"></span><span>
-</span><span id="line-625"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311203"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-626"></span><span>  </span><span id="local-6989586621680311201"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputConfig
+</span><span id="line-625"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311212"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-626"></span><span>  </span><span id="local-6989586621680311210"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-627"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputConfig) -&gt; Value -&gt; Parser InputConfig
@@ -757,8 +757,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-628"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputConfig&quot;</span></span><span>
-</span><span id="line-629"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680311198"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-629"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680311207"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680311207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-630"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; Framework -&gt; InputConfig
 </span><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-var">InputConfig'</span></a></span><span>
 </span><span id="line-631"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; Framework -&gt; InputConfig)
@@ -766,7 +766,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Framework -&gt; InputConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680311207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FrameworkVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -774,7 +774,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Framework -&gt; InputConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680311207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
@@ -782,7 +782,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Framework -&gt; InputConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680311207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataInputConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -790,19 +790,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Framework -&gt; Parser InputConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Framework
+</span><a href="#local-6989586621680311207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Framework
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Framework&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-635"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-636"></span><span>
-</span><span id="line-637"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311191"><span id="local-6989586621680311193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span></span><span>
+</span><span id="line-637"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311200"><span id="local-6989586621680311202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span></span><span>
 </span><span id="line-638"></span><span>
-</span><span id="line-639"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span><span>
+</span><span id="line-639"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span><span>
 </span><span id="line-640"></span><span>
-</span><span id="line-641"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311180"><span id="local-6989586621680311182"><span id="local-6989586621680311184"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-642"></span><span>  </span><span id="local-6989586621680311178"><span class="annot"><span class="annottext">toJSON :: InputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311173"><span id="local-6989586621680311174"><span id="local-6989586621680311175"><span id="local-6989586621680311176"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-641"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311189"><span id="local-6989586621680311191"><span id="local-6989586621680311193"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig"><span class="hs-identifier hs-type">InputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-642"></span><span>  </span><span id="local-6989586621680311187"><span class="annot"><span class="annottext">toJSON :: InputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InputConfig.html#InputConfig%27"><span class="hs-identifier hs-type">InputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311182"><span id="local-6989586621680311183"><span id="local-6989586621680311184"><span id="local-6989586621680311185"><span class="annot"><span class="annottext">Maybe Text
 Text
 Framework
 framework :: Framework
@@ -813,7 +813,7 @@ $sel:framework:InputConfig' :: InputConfig -&gt; Framework
 $sel:dataInputConfig:InputConfig' :: InputConfig -&gt; Text
 $sel:s3Uri:InputConfig' :: InputConfig -&gt; Text
 $sel:frameworkVersion:InputConfig' :: InputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680311173"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680311182"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-643"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-644"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -826,14 +826,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-646"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680311176"><span class="hs-identifier hs-var">frameworkVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311185"><span class="hs-identifier hs-var">frameworkVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-647"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311175"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311184"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-648"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -841,14 +841,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DataInputConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680311174"><span class="hs-identifier hs-var">dataInputConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680311183"><span class="hs-identifier hs-var">dataInputConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-650"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Framework&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Framework -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Framework
-</span><a href="#local-6989586621680311173"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680311182"><span class="hs-identifier hs-var">framework</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-651"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-652"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-653"></span></pre></body></html>

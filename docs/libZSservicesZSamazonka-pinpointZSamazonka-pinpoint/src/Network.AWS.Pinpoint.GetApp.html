@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetApp' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679634112"><span id="local-6989586621679634113"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApp"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-var">GetApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApp%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-var">GetApp'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679634121"><span id="local-6989586621679634122"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetApp"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-var">GetApp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetApp%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-var">GetApp'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AapplicationId%3AGetApp%27"><span class="annot"><span class="annottext">GetApp -&gt; Text
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AapplicationId%3AGetApp%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634106"><span id="local-6989586621679634108"><span class="annot"><span class="annottext">GetApp -&gt; GetApp -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634115"><span id="local-6989586621679634117"><span class="annot"><span class="annottext">GetApp -&gt; GetApp -&gt; Bool
 (GetApp -&gt; GetApp -&gt; Bool)
 -&gt; (GetApp -&gt; GetApp -&gt; Bool) -&gt; Eq GetApp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetApp -&gt; GetApp -&gt; Bool
 == :: GetApp -&gt; GetApp -&gt; Bool
 $c== :: GetApp -&gt; GetApp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634097"><span id="local-6989586621679634099"><span id="local-6989586621679634101"><span id="local-6989586621679634103"><span class="annot"><span class="annottext">ReadPrec [GetApp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634106"><span id="local-6989586621679634108"><span id="local-6989586621679634110"><span id="local-6989586621679634112"><span class="annot"><span class="annottext">ReadPrec [GetApp]
 ReadPrec GetApp
 Int -&gt; ReadS GetApp
 ReadS [GetApp]
@@ -81,7 +81,7 @@ readList :: ReadS [GetApp]
 $creadList :: ReadS [GetApp]
 readsPrec :: Int -&gt; ReadS GetApp
 $creadsPrec :: Int -&gt; ReadS GetApp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634090"><span id="local-6989586621679634092"><span id="local-6989586621679634094"><span class="annot"><span class="annottext">Int -&gt; GetApp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634099"><span id="local-6989586621679634101"><span id="local-6989586621679634103"><span class="annot"><span class="annottext">Int -&gt; GetApp -&gt; ShowS
 [GetApp] -&gt; ShowS
 GetApp -&gt; String
 (Int -&gt; GetApp -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. GetApp -&gt; Rep GetApp x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetApp"><span class="annot"><span class="annottext">newGetApp :: Text -&gt; GetApp
-</span><a href="Network.AWS.Pinpoint.GetApp.html#newGetApp"><span class="hs-identifier hs-var hs-var">newGetApp</span></a></span></span><span> </span><span id="local-6989586621679634085"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679634085"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.GetApp.html#newGetApp"><span class="hs-identifier hs-var hs-var">newGetApp</span></a></span></span><span> </span><span id="local-6989586621679634094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634094"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetApp' :: Text -&gt; GetApp
 </span><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApp' :: Text
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AapplicationId%3AGetApp%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679634085"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679634094"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. GetApp -&gt; Rep GetApp x
 </span><a href="Network.AWS.Pinpoint.GetApp.html#getApp_applicationId"><span class="hs-identifier hs-var hs-var">getApp_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetApp -&gt; Text)
 -&gt; (GetApp -&gt; Text -&gt; GetApp) -&gt; Lens GetApp GetApp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634082"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634091"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetApp' :: GetApp -&gt; Text
-</span><a href="#local-6989586621679634082"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679634082"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634081"><span class="annot"><span class="annottext">s :: GetApp
-</span><a href="#local-6989586621679634081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634080"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679634080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApp
-</span><a href="#local-6989586621679634081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApp' :: Text
+</span><a href="#local-6989586621679634091"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634091"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634090"><span class="annot"><span class="annottext">s :: GetApp
+</span><a href="#local-6989586621679634090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634089"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679634089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetApp
+</span><a href="#local-6989586621679634090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:GetApp' :: Text
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AapplicationId%3AGetApp%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679634080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679634089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679634076"><span class="annot"><span class="annottext">request :: GetApp -&gt; Request GetApp
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679634085"><span class="annot"><span class="annottext">request :: GetApp -&gt; Request GetApp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetApp -&gt; Request GetApp
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679634072"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679634081"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetApp
 -&gt; ClientResponse ClientBody
@@ -173,10 +173,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679634069"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679634069"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679634068"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679634068"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679634067"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679634067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679634078"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634078"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679634077"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679634077"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679634076"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679634076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ApplicationResponse -&gt; GetAppResponse
 </span><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ApplicationResponse -&gt; GetAppResponse)
@@ -188,7 +188,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679634069"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679634078"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (ApplicationResponse -&gt; GetAppResponse)
 -&gt; Either String ApplicationResponse
 -&gt; Either String GetAppResponse
@@ -196,15 +196,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String ApplicationResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679634067"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679634076"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634059"><span id="local-6989586621679634061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634068"><span id="local-6989586621679634070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679634052"><span class="annot"><span class="annottext">toHeaders :: GetApp -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679634061"><span class="annot"><span class="annottext">toHeaders :: GetApp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetApp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -224,11 +224,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679634046"><span class="annot"><span class="annottext">toPath :: GetApp -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634044"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679634055"><span class="annot"><span class="annottext">toPath :: GetApp -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp%27"><span class="hs-identifier hs-type">GetApp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634053"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:GetApp' :: GetApp -&gt; Text
-</span><a href="#local-6989586621679634044"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679634053"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -236,10 +236,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679634044"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679634053"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetApp"><span class="hs-identifier hs-type">GetApp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679634040"><span class="annot"><span class="annottext">toQuery :: GetApp -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679634049"><span class="annot"><span class="annottext">toQuery :: GetApp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetApp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -247,14 +247,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newGetAppResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679634037"><span id="local-6989586621679634038"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-var">GetAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679634046"><span id="local-6989586621679634047"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppResponse"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-var">GetAppResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-var">GetAppResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; Int
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AapplicationResponse%3AGetAppResponse%27"><span class="annot"><span class="annottext">GetAppResponse -&gt; ApplicationResponse
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AapplicationResponse%3AGetAppResponse%27"><span class="hs-identifier hs-var hs-var">applicationResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634031"><span id="local-6989586621679634033"><span class="annot"><span class="annottext">GetAppResponse -&gt; GetAppResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679634040"><span id="local-6989586621679634042"><span class="annot"><span class="annottext">GetAppResponse -&gt; GetAppResponse -&gt; Bool
 (GetAppResponse -&gt; GetAppResponse -&gt; Bool)
 -&gt; (GetAppResponse -&gt; GetAppResponse -&gt; Bool) -&gt; Eq GetAppResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -262,7 +262,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
 == :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
 $c== :: GetAppResponse -&gt; GetAppResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634023"><span id="local-6989586621679634025"><span id="local-6989586621679634027"><span id="local-6989586621679634029"><span class="annot"><span class="annottext">ReadPrec [GetAppResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634032"><span id="local-6989586621679634034"><span id="local-6989586621679634036"><span id="local-6989586621679634038"><span class="annot"><span class="annottext">ReadPrec [GetAppResponse]
 ReadPrec GetAppResponse
 Int -&gt; ReadS GetAppResponse
 ReadS [GetAppResponse]
@@ -282,7 +282,7 @@ readList :: ReadS [GetAppResponse]
 $creadList :: ReadS [GetAppResponse]
 readsPrec :: Int -&gt; ReadS GetAppResponse
 $creadsPrec :: Int -&gt; ReadS GetAppResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634017"><span id="local-6989586621679634019"><span id="local-6989586621679634021"><span class="annot"><span class="annottext">Int -&gt; GetAppResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679634026"><span id="local-6989586621679634028"><span id="local-6989586621679634030"><span class="annot"><span class="annottext">Int -&gt; GetAppResponse -&gt; ShowS
 [GetAppResponse] -&gt; ShowS
 GetAppResponse -&gt; String
 (Int -&gt; GetAppResponse -&gt; ShowS)
@@ -326,17 +326,17 @@ $cfrom :: forall x. GetAppResponse -&gt; Rep GetAppResponse x
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span>
 </span><span id="line-138"></span><span id="newGetAppResponse"><span class="annot"><span class="annottext">newGetAppResponse :: Int -&gt; ApplicationResponse -&gt; GetAppResponse
-</span><a href="Network.AWS.Pinpoint.GetApp.html#newGetAppResponse"><span class="hs-identifier hs-var hs-var">newGetAppResponse</span></a></span></span><span> </span><span id="local-6989586621679634014"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679634014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679634013"><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679634013"><span class="hs-identifier hs-var">pApplicationResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.GetApp.html#newGetAppResponse"><span class="hs-identifier hs-var hs-var">newGetAppResponse</span></a></span></span><span> </span><span id="local-6989586621679634023"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679634022"><span class="annot"><span class="annottext">ApplicationResponse
+</span><a href="#local-6989586621679634022"><span class="hs-identifier hs-var">pApplicationResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">GetAppResponse' :: Int -&gt; ApplicationResponse -&gt; GetAppResponse
 </span><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679634014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679634023"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationResponse:GetAppResponse' :: ApplicationResponse
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AapplicationResponse%3AGetAppResponse%27"><span class="hs-identifier hs-var">applicationResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679634013"><span class="hs-identifier hs-var">pApplicationResponse_</span></a></span><span>
+</span><a href="#local-6989586621679634022"><span class="hs-identifier hs-var">pApplicationResponse_</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -346,16 +346,16 @@ $cfrom :: forall x. GetAppResponse -&gt; Rep GetAppResponse x
 -&gt; (GetAppResponse -&gt; Int -&gt; GetAppResponse)
 -&gt; Lens GetAppResponse GetAppResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634012"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634021"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAppResponse' :: GetAppResponse -&gt; Int
-</span><a href="#local-6989586621679634012"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679634012"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634011"><span class="annot"><span class="annottext">s :: GetAppResponse
-</span><a href="#local-6989586621679634011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634010"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679634010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
-</span><a href="#local-6989586621679634011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
+</span><a href="#local-6989586621679634021"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634021"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634020"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679634020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634019"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679634019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679634020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AhttpStatus%3AGetAppResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679634010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679634019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#getAppResponse_applicationResponse"><span class="hs-identifier hs-type">getAppResponse_applicationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ApplicationResponse.html#ApplicationResponse"><span class="hs-identifier hs-type">ApplicationResponse</span></a></span><span>
@@ -369,16 +369,16 @@ $sel:httpStatus:GetAppResponse' :: GetAppResponse -&gt; Int
      ApplicationResponse
      ApplicationResponse
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634009"><span class="annot"><span class="annottext">ApplicationResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679634018"><span class="annot"><span class="annottext">ApplicationResponse
 applicationResponse :: ApplicationResponse
 $sel:applicationResponse:GetAppResponse' :: GetAppResponse -&gt; ApplicationResponse
-</span><a href="#local-6989586621679634009"><span class="hs-identifier hs-var hs-var">applicationResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679634009"><span class="hs-identifier hs-var">applicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634008"><span class="annot"><span class="annottext">s :: GetAppResponse
-</span><a href="#local-6989586621679634008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634007"><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679634007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
-</span><a href="#local-6989586621679634008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationResponse:GetAppResponse' :: ApplicationResponse
+</span><a href="#local-6989586621679634018"><span class="hs-identifier hs-var hs-var">applicationResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
+</span><a href="#local-6989586621679634018"><span class="hs-identifier hs-var">applicationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679634017"><span class="annot"><span class="annottext">s :: GetAppResponse
+</span><a href="#local-6989586621679634017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse%27"><span class="hs-identifier hs-type">GetAppResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679634016"><span class="annot"><span class="annottext">ApplicationResponse
+</span><a href="#local-6989586621679634016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppResponse
+</span><a href="#local-6989586621679634017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationResponse:GetAppResponse' :: ApplicationResponse
 </span><a href="Network.AWS.Pinpoint.GetApp.html#%24sel%3AapplicationResponse%3AGetAppResponse%27"><span class="hs-identifier hs-var">applicationResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApplicationResponse
-</span><a href="#local-6989586621679634007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679634016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679634014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.GetApp.html#GetAppResponse"><span class="hs-identifier hs-type">GetAppResponse</span></a></span></span><span>
 </span><span id="line-153"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html Managing Thing Indexing&gt;.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newThingIndexingConfiguration' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679803170"><span id="local-6989586621679803171"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThingIndexingConfiguration"><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-var">ThingIndexingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingIndexingConfiguration%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-var">ThingIndexingConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679803179"><span id="local-6989586621679803180"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThingIndexingConfiguration"><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-var">ThingIndexingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThingIndexingConfiguration%27"><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-var">ThingIndexingConfiguration'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains fields that are indexed and whose types are already known by</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the Fleet Indexing service.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AmanagedFields%3AThingIndexingConfiguration%27"><span class="annot"><span class="annottext">ThingIndexingConfiguration -&gt; Maybe [Field]
@@ -58,7 +58,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AthingIndexingMode%3AThingIndexingConfiguration%27"><span class="annot"><span class="annottext">ThingIndexingConfiguration -&gt; ThingIndexingMode
 </span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#%24sel%3AthingIndexingMode%3AThingIndexingConfiguration%27"><span class="hs-identifier hs-var hs-var">thingIndexingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingMode.html#ThingIndexingMode"><span class="hs-identifier hs-type">ThingIndexingMode</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803161"><span id="local-6989586621679803163"><span class="annot"><span class="annottext">ThingIndexingConfiguration -&gt; ThingIndexingConfiguration -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803170"><span id="local-6989586621679803172"><span class="annot"><span class="annottext">ThingIndexingConfiguration -&gt; ThingIndexingConfiguration -&gt; Bool
 (ThingIndexingConfiguration -&gt; ThingIndexingConfiguration -&gt; Bool)
 -&gt; (ThingIndexingConfiguration
     -&gt; ThingIndexingConfiguration -&gt; Bool)
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ThingIndexingConfiguration -&gt; ThingIndexingConfiguration -&gt; Bool
 == :: ThingIndexingConfiguration -&gt; ThingIndexingConfiguration -&gt; Bool
 $c== :: ThingIndexingConfiguration -&gt; ThingIndexingConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803152"><span id="local-6989586621679803154"><span id="local-6989586621679803156"><span id="local-6989586621679803158"><span class="annot"><span class="annottext">ReadPrec [ThingIndexingConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803161"><span id="local-6989586621679803163"><span id="local-6989586621679803165"><span id="local-6989586621679803167"><span class="annot"><span class="annottext">ReadPrec [ThingIndexingConfiguration]
 ReadPrec ThingIndexingConfiguration
 Int -&gt; ReadS ThingIndexingConfiguration
 ReadS [ThingIndexingConfiguration]
@@ -88,7 +88,7 @@ readList :: ReadS [ThingIndexingConfiguration]
 $creadList :: ReadS [ThingIndexingConfiguration]
 readsPrec :: Int -&gt; ReadS ThingIndexingConfiguration
 $creadsPrec :: Int -&gt; ReadS ThingIndexingConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803145"><span id="local-6989586621679803147"><span id="local-6989586621679803149"><span class="annot"><span class="annottext">Int -&gt; ThingIndexingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803154"><span id="local-6989586621679803156"><span id="local-6989586621679803158"><span class="annot"><span class="annottext">Int -&gt; ThingIndexingConfiguration -&gt; ShowS
 [ThingIndexingConfiguration] -&gt; ShowS
 ThingIndexingConfiguration -&gt; String
 (Int -&gt; ThingIndexingConfiguration -&gt; ShowS)
@@ -154,8 +154,8 @@ ThingIndexingConfiguration -&gt; Rep ThingIndexingConfiguration x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingMode.html#ThingIndexingMode"><span class="hs-identifier hs-type">ThingIndexingMode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span>
 </span><span id="line-92"></span><span id="newThingIndexingConfiguration"><span class="annot"><span class="annottext">newThingIndexingConfiguration :: ThingIndexingMode -&gt; ThingIndexingConfiguration
-</span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#newThingIndexingConfiguration"><span class="hs-identifier hs-var hs-var">newThingIndexingConfiguration</span></a></span></span><span> </span><span id="local-6989586621679803139"><span class="annot"><span class="annottext">ThingIndexingMode
-</span><a href="#local-6989586621679803139"><span class="hs-identifier hs-var">pThingIndexingMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#newThingIndexingConfiguration"><span class="hs-identifier hs-var hs-var">newThingIndexingConfiguration</span></a></span></span><span> </span><span id="local-6989586621679803148"><span class="annot"><span class="annottext">ThingIndexingMode
+</span><a href="#local-6989586621679803148"><span class="hs-identifier hs-var">pThingIndexingMode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">ThingIndexingConfiguration' :: Maybe [Field]
 -&gt; Maybe ThingConnectivityIndexingMode
 -&gt; Maybe [Field]
@@ -177,7 +177,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingIndexingMode:ThingIndexingConfiguration' :: ThingIndexingMode
 </span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#%24sel%3AthingIndexingMode%3AThingIndexingConfiguration%27"><span class="hs-identifier hs-var">thingIndexingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ThingIndexingMode
-</span><a href="#local-6989586621679803139"><span class="hs-identifier hs-var">pThingIndexingMode_</span></a></span><span>
+</span><a href="#local-6989586621679803148"><span class="hs-identifier hs-var">pThingIndexingMode_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Contains fields that are indexed and whose types are already known by</span><span>
@@ -194,16 +194,16 @@ forall a. Maybe a
      (Maybe [Field])
      (Maybe [Field])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803135"><span class="annot"><span class="annottext">Maybe [Field]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803144"><span class="annot"><span class="annottext">Maybe [Field]
 managedFields :: Maybe [Field]
 $sel:managedFields:ThingIndexingConfiguration' :: ThingIndexingConfiguration -&gt; Maybe [Field]
-</span><a href="#local-6989586621679803135"><span class="hs-identifier hs-var hs-var">managedFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803135"><span class="hs-identifier hs-var">managedFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803134"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
-</span><a href="#local-6989586621679803134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803133"><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
-</span><a href="#local-6989586621679803134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedFields:ThingIndexingConfiguration' :: Maybe [Field]
+</span><a href="#local-6989586621679803144"><span class="hs-identifier hs-var hs-var">managedFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
+</span><a href="#local-6989586621679803144"><span class="hs-identifier hs-var">managedFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803143"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
+</span><a href="#local-6989586621679803143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803142"><span class="annot"><span class="annottext">Maybe [Field]
+</span><a href="#local-6989586621679803142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
+</span><a href="#local-6989586621679803143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedFields:ThingIndexingConfiguration' :: Maybe [Field]
 </span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#%24sel%3AmanagedFields%3AThingIndexingConfiguration%27"><span class="hs-identifier hs-var">managedFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Field] -&gt; f (Maybe [Field]))
+</span><a href="#local-6989586621679803142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Field] -&gt; f (Maybe [Field]))
  -&gt; ThingIndexingConfiguration -&gt; f ThingIndexingConfiguration)
 -&gt; ((Maybe [Field] -&gt; f (Maybe [Field]))
     -&gt; Maybe [Field] -&gt; f (Maybe [Field]))
@@ -242,16 +242,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ThingConnectivityIndexingMode)
      (Maybe ThingConnectivityIndexingMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803128"><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803137"><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
 thingConnectivityIndexingMode :: Maybe ThingConnectivityIndexingMode
 $sel:thingConnectivityIndexingMode:ThingIndexingConfiguration' :: ThingIndexingConfiguration -&gt; Maybe ThingConnectivityIndexingMode
-</span><a href="#local-6989586621679803128"><span class="hs-identifier hs-var hs-var">thingConnectivityIndexingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
-</span><a href="#local-6989586621679803128"><span class="hs-identifier hs-var">thingConnectivityIndexingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803127"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
-</span><a href="#local-6989586621679803127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803126"><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
-</span><a href="#local-6989586621679803126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
-</span><a href="#local-6989586621679803127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingConnectivityIndexingMode:ThingIndexingConfiguration' :: Maybe ThingConnectivityIndexingMode
+</span><a href="#local-6989586621679803137"><span class="hs-identifier hs-var hs-var">thingConnectivityIndexingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
+</span><a href="#local-6989586621679803137"><span class="hs-identifier hs-var">thingConnectivityIndexingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803136"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
+</span><a href="#local-6989586621679803136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803135"><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
+</span><a href="#local-6989586621679803135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
+</span><a href="#local-6989586621679803136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingConnectivityIndexingMode:ThingIndexingConfiguration' :: Maybe ThingConnectivityIndexingMode
 </span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#%24sel%3AthingConnectivityIndexingMode%3AThingIndexingConfiguration%27"><span class="hs-identifier hs-var">thingConnectivityIndexingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
-</span><a href="#local-6989586621679803126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Contains custom field names and their data type.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#thingIndexingConfiguration_customFields"><span class="hs-identifier hs-type">thingIndexingConfiguration_customFields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Field.html#Field"><span class="hs-identifier hs-type">Field</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -266,16 +266,16 @@ $sel:thingConnectivityIndexingMode:ThingIndexingConfiguration' :: ThingIndexingC
      (Maybe [Field])
      (Maybe [Field])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803124"><span class="annot"><span class="annottext">Maybe [Field]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803133"><span class="annot"><span class="annottext">Maybe [Field]
 customFields :: Maybe [Field]
 $sel:customFields:ThingIndexingConfiguration' :: ThingIndexingConfiguration -&gt; Maybe [Field]
-</span><a href="#local-6989586621679803124"><span class="hs-identifier hs-var hs-var">customFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803124"><span class="hs-identifier hs-var">customFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803123"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
-</span><a href="#local-6989586621679803123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803122"><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
-</span><a href="#local-6989586621679803123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customFields:ThingIndexingConfiguration' :: Maybe [Field]
+</span><a href="#local-6989586621679803133"><span class="hs-identifier hs-var hs-var">customFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
+</span><a href="#local-6989586621679803133"><span class="hs-identifier hs-var">customFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803132"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
+</span><a href="#local-6989586621679803132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803131"><span class="annot"><span class="annottext">Maybe [Field]
+</span><a href="#local-6989586621679803131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
+</span><a href="#local-6989586621679803132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customFields:ThingIndexingConfiguration' :: Maybe [Field]
 </span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#%24sel%3AcustomFields%3AThingIndexingConfiguration%27"><span class="hs-identifier hs-var">customFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Field] -&gt; f (Maybe [Field]))
+</span><a href="#local-6989586621679803131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Field] -&gt; f (Maybe [Field]))
  -&gt; ThingIndexingConfiguration -&gt; f ThingIndexingConfiguration)
 -&gt; ((Maybe [Field] -&gt; f (Maybe [Field]))
     -&gt; Maybe [Field] -&gt; f (Maybe [Field]))
@@ -313,19 +313,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      ThingIndexingMode
      ThingIndexingMode
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803120"><span class="annot"><span class="annottext">ThingIndexingMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803129"><span class="annot"><span class="annottext">ThingIndexingMode
 thingIndexingMode :: ThingIndexingMode
 $sel:thingIndexingMode:ThingIndexingConfiguration' :: ThingIndexingConfiguration -&gt; ThingIndexingMode
-</span><a href="#local-6989586621679803120"><span class="hs-identifier hs-var hs-var">thingIndexingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingMode
-</span><a href="#local-6989586621679803120"><span class="hs-identifier hs-var">thingIndexingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803119"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
-</span><a href="#local-6989586621679803119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803118"><span class="annot"><span class="annottext">ThingIndexingMode
-</span><a href="#local-6989586621679803118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
-</span><a href="#local-6989586621679803119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingIndexingMode:ThingIndexingConfiguration' :: ThingIndexingMode
+</span><a href="#local-6989586621679803129"><span class="hs-identifier hs-var hs-var">thingIndexingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingMode
+</span><a href="#local-6989586621679803129"><span class="hs-identifier hs-var">thingIndexingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803128"><span class="annot"><span class="annottext">s :: ThingIndexingConfiguration
+</span><a href="#local-6989586621679803128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803127"><span class="annot"><span class="annottext">ThingIndexingMode
+</span><a href="#local-6989586621679803127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThingIndexingConfiguration
+</span><a href="#local-6989586621679803128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingIndexingMode:ThingIndexingConfiguration' :: ThingIndexingMode
 </span><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#%24sel%3AthingIndexingMode%3AThingIndexingConfiguration%27"><span class="hs-identifier hs-var">thingIndexingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ThingIndexingMode
-</span><a href="#local-6989586621679803118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803115"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679803113"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThingIndexingConfiguration
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803124"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679803122"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThingIndexingConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ThingIndexingConfiguration)
@@ -335,8 +335,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ThingIndexingConfiguration&quot;</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803110"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803119"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Field]
 -&gt; Maybe ThingConnectivityIndexingMode
 -&gt; Maybe [Field]
@@ -356,7 +356,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ThingIndexingConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Field]))
+</span><a href="#local-6989586621679803119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Field]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;managedFields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Field]))
@@ -375,7 +375,7 @@ forall a. Monoid a =&gt; a
      (Maybe [Field] -&gt; ThingIndexingMode -&gt; ThingIndexingConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ThingConnectivityIndexingMode)
+</span><a href="#local-6989586621679803119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ThingConnectivityIndexingMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;thingConnectivityIndexingMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -385,7 +385,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (ThingIndexingMode -&gt; ThingIndexingConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Field]))
+</span><a href="#local-6989586621679803119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Field]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customFields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Field]))
@@ -398,19 +398,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser ThingIndexingMode -&gt; Parser ThingIndexingConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ThingIndexingMode
+</span><a href="#local-6989586621679803119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ThingIndexingMode
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;thingIndexingMode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803102"><span id="local-6989586621679803104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803111"><span id="local-6989586621679803113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803091"><span id="local-6989586621679803093"><span id="local-6989586621679803095"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679803089"><span class="annot"><span class="annottext">toJSON :: ThingIndexingConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803084"><span id="local-6989586621679803085"><span id="local-6989586621679803086"><span id="local-6989586621679803087"><span class="annot"><span class="annottext">Maybe [Field]
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803100"><span id="local-6989586621679803102"><span id="local-6989586621679803104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration"><span class="hs-identifier hs-type">ThingIndexingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679803098"><span class="annot"><span class="annottext">toJSON :: ThingIndexingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ThingIndexingConfiguration.html#ThingIndexingConfiguration%27"><span class="hs-identifier hs-type">ThingIndexingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803093"><span id="local-6989586621679803094"><span id="local-6989586621679803095"><span id="local-6989586621679803096"><span class="annot"><span class="annottext">Maybe [Field]
 Maybe ThingConnectivityIndexingMode
 ThingIndexingMode
 thingIndexingMode :: ThingIndexingMode
@@ -421,7 +421,7 @@ $sel:thingIndexingMode:ThingIndexingConfiguration' :: ThingIndexingConfiguration
 $sel:customFields:ThingIndexingConfiguration' :: ThingIndexingConfiguration -&gt; Maybe [Field]
 $sel:thingConnectivityIndexingMode:ThingIndexingConfiguration' :: ThingIndexingConfiguration -&gt; Maybe ThingConnectivityIndexingMode
 $sel:managedFields:ThingIndexingConfiguration' :: ThingIndexingConfiguration -&gt; Maybe [Field]
-</span><a href="#local-6989586621679803084"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679803093"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -433,7 +433,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Field] -&gt; Pair) -&gt; Maybe [Field] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803087"><span class="hs-identifier hs-var">managedFields</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679803096"><span class="hs-identifier hs-var">managedFields</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;thingConnectivityIndexingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ThingConnectivityIndexingMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -442,14 +442,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ThingConnectivityIndexingMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ThingConnectivityIndexingMode
-</span><a href="#local-6989586621679803086"><span class="hs-identifier hs-var">thingConnectivityIndexingMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679803095"><span class="hs-identifier hs-var">thingConnectivityIndexingMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customFields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Field] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Field] -&gt; Pair) -&gt; Maybe [Field] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Field]
-</span><a href="#local-6989586621679803085"><span class="hs-identifier hs-var">customFields</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679803094"><span class="hs-identifier hs-var">customFields</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -457,7 +457,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;thingIndexingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ThingIndexingMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ThingIndexingMode
-</span><a href="#local-6989586621679803084"><span class="hs-identifier hs-var">thingIndexingMode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803093"><span class="hs-identifier hs-var">thingIndexingMode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span></pre></body></html>

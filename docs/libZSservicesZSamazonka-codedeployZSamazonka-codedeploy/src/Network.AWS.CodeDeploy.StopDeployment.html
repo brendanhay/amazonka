@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a @StopDeployment@ operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newStopDeployment' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679318491"><span id="local-6989586621679318492"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeployment"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-var">StopDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeployment%27"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-var">StopDeployment'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679318500"><span id="local-6989586621679318501"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeployment"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-var">StopDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeployment%27"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-var">StopDeployment'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates, when a deployment is stopped, whether instances that have</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- been updated should be rolled back to the previous version of the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- application revision.</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdeploymentId%3AStopDeployment%27"><span class="annot"><span class="annottext">StopDeployment -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AdeploymentId%3AStopDeployment%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318484"><span id="local-6989586621679318486"><span class="annot"><span class="annottext">StopDeployment -&gt; StopDeployment -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318493"><span id="local-6989586621679318495"><span class="annot"><span class="annottext">StopDeployment -&gt; StopDeployment -&gt; Bool
 (StopDeployment -&gt; StopDeployment -&gt; Bool)
 -&gt; (StopDeployment -&gt; StopDeployment -&gt; Bool) -&gt; Eq StopDeployment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopDeployment -&gt; StopDeployment -&gt; Bool
 == :: StopDeployment -&gt; StopDeployment -&gt; Bool
 $c== :: StopDeployment -&gt; StopDeployment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318475"><span id="local-6989586621679318477"><span id="local-6989586621679318479"><span id="local-6989586621679318481"><span class="annot"><span class="annottext">ReadPrec [StopDeployment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318484"><span id="local-6989586621679318486"><span id="local-6989586621679318488"><span id="local-6989586621679318490"><span class="annot"><span class="annottext">ReadPrec [StopDeployment]
 ReadPrec StopDeployment
 Int -&gt; ReadS StopDeployment
 ReadS [StopDeployment]
@@ -89,7 +89,7 @@ readList :: ReadS [StopDeployment]
 $creadList :: ReadS [StopDeployment]
 readsPrec :: Int -&gt; ReadS StopDeployment
 $creadsPrec :: Int -&gt; ReadS StopDeployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318468"><span id="local-6989586621679318470"><span id="local-6989586621679318472"><span class="annot"><span class="annottext">Int -&gt; StopDeployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318477"><span id="local-6989586621679318479"><span id="local-6989586621679318481"><span class="annot"><span class="annottext">Int -&gt; StopDeployment -&gt; ShowS
 [StopDeployment] -&gt; ShowS
 StopDeployment -&gt; String
 (Int -&gt; StopDeployment -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. StopDeployment -&gt; Rep StopDeployment x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span>
 </span><span id="line-81"></span><span id="newStopDeployment"><span class="annot"><span class="annottext">newStopDeployment :: Text -&gt; StopDeployment
-</span><a href="Network.AWS.CodeDeploy.StopDeployment.html#newStopDeployment"><span class="hs-identifier hs-var hs-var">newStopDeployment</span></a></span></span><span> </span><span id="local-6989586621679318463"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318463"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.StopDeployment.html#newStopDeployment"><span class="hs-identifier hs-var hs-var">newStopDeployment</span></a></span></span><span> </span><span id="local-6989586621679318472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318472"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">StopDeployment' :: Maybe Bool -&gt; Text -&gt; StopDeployment
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoRollbackEnabled:StopDeployment' :: Maybe Bool
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentId:StopDeployment' :: Text
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AdeploymentId%3AStopDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318463"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span>
+</span><a href="#local-6989586621679318472"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Indicates, when a deployment is stopped, whether instances that have</span><span>
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; (StopDeployment -&gt; Maybe Bool -&gt; StopDeployment)
 -&gt; Lens StopDeployment StopDeployment (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318460"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318469"><span class="annot"><span class="annottext">Maybe Bool
 autoRollbackEnabled :: Maybe Bool
 $sel:autoRollbackEnabled:StopDeployment' :: StopDeployment -&gt; Maybe Bool
-</span><a href="#local-6989586621679318460"><span class="hs-identifier hs-var hs-var">autoRollbackEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679318460"><span class="hs-identifier hs-var">autoRollbackEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318459"><span class="annot"><span class="annottext">s :: StopDeployment
-</span><a href="#local-6989586621679318459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318458"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679318458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeployment
-</span><a href="#local-6989586621679318459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoRollbackEnabled:StopDeployment' :: Maybe Bool
+</span><a href="#local-6989586621679318469"><span class="hs-identifier hs-var hs-var">autoRollbackEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679318469"><span class="hs-identifier hs-var">autoRollbackEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318468"><span class="annot"><span class="annottext">s :: StopDeployment
+</span><a href="#local-6989586621679318468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318467"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679318467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeployment
+</span><a href="#local-6989586621679318468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoRollbackEnabled:StopDeployment' :: Maybe Bool
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AautoRollbackEnabled%3AStopDeployment%27"><span class="hs-identifier hs-var">autoRollbackEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679318458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The unique ID of a deployment.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#stopDeployment_deploymentId"><span class="hs-identifier hs-type">stopDeployment_deploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -175,27 +175,27 @@ $sel:autoRollbackEnabled:StopDeployment' :: StopDeployment -&gt; Maybe Bool
 -&gt; (StopDeployment -&gt; Text -&gt; StopDeployment)
 -&gt; Lens StopDeployment StopDeployment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318457"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318466"><span class="annot"><span class="annottext">Text
 deploymentId :: Text
 $sel:deploymentId:StopDeployment' :: StopDeployment -&gt; Text
-</span><a href="#local-6989586621679318457"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318457"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318456"><span class="annot"><span class="annottext">s :: StopDeployment
-</span><a href="#local-6989586621679318456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318455"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeployment
-</span><a href="#local-6989586621679318456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:StopDeployment' :: Text
+</span><a href="#local-6989586621679318466"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318466"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318465"><span class="annot"><span class="annottext">s :: StopDeployment
+</span><a href="#local-6989586621679318465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679318464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeployment
+</span><a href="#local-6989586621679318465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:StopDeployment' :: Text
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AdeploymentId%3AStopDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679318451"><span class="annot"><span class="annottext">request :: StopDeployment -&gt; Request StopDeployment
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679318460"><span class="annot"><span class="annottext">request :: StopDeployment -&gt; Request StopDeployment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopDeployment -&gt; Request StopDeployment
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679318447"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679318456"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopDeployment
 -&gt; ClientResponse ClientBody
@@ -219,10 +219,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318444"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318444"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679318443"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679318443"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679318442"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679318453"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318453"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679318452"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679318452"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679318451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679318451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe StopStatus -&gt; Maybe Text -&gt; Int -&gt; StopDeploymentResponse
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-var">StopDeploymentResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StopStatus -&gt; Maybe Text -&gt; Int -&gt; StopDeploymentResponse)
@@ -230,7 +230,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; StopDeploymentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StopStatus)
+</span><a href="#local-6989586621679318451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StopStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,7 +239,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; StopDeploymentResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679318442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679318451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -251,15 +251,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318444"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318453"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318434"><span id="local-6989586621679318436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318443"><span id="local-6989586621679318445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679318427"><span class="annot"><span class="annottext">toHeaders :: StopDeployment -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679318436"><span class="annot"><span class="annottext">toHeaders :: StopDeployment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopDeployment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -286,15 +286,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318417"><span id="local-6989586621679318419"><span id="local-6989586621679318421"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679318415"><span class="annot"><span class="annottext">toJSON :: StopDeployment -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318412"><span id="local-6989586621679318413"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318426"><span id="local-6989586621679318428"><span id="local-6989586621679318430"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679318424"><span class="annot"><span class="annottext">toJSON :: StopDeployment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment%27"><span class="hs-identifier hs-type">StopDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318421"><span id="local-6989586621679318422"><span class="annot"><span class="annottext">Maybe Bool
 Text
 deploymentId :: Text
 autoRollbackEnabled :: Maybe Bool
 $sel:deploymentId:StopDeployment' :: StopDeployment -&gt; Text
 $sel:autoRollbackEnabled:StopDeployment' :: StopDeployment -&gt; Maybe Bool
-</span><a href="#local-6989586621679318412"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679318421"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -307,26 +307,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679318413"><span class="hs-identifier hs-var">autoRollbackEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679318422"><span class="hs-identifier hs-var">autoRollbackEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679318412"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318421"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679318406"><span class="annot"><span class="annottext">toPath :: StopDeployment -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679318415"><span class="annot"><span class="annottext">toPath :: StopDeployment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopDeployment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeployment"><span class="hs-identifier hs-type">StopDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679318402"><span class="annot"><span class="annottext">toQuery :: StopDeployment -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679318411"><span class="annot"><span class="annottext">toQuery :: StopDeployment -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopDeployment -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span class="hs-comment">-- | Represents the output of a @StopDeployment@ operation.</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- /See:/ 'newStopDeploymentResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679318399"><span id="local-6989586621679318400"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeploymentResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-var">StopDeploymentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeploymentResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-var">StopDeploymentResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679318408"><span id="local-6989586621679318409"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopDeploymentResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-var">StopDeploymentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopDeploymentResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-var">StopDeploymentResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the stop deployment operation:</span><span>
 </span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   Pending: The stop operation is pending.</span><span>
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopDeploymentResponse%27"><span class="annot"><span class="annottext">StopDeploymentResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AhttpStatus%3AStopDeploymentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318392"><span id="local-6989586621679318394"><span class="annot"><span class="annottext">StopDeploymentResponse -&gt; StopDeploymentResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679318401"><span id="local-6989586621679318403"><span class="annot"><span class="annottext">StopDeploymentResponse -&gt; StopDeploymentResponse -&gt; Bool
 (StopDeploymentResponse -&gt; StopDeploymentResponse -&gt; Bool)
 -&gt; (StopDeploymentResponse -&gt; StopDeploymentResponse -&gt; Bool)
 -&gt; Eq StopDeploymentResponse
@@ -360,7 +360,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopDeploymentResponse -&gt; StopDeploymentResponse -&gt; Bool
 == :: StopDeploymentResponse -&gt; StopDeploymentResponse -&gt; Bool
 $c== :: StopDeploymentResponse -&gt; StopDeploymentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318384"><span id="local-6989586621679318386"><span id="local-6989586621679318388"><span id="local-6989586621679318390"><span class="annot"><span class="annottext">ReadPrec [StopDeploymentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318393"><span id="local-6989586621679318395"><span id="local-6989586621679318397"><span id="local-6989586621679318399"><span class="annot"><span class="annottext">ReadPrec [StopDeploymentResponse]
 ReadPrec StopDeploymentResponse
 Int -&gt; ReadS StopDeploymentResponse
 ReadS [StopDeploymentResponse]
@@ -380,7 +380,7 @@ readList :: ReadS [StopDeploymentResponse]
 $creadList :: ReadS [StopDeploymentResponse]
 readsPrec :: Int -&gt; ReadS StopDeploymentResponse
 $creadsPrec :: Int -&gt; ReadS StopDeploymentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318378"><span id="local-6989586621679318380"><span id="local-6989586621679318382"><span class="annot"><span class="annottext">Int -&gt; StopDeploymentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679318387"><span id="local-6989586621679318389"><span id="local-6989586621679318391"><span class="annot"><span class="annottext">Int -&gt; StopDeploymentResponse -&gt; ShowS
 [StopDeploymentResponse] -&gt; ShowS
 StopDeploymentResponse -&gt; String
 (Int -&gt; StopDeploymentResponse -&gt; ShowS)
@@ -429,8 +429,8 @@ $cfrom :: forall x. StopDeploymentResponse -&gt; Rep StopDeploymentResponse x
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span>
 </span><span id="line-185"></span><span id="newStopDeploymentResponse"><span class="annot"><span class="annottext">newStopDeploymentResponse :: Int -&gt; StopDeploymentResponse
-</span><a href="Network.AWS.CodeDeploy.StopDeployment.html#newStopDeploymentResponse"><span class="hs-identifier hs-var hs-var">newStopDeploymentResponse</span></a></span></span><span> </span><span id="local-6989586621679318375"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.StopDeployment.html#newStopDeploymentResponse"><span class="hs-identifier hs-var hs-var">newStopDeploymentResponse</span></a></span></span><span> </span><span id="local-6989586621679318384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><span class="annottext">StopDeploymentResponse' :: Maybe StopStatus -&gt; Maybe Text -&gt; Int -&gt; StopDeploymentResponse
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:StopDeploymentResponse' :: Maybe StopStatus
@@ -443,7 +443,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopDeploymentResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AhttpStatus%3AStopDeploymentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318375"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679318384"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The status of the stop deployment operation:</span><span>
@@ -463,16 +463,16 @@ forall a. Maybe a
      (Maybe StopStatus)
      (Maybe StopStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318374"><span class="annot"><span class="annottext">Maybe StopStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318383"><span class="annot"><span class="annottext">Maybe StopStatus
 status :: Maybe StopStatus
 $sel:status:StopDeploymentResponse' :: StopDeploymentResponse -&gt; Maybe StopStatus
-</span><a href="#local-6989586621679318374"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopStatus
-</span><a href="#local-6989586621679318374"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318373"><span class="annot"><span class="annottext">s :: StopDeploymentResponse
-</span><a href="#local-6989586621679318373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318372"><span class="annot"><span class="annottext">Maybe StopStatus
-</span><a href="#local-6989586621679318372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeploymentResponse
-</span><a href="#local-6989586621679318373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StopDeploymentResponse' :: Maybe StopStatus
+</span><a href="#local-6989586621679318383"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StopStatus
+</span><a href="#local-6989586621679318383"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318382"><span class="annot"><span class="annottext">s :: StopDeploymentResponse
+</span><a href="#local-6989586621679318382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318381"><span class="annot"><span class="annottext">Maybe StopStatus
+</span><a href="#local-6989586621679318381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeploymentResponse
+</span><a href="#local-6989586621679318382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StopDeploymentResponse' :: Maybe StopStatus
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3Astatus%3AStopDeploymentResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StopStatus
-</span><a href="#local-6989586621679318372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | An accompanying status message.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#stopDeploymentResponse_statusMessage"><span class="hs-identifier hs-type">stopDeploymentResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -486,16 +486,16 @@ $sel:status:StopDeploymentResponse' :: StopDeploymentResponse -&gt; Maybe StopSt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318371"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318380"><span class="annot"><span class="annottext">Maybe Text
 statusMessage :: Maybe Text
 $sel:statusMessage:StopDeploymentResponse' :: StopDeploymentResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679318371"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318371"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318370"><span class="annot"><span class="annottext">s :: StopDeploymentResponse
-</span><a href="#local-6989586621679318370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318369"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeploymentResponse
-</span><a href="#local-6989586621679318370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:StopDeploymentResponse' :: Maybe Text
+</span><a href="#local-6989586621679318380"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318380"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318379"><span class="annot"><span class="annottext">s :: StopDeploymentResponse
+</span><a href="#local-6989586621679318379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318378"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679318378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeploymentResponse
+</span><a href="#local-6989586621679318379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:StopDeploymentResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AstatusMessage%3AStopDeploymentResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679318369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-205"></span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#stopDeploymentResponse_httpStatus"><span class="hs-identifier hs-type">stopDeploymentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -505,16 +505,16 @@ $sel:statusMessage:StopDeploymentResponse' :: StopDeploymentResponse -&gt; Maybe
 -&gt; (StopDeploymentResponse -&gt; Int -&gt; StopDeploymentResponse)
 -&gt; Lens StopDeploymentResponse StopDeploymentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318368"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679318377"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopDeploymentResponse' :: StopDeploymentResponse -&gt; Int
-</span><a href="#local-6989586621679318368"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318368"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318367"><span class="annot"><span class="annottext">s :: StopDeploymentResponse
-</span><a href="#local-6989586621679318367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318366"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeploymentResponse
-</span><a href="#local-6989586621679318367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDeploymentResponse' :: Int
+</span><a href="#local-6989586621679318377"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318377"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679318376"><span class="annot"><span class="annottext">s :: StopDeploymentResponse
+</span><a href="#local-6989586621679318376"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse%27"><span class="hs-identifier hs-type">StopDeploymentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679318375"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679318375"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopDeploymentResponse
+</span><a href="#local-6989586621679318376"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopDeploymentResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.StopDeployment.html#%24sel%3AhttpStatus%3AStopDeploymentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679318366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679318375"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679318373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.StopDeployment.html#StopDeploymentResponse"><span class="hs-identifier hs-type">StopDeploymentResponse</span></a></span></span><span>
 </span><span id="line-209"></span></pre></body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState"><span class="hs-identifier">CustomRoutingDestinationTrafficState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState_ALLOW"><span class="hs-identifier">CustomRoutingDestinationTrafficState_ALLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState_DENY"><span class="hs-identifier">CustomRoutingDestinationTrafficState_DENY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679236298"><span id="local-6989586621679236299"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomRoutingDestinationTrafficState"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState"><span class="hs-identifier hs-var">CustomRoutingDestinationTrafficState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomRoutingDestinationTrafficState%27"><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState%27"><span class="hs-identifier hs-var">CustomRoutingDestinationTrafficState'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomRoutingDestinationTrafficState"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState -&gt; Text
+</span><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#fromCustomRoutingDestinationTrafficState"><span class="hs-identifier hs-var hs-var">fromCustomRoutingDestinationTrafficState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236290"><span id="local-6989586621679236292"><span id="local-6989586621679236294"><span class="annot"><span class="annottext">Int -&gt; CustomRoutingDestinationTrafficState -&gt; ShowS
+[CustomRoutingDestinationTrafficState] -&gt; ShowS
+CustomRoutingDestinationTrafficState -&gt; String
+(Int -&gt; CustomRoutingDestinationTrafficState -&gt; ShowS)
+-&gt; (CustomRoutingDestinationTrafficState -&gt; String)
+-&gt; ([CustomRoutingDestinationTrafficState] -&gt; ShowS)
+-&gt; Show CustomRoutingDestinationTrafficState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CustomRoutingDestinationTrafficState] -&gt; ShowS
+$cshowList :: [CustomRoutingDestinationTrafficState] -&gt; ShowS
+show :: CustomRoutingDestinationTrafficState -&gt; String
+$cshow :: CustomRoutingDestinationTrafficState -&gt; String
+showsPrec :: Int -&gt; CustomRoutingDestinationTrafficState -&gt; ShowS
+$cshowsPrec :: Int -&gt; CustomRoutingDestinationTrafficState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679236281"><span id="local-6989586621679236283"><span id="local-6989586621679236285"><span id="local-6989586621679236287"><span class="annot"><span class="annottext">ReadPrec [CustomRoutingDestinationTrafficState]
+ReadPrec CustomRoutingDestinationTrafficState
+Int -&gt; ReadS CustomRoutingDestinationTrafficState
+ReadS [CustomRoutingDestinationTrafficState]
+(Int -&gt; ReadS CustomRoutingDestinationTrafficState)
+-&gt; ReadS [CustomRoutingDestinationTrafficState]
+-&gt; ReadPrec CustomRoutingDestinationTrafficState
+-&gt; ReadPrec [CustomRoutingDestinationTrafficState]
+-&gt; Read CustomRoutingDestinationTrafficState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CustomRoutingDestinationTrafficState]
+$creadListPrec :: ReadPrec [CustomRoutingDestinationTrafficState]
+readPrec :: ReadPrec CustomRoutingDestinationTrafficState
+$creadPrec :: ReadPrec CustomRoutingDestinationTrafficState
+readList :: ReadS [CustomRoutingDestinationTrafficState]
+$creadList :: ReadS [CustomRoutingDestinationTrafficState]
+readsPrec :: Int -&gt; ReadS CustomRoutingDestinationTrafficState
+$creadsPrec :: Int -&gt; ReadS CustomRoutingDestinationTrafficState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236276"><span id="local-6989586621679236278"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+(CustomRoutingDestinationTrafficState
+ -&gt; CustomRoutingDestinationTrafficState -&gt; Bool)
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState -&gt; Bool)
+-&gt; Eq CustomRoutingDestinationTrafficState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+$c/= :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+== :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+$c== :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236260"><span id="local-6989586621679236262"><span id="local-6989586621679236264"><span id="local-6989586621679236266"><span id="local-6989586621679236268"><span id="local-6989586621679236270"><span id="local-6989586621679236272"><span class="annot"><span class="annottext">Eq CustomRoutingDestinationTrafficState
+Eq CustomRoutingDestinationTrafficState
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState -&gt; Ordering)
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState -&gt; Bool)
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState -&gt; Bool)
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState -&gt; Bool)
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState -&gt; Bool)
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState)
+-&gt; (CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState
+    -&gt; CustomRoutingDestinationTrafficState)
+-&gt; Ord CustomRoutingDestinationTrafficState
+CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Ordering
+CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+$cmin :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+max :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+$cmax :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState
+&gt;= :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+$c&gt;= :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+&gt; :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+$c&gt; :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+&lt;= :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+$c&lt;= :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+&lt; :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+$c&lt; :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Bool
+compare :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Ordering
+$ccompare :: CustomRoutingDestinationTrafficState
+-&gt; CustomRoutingDestinationTrafficState -&gt; Ordering
+$cp1Ord :: Eq CustomRoutingDestinationTrafficState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ CustomRoutingDestinationTrafficState
+ -&gt; Rep CustomRoutingDestinationTrafficState x)
+-&gt; (forall x.
+    Rep CustomRoutingDestinationTrafficState x
+    -&gt; CustomRoutingDestinationTrafficState)
+-&gt; Generic CustomRoutingDestinationTrafficState
+forall x.
+Rep CustomRoutingDestinationTrafficState x
+-&gt; CustomRoutingDestinationTrafficState
+forall x.
+CustomRoutingDestinationTrafficState
+-&gt; Rep CustomRoutingDestinationTrafficState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CustomRoutingDestinationTrafficState x
+-&gt; CustomRoutingDestinationTrafficState
+$cfrom :: forall x.
+CustomRoutingDestinationTrafficState
+-&gt; Rep CustomRoutingDestinationTrafficState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236252"><span id="local-6989586621679236254"><span class="annot"><span class="annottext">Int -&gt; CustomRoutingDestinationTrafficState -&gt; Int
+CustomRoutingDestinationTrafficState -&gt; Int
+(Int -&gt; CustomRoutingDestinationTrafficState -&gt; Int)
+-&gt; (CustomRoutingDestinationTrafficState -&gt; Int)
+-&gt; Hashable CustomRoutingDestinationTrafficState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CustomRoutingDestinationTrafficState -&gt; Int
+$chash :: CustomRoutingDestinationTrafficState -&gt; Int
+hashWithSalt :: Int -&gt; CustomRoutingDestinationTrafficState -&gt; Int
+$chashWithSalt :: Int -&gt; CustomRoutingDestinationTrafficState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679236249"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState -&gt; ()
+(CustomRoutingDestinationTrafficState -&gt; ())
+-&gt; NFData CustomRoutingDestinationTrafficState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CustomRoutingDestinationTrafficState -&gt; ()
+$crnf :: CustomRoutingDestinationTrafficState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236246"><span class="annot"><span class="annottext">Text -&gt; Either String CustomRoutingDestinationTrafficState
+(Text -&gt; Either String CustomRoutingDestinationTrafficState)
+-&gt; FromText CustomRoutingDestinationTrafficState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CustomRoutingDestinationTrafficState
+$cfromText :: Text -&gt; Either String CustomRoutingDestinationTrafficState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236243"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState -&gt; Text
+(CustomRoutingDestinationTrafficState -&gt; Text)
+-&gt; ToText CustomRoutingDestinationTrafficState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CustomRoutingDestinationTrafficState -&gt; Text
+$ctoText :: CustomRoutingDestinationTrafficState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236240"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState -&gt; ByteString
+(CustomRoutingDestinationTrafficState -&gt; ByteString)
+-&gt; ToByteString CustomRoutingDestinationTrafficState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CustomRoutingDestinationTrafficState -&gt; ByteString
+$ctoBS :: CustomRoutingDestinationTrafficState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236237"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState -&gt; ByteStringBuilder
+(CustomRoutingDestinationTrafficState -&gt; ByteStringBuilder)
+-&gt; ToLog CustomRoutingDestinationTrafficState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CustomRoutingDestinationTrafficState -&gt; ByteStringBuilder
+$cbuild :: CustomRoutingDestinationTrafficState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236234"><span class="annot"><span class="annottext">HeaderName -&gt; CustomRoutingDestinationTrafficState -&gt; [Header]
+(HeaderName -&gt; CustomRoutingDestinationTrafficState -&gt; [Header])
+-&gt; ToHeader CustomRoutingDestinationTrafficState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CustomRoutingDestinationTrafficState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CustomRoutingDestinationTrafficState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236231"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState -&gt; QueryString
+(CustomRoutingDestinationTrafficState -&gt; QueryString)
+-&gt; ToQuery CustomRoutingDestinationTrafficState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CustomRoutingDestinationTrafficState -&gt; QueryString
+$ctoQuery :: CustomRoutingDestinationTrafficState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236226"><span id="local-6989586621679236228"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomRoutingDestinationTrafficState]
+Value -&gt; Parser CustomRoutingDestinationTrafficState
+(Value -&gt; Parser CustomRoutingDestinationTrafficState)
+-&gt; (Value -&gt; Parser [CustomRoutingDestinationTrafficState])
+-&gt; FromJSON CustomRoutingDestinationTrafficState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CustomRoutingDestinationTrafficState]
+$cparseJSONList :: Value -&gt; Parser [CustomRoutingDestinationTrafficState]
+parseJSON :: Value -&gt; Parser CustomRoutingDestinationTrafficState
+$cparseJSON :: Value -&gt; Parser CustomRoutingDestinationTrafficState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236221"><span id="local-6989586621679236223"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomRoutingDestinationTrafficState]
+FromJSONKeyFunction CustomRoutingDestinationTrafficState
+FromJSONKeyFunction CustomRoutingDestinationTrafficState
+-&gt; FromJSONKeyFunction [CustomRoutingDestinationTrafficState]
+-&gt; FromJSONKey CustomRoutingDestinationTrafficState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CustomRoutingDestinationTrafficState]
+$cfromJSONKeyList :: FromJSONKeyFunction [CustomRoutingDestinationTrafficState]
+fromJSONKey :: FromJSONKeyFunction CustomRoutingDestinationTrafficState
+$cfromJSONKey :: FromJSONKeyFunction CustomRoutingDestinationTrafficState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236212"><span id="local-6989586621679236214"><span id="local-6989586621679236216"><span id="local-6989586621679236218"><span class="annot"><span class="annottext">[CustomRoutingDestinationTrafficState] -&gt; Encoding
+[CustomRoutingDestinationTrafficState] -&gt; Value
+CustomRoutingDestinationTrafficState -&gt; Encoding
+CustomRoutingDestinationTrafficState -&gt; Value
+(CustomRoutingDestinationTrafficState -&gt; Value)
+-&gt; (CustomRoutingDestinationTrafficState -&gt; Encoding)
+-&gt; ([CustomRoutingDestinationTrafficState] -&gt; Value)
+-&gt; ([CustomRoutingDestinationTrafficState] -&gt; Encoding)
+-&gt; ToJSON CustomRoutingDestinationTrafficState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CustomRoutingDestinationTrafficState] -&gt; Encoding
+$ctoEncodingList :: [CustomRoutingDestinationTrafficState] -&gt; Encoding
+toJSONList :: [CustomRoutingDestinationTrafficState] -&gt; Value
+$ctoJSONList :: [CustomRoutingDestinationTrafficState] -&gt; Value
+toEncoding :: CustomRoutingDestinationTrafficState -&gt; Encoding
+$ctoEncoding :: CustomRoutingDestinationTrafficState -&gt; Encoding
+toJSON :: CustomRoutingDestinationTrafficState -&gt; Value
+$ctoJSON :: CustomRoutingDestinationTrafficState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236207"><span id="local-6989586621679236209"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomRoutingDestinationTrafficState]
+ToJSONKeyFunction CustomRoutingDestinationTrafficState
+ToJSONKeyFunction CustomRoutingDestinationTrafficState
+-&gt; ToJSONKeyFunction [CustomRoutingDestinationTrafficState]
+-&gt; ToJSONKey CustomRoutingDestinationTrafficState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CustomRoutingDestinationTrafficState]
+$ctoJSONKeyList :: ToJSONKeyFunction [CustomRoutingDestinationTrafficState]
+toJSONKey :: ToJSONKeyFunction CustomRoutingDestinationTrafficState
+$ctoJSONKey :: ToJSONKeyFunction CustomRoutingDestinationTrafficState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236204"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomRoutingDestinationTrafficState
+([Node] -&gt; Either String CustomRoutingDestinationTrafficState)
+-&gt; FromXML CustomRoutingDestinationTrafficState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CustomRoutingDestinationTrafficState
+$cparseXML :: [Node] -&gt; Either String CustomRoutingDestinationTrafficState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236201"><span class="annot"><span class="annottext">CustomRoutingDestinationTrafficState -&gt; XML
+(CustomRoutingDestinationTrafficState -&gt; XML)
+-&gt; ToXML CustomRoutingDestinationTrafficState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CustomRoutingDestinationTrafficState -&gt; XML
+$ctoXML :: CustomRoutingDestinationTrafficState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState_ALLOW"><span class="hs-identifier hs-type">CustomRoutingDestinationTrafficState_ALLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState"><span class="hs-identifier hs-type">CustomRoutingDestinationTrafficState</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomRoutingDestinationTrafficState_ALLOW"><span id="%24mCustomRoutingDestinationTrafficState_ALLOW"><span id="CustomRoutingDestinationTrafficState_ALLOW"><span class="annot"><span class="annottext">$bCustomRoutingDestinationTrafficState_ALLOW :: CustomRoutingDestinationTrafficState
+$mCustomRoutingDestinationTrafficState_ALLOW :: forall r.
+CustomRoutingDestinationTrafficState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#%24bCustomRoutingDestinationTrafficState_ALLOW"><span class="hs-identifier hs-var hs-var hs-var">CustomRoutingDestinationTrafficState_ALLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState%27"><span class="hs-identifier hs-type">CustomRoutingDestinationTrafficState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ALLOW&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState_DENY"><span class="hs-identifier hs-type">CustomRoutingDestinationTrafficState_DENY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState"><span class="hs-identifier hs-type">CustomRoutingDestinationTrafficState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCustomRoutingDestinationTrafficState_DENY"><span id="%24mCustomRoutingDestinationTrafficState_DENY"><span id="CustomRoutingDestinationTrafficState_DENY"><span class="annot"><span class="annottext">$bCustomRoutingDestinationTrafficState_DENY :: CustomRoutingDestinationTrafficState
+$mCustomRoutingDestinationTrafficState_DENY :: forall r.
+CustomRoutingDestinationTrafficState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#%24bCustomRoutingDestinationTrafficState_DENY"><span class="hs-identifier hs-var hs-var hs-var">CustomRoutingDestinationTrafficState_DENY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState%27"><span class="hs-identifier hs-type">CustomRoutingDestinationTrafficState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DENY&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState_ALLOW"><span class="hs-pragma hs-type">CustomRoutingDestinationTrafficState_ALLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState_DENY"><span class="hs-pragma hs-type">CustomRoutingDestinationTrafficState_DENY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.CustomRoutingDestinationTrafficState.html#CustomRoutingDestinationTrafficState%27"><span class="hs-pragma hs-type">CustomRoutingDestinationTrafficState'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

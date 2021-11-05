@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679378169"><span id="local-6989586621679378170"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackAttributesKeys"><span class="annot"><a href="Network.AWS.OpsWorks.Types.StackAttributesKeys.html#StackAttributesKeys"><span class="hs-identifier hs-var">StackAttributesKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackAttributesKeys%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.StackAttributesKeys.html#StackAttributesKeys%27"><span class="hs-identifier hs-var">StackAttributesKeys'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679378178"><span id="local-6989586621679378179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackAttributesKeys"><span class="annot"><a href="Network.AWS.OpsWorks.Types.StackAttributesKeys.html#StackAttributesKeys"><span class="hs-identifier hs-var">StackAttributesKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackAttributesKeys%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.StackAttributesKeys.html#StackAttributesKeys%27"><span class="hs-identifier hs-var">StackAttributesKeys'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackAttributesKeys"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.StackAttributesKeys.html#fromStackAttributesKeys"><span class="hs-identifier hs-var hs-var">fromStackAttributesKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679378161"><span id="local-6989586621679378163"><span id="local-6989586621679378165"><span class="annot"><span class="annottext">Int -&gt; StackAttributesKeys -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679378170"><span id="local-6989586621679378172"><span id="local-6989586621679378174"><span class="annot"><span class="annottext">Int -&gt; StackAttributesKeys -&gt; ShowS
 [StackAttributesKeys] -&gt; ShowS
 StackAttributesKeys -&gt; String
 (Int -&gt; StackAttributesKeys -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: StackAttributesKeys -&gt; String
 showsPrec :: Int -&gt; StackAttributesKeys -&gt; ShowS
 $cshowsPrec :: Int -&gt; StackAttributesKeys -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679378152"><span id="local-6989586621679378154"><span id="local-6989586621679378156"><span id="local-6989586621679378158"><span class="annot"><span class="annottext">ReadPrec [StackAttributesKeys]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679378161"><span id="local-6989586621679378163"><span id="local-6989586621679378165"><span id="local-6989586621679378167"><span class="annot"><span class="annottext">ReadPrec [StackAttributesKeys]
 ReadPrec StackAttributesKeys
 Int -&gt; ReadS StackAttributesKeys
 ReadS [StackAttributesKeys]
@@ -71,7 +71,7 @@ $creadList :: ReadS [StackAttributesKeys]
 readsPrec :: Int -&gt; ReadS StackAttributesKeys
 $creadsPrec :: Int -&gt; ReadS StackAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679378147"><span id="local-6989586621679378149"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679378156"><span id="local-6989586621679378158"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool
 (StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool)
 -&gt; (StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool)
 -&gt; Eq StackAttributesKeys
@@ -81,7 +81,7 @@ $c/= :: StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool
 == :: StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool
 $c== :: StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679378131"><span id="local-6989586621679378133"><span id="local-6989586621679378135"><span id="local-6989586621679378137"><span id="local-6989586621679378139"><span id="local-6989586621679378141"><span id="local-6989586621679378143"><span class="annot"><span class="annottext">Eq StackAttributesKeys
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679378140"><span id="local-6989586621679378142"><span id="local-6989586621679378144"><span id="local-6989586621679378146"><span id="local-6989586621679378148"><span id="local-6989586621679378150"><span id="local-6989586621679378152"><span class="annot"><span class="annottext">Eq StackAttributesKeys
 Eq StackAttributesKeys
 -&gt; (StackAttributesKeys -&gt; StackAttributesKeys -&gt; Ordering)
 -&gt; (StackAttributesKeys -&gt; StackAttributesKeys -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. StackAttributesKeys -&gt; Rep StackAttributesKeys x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679378123"><span id="local-6989586621679378125"><span class="annot"><span class="annottext">Int -&gt; StackAttributesKeys -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679378132"><span id="local-6989586621679378134"><span class="annot"><span class="annottext">Int -&gt; StackAttributesKeys -&gt; Int
 StackAttributesKeys -&gt; Int
 (Int -&gt; StackAttributesKeys -&gt; Int)
 -&gt; (StackAttributesKeys -&gt; Int) -&gt; Hashable StackAttributesKeys
@@ -144,53 +144,53 @@ $chash :: StackAttributesKeys -&gt; Int
 hashWithSalt :: Int -&gt; StackAttributesKeys -&gt; Int
 $chashWithSalt :: Int -&gt; StackAttributesKeys -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679378120"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679378129"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; ()
 (StackAttributesKeys -&gt; ()) -&gt; NFData StackAttributesKeys
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StackAttributesKeys -&gt; ()
 $crnf :: StackAttributesKeys -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679378117"><span class="annot"><span class="annottext">Text -&gt; Either String StackAttributesKeys
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679378126"><span class="annot"><span class="annottext">Text -&gt; Either String StackAttributesKeys
 (Text -&gt; Either String StackAttributesKeys)
 -&gt; FromText StackAttributesKeys
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StackAttributesKeys
 $cfromText :: Text -&gt; Either String StackAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679378114"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679378123"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; Text
 (StackAttributesKeys -&gt; Text) -&gt; ToText StackAttributesKeys
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StackAttributesKeys -&gt; Text
 $ctoText :: StackAttributesKeys -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679378111"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679378120"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; ByteString
 (StackAttributesKeys -&gt; ByteString)
 -&gt; ToByteString StackAttributesKeys
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StackAttributesKeys -&gt; ByteString
 $ctoBS :: StackAttributesKeys -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679378108"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679378117"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; ByteStringBuilder
 (StackAttributesKeys -&gt; ByteStringBuilder)
 -&gt; ToLog StackAttributesKeys
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StackAttributesKeys -&gt; ByteStringBuilder
 $cbuild :: StackAttributesKeys -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679378105"><span class="annot"><span class="annottext">HeaderName -&gt; StackAttributesKeys -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679378114"><span class="annot"><span class="annottext">HeaderName -&gt; StackAttributesKeys -&gt; [Header]
 (HeaderName -&gt; StackAttributesKeys -&gt; [Header])
 -&gt; ToHeader StackAttributesKeys
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StackAttributesKeys -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StackAttributesKeys -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679378102"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679378111"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; QueryString
 (StackAttributesKeys -&gt; QueryString) -&gt; ToQuery StackAttributesKeys
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StackAttributesKeys -&gt; QueryString
 $ctoQuery :: StackAttributesKeys -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679378097"><span id="local-6989586621679378099"><span class="annot"><span class="annottext">Value -&gt; Parser [StackAttributesKeys]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679378106"><span id="local-6989586621679378108"><span class="annot"><span class="annottext">Value -&gt; Parser [StackAttributesKeys]
 Value -&gt; Parser StackAttributesKeys
 (Value -&gt; Parser StackAttributesKeys)
 -&gt; (Value -&gt; Parser [StackAttributesKeys])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [StackAttributesKeys]
 parseJSON :: Value -&gt; Parser StackAttributesKeys
 $cparseJSON :: Value -&gt; Parser StackAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679378092"><span id="local-6989586621679378094"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackAttributesKeys]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679378101"><span id="local-6989586621679378103"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackAttributesKeys]
 FromJSONKeyFunction StackAttributesKeys
 FromJSONKeyFunction StackAttributesKeys
 -&gt; FromJSONKeyFunction [StackAttributesKeys]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StackAttributesKeys]
 fromJSONKey :: FromJSONKeyFunction StackAttributesKeys
 $cfromJSONKey :: FromJSONKeyFunction StackAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679378083"><span id="local-6989586621679378085"><span id="local-6989586621679378087"><span id="local-6989586621679378089"><span class="annot"><span class="annottext">[StackAttributesKeys] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679378092"><span id="local-6989586621679378094"><span id="local-6989586621679378096"><span id="local-6989586621679378098"><span class="annot"><span class="annottext">[StackAttributesKeys] -&gt; Encoding
 [StackAttributesKeys] -&gt; Value
 StackAttributesKeys -&gt; Encoding
 StackAttributesKeys -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: StackAttributesKeys -&gt; Encoding
 toJSON :: StackAttributesKeys -&gt; Value
 $ctoJSON :: StackAttributesKeys -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679378078"><span id="local-6989586621679378080"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackAttributesKeys]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679378087"><span id="local-6989586621679378089"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackAttributesKeys]
 ToJSONKeyFunction StackAttributesKeys
 ToJSONKeyFunction StackAttributesKeys
 -&gt; ToJSONKeyFunction [StackAttributesKeys]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StackAttributesKeys]
 toJSONKey :: ToJSONKeyFunction StackAttributesKeys
 $ctoJSONKey :: ToJSONKeyFunction StackAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679378075"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackAttributesKeys
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679378084"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackAttributesKeys
 ([Node] -&gt; Either String StackAttributesKeys)
 -&gt; FromXML StackAttributesKeys
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StackAttributesKeys
 $cparseXML :: [Node] -&gt; Either String StackAttributesKeys
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679378072"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679378081"><span class="annot"><span class="annottext">StackAttributesKeys -&gt; XML
 (StackAttributesKeys -&gt; XML) -&gt; ToXML StackAttributesKeys
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StackAttributesKeys -&gt; XML

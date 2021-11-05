@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- the current state of the assessment template.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newExclusionPreview' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679248137"><span id="local-6989586621679248138"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExclusionPreview"><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-var">ExclusionPreview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExclusionPreview%27"><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-var">ExclusionPreview'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679248146"><span id="local-6989586621679248147"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExclusionPreview"><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-var">ExclusionPreview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExclusionPreview%27"><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-var">ExclusionPreview'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-defined attributes for the exclusion preview.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aattributes%3AExclusionPreview%27"><span class="annot"><span class="annottext">ExclusionPreview -&gt; Maybe [Attribute]
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Aattributes%3AExclusionPreview%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Ascopes%3AExclusionPreview%27"><span class="annot"><span class="annottext">ExclusionPreview -&gt; NonEmpty Scope
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Ascopes%3AExclusionPreview%27"><span class="hs-identifier hs-var hs-var">scopes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248127"><span id="local-6989586621679248129"><span class="annot"><span class="annottext">ExclusionPreview -&gt; ExclusionPreview -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248136"><span id="local-6989586621679248138"><span class="annot"><span class="annottext">ExclusionPreview -&gt; ExclusionPreview -&gt; Bool
 (ExclusionPreview -&gt; ExclusionPreview -&gt; Bool)
 -&gt; (ExclusionPreview -&gt; ExclusionPreview -&gt; Bool)
 -&gt; Eq ExclusionPreview
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExclusionPreview -&gt; ExclusionPreview -&gt; Bool
 == :: ExclusionPreview -&gt; ExclusionPreview -&gt; Bool
 $c== :: ExclusionPreview -&gt; ExclusionPreview -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248118"><span id="local-6989586621679248120"><span id="local-6989586621679248122"><span id="local-6989586621679248124"><span class="annot"><span class="annottext">ReadPrec [ExclusionPreview]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248127"><span id="local-6989586621679248129"><span id="local-6989586621679248131"><span id="local-6989586621679248133"><span class="annot"><span class="annottext">ReadPrec [ExclusionPreview]
 ReadPrec ExclusionPreview
 Int -&gt; ReadS ExclusionPreview
 ReadS [ExclusionPreview]
@@ -75,7 +75,7 @@ readList :: ReadS [ExclusionPreview]
 $creadList :: ReadS [ExclusionPreview]
 readsPrec :: Int -&gt; ReadS ExclusionPreview
 $creadsPrec :: Int -&gt; ReadS ExclusionPreview
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248111"><span id="local-6989586621679248113"><span id="local-6989586621679248115"><span class="annot"><span class="annottext">Int -&gt; ExclusionPreview -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248120"><span id="local-6989586621679248122"><span id="local-6989586621679248124"><span class="annot"><span class="annottext">Int -&gt; ExclusionPreview -&gt; ShowS
 [ExclusionPreview] -&gt; ShowS
 ExclusionPreview -&gt; String
 (Int -&gt; ExclusionPreview -&gt; ShowS)
@@ -130,14 +130,14 @@ $cfrom :: forall x. ExclusionPreview -&gt; Rep ExclusionPreview x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span>
 </span><span id="line-73"></span><span id="newExclusionPreview"><span class="annot"><span class="annottext">newExclusionPreview :: Text -&gt; Text -&gt; Text -&gt; NonEmpty Scope -&gt; ExclusionPreview
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#newExclusionPreview"><span class="hs-identifier hs-var hs-var">newExclusionPreview</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679248105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248105"><span class="hs-identifier hs-var">pTitle_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679248104"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248104"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679248103"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248103"><span class="hs-identifier hs-var">pRecommendation_</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679248102"><span class="annot"><span class="annottext">NonEmpty Scope
-</span><a href="#local-6989586621679248102"><span class="hs-identifier hs-var">pScopes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679248114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248114"><span class="hs-identifier hs-var">pTitle_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679248113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248113"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679248112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248112"><span class="hs-identifier hs-var">pRecommendation_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679248111"><span class="annot"><span class="annottext">NonEmpty Scope
+</span><a href="#local-6989586621679248111"><span class="hs-identifier hs-var">pScopes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">ExclusionPreview' :: Maybe [Attribute]
 -&gt; Text -&gt; Text -&gt; Text -&gt; NonEmpty Scope -&gt; ExclusionPreview
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span>
@@ -147,13 +147,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:title:ExclusionPreview' :: Text
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Atitle%3AExclusionPreview%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248105"><span class="hs-identifier hs-var">pTitle_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248114"><span class="hs-identifier hs-var">pTitle_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ExclusionPreview' :: Text
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Adescription%3AExclusionPreview%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248104"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248113"><span class="hs-identifier hs-var">pDescription_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:recommendation:ExclusionPreview' :: Text
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Arecommendation%3AExclusionPreview%27"><span class="hs-identifier hs-var">recommendation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248103"><span class="hs-identifier hs-var">pRecommendation_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248112"><span class="hs-identifier hs-var">pRecommendation_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:scopes:ExclusionPreview' :: NonEmpty Scope
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Ascopes%3AExclusionPreview%27"><span class="hs-identifier hs-var">scopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Scope) (Identity (NonEmpty Scope))
 -&gt; Tagged (NonEmpty Scope) (Identity (NonEmpty Scope))
@@ -163,7 +163,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Scope -&gt; NonEmpty Scope
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Scope
-</span><a href="#local-6989586621679248102"><span class="hs-identifier hs-var">pScopes_</span></a></span><span>
+</span><a href="#local-6989586621679248111"><span class="hs-identifier hs-var">pScopes_</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The system-defined attributes for the exclusion preview.</span><span>
@@ -178,16 +178,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe [Attribute])
      (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248096"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248105"><span class="annot"><span class="annottext">Maybe [Attribute]
 attributes :: Maybe [Attribute]
 $sel:attributes:ExclusionPreview' :: ExclusionPreview -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679248096"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679248096"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248095"><span class="annot"><span class="annottext">s :: ExclusionPreview
-</span><a href="#local-6989586621679248095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248094"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679248094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
-</span><a href="#local-6989586621679248095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ExclusionPreview' :: Maybe [Attribute]
+</span><a href="#local-6989586621679248105"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679248105"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248104"><span class="annot"><span class="annottext">s :: ExclusionPreview
+</span><a href="#local-6989586621679248104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248103"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679248103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
+</span><a href="#local-6989586621679248104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:ExclusionPreview' :: Maybe [Attribute]
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Aattributes%3AExclusionPreview%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679248094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679248103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; ExclusionPreview -&gt; f ExclusionPreview)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -215,16 +215,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ExclusionPreview -&gt; Text -&gt; ExclusionPreview)
 -&gt; Lens ExclusionPreview ExclusionPreview Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248090"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248099"><span class="annot"><span class="annottext">Text
 title :: Text
 $sel:title:ExclusionPreview' :: ExclusionPreview -&gt; Text
-</span><a href="#local-6989586621679248090"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248090"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248089"><span class="annot"><span class="annottext">s :: ExclusionPreview
-</span><a href="#local-6989586621679248089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248088"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
-</span><a href="#local-6989586621679248089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:ExclusionPreview' :: Text
+</span><a href="#local-6989586621679248099"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248099"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248098"><span class="annot"><span class="annottext">s :: ExclusionPreview
+</span><a href="#local-6989586621679248098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248097"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
+</span><a href="#local-6989586621679248098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:ExclusionPreview' :: Text
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Atitle%3AExclusionPreview%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The description of the exclusion preview.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#exclusionPreview_description"><span class="hs-identifier hs-type">exclusionPreview_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -233,16 +233,16 @@ $sel:title:ExclusionPreview' :: ExclusionPreview -&gt; Text
 -&gt; (ExclusionPreview -&gt; Text -&gt; ExclusionPreview)
 -&gt; Lens ExclusionPreview ExclusionPreview Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248086"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248095"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:ExclusionPreview' :: ExclusionPreview -&gt; Text
-</span><a href="#local-6989586621679248086"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248086"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248085"><span class="annot"><span class="annottext">s :: ExclusionPreview
-</span><a href="#local-6989586621679248085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248084"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
-</span><a href="#local-6989586621679248085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ExclusionPreview' :: Text
+</span><a href="#local-6989586621679248095"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248095"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248094"><span class="annot"><span class="annottext">s :: ExclusionPreview
+</span><a href="#local-6989586621679248094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248093"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
+</span><a href="#local-6989586621679248094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ExclusionPreview' :: Text
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Adescription%3AExclusionPreview%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The recommendation for the exclusion preview.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#exclusionPreview_recommendation"><span class="hs-identifier hs-type">exclusionPreview_recommendation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -251,16 +251,16 @@ $sel:description:ExclusionPreview' :: ExclusionPreview -&gt; Text
 -&gt; (ExclusionPreview -&gt; Text -&gt; ExclusionPreview)
 -&gt; Lens ExclusionPreview ExclusionPreview Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248082"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248091"><span class="annot"><span class="annottext">Text
 recommendation :: Text
 $sel:recommendation:ExclusionPreview' :: ExclusionPreview -&gt; Text
-</span><a href="#local-6989586621679248082"><span class="hs-identifier hs-var hs-var">recommendation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248082"><span class="hs-identifier hs-var">recommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248081"><span class="annot"><span class="annottext">s :: ExclusionPreview
-</span><a href="#local-6989586621679248081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248080"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
-</span><a href="#local-6989586621679248081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendation:ExclusionPreview' :: Text
+</span><a href="#local-6989586621679248091"><span class="hs-identifier hs-var hs-var">recommendation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248091"><span class="hs-identifier hs-var">recommendation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248090"><span class="annot"><span class="annottext">s :: ExclusionPreview
+</span><a href="#local-6989586621679248090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248089"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679248089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
+</span><a href="#local-6989586621679248090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recommendation:ExclusionPreview' :: Text
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Arecommendation%3AExclusionPreview%27"><span class="hs-identifier hs-var">recommendation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679248080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The AWS resources for which the exclusion preview pertains.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#exclusionPreview_scopes"><span class="hs-identifier hs-type">exclusionPreview_scopes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
@@ -271,16 +271,16 @@ $sel:recommendation:ExclusionPreview' :: ExclusionPreview -&gt; Text
 -&gt; Lens
      ExclusionPreview ExclusionPreview (NonEmpty Scope) (NonEmpty Scope)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248078"><span class="annot"><span class="annottext">NonEmpty Scope
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248087"><span class="annot"><span class="annottext">NonEmpty Scope
 scopes :: NonEmpty Scope
 $sel:scopes:ExclusionPreview' :: ExclusionPreview -&gt; NonEmpty Scope
-</span><a href="#local-6989586621679248078"><span class="hs-identifier hs-var hs-var">scopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Scope
-</span><a href="#local-6989586621679248078"><span class="hs-identifier hs-var">scopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248077"><span class="annot"><span class="annottext">s :: ExclusionPreview
-</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248076"><span class="annot"><span class="annottext">NonEmpty Scope
-</span><a href="#local-6989586621679248076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
-</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scopes:ExclusionPreview' :: NonEmpty Scope
+</span><a href="#local-6989586621679248087"><span class="hs-identifier hs-var hs-var">scopes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Scope
+</span><a href="#local-6989586621679248087"><span class="hs-identifier hs-var">scopes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248086"><span class="annot"><span class="annottext">s :: ExclusionPreview
+</span><a href="#local-6989586621679248086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-type">ExclusionPreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248085"><span class="annot"><span class="annottext">NonEmpty Scope
+</span><a href="#local-6989586621679248085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExclusionPreview
+</span><a href="#local-6989586621679248086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scopes:ExclusionPreview' :: NonEmpty Scope
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#%24sel%3Ascopes%3AExclusionPreview%27"><span class="hs-identifier hs-var">scopes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Scope
-</span><a href="#local-6989586621679248076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Scope -&gt; f (NonEmpty Scope))
+</span><a href="#local-6989586621679248085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Scope -&gt; f (NonEmpty Scope))
  -&gt; ExclusionPreview -&gt; f ExclusionPreview)
 -&gt; ((NonEmpty Scope -&gt; f (NonEmpty Scope))
     -&gt; NonEmpty Scope -&gt; f (NonEmpty Scope))
@@ -293,8 +293,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248073"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679248071"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExclusionPreview
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248082"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679248080"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExclusionPreview
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExclusionPreview)
@@ -304,8 +304,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExclusionPreview&quot;</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248068"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248077"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Attribute]
 -&gt; Text -&gt; Text -&gt; Text -&gt; NonEmpty Scope -&gt; ExclusionPreview
 </span><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview%27"><span class="hs-identifier hs-var">ExclusionPreview'</span></a></span><span>
@@ -316,7 +316,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; Text -&gt; Text -&gt; NonEmpty Scope -&gt; ExclusionPreview)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attribute]))
+</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Attribute]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Attribute]))
@@ -330,7 +330,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Text -&gt; Text -&gt; NonEmpty Scope -&gt; ExclusionPreview)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;title&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,7 +339,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; NonEmpty Scope -&gt; ExclusionPreview)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,7 +347,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (NonEmpty Scope -&gt; ExclusionPreview)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;recommendation&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,13 +355,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (NonEmpty Scope) -&gt; Parser ExclusionPreview
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Scope)
+</span><a href="#local-6989586621679248077"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Scope)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scopes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248060"><span id="local-6989586621679248062"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248069"><span id="local-6989586621679248071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ExclusionPreview.html#ExclusionPreview"><span class="hs-identifier hs-type">ExclusionPreview</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

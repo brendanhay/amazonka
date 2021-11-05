@@ -57,12 +57,12 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDeleteServer' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679194623"><span id="local-6989586621679194624"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServer"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-var">DeleteServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServer%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-var">DeleteServer'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679194632"><span id="local-6989586621679194633"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServer"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-var">DeleteServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServer%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-var">DeleteServer'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the server to delete.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AserverName%3ADeleteServer%27"><span class="annot"><span class="annottext">DeleteServer -&gt; Text
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#%24sel%3AserverName%3ADeleteServer%27"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194617"><span id="local-6989586621679194619"><span class="annot"><span class="annottext">DeleteServer -&gt; DeleteServer -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194626"><span id="local-6989586621679194628"><span class="annot"><span class="annottext">DeleteServer -&gt; DeleteServer -&gt; Bool
 (DeleteServer -&gt; DeleteServer -&gt; Bool)
 -&gt; (DeleteServer -&gt; DeleteServer -&gt; Bool) -&gt; Eq DeleteServer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteServer -&gt; DeleteServer -&gt; Bool
 == :: DeleteServer -&gt; DeleteServer -&gt; Bool
 $c== :: DeleteServer -&gt; DeleteServer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194608"><span id="local-6989586621679194610"><span id="local-6989586621679194612"><span id="local-6989586621679194614"><span class="annot"><span class="annottext">ReadPrec [DeleteServer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194617"><span id="local-6989586621679194619"><span id="local-6989586621679194621"><span id="local-6989586621679194623"><span class="annot"><span class="annottext">ReadPrec [DeleteServer]
 ReadPrec DeleteServer
 Int -&gt; ReadS DeleteServer
 ReadS [DeleteServer]
@@ -90,7 +90,7 @@ readList :: ReadS [DeleteServer]
 $creadList :: ReadS [DeleteServer]
 readsPrec :: Int -&gt; ReadS DeleteServer
 $creadsPrec :: Int -&gt; ReadS DeleteServer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194601"><span id="local-6989586621679194603"><span id="local-6989586621679194605"><span class="annot"><span class="annottext">Int -&gt; DeleteServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194610"><span id="local-6989586621679194612"><span id="local-6989586621679194614"><span class="annot"><span class="annottext">Int -&gt; DeleteServer -&gt; ShowS
 [DeleteServer] -&gt; ShowS
 DeleteServer -&gt; String
 (Int -&gt; DeleteServer -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. DeleteServer -&gt; Rep DeleteServer x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span>
 </span><span id="line-79"></span><span id="newDeleteServer"><span class="annot"><span class="annottext">newDeleteServer :: Text -&gt; DeleteServer
-</span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#newDeleteServer"><span class="hs-identifier hs-var hs-var">newDeleteServer</span></a></span></span><span> </span><span id="local-6989586621679194596"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194596"><span class="hs-identifier hs-var">pServerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#newDeleteServer"><span class="hs-identifier hs-var hs-var">newDeleteServer</span></a></span></span><span> </span><span id="local-6989586621679194605"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194605"><span class="hs-identifier hs-var">pServerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DeleteServer' :: Text -&gt; DeleteServer
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-type">DeleteServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:DeleteServer' :: Text
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#%24sel%3AserverName%3ADeleteServer%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194596"><span class="hs-identifier hs-var">pServerName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679194605"><span class="hs-identifier hs-var">pServerName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The ID of the server to delete.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#deleteServer_serverName"><span class="hs-identifier hs-type">deleteServer_serverName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,25 +144,25 @@ $cfrom :: forall x. DeleteServer -&gt; Rep DeleteServer x
 -&gt; (DeleteServer -&gt; Text -&gt; DeleteServer)
 -&gt; Lens DeleteServer DeleteServer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-type">DeleteServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194593"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-type">DeleteServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194602"><span class="annot"><span class="annottext">Text
 serverName :: Text
 $sel:serverName:DeleteServer' :: DeleteServer -&gt; Text
-</span><a href="#local-6989586621679194593"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194593"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194592"><span class="annot"><span class="annottext">s :: DeleteServer
-</span><a href="#local-6989586621679194592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-type">DeleteServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194591"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServer
-</span><a href="#local-6989586621679194592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:DeleteServer' :: Text
+</span><a href="#local-6989586621679194602"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194602"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194601"><span class="annot"><span class="annottext">s :: DeleteServer
+</span><a href="#local-6989586621679194601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-type">DeleteServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194600"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679194600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServer
+</span><a href="#local-6989586621679194601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:DeleteServer' :: Text
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#%24sel%3AserverName%3ADeleteServer%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-type">DeleteServerResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679194587"><span class="annot"><span class="annottext">request :: DeleteServer -&gt; Request DeleteServer
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679194596"><span class="annot"><span class="annottext">request :: DeleteServer -&gt; Request DeleteServer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteServer -&gt; Request DeleteServer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorksCM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679194583"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679194592"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteServer
 -&gt; ClientResponse ClientBody
@@ -186,10 +186,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194580"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194580"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194579"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679194579"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194578"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679194578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679194589"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194589"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679194588"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679194588"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679194587"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679194587"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteServerResponse
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-var">DeleteServerResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteServerResponse)
@@ -200,15 +200,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194580"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194589"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194571"><span id="local-6989586621679194573"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194580"><span id="local-6989586621679194582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679194564"><span class="annot"><span class="annottext">toHeaders :: DeleteServer -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679194573"><span class="annot"><span class="annottext">toHeaders :: DeleteServer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteServer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -235,12 +235,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194554"><span id="local-6989586621679194556"><span id="local-6989586621679194558"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679194552"><span class="annot"><span class="annottext">toJSON :: DeleteServer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-type">DeleteServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194550"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194563"><span id="local-6989586621679194565"><span id="local-6989586621679194567"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679194561"><span class="annot"><span class="annottext">toJSON :: DeleteServer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer%27"><span class="hs-identifier hs-type">DeleteServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194559"><span class="annot"><span class="annottext">Text
 serverName :: Text
 $sel:serverName:DeleteServer' :: DeleteServer -&gt; Text
-</span><a href="#local-6989586621679194550"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679194559"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,18 +252,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ServerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679194550"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679194559"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679194544"><span class="annot"><span class="annottext">toPath :: DeleteServer -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679194553"><span class="annot"><span class="annottext">toPath :: DeleteServer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteServer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServer"><span class="hs-identifier hs-type">DeleteServer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679194540"><span class="annot"><span class="annottext">toQuery :: DeleteServer -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679194549"><span class="annot"><span class="annottext">toQuery :: DeleteServer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteServer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -271,12 +271,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDeleteServerResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679194537"><span id="local-6989586621679194538"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServerResponse"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-var">DeleteServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServerResponse%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-var">DeleteServerResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679194546"><span id="local-6989586621679194547"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteServerResponse"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-var">DeleteServerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteServerResponse%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-var">DeleteServerResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteServerResponse%27"><span class="annot"><span class="annottext">DeleteServerResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#%24sel%3AhttpStatus%3ADeleteServerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194532"><span id="local-6989586621679194534"><span class="annot"><span class="annottext">DeleteServerResponse -&gt; DeleteServerResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679194541"><span id="local-6989586621679194543"><span class="annot"><span class="annottext">DeleteServerResponse -&gt; DeleteServerResponse -&gt; Bool
 (DeleteServerResponse -&gt; DeleteServerResponse -&gt; Bool)
 -&gt; (DeleteServerResponse -&gt; DeleteServerResponse -&gt; Bool)
 -&gt; Eq DeleteServerResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteServerResponse -&gt; DeleteServerResponse -&gt; Bool
 == :: DeleteServerResponse -&gt; DeleteServerResponse -&gt; Bool
 $c== :: DeleteServerResponse -&gt; DeleteServerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194524"><span id="local-6989586621679194526"><span id="local-6989586621679194528"><span id="local-6989586621679194530"><span class="annot"><span class="annottext">ReadPrec [DeleteServerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194533"><span id="local-6989586621679194535"><span id="local-6989586621679194537"><span id="local-6989586621679194539"><span class="annot"><span class="annottext">ReadPrec [DeleteServerResponse]
 ReadPrec DeleteServerResponse
 Int -&gt; ReadS DeleteServerResponse
 ReadS [DeleteServerResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [DeleteServerResponse]
 $creadList :: ReadS [DeleteServerResponse]
 readsPrec :: Int -&gt; ReadS DeleteServerResponse
 $creadsPrec :: Int -&gt; ReadS DeleteServerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194518"><span id="local-6989586621679194520"><span id="local-6989586621679194522"><span class="annot"><span class="annottext">Int -&gt; DeleteServerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679194527"><span id="local-6989586621679194529"><span id="local-6989586621679194531"><span class="annot"><span class="annottext">Int -&gt; DeleteServerResponse -&gt; ShowS
 [DeleteServerResponse] -&gt; ShowS
 DeleteServerResponse -&gt; String
 (Int -&gt; DeleteServerResponse -&gt; ShowS)
@@ -345,12 +345,12 @@ $cfrom :: forall x. DeleteServerResponse -&gt; Rep DeleteServerResponse x
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-type">DeleteServerResponse</span></a></span><span>
 </span><span id="line-148"></span><span id="newDeleteServerResponse"><span class="annot"><span class="annottext">newDeleteServerResponse :: Int -&gt; DeleteServerResponse
-</span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#newDeleteServerResponse"><span class="hs-identifier hs-var hs-var">newDeleteServerResponse</span></a></span></span><span> </span><span id="local-6989586621679194515"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194515"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#newDeleteServerResponse"><span class="hs-identifier hs-var hs-var">newDeleteServerResponse</span></a></span></span><span> </span><span id="local-6989586621679194524"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194524"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="annottext">DeleteServerResponse' :: Int -&gt; DeleteServerResponse
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-type">DeleteServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServerResponse' :: Int
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#%24sel%3AhttpStatus%3ADeleteServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194515"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679194524"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#deleteServerResponse_httpStatus"><span class="hs-identifier hs-type">deleteServerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-type">DeleteServerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -359,16 +359,16 @@ $cfrom :: forall x. DeleteServerResponse -&gt; Rep DeleteServerResponse x
 -&gt; (DeleteServerResponse -&gt; Int -&gt; DeleteServerResponse)
 -&gt; Lens DeleteServerResponse DeleteServerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-type">DeleteServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194514"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-type">DeleteServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679194523"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteServerResponse' :: DeleteServerResponse -&gt; Int
-</span><a href="#local-6989586621679194514"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194514"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194513"><span class="annot"><span class="annottext">s :: DeleteServerResponse
-</span><a href="#local-6989586621679194513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-type">DeleteServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194512"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServerResponse
-</span><a href="#local-6989586621679194513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServerResponse' :: Int
+</span><a href="#local-6989586621679194523"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194523"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679194522"><span class="annot"><span class="annottext">s :: DeleteServerResponse
+</span><a href="#local-6989586621679194522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse%27"><span class="hs-identifier hs-type">DeleteServerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679194521"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679194521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteServerResponse
+</span><a href="#local-6989586621679194522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteServerResponse' :: Int
 </span><a href="Network.AWS.OpsWorksCM.DeleteServer.html#%24sel%3AhttpStatus%3ADeleteServerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679194512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-type">DeleteServerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679194521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-type">DeleteServerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194510"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-type">DeleteServerResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679194519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorksCM.DeleteServer.html#DeleteServerResponse"><span class="hs-identifier hs-type">DeleteServerResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

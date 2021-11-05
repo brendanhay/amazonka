@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-comment">-- | Represents the input of a @DescribeSnapshotsMessage@ operation.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- /See:/ 'newDescribeSnapshots' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679416067"><span id="local-6989586621679416068"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshots"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-var">DescribeSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshots%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-var">DescribeSnapshots'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679416076"><span id="local-6989586621679416077"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshots"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-var">DescribeSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshots%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-var">DescribeSnapshots'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied cluster identifier. If this parameter is specified, only</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- snapshots associated with that specific cluster are described.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AcacheClusterId%3ADescribeSnapshots%27"><span class="annot"><span class="annottext">DescribeSnapshots -&gt; Maybe Text
@@ -103,7 +103,7 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3AsnapshotSource%3ADescribeSnapshots%27"><span class="annot"><span class="annottext">DescribeSnapshots -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AsnapshotSource%3ADescribeSnapshots%27"><span class="hs-identifier hs-var hs-var">snapshotSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416055"><span id="local-6989586621679416057"><span class="annot"><span class="annottext">DescribeSnapshots -&gt; DescribeSnapshots -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416064"><span id="local-6989586621679416066"><span class="annot"><span class="annottext">DescribeSnapshots -&gt; DescribeSnapshots -&gt; Bool
 (DescribeSnapshots -&gt; DescribeSnapshots -&gt; Bool)
 -&gt; (DescribeSnapshots -&gt; DescribeSnapshots -&gt; Bool)
 -&gt; Eq DescribeSnapshots
@@ -112,7 +112,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSnapshots -&gt; DescribeSnapshots -&gt; Bool
 == :: DescribeSnapshots -&gt; DescribeSnapshots -&gt; Bool
 $c== :: DescribeSnapshots -&gt; DescribeSnapshots -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416046"><span id="local-6989586621679416048"><span id="local-6989586621679416050"><span id="local-6989586621679416052"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshots]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416055"><span id="local-6989586621679416057"><span id="local-6989586621679416059"><span id="local-6989586621679416061"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshots]
 ReadPrec DescribeSnapshots
 Int -&gt; ReadS DescribeSnapshots
 ReadS [DescribeSnapshots]
@@ -132,7 +132,7 @@ readList :: ReadS [DescribeSnapshots]
 $creadList :: ReadS [DescribeSnapshots]
 readsPrec :: Int -&gt; ReadS DescribeSnapshots
 $creadsPrec :: Int -&gt; ReadS DescribeSnapshots
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416039"><span id="local-6989586621679416041"><span id="local-6989586621679416043"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshots -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416048"><span id="local-6989586621679416050"><span id="local-6989586621679416052"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshots -&gt; ShowS
 [DescribeSnapshots] -&gt; ShowS
 DescribeSnapshots -&gt; String
 (Int -&gt; DescribeSnapshots -&gt; ShowS)
@@ -250,16 +250,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribeSnapshots DescribeSnapshots (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416033"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416042"><span class="annot"><span class="annottext">Maybe Text
 cacheClusterId :: Maybe Text
 $sel:cacheClusterId:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
-</span><a href="#local-6989586621679416033"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416033"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416032"><span class="annot"><span class="annottext">s :: DescribeSnapshots
-</span><a href="#local-6989586621679416032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416031"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:DescribeSnapshots' :: Maybe Text
+</span><a href="#local-6989586621679416042"><span class="hs-identifier hs-var hs-var">cacheClusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416042"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416041"><span class="annot"><span class="annottext">s :: DescribeSnapshots
+</span><a href="#local-6989586621679416041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterId:DescribeSnapshots' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AcacheClusterId%3ADescribeSnapshots%27"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | An optional marker returned from a prior request. Use this marker for</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- pagination of results from this operation. If this parameter is</span><span>
@@ -273,16 +273,16 @@ $sel:cacheClusterId:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
 -&gt; Lens
      DescribeSnapshots DescribeSnapshots (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416030"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416039"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
-</span><a href="#local-6989586621679416030"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416030"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416029"><span class="annot"><span class="annottext">s :: DescribeSnapshots
-</span><a href="#local-6989586621679416029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416028"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshots' :: Maybe Text
+</span><a href="#local-6989586621679416039"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416039"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416038"><span class="annot"><span class="annottext">s :: DescribeSnapshots
+</span><a href="#local-6989586621679416038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416037"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshots' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3Amarker%3ADescribeSnapshots%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a marker is</span><span>
@@ -298,16 +298,16 @@ $sel:marker:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
 -&gt; (DescribeSnapshots -&gt; Maybe Int -&gt; DescribeSnapshots)
 -&gt; Lens DescribeSnapshots DescribeSnapshots (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416027"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416036"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Int
-</span><a href="#local-6989586621679416027"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679416027"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416026"><span class="annot"><span class="annottext">s :: DescribeSnapshots
-</span><a href="#local-6989586621679416026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416025"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679416025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeSnapshots' :: Maybe Int
+</span><a href="#local-6989586621679416036"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416036"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416035"><span class="annot"><span class="annottext">s :: DescribeSnapshots
+</span><a href="#local-6989586621679416035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416034"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679416034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeSnapshots' :: Maybe Int
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AmaxRecords%3ADescribeSnapshots%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679416025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | A user-supplied name of the snapshot. If this parameter is specified,</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- only this snapshot are described.</span><span>
@@ -319,16 +319,16 @@ $sel:maxRecords:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Int
 -&gt; Lens
      DescribeSnapshots DescribeSnapshots (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416024"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416033"><span class="annot"><span class="annottext">Maybe Text
 snapshotName :: Maybe Text
 $sel:snapshotName:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
-</span><a href="#local-6989586621679416024"><span class="hs-identifier hs-var hs-var">snapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416024"><span class="hs-identifier hs-var">snapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416023"><span class="annot"><span class="annottext">s :: DescribeSnapshots
-</span><a href="#local-6989586621679416023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416022"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotName:DescribeSnapshots' :: Maybe Text
+</span><a href="#local-6989586621679416033"><span class="hs-identifier hs-var hs-var">snapshotName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416033"><span class="hs-identifier hs-var">snapshotName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416032"><span class="annot"><span class="annottext">s :: DescribeSnapshots
+</span><a href="#local-6989586621679416032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416031"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotName:DescribeSnapshots' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AsnapshotName%3ADescribeSnapshots%27"><span class="hs-identifier hs-var">snapshotName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | A Boolean value which if true, the node group (shard) configuration is</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- included in the snapshot description.</span><span>
@@ -340,16 +340,16 @@ $sel:snapshotName:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
 -&gt; Lens
      DescribeSnapshots DescribeSnapshots (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416021"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416030"><span class="annot"><span class="annottext">Maybe Bool
 showNodeGroupConfig :: Maybe Bool
 $sel:showNodeGroupConfig:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Bool
-</span><a href="#local-6989586621679416021"><span class="hs-identifier hs-var hs-var">showNodeGroupConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679416021"><span class="hs-identifier hs-var">showNodeGroupConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416020"><span class="annot"><span class="annottext">s :: DescribeSnapshots
-</span><a href="#local-6989586621679416020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416019"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679416019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showNodeGroupConfig:DescribeSnapshots' :: Maybe Bool
+</span><a href="#local-6989586621679416030"><span class="hs-identifier hs-var hs-var">showNodeGroupConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679416030"><span class="hs-identifier hs-var">showNodeGroupConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416029"><span class="annot"><span class="annottext">s :: DescribeSnapshots
+</span><a href="#local-6989586621679416029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416028"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679416028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:showNodeGroupConfig:DescribeSnapshots' :: Maybe Bool
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AshowNodeGroupConfig%3ADescribeSnapshots%27"><span class="hs-identifier hs-var">showNodeGroupConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679416019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | A user-supplied replication group identifier. If this parameter is</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- specified, only snapshots associated with that specific replication</span><span>
@@ -362,16 +362,16 @@ $sel:showNodeGroupConfig:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Boo
 -&gt; Lens
      DescribeSnapshots DescribeSnapshots (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416018"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416027"><span class="annot"><span class="annottext">Maybe Text
 replicationGroupId :: Maybe Text
 $sel:replicationGroupId:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
-</span><a href="#local-6989586621679416018"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416018"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416017"><span class="annot"><span class="annottext">s :: DescribeSnapshots
-</span><a href="#local-6989586621679416017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416016"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:DescribeSnapshots' :: Maybe Text
+</span><a href="#local-6989586621679416027"><span class="hs-identifier hs-var hs-var">replicationGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416027"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416026"><span class="annot"><span class="annottext">s :: DescribeSnapshots
+</span><a href="#local-6989586621679416026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupId:DescribeSnapshots' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AreplicationGroupId%3ADescribeSnapshots%27"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | If set to @system@, the output shows snapshots that were automatically</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- created by ElastiCache. If set to @user@ the output shows snapshots that</span><span>
@@ -385,29 +385,29 @@ $sel:replicationGroupId:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
 -&gt; Lens
      DescribeSnapshots DescribeSnapshots (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416015"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416024"><span class="annot"><span class="annottext">Maybe Text
 snapshotSource :: Maybe Text
 $sel:snapshotSource:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
-</span><a href="#local-6989586621679416015"><span class="hs-identifier hs-var hs-var">snapshotSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416015"><span class="hs-identifier hs-var">snapshotSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416014"><span class="annot"><span class="annottext">s :: DescribeSnapshots
-</span><a href="#local-6989586621679416014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416013"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotSource:DescribeSnapshots' :: Maybe Text
+</span><a href="#local-6989586621679416024"><span class="hs-identifier hs-var hs-var">snapshotSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416024"><span class="hs-identifier hs-var">snapshotSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416023"><span class="annot"><span class="annottext">s :: DescribeSnapshots
+</span><a href="#local-6989586621679416023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416022"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotSource:DescribeSnapshots' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AsnapshotSource%3ADescribeSnapshots%27"><span class="hs-identifier hs-var">snapshotSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679416009"><span class="annot"><span class="annottext">page :: DescribeSnapshots
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679416018"><span class="annot"><span class="annottext">page :: DescribeSnapshots
 -&gt; AWSResponse DescribeSnapshots -&gt; Maybe DescribeSnapshots
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416007"><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416007"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416006"><span class="annot"><span class="annottext">AWSResponse DescribeSnapshots
-</span><a href="#local-6989586621679416006"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416016"><span class="annot"><span class="annottext">DescribeSnapshots
+</span><a href="#local-6989586621679416016"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416015"><span class="annot"><span class="annottext">AWSResponse DescribeSnapshots
+</span><a href="#local-6989586621679416015"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-201"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSnapshots
 DescribeSnapshotsResponse
-</span><a href="#local-6989586621679416006"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416015"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
 -&gt; Getting (First Text) DescribeSnapshotsResponse Text
 -&gt; Maybe Text
@@ -437,7 +437,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-207"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSnapshots
 DescribeSnapshotsResponse
-</span><a href="#local-6989586621679416006"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416015"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
 -&gt; Getting (First [Snapshot]) DescribeSnapshotsResponse [Snapshot]
 -&gt; Maybe [Snapshot]
@@ -471,7 +471,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">DescribeSnapshots
-</span><a href="#local-6989586621679416007"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679416016"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">DescribeSnapshots
 -&gt; (DescribeSnapshots -&gt; DescribeSnapshots) -&gt; DescribeSnapshots
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -485,7 +485,7 @@ Lens DescribeSnapshots DescribeSnapshots (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSnapshots
 DescribeSnapshotsResponse
-</span><a href="#local-6989586621679416006"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416015"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
 -&gt; Getting (First Text) DescribeSnapshotsResponse Text
 -&gt; Maybe Text
@@ -510,12 +510,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-220"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-221"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679415996"><span class="annot"><span class="annottext">request :: DescribeSnapshots -&gt; Request DescribeSnapshots
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679416005"><span class="annot"><span class="annottext">request :: DescribeSnapshots -&gt; Request DescribeSnapshots
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeSnapshots -&gt; Request DescribeSnapshots
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679415992"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679416001"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeSnapshots
 -&gt; ClientResponse ClientBody
@@ -546,10 +546,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeSnapshotsResult&quot;</span></span><span>
-</span><span id="line-227"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415989"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415989"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415988"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679415988"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415987"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679415987"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415998"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415997"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415997"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415996"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679415996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-228"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Snapshot] -&gt; Maybe Text -&gt; Int -&gt; DescribeSnapshotsResponse
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-var">DescribeSnapshotsResponse'</span></a></span><span>
 </span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Snapshot]
@@ -558,7 +558,7 @@ Text
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeSnapshotsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679415987"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679415996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Snapshots&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -585,7 +585,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeSnapshotsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679415987"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679415996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -597,15 +597,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415989"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415998"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415976"><span id="local-6989586621679415978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span></span></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415985"><span id="local-6989586621679415987"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span></span></span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415982"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span></span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679415969"><span class="annot"><span class="annottext">toHeaders :: DescribeSnapshots -&gt; ResponseHeaders
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679415978"><span class="annot"><span class="annottext">toHeaders :: DescribeSnapshots -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeSnapshots -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -613,15 +613,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679415964"><span class="annot"><span class="annottext">toPath :: DescribeSnapshots -&gt; ByteString
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679415973"><span class="annot"><span class="annottext">toPath :: DescribeSnapshots -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeSnapshots -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots"><span class="hs-identifier hs-type">DescribeSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679415960"><span class="annot"><span class="annottext">toQuery :: DescribeSnapshots -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415952"><span id="local-6989586621679415953"><span id="local-6989586621679415954"><span id="local-6989586621679415955"><span id="local-6989586621679415956"><span id="local-6989586621679415957"><span id="local-6989586621679415958"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679415969"><span class="annot"><span class="annottext">toQuery :: DescribeSnapshots -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshots%27"><span class="hs-identifier hs-type">DescribeSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415961"><span id="local-6989586621679415962"><span id="local-6989586621679415963"><span id="local-6989586621679415964"><span id="local-6989586621679415965"><span id="local-6989586621679415966"><span id="local-6989586621679415967"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 snapshotSource :: Maybe Text
@@ -638,7 +638,7 @@ $sel:snapshotName:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
 $sel:maxRecords:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Int
 $sel:marker:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
 $sel:cacheClusterId:DescribeSnapshots' :: DescribeSnapshots -&gt; Maybe Text
-</span><a href="#local-6989586621679415952"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679415961"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -658,43 +658,43 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;CacheClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415958"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415967"><span class="hs-identifier hs-var">cacheClusterId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415957"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415966"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679415956"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415965"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SnapshotName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415955"><span class="hs-identifier hs-var">snapshotName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415964"><span class="hs-identifier hs-var">snapshotName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ShowNodeGroupConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679415954"><span class="hs-identifier hs-var">showNodeGroupConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415963"><span class="hs-identifier hs-var">showNodeGroupConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicationGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415953"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679415962"><span class="hs-identifier hs-var">replicationGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SnapshotSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415952"><span class="hs-identifier hs-var">snapshotSource</span></a></span><span>
+</span><a href="#local-6989586621679415961"><span class="hs-identifier hs-var">snapshotSource</span></a></span><span>
 </span><span id="line-260"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | Represents the output of a @DescribeSnapshots@ operation.</span><span>
 </span><span id="line-263"></span><span class="hs-comment">--</span><span>
 </span><span id="line-264"></span><span class="hs-comment">-- /See:/ 'newDescribeSnapshotsResponse' smart constructor.</span><span>
-</span><span id="line-265"></span><span id="local-6989586621679415949"><span id="local-6989586621679415950"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshotsResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-var">DescribeSnapshotsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshotsResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-var">DescribeSnapshotsResponse'</span></a></span></span><span>
+</span><span id="line-265"></span><span id="local-6989586621679415958"><span id="local-6989586621679415959"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshotsResponse"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-var">DescribeSnapshotsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshotsResponse%27"><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-var">DescribeSnapshotsResponse'</span></a></span></span><span>
 </span><span id="line-266"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of snapshots. Each item in the list contains detailed information</span><span>
 </span><span id="line-267"></span><span>    </span><span class="hs-comment">-- about one snapshot.</span><span>
 </span><span id="line-268"></span><span>    </span><span id="%24sel%3Asnapshots%3ADescribeSnapshotsResponse%27"><span class="annot"><span class="annottext">DescribeSnapshotsResponse -&gt; Maybe [Snapshot]
@@ -709,7 +709,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-275"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeSnapshotsResponse%27"><span class="annot"><span class="annottext">DescribeSnapshotsResponse -&gt; Int
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AhttpStatus%3ADescribeSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-276"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415942"><span id="local-6989586621679415944"><span class="annot"><span class="annottext">DescribeSnapshotsResponse -&gt; DescribeSnapshotsResponse -&gt; Bool
+</span><span id="line-277"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415951"><span id="local-6989586621679415953"><span class="annot"><span class="annottext">DescribeSnapshotsResponse -&gt; DescribeSnapshotsResponse -&gt; Bool
 (DescribeSnapshotsResponse -&gt; DescribeSnapshotsResponse -&gt; Bool)
 -&gt; (DescribeSnapshotsResponse -&gt; DescribeSnapshotsResponse -&gt; Bool)
 -&gt; Eq DescribeSnapshotsResponse
@@ -718,7 +718,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSnapshotsResponse -&gt; DescribeSnapshotsResponse -&gt; Bool
 == :: DescribeSnapshotsResponse -&gt; DescribeSnapshotsResponse -&gt; Bool
 $c== :: DescribeSnapshotsResponse -&gt; DescribeSnapshotsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415934"><span id="local-6989586621679415936"><span id="local-6989586621679415938"><span id="local-6989586621679415940"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshotsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415943"><span id="local-6989586621679415945"><span id="local-6989586621679415947"><span id="local-6989586621679415949"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshotsResponse]
 ReadPrec DescribeSnapshotsResponse
 Int -&gt; ReadS DescribeSnapshotsResponse
 ReadS [DescribeSnapshotsResponse]
@@ -738,7 +738,7 @@ readList :: ReadS [DescribeSnapshotsResponse]
 $creadList :: ReadS [DescribeSnapshotsResponse]
 readsPrec :: Int -&gt; ReadS DescribeSnapshotsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeSnapshotsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415928"><span id="local-6989586621679415930"><span id="local-6989586621679415932"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshotsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415937"><span id="local-6989586621679415939"><span id="local-6989586621679415941"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshotsResponse -&gt; ShowS
 [DescribeSnapshotsResponse] -&gt; ShowS
 DescribeSnapshotsResponse -&gt; String
 (Int -&gt; DescribeSnapshotsResponse -&gt; ShowS)
@@ -792,8 +792,8 @@ DescribeSnapshotsResponse -&gt; Rep DescribeSnapshotsResponse x
 </span><span id="line-298"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-299"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span>
 </span><span id="line-300"></span><span id="newDescribeSnapshotsResponse"><span class="annot"><span class="annottext">newDescribeSnapshotsResponse :: Int -&gt; DescribeSnapshotsResponse
-</span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#newDescribeSnapshotsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSnapshotsResponse</span></a></span></span><span> </span><span id="local-6989586621679415925"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#newDescribeSnapshotsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSnapshotsResponse</span></a></span></span><span> </span><span id="local-6989586621679415934"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-301"></span><span>  </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse' :: Maybe [Snapshot] -&gt; Maybe Text -&gt; Int -&gt; DescribeSnapshotsResponse
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span>
 </span><span id="line-302"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snapshots:DescribeSnapshotsResponse' :: Maybe [Snapshot]
@@ -807,7 +807,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSnapshotsResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AhttpStatus%3ADescribeSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415925"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679415934"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-306"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | A list of snapshots. Each item in the list contains detailed information</span><span>
@@ -820,16 +820,16 @@ forall a. Maybe a
     -&gt; Maybe [Snapshot] -&gt; DescribeSnapshotsResponse)
 -&gt; Lens' DescribeSnapshotsResponse (Maybe [Snapshot])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415924"><span class="annot"><span class="annottext">Maybe [Snapshot]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415933"><span class="annot"><span class="annottext">Maybe [Snapshot]
 snapshots :: Maybe [Snapshot]
 $sel:snapshots:DescribeSnapshotsResponse' :: DescribeSnapshotsResponse -&gt; Maybe [Snapshot]
-</span><a href="#local-6989586621679415924"><span class="hs-identifier hs-var hs-var">snapshots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Snapshot]
-</span><a href="#local-6989586621679415924"><span class="hs-identifier hs-var">snapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415923"><span class="annot"><span class="annottext">s :: DescribeSnapshotsResponse
-</span><a href="#local-6989586621679415923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415922"><span class="annot"><span class="annottext">Maybe [Snapshot]
-</span><a href="#local-6989586621679415922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
-</span><a href="#local-6989586621679415923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshots:DescribeSnapshotsResponse' :: Maybe [Snapshot]
+</span><a href="#local-6989586621679415933"><span class="hs-identifier hs-var hs-var">snapshots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Snapshot]
+</span><a href="#local-6989586621679415933"><span class="hs-identifier hs-var">snapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415932"><span class="annot"><span class="annottext">s :: DescribeSnapshotsResponse
+</span><a href="#local-6989586621679415932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415931"><span class="annot"><span class="annottext">Maybe [Snapshot]
+</span><a href="#local-6989586621679415931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
+</span><a href="#local-6989586621679415932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshots:DescribeSnapshotsResponse' :: Maybe [Snapshot]
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3Asnapshots%3ADescribeSnapshotsResponse%27"><span class="hs-identifier hs-var">snapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Snapshot]
-</span><a href="#local-6989586621679415922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Snapshot] -&gt; f (Maybe [Snapshot]))
+</span><a href="#local-6989586621679415931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Snapshot] -&gt; f (Maybe [Snapshot]))
  -&gt; DescribeSnapshotsResponse -&gt; f DescribeSnapshotsResponse)
 -&gt; ((Maybe [Snapshot] -&gt; f (Maybe [Snapshot]))
     -&gt; Maybe [Snapshot] -&gt; f (Maybe [Snapshot]))
@@ -862,16 +862,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeSnapshotsResponse)
 -&gt; Lens' DescribeSnapshotsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415919"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415928"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeSnapshotsResponse' :: DescribeSnapshotsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679415919"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415919"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415918"><span class="annot"><span class="annottext">s :: DescribeSnapshotsResponse
-</span><a href="#local-6989586621679415918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415917"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
-</span><a href="#local-6989586621679415918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotsResponse' :: Maybe Text
+</span><a href="#local-6989586621679415928"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415928"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415927"><span class="annot"><span class="annottext">s :: DescribeSnapshotsResponse
+</span><a href="#local-6989586621679415927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415926"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
+</span><a href="#local-6989586621679415927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotsResponse' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3Amarker%3ADescribeSnapshotsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679415917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-319"></span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-321"></span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#describeSnapshotsResponse_httpStatus"><span class="hs-identifier hs-type">describeSnapshotsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -881,16 +881,16 @@ $sel:marker:DescribeSnapshotsResponse' :: DescribeSnapshotsResponse -&gt; Maybe 
 -&gt; (DescribeSnapshotsResponse -&gt; Int -&gt; DescribeSnapshotsResponse)
 -&gt; Lens DescribeSnapshotsResponse DescribeSnapshotsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415916"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415925"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeSnapshotsResponse' :: DescribeSnapshotsResponse -&gt; Int
-</span><a href="#local-6989586621679415916"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415916"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415915"><span class="annot"><span class="annottext">s :: DescribeSnapshotsResponse
-</span><a href="#local-6989586621679415915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415914"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
-</span><a href="#local-6989586621679415915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSnapshotsResponse' :: Int
+</span><a href="#local-6989586621679415925"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415925"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415924"><span class="annot"><span class="annottext">s :: DescribeSnapshotsResponse
+</span><a href="#local-6989586621679415924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415923"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotsResponse
+</span><a href="#local-6989586621679415924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSnapshotsResponse' :: Int
 </span><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#%24sel%3AhttpStatus%3ADescribeSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679415914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-323"></span><span>
-</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.DescribeSnapshots.html#DescribeSnapshotsResponse"><span class="hs-identifier hs-type">DescribeSnapshotsResponse</span></a></span></span><span>
 </span><span id="line-325"></span></pre></body></html>

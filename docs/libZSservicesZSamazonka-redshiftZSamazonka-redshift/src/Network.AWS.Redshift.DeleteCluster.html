@@ -71,7 +71,7 @@
 </span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- /See:/ 'newDeleteCluster' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621679524313"><span id="local-6989586621679524314"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCluster"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-var">DeleteCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCluster%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-var">DeleteCluster'</span></a></span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621679524322"><span id="local-6989586621679524323"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCluster"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-var">DeleteCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCluster%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-var">DeleteCluster'</span></a></span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Determines whether a final snapshot of the cluster is created before</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- is not created. If @false@, a final cluster snapshot is created before</span><span>
@@ -118,7 +118,7 @@
 </span><span id="line-115"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ADeleteCluster%27"><span class="annot"><span class="annottext">DeleteCluster -&gt; Text
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AclusterIdentifier%3ADeleteCluster%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679524304"><span id="local-6989586621679524306"><span class="annot"><span class="annottext">DeleteCluster -&gt; DeleteCluster -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679524313"><span id="local-6989586621679524315"><span class="annot"><span class="annottext">DeleteCluster -&gt; DeleteCluster -&gt; Bool
 (DeleteCluster -&gt; DeleteCluster -&gt; Bool)
 -&gt; (DeleteCluster -&gt; DeleteCluster -&gt; Bool) -&gt; Eq DeleteCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -126,7 +126,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
 == :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
 $c== :: DeleteCluster -&gt; DeleteCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524295"><span id="local-6989586621679524297"><span id="local-6989586621679524299"><span id="local-6989586621679524301"><span class="annot"><span class="annottext">ReadPrec [DeleteCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524304"><span id="local-6989586621679524306"><span id="local-6989586621679524308"><span id="local-6989586621679524310"><span class="annot"><span class="annottext">ReadPrec [DeleteCluster]
 ReadPrec DeleteCluster
 Int -&gt; ReadS DeleteCluster
 ReadS [DeleteCluster]
@@ -146,7 +146,7 @@ readList :: ReadS [DeleteCluster]
 $creadList :: ReadS [DeleteCluster]
 readsPrec :: Int -&gt; ReadS DeleteCluster
 $creadsPrec :: Int -&gt; ReadS DeleteCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524288"><span id="local-6989586621679524290"><span id="local-6989586621679524292"><span class="annot"><span class="annottext">Int -&gt; DeleteCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524297"><span id="local-6989586621679524299"><span id="local-6989586621679524301"><span class="annot"><span class="annottext">Int -&gt; DeleteCluster -&gt; ShowS
 [DeleteCluster] -&gt; ShowS
 DeleteCluster -&gt; String
 (Int -&gt; DeleteCluster -&gt; ShowS)
@@ -225,8 +225,8 @@ $cfrom :: forall x. DeleteCluster -&gt; Rep DeleteCluster x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span>
 </span><span id="line-171"></span><span id="newDeleteCluster"><span class="annot"><span class="annottext">newDeleteCluster :: Text -&gt; DeleteCluster
-</span><a href="Network.AWS.Redshift.DeleteCluster.html#newDeleteCluster"><span class="hs-identifier hs-var hs-var">newDeleteCluster</span></a></span></span><span> </span><span id="local-6989586621679524283"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679524283"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DeleteCluster.html#newDeleteCluster"><span class="hs-identifier hs-var hs-var">newDeleteCluster</span></a></span></span><span> </span><span id="local-6989586621679524292"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679524292"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">DeleteCluster' :: Maybe Bool -&gt; Maybe Int -&gt; Maybe Text -&gt; Text -&gt; DeleteCluster
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:skipFinalClusterSnapshot:DeleteCluster' :: Maybe Bool
@@ -245,7 +245,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DeleteCluster' :: Text
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AclusterIdentifier%3ADeleteCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679524283"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679524292"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | Determines whether a final snapshot of the cluster is created before</span><span>
@@ -263,16 +263,16 @@ forall a. Maybe a
 -&gt; (DeleteCluster -&gt; Maybe Bool -&gt; DeleteCluster)
 -&gt; Lens DeleteCluster DeleteCluster (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524280"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524289"><span class="annot"><span class="annottext">Maybe Bool
 skipFinalClusterSnapshot :: Maybe Bool
 $sel:skipFinalClusterSnapshot:DeleteCluster' :: DeleteCluster -&gt; Maybe Bool
-</span><a href="#local-6989586621679524280"><span class="hs-identifier hs-var hs-var">skipFinalClusterSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679524280"><span class="hs-identifier hs-var">skipFinalClusterSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524279"><span class="annot"><span class="annottext">s :: DeleteCluster
-</span><a href="#local-6989586621679524279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524278"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679524278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
-</span><a href="#local-6989586621679524279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipFinalClusterSnapshot:DeleteCluster' :: Maybe Bool
+</span><a href="#local-6989586621679524289"><span class="hs-identifier hs-var hs-var">skipFinalClusterSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679524289"><span class="hs-identifier hs-var">skipFinalClusterSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524288"><span class="annot"><span class="annottext">s :: DeleteCluster
+</span><a href="#local-6989586621679524288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524287"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679524287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
+</span><a href="#local-6989586621679524288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipFinalClusterSnapshot:DeleteCluster' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AskipFinalClusterSnapshot%3ADeleteCluster%27"><span class="hs-identifier hs-var">skipFinalClusterSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679524278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679524287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The number of days that a manual snapshot is retained. If the value is</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- -1, the manual snapshot is retained indefinitely.</span><span>
@@ -286,16 +286,16 @@ $sel:skipFinalClusterSnapshot:DeleteCluster' :: DeleteCluster -&gt; Maybe Bool
 -&gt; (DeleteCluster -&gt; Maybe Int -&gt; DeleteCluster)
 -&gt; Lens DeleteCluster DeleteCluster (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524277"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524286"><span class="annot"><span class="annottext">Maybe Int
 finalClusterSnapshotRetentionPeriod :: Maybe Int
 $sel:finalClusterSnapshotRetentionPeriod:DeleteCluster' :: DeleteCluster -&gt; Maybe Int
-</span><a href="#local-6989586621679524277"><span class="hs-identifier hs-var hs-var">finalClusterSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679524277"><span class="hs-identifier hs-var">finalClusterSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524276"><span class="annot"><span class="annottext">s :: DeleteCluster
-</span><a href="#local-6989586621679524276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524275"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679524275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
-</span><a href="#local-6989586621679524276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalClusterSnapshotRetentionPeriod:DeleteCluster' :: Maybe Int
+</span><a href="#local-6989586621679524286"><span class="hs-identifier hs-var hs-var">finalClusterSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679524286"><span class="hs-identifier hs-var">finalClusterSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524285"><span class="annot"><span class="annottext">s :: DeleteCluster
+</span><a href="#local-6989586621679524285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524284"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679524284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
+</span><a href="#local-6989586621679524285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalClusterSnapshotRetentionPeriod:DeleteCluster' :: Maybe Int
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AfinalClusterSnapshotRetentionPeriod%3ADeleteCluster%27"><span class="hs-identifier hs-var">finalClusterSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679524275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679524284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The identifier of the final snapshot that is to be created immediately</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- before deleting the cluster. If this parameter is provided,</span><span>
@@ -314,16 +314,16 @@ $sel:finalClusterSnapshotRetentionPeriod:DeleteCluster' :: DeleteCluster -&gt; M
 -&gt; (DeleteCluster -&gt; Maybe Text -&gt; DeleteCluster)
 -&gt; Lens DeleteCluster DeleteCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524274"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524283"><span class="annot"><span class="annottext">Maybe Text
 finalClusterSnapshotIdentifier :: Maybe Text
 $sel:finalClusterSnapshotIdentifier:DeleteCluster' :: DeleteCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679524274"><span class="hs-identifier hs-var hs-var">finalClusterSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679524274"><span class="hs-identifier hs-var">finalClusterSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524273"><span class="annot"><span class="annottext">s :: DeleteCluster
-</span><a href="#local-6989586621679524273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524272"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679524272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
-</span><a href="#local-6989586621679524273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalClusterSnapshotIdentifier:DeleteCluster' :: Maybe Text
+</span><a href="#local-6989586621679524283"><span class="hs-identifier hs-var hs-var">finalClusterSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679524283"><span class="hs-identifier hs-var">finalClusterSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524282"><span class="annot"><span class="annottext">s :: DeleteCluster
+</span><a href="#local-6989586621679524282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679524281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
+</span><a href="#local-6989586621679524282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalClusterSnapshotIdentifier:DeleteCluster' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AfinalClusterSnapshotIdentifier%3ADeleteCluster%27"><span class="hs-identifier hs-var">finalClusterSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679524272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679524281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The identifier of the cluster to be deleted.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
@@ -342,27 +342,27 @@ $sel:finalClusterSnapshotIdentifier:DeleteCluster' :: DeleteCluster -&gt; Maybe 
 -&gt; (DeleteCluster -&gt; Text -&gt; DeleteCluster)
 -&gt; Lens DeleteCluster DeleteCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524271"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524280"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:DeleteCluster' :: DeleteCluster -&gt; Text
-</span><a href="#local-6989586621679524271"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679524271"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524270"><span class="annot"><span class="annottext">s :: DeleteCluster
-</span><a href="#local-6989586621679524270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524269"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679524269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
-</span><a href="#local-6989586621679524270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DeleteCluster' :: Text
+</span><a href="#local-6989586621679524280"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679524280"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524279"><span class="annot"><span class="annottext">s :: DeleteCluster
+</span><a href="#local-6989586621679524279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524278"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679524278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCluster
+</span><a href="#local-6989586621679524279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DeleteCluster' :: Text
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AclusterIdentifier%3ADeleteCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679524269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679524278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-232"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621679524265"><span class="annot"><span class="annottext">request :: DeleteCluster -&gt; Request DeleteCluster
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679524274"><span class="annot"><span class="annottext">request :: DeleteCluster -&gt; Request DeleteCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteCluster -&gt; Request DeleteCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-235"></span><span>  </span><span id="local-6989586621679524261"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679524270"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCluster
 -&gt; ClientResponse ClientBody
@@ -391,10 +391,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteClusterResult&quot;</span></span><span>
-</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679524258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679524258"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679524257"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679524257"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679524256"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679524256"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679524267"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679524267"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679524266"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679524266"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679524265"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679524265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-239"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span><span>
 </span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse)
@@ -402,7 +402,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679524256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679524265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -414,15 +414,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679524258"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679524267"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679524248"><span id="local-6989586621679524250"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679524257"><span id="local-6989586621679524259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span></span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679524245"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679524254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span></span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679524241"><span class="annot"><span class="annottext">toHeaders :: DeleteCluster -&gt; ResponseHeaders
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679524250"><span class="annot"><span class="annottext">toHeaders :: DeleteCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -430,15 +430,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679524236"><span class="annot"><span class="annottext">toPath :: DeleteCluster -&gt; ByteString
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679524245"><span class="annot"><span class="annottext">toPath :: DeleteCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster"><span class="hs-identifier hs-type">DeleteCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679524232"><span class="annot"><span class="annottext">toQuery :: DeleteCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524227"><span id="local-6989586621679524228"><span id="local-6989586621679524229"><span id="local-6989586621679524230"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679524241"><span class="annot"><span class="annottext">toQuery :: DeleteCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteCluster%27"><span class="hs-identifier hs-type">DeleteCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524236"><span id="local-6989586621679524237"><span id="local-6989586621679524238"><span id="local-6989586621679524239"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Text
@@ -450,7 +450,7 @@ $sel:clusterIdentifier:DeleteCluster' :: DeleteCluster -&gt; Text
 $sel:finalClusterSnapshotIdentifier:DeleteCluster' :: DeleteCluster -&gt; Maybe Text
 $sel:finalClusterSnapshotRetentionPeriod:DeleteCluster' :: DeleteCluster -&gt; Maybe Int
 $sel:skipFinalClusterSnapshot:DeleteCluster' :: DeleteCluster -&gt; Maybe Bool
-</span><a href="#local-6989586621679524227"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679524236"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -471,35 +471,35 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-262"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679524230"><span class="hs-identifier hs-var">skipFinalClusterSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679524239"><span class="hs-identifier hs-var">skipFinalClusterSnapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;FinalClusterSnapshotRetentionPeriod&quot;</span></span><span>
 </span><span id="line-264"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679524229"><span class="hs-identifier hs-var">finalClusterSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679524238"><span class="hs-identifier hs-var">finalClusterSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;FinalClusterSnapshotIdentifier&quot;</span></span><span>
 </span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679524228"><span class="hs-identifier hs-var">finalClusterSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679524237"><span class="hs-identifier hs-var">finalClusterSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679524227"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679524236"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | /See:/ 'newDeleteClusterResponse' smart constructor.</span><span>
-</span><span id="line-271"></span><span id="local-6989586621679524224"><span id="local-6989586621679524225"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-var">DeleteClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span></span><span>
+</span><span id="line-271"></span><span id="local-6989586621679524233"><span id="local-6989586621679524234"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-var">DeleteClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-var">DeleteClusterResponse'</span></a></span></span><span>
 </span><span id="line-272"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-274"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-275"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-276"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679524218"><span id="local-6989586621679524220"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
+</span><span id="line-276"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679524227"><span id="local-6989586621679524229"><span class="annot"><span class="annottext">DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 (DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool)
 -&gt; (DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool)
 -&gt; Eq DeleteClusterResponse
@@ -508,7 +508,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 == :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
 $c== :: DeleteClusterResponse -&gt; DeleteClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524210"><span id="local-6989586621679524212"><span id="local-6989586621679524214"><span id="local-6989586621679524216"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524219"><span id="local-6989586621679524221"><span id="local-6989586621679524223"><span id="local-6989586621679524225"><span class="annot"><span class="annottext">ReadPrec [DeleteClusterResponse]
 ReadPrec DeleteClusterResponse
 Int -&gt; ReadS DeleteClusterResponse
 ReadS [DeleteClusterResponse]
@@ -528,7 +528,7 @@ readList :: ReadS [DeleteClusterResponse]
 $creadList :: ReadS [DeleteClusterResponse]
 readsPrec :: Int -&gt; ReadS DeleteClusterResponse
 $creadsPrec :: Int -&gt; ReadS DeleteClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524204"><span id="local-6989586621679524206"><span id="local-6989586621679524208"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679524213"><span id="local-6989586621679524215"><span id="local-6989586621679524217"><span class="annot"><span class="annottext">Int -&gt; DeleteClusterResponse -&gt; ShowS
 [DeleteClusterResponse] -&gt; ShowS
 DeleteClusterResponse -&gt; String
 (Int -&gt; DeleteClusterResponse -&gt; ShowS)
@@ -570,8 +570,8 @@ $cfrom :: forall x. DeleteClusterResponse -&gt; Rep DeleteClusterResponse x
 </span><span id="line-291"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-292"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span>
 </span><span id="line-293"></span><span id="newDeleteClusterResponse"><span class="annot"><span class="annottext">newDeleteClusterResponse :: Int -&gt; DeleteClusterResponse
-</span><a href="Network.AWS.Redshift.DeleteCluster.html#newDeleteClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679524201"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679524201"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DeleteCluster.html#newDeleteClusterResponse"><span class="hs-identifier hs-var hs-var">newDeleteClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679524210"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679524210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-294"></span><span>  </span><span class="annot"><span class="annottext">DeleteClusterResponse' :: Maybe Cluster -&gt; Int -&gt; DeleteClusterResponse
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span>
 </span><span id="line-295"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
@@ -580,7 +580,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679524201"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679524210"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-297"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -596,16 +596,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524200"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524209"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679524200"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679524200"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524199"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
-</span><a href="#local-6989586621679524199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524198"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679524198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
-</span><a href="#local-6989586621679524199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679524209"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679524209"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524208"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
+</span><a href="#local-6989586621679524208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524207"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679524207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
+</span><a href="#local-6989586621679524208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:DeleteClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3Acluster%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679524198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679524207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-304"></span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#deleteClusterResponse_httpStatus"><span class="hs-identifier hs-type">deleteClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -614,16 +614,16 @@ $sel:cluster:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Maybe Cluster
 -&gt; (DeleteClusterResponse -&gt; Int -&gt; DeleteClusterResponse)
 -&gt; Lens DeleteClusterResponse DeleteClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524197"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679524206"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteClusterResponse' :: DeleteClusterResponse -&gt; Int
-</span><a href="#local-6989586621679524197"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679524197"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524196"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
-</span><a href="#local-6989586621679524196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524195"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679524195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
-</span><a href="#local-6989586621679524196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
+</span><a href="#local-6989586621679524206"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679524206"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679524205"><span class="annot"><span class="annottext">s :: DeleteClusterResponse
+</span><a href="#local-6989586621679524205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse%27"><span class="hs-identifier hs-type">DeleteClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679524204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679524204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteClusterResponse
+</span><a href="#local-6989586621679524205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.DeleteCluster.html#%24sel%3AhttpStatus%3ADeleteClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679524195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679524204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679524193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679524202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteCluster.html#DeleteClusterResponse"><span class="hs-identifier hs-type">DeleteClusterResponse</span></a></span></span><span>
 </span><span id="line-308"></span></pre></body></html>

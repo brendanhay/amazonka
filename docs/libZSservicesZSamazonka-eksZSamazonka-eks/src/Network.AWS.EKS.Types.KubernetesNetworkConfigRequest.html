@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The Kubernetes network configuration for the cluster.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKubernetesNetworkConfigRequest' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679266238"><span id="local-6989586621679266239"></span></span><span class="hs-keyword">data</span><span> </span><span id="KubernetesNetworkConfigRequest"><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-var">KubernetesNetworkConfigRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KubernetesNetworkConfigRequest%27"><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-var">KubernetesNetworkConfigRequest'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679266247"><span id="local-6989586621679266248"></span></span><span class="hs-keyword">data</span><span> </span><span id="KubernetesNetworkConfigRequest"><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-var">KubernetesNetworkConfigRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KubernetesNetworkConfigRequest%27"><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-var">KubernetesNetworkConfigRequest'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The CIDR block to assign Kubernetes service IP addresses from. If you</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- don\'t specify a block, Kubernetes assigns addresses from either the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- 10.100.0.0\/16 or 172.20.0.0\/16 CIDR blocks. We recommend that you</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AserviceIpv4Cidr%3AKubernetesNetworkConfigRequest%27"><span class="annot"><span class="annottext">KubernetesNetworkConfigRequest -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#%24sel%3AserviceIpv4Cidr%3AKubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-var hs-var">serviceIpv4Cidr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266232"><span id="local-6989586621679266234"><span class="annot"><span class="annottext">KubernetesNetworkConfigRequest
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679266241"><span id="local-6989586621679266243"><span class="annot"><span class="annottext">KubernetesNetworkConfigRequest
 -&gt; KubernetesNetworkConfigRequest -&gt; Bool
 (KubernetesNetworkConfigRequest
  -&gt; KubernetesNetworkConfigRequest -&gt; Bool)
@@ -63,7 +63,7 @@ $c/= :: KubernetesNetworkConfigRequest
 -&gt; KubernetesNetworkConfigRequest -&gt; Bool
 $c== :: KubernetesNetworkConfigRequest
 -&gt; KubernetesNetworkConfigRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266223"><span id="local-6989586621679266225"><span id="local-6989586621679266227"><span id="local-6989586621679266229"><span class="annot"><span class="annottext">ReadPrec [KubernetesNetworkConfigRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266232"><span id="local-6989586621679266234"><span id="local-6989586621679266236"><span id="local-6989586621679266238"><span class="annot"><span class="annottext">ReadPrec [KubernetesNetworkConfigRequest]
 ReadPrec KubernetesNetworkConfigRequest
 Int -&gt; ReadS KubernetesNetworkConfigRequest
 ReadS [KubernetesNetworkConfigRequest]
@@ -83,7 +83,7 @@ readList :: ReadS [KubernetesNetworkConfigRequest]
 $creadList :: ReadS [KubernetesNetworkConfigRequest]
 readsPrec :: Int -&gt; ReadS KubernetesNetworkConfigRequest
 $creadsPrec :: Int -&gt; ReadS KubernetesNetworkConfigRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266216"><span id="local-6989586621679266218"><span id="local-6989586621679266220"><span class="annot"><span class="annottext">Int -&gt; KubernetesNetworkConfigRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679266225"><span id="local-6989586621679266227"><span id="local-6989586621679266229"><span class="annot"><span class="annottext">Int -&gt; KubernetesNetworkConfigRequest -&gt; ShowS
 [KubernetesNetworkConfigRequest] -&gt; ShowS
 KubernetesNetworkConfigRequest -&gt; String
 (Int -&gt; KubernetesNetworkConfigRequest -&gt; ShowS)
@@ -189,31 +189,31 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266207"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266216"><span class="annot"><span class="annottext">Maybe Text
 serviceIpv4Cidr :: Maybe Text
 $sel:serviceIpv4Cidr:KubernetesNetworkConfigRequest' :: KubernetesNetworkConfigRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679266207"><span class="hs-identifier hs-var hs-var">serviceIpv4Cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266207"><span class="hs-identifier hs-var">serviceIpv4Cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266206"><span class="annot"><span class="annottext">s :: KubernetesNetworkConfigRequest
-</span><a href="#local-6989586621679266206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266205"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KubernetesNetworkConfigRequest
-</span><a href="#local-6989586621679266206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceIpv4Cidr:KubernetesNetworkConfigRequest' :: Maybe Text
+</span><a href="#local-6989586621679266216"><span class="hs-identifier hs-var hs-var">serviceIpv4Cidr</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266216"><span class="hs-identifier hs-var">serviceIpv4Cidr</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266215"><span class="annot"><span class="annottext">s :: KubernetesNetworkConfigRequest
+</span><a href="#local-6989586621679266215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266214"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KubernetesNetworkConfigRequest
+</span><a href="#local-6989586621679266215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceIpv4Cidr:KubernetesNetworkConfigRequest' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#%24sel%3AserviceIpv4Cidr%3AKubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-var">serviceIpv4Cidr</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679266214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679266201"><span id="local-6989586621679266203"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679266210"><span id="local-6989586621679266212"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679266198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679266207"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest</span></a></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266190"><span id="local-6989586621679266192"><span id="local-6989586621679266194"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679266188"><span class="annot"><span class="annottext">toJSON :: KubernetesNetworkConfigRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266186"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266199"><span id="local-6989586621679266201"><span id="local-6989586621679266203"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679266197"><span class="annot"><span class="annottext">toJSON :: KubernetesNetworkConfigRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.KubernetesNetworkConfigRequest.html#KubernetesNetworkConfigRequest%27"><span class="hs-identifier hs-type">KubernetesNetworkConfigRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266195"><span class="annot"><span class="annottext">Maybe Text
 serviceIpv4Cidr :: Maybe Text
 $sel:serviceIpv4Cidr:KubernetesNetworkConfigRequest' :: KubernetesNetworkConfigRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679266186"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679266195"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -226,7 +226,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679266186"><span class="hs-identifier hs-var">serviceIpv4Cidr</span></a></span><span>
+</span><a href="#local-6989586621679266195"><span class="hs-identifier hs-var">serviceIpv4Cidr</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span></pre></body></html>

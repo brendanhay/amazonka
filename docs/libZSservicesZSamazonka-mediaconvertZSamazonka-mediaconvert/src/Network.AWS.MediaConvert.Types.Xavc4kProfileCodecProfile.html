@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Specify the codec profile for this output. Choose High, 8-bit, 4:2:0</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- (HIGH) or High, 10-bit, 4:2:2 (HIGH_422). These profiles are specified</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- in ITU-T H.264.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680019837"><span id="local-6989586621680019838"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Xavc4kProfileCodecProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile.html#Xavc4kProfileCodecProfile"><span class="hs-identifier hs-var">Xavc4kProfileCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Xavc4kProfileCodecProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile.html#Xavc4kProfileCodecProfile%27"><span class="hs-identifier hs-var">Xavc4kProfileCodecProfile'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680019846"><span id="local-6989586621680019847"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Xavc4kProfileCodecProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile.html#Xavc4kProfileCodecProfile"><span class="hs-identifier hs-var">Xavc4kProfileCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Xavc4kProfileCodecProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile.html#Xavc4kProfileCodecProfile%27"><span class="hs-identifier hs-var">Xavc4kProfileCodecProfile'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavc4kProfileCodecProfile"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile.html#fromXavc4kProfileCodecProfile"><span class="hs-identifier hs-var hs-var">fromXavc4kProfileCodecProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019829"><span id="local-6989586621680019831"><span id="local-6989586621680019833"><span class="annot"><span class="annottext">Int -&gt; Xavc4kProfileCodecProfile -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019838"><span id="local-6989586621680019840"><span id="local-6989586621680019842"><span class="annot"><span class="annottext">Int -&gt; Xavc4kProfileCodecProfile -&gt; ShowS
 [Xavc4kProfileCodecProfile] -&gt; ShowS
 Xavc4kProfileCodecProfile -&gt; String
 (Int -&gt; Xavc4kProfileCodecProfile -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: Xavc4kProfileCodecProfile -&gt; String
 showsPrec :: Int -&gt; Xavc4kProfileCodecProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; Xavc4kProfileCodecProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680019820"><span id="local-6989586621680019822"><span id="local-6989586621680019824"><span id="local-6989586621680019826"><span class="annot"><span class="annottext">ReadPrec [Xavc4kProfileCodecProfile]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680019829"><span id="local-6989586621680019831"><span id="local-6989586621680019833"><span id="local-6989586621680019835"><span class="annot"><span class="annottext">ReadPrec [Xavc4kProfileCodecProfile]
 ReadPrec Xavc4kProfileCodecProfile
 Int -&gt; ReadS Xavc4kProfileCodecProfile
 ReadS [Xavc4kProfileCodecProfile]
@@ -75,7 +75,7 @@ $creadList :: ReadS [Xavc4kProfileCodecProfile]
 readsPrec :: Int -&gt; ReadS Xavc4kProfileCodecProfile
 $creadsPrec :: Int -&gt; ReadS Xavc4kProfileCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680019815"><span id="local-6989586621680019817"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; Xavc4kProfileCodecProfile -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680019824"><span id="local-6989586621680019826"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; Xavc4kProfileCodecProfile -&gt; Bool
 (Xavc4kProfileCodecProfile -&gt; Xavc4kProfileCodecProfile -&gt; Bool)
 -&gt; (Xavc4kProfileCodecProfile -&gt; Xavc4kProfileCodecProfile -&gt; Bool)
 -&gt; Eq Xavc4kProfileCodecProfile
@@ -85,7 +85,7 @@ $c/= :: Xavc4kProfileCodecProfile -&gt; Xavc4kProfileCodecProfile -&gt; Bool
 == :: Xavc4kProfileCodecProfile -&gt; Xavc4kProfileCodecProfile -&gt; Bool
 $c== :: Xavc4kProfileCodecProfile -&gt; Xavc4kProfileCodecProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680019799"><span id="local-6989586621680019801"><span id="local-6989586621680019803"><span id="local-6989586621680019805"><span id="local-6989586621680019807"><span id="local-6989586621680019809"><span id="local-6989586621680019811"><span class="annot"><span class="annottext">Eq Xavc4kProfileCodecProfile
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680019808"><span id="local-6989586621680019810"><span id="local-6989586621680019812"><span id="local-6989586621680019814"><span id="local-6989586621680019816"><span id="local-6989586621680019818"><span id="local-6989586621680019820"><span class="annot"><span class="annottext">Eq Xavc4kProfileCodecProfile
 Eq Xavc4kProfileCodecProfile
 -&gt; (Xavc4kProfileCodecProfile
     -&gt; Xavc4kProfileCodecProfile -&gt; Ordering)
@@ -150,7 +150,7 @@ Xavc4kProfileCodecProfile -&gt; Rep Xavc4kProfileCodecProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019791"><span id="local-6989586621680019793"><span class="annot"><span class="annottext">Int -&gt; Xavc4kProfileCodecProfile -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680019800"><span id="local-6989586621680019802"><span class="annot"><span class="annottext">Int -&gt; Xavc4kProfileCodecProfile -&gt; Int
 Xavc4kProfileCodecProfile -&gt; Int
 (Int -&gt; Xavc4kProfileCodecProfile -&gt; Int)
 -&gt; (Xavc4kProfileCodecProfile -&gt; Int)
@@ -161,56 +161,56 @@ $chash :: Xavc4kProfileCodecProfile -&gt; Int
 hashWithSalt :: Int -&gt; Xavc4kProfileCodecProfile -&gt; Int
 $chashWithSalt :: Int -&gt; Xavc4kProfileCodecProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680019788"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680019797"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; ()
 (Xavc4kProfileCodecProfile -&gt; ())
 -&gt; NFData Xavc4kProfileCodecProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Xavc4kProfileCodecProfile -&gt; ()
 $crnf :: Xavc4kProfileCodecProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680019785"><span class="annot"><span class="annottext">Text -&gt; Either String Xavc4kProfileCodecProfile
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680019794"><span class="annot"><span class="annottext">Text -&gt; Either String Xavc4kProfileCodecProfile
 (Text -&gt; Either String Xavc4kProfileCodecProfile)
 -&gt; FromText Xavc4kProfileCodecProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Xavc4kProfileCodecProfile
 $cfromText :: Text -&gt; Either String Xavc4kProfileCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680019782"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680019791"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; Text
 (Xavc4kProfileCodecProfile -&gt; Text)
 -&gt; ToText Xavc4kProfileCodecProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Xavc4kProfileCodecProfile -&gt; Text
 $ctoText :: Xavc4kProfileCodecProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680019779"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680019788"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; ByteString
 (Xavc4kProfileCodecProfile -&gt; ByteString)
 -&gt; ToByteString Xavc4kProfileCodecProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Xavc4kProfileCodecProfile -&gt; ByteString
 $ctoBS :: Xavc4kProfileCodecProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680019776"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680019785"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; ByteStringBuilder
 (Xavc4kProfileCodecProfile -&gt; ByteStringBuilder)
 -&gt; ToLog Xavc4kProfileCodecProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Xavc4kProfileCodecProfile -&gt; ByteStringBuilder
 $cbuild :: Xavc4kProfileCodecProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680019773"><span class="annot"><span class="annottext">HeaderName -&gt; Xavc4kProfileCodecProfile -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680019782"><span class="annot"><span class="annottext">HeaderName -&gt; Xavc4kProfileCodecProfile -&gt; [Header]
 (HeaderName -&gt; Xavc4kProfileCodecProfile -&gt; [Header])
 -&gt; ToHeader Xavc4kProfileCodecProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Xavc4kProfileCodecProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Xavc4kProfileCodecProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680019770"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680019779"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; QueryString
 (Xavc4kProfileCodecProfile -&gt; QueryString)
 -&gt; ToQuery Xavc4kProfileCodecProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Xavc4kProfileCodecProfile -&gt; QueryString
 $ctoQuery :: Xavc4kProfileCodecProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680019765"><span id="local-6989586621680019767"><span class="annot"><span class="annottext">Value -&gt; Parser [Xavc4kProfileCodecProfile]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680019774"><span id="local-6989586621680019776"><span class="annot"><span class="annottext">Value -&gt; Parser [Xavc4kProfileCodecProfile]
 Value -&gt; Parser Xavc4kProfileCodecProfile
 (Value -&gt; Parser Xavc4kProfileCodecProfile)
 -&gt; (Value -&gt; Parser [Xavc4kProfileCodecProfile])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [Xavc4kProfileCodecProfile]
 parseJSON :: Value -&gt; Parser Xavc4kProfileCodecProfile
 $cparseJSON :: Value -&gt; Parser Xavc4kProfileCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680019760"><span id="local-6989586621680019762"><span class="annot"><span class="annottext">FromJSONKeyFunction [Xavc4kProfileCodecProfile]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680019769"><span id="local-6989586621680019771"><span class="annot"><span class="annottext">FromJSONKeyFunction [Xavc4kProfileCodecProfile]
 FromJSONKeyFunction Xavc4kProfileCodecProfile
 FromJSONKeyFunction Xavc4kProfileCodecProfile
 -&gt; FromJSONKeyFunction [Xavc4kProfileCodecProfile]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Xavc4kProfileCodecProfile]
 fromJSONKey :: FromJSONKeyFunction Xavc4kProfileCodecProfile
 $cfromJSONKey :: FromJSONKeyFunction Xavc4kProfileCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680019751"><span id="local-6989586621680019753"><span id="local-6989586621680019755"><span id="local-6989586621680019757"><span class="annot"><span class="annottext">[Xavc4kProfileCodecProfile] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680019760"><span id="local-6989586621680019762"><span id="local-6989586621680019764"><span id="local-6989586621680019766"><span class="annot"><span class="annottext">[Xavc4kProfileCodecProfile] -&gt; Encoding
 [Xavc4kProfileCodecProfile] -&gt; Value
 Xavc4kProfileCodecProfile -&gt; Encoding
 Xavc4kProfileCodecProfile -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: Xavc4kProfileCodecProfile -&gt; Encoding
 toJSON :: Xavc4kProfileCodecProfile -&gt; Value
 $ctoJSON :: Xavc4kProfileCodecProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680019746"><span id="local-6989586621680019748"><span class="annot"><span class="annottext">ToJSONKeyFunction [Xavc4kProfileCodecProfile]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680019755"><span id="local-6989586621680019757"><span class="annot"><span class="annottext">ToJSONKeyFunction [Xavc4kProfileCodecProfile]
 ToJSONKeyFunction Xavc4kProfileCodecProfile
 ToJSONKeyFunction Xavc4kProfileCodecProfile
 -&gt; ToJSONKeyFunction [Xavc4kProfileCodecProfile]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Xavc4kProfileCodecProfile]
 toJSONKey :: ToJSONKeyFunction Xavc4kProfileCodecProfile
 $ctoJSONKey :: ToJSONKeyFunction Xavc4kProfileCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680019743"><span class="annot"><span class="annottext">[Node] -&gt; Either String Xavc4kProfileCodecProfile
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680019752"><span class="annot"><span class="annottext">[Node] -&gt; Either String Xavc4kProfileCodecProfile
 ([Node] -&gt; Either String Xavc4kProfileCodecProfile)
 -&gt; FromXML Xavc4kProfileCodecProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Xavc4kProfileCodecProfile
 $cparseXML :: [Node] -&gt; Either String Xavc4kProfileCodecProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680019740"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680019749"><span class="annot"><span class="annottext">Xavc4kProfileCodecProfile -&gt; XML
 (Xavc4kProfileCodecProfile -&gt; XML)
 -&gt; ToXML Xavc4kProfileCodecProfile
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Route53Resolver.Types.ResolverEndpointStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Route53Resolver.Types.ResolverEndpointStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier">ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_ACTION_NEEDED"><span class="hs-identifier">ResolverEndpointStatus_ACTION_NEEDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_AUTO_RECOVERING"><span class="hs-identifier">ResolverEndpointStatus_AUTO_RECOVERING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_CREATING"><span class="hs-identifier">ResolverEndpointStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_DELETING"><span class="hs-identifier">ResolverEndpointStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_OPERATIONAL"><span class="hs-identifier">ResolverEndpointStatus_OPERATIONAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_UPDATING"><span class="hs-identifier">ResolverEndpointStatus_UPDATING</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679284937"><span id="local-6989586621679284938"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResolverEndpointStatus"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-var">ResolverEndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolverEndpointStatus%27"><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-identifier hs-var">ResolverEndpointStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResolverEndpointStatus"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; Text
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#fromResolverEndpointStatus"><span class="hs-identifier hs-var hs-var">fromResolverEndpointStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284929"><span id="local-6989586621679284931"><span id="local-6989586621679284933"><span class="annot"><span class="annottext">Int -&gt; ResolverEndpointStatus -&gt; ShowS
+[ResolverEndpointStatus] -&gt; ShowS
+ResolverEndpointStatus -&gt; String
+(Int -&gt; ResolverEndpointStatus -&gt; ShowS)
+-&gt; (ResolverEndpointStatus -&gt; String)
+-&gt; ([ResolverEndpointStatus] -&gt; ShowS)
+-&gt; Show ResolverEndpointStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResolverEndpointStatus] -&gt; ShowS
+$cshowList :: [ResolverEndpointStatus] -&gt; ShowS
+show :: ResolverEndpointStatus -&gt; String
+$cshow :: ResolverEndpointStatus -&gt; String
+showsPrec :: Int -&gt; ResolverEndpointStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResolverEndpointStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679284920"><span id="local-6989586621679284922"><span id="local-6989586621679284924"><span id="local-6989586621679284926"><span class="annot"><span class="annottext">ReadPrec [ResolverEndpointStatus]
+ReadPrec ResolverEndpointStatus
+Int -&gt; ReadS ResolverEndpointStatus
+ReadS [ResolverEndpointStatus]
+(Int -&gt; ReadS ResolverEndpointStatus)
+-&gt; ReadS [ResolverEndpointStatus]
+-&gt; ReadPrec ResolverEndpointStatus
+-&gt; ReadPrec [ResolverEndpointStatus]
+-&gt; Read ResolverEndpointStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResolverEndpointStatus]
+$creadListPrec :: ReadPrec [ResolverEndpointStatus]
+readPrec :: ReadPrec ResolverEndpointStatus
+$creadPrec :: ReadPrec ResolverEndpointStatus
+readList :: ReadS [ResolverEndpointStatus]
+$creadList :: ReadS [ResolverEndpointStatus]
+readsPrec :: Int -&gt; ReadS ResolverEndpointStatus
+$creadsPrec :: Int -&gt; ReadS ResolverEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679284915"><span id="local-6989586621679284917"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+(ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool)
+-&gt; (ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool)
+-&gt; Eq ResolverEndpointStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+$c/= :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+== :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+$c== :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679284899"><span id="local-6989586621679284901"><span id="local-6989586621679284903"><span id="local-6989586621679284905"><span id="local-6989586621679284907"><span id="local-6989586621679284909"><span id="local-6989586621679284911"><span class="annot"><span class="annottext">Eq ResolverEndpointStatus
+Eq ResolverEndpointStatus
+-&gt; (ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Ordering)
+-&gt; (ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool)
+-&gt; (ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool)
+-&gt; (ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool)
+-&gt; (ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool)
+-&gt; (ResolverEndpointStatus
+    -&gt; ResolverEndpointStatus -&gt; ResolverEndpointStatus)
+-&gt; (ResolverEndpointStatus
+    -&gt; ResolverEndpointStatus -&gt; ResolverEndpointStatus)
+-&gt; Ord ResolverEndpointStatus
+ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Ordering
+ResolverEndpointStatus
+-&gt; ResolverEndpointStatus -&gt; ResolverEndpointStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ResolverEndpointStatus
+-&gt; ResolverEndpointStatus -&gt; ResolverEndpointStatus
+$cmin :: ResolverEndpointStatus
+-&gt; ResolverEndpointStatus -&gt; ResolverEndpointStatus
+max :: ResolverEndpointStatus
+-&gt; ResolverEndpointStatus -&gt; ResolverEndpointStatus
+$cmax :: ResolverEndpointStatus
+-&gt; ResolverEndpointStatus -&gt; ResolverEndpointStatus
+&gt;= :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+$c&gt;= :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+&gt; :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+$c&gt; :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+&lt;= :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+$c&lt;= :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+&lt; :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+$c&lt; :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Bool
+compare :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Ordering
+$ccompare :: ResolverEndpointStatus -&gt; ResolverEndpointStatus -&gt; Ordering
+$cp1Ord :: Eq ResolverEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ResolverEndpointStatus -&gt; Rep ResolverEndpointStatus x)
+-&gt; (forall x.
+    Rep ResolverEndpointStatus x -&gt; ResolverEndpointStatus)
+-&gt; Generic ResolverEndpointStatus
+forall x. Rep ResolverEndpointStatus x -&gt; ResolverEndpointStatus
+forall x. ResolverEndpointStatus -&gt; Rep ResolverEndpointStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResolverEndpointStatus x -&gt; ResolverEndpointStatus
+$cfrom :: forall x. ResolverEndpointStatus -&gt; Rep ResolverEndpointStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679284891"><span id="local-6989586621679284893"><span class="annot"><span class="annottext">Int -&gt; ResolverEndpointStatus -&gt; Int
+ResolverEndpointStatus -&gt; Int
+(Int -&gt; ResolverEndpointStatus -&gt; Int)
+-&gt; (ResolverEndpointStatus -&gt; Int)
+-&gt; Hashable ResolverEndpointStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ResolverEndpointStatus -&gt; Int
+$chash :: ResolverEndpointStatus -&gt; Int
+hashWithSalt :: Int -&gt; ResolverEndpointStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ResolverEndpointStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679284888"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; ()
+(ResolverEndpointStatus -&gt; ()) -&gt; NFData ResolverEndpointStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ResolverEndpointStatus -&gt; ()
+$crnf :: ResolverEndpointStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679284885"><span class="annot"><span class="annottext">Text -&gt; Either String ResolverEndpointStatus
+(Text -&gt; Either String ResolverEndpointStatus)
+-&gt; FromText ResolverEndpointStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ResolverEndpointStatus
+$cfromText :: Text -&gt; Either String ResolverEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679284882"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; Text
+(ResolverEndpointStatus -&gt; Text) -&gt; ToText ResolverEndpointStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ResolverEndpointStatus -&gt; Text
+$ctoText :: ResolverEndpointStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679284879"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; ByteString
+(ResolverEndpointStatus -&gt; ByteString)
+-&gt; ToByteString ResolverEndpointStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ResolverEndpointStatus -&gt; ByteString
+$ctoBS :: ResolverEndpointStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679284876"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; ByteStringBuilder
+(ResolverEndpointStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ResolverEndpointStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ResolverEndpointStatus -&gt; ByteStringBuilder
+$cbuild :: ResolverEndpointStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679284873"><span class="annot"><span class="annottext">HeaderName -&gt; ResolverEndpointStatus -&gt; [Header]
+(HeaderName -&gt; ResolverEndpointStatus -&gt; [Header])
+-&gt; ToHeader ResolverEndpointStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ResolverEndpointStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ResolverEndpointStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679284870"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; QueryString
+(ResolverEndpointStatus -&gt; QueryString)
+-&gt; ToQuery ResolverEndpointStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ResolverEndpointStatus -&gt; QueryString
+$ctoQuery :: ResolverEndpointStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679284865"><span id="local-6989586621679284867"><span class="annot"><span class="annottext">Value -&gt; Parser [ResolverEndpointStatus]
+Value -&gt; Parser ResolverEndpointStatus
+(Value -&gt; Parser ResolverEndpointStatus)
+-&gt; (Value -&gt; Parser [ResolverEndpointStatus])
+-&gt; FromJSON ResolverEndpointStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ResolverEndpointStatus]
+$cparseJSONList :: Value -&gt; Parser [ResolverEndpointStatus]
+parseJSON :: Value -&gt; Parser ResolverEndpointStatus
+$cparseJSON :: Value -&gt; Parser ResolverEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679284860"><span id="local-6989586621679284862"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResolverEndpointStatus]
+FromJSONKeyFunction ResolverEndpointStatus
+FromJSONKeyFunction ResolverEndpointStatus
+-&gt; FromJSONKeyFunction [ResolverEndpointStatus]
+-&gt; FromJSONKey ResolverEndpointStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ResolverEndpointStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ResolverEndpointStatus]
+fromJSONKey :: FromJSONKeyFunction ResolverEndpointStatus
+$cfromJSONKey :: FromJSONKeyFunction ResolverEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679284851"><span id="local-6989586621679284853"><span id="local-6989586621679284855"><span id="local-6989586621679284857"><span class="annot"><span class="annottext">[ResolverEndpointStatus] -&gt; Encoding
+[ResolverEndpointStatus] -&gt; Value
+ResolverEndpointStatus -&gt; Encoding
+ResolverEndpointStatus -&gt; Value
+(ResolverEndpointStatus -&gt; Value)
+-&gt; (ResolverEndpointStatus -&gt; Encoding)
+-&gt; ([ResolverEndpointStatus] -&gt; Value)
+-&gt; ([ResolverEndpointStatus] -&gt; Encoding)
+-&gt; ToJSON ResolverEndpointStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ResolverEndpointStatus] -&gt; Encoding
+$ctoEncodingList :: [ResolverEndpointStatus] -&gt; Encoding
+toJSONList :: [ResolverEndpointStatus] -&gt; Value
+$ctoJSONList :: [ResolverEndpointStatus] -&gt; Value
+toEncoding :: ResolverEndpointStatus -&gt; Encoding
+$ctoEncoding :: ResolverEndpointStatus -&gt; Encoding
+toJSON :: ResolverEndpointStatus -&gt; Value
+$ctoJSON :: ResolverEndpointStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679284846"><span id="local-6989586621679284848"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResolverEndpointStatus]
+ToJSONKeyFunction ResolverEndpointStatus
+ToJSONKeyFunction ResolverEndpointStatus
+-&gt; ToJSONKeyFunction [ResolverEndpointStatus]
+-&gt; ToJSONKey ResolverEndpointStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ResolverEndpointStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ResolverEndpointStatus]
+toJSONKey :: ToJSONKeyFunction ResolverEndpointStatus
+$ctoJSONKey :: ToJSONKeyFunction ResolverEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679284843"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResolverEndpointStatus
+([Node] -&gt; Either String ResolverEndpointStatus)
+-&gt; FromXML ResolverEndpointStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ResolverEndpointStatus
+$cparseXML :: [Node] -&gt; Either String ResolverEndpointStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679284840"><span class="annot"><span class="annottext">ResolverEndpointStatus -&gt; XML
+(ResolverEndpointStatus -&gt; XML) -&gt; ToXML ResolverEndpointStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ResolverEndpointStatus -&gt; XML
+$ctoXML :: ResolverEndpointStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_ACTION_NEEDED"><span class="hs-identifier hs-type">ResolverEndpointStatus_ACTION_NEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointStatus_ACTION_NEEDED"><span id="%24mResolverEndpointStatus_ACTION_NEEDED"><span id="ResolverEndpointStatus_ACTION_NEEDED"><span class="annot"><span class="annottext">$bResolverEndpointStatus_ACTION_NEEDED :: ResolverEndpointStatus
+$mResolverEndpointStatus_ACTION_NEEDED :: forall r.
+ResolverEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#%24bResolverEndpointStatus_ACTION_NEEDED"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointStatus_ACTION_NEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-identifier hs-type">ResolverEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTION_NEEDED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_AUTO_RECOVERING"><span class="hs-identifier hs-type">ResolverEndpointStatus_AUTO_RECOVERING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointStatus_AUTO_RECOVERING"><span id="%24mResolverEndpointStatus_AUTO_RECOVERING"><span id="ResolverEndpointStatus_AUTO_RECOVERING"><span class="annot"><span class="annottext">$bResolverEndpointStatus_AUTO_RECOVERING :: ResolverEndpointStatus
+$mResolverEndpointStatus_AUTO_RECOVERING :: forall r.
+ResolverEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#%24bResolverEndpointStatus_AUTO_RECOVERING"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointStatus_AUTO_RECOVERING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-identifier hs-type">ResolverEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO_RECOVERING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_CREATING"><span class="hs-identifier hs-type">ResolverEndpointStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointStatus_CREATING"><span id="%24mResolverEndpointStatus_CREATING"><span id="ResolverEndpointStatus_CREATING"><span class="annot"><span class="annottext">$bResolverEndpointStatus_CREATING :: ResolverEndpointStatus
+$mResolverEndpointStatus_CREATING :: forall r.
+ResolverEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#%24bResolverEndpointStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-identifier hs-type">ResolverEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_DELETING"><span class="hs-identifier hs-type">ResolverEndpointStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointStatus_DELETING"><span id="%24mResolverEndpointStatus_DELETING"><span id="ResolverEndpointStatus_DELETING"><span class="annot"><span class="annottext">$bResolverEndpointStatus_DELETING :: ResolverEndpointStatus
+$mResolverEndpointStatus_DELETING :: forall r.
+ResolverEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#%24bResolverEndpointStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-identifier hs-type">ResolverEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_OPERATIONAL"><span class="hs-identifier hs-type">ResolverEndpointStatus_OPERATIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointStatus_OPERATIONAL"><span id="%24mResolverEndpointStatus_OPERATIONAL"><span id="ResolverEndpointStatus_OPERATIONAL"><span class="annot"><span class="annottext">$bResolverEndpointStatus_OPERATIONAL :: ResolverEndpointStatus
+$mResolverEndpointStatus_OPERATIONAL :: forall r.
+ResolverEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#%24bResolverEndpointStatus_OPERATIONAL"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointStatus_OPERATIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-identifier hs-type">ResolverEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPERATIONAL&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_UPDATING"><span class="hs-identifier hs-type">ResolverEndpointStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus"><span class="hs-identifier hs-type">ResolverEndpointStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bResolverEndpointStatus_UPDATING"><span id="%24mResolverEndpointStatus_UPDATING"><span id="ResolverEndpointStatus_UPDATING"><span class="annot"><span class="annottext">$bResolverEndpointStatus_UPDATING :: ResolverEndpointStatus
+$mResolverEndpointStatus_UPDATING :: forall r.
+ResolverEndpointStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#%24bResolverEndpointStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">ResolverEndpointStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-identifier hs-type">ResolverEndpointStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_ACTION_NEEDED"><span class="hs-pragma hs-type">ResolverEndpointStatus_ACTION_NEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_AUTO_RECOVERING"><span class="hs-pragma hs-type">ResolverEndpointStatus_AUTO_RECOVERING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_CREATING"><span class="hs-pragma hs-type">ResolverEndpointStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_DELETING"><span class="hs-pragma hs-type">ResolverEndpointStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_OPERATIONAL"><span class="hs-pragma hs-type">ResolverEndpointStatus_OPERATIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus_UPDATING"><span class="hs-pragma hs-type">ResolverEndpointStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Resolver.Types.ResolverEndpointStatus.html#ResolverEndpointStatus%27"><span class="hs-pragma hs-type">ResolverEndpointStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

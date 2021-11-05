@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeIndex' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679837703"><span id="local-6989586621679837704"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIndex"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-var">DescribeIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIndex%27"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-var">DescribeIndex'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679837712"><span id="local-6989586621679837713"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIndex"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-var">DescribeIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIndex%27"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-var">DescribeIndex'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The index name.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AindexName%3ADescribeIndex%27"><span class="annot"><span class="annottext">DescribeIndex -&gt; Text
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AindexName%3ADescribeIndex%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837697"><span id="local-6989586621679837699"><span class="annot"><span class="annottext">DescribeIndex -&gt; DescribeIndex -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837706"><span id="local-6989586621679837708"><span class="annot"><span class="annottext">DescribeIndex -&gt; DescribeIndex -&gt; Bool
 (DescribeIndex -&gt; DescribeIndex -&gt; Bool)
 -&gt; (DescribeIndex -&gt; DescribeIndex -&gt; Bool) -&gt; Eq DescribeIndex
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeIndex -&gt; DescribeIndex -&gt; Bool
 == :: DescribeIndex -&gt; DescribeIndex -&gt; Bool
 $c== :: DescribeIndex -&gt; DescribeIndex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837688"><span id="local-6989586621679837690"><span id="local-6989586621679837692"><span id="local-6989586621679837694"><span class="annot"><span class="annottext">ReadPrec [DescribeIndex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837697"><span id="local-6989586621679837699"><span id="local-6989586621679837701"><span id="local-6989586621679837703"><span class="annot"><span class="annottext">ReadPrec [DescribeIndex]
 ReadPrec DescribeIndex
 Int -&gt; ReadS DescribeIndex
 ReadS [DescribeIndex]
@@ -86,7 +86,7 @@ readList :: ReadS [DescribeIndex]
 $creadList :: ReadS [DescribeIndex]
 readsPrec :: Int -&gt; ReadS DescribeIndex
 $creadsPrec :: Int -&gt; ReadS DescribeIndex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837681"><span id="local-6989586621679837683"><span id="local-6989586621679837685"><span class="annot"><span class="annottext">Int -&gt; DescribeIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837690"><span id="local-6989586621679837692"><span id="local-6989586621679837694"><span class="annot"><span class="annottext">Int -&gt; DescribeIndex -&gt; ShowS
 [DescribeIndex] -&gt; ShowS
 DescribeIndex -&gt; String
 (Int -&gt; DescribeIndex -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. DescribeIndex -&gt; Rep DescribeIndex x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span>
 </span><span id="line-75"></span><span id="newDescribeIndex"><span class="annot"><span class="annottext">newDescribeIndex :: Text -&gt; DescribeIndex
-</span><a href="Network.AWS.IoT.DescribeIndex.html#newDescribeIndex"><span class="hs-identifier hs-var hs-var">newDescribeIndex</span></a></span></span><span> </span><span id="local-6989586621679837676"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837676"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeIndex.html#newDescribeIndex"><span class="hs-identifier hs-var hs-var">newDescribeIndex</span></a></span></span><span> </span><span id="local-6989586621679837685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837685"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DescribeIndex' :: Text -&gt; DescribeIndex
 </span><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-type">DescribeIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DescribeIndex' :: Text
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AindexName%3ADescribeIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837676"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679837685"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The index name.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#describeIndex_indexName"><span class="hs-identifier hs-type">describeIndex_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. DescribeIndex -&gt; Rep DescribeIndex x
 -&gt; (DescribeIndex -&gt; Text -&gt; DescribeIndex)
 -&gt; Lens DescribeIndex DescribeIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-type">DescribeIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837673"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-type">DescribeIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837682"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:DescribeIndex' :: DescribeIndex -&gt; Text
-</span><a href="#local-6989586621679837673"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837673"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837672"><span class="annot"><span class="annottext">s :: DescribeIndex
-</span><a href="#local-6989586621679837672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-type">DescribeIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837671"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndex
-</span><a href="#local-6989586621679837672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DescribeIndex' :: Text
+</span><a href="#local-6989586621679837682"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837682"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837681"><span class="annot"><span class="annottext">s :: DescribeIndex
+</span><a href="#local-6989586621679837681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-type">DescribeIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837680"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679837680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndex
+</span><a href="#local-6989586621679837681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DescribeIndex' :: Text
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AindexName%3ADescribeIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679837667"><span class="annot"><span class="annottext">request :: DescribeIndex -&gt; Request DescribeIndex
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679837676"><span class="annot"><span class="annottext">request :: DescribeIndex -&gt; Request DescribeIndex
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeIndex -&gt; Request DescribeIndex
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679837663"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679837672"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeIndex
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679837660"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837660"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679837659"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679837659"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679837658"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679837669"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837669"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679837668"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679837668"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679837667"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679837667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe IndexStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeIndexResponse
 </span><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-var">DescribeIndexResponse'</span></a></span><span>
@@ -198,7 +198,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeIndexResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IndexStatus)
+</span><a href="#local-6989586621679837667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IndexStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;indexStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,7 +208,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeIndexResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679837667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;schema&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,7 +217,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeIndexResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679837658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679837667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;indexName&quot;</span></span><span class="hs-special">)</span><span>
@@ -229,15 +229,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837660"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837669"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837650"><span id="local-6989586621679837652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837659"><span id="local-6989586621679837661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679837643"><span class="annot"><span class="annottext">toHeaders :: DescribeIndex -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679837652"><span class="annot"><span class="annottext">toHeaders :: DescribeIndex -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeIndex -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -245,21 +245,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679837638"><span class="annot"><span class="annottext">toPath :: DescribeIndex -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-type">DescribeIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837636"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679837647"><span class="annot"><span class="annottext">toPath :: DescribeIndex -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex%27"><span class="hs-identifier hs-type">DescribeIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837645"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:DescribeIndex' :: DescribeIndex -&gt; Text
-</span><a href="#local-6989586621679837636"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679837645"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/indices/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679837636"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679837645"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndex"><span class="hs-identifier hs-type">DescribeIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679837632"><span class="annot"><span class="annottext">toQuery :: DescribeIndex -&gt; QueryString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679837641"><span class="annot"><span class="annottext">toQuery :: DescribeIndex -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeIndex -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -267,7 +267,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDescribeIndexResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679837629"><span id="local-6989586621679837630"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIndexResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-var">DescribeIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIndexResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-var">DescribeIndexResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679837638"><span id="local-6989586621679837639"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIndexResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-var">DescribeIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIndexResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-var">DescribeIndexResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The index status.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AindexStatus%3ADescribeIndexResponse%27"><span class="annot"><span class="annottext">DescribeIndexResponse -&gt; Maybe IndexStatus
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AindexStatus%3ADescribeIndexResponse%27"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.IndexStatus.html#IndexStatus"><span class="hs-identifier hs-type">IndexStatus</span></a></span><span class="hs-special">,</span><span>
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIndexResponse%27"><span class="annot"><span class="annottext">DescribeIndexResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AhttpStatus%3ADescribeIndexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837621"><span id="local-6989586621679837623"><span class="annot"><span class="annottext">DescribeIndexResponse -&gt; DescribeIndexResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679837630"><span id="local-6989586621679837632"><span class="annot"><span class="annottext">DescribeIndexResponse -&gt; DescribeIndexResponse -&gt; Bool
 (DescribeIndexResponse -&gt; DescribeIndexResponse -&gt; Bool)
 -&gt; (DescribeIndexResponse -&gt; DescribeIndexResponse -&gt; Bool)
 -&gt; Eq DescribeIndexResponse
@@ -303,7 +303,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeIndexResponse -&gt; DescribeIndexResponse -&gt; Bool
 == :: DescribeIndexResponse -&gt; DescribeIndexResponse -&gt; Bool
 $c== :: DescribeIndexResponse -&gt; DescribeIndexResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837613"><span id="local-6989586621679837615"><span id="local-6989586621679837617"><span id="local-6989586621679837619"><span class="annot"><span class="annottext">ReadPrec [DescribeIndexResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837622"><span id="local-6989586621679837624"><span id="local-6989586621679837626"><span id="local-6989586621679837628"><span class="annot"><span class="annottext">ReadPrec [DescribeIndexResponse]
 ReadPrec DescribeIndexResponse
 Int -&gt; ReadS DescribeIndexResponse
 ReadS [DescribeIndexResponse]
@@ -323,7 +323,7 @@ readList :: ReadS [DescribeIndexResponse]
 $creadList :: ReadS [DescribeIndexResponse]
 readsPrec :: Int -&gt; ReadS DescribeIndexResponse
 $creadsPrec :: Int -&gt; ReadS DescribeIndexResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837607"><span id="local-6989586621679837609"><span id="local-6989586621679837611"><span class="annot"><span class="annottext">Int -&gt; DescribeIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679837616"><span id="local-6989586621679837618"><span id="local-6989586621679837620"><span class="annot"><span class="annottext">Int -&gt; DescribeIndexResponse -&gt; ShowS
 [DescribeIndexResponse] -&gt; ShowS
 DescribeIndexResponse -&gt; String
 (Int -&gt; DescribeIndexResponse -&gt; ShowS)
@@ -382,8 +382,8 @@ $cfrom :: forall x. DescribeIndexResponse -&gt; Rep DescribeIndexResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newDescribeIndexResponse"><span class="annot"><span class="annottext">newDescribeIndexResponse :: Int -&gt; DescribeIndexResponse
-</span><a href="Network.AWS.IoT.DescribeIndex.html#newDescribeIndexResponse"><span class="hs-identifier hs-var hs-var">newDescribeIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679837604"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeIndex.html#newDescribeIndexResponse"><span class="hs-identifier hs-var hs-var">newDescribeIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679837613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837613"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">DescribeIndexResponse' :: Maybe IndexStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeIndexResponse
 </span><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span>
@@ -402,7 +402,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIndexResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AhttpStatus%3ADescribeIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679837613"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The index status.</span><span>
@@ -418,16 +418,16 @@ forall a. Maybe a
      (Maybe IndexStatus)
      (Maybe IndexStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837603"><span class="annot"><span class="annottext">Maybe IndexStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837612"><span class="annot"><span class="annottext">Maybe IndexStatus
 indexStatus :: Maybe IndexStatus
 $sel:indexStatus:DescribeIndexResponse' :: DescribeIndexResponse -&gt; Maybe IndexStatus
-</span><a href="#local-6989586621679837603"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IndexStatus
-</span><a href="#local-6989586621679837603"><span class="hs-identifier hs-var">indexStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837602"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
-</span><a href="#local-6989586621679837602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837601"><span class="annot"><span class="annottext">Maybe IndexStatus
-</span><a href="#local-6989586621679837601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
-</span><a href="#local-6989586621679837602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexStatus:DescribeIndexResponse' :: Maybe IndexStatus
+</span><a href="#local-6989586621679837612"><span class="hs-identifier hs-var hs-var">indexStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IndexStatus
+</span><a href="#local-6989586621679837612"><span class="hs-identifier hs-var">indexStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837611"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
+</span><a href="#local-6989586621679837611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837610"><span class="annot"><span class="annottext">Maybe IndexStatus
+</span><a href="#local-6989586621679837610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
+</span><a href="#local-6989586621679837611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexStatus:DescribeIndexResponse' :: Maybe IndexStatus
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AindexStatus%3ADescribeIndexResponse%27"><span class="hs-identifier hs-var">indexStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IndexStatus
-</span><a href="#local-6989586621679837601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | Contains a value that specifies the type of indexing performed. Valid</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- values are:</span><span>
@@ -454,16 +454,16 @@ $sel:indexStatus:DescribeIndexResponse' :: DescribeIndexResponse -&gt; Maybe Ind
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837600"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837609"><span class="annot"><span class="annottext">Maybe Text
 schema :: Maybe Text
 $sel:schema:DescribeIndexResponse' :: DescribeIndexResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679837600"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837600"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837599"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
-</span><a href="#local-6989586621679837599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837598"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
-</span><a href="#local-6989586621679837599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:DescribeIndexResponse' :: Maybe Text
+</span><a href="#local-6989586621679837609"><span class="hs-identifier hs-var hs-var">schema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837609"><span class="hs-identifier hs-var">schema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837608"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
+</span><a href="#local-6989586621679837608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837607"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
+</span><a href="#local-6989586621679837608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schema:DescribeIndexResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3Aschema%3ADescribeIndexResponse%27"><span class="hs-identifier hs-var">schema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The index name.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#describeIndexResponse_indexName"><span class="hs-identifier hs-type">describeIndexResponse_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -477,16 +477,16 @@ $sel:schema:DescribeIndexResponse' :: DescribeIndexResponse -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837597"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837606"><span class="annot"><span class="annottext">Maybe Text
 indexName :: Maybe Text
 $sel:indexName:DescribeIndexResponse' :: DescribeIndexResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679837597"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837597"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837596"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
-</span><a href="#local-6989586621679837596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
-</span><a href="#local-6989586621679837596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DescribeIndexResponse' :: Maybe Text
+</span><a href="#local-6989586621679837606"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837606"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837605"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
+</span><a href="#local-6989586621679837605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679837604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
+</span><a href="#local-6989586621679837605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:DescribeIndexResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AindexName%3ADescribeIndexResponse%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679837595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#describeIndexResponse_httpStatus"><span class="hs-identifier hs-type">describeIndexResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -495,16 +495,16 @@ $sel:indexName:DescribeIndexResponse' :: DescribeIndexResponse -&gt; Maybe Text
 -&gt; (DescribeIndexResponse -&gt; Int -&gt; DescribeIndexResponse)
 -&gt; Lens DescribeIndexResponse DescribeIndexResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837594"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679837603"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeIndexResponse' :: DescribeIndexResponse -&gt; Int
-</span><a href="#local-6989586621679837594"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837594"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837593"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
-</span><a href="#local-6989586621679837593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837592"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
-</span><a href="#local-6989586621679837593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIndexResponse' :: Int
+</span><a href="#local-6989586621679837603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679837602"><span class="annot"><span class="annottext">s :: DescribeIndexResponse
+</span><a href="#local-6989586621679837602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse%27"><span class="hs-identifier hs-type">DescribeIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679837601"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679837601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIndexResponse
+</span><a href="#local-6989586621679837602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIndexResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeIndex.html#%24sel%3AhttpStatus%3ADescribeIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679837592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679837601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679837599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeIndex.html#DescribeIndexResponse"><span class="hs-identifier hs-type">DescribeIndexResponse</span></a></span></span><span>
 </span><span id="line-208"></span></pre></body></html>

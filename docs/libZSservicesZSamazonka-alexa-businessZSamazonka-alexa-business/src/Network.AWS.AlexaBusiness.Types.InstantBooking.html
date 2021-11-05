@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- books the room for the configured duration if the room is available.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstantBooking' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679369068"><span id="local-6989586621679369069"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstantBooking"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-var">InstantBooking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstantBooking%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-var">InstantBooking'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679369077"><span id="local-6989586621679369078"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstantBooking"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-var">InstantBooking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstantBooking%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-var">InstantBooking'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether instant booking is enabled or not.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aenabled%3AInstantBooking%27"><span class="annot"><span class="annottext">InstantBooking -&gt; Maybe Bool
 </span><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#%24sel%3Aenabled%3AInstantBooking%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AdurationInMinutes%3AInstantBooking%27"><span class="annot"><span class="annottext">InstantBooking -&gt; Maybe Int
 </span><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#%24sel%3AdurationInMinutes%3AInstantBooking%27"><span class="hs-identifier hs-var hs-var">durationInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369061"><span id="local-6989586621679369063"><span class="annot"><span class="annottext">InstantBooking -&gt; InstantBooking -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369070"><span id="local-6989586621679369072"><span class="annot"><span class="annottext">InstantBooking -&gt; InstantBooking -&gt; Bool
 (InstantBooking -&gt; InstantBooking -&gt; Bool)
 -&gt; (InstantBooking -&gt; InstantBooking -&gt; Bool) -&gt; Eq InstantBooking
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstantBooking -&gt; InstantBooking -&gt; Bool
 == :: InstantBooking -&gt; InstantBooking -&gt; Bool
 $c== :: InstantBooking -&gt; InstantBooking -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369052"><span id="local-6989586621679369054"><span id="local-6989586621679369056"><span id="local-6989586621679369058"><span class="annot"><span class="annottext">ReadPrec [InstantBooking]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369061"><span id="local-6989586621679369063"><span id="local-6989586621679369065"><span id="local-6989586621679369067"><span class="annot"><span class="annottext">ReadPrec [InstantBooking]
 ReadPrec InstantBooking
 Int -&gt; ReadS InstantBooking
 ReadS [InstantBooking]
@@ -65,7 +65,7 @@ readList :: ReadS [InstantBooking]
 $creadList :: ReadS [InstantBooking]
 readsPrec :: Int -&gt; ReadS InstantBooking
 $creadsPrec :: Int -&gt; ReadS InstantBooking
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369045"><span id="local-6989586621679369047"><span id="local-6989586621679369049"><span class="annot"><span class="annottext">Int -&gt; InstantBooking -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369054"><span id="local-6989586621679369056"><span id="local-6989586621679369058"><span class="annot"><span class="annottext">Int -&gt; InstantBooking -&gt; ShowS
 [InstantBooking] -&gt; ShowS
 InstantBooking -&gt; String
 (Int -&gt; InstantBooking -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (InstantBooking -&gt; Maybe Bool -&gt; InstantBooking)
 -&gt; Lens InstantBooking InstantBooking (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369036"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369045"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:InstantBooking' :: InstantBooking -&gt; Maybe Bool
-</span><a href="#local-6989586621679369036"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679369036"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369035"><span class="annot"><span class="annottext">s :: InstantBooking
-</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369034"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679369034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstantBooking
-</span><a href="#local-6989586621679369035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:InstantBooking' :: Maybe Bool
+</span><a href="#local-6989586621679369045"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679369045"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369044"><span class="annot"><span class="annottext">s :: InstantBooking
+</span><a href="#local-6989586621679369044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369043"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679369043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstantBooking
+</span><a href="#local-6989586621679369044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:InstantBooking' :: Maybe Bool
 </span><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#%24sel%3Aenabled%3AInstantBooking%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679369034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Duration between 15 and 240 minutes at increments of 15 that determines</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- how long to book an available room when a meeting is started with Alexa.</span><span>
@@ -146,19 +146,19 @@ $sel:enabled:InstantBooking' :: InstantBooking -&gt; Maybe Bool
 -&gt; (InstantBooking -&gt; Maybe Int -&gt; InstantBooking)
 -&gt; Lens InstantBooking InstantBooking (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369032"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369041"><span class="annot"><span class="annottext">Maybe Int
 durationInMinutes :: Maybe Int
 $sel:durationInMinutes:InstantBooking' :: InstantBooking -&gt; Maybe Int
-</span><a href="#local-6989586621679369032"><span class="hs-identifier hs-var hs-var">durationInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679369032"><span class="hs-identifier hs-var">durationInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369031"><span class="annot"><span class="annottext">s :: InstantBooking
-</span><a href="#local-6989586621679369031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369030"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679369030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstantBooking
-</span><a href="#local-6989586621679369031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInMinutes:InstantBooking' :: Maybe Int
+</span><a href="#local-6989586621679369041"><span class="hs-identifier hs-var hs-var">durationInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679369041"><span class="hs-identifier hs-var">durationInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369040"><span class="annot"><span class="annottext">s :: InstantBooking
+</span><a href="#local-6989586621679369040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-type">InstantBooking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369039"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679369039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstantBooking
+</span><a href="#local-6989586621679369040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInMinutes:InstantBooking' :: Maybe Int
 </span><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#%24sel%3AdurationInMinutes%3AInstantBooking%27"><span class="hs-identifier hs-var">durationInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679369030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679369039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369027"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679369025"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstantBooking
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369036"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679369034"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstantBooking
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstantBooking)
@@ -168,15 +168,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstantBooking&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369022"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369031"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679369031"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Int -&gt; InstantBooking
 </span><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking%27"><span class="hs-identifier hs-var">InstantBooking'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Int -&gt; InstantBooking)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Int -&gt; InstantBooking)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679369031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -184,13 +184,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser InstantBooking
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679369031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DurationInMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369016"><span id="local-6989586621679369018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369025"><span id="local-6989586621679369027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.InstantBooking.html#InstantBooking"><span class="hs-identifier hs-type">InstantBooking</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

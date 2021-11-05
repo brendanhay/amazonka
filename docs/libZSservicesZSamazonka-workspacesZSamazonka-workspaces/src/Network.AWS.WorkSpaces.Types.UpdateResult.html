@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- time.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUpdateResult' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679274534"><span id="local-6989586621679274535"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateResult"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-var">UpdateResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateResult%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-var">UpdateResult'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679274543"><span id="local-6989586621679274544"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateResult"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-var">UpdateResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateResult%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-var">UpdateResult'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether updated drivers or other components are available for</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the specified WorkSpace image.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AupdateAvailable%3AUpdateResult%27"><span class="annot"><span class="annottext">UpdateResult -&gt; Maybe Bool
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateResult%27"><span class="annot"><span class="annottext">UpdateResult -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#%24sel%3Adescription%3AUpdateResult%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274527"><span id="local-6989586621679274529"><span class="annot"><span class="annottext">UpdateResult -&gt; UpdateResult -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274536"><span id="local-6989586621679274538"><span class="annot"><span class="annottext">UpdateResult -&gt; UpdateResult -&gt; Bool
 (UpdateResult -&gt; UpdateResult -&gt; Bool)
 -&gt; (UpdateResult -&gt; UpdateResult -&gt; Bool) -&gt; Eq UpdateResult
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateResult -&gt; UpdateResult -&gt; Bool
 == :: UpdateResult -&gt; UpdateResult -&gt; Bool
 $c== :: UpdateResult -&gt; UpdateResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274518"><span id="local-6989586621679274520"><span id="local-6989586621679274522"><span id="local-6989586621679274524"><span class="annot"><span class="annottext">ReadPrec [UpdateResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274527"><span id="local-6989586621679274529"><span id="local-6989586621679274531"><span id="local-6989586621679274533"><span class="annot"><span class="annottext">ReadPrec [UpdateResult]
 ReadPrec UpdateResult
 Int -&gt; ReadS UpdateResult
 ReadS [UpdateResult]
@@ -68,7 +68,7 @@ readList :: ReadS [UpdateResult]
 $creadList :: ReadS [UpdateResult]
 readsPrec :: Int -&gt; ReadS UpdateResult
 $creadsPrec :: Int -&gt; ReadS UpdateResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274511"><span id="local-6989586621679274513"><span id="local-6989586621679274515"><span class="annot"><span class="annottext">Int -&gt; UpdateResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274520"><span id="local-6989586621679274522"><span id="local-6989586621679274524"><span class="annot"><span class="annottext">Int -&gt; UpdateResult -&gt; ShowS
 [UpdateResult] -&gt; ShowS
 UpdateResult -&gt; String
 (Int -&gt; UpdateResult -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (UpdateResult -&gt; Maybe Bool -&gt; UpdateResult)
 -&gt; Lens UpdateResult UpdateResult (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274502"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274511"><span class="annot"><span class="annottext">Maybe Bool
 updateAvailable :: Maybe Bool
 $sel:updateAvailable:UpdateResult' :: UpdateResult -&gt; Maybe Bool
-</span><a href="#local-6989586621679274502"><span class="hs-identifier hs-var hs-var">updateAvailable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274502"><span class="hs-identifier hs-var">updateAvailable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274501"><span class="annot"><span class="annottext">s :: UpdateResult
-</span><a href="#local-6989586621679274501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274500"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResult
-</span><a href="#local-6989586621679274501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateAvailable:UpdateResult' :: Maybe Bool
+</span><a href="#local-6989586621679274511"><span class="hs-identifier hs-var hs-var">updateAvailable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274511"><span class="hs-identifier hs-var">updateAvailable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274510"><span class="annot"><span class="annottext">s :: UpdateResult
+</span><a href="#local-6989586621679274510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274509"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResult
+</span><a href="#local-6989586621679274510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateAvailable:UpdateResult' :: Maybe Bool
 </span><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#%24sel%3AupdateAvailable%3AUpdateResult%27"><span class="hs-identifier hs-var">updateAvailable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | A description of whether updates for the WorkSpace image are pending or</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- available.</span><span>
@@ -150,19 +150,19 @@ $sel:updateAvailable:UpdateResult' :: UpdateResult -&gt; Maybe Bool
 -&gt; (UpdateResult -&gt; Maybe Text -&gt; UpdateResult)
 -&gt; Lens UpdateResult UpdateResult (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274498"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274507"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateResult' :: UpdateResult -&gt; Maybe Text
-</span><a href="#local-6989586621679274498"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274498"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274497"><span class="annot"><span class="annottext">s :: UpdateResult
-</span><a href="#local-6989586621679274497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274496"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResult
-</span><a href="#local-6989586621679274497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateResult' :: Maybe Text
+</span><a href="#local-6989586621679274507"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274507"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274506"><span class="annot"><span class="annottext">s :: UpdateResult
+</span><a href="#local-6989586621679274506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-type">UpdateResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274505"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateResult
+</span><a href="#local-6989586621679274506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateResult' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#%24sel%3Adescription%3AUpdateResult%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274493"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679274491"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpdateResult
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274502"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679274500"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpdateResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UpdateResult) -&gt; Value -&gt; Parser UpdateResult
@@ -170,15 +170,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UpdateResult&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274488"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274488"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274497"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; UpdateResult
 </span><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult%27"><span class="hs-identifier hs-var">UpdateResult'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Text -&gt; UpdateResult)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Text -&gt; UpdateResult)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679274497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UpdateAvailable&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,13 +186,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser UpdateResult
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274488"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679274497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274482"><span id="local-6989586621679274484"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274491"><span id="local-6989586621679274493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.UpdateResult.html#UpdateResult"><span class="hs-identifier hs-type">UpdateResult</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

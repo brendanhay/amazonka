@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CustomerProfiles.DeleteIntegration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes an integration from a specific domain.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CustomerProfiles.DeleteIntegration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier">DeleteIntegration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#newDeleteIntegration"><span class="hs-identifier">newDeleteIntegration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegration_domainName"><span class="hs-identifier">deleteIntegration_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegration_uri"><span class="hs-identifier">deleteIntegration_uri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier">DeleteIntegrationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#newDeleteIntegrationResponse"><span class="hs-identifier">newDeleteIntegrationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegrationResponse_httpStatus"><span class="hs-identifier">deleteIntegrationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegrationResponse_message"><span class="hs-identifier">deleteIntegrationResponse_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.Types.html"><span class="hs-identifier">Network.AWS.CustomerProfiles.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteIntegration' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679278440"><span id="local-6989586621679278441"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIntegration"><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-var">DeleteIntegration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIntegration%27"><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-var">DeleteIntegration'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique name of the domain.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdomainName%3ADeleteIntegration%27"><span class="annot"><span class="annottext">DeleteIntegration -&gt; Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3AdomainName%3ADeleteIntegration%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The URI of the S3 bucket or any other type of data source.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Auri%3ADeleteIntegration%27"><span class="annot"><span class="annottext">DeleteIntegration -&gt; Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3Auri%3ADeleteIntegration%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278433"><span id="local-6989586621679278435"><span class="annot"><span class="annottext">DeleteIntegration -&gt; DeleteIntegration -&gt; Bool
+(DeleteIntegration -&gt; DeleteIntegration -&gt; Bool)
+-&gt; (DeleteIntegration -&gt; DeleteIntegration -&gt; Bool)
+-&gt; Eq DeleteIntegration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteIntegration -&gt; DeleteIntegration -&gt; Bool
+$c/= :: DeleteIntegration -&gt; DeleteIntegration -&gt; Bool
+== :: DeleteIntegration -&gt; DeleteIntegration -&gt; Bool
+$c== :: DeleteIntegration -&gt; DeleteIntegration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278424"><span id="local-6989586621679278426"><span id="local-6989586621679278428"><span id="local-6989586621679278430"><span class="annot"><span class="annottext">ReadPrec [DeleteIntegration]
+ReadPrec DeleteIntegration
+Int -&gt; ReadS DeleteIntegration
+ReadS [DeleteIntegration]
+(Int -&gt; ReadS DeleteIntegration)
+-&gt; ReadS [DeleteIntegration]
+-&gt; ReadPrec DeleteIntegration
+-&gt; ReadPrec [DeleteIntegration]
+-&gt; Read DeleteIntegration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteIntegration]
+$creadListPrec :: ReadPrec [DeleteIntegration]
+readPrec :: ReadPrec DeleteIntegration
+$creadPrec :: ReadPrec DeleteIntegration
+readList :: ReadS [DeleteIntegration]
+$creadList :: ReadS [DeleteIntegration]
+readsPrec :: Int -&gt; ReadS DeleteIntegration
+$creadsPrec :: Int -&gt; ReadS DeleteIntegration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278417"><span id="local-6989586621679278419"><span id="local-6989586621679278421"><span class="annot"><span class="annottext">Int -&gt; DeleteIntegration -&gt; ShowS
+[DeleteIntegration] -&gt; ShowS
+DeleteIntegration -&gt; String
+(Int -&gt; DeleteIntegration -&gt; ShowS)
+-&gt; (DeleteIntegration -&gt; String)
+-&gt; ([DeleteIntegration] -&gt; ShowS)
+-&gt; Show DeleteIntegration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteIntegration] -&gt; ShowS
+$cshowList :: [DeleteIntegration] -&gt; ShowS
+show :: DeleteIntegration -&gt; String
+$cshow :: DeleteIntegration -&gt; String
+showsPrec :: Int -&gt; DeleteIntegration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteIntegration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteIntegration -&gt; Rep DeleteIntegration x)
+-&gt; (forall x. Rep DeleteIntegration x -&gt; DeleteIntegration)
+-&gt; Generic DeleteIntegration
+forall x. Rep DeleteIntegration x -&gt; DeleteIntegration
+forall x. DeleteIntegration -&gt; Rep DeleteIntegration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteIntegration x -&gt; DeleteIntegration
+$cfrom :: forall x. DeleteIntegration -&gt; Rep DeleteIntegration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DeleteIntegration' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'domainName', 'deleteIntegration_domainName' - The unique name of the domain.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'uri', 'deleteIntegration_uri' - The URI of the S3 bucket or any other type of data source.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#newDeleteIntegration"><span class="hs-identifier hs-type">newDeleteIntegration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'uri'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span>
+</span><span id="line-76"></span><span id="newDeleteIntegration"><span class="annot"><span class="annottext">newDeleteIntegration :: Text -&gt; Text -&gt; DeleteIntegration
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#newDeleteIntegration"><span class="hs-identifier hs-var hs-var">newDeleteIntegration</span></a></span></span><span> </span><span id="local-6989586621679278412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278412"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679278411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278411"><span class="hs-identifier hs-var">pUri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DeleteIntegration' :: Text -&gt; Text -&gt; DeleteIntegration
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-type">DeleteIntegration'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:DeleteIntegration' :: Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3AdomainName%3ADeleteIntegration%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278412"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:uri:DeleteIntegration' :: Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3Auri%3ADeleteIntegration%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278411"><span class="hs-identifier hs-var">pUri_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The unique name of the domain.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegration_domainName"><span class="hs-identifier hs-type">deleteIntegration_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="deleteIntegration_domainName"><span class="annot"><span class="annottext">deleteIntegration_domainName :: (Text -&gt; f Text) -&gt; DeleteIntegration -&gt; f DeleteIntegration
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegration_domainName"><span class="hs-identifier hs-var hs-var">deleteIntegration_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteIntegration -&gt; Text)
+-&gt; (DeleteIntegration -&gt; Text -&gt; DeleteIntegration)
+-&gt; Lens DeleteIntegration DeleteIntegration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-type">DeleteIntegration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278408"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DeleteIntegration' :: DeleteIntegration -&gt; Text
+</span><a href="#local-6989586621679278408"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278408"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278407"><span class="annot"><span class="annottext">s :: DeleteIntegration
+</span><a href="#local-6989586621679278407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-type">DeleteIntegration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278406"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIntegration
+</span><a href="#local-6989586621679278407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteIntegration' :: Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3AdomainName%3ADeleteIntegration%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The URI of the S3 bucket or any other type of data source.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegration_uri"><span class="hs-identifier hs-type">deleteIntegration_uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteIntegration_uri"><span class="annot"><span class="annottext">deleteIntegration_uri :: (Text -&gt; f Text) -&gt; DeleteIntegration -&gt; f DeleteIntegration
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegration_uri"><span class="hs-identifier hs-var hs-var">deleteIntegration_uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteIntegration -&gt; Text)
+-&gt; (DeleteIntegration -&gt; Text -&gt; DeleteIntegration)
+-&gt; Lens DeleteIntegration DeleteIntegration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-type">DeleteIntegration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278405"><span class="annot"><span class="annottext">Text
+uri :: Text
+$sel:uri:DeleteIntegration' :: DeleteIntegration -&gt; Text
+</span><a href="#local-6989586621679278405"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278405"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278404"><span class="annot"><span class="annottext">s :: DeleteIntegration
+</span><a href="#local-6989586621679278404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-type">DeleteIntegration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278403"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIntegration
+</span><a href="#local-6989586621679278404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:DeleteIntegration' :: Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3Auri%3ADeleteIntegration%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-type">DeleteIntegrationResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679278399"><span class="annot"><span class="annottext">request :: DeleteIntegration -&gt; Request DeleteIntegration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteIntegration -&gt; Request DeleteIntegration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CustomerProfiles.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679278395"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteIntegration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteIntegration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteIntegration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteIntegration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteIntegration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278392"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278391"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679278391"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278390"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; DeleteIntegrationResponse
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse%27"><span class="hs-identifier hs-var">DeleteIntegrationResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; DeleteIntegrationResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; DeleteIntegrationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278392"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; DeleteIntegrationResponse)
+-&gt; Either String Text -&gt; Either String DeleteIntegrationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278382"><span id="local-6989586621679278384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679278375"><span class="annot"><span class="annottext">toHeaders :: DeleteIntegration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteIntegration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278365"><span id="local-6989586621679278367"><span id="local-6989586621679278369"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679278363"><span class="annot"><span class="annottext">toJSON :: DeleteIntegration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-type">DeleteIntegration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278360"><span id="local-6989586621679278361"><span class="annot"><span class="annottext">Text
+uri :: Text
+domainName :: Text
+$sel:uri:DeleteIntegration' :: DeleteIntegration -&gt; Text
+$sel:domainName:DeleteIntegration' :: DeleteIntegration -&gt; Text
+</span><a href="#local-6989586621679278360"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278360"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679278354"><span class="annot"><span class="annottext">toPath :: DeleteIntegration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration%27"><span class="hs-identifier hs-type">DeleteIntegration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278351"><span id="local-6989586621679278352"><span class="annot"><span class="annottext">Text
+uri :: Text
+domainName :: Text
+$sel:uri:DeleteIntegration' :: DeleteIntegration -&gt; Text
+$sel:domainName:DeleteIntegration' :: DeleteIntegration -&gt; Text
+</span><a href="#local-6989586621679278351"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/domains/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278352"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/integrations/delete&quot;</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegration"><span class="hs-identifier hs-type">DeleteIntegration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679278347"><span class="annot"><span class="annottext">toQuery :: DeleteIntegration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteIntegration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newDeleteIntegrationResponse' smart constructor.</span><span>
+</span><span id="line-137"></span><span id="local-6989586621679278344"><span id="local-6989586621679278345"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteIntegrationResponse"><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-var">DeleteIntegrationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteIntegrationResponse%27"><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse%27"><span class="hs-identifier hs-var">DeleteIntegrationResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteIntegrationResponse%27"><span class="annot"><span class="annottext">DeleteIntegrationResponse -&gt; Int
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3AhttpStatus%3ADeleteIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | A message that indicates the delete request is done.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3Amessage%3ADeleteIntegrationResponse%27"><span class="annot"><span class="annottext">DeleteIntegrationResponse -&gt; Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3Amessage%3ADeleteIntegrationResponse%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278338"><span id="local-6989586621679278340"><span class="annot"><span class="annottext">DeleteIntegrationResponse -&gt; DeleteIntegrationResponse -&gt; Bool
+(DeleteIntegrationResponse -&gt; DeleteIntegrationResponse -&gt; Bool)
+-&gt; (DeleteIntegrationResponse -&gt; DeleteIntegrationResponse -&gt; Bool)
+-&gt; Eq DeleteIntegrationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteIntegrationResponse -&gt; DeleteIntegrationResponse -&gt; Bool
+$c/= :: DeleteIntegrationResponse -&gt; DeleteIntegrationResponse -&gt; Bool
+== :: DeleteIntegrationResponse -&gt; DeleteIntegrationResponse -&gt; Bool
+$c== :: DeleteIntegrationResponse -&gt; DeleteIntegrationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278330"><span id="local-6989586621679278332"><span id="local-6989586621679278334"><span id="local-6989586621679278336"><span class="annot"><span class="annottext">ReadPrec [DeleteIntegrationResponse]
+ReadPrec DeleteIntegrationResponse
+Int -&gt; ReadS DeleteIntegrationResponse
+ReadS [DeleteIntegrationResponse]
+(Int -&gt; ReadS DeleteIntegrationResponse)
+-&gt; ReadS [DeleteIntegrationResponse]
+-&gt; ReadPrec DeleteIntegrationResponse
+-&gt; ReadPrec [DeleteIntegrationResponse]
+-&gt; Read DeleteIntegrationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteIntegrationResponse]
+$creadListPrec :: ReadPrec [DeleteIntegrationResponse]
+readPrec :: ReadPrec DeleteIntegrationResponse
+$creadPrec :: ReadPrec DeleteIntegrationResponse
+readList :: ReadS [DeleteIntegrationResponse]
+$creadList :: ReadS [DeleteIntegrationResponse]
+readsPrec :: Int -&gt; ReadS DeleteIntegrationResponse
+$creadsPrec :: Int -&gt; ReadS DeleteIntegrationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278324"><span id="local-6989586621679278326"><span id="local-6989586621679278328"><span class="annot"><span class="annottext">Int -&gt; DeleteIntegrationResponse -&gt; ShowS
+[DeleteIntegrationResponse] -&gt; ShowS
+DeleteIntegrationResponse -&gt; String
+(Int -&gt; DeleteIntegrationResponse -&gt; ShowS)
+-&gt; (DeleteIntegrationResponse -&gt; String)
+-&gt; ([DeleteIntegrationResponse] -&gt; ShowS)
+-&gt; Show DeleteIntegrationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteIntegrationResponse] -&gt; ShowS
+$cshowList :: [DeleteIntegrationResponse] -&gt; ShowS
+show :: DeleteIntegrationResponse -&gt; String
+$cshow :: DeleteIntegrationResponse -&gt; String
+showsPrec :: Int -&gt; DeleteIntegrationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteIntegrationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteIntegrationResponse -&gt; Rep DeleteIntegrationResponse x)
+-&gt; (forall x.
+    Rep DeleteIntegrationResponse x -&gt; DeleteIntegrationResponse)
+-&gt; Generic DeleteIntegrationResponse
+forall x.
+Rep DeleteIntegrationResponse x -&gt; DeleteIntegrationResponse
+forall x.
+DeleteIntegrationResponse -&gt; Rep DeleteIntegrationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteIntegrationResponse x -&gt; DeleteIntegrationResponse
+$cfrom :: forall x.
+DeleteIntegrationResponse -&gt; Rep DeleteIntegrationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Create a value of 'DeleteIntegrationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'deleteIntegrationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'message', 'deleteIntegrationResponse_message' - A message that indicates the delete request is done.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#newDeleteIntegrationResponse"><span class="hs-identifier hs-type">newDeleteIntegrationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'message'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-type">DeleteIntegrationResponse</span></a></span><span>
+</span><span id="line-162"></span><span id="newDeleteIntegrationResponse"><span class="annot"><span class="annottext">newDeleteIntegrationResponse :: Int -&gt; Text -&gt; DeleteIntegrationResponse
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#newDeleteIntegrationResponse"><span class="hs-identifier hs-var hs-var">newDeleteIntegrationResponse</span></a></span></span><span> </span><span id="local-6989586621679278321"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278321"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679278320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278320"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">DeleteIntegrationResponse' :: Int -&gt; Text -&gt; DeleteIntegrationResponse
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse%27"><span class="hs-identifier hs-type">DeleteIntegrationResponse'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIntegrationResponse' :: Int
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3AhttpStatus%3ADeleteIntegrationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278321"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:DeleteIntegrationResponse' :: Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3Amessage%3ADeleteIntegrationResponse%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278320"><span class="hs-identifier hs-var">pMessage_</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegrationResponse_httpStatus"><span class="hs-identifier hs-type">deleteIntegrationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-type">DeleteIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span id="deleteIntegrationResponse_httpStatus"><span class="annot"><span class="annottext">deleteIntegrationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteIntegrationResponse -&gt; f DeleteIntegrationResponse
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegrationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteIntegrationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteIntegrationResponse -&gt; Int)
+-&gt; (DeleteIntegrationResponse -&gt; Int -&gt; DeleteIntegrationResponse)
+-&gt; Lens DeleteIntegrationResponse DeleteIntegrationResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse%27"><span class="hs-identifier hs-type">DeleteIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278319"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteIntegrationResponse' :: DeleteIntegrationResponse -&gt; Int
+</span><a href="#local-6989586621679278319"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278319"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278318"><span class="annot"><span class="annottext">s :: DeleteIntegrationResponse
+</span><a href="#local-6989586621679278318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse%27"><span class="hs-identifier hs-type">DeleteIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278317"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIntegrationResponse
+</span><a href="#local-6989586621679278318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteIntegrationResponse' :: Int
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3AhttpStatus%3ADeleteIntegrationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679278317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-type">DeleteIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A message that indicates the delete request is done.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegrationResponse_message"><span class="hs-identifier hs-type">deleteIntegrationResponse_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-type">DeleteIntegrationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-175"></span><span id="deleteIntegrationResponse_message"><span class="annot"><span class="annottext">deleteIntegrationResponse_message :: (Text -&gt; f Text)
+-&gt; DeleteIntegrationResponse -&gt; f DeleteIntegrationResponse
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#deleteIntegrationResponse_message"><span class="hs-identifier hs-var hs-var">deleteIntegrationResponse_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteIntegrationResponse -&gt; Text)
+-&gt; (DeleteIntegrationResponse -&gt; Text -&gt; DeleteIntegrationResponse)
+-&gt; Lens
+     DeleteIntegrationResponse DeleteIntegrationResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse%27"><span class="hs-identifier hs-type">DeleteIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278316"><span class="annot"><span class="annottext">Text
+message :: Text
+$sel:message:DeleteIntegrationResponse' :: DeleteIntegrationResponse -&gt; Text
+</span><a href="#local-6989586621679278316"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278316"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278315"><span class="annot"><span class="annottext">s :: DeleteIntegrationResponse
+</span><a href="#local-6989586621679278315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse%27"><span class="hs-identifier hs-type">DeleteIntegrationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278314"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteIntegrationResponse
+</span><a href="#local-6989586621679278315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:DeleteIntegrationResponse' :: Text
+</span><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#%24sel%3Amessage%3ADeleteIntegrationResponse%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679278314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-type">DeleteIntegrationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278312"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CustomerProfiles.DeleteIntegration.html#DeleteIntegrationResponse"><span class="hs-identifier hs-type">DeleteIntegrationResponse</span></a></span></span><span>
+</span><span id="line-178"></span></pre></body></html>

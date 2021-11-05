@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679200973"><span id="local-6989586621679200974"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttackLayer"><span class="annot"><a href="Network.AWS.Shield.Types.AttackLayer.html#AttackLayer"><span class="hs-identifier hs-var">AttackLayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackLayer%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackLayer.html#AttackLayer%27"><span class="hs-identifier hs-var">AttackLayer'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679200982"><span id="local-6989586621679200983"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttackLayer"><span class="annot"><a href="Network.AWS.Shield.Types.AttackLayer.html#AttackLayer"><span class="hs-identifier hs-var">AttackLayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttackLayer%27"><span class="annot"><a href="Network.AWS.Shield.Types.AttackLayer.html#AttackLayer%27"><span class="hs-identifier hs-var">AttackLayer'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAttackLayer"><span class="annot"><span class="annottext">AttackLayer -&gt; Text
 </span><a href="Network.AWS.Shield.Types.AttackLayer.html#fromAttackLayer"><span class="hs-identifier hs-var hs-var">fromAttackLayer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200965"><span id="local-6989586621679200967"><span id="local-6989586621679200969"><span class="annot"><span class="annottext">Int -&gt; AttackLayer -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200974"><span id="local-6989586621679200976"><span id="local-6989586621679200978"><span class="annot"><span class="annottext">Int -&gt; AttackLayer -&gt; ShowS
 [AttackLayer] -&gt; ShowS
 AttackLayer -&gt; String
 (Int -&gt; AttackLayer -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AttackLayer -&gt; String
 showsPrec :: Int -&gt; AttackLayer -&gt; ShowS
 $cshowsPrec :: Int -&gt; AttackLayer -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679200956"><span id="local-6989586621679200958"><span id="local-6989586621679200960"><span id="local-6989586621679200962"><span class="annot"><span class="annottext">ReadPrec [AttackLayer]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679200965"><span id="local-6989586621679200967"><span id="local-6989586621679200969"><span id="local-6989586621679200971"><span class="annot"><span class="annottext">ReadPrec [AttackLayer]
 ReadPrec AttackLayer
 Int -&gt; ReadS AttackLayer
 ReadS [AttackLayer]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AttackLayer]
 readsPrec :: Int -&gt; ReadS AttackLayer
 $creadsPrec :: Int -&gt; ReadS AttackLayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679200951"><span id="local-6989586621679200953"><span class="annot"><span class="annottext">AttackLayer -&gt; AttackLayer -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679200960"><span id="local-6989586621679200962"><span class="annot"><span class="annottext">AttackLayer -&gt; AttackLayer -&gt; Bool
 (AttackLayer -&gt; AttackLayer -&gt; Bool)
 -&gt; (AttackLayer -&gt; AttackLayer -&gt; Bool) -&gt; Eq AttackLayer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: AttackLayer -&gt; AttackLayer -&gt; Bool
 == :: AttackLayer -&gt; AttackLayer -&gt; Bool
 $c== :: AttackLayer -&gt; AttackLayer -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679200935"><span id="local-6989586621679200937"><span id="local-6989586621679200939"><span id="local-6989586621679200941"><span id="local-6989586621679200943"><span id="local-6989586621679200945"><span id="local-6989586621679200947"><span class="annot"><span class="annottext">Eq AttackLayer
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679200944"><span id="local-6989586621679200946"><span id="local-6989586621679200948"><span id="local-6989586621679200950"><span id="local-6989586621679200952"><span id="local-6989586621679200954"><span id="local-6989586621679200956"><span class="annot"><span class="annottext">Eq AttackLayer
 Eq AttackLayer
 -&gt; (AttackLayer -&gt; AttackLayer -&gt; Ordering)
 -&gt; (AttackLayer -&gt; AttackLayer -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. AttackLayer -&gt; Rep AttackLayer x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200927"><span id="local-6989586621679200929"><span class="annot"><span class="annottext">Int -&gt; AttackLayer -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200936"><span id="local-6989586621679200938"><span class="annot"><span class="annottext">Int -&gt; AttackLayer -&gt; Int
 AttackLayer -&gt; Int
 (Int -&gt; AttackLayer -&gt; Int)
 -&gt; (AttackLayer -&gt; Int) -&gt; Hashable AttackLayer
@@ -142,49 +142,49 @@ $chash :: AttackLayer -&gt; Int
 hashWithSalt :: Int -&gt; AttackLayer -&gt; Int
 $chashWithSalt :: Int -&gt; AttackLayer -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679200924"><span class="annot"><span class="annottext">AttackLayer -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679200933"><span class="annot"><span class="annottext">AttackLayer -&gt; ()
 (AttackLayer -&gt; ()) -&gt; NFData AttackLayer
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AttackLayer -&gt; ()
 $crnf :: AttackLayer -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679200921"><span class="annot"><span class="annottext">Text -&gt; Either String AttackLayer
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679200930"><span class="annot"><span class="annottext">Text -&gt; Either String AttackLayer
 (Text -&gt; Either String AttackLayer) -&gt; FromText AttackLayer
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AttackLayer
 $cfromText :: Text -&gt; Either String AttackLayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679200918"><span class="annot"><span class="annottext">AttackLayer -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679200927"><span class="annot"><span class="annottext">AttackLayer -&gt; Text
 (AttackLayer -&gt; Text) -&gt; ToText AttackLayer
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AttackLayer -&gt; Text
 $ctoText :: AttackLayer -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679200915"><span class="annot"><span class="annottext">AttackLayer -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679200924"><span class="annot"><span class="annottext">AttackLayer -&gt; ByteString
 (AttackLayer -&gt; ByteString) -&gt; ToByteString AttackLayer
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AttackLayer -&gt; ByteString
 $ctoBS :: AttackLayer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679200912"><span class="annot"><span class="annottext">AttackLayer -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679200921"><span class="annot"><span class="annottext">AttackLayer -&gt; ByteStringBuilder
 (AttackLayer -&gt; ByteStringBuilder) -&gt; ToLog AttackLayer
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AttackLayer -&gt; ByteStringBuilder
 $cbuild :: AttackLayer -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679200909"><span class="annot"><span class="annottext">HeaderName -&gt; AttackLayer -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679200918"><span class="annot"><span class="annottext">HeaderName -&gt; AttackLayer -&gt; [Header]
 (HeaderName -&gt; AttackLayer -&gt; [Header]) -&gt; ToHeader AttackLayer
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AttackLayer -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AttackLayer -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679200906"><span class="annot"><span class="annottext">AttackLayer -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679200915"><span class="annot"><span class="annottext">AttackLayer -&gt; QueryString
 (AttackLayer -&gt; QueryString) -&gt; ToQuery AttackLayer
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AttackLayer -&gt; QueryString
 $ctoQuery :: AttackLayer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679200901"><span id="local-6989586621679200903"><span class="annot"><span class="annottext">Value -&gt; Parser [AttackLayer]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679200910"><span id="local-6989586621679200912"><span class="annot"><span class="annottext">Value -&gt; Parser [AttackLayer]
 Value -&gt; Parser AttackLayer
 (Value -&gt; Parser AttackLayer)
 -&gt; (Value -&gt; Parser [AttackLayer]) -&gt; FromJSON AttackLayer
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [AttackLayer]
 parseJSON :: Value -&gt; Parser AttackLayer
 $cparseJSON :: Value -&gt; Parser AttackLayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679200896"><span id="local-6989586621679200898"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttackLayer]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679200905"><span id="local-6989586621679200907"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttackLayer]
 FromJSONKeyFunction AttackLayer
 FromJSONKeyFunction AttackLayer
 -&gt; FromJSONKeyFunction [AttackLayer] -&gt; FromJSONKey AttackLayer
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AttackLayer]
 fromJSONKey :: FromJSONKeyFunction AttackLayer
 $cfromJSONKey :: FromJSONKeyFunction AttackLayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679200887"><span id="local-6989586621679200889"><span id="local-6989586621679200891"><span id="local-6989586621679200893"><span class="annot"><span class="annottext">[AttackLayer] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679200896"><span id="local-6989586621679200898"><span id="local-6989586621679200900"><span id="local-6989586621679200902"><span class="annot"><span class="annottext">[AttackLayer] -&gt; Encoding
 [AttackLayer] -&gt; Value
 AttackLayer -&gt; Encoding
 AttackLayer -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: AttackLayer -&gt; Encoding
 toJSON :: AttackLayer -&gt; Value
 $ctoJSON :: AttackLayer -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679200882"><span id="local-6989586621679200884"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttackLayer]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679200891"><span id="local-6989586621679200893"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttackLayer]
 ToJSONKeyFunction AttackLayer
 ToJSONKeyFunction AttackLayer
 -&gt; ToJSONKeyFunction [AttackLayer] -&gt; ToJSONKey AttackLayer
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AttackLayer]
 toJSONKey :: ToJSONKeyFunction AttackLayer
 $ctoJSONKey :: ToJSONKeyFunction AttackLayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679200879"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttackLayer
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679200888"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttackLayer
 ([Node] -&gt; Either String AttackLayer) -&gt; FromXML AttackLayer
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AttackLayer
 $cparseXML :: [Node] -&gt; Either String AttackLayer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679200876"><span class="annot"><span class="annottext">AttackLayer -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679200885"><span class="annot"><span class="annottext">AttackLayer -&gt; XML
 (AttackLayer -&gt; XML) -&gt; ToXML AttackLayer
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AttackLayer -&gt; XML

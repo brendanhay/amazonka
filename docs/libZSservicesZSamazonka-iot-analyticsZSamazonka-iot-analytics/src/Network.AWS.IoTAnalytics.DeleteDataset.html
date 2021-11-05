@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteDataset' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679268302"><span id="local-6989586621679268303"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDataset"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-var">DeleteDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDataset%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-var">DeleteDataset'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679268311"><span id="local-6989586621679268312"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDataset"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-var">DeleteDataset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDataset%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-var">DeleteDataset'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dataset to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AdatasetName%3ADeleteDataset%27"><span class="annot"><span class="annottext">DeleteDataset -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#%24sel%3AdatasetName%3ADeleteDataset%27"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268296"><span id="local-6989586621679268298"><span class="annot"><span class="annottext">DeleteDataset -&gt; DeleteDataset -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268305"><span id="local-6989586621679268307"><span class="annot"><span class="annottext">DeleteDataset -&gt; DeleteDataset -&gt; Bool
 (DeleteDataset -&gt; DeleteDataset -&gt; Bool)
 -&gt; (DeleteDataset -&gt; DeleteDataset -&gt; Bool) -&gt; Eq DeleteDataset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDataset -&gt; DeleteDataset -&gt; Bool
 == :: DeleteDataset -&gt; DeleteDataset -&gt; Bool
 $c== :: DeleteDataset -&gt; DeleteDataset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268287"><span id="local-6989586621679268289"><span id="local-6989586621679268291"><span id="local-6989586621679268293"><span class="annot"><span class="annottext">ReadPrec [DeleteDataset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268296"><span id="local-6989586621679268298"><span id="local-6989586621679268300"><span id="local-6989586621679268302"><span class="annot"><span class="annottext">ReadPrec [DeleteDataset]
 ReadPrec DeleteDataset
 Int -&gt; ReadS DeleteDataset
 ReadS [DeleteDataset]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteDataset]
 $creadList :: ReadS [DeleteDataset]
 readsPrec :: Int -&gt; ReadS DeleteDataset
 $creadsPrec :: Int -&gt; ReadS DeleteDataset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268280"><span id="local-6989586621679268282"><span id="local-6989586621679268284"><span class="annot"><span class="annottext">Int -&gt; DeleteDataset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268289"><span id="local-6989586621679268291"><span id="local-6989586621679268293"><span class="annot"><span class="annottext">Int -&gt; DeleteDataset -&gt; ShowS
 [DeleteDataset] -&gt; ShowS
 DeleteDataset -&gt; String
 (Int -&gt; DeleteDataset -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. DeleteDataset -&gt; Rep DeleteDataset x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteDataset"><span class="annot"><span class="annottext">newDeleteDataset :: Text -&gt; DeleteDataset
-</span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#newDeleteDataset"><span class="hs-identifier hs-var hs-var">newDeleteDataset</span></a></span></span><span> </span><span id="local-6989586621679268275"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268275"><span class="hs-identifier hs-var">pDatasetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#newDeleteDataset"><span class="hs-identifier hs-var hs-var">newDeleteDataset</span></a></span></span><span> </span><span id="local-6989586621679268284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268284"><span class="hs-identifier hs-var">pDatasetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteDataset' :: Text -&gt; DeleteDataset
 </span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-type">DeleteDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:DeleteDataset' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#%24sel%3AdatasetName%3ADeleteDataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268275"><span class="hs-identifier hs-var">pDatasetName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679268284"><span class="hs-identifier hs-var">pDatasetName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the dataset to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#deleteDataset_datasetName"><span class="hs-identifier hs-type">deleteDataset_datasetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,27 +133,27 @@ $cfrom :: forall x. DeleteDataset -&gt; Rep DeleteDataset x
 -&gt; (DeleteDataset -&gt; Text -&gt; DeleteDataset)
 -&gt; Lens DeleteDataset DeleteDataset Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-type">DeleteDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268272"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-type">DeleteDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268281"><span class="annot"><span class="annottext">Text
 datasetName :: Text
 $sel:datasetName:DeleteDataset' :: DeleteDataset -&gt; Text
-</span><a href="#local-6989586621679268272"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268272"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268271"><span class="annot"><span class="annottext">s :: DeleteDataset
-</span><a href="#local-6989586621679268271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-type">DeleteDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268270"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataset
-</span><a href="#local-6989586621679268271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:DeleteDataset' :: Text
+</span><a href="#local-6989586621679268281"><span class="hs-identifier hs-var hs-var">datasetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268281"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268280"><span class="annot"><span class="annottext">s :: DeleteDataset
+</span><a href="#local-6989586621679268280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-type">DeleteDataset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268279"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDataset
+</span><a href="#local-6989586621679268280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetName:DeleteDataset' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#%24sel%3AdatasetName%3ADeleteDataset%27"><span class="hs-identifier hs-var">datasetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse"><span class="hs-identifier hs-type">DeleteDatasetResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679268266"><span class="annot"><span class="annottext">request :: DeleteDataset -&gt; Request DeleteDataset
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679268275"><span class="annot"><span class="annottext">request :: DeleteDataset -&gt; Request DeleteDataset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDataset -&gt; Request DeleteDataset
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679268262"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679268271"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDataset
 -&gt; ClientResponse ClientBody
@@ -177,12 +177,12 @@ AWSResponse a
 DeleteDatasetResponse
 </span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse%27"><span class="hs-identifier hs-var">DeleteDatasetResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268255"><span id="local-6989586621679268257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268264"><span id="local-6989586621679268266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679268248"><span class="annot"><span class="annottext">toHeaders :: DeleteDataset -&gt; [Header]
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679268257"><span class="annot"><span class="annottext">toHeaders :: DeleteDataset -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteDataset -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -190,11 +190,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679268243"><span class="annot"><span class="annottext">toPath :: DeleteDataset -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-type">DeleteDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268241"><span class="annot"><span class="annottext">Text
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679268252"><span class="annot"><span class="annottext">toPath :: DeleteDataset -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset%27"><span class="hs-identifier hs-type">DeleteDataset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268250"><span class="annot"><span class="annottext">Text
 datasetName :: Text
 $sel:datasetName:DeleteDataset' :: DeleteDataset -&gt; Text
-</span><a href="#local-6989586621679268241"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679268250"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -202,10 +202,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/datasets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268241"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679268250"><span class="hs-identifier hs-var">datasetName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDataset"><span class="hs-identifier hs-type">DeleteDataset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679268237"><span class="annot"><span class="annottext">toQuery :: DeleteDataset -&gt; QueryString
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679268246"><span class="annot"><span class="annottext">toQuery :: DeleteDataset -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDataset -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -213,10 +213,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | /See:/ 'newDeleteDatasetResponse' smart constructor.</span><span>
-</span><span id="line-99"></span><span id="local-6989586621679268234"><span id="local-6989586621679268235"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDatasetResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse"><span class="hs-identifier hs-var">DeleteDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDatasetResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse%27"><span class="hs-identifier hs-var">DeleteDatasetResponse'</span></a></span></span><span>
+</span><span id="line-99"></span><span id="local-6989586621679268243"><span id="local-6989586621679268244"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDatasetResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse"><span class="hs-identifier hs-var">DeleteDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDatasetResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse%27"><span class="hs-identifier hs-var">DeleteDatasetResponse'</span></a></span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268230"><span id="local-6989586621679268232"><span class="annot"><span class="annottext">DeleteDatasetResponse -&gt; DeleteDatasetResponse -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268239"><span id="local-6989586621679268241"><span class="annot"><span class="annottext">DeleteDatasetResponse -&gt; DeleteDatasetResponse -&gt; Bool
 (DeleteDatasetResponse -&gt; DeleteDatasetResponse -&gt; Bool)
 -&gt; (DeleteDatasetResponse -&gt; DeleteDatasetResponse -&gt; Bool)
 -&gt; Eq DeleteDatasetResponse
@@ -225,7 +225,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDatasetResponse -&gt; DeleteDatasetResponse -&gt; Bool
 == :: DeleteDatasetResponse -&gt; DeleteDatasetResponse -&gt; Bool
 $c== :: DeleteDatasetResponse -&gt; DeleteDatasetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268222"><span id="local-6989586621679268224"><span id="local-6989586621679268226"><span id="local-6989586621679268228"><span class="annot"><span class="annottext">ReadPrec [DeleteDatasetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268231"><span id="local-6989586621679268233"><span id="local-6989586621679268235"><span id="local-6989586621679268237"><span class="annot"><span class="annottext">ReadPrec [DeleteDatasetResponse]
 ReadPrec DeleteDatasetResponse
 Int -&gt; ReadS DeleteDatasetResponse
 ReadS [DeleteDatasetResponse]
@@ -245,7 +245,7 @@ readList :: ReadS [DeleteDatasetResponse]
 $creadList :: ReadS [DeleteDatasetResponse]
 readsPrec :: Int -&gt; ReadS DeleteDatasetResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDatasetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268216"><span id="local-6989586621679268218"><span id="local-6989586621679268220"><span class="annot"><span class="annottext">Int -&gt; DeleteDatasetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268225"><span id="local-6989586621679268227"><span id="local-6989586621679268229"><span class="annot"><span class="annottext">Int -&gt; DeleteDatasetResponse -&gt; ShowS
 [DeleteDatasetResponse] -&gt; ShowS
 DeleteDatasetResponse -&gt; String
 (Int -&gt; DeleteDatasetResponse -&gt; ShowS)
@@ -281,5 +281,5 @@ $cfrom :: forall x. DeleteDatasetResponse -&gt; Rep DeleteDatasetResponse x
 </span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#newDeleteDatasetResponse"><span class="hs-identifier hs-var hs-var">newDeleteDatasetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteDatasetResponse
 </span><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse%27"><span class="hs-identifier hs-var">DeleteDatasetResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse"><span class="hs-identifier hs-type">DeleteDatasetResponse</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteDataset.html#DeleteDatasetResponse"><span class="hs-identifier hs-type">DeleteDatasetResponse</span></a></span></span><span>
 </span><span id="line-113"></span></pre></body></html>

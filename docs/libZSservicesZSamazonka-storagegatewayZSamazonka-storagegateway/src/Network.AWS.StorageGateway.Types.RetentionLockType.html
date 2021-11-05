@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679373345"><span id="local-6989586621679373346"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RetentionLockType"><span class="annot"><a href="Network.AWS.StorageGateway.Types.RetentionLockType.html#RetentionLockType"><span class="hs-identifier hs-var">RetentionLockType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionLockType%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.RetentionLockType.html#RetentionLockType%27"><span class="hs-identifier hs-var">RetentionLockType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679373354"><span id="local-6989586621679373355"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RetentionLockType"><span class="annot"><a href="Network.AWS.StorageGateway.Types.RetentionLockType.html#RetentionLockType"><span class="hs-identifier hs-var">RetentionLockType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RetentionLockType%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.RetentionLockType.html#RetentionLockType%27"><span class="hs-identifier hs-var">RetentionLockType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRetentionLockType"><span class="annot"><span class="annottext">RetentionLockType -&gt; Text
 </span><a href="Network.AWS.StorageGateway.Types.RetentionLockType.html#fromRetentionLockType"><span class="hs-identifier hs-var hs-var">fromRetentionLockType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373337"><span id="local-6989586621679373339"><span id="local-6989586621679373341"><span class="annot"><span class="annottext">Int -&gt; RetentionLockType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373346"><span id="local-6989586621679373348"><span id="local-6989586621679373350"><span class="annot"><span class="annottext">Int -&gt; RetentionLockType -&gt; ShowS
 [RetentionLockType] -&gt; ShowS
 RetentionLockType -&gt; String
 (Int -&gt; RetentionLockType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: RetentionLockType -&gt; String
 showsPrec :: Int -&gt; RetentionLockType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RetentionLockType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679373328"><span id="local-6989586621679373330"><span id="local-6989586621679373332"><span id="local-6989586621679373334"><span class="annot"><span class="annottext">ReadPrec [RetentionLockType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679373337"><span id="local-6989586621679373339"><span id="local-6989586621679373341"><span id="local-6989586621679373343"><span class="annot"><span class="annottext">ReadPrec [RetentionLockType]
 ReadPrec RetentionLockType
 Int -&gt; ReadS RetentionLockType
 ReadS [RetentionLockType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [RetentionLockType]
 readsPrec :: Int -&gt; ReadS RetentionLockType
 $creadsPrec :: Int -&gt; ReadS RetentionLockType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679373323"><span id="local-6989586621679373325"><span class="annot"><span class="annottext">RetentionLockType -&gt; RetentionLockType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679373332"><span id="local-6989586621679373334"><span class="annot"><span class="annottext">RetentionLockType -&gt; RetentionLockType -&gt; Bool
 (RetentionLockType -&gt; RetentionLockType -&gt; Bool)
 -&gt; (RetentionLockType -&gt; RetentionLockType -&gt; Bool)
 -&gt; Eq RetentionLockType
@@ -83,7 +83,7 @@ $c/= :: RetentionLockType -&gt; RetentionLockType -&gt; Bool
 == :: RetentionLockType -&gt; RetentionLockType -&gt; Bool
 $c== :: RetentionLockType -&gt; RetentionLockType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679373307"><span id="local-6989586621679373309"><span id="local-6989586621679373311"><span id="local-6989586621679373313"><span id="local-6989586621679373315"><span id="local-6989586621679373317"><span id="local-6989586621679373319"><span class="annot"><span class="annottext">Eq RetentionLockType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679373316"><span id="local-6989586621679373318"><span id="local-6989586621679373320"><span id="local-6989586621679373322"><span id="local-6989586621679373324"><span id="local-6989586621679373326"><span id="local-6989586621679373328"><span class="annot"><span class="annottext">Eq RetentionLockType
 Eq RetentionLockType
 -&gt; (RetentionLockType -&gt; RetentionLockType -&gt; Ordering)
 -&gt; (RetentionLockType -&gt; RetentionLockType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. RetentionLockType -&gt; Rep RetentionLockType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373299"><span id="local-6989586621679373301"><span class="annot"><span class="annottext">Int -&gt; RetentionLockType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373308"><span id="local-6989586621679373310"><span class="annot"><span class="annottext">Int -&gt; RetentionLockType -&gt; Int
 RetentionLockType -&gt; Int
 (Int -&gt; RetentionLockType -&gt; Int)
 -&gt; (RetentionLockType -&gt; Int) -&gt; Hashable RetentionLockType
@@ -144,51 +144,51 @@ $chash :: RetentionLockType -&gt; Int
 hashWithSalt :: Int -&gt; RetentionLockType -&gt; Int
 $chashWithSalt :: Int -&gt; RetentionLockType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679373296"><span class="annot"><span class="annottext">RetentionLockType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679373305"><span class="annot"><span class="annottext">RetentionLockType -&gt; ()
 (RetentionLockType -&gt; ()) -&gt; NFData RetentionLockType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RetentionLockType -&gt; ()
 $crnf :: RetentionLockType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679373293"><span class="annot"><span class="annottext">Text -&gt; Either String RetentionLockType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679373302"><span class="annot"><span class="annottext">Text -&gt; Either String RetentionLockType
 (Text -&gt; Either String RetentionLockType)
 -&gt; FromText RetentionLockType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RetentionLockType
 $cfromText :: Text -&gt; Either String RetentionLockType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373290"><span class="annot"><span class="annottext">RetentionLockType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373299"><span class="annot"><span class="annottext">RetentionLockType -&gt; Text
 (RetentionLockType -&gt; Text) -&gt; ToText RetentionLockType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RetentionLockType -&gt; Text
 $ctoText :: RetentionLockType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373287"><span class="annot"><span class="annottext">RetentionLockType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373296"><span class="annot"><span class="annottext">RetentionLockType -&gt; ByteString
 (RetentionLockType -&gt; ByteString) -&gt; ToByteString RetentionLockType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RetentionLockType -&gt; ByteString
 $ctoBS :: RetentionLockType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373284"><span class="annot"><span class="annottext">RetentionLockType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373293"><span class="annot"><span class="annottext">RetentionLockType -&gt; ByteStringBuilder
 (RetentionLockType -&gt; ByteStringBuilder) -&gt; ToLog RetentionLockType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RetentionLockType -&gt; ByteStringBuilder
 $cbuild :: RetentionLockType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373281"><span class="annot"><span class="annottext">HeaderName -&gt; RetentionLockType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373290"><span class="annot"><span class="annottext">HeaderName -&gt; RetentionLockType -&gt; [Header]
 (HeaderName -&gt; RetentionLockType -&gt; [Header])
 -&gt; ToHeader RetentionLockType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RetentionLockType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RetentionLockType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373278"><span class="annot"><span class="annottext">RetentionLockType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373287"><span class="annot"><span class="annottext">RetentionLockType -&gt; QueryString
 (RetentionLockType -&gt; QueryString) -&gt; ToQuery RetentionLockType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RetentionLockType -&gt; QueryString
 $ctoQuery :: RetentionLockType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373273"><span id="local-6989586621679373275"><span class="annot"><span class="annottext">Value -&gt; Parser [RetentionLockType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373282"><span id="local-6989586621679373284"><span class="annot"><span class="annottext">Value -&gt; Parser [RetentionLockType]
 Value -&gt; Parser RetentionLockType
 (Value -&gt; Parser RetentionLockType)
 -&gt; (Value -&gt; Parser [RetentionLockType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [RetentionLockType]
 parseJSON :: Value -&gt; Parser RetentionLockType
 $cparseJSON :: Value -&gt; Parser RetentionLockType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373268"><span id="local-6989586621679373270"><span class="annot"><span class="annottext">FromJSONKeyFunction [RetentionLockType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373277"><span id="local-6989586621679373279"><span class="annot"><span class="annottext">FromJSONKeyFunction [RetentionLockType]
 FromJSONKeyFunction RetentionLockType
 FromJSONKeyFunction RetentionLockType
 -&gt; FromJSONKeyFunction [RetentionLockType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RetentionLockType]
 fromJSONKey :: FromJSONKeyFunction RetentionLockType
 $cfromJSONKey :: FromJSONKeyFunction RetentionLockType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373259"><span id="local-6989586621679373261"><span id="local-6989586621679373263"><span id="local-6989586621679373265"><span class="annot"><span class="annottext">[RetentionLockType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373268"><span id="local-6989586621679373270"><span id="local-6989586621679373272"><span id="local-6989586621679373274"><span class="annot"><span class="annottext">[RetentionLockType] -&gt; Encoding
 [RetentionLockType] -&gt; Value
 RetentionLockType -&gt; Encoding
 RetentionLockType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: RetentionLockType -&gt; Encoding
 toJSON :: RetentionLockType -&gt; Value
 $ctoJSON :: RetentionLockType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373254"><span id="local-6989586621679373256"><span class="annot"><span class="annottext">ToJSONKeyFunction [RetentionLockType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373263"><span id="local-6989586621679373265"><span class="annot"><span class="annottext">ToJSONKeyFunction [RetentionLockType]
 ToJSONKeyFunction RetentionLockType
 ToJSONKeyFunction RetentionLockType
 -&gt; ToJSONKeyFunction [RetentionLockType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RetentionLockType]
 toJSONKey :: ToJSONKeyFunction RetentionLockType
 $ctoJSONKey :: ToJSONKeyFunction RetentionLockType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373251"><span class="annot"><span class="annottext">[Node] -&gt; Either String RetentionLockType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373260"><span class="annot"><span class="annottext">[Node] -&gt; Either String RetentionLockType
 ([Node] -&gt; Either String RetentionLockType)
 -&gt; FromXML RetentionLockType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RetentionLockType
 $cparseXML :: [Node] -&gt; Either String RetentionLockType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679373248"><span class="annot"><span class="annottext">RetentionLockType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679373257"><span class="annot"><span class="annottext">RetentionLockType -&gt; XML
 (RetentionLockType -&gt; XML) -&gt; ToXML RetentionLockType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RetentionLockType -&gt; XML

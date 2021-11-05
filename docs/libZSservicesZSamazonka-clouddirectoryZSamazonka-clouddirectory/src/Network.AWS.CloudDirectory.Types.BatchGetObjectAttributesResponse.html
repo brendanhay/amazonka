@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents the output of a GetObjectAttributes response operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchGetObjectAttributesResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679330091"><span id="local-6989586621679330092"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetObjectAttributesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse"><span class="hs-identifier hs-var">BatchGetObjectAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetObjectAttributesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-var">BatchGetObjectAttributesResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679330100"><span id="local-6989586621679330101"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetObjectAttributesResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse"><span class="hs-identifier hs-var">BatchGetObjectAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetObjectAttributesResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-var">BatchGetObjectAttributesResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attribute values that are associated with an object.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aattributes%3ABatchGetObjectAttributesResponse%27"><span class="annot"><span class="annottext">BatchGetObjectAttributesResponse -&gt; Maybe [AttributeKeyAndValue]
 </span><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#%24sel%3Aattributes%3ABatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330085"><span id="local-6989586621679330087"><span class="annot"><span class="annottext">BatchGetObjectAttributesResponse
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330094"><span id="local-6989586621679330096"><span class="annot"><span class="annottext">BatchGetObjectAttributesResponse
 -&gt; BatchGetObjectAttributesResponse -&gt; Bool
 (BatchGetObjectAttributesResponse
  -&gt; BatchGetObjectAttributesResponse -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: BatchGetObjectAttributesResponse
 -&gt; BatchGetObjectAttributesResponse -&gt; Bool
 $c== :: BatchGetObjectAttributesResponse
 -&gt; BatchGetObjectAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330076"><span id="local-6989586621679330078"><span id="local-6989586621679330080"><span id="local-6989586621679330082"><span class="annot"><span class="annottext">ReadPrec [BatchGetObjectAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330085"><span id="local-6989586621679330087"><span id="local-6989586621679330089"><span id="local-6989586621679330091"><span class="annot"><span class="annottext">ReadPrec [BatchGetObjectAttributesResponse]
 ReadPrec BatchGetObjectAttributesResponse
 Int -&gt; ReadS BatchGetObjectAttributesResponse
 ReadS [BatchGetObjectAttributesResponse]
@@ -68,7 +68,7 @@ readList :: ReadS [BatchGetObjectAttributesResponse]
 $creadList :: ReadS [BatchGetObjectAttributesResponse]
 readsPrec :: Int -&gt; ReadS BatchGetObjectAttributesResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetObjectAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330069"><span id="local-6989586621679330071"><span id="local-6989586621679330073"><span class="annot"><span class="annottext">Int -&gt; BatchGetObjectAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330078"><span id="local-6989586621679330080"><span id="local-6989586621679330082"><span class="annot"><span class="annottext">Int -&gt; BatchGetObjectAttributesResponse -&gt; ShowS
 [BatchGetObjectAttributesResponse] -&gt; ShowS
 BatchGetObjectAttributesResponse -&gt; String
 (Int -&gt; BatchGetObjectAttributesResponse -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
      (Maybe [AttributeKeyAndValue])
      (Maybe [AttributeKeyAndValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330060"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330069"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
 attributes :: Maybe [AttributeKeyAndValue]
 $sel:attributes:BatchGetObjectAttributesResponse' :: BatchGetObjectAttributesResponse -&gt; Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679330060"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679330060"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330059"><span class="annot"><span class="annottext">s :: BatchGetObjectAttributesResponse
-</span><a href="#local-6989586621679330059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330058"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679330058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetObjectAttributesResponse
-</span><a href="#local-6989586621679330059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:BatchGetObjectAttributesResponse' :: Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679330069"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679330069"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330068"><span class="annot"><span class="annottext">s :: BatchGetObjectAttributesResponse
+</span><a href="#local-6989586621679330068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330067"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679330067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetObjectAttributesResponse
+</span><a href="#local-6989586621679330068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:BatchGetObjectAttributesResponse' :: Maybe [AttributeKeyAndValue]
 </span><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#%24sel%3Aattributes%3ABatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679330058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
+</span><a href="#local-6989586621679330067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
  -&gt; BatchGetObjectAttributesResponse
  -&gt; f BatchGetObjectAttributesResponse)
 -&gt; ((Maybe [AttributeKeyAndValue]
@@ -186,10 +186,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679330052"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679330061"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679330050"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchGetObjectAttributesResponse
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679330059"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchGetObjectAttributesResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchGetObjectAttributesResponse)
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchGetObjectAttributesResponse&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330047"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330047"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330056"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330056"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue] -&gt; BatchGetObjectAttributesResponse
 </span><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse%27"><span class="hs-identifier hs-var">BatchGetObjectAttributesResponse'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AttributeKeyAndValue] -&gt; BatchGetObjectAttributesResponse)
@@ -208,7 +208,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser BatchGetObjectAttributesResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330047"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeKeyAndValue]))
+</span><a href="#local-6989586621679330056"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeKeyAndValue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttributeKeyAndValue]))
@@ -221,10 +221,10 @@ forall a. Monoid a =&gt; a
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679330040"><span id="local-6989586621679330042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679330049"><span id="local-6989586621679330051"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679330037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679330046"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse.html#BatchGetObjectAttributesResponse"><span class="hs-identifier hs-type">BatchGetObjectAttributesResponse</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

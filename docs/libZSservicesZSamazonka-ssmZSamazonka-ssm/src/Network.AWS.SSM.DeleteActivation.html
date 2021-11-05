@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteActivation' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679852412"><span id="local-6989586621679852413"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivation"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-var">DeleteActivation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivation%27"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-var">DeleteActivation'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679852421"><span id="local-6989586621679852422"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivation"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-var">DeleteActivation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivation%27"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-var">DeleteActivation'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the activation that you want to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AactivationId%3ADeleteActivation%27"><span class="annot"><span class="annottext">DeleteActivation -&gt; Text
 </span><a href="Network.AWS.SSM.DeleteActivation.html#%24sel%3AactivationId%3ADeleteActivation%27"><span class="hs-identifier hs-var hs-var">activationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679852406"><span id="local-6989586621679852408"><span class="annot"><span class="annottext">DeleteActivation -&gt; DeleteActivation -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679852415"><span id="local-6989586621679852417"><span class="annot"><span class="annottext">DeleteActivation -&gt; DeleteActivation -&gt; Bool
 (DeleteActivation -&gt; DeleteActivation -&gt; Bool)
 -&gt; (DeleteActivation -&gt; DeleteActivation -&gt; Bool)
 -&gt; Eq DeleteActivation
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteActivation -&gt; DeleteActivation -&gt; Bool
 == :: DeleteActivation -&gt; DeleteActivation -&gt; Bool
 $c== :: DeleteActivation -&gt; DeleteActivation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852397"><span id="local-6989586621679852399"><span id="local-6989586621679852401"><span id="local-6989586621679852403"><span class="annot"><span class="annottext">ReadPrec [DeleteActivation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852406"><span id="local-6989586621679852408"><span id="local-6989586621679852410"><span id="local-6989586621679852412"><span class="annot"><span class="annottext">ReadPrec [DeleteActivation]
 ReadPrec DeleteActivation
 Int -&gt; ReadS DeleteActivation
 ReadS [DeleteActivation]
@@ -84,7 +84,7 @@ readList :: ReadS [DeleteActivation]
 $creadList :: ReadS [DeleteActivation]
 readsPrec :: Int -&gt; ReadS DeleteActivation
 $creadsPrec :: Int -&gt; ReadS DeleteActivation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852390"><span id="local-6989586621679852392"><span id="local-6989586621679852394"><span class="annot"><span class="annottext">Int -&gt; DeleteActivation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852399"><span id="local-6989586621679852401"><span id="local-6989586621679852403"><span class="annot"><span class="annottext">Int -&gt; DeleteActivation -&gt; ShowS
 [DeleteActivation] -&gt; ShowS
 DeleteActivation -&gt; String
 (Int -&gt; DeleteActivation -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. DeleteActivation -&gt; Rep DeleteActivation x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteActivation"><span class="annot"><span class="annottext">newDeleteActivation :: Text -&gt; DeleteActivation
-</span><a href="Network.AWS.SSM.DeleteActivation.html#newDeleteActivation"><span class="hs-identifier hs-var hs-var">newDeleteActivation</span></a></span></span><span> </span><span id="local-6989586621679852385"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852385"><span class="hs-identifier hs-var">pActivationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteActivation.html#newDeleteActivation"><span class="hs-identifier hs-var hs-var">newDeleteActivation</span></a></span></span><span> </span><span id="local-6989586621679852394"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679852394"><span class="hs-identifier hs-var">pActivationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteActivation' :: Text -&gt; DeleteActivation
 </span><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-type">DeleteActivation'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationId:DeleteActivation' :: Text
 </span><a href="Network.AWS.SSM.DeleteActivation.html#%24sel%3AactivationId%3ADeleteActivation%27"><span class="hs-identifier hs-var">activationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852385"><span class="hs-identifier hs-var">pActivationId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679852394"><span class="hs-identifier hs-var">pActivationId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ID of the activation that you want to delete.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#deleteActivation_activationId"><span class="hs-identifier hs-type">deleteActivation_activationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. DeleteActivation -&gt; Rep DeleteActivation x
 -&gt; (DeleteActivation -&gt; Text -&gt; DeleteActivation)
 -&gt; Lens DeleteActivation DeleteActivation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-type">DeleteActivation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852382"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-type">DeleteActivation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852391"><span class="annot"><span class="annottext">Text
 activationId :: Text
 $sel:activationId:DeleteActivation' :: DeleteActivation -&gt; Text
-</span><a href="#local-6989586621679852382"><span class="hs-identifier hs-var hs-var">activationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852382"><span class="hs-identifier hs-var">activationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852381"><span class="annot"><span class="annottext">s :: DeleteActivation
-</span><a href="#local-6989586621679852381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-type">DeleteActivation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852380"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivation
-</span><a href="#local-6989586621679852381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationId:DeleteActivation' :: Text
+</span><a href="#local-6989586621679852391"><span class="hs-identifier hs-var hs-var">activationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679852391"><span class="hs-identifier hs-var">activationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852390"><span class="annot"><span class="annottext">s :: DeleteActivation
+</span><a href="#local-6989586621679852390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-type">DeleteActivation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852389"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679852389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivation
+</span><a href="#local-6989586621679852390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationId:DeleteActivation' :: Text
 </span><a href="Network.AWS.SSM.DeleteActivation.html#%24sel%3AactivationId%3ADeleteActivation%27"><span class="hs-identifier hs-var">activationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679852389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-type">DeleteActivationResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679852376"><span class="annot"><span class="annottext">request :: DeleteActivation -&gt; Request DeleteActivation
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679852385"><span class="annot"><span class="annottext">request :: DeleteActivation -&gt; Request DeleteActivation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteActivation -&gt; Request DeleteActivation
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679852372"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679852381"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteActivation
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679852369"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852369"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679852368"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679852368"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679852367"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679852367"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679852378"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679852378"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679852377"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679852377"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679852376"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679852376"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteActivationResponse
 </span><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-var">DeleteActivationResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteActivationResponse)
@@ -196,15 +196,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852369"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679852378"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852360"><span id="local-6989586621679852362"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852369"><span id="local-6989586621679852371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679852353"><span class="annot"><span class="annottext">toHeaders :: DeleteActivation -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679852362"><span class="annot"><span class="annottext">toHeaders :: DeleteActivation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteActivation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -229,12 +229,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852343"><span id="local-6989586621679852345"><span id="local-6989586621679852347"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679852341"><span class="annot"><span class="annottext">toJSON :: DeleteActivation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-type">DeleteActivation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852339"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852352"><span id="local-6989586621679852354"><span id="local-6989586621679852356"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679852350"><span class="annot"><span class="annottext">toJSON :: DeleteActivation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation%27"><span class="hs-identifier hs-type">DeleteActivation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852348"><span class="annot"><span class="annottext">Text
 activationId :: Text
 $sel:activationId:DeleteActivation' :: DeleteActivation -&gt; Text
-</span><a href="#local-6989586621679852339"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679852348"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,18 +246,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ActivationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679852339"><span class="hs-identifier hs-var">activationId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679852348"><span class="hs-identifier hs-var">activationId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679852333"><span class="annot"><span class="annottext">toPath :: DeleteActivation -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679852342"><span class="annot"><span class="annottext">toPath :: DeleteActivation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteActivation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivation"><span class="hs-identifier hs-type">DeleteActivation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679852329"><span class="annot"><span class="annottext">toQuery :: DeleteActivation -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679852338"><span class="annot"><span class="annottext">toQuery :: DeleteActivation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteActivation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -265,12 +265,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newDeleteActivationResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679852326"><span id="local-6989586621679852327"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivationResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-var">DeleteActivationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivationResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-var">DeleteActivationResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679852335"><span id="local-6989586621679852336"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteActivationResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-var">DeleteActivationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteActivationResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-var">DeleteActivationResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteActivationResponse%27"><span class="annot"><span class="annottext">DeleteActivationResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DeleteActivation.html#%24sel%3AhttpStatus%3ADeleteActivationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679852321"><span id="local-6989586621679852323"><span class="annot"><span class="annottext">DeleteActivationResponse -&gt; DeleteActivationResponse -&gt; Bool
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679852330"><span id="local-6989586621679852332"><span class="annot"><span class="annottext">DeleteActivationResponse -&gt; DeleteActivationResponse -&gt; Bool
 (DeleteActivationResponse -&gt; DeleteActivationResponse -&gt; Bool)
 -&gt; (DeleteActivationResponse -&gt; DeleteActivationResponse -&gt; Bool)
 -&gt; Eq DeleteActivationResponse
@@ -279,7 +279,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteActivationResponse -&gt; DeleteActivationResponse -&gt; Bool
 == :: DeleteActivationResponse -&gt; DeleteActivationResponse -&gt; Bool
 $c== :: DeleteActivationResponse -&gt; DeleteActivationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852313"><span id="local-6989586621679852315"><span id="local-6989586621679852317"><span id="local-6989586621679852319"><span class="annot"><span class="annottext">ReadPrec [DeleteActivationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852322"><span id="local-6989586621679852324"><span id="local-6989586621679852326"><span id="local-6989586621679852328"><span class="annot"><span class="annottext">ReadPrec [DeleteActivationResponse]
 ReadPrec DeleteActivationResponse
 Int -&gt; ReadS DeleteActivationResponse
 ReadS [DeleteActivationResponse]
@@ -299,7 +299,7 @@ readList :: ReadS [DeleteActivationResponse]
 $creadList :: ReadS [DeleteActivationResponse]
 readsPrec :: Int -&gt; ReadS DeleteActivationResponse
 $creadsPrec :: Int -&gt; ReadS DeleteActivationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852307"><span id="local-6989586621679852309"><span id="local-6989586621679852311"><span class="annot"><span class="annottext">Int -&gt; DeleteActivationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679852316"><span id="local-6989586621679852318"><span id="local-6989586621679852320"><span class="annot"><span class="annottext">Int -&gt; DeleteActivationResponse -&gt; ShowS
 [DeleteActivationResponse] -&gt; ShowS
 DeleteActivationResponse -&gt; String
 (Int -&gt; DeleteActivationResponse -&gt; ShowS)
@@ -345,14 +345,14 @@ DeleteActivationResponse -&gt; Rep DeleteActivationResponse x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-type">DeleteActivationResponse</span></a></span><span>
 </span><span id="line-141"></span><span id="newDeleteActivationResponse"><span class="annot"><span class="annottext">newDeleteActivationResponse :: Int -&gt; DeleteActivationResponse
-</span><a href="Network.AWS.SSM.DeleteActivation.html#newDeleteActivationResponse"><span class="hs-identifier hs-var hs-var">newDeleteActivationResponse</span></a></span></span><span> </span><span id="local-6989586621679852304"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852304"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteActivation.html#newDeleteActivationResponse"><span class="hs-identifier hs-var hs-var">newDeleteActivationResponse</span></a></span></span><span> </span><span id="local-6989586621679852313"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679852313"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">DeleteActivationResponse' :: Int -&gt; DeleteActivationResponse
 </span><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-type">DeleteActivationResponse'</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActivationResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteActivation.html#%24sel%3AhttpStatus%3ADeleteActivationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852304"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679852313"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -363,16 +363,16 @@ DeleteActivationResponse -&gt; Rep DeleteActivationResponse x
 -&gt; (DeleteActivationResponse -&gt; Int -&gt; DeleteActivationResponse)
 -&gt; Lens DeleteActivationResponse DeleteActivationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-type">DeleteActivationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852303"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-type">DeleteActivationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679852312"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteActivationResponse' :: DeleteActivationResponse -&gt; Int
-</span><a href="#local-6989586621679852303"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852303"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852302"><span class="annot"><span class="annottext">s :: DeleteActivationResponse
-</span><a href="#local-6989586621679852302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-type">DeleteActivationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852301"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivationResponse
-</span><a href="#local-6989586621679852302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActivationResponse' :: Int
+</span><a href="#local-6989586621679852312"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679852312"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679852311"><span class="annot"><span class="annottext">s :: DeleteActivationResponse
+</span><a href="#local-6989586621679852311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse%27"><span class="hs-identifier hs-type">DeleteActivationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679852310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679852310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteActivationResponse
+</span><a href="#local-6989586621679852311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteActivationResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteActivation.html#%24sel%3AhttpStatus%3ADeleteActivationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679852301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-type">DeleteActivationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679852310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-type">DeleteActivationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-type">DeleteActivationResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679852308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteActivation.html#DeleteActivationResponse"><span class="hs-identifier hs-type">DeleteActivationResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

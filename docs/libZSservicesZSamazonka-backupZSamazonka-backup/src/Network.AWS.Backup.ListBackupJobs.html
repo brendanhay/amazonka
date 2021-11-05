@@ -1,0 +1,887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.ListBackupJobs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of existing backup jobs for an authenticated account for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the last 30 days. For a longer period of time, consider using these</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html monitoring tools&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.ListBackupJobs</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#newListBackupJobs"><span class="hs-identifier">newListBackupJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byResourceArn"><span class="hs-identifier">listBackupJobs_byResourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byCreatedAfter"><span class="hs-identifier">listBackupJobs_byCreatedAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byAccountId"><span class="hs-identifier">listBackupJobs_byAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byCreatedBefore"><span class="hs-identifier">listBackupJobs_byCreatedBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byBackupVaultName"><span class="hs-identifier">listBackupJobs_byBackupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byResourceType"><span class="hs-identifier">listBackupJobs_byResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_nextToken"><span class="hs-identifier">listBackupJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byState"><span class="hs-identifier">listBackupJobs_byState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_maxResults"><span class="hs-identifier">listBackupJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier">ListBackupJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#newListBackupJobsResponse"><span class="hs-identifier">newListBackupJobsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_backupJobs"><span class="hs-identifier">listBackupJobsResponse_backupJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_nextToken"><span class="hs-identifier">listBackupJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_httpStatus"><span class="hs-identifier">listBackupJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.html"><span class="hs-identifier">Network.AWS.Backup.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListBackupJobs' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679316912"><span id="local-6989586621679316913"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackupJobs"><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-var">ListBackupJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackupJobs%27"><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-var">ListBackupJobs'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns only backup jobs that match the specified resource Amazon</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AbyResourceArn%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyResourceArn%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">byResourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Returns only backup jobs that were created after the specified date.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AbyCreatedAfter%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe POSIX
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyCreatedAfter%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">byCreatedAfter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The account ID to list the jobs from. Returns only backup jobs</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- associated with the specified account ID.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- If used from an Organizations management account, passing @*@ returns</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- all jobs across the organization.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AbyAccountId%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyAccountId%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">byAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Returns only backup jobs that were created before the specified date.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AbyCreatedBefore%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe POSIX
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyCreatedBefore%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">byCreatedBefore</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Returns only backup jobs that will be stored in the specified backup</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- vault. Backup vaults are identified by names that are unique to the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- account used to create them and the Amazon Web Services Region where</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- they are created. They consist of lowercase letters, numbers, and</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AbyBackupVaultName%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyBackupVaultName%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">byBackupVaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Returns only backup jobs for the specified resources:</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @DynamoDB@ for Amazon DynamoDB</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @EBS@ for Amazon Elastic Block Store</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   @EC2@ for Amazon Elastic Compute Cloud</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @EFS@ for Amazon Elastic File System</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @RDS@ for Amazon Relational Database Service</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @Aurora@ for Amazon Aurora</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   @Storage Gateway@ for Storage Gateway</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AbyResourceType%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyResourceType%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">byResourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AnextToken%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AnextToken%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Returns only backup jobs that are in the specified state.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AbyState%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe BackupJobState
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyState%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">byState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJobState.html#BackupJobState"><span class="hs-identifier hs-type">BackupJobState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to be returned.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBackupJobs%27"><span class="annot"><span class="annottext">ListBackupJobs -&gt; Maybe Natural
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AmaxResults%3AListBackupJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316898"><span id="local-6989586621679316900"><span class="annot"><span class="annottext">ListBackupJobs -&gt; ListBackupJobs -&gt; Bool
+(ListBackupJobs -&gt; ListBackupJobs -&gt; Bool)
+-&gt; (ListBackupJobs -&gt; ListBackupJobs -&gt; Bool) -&gt; Eq ListBackupJobs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBackupJobs -&gt; ListBackupJobs -&gt; Bool
+$c/= :: ListBackupJobs -&gt; ListBackupJobs -&gt; Bool
+== :: ListBackupJobs -&gt; ListBackupJobs -&gt; Bool
+$c== :: ListBackupJobs -&gt; ListBackupJobs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316889"><span id="local-6989586621679316891"><span id="local-6989586621679316893"><span id="local-6989586621679316895"><span class="annot"><span class="annottext">ReadPrec [ListBackupJobs]
+ReadPrec ListBackupJobs
+Int -&gt; ReadS ListBackupJobs
+ReadS [ListBackupJobs]
+(Int -&gt; ReadS ListBackupJobs)
+-&gt; ReadS [ListBackupJobs]
+-&gt; ReadPrec ListBackupJobs
+-&gt; ReadPrec [ListBackupJobs]
+-&gt; Read ListBackupJobs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListBackupJobs]
+$creadListPrec :: ReadPrec [ListBackupJobs]
+readPrec :: ReadPrec ListBackupJobs
+$creadPrec :: ReadPrec ListBackupJobs
+readList :: ReadS [ListBackupJobs]
+$creadList :: ReadS [ListBackupJobs]
+readsPrec :: Int -&gt; ReadS ListBackupJobs
+$creadsPrec :: Int -&gt; ReadS ListBackupJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316882"><span id="local-6989586621679316884"><span id="local-6989586621679316886"><span class="annot"><span class="annottext">Int -&gt; ListBackupJobs -&gt; ShowS
+[ListBackupJobs] -&gt; ShowS
+ListBackupJobs -&gt; String
+(Int -&gt; ListBackupJobs -&gt; ShowS)
+-&gt; (ListBackupJobs -&gt; String)
+-&gt; ([ListBackupJobs] -&gt; ShowS)
+-&gt; Show ListBackupJobs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBackupJobs] -&gt; ShowS
+$cshowList :: [ListBackupJobs] -&gt; ShowS
+show :: ListBackupJobs -&gt; String
+$cshow :: ListBackupJobs -&gt; String
+showsPrec :: Int -&gt; ListBackupJobs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBackupJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListBackupJobs -&gt; Rep ListBackupJobs x)
+-&gt; (forall x. Rep ListBackupJobs x -&gt; ListBackupJobs)
+-&gt; Generic ListBackupJobs
+forall x. Rep ListBackupJobs x -&gt; ListBackupJobs
+forall x. ListBackupJobs -&gt; Rep ListBackupJobs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBackupJobs x -&gt; ListBackupJobs
+$cfrom :: forall x. ListBackupJobs -&gt; Rep ListBackupJobs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Create a value of 'ListBackupJobs' with all optional fields omitted.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'byResourceArn', 'listBackupJobs_byResourceArn' - Returns only backup jobs that match the specified resource Amazon</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'byCreatedAfter', 'listBackupJobs_byCreatedAfter' - Returns only backup jobs that were created after the specified date.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'byAccountId', 'listBackupJobs_byAccountId' - The account ID to list the jobs from. Returns only backup jobs</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- associated with the specified account ID.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- If used from an Organizations management account, passing @*@ returns</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- all jobs across the organization.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'byCreatedBefore', 'listBackupJobs_byCreatedBefore' - Returns only backup jobs that were created before the specified date.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'byBackupVaultName', 'listBackupJobs_byBackupVaultName' - Returns only backup jobs that will be stored in the specified backup</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- vault. Backup vaults are identified by names that are unique to the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- account used to create them and the Amazon Web Services Region where</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- they are created. They consist of lowercase letters, numbers, and</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'byResourceType', 'listBackupJobs_byResourceType' - Returns only backup jobs for the specified resources:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @DynamoDB@ for Amazon DynamoDB</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @EBS@ for Amazon Elastic Block Store</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @EC2@ for Amazon Elastic Compute Cloud</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @EFS@ for Amazon Elastic File System</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   @RDS@ for Amazon Relational Database Service</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @Aurora@ for Amazon Aurora</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- -   @Storage Gateway@ for Storage Gateway</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'nextToken', 'listBackupJobs_nextToken' - The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'byState', 'listBackupJobs_byState' - Returns only backup jobs that are in the specified state.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'maxResults', 'listBackupJobs_maxResults' - The maximum number of items to be returned.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#newListBackupJobs"><span class="hs-identifier hs-type">newListBackupJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span>
+</span><span id="line-162"></span><span id="newListBackupJobs"><span class="annot"><span class="annottext">newListBackupJobs :: ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#newListBackupJobs"><span class="hs-identifier hs-var hs-var">newListBackupJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">ListBackupJobs' :: Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe BackupJobState
+-&gt; Maybe Natural
+-&gt; ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:byResourceArn:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyResourceArn%3AListBackupJobs%27"><span class="hs-identifier hs-var">byResourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:byCreatedAfter:ListBackupJobs' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyCreatedAfter%3AListBackupJobs%27"><span class="hs-identifier hs-var">byCreatedAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:byAccountId:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyAccountId%3AListBackupJobs%27"><span class="hs-identifier hs-var">byAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:byCreatedBefore:ListBackupJobs' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyCreatedBefore%3AListBackupJobs%27"><span class="hs-identifier hs-var">byCreatedBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:byBackupVaultName:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyBackupVaultName%3AListBackupJobs%27"><span class="hs-identifier hs-var">byBackupVaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:byResourceType:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyResourceType%3AListBackupJobs%27"><span class="hs-identifier hs-var">byResourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AnextToken%3AListBackupJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:byState:ListBackupJobs' :: Maybe BackupJobState
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyState%3AListBackupJobs%27"><span class="hs-identifier hs-var">byState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupJobState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListBackupJobs' :: Maybe Natural
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AmaxResults%3AListBackupJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Returns only backup jobs that match the specified resource Amazon</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Resource Name (ARN).</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byResourceArn"><span class="hs-identifier hs-type">listBackupJobs_byResourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="listBackupJobs_byResourceArn"><span class="annot"><span class="annottext">listBackupJobs_byResourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byResourceArn"><span class="hs-identifier hs-var hs-var">listBackupJobs_byResourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe Text)
+-&gt; (ListBackupJobs -&gt; Maybe Text -&gt; ListBackupJobs)
+-&gt; Lens ListBackupJobs ListBackupJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316875"><span class="annot"><span class="annottext">Maybe Text
+byResourceArn :: Maybe Text
+$sel:byResourceArn:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316875"><span class="hs-identifier hs-var hs-var">byResourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316875"><span class="hs-identifier hs-var">byResourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316874"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316873"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byResourceArn:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyResourceArn%3AListBackupJobs%27"><span class="hs-identifier hs-var">byResourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | Returns only backup jobs that were created after the specified date.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byCreatedAfter"><span class="hs-identifier hs-type">listBackupJobs_byCreatedAfter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="listBackupJobs_byCreatedAfter"><span class="annot"><span class="annottext">listBackupJobs_byCreatedAfter :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byCreatedAfter"><span class="hs-identifier hs-var hs-var">listBackupJobs_byCreatedAfter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe POSIX)
+-&gt; (ListBackupJobs -&gt; Maybe POSIX -&gt; ListBackupJobs)
+-&gt; Lens ListBackupJobs ListBackupJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316872"><span class="annot"><span class="annottext">Maybe POSIX
+byCreatedAfter :: Maybe POSIX
+$sel:byCreatedAfter:ListBackupJobs' :: ListBackupJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621679316872"><span class="hs-identifier hs-var hs-var">byCreatedAfter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316872"><span class="hs-identifier hs-var">byCreatedAfter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316871"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316870"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byCreatedAfter:ListBackupJobs' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyCreatedAfter%3AListBackupJobs%27"><span class="hs-identifier hs-var">byCreatedAfter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListBackupJobs -&gt; f ListBackupJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackupJobs
+-&gt; f ListBackupJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The account ID to list the jobs from. Returns only backup jobs</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- associated with the specified account ID.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- If used from an Organizations management account, passing @*@ returns</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- all jobs across the organization.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byAccountId"><span class="hs-identifier hs-type">listBackupJobs_byAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listBackupJobs_byAccountId"><span class="annot"><span class="annottext">listBackupJobs_byAccountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byAccountId"><span class="hs-identifier hs-var hs-var">listBackupJobs_byAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe Text)
+-&gt; (ListBackupJobs -&gt; Maybe Text -&gt; ListBackupJobs)
+-&gt; Lens ListBackupJobs ListBackupJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316866"><span class="annot"><span class="annottext">Maybe Text
+byAccountId :: Maybe Text
+$sel:byAccountId:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316866"><span class="hs-identifier hs-var hs-var">byAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316866"><span class="hs-identifier hs-var">byAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316865"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byAccountId:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyAccountId%3AListBackupJobs%27"><span class="hs-identifier hs-var">byAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Returns only backup jobs that were created before the specified date.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byCreatedBefore"><span class="hs-identifier hs-type">listBackupJobs_byCreatedBefore</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="listBackupJobs_byCreatedBefore"><span class="annot"><span class="annottext">listBackupJobs_byCreatedBefore :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byCreatedBefore"><span class="hs-identifier hs-var hs-var">listBackupJobs_byCreatedBefore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe POSIX)
+-&gt; (ListBackupJobs -&gt; Maybe POSIX -&gt; ListBackupJobs)
+-&gt; Lens ListBackupJobs ListBackupJobs (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316863"><span class="annot"><span class="annottext">Maybe POSIX
+byCreatedBefore :: Maybe POSIX
+$sel:byCreatedBefore:ListBackupJobs' :: ListBackupJobs -&gt; Maybe POSIX
+</span><a href="#local-6989586621679316863"><span class="hs-identifier hs-var hs-var">byCreatedBefore</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316863"><span class="hs-identifier hs-var">byCreatedBefore</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316862"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316861"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byCreatedBefore:ListBackupJobs' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyCreatedBefore%3AListBackupJobs%27"><span class="hs-identifier hs-var">byCreatedBefore</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListBackupJobs -&gt; f ListBackupJobs)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListBackupJobs
+-&gt; f ListBackupJobs
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Returns only backup jobs that will be stored in the specified backup</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- vault. Backup vaults are identified by names that are unique to the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- account used to create them and the Amazon Web Services Region where</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- they are created. They consist of lowercase letters, numbers, and</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byBackupVaultName"><span class="hs-identifier hs-type">listBackupJobs_byBackupVaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="listBackupJobs_byBackupVaultName"><span class="annot"><span class="annottext">listBackupJobs_byBackupVaultName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byBackupVaultName"><span class="hs-identifier hs-var hs-var">listBackupJobs_byBackupVaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe Text)
+-&gt; (ListBackupJobs -&gt; Maybe Text -&gt; ListBackupJobs)
+-&gt; Lens ListBackupJobs ListBackupJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316860"><span class="annot"><span class="annottext">Maybe Text
+byBackupVaultName :: Maybe Text
+$sel:byBackupVaultName:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316860"><span class="hs-identifier hs-var hs-var">byBackupVaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316860"><span class="hs-identifier hs-var">byBackupVaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316859"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316858"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byBackupVaultName:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyBackupVaultName%3AListBackupJobs%27"><span class="hs-identifier hs-var">byBackupVaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Returns only backup jobs for the specified resources:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- -   @DynamoDB@ for Amazon DynamoDB</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- -   @EBS@ for Amazon Elastic Block Store</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   @EC2@ for Amazon Elastic Compute Cloud</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   @EFS@ for Amazon Elastic File System</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- -   @RDS@ for Amazon Relational Database Service</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- -   @Aurora@ for Amazon Aurora</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- -   @Storage Gateway@ for Storage Gateway</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byResourceType"><span class="hs-identifier hs-type">listBackupJobs_byResourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="listBackupJobs_byResourceType"><span class="annot"><span class="annottext">listBackupJobs_byResourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byResourceType"><span class="hs-identifier hs-var hs-var">listBackupJobs_byResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe Text)
+-&gt; (ListBackupJobs -&gt; Maybe Text -&gt; ListBackupJobs)
+-&gt; Lens ListBackupJobs ListBackupJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316857"><span class="annot"><span class="annottext">Maybe Text
+byResourceType :: Maybe Text
+$sel:byResourceType:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316857"><span class="hs-identifier hs-var hs-var">byResourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316857"><span class="hs-identifier hs-var">byResourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316856"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byResourceType:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyResourceType%3AListBackupJobs%27"><span class="hs-identifier hs-var">byResourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_nextToken"><span class="hs-identifier hs-type">listBackupJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="listBackupJobs_nextToken"><span class="annot"><span class="annottext">listBackupJobs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_nextToken"><span class="hs-identifier hs-var hs-var">listBackupJobs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe Text)
+-&gt; (ListBackupJobs -&gt; Maybe Text -&gt; ListBackupJobs)
+-&gt; Lens ListBackupJobs ListBackupJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316854"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316854"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316854"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316853"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupJobs' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AnextToken%3AListBackupJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | Returns only backup jobs that are in the specified state.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byState"><span class="hs-identifier hs-type">listBackupJobs_byState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJobState.html#BackupJobState"><span class="hs-identifier hs-type">BackupJobState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="listBackupJobs_byState"><span class="annot"><span class="annottext">listBackupJobs_byState :: (Maybe BackupJobState -&gt; f (Maybe BackupJobState))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_byState"><span class="hs-identifier hs-var hs-var">listBackupJobs_byState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe BackupJobState)
+-&gt; (ListBackupJobs -&gt; Maybe BackupJobState -&gt; ListBackupJobs)
+-&gt; Lens
+     ListBackupJobs
+     ListBackupJobs
+     (Maybe BackupJobState)
+     (Maybe BackupJobState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316851"><span class="annot"><span class="annottext">Maybe BackupJobState
+byState :: Maybe BackupJobState
+$sel:byState:ListBackupJobs' :: ListBackupJobs -&gt; Maybe BackupJobState
+</span><a href="#local-6989586621679316851"><span class="hs-identifier hs-var hs-var">byState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupJobState
+</span><a href="#local-6989586621679316851"><span class="hs-identifier hs-var">byState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316850"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316849"><span class="annot"><span class="annottext">Maybe BackupJobState
+</span><a href="#local-6989586621679316849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:byState:ListBackupJobs' :: Maybe BackupJobState
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbyState%3AListBackupJobs%27"><span class="hs-identifier hs-var">byState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupJobState
+</span><a href="#local-6989586621679316849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | The maximum number of items to be returned.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_maxResults"><span class="hs-identifier hs-type">listBackupJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="listBackupJobs_maxResults"><span class="annot"><span class="annottext">listBackupJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListBackupJobs -&gt; f ListBackupJobs
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobs_maxResults"><span class="hs-identifier hs-var hs-var">listBackupJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobs -&gt; Maybe Natural)
+-&gt; (ListBackupJobs -&gt; Maybe Natural -&gt; ListBackupJobs)
+-&gt; Lens
+     ListBackupJobs ListBackupJobs (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316848"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Natural
+</span><a href="#local-6989586621679316848"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316848"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316847"><span class="annot"><span class="annottext">s :: ListBackupJobs
+</span><a href="#local-6989586621679316847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316846"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobs
+</span><a href="#local-6989586621679316847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBackupJobs' :: Maybe Natural
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AmaxResults%3AListBackupJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-239"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679316842"><span class="annot"><span class="annottext">request :: ListBackupJobs -&gt; Request ListBackupJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBackupJobs -&gt; Request ListBackupJobs
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679316838"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListBackupJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBackupJobs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListBackupJobs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListBackupJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListBackupJobs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316835"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316834"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316834"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316833"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BackupJob] -&gt; Maybe Text -&gt; Int -&gt; ListBackupJobsResponse
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-var">ListBackupJobsResponse'</span></a></span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BackupJob] -&gt; Maybe Text -&gt; Int -&gt; ListBackupJobsResponse)
+-&gt; Either String (Maybe [BackupJob])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListBackupJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BackupJob]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupJobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BackupJob]))
+-&gt; Maybe [BackupJob] -&gt; Either String (Maybe [BackupJob])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BackupJob]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListBackupJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListBackupJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListBackupJobsResponse)
+-&gt; Either String Int -&gt; Either String ListBackupJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316835"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316824"><span id="local-6989586621679316826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span></span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679316817"><span class="annot"><span class="annottext">toHeaders :: ListBackupJobs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBackupJobs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-259"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-262"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679316811"><span class="annot"><span class="annottext">toPath :: ListBackupJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBackupJobs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/backup-jobs/&quot;</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs"><span class="hs-identifier hs-type">ListBackupJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679316807"><span class="annot"><span class="annottext">toQuery :: ListBackupJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobs%27"><span class="hs-identifier hs-type">ListBackupJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316797"><span id="local-6989586621679316798"><span id="local-6989586621679316799"><span id="local-6989586621679316800"><span id="local-6989586621679316801"><span id="local-6989586621679316802"><span id="local-6989586621679316803"><span id="local-6989586621679316804"><span id="local-6989586621679316805"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe POSIX
+Maybe BackupJobState
+maxResults :: Maybe Natural
+byState :: Maybe BackupJobState
+nextToken :: Maybe Text
+byResourceType :: Maybe Text
+byBackupVaultName :: Maybe Text
+byCreatedBefore :: Maybe POSIX
+byAccountId :: Maybe Text
+byCreatedAfter :: Maybe POSIX
+byResourceArn :: Maybe Text
+$sel:maxResults:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Natural
+$sel:byState:ListBackupJobs' :: ListBackupJobs -&gt; Maybe BackupJobState
+$sel:nextToken:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+$sel:byResourceType:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+$sel:byBackupVaultName:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+$sel:byCreatedBefore:ListBackupJobs' :: ListBackupJobs -&gt; Maybe POSIX
+$sel:byAccountId:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+$sel:byCreatedAfter:ListBackupJobs' :: ListBackupJobs -&gt; Maybe POSIX
+$sel:byResourceArn:ListBackupJobs' :: ListBackupJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679316797"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-272"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;resourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316805"><span class="hs-identifier hs-var">byResourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;createdAfter&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316804"><span class="hs-identifier hs-var">byCreatedAfter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;accountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316803"><span class="hs-identifier hs-var">byAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;createdBefore&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679316802"><span class="hs-identifier hs-var">byCreatedBefore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;backupVaultName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316801"><span class="hs-identifier hs-var">byBackupVaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;resourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316800"><span class="hs-identifier hs-var">byResourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316799"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;state&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe BackupJobState -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe BackupJobState
+</span><a href="#local-6989586621679316798"><span class="hs-identifier hs-var">byState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679316797"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | /See:/ 'newListBackupJobsResponse' smart constructor.</span><span>
+</span><span id="line-284"></span><span id="local-6989586621679316794"><span id="local-6989586621679316795"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBackupJobsResponse"><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-var">ListBackupJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBackupJobsResponse%27"><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-var">ListBackupJobsResponse'</span></a></span></span><span>
+</span><span id="line-285"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of structures containing metadata about your backup jobs</span><span>
+</span><span id="line-286"></span><span>    </span><span class="hs-comment">-- returned in JSON format.</span><span>
+</span><span id="line-287"></span><span>    </span><span id="%24sel%3AbackupJobs%3AListBackupJobsResponse%27"><span class="annot"><span class="annottext">ListBackupJobsResponse -&gt; Maybe [BackupJob]
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbackupJobs%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var hs-var">backupJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#BackupJob"><span class="hs-identifier hs-type">BackupJob</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-290"></span><span>    </span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-292"></span><span>    </span><span id="%24sel%3AnextToken%3AListBackupJobsResponse%27"><span class="annot"><span class="annottext">ListBackupJobsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AnextToken%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-294"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBackupJobsResponse%27"><span class="annot"><span class="annottext">ListBackupJobsResponse -&gt; Int
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AhttpStatus%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-295"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316787"><span id="local-6989586621679316789"><span class="annot"><span class="annottext">ListBackupJobsResponse -&gt; ListBackupJobsResponse -&gt; Bool
+(ListBackupJobsResponse -&gt; ListBackupJobsResponse -&gt; Bool)
+-&gt; (ListBackupJobsResponse -&gt; ListBackupJobsResponse -&gt; Bool)
+-&gt; Eq ListBackupJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListBackupJobsResponse -&gt; ListBackupJobsResponse -&gt; Bool
+$c/= :: ListBackupJobsResponse -&gt; ListBackupJobsResponse -&gt; Bool
+== :: ListBackupJobsResponse -&gt; ListBackupJobsResponse -&gt; Bool
+$c== :: ListBackupJobsResponse -&gt; ListBackupJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316779"><span id="local-6989586621679316781"><span id="local-6989586621679316783"><span id="local-6989586621679316785"><span class="annot"><span class="annottext">ReadPrec [ListBackupJobsResponse]
+ReadPrec ListBackupJobsResponse
+Int -&gt; ReadS ListBackupJobsResponse
+ReadS [ListBackupJobsResponse]
+(Int -&gt; ReadS ListBackupJobsResponse)
+-&gt; ReadS [ListBackupJobsResponse]
+-&gt; ReadPrec ListBackupJobsResponse
+-&gt; ReadPrec [ListBackupJobsResponse]
+-&gt; Read ListBackupJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListBackupJobsResponse]
+$creadListPrec :: ReadPrec [ListBackupJobsResponse]
+readPrec :: ReadPrec ListBackupJobsResponse
+$creadPrec :: ReadPrec ListBackupJobsResponse
+readList :: ReadS [ListBackupJobsResponse]
+$creadList :: ReadS [ListBackupJobsResponse]
+readsPrec :: Int -&gt; ReadS ListBackupJobsResponse
+$creadsPrec :: Int -&gt; ReadS ListBackupJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316773"><span id="local-6989586621679316775"><span id="local-6989586621679316777"><span class="annot"><span class="annottext">Int -&gt; ListBackupJobsResponse -&gt; ShowS
+[ListBackupJobsResponse] -&gt; ShowS
+ListBackupJobsResponse -&gt; String
+(Int -&gt; ListBackupJobsResponse -&gt; ShowS)
+-&gt; (ListBackupJobsResponse -&gt; String)
+-&gt; ([ListBackupJobsResponse] -&gt; ShowS)
+-&gt; Show ListBackupJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListBackupJobsResponse] -&gt; ShowS
+$cshowList :: [ListBackupJobsResponse] -&gt; ShowS
+show :: ListBackupJobsResponse -&gt; String
+$cshow :: ListBackupJobsResponse -&gt; String
+showsPrec :: Int -&gt; ListBackupJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListBackupJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListBackupJobsResponse -&gt; Rep ListBackupJobsResponse x)
+-&gt; (forall x.
+    Rep ListBackupJobsResponse x -&gt; ListBackupJobsResponse)
+-&gt; Generic ListBackupJobsResponse
+forall x. Rep ListBackupJobsResponse x -&gt; ListBackupJobsResponse
+forall x. ListBackupJobsResponse -&gt; Rep ListBackupJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListBackupJobsResponse x -&gt; ListBackupJobsResponse
+$cfrom :: forall x. ListBackupJobsResponse -&gt; Rep ListBackupJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- Create a value of 'ListBackupJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- 'backupJobs', 'listBackupJobsResponse_backupJobs' - An array of structures containing metadata about your backup jobs</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- returned in JSON format.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- 'nextToken', 'listBackupJobsResponse_nextToken' - The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- 'httpStatus', 'listBackupJobsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#newListBackupJobsResponse"><span class="hs-identifier hs-type">newListBackupJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-316"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-317"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-318"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span>
+</span><span id="line-319"></span><span id="newListBackupJobsResponse"><span class="annot"><span class="annottext">newListBackupJobsResponse :: Int -&gt; ListBackupJobsResponse
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#newListBackupJobsResponse"><span class="hs-identifier hs-var hs-var">newListBackupJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679316770"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316770"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-320"></span><span>  </span><span class="annot"><span class="annottext">ListBackupJobsResponse' :: Maybe [BackupJob] -&gt; Maybe Text -&gt; Int -&gt; ListBackupJobsResponse
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-type">ListBackupJobsResponse'</span></a></span><span>
+</span><span id="line-321"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupJobs:ListBackupJobsResponse' :: Maybe [BackupJob]
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbackupJobs%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var">backupJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BackupJob]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-323"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AnextToken%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackupJobsResponse' :: Int
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AhttpStatus%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316770"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- | An array of structures containing metadata about your backup jobs</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- returned in JSON format.</span><span>
+</span><span id="line-329"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_backupJobs"><span class="hs-identifier hs-type">listBackupJobsResponse_backupJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.BackupJob.html#BackupJob"><span class="hs-identifier hs-type">BackupJob</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span id="listBackupJobsResponse_backupJobs"><span class="annot"><span class="annottext">listBackupJobsResponse_backupJobs :: (Maybe [BackupJob] -&gt; f (Maybe [BackupJob]))
+-&gt; ListBackupJobsResponse -&gt; f ListBackupJobsResponse
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_backupJobs"><span class="hs-identifier hs-var hs-var">listBackupJobsResponse_backupJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobsResponse -&gt; Maybe [BackupJob])
+-&gt; (ListBackupJobsResponse
+    -&gt; Maybe [BackupJob] -&gt; ListBackupJobsResponse)
+-&gt; Lens
+     ListBackupJobsResponse
+     ListBackupJobsResponse
+     (Maybe [BackupJob])
+     (Maybe [BackupJob])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-type">ListBackupJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316769"><span class="annot"><span class="annottext">Maybe [BackupJob]
+backupJobs :: Maybe [BackupJob]
+$sel:backupJobs:ListBackupJobsResponse' :: ListBackupJobsResponse -&gt; Maybe [BackupJob]
+</span><a href="#local-6989586621679316769"><span class="hs-identifier hs-var hs-var">backupJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupJob]
+</span><a href="#local-6989586621679316769"><span class="hs-identifier hs-var">backupJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316768"><span class="annot"><span class="annottext">s :: ListBackupJobsResponse
+</span><a href="#local-6989586621679316768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-type">ListBackupJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316767"><span class="annot"><span class="annottext">Maybe [BackupJob]
+</span><a href="#local-6989586621679316767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobsResponse
+</span><a href="#local-6989586621679316768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupJobs:ListBackupJobsResponse' :: Maybe [BackupJob]
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AbackupJobs%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var">backupJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BackupJob]
+</span><a href="#local-6989586621679316767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BackupJob] -&gt; f (Maybe [BackupJob]))
+ -&gt; ListBackupJobsResponse -&gt; f ListBackupJobsResponse)
+-&gt; ((Maybe [BackupJob] -&gt; f (Maybe [BackupJob]))
+    -&gt; Maybe [BackupJob] -&gt; f (Maybe [BackupJob]))
+-&gt; (Maybe [BackupJob] -&gt; f (Maybe [BackupJob]))
+-&gt; ListBackupJobsResponse
+-&gt; f ListBackupJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BackupJob] [BackupJob] [BackupJob] [BackupJob]
+-&gt; Iso
+     (Maybe [BackupJob])
+     (Maybe [BackupJob])
+     (Maybe [BackupJob])
+     (Maybe [BackupJob])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [BackupJob] [BackupJob] [BackupJob] [BackupJob]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_nextToken"><span class="hs-identifier hs-type">listBackupJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="listBackupJobsResponse_nextToken"><span class="annot"><span class="annottext">listBackupJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBackupJobsResponse -&gt; f ListBackupJobsResponse
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listBackupJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobsResponse -&gt; Maybe Text)
+-&gt; (ListBackupJobsResponse -&gt; Maybe Text -&gt; ListBackupJobsResponse)
+-&gt; Lens
+     ListBackupJobsResponse
+     ListBackupJobsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-type">ListBackupJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316765"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListBackupJobsResponse' :: ListBackupJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679316765"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316765"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316764"><span class="annot"><span class="annottext">s :: ListBackupJobsResponse
+</span><a href="#local-6989586621679316764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-type">ListBackupJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobsResponse
+</span><a href="#local-6989586621679316764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBackupJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AnextToken%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-340"></span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_httpStatus"><span class="hs-identifier hs-type">listBackupJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-341"></span><span id="listBackupJobsResponse_httpStatus"><span class="annot"><span class="annottext">listBackupJobsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListBackupJobsResponse -&gt; f ListBackupJobsResponse
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#listBackupJobsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listBackupJobsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBackupJobsResponse -&gt; Int)
+-&gt; (ListBackupJobsResponse -&gt; Int -&gt; ListBackupJobsResponse)
+-&gt; Lens ListBackupJobsResponse ListBackupJobsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-type">ListBackupJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316762"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListBackupJobsResponse' :: ListBackupJobsResponse -&gt; Int
+</span><a href="#local-6989586621679316762"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316762"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316761"><span class="annot"><span class="annottext">s :: ListBackupJobsResponse
+</span><a href="#local-6989586621679316761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse%27"><span class="hs-identifier hs-type">ListBackupJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBackupJobsResponse
+</span><a href="#local-6989586621679316761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBackupJobsResponse' :: Int
+</span><a href="Network.AWS.Backup.ListBackupJobs.html#%24sel%3AhttpStatus%3AListBackupJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.ListBackupJobs.html#ListBackupJobsResponse"><span class="hs-identifier hs-type">ListBackupJobsResponse</span></a></span></span><span>
+</span><span id="line-344"></span></pre></body></html>

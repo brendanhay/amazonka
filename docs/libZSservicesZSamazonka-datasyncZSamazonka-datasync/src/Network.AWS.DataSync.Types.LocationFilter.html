@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.Types.LocationFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.Types.LocationFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilterName.html"><span class="hs-identifier">Network.AWS.DataSync.Types.LocationFilterName</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Operator.html"><span class="hs-identifier">Network.AWS.DataSync.Types.Operator</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | You can use API filters to narrow down the list of resources returned by</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- @ListLocations@. For example, to retrieve all your Amazon S3 locations,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- you can use @ListLocations@ with filter name @LocationType S3@ and</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @Operator Equals@.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newLocationFilter' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679249624"><span id="local-6989586621679249625"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocationFilter"><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-var">LocationFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocationFilter%27"><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-var">LocationFilter'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter being used. Each API call supports a list of</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- filters that are available for it (for example, @LocationType@ for</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @ListLocations@).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3ALocationFilter%27"><span class="annot"><span class="annottext">LocationFilter -&gt; LocationFilterName
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Aname%3ALocationFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilterName.html#LocationFilterName"><span class="hs-identifier hs-type">LocationFilterName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The values that you want to filter for. For example, you might want to</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- display only Amazon S3 locations.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Avalues%3ALocationFilter%27"><span class="annot"><span class="annottext">LocationFilter -&gt; [Text]
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Avalues%3ALocationFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The operator that is used to compare filter values (for example,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @Equals@ or @Contains@). For more about API filtering operators, see</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html API filters for ListTasks and ListLocations&gt;.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aoperator%3ALocationFilter%27"><span class="annot"><span class="annottext">LocationFilter -&gt; Operator
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Aoperator%3ALocationFilter%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249616"><span id="local-6989586621679249618"><span class="annot"><span class="annottext">LocationFilter -&gt; LocationFilter -&gt; Bool
+(LocationFilter -&gt; LocationFilter -&gt; Bool)
+-&gt; (LocationFilter -&gt; LocationFilter -&gt; Bool) -&gt; Eq LocationFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LocationFilter -&gt; LocationFilter -&gt; Bool
+$c/= :: LocationFilter -&gt; LocationFilter -&gt; Bool
+== :: LocationFilter -&gt; LocationFilter -&gt; Bool
+$c== :: LocationFilter -&gt; LocationFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249607"><span id="local-6989586621679249609"><span id="local-6989586621679249611"><span id="local-6989586621679249613"><span class="annot"><span class="annottext">ReadPrec [LocationFilter]
+ReadPrec LocationFilter
+Int -&gt; ReadS LocationFilter
+ReadS [LocationFilter]
+(Int -&gt; ReadS LocationFilter)
+-&gt; ReadS [LocationFilter]
+-&gt; ReadPrec LocationFilter
+-&gt; ReadPrec [LocationFilter]
+-&gt; Read LocationFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LocationFilter]
+$creadListPrec :: ReadPrec [LocationFilter]
+readPrec :: ReadPrec LocationFilter
+$creadPrec :: ReadPrec LocationFilter
+readList :: ReadS [LocationFilter]
+$creadList :: ReadS [LocationFilter]
+readsPrec :: Int -&gt; ReadS LocationFilter
+$creadsPrec :: Int -&gt; ReadS LocationFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249600"><span id="local-6989586621679249602"><span id="local-6989586621679249604"><span class="annot"><span class="annottext">Int -&gt; LocationFilter -&gt; ShowS
+[LocationFilter] -&gt; ShowS
+LocationFilter -&gt; String
+(Int -&gt; LocationFilter -&gt; ShowS)
+-&gt; (LocationFilter -&gt; String)
+-&gt; ([LocationFilter] -&gt; ShowS)
+-&gt; Show LocationFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LocationFilter] -&gt; ShowS
+$cshowList :: [LocationFilter] -&gt; ShowS
+show :: LocationFilter -&gt; String
+$cshow :: LocationFilter -&gt; String
+showsPrec :: Int -&gt; LocationFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; LocationFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. LocationFilter -&gt; Rep LocationFilter x)
+-&gt; (forall x. Rep LocationFilter x -&gt; LocationFilter)
+-&gt; Generic LocationFilter
+forall x. Rep LocationFilter x -&gt; LocationFilter
+forall x. LocationFilter -&gt; Rep LocationFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LocationFilter x -&gt; LocationFilter
+$cfrom :: forall x. LocationFilter -&gt; Rep LocationFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'LocationFilter' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'name', 'locationFilter_name' - The name of the filter being used. Each API call supports a list of</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- filters that are available for it (for example, @LocationType@ for</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- @ListLocations@).</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'values', 'locationFilter_values' - The values that you want to filter for. For example, you might want to</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- display only Amazon S3 locations.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'operator', 'locationFilter_operator' - The operator that is used to compare filter values (for example,</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- @Equals@ or @Contains@). For more about API filtering operators, see</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html API filters for ListTasks and ListLocations&gt;.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#newLocationFilter"><span class="hs-identifier hs-type">newLocationFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilterName.html#LocationFilterName"><span class="hs-identifier hs-type">LocationFilterName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'operator'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span><span>
+</span><span id="line-73"></span><span id="newLocationFilter"><span class="annot"><span class="annottext">newLocationFilter :: LocationFilterName -&gt; Operator -&gt; LocationFilter
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#newLocationFilter"><span class="hs-identifier hs-var hs-var">newLocationFilter</span></a></span></span><span> </span><span id="local-6989586621679249594"><span class="annot"><span class="annottext">LocationFilterName
+</span><a href="#local-6989586621679249594"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679249593"><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679249593"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">LocationFilter' :: LocationFilterName -&gt; [Text] -&gt; Operator -&gt; LocationFilter
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:LocationFilter' :: LocationFilterName
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Aname%3ALocationFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LocationFilterName
+</span><a href="#local-6989586621679249594"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:LocationFilter' :: [Text]
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Avalues%3ALocationFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:operator:LocationFilter' :: Operator
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Aoperator%3ALocationFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679249593"><span class="hs-identifier hs-var">pOperator_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The name of the filter being used. Each API call supports a list of</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- filters that are available for it (for example, @LocationType@ for</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @ListLocations@).</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#locationFilter_name"><span class="hs-identifier hs-type">locationFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilterName.html#LocationFilterName"><span class="hs-identifier hs-type">LocationFilterName</span></a></span><span>
+</span><span id="line-84"></span><span id="locationFilter_name"><span class="annot"><span class="annottext">locationFilter_name :: (LocationFilterName -&gt; f LocationFilterName)
+-&gt; LocationFilter -&gt; f LocationFilter
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#locationFilter_name"><span class="hs-identifier hs-var hs-var">locationFilter_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationFilter -&gt; LocationFilterName)
+-&gt; (LocationFilter -&gt; LocationFilterName -&gt; LocationFilter)
+-&gt; Lens
+     LocationFilter LocationFilter LocationFilterName LocationFilterName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249589"><span class="annot"><span class="annottext">LocationFilterName
+name :: LocationFilterName
+$sel:name:LocationFilter' :: LocationFilter -&gt; LocationFilterName
+</span><a href="#local-6989586621679249589"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationFilterName
+</span><a href="#local-6989586621679249589"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249588"><span class="annot"><span class="annottext">s :: LocationFilter
+</span><a href="#local-6989586621679249588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249587"><span class="annot"><span class="annottext">LocationFilterName
+</span><a href="#local-6989586621679249587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationFilter
+</span><a href="#local-6989586621679249588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:LocationFilter' :: LocationFilterName
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Aname%3ALocationFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LocationFilterName
+</span><a href="#local-6989586621679249587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The values that you want to filter for. For example, you might want to</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- display only Amazon S3 locations.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#locationFilter_values"><span class="hs-identifier hs-type">locationFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-89"></span><span id="locationFilter_values"><span class="annot"><span class="annottext">locationFilter_values :: ([Text] -&gt; f [Text]) -&gt; LocationFilter -&gt; f LocationFilter
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#locationFilter_values"><span class="hs-identifier hs-var hs-var">locationFilter_values</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationFilter -&gt; [Text])
+-&gt; (LocationFilter -&gt; [Text] -&gt; LocationFilter)
+-&gt; Lens LocationFilter LocationFilter [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249585"><span class="annot"><span class="annottext">[Text]
+values :: [Text]
+$sel:values:LocationFilter' :: LocationFilter -&gt; [Text]
+</span><a href="#local-6989586621679249585"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679249585"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249584"><span class="annot"><span class="annottext">s :: LocationFilter
+</span><a href="#local-6989586621679249584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249583"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679249583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationFilter
+</span><a href="#local-6989586621679249584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:LocationFilter' :: [Text]
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Avalues%3ALocationFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679249583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; LocationFilter -&gt; f LocationFilter)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; LocationFilter
+-&gt; f LocationFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The operator that is used to compare filter values (for example,</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- @Equals@ or @Contains@). For more about API filtering operators, see</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html API filters for ListTasks and ListLocations&gt;.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#locationFilter_operator"><span class="hs-identifier hs-type">locationFilter_operator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-95"></span><span id="locationFilter_operator"><span class="annot"><span class="annottext">locationFilter_operator :: (Operator -&gt; f Operator) -&gt; LocationFilter -&gt; f LocationFilter
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#locationFilter_operator"><span class="hs-identifier hs-var hs-var">locationFilter_operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocationFilter -&gt; Operator)
+-&gt; (LocationFilter -&gt; Operator -&gt; LocationFilter)
+-&gt; Lens LocationFilter LocationFilter Operator Operator
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249579"><span class="annot"><span class="annottext">Operator
+operator :: Operator
+$sel:operator:LocationFilter' :: LocationFilter -&gt; Operator
+</span><a href="#local-6989586621679249579"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679249579"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249578"><span class="annot"><span class="annottext">s :: LocationFilter
+</span><a href="#local-6989586621679249578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249577"><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679249577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocationFilter
+</span><a href="#local-6989586621679249578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:LocationFilter' :: Operator
+</span><a href="Network.AWS.DataSync.Types.LocationFilter.html#%24sel%3Aoperator%3ALocationFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679249577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249573"><span id="local-6989586621679249575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249562"><span id="local-6989586621679249564"><span id="local-6989586621679249566"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter"><span class="hs-identifier hs-type">LocationFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679249560"><span class="annot"><span class="annottext">toJSON :: LocationFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.LocationFilter.html#LocationFilter%27"><span class="hs-identifier hs-type">LocationFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249556"><span id="local-6989586621679249557"><span id="local-6989586621679249558"><span class="annot"><span class="annottext">[Text]
+LocationFilterName
+Operator
+operator :: Operator
+values :: [Text]
+name :: LocationFilterName
+$sel:operator:LocationFilter' :: LocationFilter -&gt; Operator
+$sel:values:LocationFilter' :: LocationFilter -&gt; [Text]
+$sel:name:LocationFilter' :: LocationFilter -&gt; LocationFilterName
+</span><a href="#local-6989586621679249556"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LocationFilterName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LocationFilterName
+</span><a href="#local-6989586621679249558"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679249557"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Operator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679249556"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span></pre></body></html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates a transit gateway Connect peer from a device and link.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier">DisassociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#newDisassociateTransitGatewayConnectPeer"><span class="hs-identifier">newDisassociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeer_globalNetworkId"><span class="hs-identifier">disassociateTransitGatewayConnectPeer_globalNetworkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="hs-identifier">disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier">DisassociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#newDisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier">newDisassociateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="hs-identifier">disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier">disassociateTransitGatewayConnectPeerResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.html"><span class="hs-identifier">Network.AWS.NetworkManager.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDisassociateTransitGatewayConnectPeer' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679226790"><span id="local-6989586621679226791"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTransitGatewayConnectPeer"><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-var">DisassociateTransitGatewayConnectPeer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTransitGatewayConnectPeer%27"><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">DisassociateTransitGatewayConnectPeer'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AglobalNetworkId%3ADisassociateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AglobalNetworkId%3ADisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transit gateway Connect peer.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AtransitGatewayConnectPeerArn%3ADisassociateTransitGatewayConnectPeer%27"><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerArn%3ADisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226783"><span id="local-6989586621679226785"><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeer
+-&gt; DisassociateTransitGatewayConnectPeer -&gt; Bool
+(DisassociateTransitGatewayConnectPeer
+ -&gt; DisassociateTransitGatewayConnectPeer -&gt; Bool)
+-&gt; (DisassociateTransitGatewayConnectPeer
+    -&gt; DisassociateTransitGatewayConnectPeer -&gt; Bool)
+-&gt; Eq DisassociateTransitGatewayConnectPeer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateTransitGatewayConnectPeer
+-&gt; DisassociateTransitGatewayConnectPeer -&gt; Bool
+$c/= :: DisassociateTransitGatewayConnectPeer
+-&gt; DisassociateTransitGatewayConnectPeer -&gt; Bool
+== :: DisassociateTransitGatewayConnectPeer
+-&gt; DisassociateTransitGatewayConnectPeer -&gt; Bool
+$c== :: DisassociateTransitGatewayConnectPeer
+-&gt; DisassociateTransitGatewayConnectPeer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226774"><span id="local-6989586621679226776"><span id="local-6989586621679226778"><span id="local-6989586621679226780"><span class="annot"><span class="annottext">ReadPrec [DisassociateTransitGatewayConnectPeer]
+ReadPrec DisassociateTransitGatewayConnectPeer
+Int -&gt; ReadS DisassociateTransitGatewayConnectPeer
+ReadS [DisassociateTransitGatewayConnectPeer]
+(Int -&gt; ReadS DisassociateTransitGatewayConnectPeer)
+-&gt; ReadS [DisassociateTransitGatewayConnectPeer]
+-&gt; ReadPrec DisassociateTransitGatewayConnectPeer
+-&gt; ReadPrec [DisassociateTransitGatewayConnectPeer]
+-&gt; Read DisassociateTransitGatewayConnectPeer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateTransitGatewayConnectPeer]
+$creadListPrec :: ReadPrec [DisassociateTransitGatewayConnectPeer]
+readPrec :: ReadPrec DisassociateTransitGatewayConnectPeer
+$creadPrec :: ReadPrec DisassociateTransitGatewayConnectPeer
+readList :: ReadS [DisassociateTransitGatewayConnectPeer]
+$creadList :: ReadS [DisassociateTransitGatewayConnectPeer]
+readsPrec :: Int -&gt; ReadS DisassociateTransitGatewayConnectPeer
+$creadsPrec :: Int -&gt; ReadS DisassociateTransitGatewayConnectPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226767"><span id="local-6989586621679226769"><span id="local-6989586621679226771"><span class="annot"><span class="annottext">Int -&gt; DisassociateTransitGatewayConnectPeer -&gt; ShowS
+[DisassociateTransitGatewayConnectPeer] -&gt; ShowS
+DisassociateTransitGatewayConnectPeer -&gt; String
+(Int -&gt; DisassociateTransitGatewayConnectPeer -&gt; ShowS)
+-&gt; (DisassociateTransitGatewayConnectPeer -&gt; String)
+-&gt; ([DisassociateTransitGatewayConnectPeer] -&gt; ShowS)
+-&gt; Show DisassociateTransitGatewayConnectPeer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateTransitGatewayConnectPeer] -&gt; ShowS
+$cshowList :: [DisassociateTransitGatewayConnectPeer] -&gt; ShowS
+show :: DisassociateTransitGatewayConnectPeer -&gt; String
+$cshow :: DisassociateTransitGatewayConnectPeer -&gt; String
+showsPrec :: Int -&gt; DisassociateTransitGatewayConnectPeer -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateTransitGatewayConnectPeer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateTransitGatewayConnectPeer
+ -&gt; Rep DisassociateTransitGatewayConnectPeer x)
+-&gt; (forall x.
+    Rep DisassociateTransitGatewayConnectPeer x
+    -&gt; DisassociateTransitGatewayConnectPeer)
+-&gt; Generic DisassociateTransitGatewayConnectPeer
+forall x.
+Rep DisassociateTransitGatewayConnectPeer x
+-&gt; DisassociateTransitGatewayConnectPeer
+forall x.
+DisassociateTransitGatewayConnectPeer
+-&gt; Rep DisassociateTransitGatewayConnectPeer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateTransitGatewayConnectPeer x
+-&gt; DisassociateTransitGatewayConnectPeer
+$cfrom :: forall x.
+DisassociateTransitGatewayConnectPeer
+-&gt; Rep DisassociateTransitGatewayConnectPeer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'DisassociateTransitGatewayConnectPeer' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'globalNetworkId', 'disassociateTransitGatewayConnectPeer_globalNetworkId' - The ID of the global network.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'transitGatewayConnectPeerArn', 'disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn' - The Amazon Resource Name (ARN) of the transit gateway Connect peer.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#newDisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">newDisassociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'globalNetworkId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'transitGatewayConnectPeerArn'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-76"></span><span id="newDisassociateTransitGatewayConnectPeer"><span class="annot"><span class="annottext">newDisassociateTransitGatewayConnectPeer :: Text -&gt; Text -&gt; DisassociateTransitGatewayConnectPeer
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#newDisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-var hs-var">newDisassociateTransitGatewayConnectPeer</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679226762"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226762"><span class="hs-identifier hs-var">pGlobalNetworkId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679226761"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226761"><span class="hs-identifier hs-var">pTransitGatewayConnectPeerArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeer' :: Text -&gt; Text -&gt; DisassociateTransitGatewayConnectPeer
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalNetworkId:DisassociateTransitGatewayConnectPeer' :: Text
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AglobalNetworkId%3ADisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226762"><span class="hs-identifier hs-var">pGlobalNetworkId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerArn:DisassociateTransitGatewayConnectPeer' :: Text
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerArn%3ADisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226761"><span class="hs-identifier hs-var">pTransitGatewayConnectPeerArn_</span></a></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ID of the global network.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeer_globalNetworkId"><span class="hs-identifier hs-type">disassociateTransitGatewayConnectPeer_globalNetworkId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="disassociateTransitGatewayConnectPeer_globalNetworkId"><span class="annot"><span class="annottext">disassociateTransitGatewayConnectPeer_globalNetworkId :: (Text -&gt; f Text)
+-&gt; DisassociateTransitGatewayConnectPeer
+-&gt; f DisassociateTransitGatewayConnectPeer
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeer_globalNetworkId"><span class="hs-identifier hs-var hs-var">disassociateTransitGatewayConnectPeer_globalNetworkId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTransitGatewayConnectPeer -&gt; Text)
+-&gt; (DisassociateTransitGatewayConnectPeer
+    -&gt; Text -&gt; DisassociateTransitGatewayConnectPeer)
+-&gt; Lens
+     DisassociateTransitGatewayConnectPeer
+     DisassociateTransitGatewayConnectPeer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226758"><span class="annot"><span class="annottext">Text
+globalNetworkId :: Text
+$sel:globalNetworkId:DisassociateTransitGatewayConnectPeer' :: DisassociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621679226758"><span class="hs-identifier hs-var hs-var">globalNetworkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226758"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226757"><span class="annot"><span class="annottext">s :: DisassociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679226757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226756"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679226757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNetworkId:DisassociateTransitGatewayConnectPeer' :: Text
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AglobalNetworkId%3ADisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transit gateway Connect peer.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="hs-identifier hs-type">disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span id="disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="annot"><span class="annottext">disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn :: (Text -&gt; f Text)
+-&gt; DisassociateTransitGatewayConnectPeer
+-&gt; f DisassociateTransitGatewayConnectPeer
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn"><span class="hs-identifier hs-var hs-var">disassociateTransitGatewayConnectPeer_transitGatewayConnectPeerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTransitGatewayConnectPeer -&gt; Text)
+-&gt; (DisassociateTransitGatewayConnectPeer
+    -&gt; Text -&gt; DisassociateTransitGatewayConnectPeer)
+-&gt; Lens
+     DisassociateTransitGatewayConnectPeer
+     DisassociateTransitGatewayConnectPeer
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226755"><span class="annot"><span class="annottext">Text
+transitGatewayConnectPeerArn :: Text
+$sel:transitGatewayConnectPeerArn:DisassociateTransitGatewayConnectPeer' :: DisassociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621679226755"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226755"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226754"><span class="annot"><span class="annottext">s :: DisassociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679226754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226753"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeer
+</span><a href="#local-6989586621679226754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerArn:DisassociateTransitGatewayConnectPeer' :: Text
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerArn%3ADisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679226749"><span class="annot"><span class="annottext">request :: DisassociateTransitGatewayConnectPeer
+-&gt; Request DisassociateTransitGatewayConnectPeer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociateTransitGatewayConnectPeer
+-&gt; Request DisassociateTransitGatewayConnectPeer
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.NetworkManager.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679226745"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociateTransitGatewayConnectPeer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociateTransitGatewayConnectPeer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse DisassociateTransitGatewayConnectPeer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociateTransitGatewayConnectPeer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociateTransitGatewayConnectPeer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226742"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226741"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226741"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226740"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+-&gt; Int -&gt; DisassociateTransitGatewayConnectPeerResponse
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">DisassociateTransitGatewayConnectPeerResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitGatewayConnectPeerAssociation
+ -&gt; Int -&gt; DisassociateTransitGatewayConnectPeerResponse)
+-&gt; Either String (Maybe TransitGatewayConnectPeerAssociation)
+-&gt; Either
+     String (Int -&gt; DisassociateTransitGatewayConnectPeerResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe TransitGatewayConnectPeerAssociation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TransitGatewayConnectPeerAssociation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; DisassociateTransitGatewayConnectPeerResponse)
+-&gt; Either String Int
+-&gt; Either String DisassociateTransitGatewayConnectPeerResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226742"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679226732"><span id="local-6989586621679226734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679226729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679226725"><span class="annot"><span class="annottext">toHeaders :: DisassociateTransitGatewayConnectPeer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DisassociateTransitGatewayConnectPeer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679226719"><span class="annot"><span class="annottext">toPath :: DisassociateTransitGatewayConnectPeer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226716"><span id="local-6989586621679226717"><span class="annot"><span class="annottext">Text
+transitGatewayConnectPeerArn :: Text
+globalNetworkId :: Text
+$sel:transitGatewayConnectPeerArn:DisassociateTransitGatewayConnectPeer' :: DisassociateTransitGatewayConnectPeer -&gt; Text
+$sel:globalNetworkId:DisassociateTransitGatewayConnectPeer' :: DisassociateTransitGatewayConnectPeer -&gt; Text
+</span><a href="#local-6989586621679226716"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/global-networks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226717"><span class="hs-identifier hs-var">globalNetworkId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/transit-gateway-connect-peer-associations/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679226716"><span class="hs-identifier hs-var">transitGatewayConnectPeerArn</span></a></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeer"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeer</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679226712"><span class="annot"><span class="annottext">toQuery :: DisassociateTransitGatewayConnectPeer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisassociateTransitGatewayConnectPeer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newDisassociateTransitGatewayConnectPeerResponse' smart constructor.</span><span>
+</span><span id="line-152"></span><span id="local-6989586621679226709"><span id="local-6989586621679226710"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociateTransitGatewayConnectPeerResponse"><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-var">DisassociateTransitGatewayConnectPeerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociateTransitGatewayConnectPeerResponse%27"><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">DisassociateTransitGatewayConnectPeerResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The transit gateway Connect peer association.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AtransitGatewayConnectPeerAssociation%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeerResponse
+-&gt; Maybe TransitGatewayConnectPeerAssociation
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerAssociation%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.html#TransitGatewayConnectPeerAssociation"><span class="hs-identifier hs-type">TransitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeerResponse -&gt; Int
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226703"><span id="local-6989586621679226705"><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeerResponse
+-&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; Bool
+(DisassociateTransitGatewayConnectPeerResponse
+ -&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; Bool)
+-&gt; (DisassociateTransitGatewayConnectPeerResponse
+    -&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; Bool)
+-&gt; Eq DisassociateTransitGatewayConnectPeerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociateTransitGatewayConnectPeerResponse
+-&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; Bool
+$c/= :: DisassociateTransitGatewayConnectPeerResponse
+-&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; Bool
+== :: DisassociateTransitGatewayConnectPeerResponse
+-&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; Bool
+$c== :: DisassociateTransitGatewayConnectPeerResponse
+-&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226695"><span id="local-6989586621679226697"><span id="local-6989586621679226699"><span id="local-6989586621679226701"><span class="annot"><span class="annottext">ReadPrec [DisassociateTransitGatewayConnectPeerResponse]
+ReadPrec DisassociateTransitGatewayConnectPeerResponse
+Int -&gt; ReadS DisassociateTransitGatewayConnectPeerResponse
+ReadS [DisassociateTransitGatewayConnectPeerResponse]
+(Int -&gt; ReadS DisassociateTransitGatewayConnectPeerResponse)
+-&gt; ReadS [DisassociateTransitGatewayConnectPeerResponse]
+-&gt; ReadPrec DisassociateTransitGatewayConnectPeerResponse
+-&gt; ReadPrec [DisassociateTransitGatewayConnectPeerResponse]
+-&gt; Read DisassociateTransitGatewayConnectPeerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociateTransitGatewayConnectPeerResponse]
+$creadListPrec :: ReadPrec [DisassociateTransitGatewayConnectPeerResponse]
+readPrec :: ReadPrec DisassociateTransitGatewayConnectPeerResponse
+$creadPrec :: ReadPrec DisassociateTransitGatewayConnectPeerResponse
+readList :: ReadS [DisassociateTransitGatewayConnectPeerResponse]
+$creadList :: ReadS [DisassociateTransitGatewayConnectPeerResponse]
+readsPrec :: Int -&gt; ReadS DisassociateTransitGatewayConnectPeerResponse
+$creadsPrec :: Int -&gt; ReadS DisassociateTransitGatewayConnectPeerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226689"><span id="local-6989586621679226691"><span id="local-6989586621679226693"><span class="annot"><span class="annottext">Int -&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; ShowS
+[DisassociateTransitGatewayConnectPeerResponse] -&gt; ShowS
+DisassociateTransitGatewayConnectPeerResponse -&gt; String
+(Int -&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; ShowS)
+-&gt; (DisassociateTransitGatewayConnectPeerResponse -&gt; String)
+-&gt; ([DisassociateTransitGatewayConnectPeerResponse] -&gt; ShowS)
+-&gt; Show DisassociateTransitGatewayConnectPeerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociateTransitGatewayConnectPeerResponse] -&gt; ShowS
+$cshowList :: [DisassociateTransitGatewayConnectPeerResponse] -&gt; ShowS
+show :: DisassociateTransitGatewayConnectPeerResponse -&gt; String
+$cshow :: DisassociateTransitGatewayConnectPeerResponse -&gt; String
+showsPrec :: Int -&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociateTransitGatewayConnectPeerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociateTransitGatewayConnectPeerResponse
+ -&gt; Rep DisassociateTransitGatewayConnectPeerResponse x)
+-&gt; (forall x.
+    Rep DisassociateTransitGatewayConnectPeerResponse x
+    -&gt; DisassociateTransitGatewayConnectPeerResponse)
+-&gt; Generic DisassociateTransitGatewayConnectPeerResponse
+forall x.
+Rep DisassociateTransitGatewayConnectPeerResponse x
+-&gt; DisassociateTransitGatewayConnectPeerResponse
+forall x.
+DisassociateTransitGatewayConnectPeerResponse
+-&gt; Rep DisassociateTransitGatewayConnectPeerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociateTransitGatewayConnectPeerResponse x
+-&gt; DisassociateTransitGatewayConnectPeerResponse
+$cfrom :: forall x.
+DisassociateTransitGatewayConnectPeerResponse
+-&gt; Rep DisassociateTransitGatewayConnectPeerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Create a value of 'DisassociateTransitGatewayConnectPeerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'transitGatewayConnectPeerAssociation', 'disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation' - The transit gateway Connect peer association.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'disassociateTransitGatewayConnectPeerResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#newDisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">newDisassociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newDisassociateTransitGatewayConnectPeerResponse"><span class="annot"><span class="annottext">newDisassociateTransitGatewayConnectPeerResponse :: Int -&gt; DisassociateTransitGatewayConnectPeerResponse
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#newDisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-var hs-var">newDisassociateTransitGatewayConnectPeerResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679226686"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeerAssociation
+-&gt; Int -&gt; DisassociateTransitGatewayConnectPeerResponse
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerAssociation:DisassociateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeerAssociation
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerAssociation%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateTransitGatewayConnectPeerResponse' :: Int
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The transit gateway Connect peer association.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="hs-identifier hs-type">disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.Types.TransitGatewayConnectPeerAssociation.html#TransitGatewayConnectPeerAssociation"><span class="hs-identifier hs-type">TransitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="annot"><span class="annottext">disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation :: (Maybe TransitGatewayConnectPeerAssociation
+ -&gt; f (Maybe TransitGatewayConnectPeerAssociation))
+-&gt; DisassociateTransitGatewayConnectPeerResponse
+-&gt; f DisassociateTransitGatewayConnectPeerResponse
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation"><span class="hs-identifier hs-var hs-var">disassociateTransitGatewayConnectPeerResponse_transitGatewayConnectPeerAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTransitGatewayConnectPeerResponse
+ -&gt; Maybe TransitGatewayConnectPeerAssociation)
+-&gt; (DisassociateTransitGatewayConnectPeerResponse
+    -&gt; Maybe TransitGatewayConnectPeerAssociation
+    -&gt; DisassociateTransitGatewayConnectPeerResponse)
+-&gt; Lens
+     DisassociateTransitGatewayConnectPeerResponse
+     DisassociateTransitGatewayConnectPeerResponse
+     (Maybe TransitGatewayConnectPeerAssociation)
+     (Maybe TransitGatewayConnectPeerAssociation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226685"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+transitGatewayConnectPeerAssociation :: Maybe TransitGatewayConnectPeerAssociation
+$sel:transitGatewayConnectPeerAssociation:DisassociateTransitGatewayConnectPeerResponse' :: DisassociateTransitGatewayConnectPeerResponse
+-&gt; Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679226685"><span class="hs-identifier hs-var hs-var">transitGatewayConnectPeerAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679226685"><span class="hs-identifier hs-var">transitGatewayConnectPeerAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226684"><span class="annot"><span class="annottext">s :: DisassociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679226684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226683"><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679226683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679226684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayConnectPeerAssociation:DisassociateTransitGatewayConnectPeerResponse' :: Maybe TransitGatewayConnectPeerAssociation
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AtransitGatewayConnectPeerAssociation%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">transitGatewayConnectPeerAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayConnectPeerAssociation
+</span><a href="#local-6989586621679226683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier hs-type">disassociateTransitGatewayConnectPeerResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span id="disassociateTransitGatewayConnectPeerResponse_httpStatus"><span class="annot"><span class="annottext">disassociateTransitGatewayConnectPeerResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociateTransitGatewayConnectPeerResponse
+-&gt; f DisassociateTransitGatewayConnectPeerResponse
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#disassociateTransitGatewayConnectPeerResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociateTransitGatewayConnectPeerResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociateTransitGatewayConnectPeerResponse -&gt; Int)
+-&gt; (DisassociateTransitGatewayConnectPeerResponse
+    -&gt; Int -&gt; DisassociateTransitGatewayConnectPeerResponse)
+-&gt; Lens
+     DisassociateTransitGatewayConnectPeerResponse
+     DisassociateTransitGatewayConnectPeerResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226682"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociateTransitGatewayConnectPeerResponse' :: DisassociateTransitGatewayConnectPeerResponse -&gt; Int
+</span><a href="#local-6989586621679226682"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226682"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226681"><span class="annot"><span class="annottext">s :: DisassociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679226681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226680"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociateTransitGatewayConnectPeerResponse
+</span><a href="#local-6989586621679226681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociateTransitGatewayConnectPeerResponse' :: Int
+</span><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#%24sel%3AhttpStatus%3ADisassociateTransitGatewayConnectPeerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679226678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkManager.DisassociateTransitGatewayConnectPeer.html#DisassociateTransitGatewayConnectPeerResponse"><span class="hs-identifier hs-type">DisassociateTransitGatewayConnectPeerResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

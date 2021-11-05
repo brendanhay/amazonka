@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newDescribeScheduledActions' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679187932"><span id="local-6989586621679187933"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScheduledActions"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-var">DescribeScheduledActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScheduledActions%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-var">DescribeScheduledActions'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679187941"><span id="local-6989586621679187942"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScheduledActions"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-var">DescribeScheduledActions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScheduledActions%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-var">DescribeScheduledActions'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- resource type, and scaling property. If you specify a scalable</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- dimension, you must also specify a resource ID.</span><span>
@@ -225,7 +225,7 @@
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AserviceNamespace%3ADescribeScheduledActions%27"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AserviceNamespace%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187921"><span id="local-6989586621679187923"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187930"><span id="local-6989586621679187932"><span class="annot"><span class="annottext">DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
 (DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool)
 -&gt; (DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool)
 -&gt; Eq DescribeScheduledActions
@@ -234,7 +234,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
 == :: DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
 $c== :: DescribeScheduledActions -&gt; DescribeScheduledActions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187912"><span id="local-6989586621679187914"><span id="local-6989586621679187916"><span id="local-6989586621679187918"><span class="annot"><span class="annottext">ReadPrec [DescribeScheduledActions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187921"><span id="local-6989586621679187923"><span id="local-6989586621679187925"><span id="local-6989586621679187927"><span class="annot"><span class="annottext">ReadPrec [DescribeScheduledActions]
 ReadPrec DescribeScheduledActions
 Int -&gt; ReadS DescribeScheduledActions
 ReadS [DescribeScheduledActions]
@@ -254,7 +254,7 @@ readList :: ReadS [DescribeScheduledActions]
 $creadList :: ReadS [DescribeScheduledActions]
 readsPrec :: Int -&gt; ReadS DescribeScheduledActions
 $creadsPrec :: Int -&gt; ReadS DescribeScheduledActions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187905"><span id="local-6989586621679187907"><span id="local-6989586621679187909"><span class="annot"><span class="annottext">Int -&gt; DescribeScheduledActions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187914"><span id="local-6989586621679187916"><span id="local-6989586621679187918"><span class="annot"><span class="annottext">Int -&gt; DescribeScheduledActions -&gt; ShowS
 [DescribeScheduledActions] -&gt; ShowS
 DescribeScheduledActions -&gt; String
 (Int -&gt; DescribeScheduledActions -&gt; ShowS)
@@ -450,8 +450,8 @@ DescribeScheduledActions -&gt; Rep DescribeScheduledActions x
 </span><span id="line-385"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-386"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span>
 </span><span id="line-387"></span><span id="newDescribeScheduledActions"><span class="annot"><span class="annottext">newDescribeScheduledActions :: ServiceNamespace -&gt; DescribeScheduledActions
-</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#newDescribeScheduledActions"><span class="hs-identifier hs-var hs-var">newDescribeScheduledActions</span></a></span></span><span> </span><span id="local-6989586621679187900"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679187900"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#newDescribeScheduledActions"><span class="hs-identifier hs-var hs-var">newDescribeScheduledActions</span></a></span></span><span> </span><span id="local-6989586621679187909"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187909"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-388"></span><span>  </span><span class="annot"><span class="annottext">DescribeScheduledActions' :: Maybe ScalableDimension
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -483,7 +483,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-395"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceNamespace:DescribeScheduledActions' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AserviceNamespace%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679187900"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
+</span><a href="#local-6989586621679187909"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
 </span><span id="line-396"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-397"></span><span>
 </span><span id="line-398"></span><span class="hs-comment">-- | The scalable dimension. This string consists of the service namespace,</span><span>
@@ -564,16 +564,16 @@ forall a. Maybe a
      (Maybe ScalableDimension)
      (Maybe ScalableDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187898"><span class="annot"><span class="annottext">Maybe ScalableDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187907"><span class="annot"><span class="annottext">Maybe ScalableDimension
 scalableDimension :: Maybe ScalableDimension
 $sel:scalableDimension:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ScalableDimension
-</span><a href="#local-6989586621679187898"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679187898"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187897"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
-</span><a href="#local-6989586621679187897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187896"><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679187896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:DescribeScheduledActions' :: Maybe ScalableDimension
+</span><a href="#local-6989586621679187907"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
+</span><a href="#local-6989586621679187907"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187906"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679187906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187905"><span class="annot"><span class="annottext">Maybe ScalableDimension
+</span><a href="#local-6989586621679187905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679187906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:DescribeScheduledActions' :: Maybe ScalableDimension
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AscalableDimension%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679187896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-466"></span><span>
 </span><span id="line-467"></span><span class="hs-comment">-- | The identifier of the resource associated with the scheduled action.</span><span>
 </span><span id="line-468"></span><span class="hs-comment">-- This string consists of the resource type and unique identifier.</span><span>
@@ -654,16 +654,16 @@ $sel:scalableDimension:DescribeScheduledActions' :: DescribeScheduledActions -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187895"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187904"><span class="annot"><span class="annottext">Maybe Text
 resourceId :: Maybe Text
 $sel:resourceId:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
-</span><a href="#local-6989586621679187895"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187895"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187894"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
-</span><a href="#local-6989586621679187894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187893"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DescribeScheduledActions' :: Maybe Text
+</span><a href="#local-6989586621679187904"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187904"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187903"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679187903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679187903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:DescribeScheduledActions' :: Maybe Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AresourceId%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-536"></span><span>
 </span><span id="line-537"></span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-538"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#describeScheduledActions_nextToken"><span class="hs-identifier hs-type">describeScheduledActions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -678,16 +678,16 @@ $sel:resourceId:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187892"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187901"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
-</span><a href="#local-6989586621679187892"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187892"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187891"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
-</span><a href="#local-6989586621679187891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScheduledActions' :: Maybe Text
+</span><a href="#local-6989586621679187901"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187901"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187900"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679187900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187899"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679187900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScheduledActions' :: Maybe Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AnextToken%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-540"></span><span>
 </span><span id="line-541"></span><span class="hs-comment">-- | The names of the scheduled actions to describe.</span><span>
 </span><span id="line-542"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#describeScheduledActions_scheduledActionNames"><span class="hs-identifier hs-type">describeScheduledActions_scheduledActionNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -702,16 +702,16 @@ $sel:nextToken:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187889"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187898"><span class="annot"><span class="annottext">Maybe [Text]
 scheduledActionNames :: Maybe [Text]
 $sel:scheduledActionNames:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe [Text]
-</span><a href="#local-6989586621679187889"><span class="hs-identifier hs-var hs-var">scheduledActionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679187889"><span class="hs-identifier hs-var">scheduledActionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187888"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
-</span><a href="#local-6989586621679187888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187887"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679187887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionNames:DescribeScheduledActions' :: Maybe [Text]
+</span><a href="#local-6989586621679187898"><span class="hs-identifier hs-var hs-var">scheduledActionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679187898"><span class="hs-identifier hs-var">scheduledActionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187897"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679187897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187896"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679187896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679187897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActionNames:DescribeScheduledActions' :: Maybe [Text]
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AscheduledActionNames%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">scheduledActionNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679187887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679187896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeScheduledActions -&gt; f DescribeScheduledActions)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -748,16 +748,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187883"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187892"><span class="annot"><span class="annottext">Maybe Int
 maxResults :: Maybe Int
 $sel:maxResults:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Int
-</span><a href="#local-6989586621679187883"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679187883"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187882"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
-</span><a href="#local-6989586621679187882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187881"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679187881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeScheduledActions' :: Maybe Int
+</span><a href="#local-6989586621679187892"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679187892"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187891"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679187891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187890"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679187890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679187891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeScheduledActions' :: Maybe Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AmaxResults%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679187881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-555"></span><span>
 </span><span id="line-556"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
 </span><span id="line-557"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
@@ -774,30 +774,30 @@ $sel:maxResults:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Mayb
      ServiceNamespace
      ServiceNamespace
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187880"><span class="annot"><span class="annottext">ServiceNamespace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187889"><span class="annot"><span class="annottext">ServiceNamespace
 serviceNamespace :: ServiceNamespace
 $sel:serviceNamespace:DescribeScheduledActions' :: DescribeScheduledActions -&gt; ServiceNamespace
-</span><a href="#local-6989586621679187880"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679187880"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187879"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
-</span><a href="#local-6989586621679187879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187878"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679187878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:DescribeScheduledActions' :: ServiceNamespace
+</span><a href="#local-6989586621679187889"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187889"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187888"><span class="annot"><span class="annottext">s :: DescribeScheduledActions
+</span><a href="#local-6989586621679187888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187887"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679187887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679187888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:DescribeScheduledActions' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AserviceNamespace%3ADescribeScheduledActions%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679187878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-561"></span><span>
 </span><span id="line-562"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-563"></span><span>  </span><span id="local-6989586621679187874"><span class="annot"><span class="annottext">page :: DescribeScheduledActions
+</span><span id="line-563"></span><span>  </span><span id="local-6989586621679187883"><span class="annot"><span class="annottext">page :: DescribeScheduledActions
 -&gt; AWSResponse DescribeScheduledActions
 -&gt; Maybe DescribeScheduledActions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679187872"><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187872"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679187871"><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
-</span><a href="#local-6989586621679187871"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679187881"><span class="annot"><span class="annottext">DescribeScheduledActions
+</span><a href="#local-6989586621679187881"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679187880"><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
+</span><a href="#local-6989586621679187880"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-564"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-565"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
 DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187871"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679187880"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-566"></span><span>            </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
 -&gt; Getting (First Text) DescribeScheduledActionsResponse Text
 -&gt; Maybe Text
@@ -827,7 +827,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-571"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
 DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187871"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679187880"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-572"></span><span>            </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
 -&gt; Getting
      (First [ScheduledAction])
@@ -874,7 +874,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-578"></span><span>        </span><span class="annot"><span class="annottext">DescribeScheduledActions
-</span><a href="#local-6989586621679187872"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679187881"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-579"></span><span>          </span><span class="annot"><span class="annottext">DescribeScheduledActions
 -&gt; (DescribeScheduledActions -&gt; DescribeScheduledActions)
 -&gt; DescribeScheduledActions
@@ -895,7 +895,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeScheduledActions
 DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187871"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679187880"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-581"></span><span>          </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
 -&gt; Getting (First Text) DescribeScheduledActionsResponse Text
 -&gt; Maybe Text
@@ -921,13 +921,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-585"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-586"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-587"></span><span>      </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span>
-</span><span id="line-588"></span><span>  </span><span id="local-6989586621679187862"><span class="annot"><span class="annottext">request :: DescribeScheduledActions -&gt; Request DescribeScheduledActions
+</span><span id="line-588"></span><span>  </span><span id="local-6989586621679187871"><span class="annot"><span class="annottext">request :: DescribeScheduledActions -&gt; Request DescribeScheduledActions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeScheduledActions -&gt; Request DescribeScheduledActions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-589"></span><span>  </span><span id="local-6989586621679187858"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-589"></span><span>  </span><span id="local-6989586621679187867"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeScheduledActions
 -&gt; ClientResponse ClientBody
@@ -953,10 +953,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-591"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187855"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679187855"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679187854"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679187854"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679187853"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187853"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-591"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187864"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187864"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679187863"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679187863"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679187862"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187862"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-592"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ScheduledAction]
 -&gt; Int
@@ -973,7 +973,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeScheduledActionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679187862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -985,7 +985,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeScheduledActionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187853"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ScheduledAction]))
+</span><a href="#local-6989586621679187862"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ScheduledAction]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduledActions&quot;</span></span><span>
@@ -1006,15 +1006,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679187855"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187864"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-598"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-599"></span><span>
-</span><span id="line-600"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187844"><span id="local-6989586621679187846"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span></span><span>
+</span><span id="line-600"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187853"><span id="local-6989586621679187855"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span></span><span>
 </span><span id="line-601"></span><span>
-</span><span id="line-602"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span><span>
+</span><span id="line-602"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187850"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span><span>
 </span><span id="line-603"></span><span>
 </span><span id="line-604"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-605"></span><span>  </span><span id="local-6989586621679187837"><span class="annot"><span class="annottext">toHeaders :: DescribeScheduledActions -&gt; ResponseHeaders
+</span><span id="line-605"></span><span>  </span><span id="local-6989586621679187846"><span class="annot"><span class="annottext">toHeaders :: DescribeScheduledActions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-606"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeScheduledActions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1041,9 +1041,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-616"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-617"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-618"></span><span>
-</span><span id="line-619"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187827"><span id="local-6989586621679187829"><span id="local-6989586621679187831"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-620"></span><span>  </span><span id="local-6989586621679187825"><span class="annot"><span class="annottext">toJSON :: DescribeScheduledActions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187818"><span id="local-6989586621679187819"><span id="local-6989586621679187820"><span id="local-6989586621679187821"><span id="local-6989586621679187822"><span id="local-6989586621679187823"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-619"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187836"><span id="local-6989586621679187838"><span id="local-6989586621679187840"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-620"></span><span>  </span><span id="local-6989586621679187834"><span class="annot"><span class="annottext">toJSON :: DescribeScheduledActions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions%27"><span class="hs-identifier hs-type">DescribeScheduledActions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187827"><span id="local-6989586621679187828"><span id="local-6989586621679187829"><span id="local-6989586621679187830"><span id="local-6989586621679187831"><span id="local-6989586621679187832"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 Maybe ScalableDimension
@@ -1060,7 +1060,7 @@ $sel:scheduledActionNames:DescribeScheduledActions' :: DescribeScheduledActions 
 $sel:nextToken:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
 $sel:resourceId:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe Text
 $sel:scalableDimension:DescribeScheduledActions' :: DescribeScheduledActions -&gt; Maybe ScalableDimension
-</span><a href="#local-6989586621679187818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679187827"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-621"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-622"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1074,21 +1074,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ScalableDimension -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ScalableDimension
-</span><a href="#local-6989586621679187823"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679187832"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-625"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187822"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679187831"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-626"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187821"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679187830"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-627"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScheduledActionNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1096,14 +1096,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-628"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679187820"><span class="hs-identifier hs-var">scheduledActionNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679187829"><span class="hs-identifier hs-var">scheduledActionNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-629"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679187819"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679187828"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-630"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1111,19 +1111,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceNamespace -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679187818"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187827"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-632"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-633"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-634"></span><span>
 </span><span id="line-635"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-636"></span><span>  </span><span id="local-6989586621679187812"><span class="annot"><span class="annottext">toPath :: DescribeScheduledActions -&gt; ByteString
+</span><span id="line-636"></span><span>  </span><span id="local-6989586621679187821"><span class="annot"><span class="annottext">toPath :: DescribeScheduledActions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeScheduledActions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-637"></span><span>
 </span><span id="line-638"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActions"><span class="hs-identifier hs-type">DescribeScheduledActions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-639"></span><span>  </span><span id="local-6989586621679187808"><span class="annot"><span class="annottext">toQuery :: DescribeScheduledActions -&gt; QueryString
+</span><span id="line-639"></span><span>  </span><span id="local-6989586621679187817"><span class="annot"><span class="annottext">toQuery :: DescribeScheduledActions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeScheduledActions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1131,7 +1131,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-640"></span><span>
 </span><span id="line-641"></span><span class="hs-comment">-- | /See:/ 'newDescribeScheduledActionsResponse' smart constructor.</span><span>
-</span><span id="line-642"></span><span id="local-6989586621679187805"><span id="local-6989586621679187806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScheduledActionsResponse"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-var">DescribeScheduledActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScheduledActionsResponse%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">DescribeScheduledActionsResponse'</span></a></span></span><span>
+</span><span id="line-642"></span><span id="local-6989586621679187814"><span id="local-6989586621679187815"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeScheduledActionsResponse"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-var">DescribeScheduledActionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeScheduledActionsResponse%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">DescribeScheduledActionsResponse'</span></a></span></span><span>
 </span><span id="line-643"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token required to get the next set of results. This value is @null@</span><span>
 </span><span id="line-644"></span><span>    </span><span class="hs-comment">-- if there are no more results to return.</span><span>
 </span><span id="line-645"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeScheduledActionsResponse%27"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse -&gt; Maybe Text
@@ -1143,7 +1143,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-649"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse -&gt; Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-650"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-651"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187798"><span id="local-6989586621679187800"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+</span><span id="line-651"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187807"><span id="local-6989586621679187809"><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
 -&gt; DescribeScheduledActionsResponse -&gt; Bool
 (DescribeScheduledActionsResponse
  -&gt; DescribeScheduledActionsResponse -&gt; Bool)
@@ -1159,7 +1159,7 @@ $c/= :: DescribeScheduledActionsResponse
 -&gt; DescribeScheduledActionsResponse -&gt; Bool
 $c== :: DescribeScheduledActionsResponse
 -&gt; DescribeScheduledActionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187790"><span id="local-6989586621679187792"><span id="local-6989586621679187794"><span id="local-6989586621679187796"><span class="annot"><span class="annottext">ReadPrec [DescribeScheduledActionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187799"><span id="local-6989586621679187801"><span id="local-6989586621679187803"><span id="local-6989586621679187805"><span class="annot"><span class="annottext">ReadPrec [DescribeScheduledActionsResponse]
 ReadPrec DescribeScheduledActionsResponse
 Int -&gt; ReadS DescribeScheduledActionsResponse
 ReadS [DescribeScheduledActionsResponse]
@@ -1179,7 +1179,7 @@ readList :: ReadS [DescribeScheduledActionsResponse]
 $creadList :: ReadS [DescribeScheduledActionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeScheduledActionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeScheduledActionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187784"><span id="local-6989586621679187786"><span id="local-6989586621679187788"><span class="annot"><span class="annottext">Int -&gt; DescribeScheduledActionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187793"><span id="local-6989586621679187795"><span id="local-6989586621679187797"><span class="annot"><span class="annottext">Int -&gt; DescribeScheduledActionsResponse -&gt; ShowS
 [DescribeScheduledActionsResponse] -&gt; ShowS
 DescribeScheduledActionsResponse -&gt; String
 (Int -&gt; DescribeScheduledActionsResponse -&gt; ShowS)
@@ -1236,8 +1236,8 @@ DescribeScheduledActionsResponse
 </span><span id="line-669"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-670"></span><span>  </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span>
 </span><span id="line-671"></span><span id="newDescribeScheduledActionsResponse"><span class="annot"><span class="annottext">newDescribeScheduledActionsResponse :: Int -&gt; DescribeScheduledActionsResponse
-</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#newDescribeScheduledActionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeScheduledActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679187781"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679187781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#newDescribeScheduledActionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeScheduledActionsResponse</span></a></span></span><span> </span><span id="local-6989586621679187790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-672"></span><span>  </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse' :: Maybe Text
 -&gt; Maybe [ScheduledAction]
 -&gt; Int
@@ -1254,7 +1254,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-676"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScheduledActionsResponse' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679187781"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679187790"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-677"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-678"></span><span>
 </span><span id="line-679"></span><span class="hs-comment">-- | The token required to get the next set of results. This value is @null@</span><span>
@@ -1268,16 +1268,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeScheduledActionsResponse)
 -&gt; Lens' DescribeScheduledActionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187780"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187789"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeScheduledActionsResponse' :: DescribeScheduledActionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679187780"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187780"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187779"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187778"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScheduledActionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679187789"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187789"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187788"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679187788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679187787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679187788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeScheduledActionsResponse' :: Maybe Text
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AnextToken%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679187778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-683"></span><span>
 </span><span id="line-684"></span><span class="hs-comment">-- | Information about the scheduled actions.</span><span>
 </span><span id="line-685"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#describeScheduledActionsResponse_scheduledActions"><span class="hs-identifier hs-type">describeScheduledActionsResponse_scheduledActions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScheduledAction.html#ScheduledAction"><span class="hs-identifier hs-type">ScheduledAction</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -1289,16 +1289,16 @@ $sel:nextToken:DescribeScheduledActionsResponse' :: DescribeScheduledActionsResp
     -&gt; Maybe [ScheduledAction] -&gt; DescribeScheduledActionsResponse)
 -&gt; Lens' DescribeScheduledActionsResponse (Maybe [ScheduledAction])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187777"><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187786"><span class="annot"><span class="annottext">Maybe [ScheduledAction]
 scheduledActions :: Maybe [ScheduledAction]
 $sel:scheduledActions:DescribeScheduledActionsResponse' :: DescribeScheduledActionsResponse -&gt; Maybe [ScheduledAction]
-</span><a href="#local-6989586621679187777"><span class="hs-identifier hs-var hs-var">scheduledActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledAction]
-</span><a href="#local-6989586621679187777"><span class="hs-identifier hs-var">scheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187776"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187775"><span class="annot"><span class="annottext">Maybe [ScheduledAction]
-</span><a href="#local-6989586621679187775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActions:DescribeScheduledActionsResponse' :: Maybe [ScheduledAction]
+</span><a href="#local-6989586621679187786"><span class="hs-identifier hs-var hs-var">scheduledActions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+</span><a href="#local-6989586621679187786"><span class="hs-identifier hs-var">scheduledActions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187785"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679187785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187784"><span class="annot"><span class="annottext">Maybe [ScheduledAction]
+</span><a href="#local-6989586621679187784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679187785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledActions:DescribeScheduledActionsResponse' :: Maybe [ScheduledAction]
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AscheduledActions%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">scheduledActions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ScheduledAction]
-</span><a href="#local-6989586621679187775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
+</span><a href="#local-6989586621679187784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
  -&gt; DescribeScheduledActionsResponse
  -&gt; f DescribeScheduledActionsResponse)
 -&gt; ((Maybe [ScheduledAction] -&gt; f (Maybe [ScheduledAction]))
@@ -1342,18 +1342,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187774"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187783"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeScheduledActionsResponse' :: DescribeScheduledActionsResponse -&gt; Int
-</span><a href="#local-6989586621679187774"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679187774"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187773"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187772"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679187772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
-</span><a href="#local-6989586621679187773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScheduledActionsResponse' :: Int
+</span><a href="#local-6989586621679187783"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187783"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187782"><span class="annot"><span class="annottext">s :: DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679187782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse%27"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187781"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679187781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeScheduledActionsResponse
+</span><a href="#local-6989586621679187782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeScheduledActionsResponse' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#%24sel%3AhttpStatus%3ADescribeScheduledActionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679187772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-691"></span><span>
 </span><span id="line-692"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-693"></span><span>  </span><span id="local-6989586621679187770"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-693"></span><span>  </span><span id="local-6989586621679187779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-694"></span><span>    </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.DescribeScheduledActions.html#DescribeScheduledActionsResponse"><span class="hs-identifier hs-type">DescribeScheduledActionsResponse</span></a></span></span><span>
 </span><span id="line-695"></span></pre></body></html>

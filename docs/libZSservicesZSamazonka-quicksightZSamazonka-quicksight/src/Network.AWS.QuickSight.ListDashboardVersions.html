@@ -1,0 +1,850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.ListDashboardVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all the versions of the dashboards in the Amazon QuickSight</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- subscription.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.ListDashboardVersions</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier">ListDashboardVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#newListDashboardVersions"><span class="hs-identifier">newListDashboardVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_nextToken"><span class="hs-identifier">listDashboardVersions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_maxResults"><span class="hs-identifier">listDashboardVersions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_awsAccountId"><span class="hs-identifier">listDashboardVersions_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_dashboardId"><span class="hs-identifier">listDashboardVersions_dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier">ListDashboardVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#newListDashboardVersionsResponse"><span class="hs-identifier">newListDashboardVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_requestId"><span class="hs-identifier">listDashboardVersionsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_dashboardVersionSummaryList"><span class="hs-identifier">listDashboardVersionsResponse_dashboardVersionSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_nextToken"><span class="hs-identifier">listDashboardVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_status"><span class="hs-identifier">listDashboardVersionsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.html"><span class="hs-identifier">Network.AWS.QuickSight.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListDashboardVersions' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679581980"><span id="local-6989586621679581981"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDashboardVersions"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-var">ListDashboardVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDashboardVersions%27"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-var">ListDashboardVersions'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListDashboardVersions%27"><span class="annot"><span class="annottext">ListDashboardVersions -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AnextToken%3AListDashboardVersions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDashboardVersions%27"><span class="annot"><span class="annottext">ListDashboardVersions -&gt; Maybe Natural
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AmaxResults%3AListDashboardVersions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- that you\'re listing versions for.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AawsAccountId%3AListDashboardVersions%27"><span class="annot"><span class="annottext">ListDashboardVersions -&gt; Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AawsAccountId%3AListDashboardVersions%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The ID for the dashboard.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdashboardId%3AListDashboardVersions%27"><span class="annot"><span class="annottext">ListDashboardVersions -&gt; Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AdashboardId%3AListDashboardVersions%27"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679581971"><span id="local-6989586621679581973"><span class="annot"><span class="annottext">ListDashboardVersions -&gt; ListDashboardVersions -&gt; Bool
+(ListDashboardVersions -&gt; ListDashboardVersions -&gt; Bool)
+-&gt; (ListDashboardVersions -&gt; ListDashboardVersions -&gt; Bool)
+-&gt; Eq ListDashboardVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDashboardVersions -&gt; ListDashboardVersions -&gt; Bool
+$c/= :: ListDashboardVersions -&gt; ListDashboardVersions -&gt; Bool
+== :: ListDashboardVersions -&gt; ListDashboardVersions -&gt; Bool
+$c== :: ListDashboardVersions -&gt; ListDashboardVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581962"><span id="local-6989586621679581964"><span id="local-6989586621679581966"><span id="local-6989586621679581968"><span class="annot"><span class="annottext">ReadPrec [ListDashboardVersions]
+ReadPrec ListDashboardVersions
+Int -&gt; ReadS ListDashboardVersions
+ReadS [ListDashboardVersions]
+(Int -&gt; ReadS ListDashboardVersions)
+-&gt; ReadS [ListDashboardVersions]
+-&gt; ReadPrec ListDashboardVersions
+-&gt; ReadPrec [ListDashboardVersions]
+-&gt; Read ListDashboardVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDashboardVersions]
+$creadListPrec :: ReadPrec [ListDashboardVersions]
+readPrec :: ReadPrec ListDashboardVersions
+$creadPrec :: ReadPrec ListDashboardVersions
+readList :: ReadS [ListDashboardVersions]
+$creadList :: ReadS [ListDashboardVersions]
+readsPrec :: Int -&gt; ReadS ListDashboardVersions
+$creadsPrec :: Int -&gt; ReadS ListDashboardVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581955"><span id="local-6989586621679581957"><span id="local-6989586621679581959"><span class="annot"><span class="annottext">Int -&gt; ListDashboardVersions -&gt; ShowS
+[ListDashboardVersions] -&gt; ShowS
+ListDashboardVersions -&gt; String
+(Int -&gt; ListDashboardVersions -&gt; ShowS)
+-&gt; (ListDashboardVersions -&gt; String)
+-&gt; ([ListDashboardVersions] -&gt; ShowS)
+-&gt; Show ListDashboardVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDashboardVersions] -&gt; ShowS
+$cshowList :: [ListDashboardVersions] -&gt; ShowS
+show :: ListDashboardVersions -&gt; String
+$cshow :: ListDashboardVersions -&gt; String
+showsPrec :: Int -&gt; ListDashboardVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDashboardVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDashboardVersions -&gt; Rep ListDashboardVersions x)
+-&gt; (forall x. Rep ListDashboardVersions x -&gt; ListDashboardVersions)
+-&gt; Generic ListDashboardVersions
+forall x. Rep ListDashboardVersions x -&gt; ListDashboardVersions
+forall x. ListDashboardVersions -&gt; Rep ListDashboardVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDashboardVersions x -&gt; ListDashboardVersions
+$cfrom :: forall x. ListDashboardVersions -&gt; Rep ListDashboardVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'ListDashboardVersions' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listDashboardVersions_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'maxResults', 'listDashboardVersions_maxResults' - The maximum number of results to be returned per request.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'awsAccountId', 'listDashboardVersions_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- that you\'re listing versions for.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'dashboardId', 'listDashboardVersions_dashboardId' - The ID for the dashboard.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#newListDashboardVersions"><span class="hs-identifier hs-type">newListDashboardVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'dashboardId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span>
+</span><span id="line-95"></span><span id="newListDashboardVersions"><span class="annot"><span class="annottext">newListDashboardVersions :: Text -&gt; Text -&gt; ListDashboardVersions
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#newListDashboardVersions"><span class="hs-identifier hs-var hs-var">newListDashboardVersions</span></a></span></span><span> </span><span id="local-6989586621679581950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581950"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679581949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581949"><span class="hs-identifier hs-var">pDashboardId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ListDashboardVersions' :: Maybe Text
+-&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; ListDashboardVersions
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboardVersions' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AnextToken%3AListDashboardVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDashboardVersions' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AmaxResults%3AListDashboardVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:ListDashboardVersions' :: Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AawsAccountId%3AListDashboardVersions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581950"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardId:ListDashboardVersions' :: Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AdashboardId%3AListDashboardVersions%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581949"><span class="hs-identifier hs-var">pDashboardId_</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_nextToken"><span class="hs-identifier hs-type">listDashboardVersions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="listDashboardVersions_nextToken"><span class="annot"><span class="annottext">listDashboardVersions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDashboardVersions -&gt; f ListDashboardVersions
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_nextToken"><span class="hs-identifier hs-var hs-var">listDashboardVersions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersions -&gt; Maybe Text)
+-&gt; (ListDashboardVersions -&gt; Maybe Text -&gt; ListDashboardVersions)
+-&gt; Lens
+     ListDashboardVersions
+     ListDashboardVersions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581947"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDashboardVersions' :: ListDashboardVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679581947"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581947"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581946"><span class="annot"><span class="annottext">s :: ListDashboardVersions
+</span><a href="#local-6989586621679581946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581945"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersions
+</span><a href="#local-6989586621679581946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboardVersions' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AnextToken%3AListDashboardVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_maxResults"><span class="hs-identifier hs-type">listDashboardVersions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listDashboardVersions_maxResults"><span class="annot"><span class="annottext">listDashboardVersions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListDashboardVersions -&gt; f ListDashboardVersions
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_maxResults"><span class="hs-identifier hs-var hs-var">listDashboardVersions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersions -&gt; Maybe Natural)
+-&gt; (ListDashboardVersions
+    -&gt; Maybe Natural -&gt; ListDashboardVersions)
+-&gt; Lens
+     ListDashboardVersions
+     ListDashboardVersions
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581944"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListDashboardVersions' :: ListDashboardVersions -&gt; Maybe Natural
+</span><a href="#local-6989586621679581944"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581944"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581943"><span class="annot"><span class="annottext">s :: ListDashboardVersions
+</span><a href="#local-6989586621679581943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581942"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersions
+</span><a href="#local-6989586621679581943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDashboardVersions' :: Maybe Natural
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AmaxResults%3AListDashboardVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the dashboard</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- that you\'re listing versions for.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_awsAccountId"><span class="hs-identifier hs-type">listDashboardVersions_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="listDashboardVersions_awsAccountId"><span class="annot"><span class="annottext">listDashboardVersions_awsAccountId :: (Text -&gt; f Text)
+-&gt; ListDashboardVersions -&gt; f ListDashboardVersions
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_awsAccountId"><span class="hs-identifier hs-var hs-var">listDashboardVersions_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersions -&gt; Text)
+-&gt; (ListDashboardVersions -&gt; Text -&gt; ListDashboardVersions)
+-&gt; Lens ListDashboardVersions ListDashboardVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581941"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:ListDashboardVersions' :: ListDashboardVersions -&gt; Text
+</span><a href="#local-6989586621679581941"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581941"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581940"><span class="annot"><span class="annottext">s :: ListDashboardVersions
+</span><a href="#local-6989586621679581940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersions
+</span><a href="#local-6989586621679581940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:ListDashboardVersions' :: Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AawsAccountId%3AListDashboardVersions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The ID for the dashboard.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_dashboardId"><span class="hs-identifier hs-type">listDashboardVersions_dashboardId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="listDashboardVersions_dashboardId"><span class="annot"><span class="annottext">listDashboardVersions_dashboardId :: (Text -&gt; f Text)
+-&gt; ListDashboardVersions -&gt; f ListDashboardVersions
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_dashboardId"><span class="hs-identifier hs-var hs-var">listDashboardVersions_dashboardId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersions -&gt; Text)
+-&gt; (ListDashboardVersions -&gt; Text -&gt; ListDashboardVersions)
+-&gt; Lens ListDashboardVersions ListDashboardVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581938"><span class="annot"><span class="annottext">Text
+dashboardId :: Text
+$sel:dashboardId:ListDashboardVersions' :: ListDashboardVersions -&gt; Text
+</span><a href="#local-6989586621679581938"><span class="hs-identifier hs-var hs-var">dashboardId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581938"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581937"><span class="annot"><span class="annottext">s :: ListDashboardVersions
+</span><a href="#local-6989586621679581937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581936"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersions
+</span><a href="#local-6989586621679581937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardId:ListDashboardVersions' :: Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AdashboardId%3AListDashboardVersions%27"><span class="hs-identifier hs-var">dashboardId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679581932"><span class="annot"><span class="annottext">page :: ListDashboardVersions
+-&gt; AWSResponse ListDashboardVersions -&gt; Maybe ListDashboardVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679581930"><span class="annot"><span class="annottext">ListDashboardVersions
+</span><a href="#local-6989586621679581930"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679581929"><span class="annot"><span class="annottext">AWSResponse ListDashboardVersions
+</span><a href="#local-6989586621679581929"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDashboardVersions
+ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581929"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+-&gt; Getting (First Text) ListDashboardVersionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDashboardVersionsResponse
+-&gt; Const (First Text) ListDashboardVersionsResponse
+Lens' ListDashboardVersionsResponse (Maybe Text)
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_nextToken"><span class="hs-identifier hs-var">listDashboardVersionsResponse_nextToken</span></a></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDashboardVersionsResponse
+ -&gt; Const (First Text) ListDashboardVersionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDashboardVersionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDashboardVersions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardVersionSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDashboardVersions
+ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581929"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+-&gt; Getting
+     (First [DashboardVersionSummary])
+     ListDashboardVersionsResponse
+     [DashboardVersionSummary]
+-&gt; Maybe [DashboardVersionSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [DashboardVersionSummary]
+ -&gt; Const
+      (First [DashboardVersionSummary])
+      (Maybe [DashboardVersionSummary]))
+-&gt; ListDashboardVersionsResponse
+-&gt; Const
+     (First [DashboardVersionSummary]) ListDashboardVersionsResponse
+Lens'
+  ListDashboardVersionsResponse (Maybe [DashboardVersionSummary])
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_dashboardVersionSummaryList"><span class="hs-identifier hs-var">listDashboardVersionsResponse_dashboardVersionSummaryList</span></a></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [DashboardVersionSummary]
+  -&gt; Const
+       (First [DashboardVersionSummary])
+       (Maybe [DashboardVersionSummary]))
+ -&gt; ListDashboardVersionsResponse
+ -&gt; Const
+      (First [DashboardVersionSummary]) ListDashboardVersionsResponse)
+-&gt; (([DashboardVersionSummary]
+     -&gt; Const
+          (First [DashboardVersionSummary]) [DashboardVersionSummary])
+    -&gt; Maybe [DashboardVersionSummary]
+    -&gt; Const
+         (First [DashboardVersionSummary])
+         (Maybe [DashboardVersionSummary]))
+-&gt; Getting
+     (First [DashboardVersionSummary])
+     ListDashboardVersionsResponse
+     [DashboardVersionSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DashboardVersionSummary]
+ -&gt; Const
+      (First [DashboardVersionSummary]) [DashboardVersionSummary])
+-&gt; Maybe [DashboardVersionSummary]
+-&gt; Const
+     (First [DashboardVersionSummary]) (Maybe [DashboardVersionSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListDashboardVersions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">ListDashboardVersions -&gt; Maybe ListDashboardVersions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersions -&gt; Maybe ListDashboardVersions)
+-&gt; ListDashboardVersions -&gt; Maybe ListDashboardVersions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ListDashboardVersions
+</span><a href="#local-6989586621679581930"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListDashboardVersions
+-&gt; (ListDashboardVersions -&gt; ListDashboardVersions)
+-&gt; ListDashboardVersions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListDashboardVersions -&gt; Identity ListDashboardVersions
+Lens
+  ListDashboardVersions
+  ListDashboardVersions
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersions_nextToken"><span class="hs-identifier hs-var">listDashboardVersions_nextToken</span></a></span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListDashboardVersions -&gt; Identity ListDashboardVersions)
+-&gt; Maybe Text -&gt; ListDashboardVersions -&gt; ListDashboardVersions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDashboardVersions
+ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581929"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+-&gt; Getting (First Text) ListDashboardVersionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListDashboardVersionsResponse
+-&gt; Const (First Text) ListDashboardVersionsResponse
+Lens' ListDashboardVersionsResponse (Maybe Text)
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_nextToken"><span class="hs-identifier hs-var">listDashboardVersionsResponse_nextToken</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListDashboardVersionsResponse
+ -&gt; Const (First Text) ListDashboardVersionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListDashboardVersionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679581919"><span class="annot"><span class="annottext">request :: ListDashboardVersions -&gt; Request ListDashboardVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDashboardVersions -&gt; Request ListDashboardVersions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679581915"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDashboardVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDashboardVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDashboardVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDashboardVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDashboardVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679581912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581912"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679581911"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679581911"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679581910"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [DashboardVersionSummary]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListDashboardVersionsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">ListDashboardVersionsResponse'</span></a></span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [DashboardVersionSummary]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListDashboardVersionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [DashboardVersionSummary]
+      -&gt; Maybe Text -&gt; Int -&gt; ListDashboardVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [DashboardVersionSummary]
+   -&gt; Maybe Text -&gt; Int -&gt; ListDashboardVersionsResponse)
+-&gt; Either String (Maybe [DashboardVersionSummary])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListDashboardVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [DashboardVersionSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DashboardVersionSummaryList&quot;</span></span><span>
+</span><span id="line-154"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DashboardVersionSummary]))
+-&gt; Maybe [DashboardVersionSummary]
+-&gt; Either String (Maybe [DashboardVersionSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardVersionSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListDashboardVersionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListDashboardVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679581910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDashboardVersionsResponse)
+-&gt; Either String Int -&gt; Either String ListDashboardVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581912"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679581901"><span id="local-6989586621679581903"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679581898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679581894"><span class="annot"><span class="annottext">toHeaders :: ListDashboardVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDashboardVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-171"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679581888"><span class="annot"><span class="annottext">toPath :: ListDashboardVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581883"><span id="local-6989586621679581884"><span id="local-6989586621679581885"><span id="local-6989586621679581886"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+dashboardId :: Text
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:dashboardId:ListDashboardVersions' :: ListDashboardVersions -&gt; Text
+$sel:awsAccountId:ListDashboardVersions' :: ListDashboardVersions -&gt; Text
+$sel:maxResults:ListDashboardVersions' :: ListDashboardVersions -&gt; Maybe Natural
+$sel:nextToken:ListDashboardVersions' :: ListDashboardVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679581883"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581884"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/dashboards/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679581883"><span class="hs-identifier hs-var">dashboardId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions&quot;</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions"><span class="hs-identifier hs-type">ListDashboardVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679581879"><span class="annot"><span class="annottext">toQuery :: ListDashboardVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersions%27"><span class="hs-identifier hs-type">ListDashboardVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581874"><span id="local-6989586621679581875"><span id="local-6989586621679581876"><span id="local-6989586621679581877"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+dashboardId :: Text
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:dashboardId:ListDashboardVersions' :: ListDashboardVersions -&gt; Text
+$sel:awsAccountId:ListDashboardVersions' :: ListDashboardVersions -&gt; Text
+$sel:maxResults:ListDashboardVersions' :: ListDashboardVersions -&gt; Maybe Natural
+$sel:nextToken:ListDashboardVersions' :: ListDashboardVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679581874"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581877"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max-results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679581876"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newListDashboardVersionsResponse' smart constructor.</span><span>
+</span><span id="line-193"></span><span id="local-6989586621679581871"><span id="local-6989586621679581872"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDashboardVersionsResponse"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-var">ListDashboardVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDashboardVersionsResponse%27"><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">ListDashboardVersionsResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3ArequestId%3AListDashboardVersionsResponse%27"><span class="annot"><span class="annottext">ListDashboardVersionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3ArequestId%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | A structure that contains information about each version of the</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- dashboard.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AdashboardVersionSummaryList%3AListDashboardVersionsResponse%27"><span class="annot"><span class="annottext">ListDashboardVersionsResponse -&gt; Maybe [DashboardVersionSummary]
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AdashboardVersionSummaryList%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var hs-var">dashboardVersionSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardVersionSummary.html#DashboardVersionSummary"><span class="hs-identifier hs-type">DashboardVersionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AnextToken%3AListDashboardVersionsResponse%27"><span class="annot"><span class="annottext">ListDashboardVersionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AnextToken%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3Astatus%3AListDashboardVersionsResponse%27"><span class="annot"><span class="annottext">ListDashboardVersionsResponse -&gt; Int
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3Astatus%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679581863"><span id="local-6989586621679581865"><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+-&gt; ListDashboardVersionsResponse -&gt; Bool
+(ListDashboardVersionsResponse
+ -&gt; ListDashboardVersionsResponse -&gt; Bool)
+-&gt; (ListDashboardVersionsResponse
+    -&gt; ListDashboardVersionsResponse -&gt; Bool)
+-&gt; Eq ListDashboardVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDashboardVersionsResponse
+-&gt; ListDashboardVersionsResponse -&gt; Bool
+$c/= :: ListDashboardVersionsResponse
+-&gt; ListDashboardVersionsResponse -&gt; Bool
+== :: ListDashboardVersionsResponse
+-&gt; ListDashboardVersionsResponse -&gt; Bool
+$c== :: ListDashboardVersionsResponse
+-&gt; ListDashboardVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581855"><span id="local-6989586621679581857"><span id="local-6989586621679581859"><span id="local-6989586621679581861"><span class="annot"><span class="annottext">ReadPrec [ListDashboardVersionsResponse]
+ReadPrec ListDashboardVersionsResponse
+Int -&gt; ReadS ListDashboardVersionsResponse
+ReadS [ListDashboardVersionsResponse]
+(Int -&gt; ReadS ListDashboardVersionsResponse)
+-&gt; ReadS [ListDashboardVersionsResponse]
+-&gt; ReadPrec ListDashboardVersionsResponse
+-&gt; ReadPrec [ListDashboardVersionsResponse]
+-&gt; Read ListDashboardVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDashboardVersionsResponse]
+$creadListPrec :: ReadPrec [ListDashboardVersionsResponse]
+readPrec :: ReadPrec ListDashboardVersionsResponse
+$creadPrec :: ReadPrec ListDashboardVersionsResponse
+readList :: ReadS [ListDashboardVersionsResponse]
+$creadList :: ReadS [ListDashboardVersionsResponse]
+readsPrec :: Int -&gt; ReadS ListDashboardVersionsResponse
+$creadsPrec :: Int -&gt; ReadS ListDashboardVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679581849"><span id="local-6989586621679581851"><span id="local-6989586621679581853"><span class="annot"><span class="annottext">Int -&gt; ListDashboardVersionsResponse -&gt; ShowS
+[ListDashboardVersionsResponse] -&gt; ShowS
+ListDashboardVersionsResponse -&gt; String
+(Int -&gt; ListDashboardVersionsResponse -&gt; ShowS)
+-&gt; (ListDashboardVersionsResponse -&gt; String)
+-&gt; ([ListDashboardVersionsResponse] -&gt; ShowS)
+-&gt; Show ListDashboardVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDashboardVersionsResponse] -&gt; ShowS
+$cshowList :: [ListDashboardVersionsResponse] -&gt; ShowS
+show :: ListDashboardVersionsResponse -&gt; String
+$cshow :: ListDashboardVersionsResponse -&gt; String
+showsPrec :: Int -&gt; ListDashboardVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDashboardVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDashboardVersionsResponse
+ -&gt; Rep ListDashboardVersionsResponse x)
+-&gt; (forall x.
+    Rep ListDashboardVersionsResponse x
+    -&gt; ListDashboardVersionsResponse)
+-&gt; Generic ListDashboardVersionsResponse
+forall x.
+Rep ListDashboardVersionsResponse x
+-&gt; ListDashboardVersionsResponse
+forall x.
+ListDashboardVersionsResponse
+-&gt; Rep ListDashboardVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDashboardVersionsResponse x
+-&gt; ListDashboardVersionsResponse
+$cfrom :: forall x.
+ListDashboardVersionsResponse
+-&gt; Rep ListDashboardVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Create a value of 'ListDashboardVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'requestId', 'listDashboardVersionsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'dashboardVersionSummaryList', 'listDashboardVersionsResponse_dashboardVersionSummaryList' - A structure that contains information about each version of the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- dashboard.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'nextToken', 'listDashboardVersionsResponse_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'status', 'listDashboardVersionsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#newListDashboardVersionsResponse"><span class="hs-identifier hs-type">newListDashboardVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span>
+</span><span id="line-228"></span><span id="newListDashboardVersionsResponse"><span class="annot"><span class="annottext">newListDashboardVersionsResponse :: Int -&gt; ListDashboardVersionsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#newListDashboardVersionsResponse"><span class="hs-identifier hs-var hs-var">newListDashboardVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679581846"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581846"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse' :: Maybe Text
+-&gt; Maybe [DashboardVersionSummary]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListDashboardVersionsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:ListDashboardVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3ArequestId%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardVersionSummaryList:ListDashboardVersionsResponse' :: Maybe [DashboardVersionSummary]
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AdashboardVersionSummaryList%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">dashboardVersionSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DashboardVersionSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboardVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AnextToken%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ListDashboardVersionsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3Astatus%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581846"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_requestId"><span class="hs-identifier hs-type">listDashboardVersionsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="listDashboardVersionsResponse_requestId"><span class="annot"><span class="annottext">listDashboardVersionsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDashboardVersionsResponse -&gt; f ListDashboardVersionsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_requestId"><span class="hs-identifier hs-var hs-var">listDashboardVersionsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersionsResponse -&gt; Maybe Text)
+-&gt; (ListDashboardVersionsResponse
+    -&gt; Maybe Text -&gt; ListDashboardVersionsResponse)
+-&gt; Lens' ListDashboardVersionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581845"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:ListDashboardVersionsResponse' :: ListDashboardVersionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679581845"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581845"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581844"><span class="annot"><span class="annottext">s :: ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581843"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:ListDashboardVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3ArequestId%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | A structure that contains information about each version of the</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- dashboard.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_dashboardVersionSummaryList"><span class="hs-identifier hs-type">listDashboardVersionsResponse_dashboardVersionSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardVersionSummary.html#DashboardVersionSummary"><span class="hs-identifier hs-type">DashboardVersionSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="listDashboardVersionsResponse_dashboardVersionSummaryList"><span class="annot"><span class="annottext">listDashboardVersionsResponse_dashboardVersionSummaryList :: (Maybe [DashboardVersionSummary]
+ -&gt; f (Maybe [DashboardVersionSummary]))
+-&gt; ListDashboardVersionsResponse -&gt; f ListDashboardVersionsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_dashboardVersionSummaryList"><span class="hs-identifier hs-var hs-var">listDashboardVersionsResponse_dashboardVersionSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersionsResponse -&gt; Maybe [DashboardVersionSummary])
+-&gt; (ListDashboardVersionsResponse
+    -&gt; Maybe [DashboardVersionSummary]
+    -&gt; ListDashboardVersionsResponse)
+-&gt; Lens'
+     ListDashboardVersionsResponse (Maybe [DashboardVersionSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581842"><span class="annot"><span class="annottext">Maybe [DashboardVersionSummary]
+dashboardVersionSummaryList :: Maybe [DashboardVersionSummary]
+$sel:dashboardVersionSummaryList:ListDashboardVersionsResponse' :: ListDashboardVersionsResponse -&gt; Maybe [DashboardVersionSummary]
+</span><a href="#local-6989586621679581842"><span class="hs-identifier hs-var hs-var">dashboardVersionSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardVersionSummary]
+</span><a href="#local-6989586621679581842"><span class="hs-identifier hs-var">dashboardVersionSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581841"><span class="annot"><span class="annottext">s :: ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581840"><span class="annot"><span class="annottext">Maybe [DashboardVersionSummary]
+</span><a href="#local-6989586621679581840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardVersionSummaryList:ListDashboardVersionsResponse' :: Maybe [DashboardVersionSummary]
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AdashboardVersionSummaryList%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">dashboardVersionSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardVersionSummary]
+</span><a href="#local-6989586621679581840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DashboardVersionSummary]
+  -&gt; f (Maybe [DashboardVersionSummary]))
+ -&gt; ListDashboardVersionsResponse
+ -&gt; f ListDashboardVersionsResponse)
+-&gt; ((Maybe [DashboardVersionSummary]
+     -&gt; f (Maybe [DashboardVersionSummary]))
+    -&gt; Maybe [DashboardVersionSummary]
+    -&gt; f (Maybe [DashboardVersionSummary]))
+-&gt; (Maybe [DashboardVersionSummary]
+    -&gt; f (Maybe [DashboardVersionSummary]))
+-&gt; ListDashboardVersionsResponse
+-&gt; f ListDashboardVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DashboardVersionSummary]
+  [DashboardVersionSummary]
+  [DashboardVersionSummary]
+  [DashboardVersionSummary]
+-&gt; Iso
+     (Maybe [DashboardVersionSummary])
+     (Maybe [DashboardVersionSummary])
+     (Maybe [DashboardVersionSummary])
+     (Maybe [DashboardVersionSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DashboardVersionSummary]
+  [DashboardVersionSummary]
+  [DashboardVersionSummary]
+  [DashboardVersionSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_nextToken"><span class="hs-identifier hs-type">listDashboardVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="listDashboardVersionsResponse_nextToken"><span class="annot"><span class="annottext">listDashboardVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDashboardVersionsResponse -&gt; f ListDashboardVersionsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDashboardVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersionsResponse -&gt; Maybe Text)
+-&gt; (ListDashboardVersionsResponse
+    -&gt; Maybe Text -&gt; ListDashboardVersionsResponse)
+-&gt; Lens' ListDashboardVersionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581837"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDashboardVersionsResponse' :: ListDashboardVersionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679581837"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581837"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581836"><span class="annot"><span class="annottext">s :: ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDashboardVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3AnextToken%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679581835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_status"><span class="hs-identifier hs-type">listDashboardVersionsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-254"></span><span id="listDashboardVersionsResponse_status"><span class="annot"><span class="annottext">listDashboardVersionsResponse_status :: (Int -&gt; f Int)
+-&gt; ListDashboardVersionsResponse -&gt; f ListDashboardVersionsResponse
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#listDashboardVersionsResponse_status"><span class="hs-identifier hs-var hs-var">listDashboardVersionsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDashboardVersionsResponse -&gt; Int)
+-&gt; (ListDashboardVersionsResponse
+    -&gt; Int -&gt; ListDashboardVersionsResponse)
+-&gt; Lens
+     ListDashboardVersionsResponse ListDashboardVersionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679581834"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:ListDashboardVersionsResponse' :: ListDashboardVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679581834"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581834"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679581833"><span class="annot"><span class="annottext">s :: ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse%27"><span class="hs-identifier hs-type">ListDashboardVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679581832"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDashboardVersionsResponse
+</span><a href="#local-6989586621679581833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListDashboardVersionsResponse' :: Int
+</span><a href="Network.AWS.QuickSight.ListDashboardVersions.html#%24sel%3Astatus%3AListDashboardVersionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679581832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679581830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.ListDashboardVersions.html#ListDashboardVersionsResponse"><span class="hs-identifier hs-type">ListDashboardVersionsResponse</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

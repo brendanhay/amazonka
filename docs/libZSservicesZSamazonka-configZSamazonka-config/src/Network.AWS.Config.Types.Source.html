@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Amazon Web Services resources.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSource' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679409073"><span id="local-6989586621679409074"></span></span><span class="hs-keyword">data</span><span> </span><span id="Source"><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-var">Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Source%27"><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679409082"><span id="local-6989586621679409083"></span></span><span class="hs-keyword">data</span><span> </span><span id="Source"><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-var">Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Source%27"><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides the source and type of the event that causes Config to evaluate</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- your Amazon Web Services resources.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AsourceDetails%3ASource%27"><span class="annot"><span class="annottext">Source -&gt; Maybe [SourceDetail]
@@ -50,7 +50,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AsourceIdentifier%3ASource%27"><span class="annot"><span class="annottext">Source -&gt; Text
 </span><a href="Network.AWS.Config.Types.Source.html#%24sel%3AsourceIdentifier%3ASource%27"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409065"><span id="local-6989586621679409067"><span class="annot"><span class="annottext">Source -&gt; Source -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409074"><span id="local-6989586621679409076"><span class="annot"><span class="annottext">Source -&gt; Source -&gt; Bool
 (Source -&gt; Source -&gt; Bool)
 -&gt; (Source -&gt; Source -&gt; Bool) -&gt; Eq Source
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Source -&gt; Source -&gt; Bool
 == :: Source -&gt; Source -&gt; Bool
 $c== :: Source -&gt; Source -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409056"><span id="local-6989586621679409058"><span id="local-6989586621679409060"><span id="local-6989586621679409062"><span class="annot"><span class="annottext">ReadPrec [Source]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409065"><span id="local-6989586621679409067"><span id="local-6989586621679409069"><span id="local-6989586621679409071"><span class="annot"><span class="annottext">ReadPrec [Source]
 ReadPrec Source
 Int -&gt; ReadS Source
 ReadS [Source]
@@ -78,7 +78,7 @@ readList :: ReadS [Source]
 $creadList :: ReadS [Source]
 readsPrec :: Int -&gt; ReadS Source
 $creadsPrec :: Int -&gt; ReadS Source
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409049"><span id="local-6989586621679409051"><span id="local-6989586621679409053"><span class="annot"><span class="annottext">Int -&gt; Source -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409058"><span id="local-6989586621679409060"><span id="local-6989586621679409062"><span class="annot"><span class="annottext">Int -&gt; Source -&gt; ShowS
 [Source] -&gt; ShowS
 Source -&gt; String
 (Int -&gt; Source -&gt; ShowS)
@@ -130,9 +130,9 @@ $cfrom :: forall x. Source -&gt; Rep Source x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span>
 </span><span id="line-80"></span><span id="newSource"><span class="annot"><span class="annottext">newSource :: Owner -&gt; Text -&gt; Source
-</span><a href="Network.AWS.Config.Types.Source.html#newSource"><span class="hs-identifier hs-var hs-var">newSource</span></a></span></span><span> </span><span id="local-6989586621679409043"><span class="annot"><span class="annottext">Owner
-</span><a href="#local-6989586621679409043"><span class="hs-identifier hs-var">pOwner_</span></a></span></span><span> </span><span id="local-6989586621679409042"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409042"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.Types.Source.html#newSource"><span class="hs-identifier hs-var hs-var">newSource</span></a></span></span><span> </span><span id="local-6989586621679409052"><span class="annot"><span class="annottext">Owner
+</span><a href="#local-6989586621679409052"><span class="hs-identifier hs-var">pOwner_</span></a></span></span><span> </span><span id="local-6989586621679409051"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409051"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">Source' :: Maybe [SourceDetail] -&gt; Owner -&gt; Text -&gt; Source
 </span><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceDetails:Source' :: Maybe [SourceDetail]
@@ -141,10 +141,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:Source' :: Owner
 </span><a href="Network.AWS.Config.Types.Source.html#%24sel%3Aowner%3ASource%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Owner
-</span><a href="#local-6989586621679409043"><span class="hs-identifier hs-var">pOwner_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679409052"><span class="hs-identifier hs-var">pOwner_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceIdentifier:Source' :: Text
 </span><a href="Network.AWS.Config.Types.Source.html#%24sel%3AsourceIdentifier%3ASource%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409042"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679409051"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | Provides the source and type of the event that causes Config to evaluate</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (Source -&gt; Maybe [SourceDetail] -&gt; Source)
 -&gt; Lens Source Source (Maybe [SourceDetail]) (Maybe [SourceDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409038"><span class="annot"><span class="annottext">Maybe [SourceDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409047"><span class="annot"><span class="annottext">Maybe [SourceDetail]
 sourceDetails :: Maybe [SourceDetail]
 $sel:sourceDetails:Source' :: Source -&gt; Maybe [SourceDetail]
-</span><a href="#local-6989586621679409038"><span class="hs-identifier hs-var hs-var">sourceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceDetail]
-</span><a href="#local-6989586621679409038"><span class="hs-identifier hs-var">sourceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409037"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679409037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409036"><span class="annot"><span class="annottext">Maybe [SourceDetail]
-</span><a href="#local-6989586621679409036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679409037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDetails:Source' :: Maybe [SourceDetail]
+</span><a href="#local-6989586621679409047"><span class="hs-identifier hs-var hs-var">sourceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceDetail]
+</span><a href="#local-6989586621679409047"><span class="hs-identifier hs-var">sourceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409046"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679409046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409045"><span class="annot"><span class="annottext">Maybe [SourceDetail]
+</span><a href="#local-6989586621679409045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679409046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDetails:Source' :: Maybe [SourceDetail]
 </span><a href="Network.AWS.Config.Types.Source.html#%24sel%3AsourceDetails%3ASource%27"><span class="hs-identifier hs-var">sourceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SourceDetail]
-</span><a href="#local-6989586621679409036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SourceDetail] -&gt; f (Maybe [SourceDetail]))
+</span><a href="#local-6989586621679409045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SourceDetail] -&gt; f (Maybe [SourceDetail]))
  -&gt; Source -&gt; f Source)
 -&gt; ((Maybe [SourceDetail] -&gt; f (Maybe [SourceDetail]))
     -&gt; Maybe [SourceDetail] -&gt; f (Maybe [SourceDetail]))
@@ -193,16 +193,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.Config.Types.Source.html#source_owner"><span class="hs-identifier hs-var hs-var">source_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Source -&gt; Owner)
 -&gt; (Source -&gt; Owner -&gt; Source) -&gt; Lens Source Source Owner Owner
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409031"><span class="annot"><span class="annottext">Owner
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409040"><span class="annot"><span class="annottext">Owner
 owner :: Owner
 $sel:owner:Source' :: Source -&gt; Owner
-</span><a href="#local-6989586621679409031"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Owner
-</span><a href="#local-6989586621679409031"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409030"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679409030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409029"><span class="annot"><span class="annottext">Owner
-</span><a href="#local-6989586621679409029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679409030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:Source' :: Owner
+</span><a href="#local-6989586621679409040"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Owner
+</span><a href="#local-6989586621679409040"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409039"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679409039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409038"><span class="annot"><span class="annottext">Owner
+</span><a href="#local-6989586621679409038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679409039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:Source' :: Owner
 </span><a href="Network.AWS.Config.Types.Source.html#%24sel%3Aowner%3ASource%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Owner
-</span><a href="#local-6989586621679409029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | For Config managed rules, a predefined identifier from a list. For</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed</span><span>
@@ -217,27 +217,27 @@ $sel:owner:Source' :: Source -&gt; Owner
 </span><a href="Network.AWS.Config.Types.Source.html#source_sourceIdentifier"><span class="hs-identifier hs-var hs-var">source_sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Source -&gt; Text)
 -&gt; (Source -&gt; Text -&gt; Source) -&gt; Lens Source Source Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409027"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409036"><span class="annot"><span class="annottext">Text
 sourceIdentifier :: Text
 $sel:sourceIdentifier:Source' :: Source -&gt; Text
-</span><a href="#local-6989586621679409027"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409027"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409026"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679409026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409025"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679409026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:Source' :: Text
+</span><a href="#local-6989586621679409036"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409036"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409035"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679409035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679409034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679409035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:Source' :: Text
 </span><a href="Network.AWS.Config.Types.Source.html#%24sel%3AsourceIdentifier%3ASource%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679409025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679409020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Source
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679409029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Source) -&gt; Value -&gt; Parser Source
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Source&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409017"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409026"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679409026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SourceDetail] -&gt; Owner -&gt; Text -&gt; Source
 </span><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SourceDetail] -&gt; Owner -&gt; Text -&gt; Source)
@@ -245,7 +245,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Owner -&gt; Text -&gt; Source)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SourceDetail]))
+</span><a href="#local-6989586621679409026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SourceDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SourceDetail]))
@@ -258,26 +258,26 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Owner -&gt; Parser (Text -&gt; Source)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Owner
+</span><a href="#local-6989586621679409026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Owner
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Source) -&gt; Parser Text -&gt; Parser Source
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679409026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409009"><span id="local-6989586621679409011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409018"><span id="local-6989586621679409020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408998"><span id="local-6989586621679409000"><span id="local-6989586621679409002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679408996"><span class="annot"><span class="annottext">toJSON :: Source -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408992"><span id="local-6989586621679408993"><span id="local-6989586621679408994"><span class="annot"><span class="annottext">Maybe [SourceDetail]
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409007"><span id="local-6989586621679409009"><span id="local-6989586621679409011"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679409005"><span class="annot"><span class="annottext">toJSON :: Source -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409001"><span id="local-6989586621679409002"><span id="local-6989586621679409003"><span class="annot"><span class="annottext">Maybe [SourceDetail]
 Text
 Owner
 sourceIdentifier :: Text
@@ -286,7 +286,7 @@ sourceDetails :: Maybe [SourceDetail]
 $sel:sourceIdentifier:Source' :: Source -&gt; Text
 $sel:owner:Source' :: Source -&gt; Owner
 $sel:sourceDetails:Source' :: Source -&gt; Maybe [SourceDetail]
-</span><a href="#local-6989586621679408992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679409001"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -298,14 +298,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SourceDetail] -&gt; Pair) -&gt; Maybe [SourceDetail] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SourceDetail]
-</span><a href="#local-6989586621679408994"><span class="hs-identifier hs-var">sourceDetails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679409003"><span class="hs-identifier hs-var">sourceDetails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Owner -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Owner
-</span><a href="#local-6989586621679408993"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679409002"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -313,7 +313,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408992"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409001"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span></pre></body></html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Neptune.Types.DBParameterGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Neptune.Types.DBParameterGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains the details of an Amazon Neptune DB parameter group.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This data type is used as a response element in the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- DescribeDBParameterGroups action.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDBParameterGroup' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679396078"><span id="local-6989586621679396079"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBParameterGroup"><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-var">DBParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBParameterGroup%27"><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-var">DBParameterGroup'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB parameter group.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdbParameterGroupArn%3ADBParameterGroup%27"><span class="annot"><span class="annottext">DBParameterGroup -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupArn%3ADBParameterGroup%27"><span class="hs-identifier hs-var hs-var">dbParameterGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Provides the name of the DB parameter group family that this DB</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- parameter group is compatible with.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdbParameterGroupFamily%3ADBParameterGroup%27"><span class="annot"><span class="annottext">DBParameterGroup -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupFamily%3ADBParameterGroup%27"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Provides the name of the DB parameter group.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdbParameterGroupName%3ADBParameterGroup%27"><span class="annot"><span class="annottext">DBParameterGroup -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupName%3ADBParameterGroup%27"><span class="hs-identifier hs-var hs-var">dbParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Provides the customer-specified description for this DB parameter group.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Adescription%3ADBParameterGroup%27"><span class="annot"><span class="annottext">DBParameterGroup -&gt; Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3Adescription%3ADBParameterGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396069"><span id="local-6989586621679396071"><span class="annot"><span class="annottext">DBParameterGroup -&gt; DBParameterGroup -&gt; Bool
+(DBParameterGroup -&gt; DBParameterGroup -&gt; Bool)
+-&gt; (DBParameterGroup -&gt; DBParameterGroup -&gt; Bool)
+-&gt; Eq DBParameterGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DBParameterGroup -&gt; DBParameterGroup -&gt; Bool
+$c/= :: DBParameterGroup -&gt; DBParameterGroup -&gt; Bool
+== :: DBParameterGroup -&gt; DBParameterGroup -&gt; Bool
+$c== :: DBParameterGroup -&gt; DBParameterGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396060"><span id="local-6989586621679396062"><span id="local-6989586621679396064"><span id="local-6989586621679396066"><span class="annot"><span class="annottext">ReadPrec [DBParameterGroup]
+ReadPrec DBParameterGroup
+Int -&gt; ReadS DBParameterGroup
+ReadS [DBParameterGroup]
+(Int -&gt; ReadS DBParameterGroup)
+-&gt; ReadS [DBParameterGroup]
+-&gt; ReadPrec DBParameterGroup
+-&gt; ReadPrec [DBParameterGroup]
+-&gt; Read DBParameterGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DBParameterGroup]
+$creadListPrec :: ReadPrec [DBParameterGroup]
+readPrec :: ReadPrec DBParameterGroup
+$creadPrec :: ReadPrec DBParameterGroup
+readList :: ReadS [DBParameterGroup]
+$creadList :: ReadS [DBParameterGroup]
+readsPrec :: Int -&gt; ReadS DBParameterGroup
+$creadsPrec :: Int -&gt; ReadS DBParameterGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396053"><span id="local-6989586621679396055"><span id="local-6989586621679396057"><span class="annot"><span class="annottext">Int -&gt; DBParameterGroup -&gt; ShowS
+[DBParameterGroup] -&gt; ShowS
+DBParameterGroup -&gt; String
+(Int -&gt; DBParameterGroup -&gt; ShowS)
+-&gt; (DBParameterGroup -&gt; String)
+-&gt; ([DBParameterGroup] -&gt; ShowS)
+-&gt; Show DBParameterGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DBParameterGroup] -&gt; ShowS
+$cshowList :: [DBParameterGroup] -&gt; ShowS
+show :: DBParameterGroup -&gt; String
+$cshow :: DBParameterGroup -&gt; String
+showsPrec :: Int -&gt; DBParameterGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DBParameterGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DBParameterGroup -&gt; Rep DBParameterGroup x)
+-&gt; (forall x. Rep DBParameterGroup x -&gt; DBParameterGroup)
+-&gt; Generic DBParameterGroup
+forall x. Rep DBParameterGroup x -&gt; DBParameterGroup
+forall x. DBParameterGroup -&gt; Rep DBParameterGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DBParameterGroup x -&gt; DBParameterGroup
+$cfrom :: forall x. DBParameterGroup -&gt; Rep DBParameterGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'DBParameterGroup' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'dbParameterGroupArn', 'dbParameterGroup_dbParameterGroupArn' - The Amazon Resource Name (ARN) for the DB parameter group.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'dbParameterGroupFamily', 'dbParameterGroup_dbParameterGroupFamily' - Provides the name of the DB parameter group family that this DB</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- parameter group is compatible with.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'dbParameterGroupName', 'dbParameterGroup_dbParameterGroupName' - Provides the name of the DB parameter group.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'description', 'dbParameterGroup_description' - Provides the customer-specified description for this DB parameter group.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#newDBParameterGroup"><span class="hs-identifier hs-type">newDBParameterGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span>
+</span><span id="line-63"></span><span id="newDBParameterGroup"><span class="annot"><span class="annottext">newDBParameterGroup :: DBParameterGroup
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#newDBParameterGroup"><span class="hs-identifier hs-var hs-var">newDBParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DBParameterGroup' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBParameterGroup
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbParameterGroupArn:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupArn%3ADBParameterGroup%27"><span class="hs-identifier hs-var">dbParameterGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupFamily%3ADBParameterGroup%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbParameterGroupName:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupName%3ADBParameterGroup%27"><span class="hs-identifier hs-var">dbParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3Adescription%3ADBParameterGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB parameter group.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_dbParameterGroupArn"><span class="hs-identifier hs-type">dbParameterGroup_dbParameterGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="dbParameterGroup_dbParameterGroupArn"><span class="annot"><span class="annottext">dbParameterGroup_dbParameterGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBParameterGroup -&gt; f DBParameterGroup
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_dbParameterGroupArn"><span class="hs-identifier hs-var hs-var">dbParameterGroup_dbParameterGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBParameterGroup -&gt; Maybe Text)
+-&gt; (DBParameterGroup -&gt; Maybe Text -&gt; DBParameterGroup)
+-&gt; Lens DBParameterGroup DBParameterGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396044"><span class="annot"><span class="annottext">Maybe Text
+dbParameterGroupArn :: Maybe Text
+$sel:dbParameterGroupArn:DBParameterGroup' :: DBParameterGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679396044"><span class="hs-identifier hs-var hs-var">dbParameterGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396044"><span class="hs-identifier hs-var">dbParameterGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396043"><span class="annot"><span class="annottext">s :: DBParameterGroup
+</span><a href="#local-6989586621679396043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBParameterGroup
+</span><a href="#local-6989586621679396043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbParameterGroupArn:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupArn%3ADBParameterGroup%27"><span class="hs-identifier hs-var">dbParameterGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Provides the name of the DB parameter group family that this DB</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- parameter group is compatible with.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_dbParameterGroupFamily"><span class="hs-identifier hs-type">dbParameterGroup_dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="dbParameterGroup_dbParameterGroupFamily"><span class="annot"><span class="annottext">dbParameterGroup_dbParameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBParameterGroup -&gt; f DBParameterGroup
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_dbParameterGroupFamily"><span class="hs-identifier hs-var hs-var">dbParameterGroup_dbParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBParameterGroup -&gt; Maybe Text)
+-&gt; (DBParameterGroup -&gt; Maybe Text -&gt; DBParameterGroup)
+-&gt; Lens DBParameterGroup DBParameterGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396040"><span class="annot"><span class="annottext">Maybe Text
+dbParameterGroupFamily :: Maybe Text
+$sel:dbParameterGroupFamily:DBParameterGroup' :: DBParameterGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679396040"><span class="hs-identifier hs-var hs-var">dbParameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396040"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396039"><span class="annot"><span class="annottext">s :: DBParameterGroup
+</span><a href="#local-6989586621679396039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396038"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBParameterGroup
+</span><a href="#local-6989586621679396039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbParameterGroupFamily:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupFamily%3ADBParameterGroup%27"><span class="hs-identifier hs-var">dbParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Provides the name of the DB parameter group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_dbParameterGroupName"><span class="hs-identifier hs-type">dbParameterGroup_dbParameterGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="dbParameterGroup_dbParameterGroupName"><span class="annot"><span class="annottext">dbParameterGroup_dbParameterGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBParameterGroup -&gt; f DBParameterGroup
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_dbParameterGroupName"><span class="hs-identifier hs-var hs-var">dbParameterGroup_dbParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBParameterGroup -&gt; Maybe Text)
+-&gt; (DBParameterGroup -&gt; Maybe Text -&gt; DBParameterGroup)
+-&gt; Lens DBParameterGroup DBParameterGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396036"><span class="annot"><span class="annottext">Maybe Text
+dbParameterGroupName :: Maybe Text
+$sel:dbParameterGroupName:DBParameterGroup' :: DBParameterGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679396036"><span class="hs-identifier hs-var hs-var">dbParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396036"><span class="hs-identifier hs-var">dbParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396035"><span class="annot"><span class="annottext">s :: DBParameterGroup
+</span><a href="#local-6989586621679396035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396034"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBParameterGroup
+</span><a href="#local-6989586621679396035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbParameterGroupName:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3AdbParameterGroupName%3ADBParameterGroup%27"><span class="hs-identifier hs-var">dbParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Provides the customer-specified description for this DB parameter group.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_description"><span class="hs-identifier hs-type">dbParameterGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="dbParameterGroup_description"><span class="annot"><span class="annottext">dbParameterGroup_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBParameterGroup -&gt; f DBParameterGroup
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#dbParameterGroup_description"><span class="hs-identifier hs-var hs-var">dbParameterGroup_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBParameterGroup -&gt; Maybe Text)
+-&gt; (DBParameterGroup -&gt; Maybe Text -&gt; DBParameterGroup)
+-&gt; Lens DBParameterGroup DBParameterGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396032"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:DBParameterGroup' :: DBParameterGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679396032"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396032"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396031"><span class="annot"><span class="annottext">s :: DBParameterGroup
+</span><a href="#local-6989586621679396031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-type">DBParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBParameterGroup
+</span><a href="#local-6989586621679396031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DBParameterGroup' :: Maybe Text
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#%24sel%3Adescription%3ADBParameterGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679396027"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBParameterGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679396025"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679396025"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBParameterGroup
+</span><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup%27"><span class="hs-identifier hs-var">DBParameterGroup'</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBParameterGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBParameterGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679396025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBParameterGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; DBParameterGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DBParameterGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679396025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; DBParameterGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; DBParameterGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679396025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBParameterGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DBParameterGroup)
+-&gt; Either String (Maybe Text) -&gt; Either String DBParameterGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679396025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396019"><span id="local-6989586621679396021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Neptune.Types.DBParameterGroup.html#DBParameterGroup"><span class="hs-identifier hs-type">DBParameterGroup</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

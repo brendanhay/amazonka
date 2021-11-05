@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetHostReservationPurchasePreview' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621681228727"><span id="local-6989586621681228728"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostReservationPurchasePreview"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-var">GetHostReservationPurchasePreview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostReservationPurchasePreview%27"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-var">GetHostReservationPurchasePreview'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621681228736"><span id="local-6989586621681228737"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostReservationPurchasePreview"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-var">GetHostReservationPurchasePreview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostReservationPurchasePreview%27"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-var">GetHostReservationPurchasePreview'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the Dedicated Hosts with which the reservation is associated.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AhostIdSet%3AGetHostReservationPurchasePreview%27"><span class="annot"><span class="annottext">GetHostReservationPurchasePreview -&gt; [Text]
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AhostIdSet%3AGetHostReservationPurchasePreview%27"><span class="hs-identifier hs-var hs-var">hostIdSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AofferingId%3AGetHostReservationPurchasePreview%27"><span class="annot"><span class="annottext">GetHostReservationPurchasePreview -&gt; Text
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AofferingId%3AGetHostReservationPurchasePreview%27"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681228720"><span id="local-6989586621681228722"><span class="annot"><span class="annottext">GetHostReservationPurchasePreview
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681228729"><span id="local-6989586621681228731"><span class="annot"><span class="annottext">GetHostReservationPurchasePreview
 -&gt; GetHostReservationPurchasePreview -&gt; Bool
 (GetHostReservationPurchasePreview
  -&gt; GetHostReservationPurchasePreview -&gt; Bool)
@@ -80,7 +80,7 @@ $c/= :: GetHostReservationPurchasePreview
 -&gt; GetHostReservationPurchasePreview -&gt; Bool
 $c== :: GetHostReservationPurchasePreview
 -&gt; GetHostReservationPurchasePreview -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228711"><span id="local-6989586621681228713"><span id="local-6989586621681228715"><span id="local-6989586621681228717"><span class="annot"><span class="annottext">ReadPrec [GetHostReservationPurchasePreview]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228720"><span id="local-6989586621681228722"><span id="local-6989586621681228724"><span id="local-6989586621681228726"><span class="annot"><span class="annottext">ReadPrec [GetHostReservationPurchasePreview]
 ReadPrec GetHostReservationPurchasePreview
 Int -&gt; ReadS GetHostReservationPurchasePreview
 ReadS [GetHostReservationPurchasePreview]
@@ -100,7 +100,7 @@ readList :: ReadS [GetHostReservationPurchasePreview]
 $creadList :: ReadS [GetHostReservationPurchasePreview]
 readsPrec :: Int -&gt; ReadS GetHostReservationPurchasePreview
 $creadsPrec :: Int -&gt; ReadS GetHostReservationPurchasePreview
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228704"><span id="local-6989586621681228706"><span id="local-6989586621681228708"><span class="annot"><span class="annottext">Int -&gt; GetHostReservationPurchasePreview -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228713"><span id="local-6989586621681228715"><span id="local-6989586621681228717"><span class="annot"><span class="annottext">Int -&gt; GetHostReservationPurchasePreview -&gt; ShowS
 [GetHostReservationPurchasePreview] -&gt; ShowS
 GetHostReservationPurchasePreview -&gt; String
 (Int -&gt; GetHostReservationPurchasePreview -&gt; ShowS)
@@ -154,8 +154,8 @@ GetHostReservationPurchasePreview
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span>
 </span><span id="line-82"></span><span id="newGetHostReservationPurchasePreview"><span class="annot"><span class="annottext">newGetHostReservationPurchasePreview :: Text -&gt; GetHostReservationPurchasePreview
-</span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#newGetHostReservationPurchasePreview"><span class="hs-identifier hs-var hs-var">newGetHostReservationPurchasePreview</span></a></span></span><span> </span><span id="local-6989586621681228699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681228699"><span class="hs-identifier hs-var">pOfferingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#newGetHostReservationPurchasePreview"><span class="hs-identifier hs-var hs-var">newGetHostReservationPurchasePreview</span></a></span></span><span> </span><span id="local-6989586621681228708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681228708"><span class="hs-identifier hs-var">pOfferingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreview' :: [Text] -&gt; Text -&gt; GetHostReservationPurchasePreview
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostIdSet:GetHostReservationPurchasePreview' :: [Text]
@@ -165,7 +165,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:offeringId:GetHostReservationPurchasePreview' :: Text
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AofferingId%3AGetHostReservationPurchasePreview%27"><span class="hs-identifier hs-var">offeringId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681228699"><span class="hs-identifier hs-var">pOfferingId_</span></a></span><span>
+</span><a href="#local-6989586621681228708"><span class="hs-identifier hs-var">pOfferingId_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The IDs of the Dedicated Hosts with which the reservation is associated.</span><span>
@@ -182,16 +182,16 @@ forall a. Monoid a =&gt; a
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228696"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228705"><span class="annot"><span class="annottext">[Text]
 hostIdSet :: [Text]
 $sel:hostIdSet:GetHostReservationPurchasePreview' :: GetHostReservationPurchasePreview -&gt; [Text]
-</span><a href="#local-6989586621681228696"><span class="hs-identifier hs-var hs-var">hostIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681228696"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228695"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreview
-</span><a href="#local-6989586621681228695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228694"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681228694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreview
-</span><a href="#local-6989586621681228695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostIdSet:GetHostReservationPurchasePreview' :: [Text]
+</span><a href="#local-6989586621681228705"><span class="hs-identifier hs-var hs-var">hostIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681228705"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228704"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreview
+</span><a href="#local-6989586621681228704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228703"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681228703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreview
+</span><a href="#local-6989586621681228704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostIdSet:GetHostReservationPurchasePreview' :: [Text]
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AhostIdSet%3AGetHostReservationPurchasePreview%27"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681228694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621681228703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; GetHostReservationPurchasePreview
  -&gt; f GetHostReservationPurchasePreview)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
@@ -217,16 +217,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228691"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228700"><span class="annot"><span class="annottext">Text
 offeringId :: Text
 $sel:offeringId:GetHostReservationPurchasePreview' :: GetHostReservationPurchasePreview -&gt; Text
-</span><a href="#local-6989586621681228691"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681228691"><span class="hs-identifier hs-var">offeringId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228690"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreview
-</span><a href="#local-6989586621681228690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681228689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreview
-</span><a href="#local-6989586621681228690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringId:GetHostReservationPurchasePreview' :: Text
+</span><a href="#local-6989586621681228700"><span class="hs-identifier hs-var hs-var">offeringId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681228700"><span class="hs-identifier hs-var">offeringId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228699"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreview
+</span><a href="#local-6989586621681228699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681228698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreview
+</span><a href="#local-6989586621681228699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offeringId:GetHostReservationPurchasePreview' :: Text
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AofferingId%3AGetHostReservationPurchasePreview%27"><span class="hs-identifier hs-var">offeringId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681228689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -235,7 +235,7 @@ $sel:offeringId:GetHostReservationPurchasePreview' :: GetHostReservationPurchase
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621681228685"><span class="annot"><span class="annottext">request :: GetHostReservationPurchasePreview
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621681228694"><span class="annot"><span class="annottext">request :: GetHostReservationPurchasePreview
 -&gt; Request GetHostReservationPurchasePreview
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetHostReservationPurchasePreview
@@ -243,7 +243,7 @@ $sel:offeringId:GetHostReservationPurchasePreview' :: GetHostReservationPurchase
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621681228681"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621681228690"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetHostReservationPurchasePreview
 -&gt; ClientResponse ClientBody
@@ -271,10 +271,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681228678"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681228678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681228677"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681228677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681228676"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681228676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681228687"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228687"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681228686"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681228686"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681228685"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681228685"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -298,7 +298,7 @@ MonadResource m =&gt;
       -&gt; GetHostReservationPurchasePreviewResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681228676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CurrencyCodeValues)
+</span><a href="#local-6989586621681228685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CurrencyCodeValues)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;currencyCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,7 +318,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; GetHostReservationPurchasePreviewResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681228676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681228685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;totalHourlyPrice&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,7 +335,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Int -&gt; GetHostReservationPurchasePreviewResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681228676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681228685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;totalUpfrontPrice&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,7 +347,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetHostReservationPurchasePreviewResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681228676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681228685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;purchase&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -378,22 +378,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681228678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228687"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621681228665"><span id="local-6989586621681228667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621681228674"><span id="local-6989586621681228676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621681228662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681228671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621681228658"><span class="annot"><span class="annottext">toHeaders :: GetHostReservationPurchasePreview -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621681228667"><span class="annot"><span class="annottext">toHeaders :: GetHostReservationPurchasePreview -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetHostReservationPurchasePreview -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -405,7 +405,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621681228653"><span class="annot"><span class="annottext">toPath :: GetHostReservationPurchasePreview -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621681228662"><span class="annot"><span class="annottext">toPath :: GetHostReservationPurchasePreview -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetHostReservationPurchasePreview -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -415,14 +415,14 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview</span></a></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621681228649"><span class="annot"><span class="annottext">toQuery :: GetHostReservationPurchasePreview -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228646"><span id="local-6989586621681228647"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621681228658"><span class="annot"><span class="annottext">toQuery :: GetHostReservationPurchasePreview -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreview%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228655"><span id="local-6989586621681228656"><span class="annot"><span class="annottext">[Text]
 Text
 offeringId :: Text
 hostIdSet :: [Text]
 $sel:offeringId:GetHostReservationPurchasePreview' :: GetHostReservationPurchasePreview -&gt; Text
 $sel:hostIdSet:GetHostReservationPurchasePreview' :: GetHostReservationPurchasePreview -&gt; [Text]
-</span><a href="#local-6989586621681228646"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681228655"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -446,16 +446,16 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HostIdSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681228647"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681228656"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OfferingId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681228646"><span class="hs-identifier hs-var">offeringId</span></a></span><span>
+</span><a href="#local-6989586621681228655"><span class="hs-identifier hs-var">offeringId</span></a></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newGetHostReservationPurchasePreviewResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621681228642"><span id="local-6989586621681228643"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostReservationPurchasePreviewResponse"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-var">GetHostReservationPurchasePreviewResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostReservationPurchasePreviewResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">GetHostReservationPurchasePreviewResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621681228651"><span id="local-6989586621681228652"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetHostReservationPurchasePreviewResponse"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-var">GetHostReservationPurchasePreviewResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetHostReservationPurchasePreviewResponse%27"><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">GetHostReservationPurchasePreviewResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- amounts are specified. At this time, the only supported currency is</span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-comment">-- @USD@.</span><span>
@@ -476,7 +476,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetHostReservationPurchasePreviewResponse%27"><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse -&gt; Int
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AhttpStatus%3AGetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681228633"><span id="local-6989586621681228635"><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681228642"><span id="local-6989586621681228644"><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
 -&gt; GetHostReservationPurchasePreviewResponse -&gt; Bool
 (GetHostReservationPurchasePreviewResponse
  -&gt; GetHostReservationPurchasePreviewResponse -&gt; Bool)
@@ -492,7 +492,7 @@ $c/= :: GetHostReservationPurchasePreviewResponse
 -&gt; GetHostReservationPurchasePreviewResponse -&gt; Bool
 $c== :: GetHostReservationPurchasePreviewResponse
 -&gt; GetHostReservationPurchasePreviewResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228625"><span id="local-6989586621681228627"><span id="local-6989586621681228629"><span id="local-6989586621681228631"><span class="annot"><span class="annottext">ReadPrec [GetHostReservationPurchasePreviewResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228634"><span id="local-6989586621681228636"><span id="local-6989586621681228638"><span id="local-6989586621681228640"><span class="annot"><span class="annottext">ReadPrec [GetHostReservationPurchasePreviewResponse]
 ReadPrec GetHostReservationPurchasePreviewResponse
 Int -&gt; ReadS GetHostReservationPurchasePreviewResponse
 ReadS [GetHostReservationPurchasePreviewResponse]
@@ -512,7 +512,7 @@ readList :: ReadS [GetHostReservationPurchasePreviewResponse]
 $creadList :: ReadS [GetHostReservationPurchasePreviewResponse]
 readsPrec :: Int -&gt; ReadS GetHostReservationPurchasePreviewResponse
 $creadsPrec :: Int -&gt; ReadS GetHostReservationPurchasePreviewResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228619"><span id="local-6989586621681228621"><span id="local-6989586621681228623"><span class="annot"><span class="annottext">Int -&gt; GetHostReservationPurchasePreviewResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681228628"><span id="local-6989586621681228630"><span id="local-6989586621681228632"><span class="annot"><span class="annottext">Int -&gt; GetHostReservationPurchasePreviewResponse -&gt; ShowS
 [GetHostReservationPurchasePreviewResponse] -&gt; ShowS
 GetHostReservationPurchasePreviewResponse -&gt; String
 (Int -&gt; GetHostReservationPurchasePreviewResponse -&gt; ShowS)
@@ -576,8 +576,8 @@ GetHostReservationPurchasePreviewResponse
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newGetHostReservationPurchasePreviewResponse"><span class="annot"><span class="annottext">newGetHostReservationPurchasePreviewResponse :: Int -&gt; GetHostReservationPurchasePreviewResponse
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#newGetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-var hs-var">newGetHostReservationPurchasePreviewResponse</span></a></span></span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621681228616"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681228616"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621681228625"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228625"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse' :: Maybe CurrencyCodeValues
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -606,7 +606,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetHostReservationPurchasePreviewResponse' :: Int
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AhttpStatus%3AGetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681228616"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681228625"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-207"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The currency in which the @totalUpfrontPrice@ and @totalHourlyPrice@</span><span>
@@ -627,17 +627,17 @@ forall a. Maybe a
      (Maybe CurrencyCodeValues)
      (Maybe CurrencyCodeValues)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228615"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228624"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
 currencyCode :: Maybe CurrencyCodeValues
 $sel:currencyCode:GetHostReservationPurchasePreviewResponse' :: GetHostReservationPurchasePreviewResponse
 -&gt; Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681228615"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681228615"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228614"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228613"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681228613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:GetHostReservationPurchasePreviewResponse' :: Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681228624"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681228624"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228623"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228622"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681228622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:GetHostReservationPurchasePreviewResponse' :: Maybe CurrencyCodeValues
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AcurrencyCode%3AGetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681228613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The potential total hourly price of the reservation per hour.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#getHostReservationPurchasePreviewResponse_totalHourlyPrice"><span class="hs-identifier hs-type">getHostReservationPurchasePreviewResponse_totalHourlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -653,16 +653,16 @@ $sel:currencyCode:GetHostReservationPurchasePreviewResponse' :: GetHostReservati
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228612"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228621"><span class="annot"><span class="annottext">Maybe Text
 totalHourlyPrice :: Maybe Text
 $sel:totalHourlyPrice:GetHostReservationPurchasePreviewResponse' :: GetHostReservationPurchasePreviewResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681228612"><span class="hs-identifier hs-var hs-var">totalHourlyPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681228612"><span class="hs-identifier hs-var">totalHourlyPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228611"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228610"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681228610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalHourlyPrice:GetHostReservationPurchasePreviewResponse' :: Maybe Text
+</span><a href="#local-6989586621681228621"><span class="hs-identifier hs-var hs-var">totalHourlyPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228621"><span class="hs-identifier hs-var">totalHourlyPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228620"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228619"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalHourlyPrice:GetHostReservationPurchasePreviewResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AtotalHourlyPrice%3AGetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">totalHourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681228610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The potential total upfront price. This is billed immediately.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#getHostReservationPurchasePreviewResponse_totalUpfrontPrice"><span class="hs-identifier hs-type">getHostReservationPurchasePreviewResponse_totalUpfrontPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -678,16 +678,16 @@ $sel:totalHourlyPrice:GetHostReservationPurchasePreviewResponse' :: GetHostReser
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228609"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228618"><span class="annot"><span class="annottext">Maybe Text
 totalUpfrontPrice :: Maybe Text
 $sel:totalUpfrontPrice:GetHostReservationPurchasePreviewResponse' :: GetHostReservationPurchasePreviewResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681228609"><span class="hs-identifier hs-var hs-var">totalUpfrontPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681228609"><span class="hs-identifier hs-var">totalUpfrontPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228608"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681228607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalUpfrontPrice:GetHostReservationPurchasePreviewResponse' :: Maybe Text
+</span><a href="#local-6989586621681228618"><span class="hs-identifier hs-var hs-var">totalUpfrontPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228618"><span class="hs-identifier hs-var">totalUpfrontPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228617"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228616"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681228616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalUpfrontPrice:GetHostReservationPurchasePreviewResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AtotalUpfrontPrice%3AGetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">totalUpfrontPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681228607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The purchase information of the Dedicated Host reservation and the</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- Dedicated Hosts associated with it.</span><span>
@@ -704,16 +704,16 @@ $sel:totalUpfrontPrice:GetHostReservationPurchasePreviewResponse' :: GetHostRese
      (Maybe [Purchase])
      (Maybe [Purchase])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228606"><span class="annot"><span class="annottext">Maybe [Purchase]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228615"><span class="annot"><span class="annottext">Maybe [Purchase]
 purchase :: Maybe [Purchase]
 $sel:purchase:GetHostReservationPurchasePreviewResponse' :: GetHostReservationPurchasePreviewResponse -&gt; Maybe [Purchase]
-</span><a href="#local-6989586621681228606"><span class="hs-identifier hs-var hs-var">purchase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Purchase]
-</span><a href="#local-6989586621681228606"><span class="hs-identifier hs-var">purchase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228605"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228604"><span class="annot"><span class="annottext">Maybe [Purchase]
-</span><a href="#local-6989586621681228604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchase:GetHostReservationPurchasePreviewResponse' :: Maybe [Purchase]
+</span><a href="#local-6989586621681228615"><span class="hs-identifier hs-var hs-var">purchase</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Purchase]
+</span><a href="#local-6989586621681228615"><span class="hs-identifier hs-var">purchase</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228614"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228613"><span class="annot"><span class="annottext">Maybe [Purchase]
+</span><a href="#local-6989586621681228613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:purchase:GetHostReservationPurchasePreviewResponse' :: Maybe [Purchase]
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3Apurchase%3AGetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">purchase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Purchase]
-</span><a href="#local-6989586621681228604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Purchase] -&gt; f (Maybe [Purchase]))
+</span><a href="#local-6989586621681228613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Purchase] -&gt; f (Maybe [Purchase]))
  -&gt; GetHostReservationPurchasePreviewResponse
  -&gt; f GetHostReservationPurchasePreviewResponse)
 -&gt; ((Maybe [Purchase] -&gt; f (Maybe [Purchase]))
@@ -749,18 +749,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228602"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681228611"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetHostReservationPurchasePreviewResponse' :: GetHostReservationPurchasePreviewResponse -&gt; Int
-</span><a href="#local-6989586621681228602"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681228602"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228601"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228600"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681228600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
-</span><a href="#local-6989586621681228601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHostReservationPurchasePreviewResponse' :: Int
+</span><a href="#local-6989586621681228611"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228611"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681228610"><span class="annot"><span class="annottext">s :: GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681228609"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681228609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetHostReservationPurchasePreviewResponse
+</span><a href="#local-6989586621681228610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetHostReservationPurchasePreviewResponse' :: Int
 </span><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#%24sel%3AhttpStatus%3AGetHostReservationPurchasePreviewResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681228600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681228609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-233"></span><span>  </span><span id="local-6989586621681228598"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621681228607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.GetHostReservationPurchasePreview.html#GetHostReservationPurchasePreviewResponse"><span class="hs-identifier hs-type">GetHostReservationPurchasePreviewResponse</span></a></span></span><span>
 </span><span id="line-235"></span></pre></body></html>

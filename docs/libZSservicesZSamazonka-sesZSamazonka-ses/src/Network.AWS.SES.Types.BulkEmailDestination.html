@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- replacement data associated with each of those Destinations.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBulkEmailDestination' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679273557"><span id="local-6989586621679273558"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkEmailDestination"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-var">BulkEmailDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkEmailDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-var">BulkEmailDestination'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679273566"><span id="local-6989586621679273567"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkEmailDestination"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-var">BulkEmailDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkEmailDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-var">BulkEmailDestination'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of replacement values to apply to the template. This parameter is</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- a JSON object, typically consisting of key-value pairs in which the keys</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- correspond to replacement tags in the email template.</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Adestination%3ABulkEmailDestination%27"><span class="annot"><span class="annottext">BulkEmailDestination -&gt; Destination
 </span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#%24sel%3Adestination%3ABulkEmailDestination%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273549"><span id="local-6989586621679273551"><span class="annot"><span class="annottext">BulkEmailDestination -&gt; BulkEmailDestination -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273558"><span id="local-6989586621679273560"><span class="annot"><span class="annottext">BulkEmailDestination -&gt; BulkEmailDestination -&gt; Bool
 (BulkEmailDestination -&gt; BulkEmailDestination -&gt; Bool)
 -&gt; (BulkEmailDestination -&gt; BulkEmailDestination -&gt; Bool)
 -&gt; Eq BulkEmailDestination
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BulkEmailDestination -&gt; BulkEmailDestination -&gt; Bool
 == :: BulkEmailDestination -&gt; BulkEmailDestination -&gt; Bool
 $c== :: BulkEmailDestination -&gt; BulkEmailDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273540"><span id="local-6989586621679273542"><span id="local-6989586621679273544"><span id="local-6989586621679273546"><span class="annot"><span class="annottext">ReadPrec [BulkEmailDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273549"><span id="local-6989586621679273551"><span id="local-6989586621679273553"><span id="local-6989586621679273555"><span class="annot"><span class="annottext">ReadPrec [BulkEmailDestination]
 ReadPrec BulkEmailDestination
 Int -&gt; ReadS BulkEmailDestination
 ReadS [BulkEmailDestination]
@@ -73,7 +73,7 @@ readList :: ReadS [BulkEmailDestination]
 $creadList :: ReadS [BulkEmailDestination]
 readsPrec :: Int -&gt; ReadS BulkEmailDestination
 $creadsPrec :: Int -&gt; ReadS BulkEmailDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273533"><span id="local-6989586621679273535"><span id="local-6989586621679273537"><span class="annot"><span class="annottext">Int -&gt; BulkEmailDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273542"><span id="local-6989586621679273544"><span id="local-6989586621679273546"><span class="annot"><span class="annottext">Int -&gt; BulkEmailDestination -&gt; ShowS
 [BulkEmailDestination] -&gt; ShowS
 BulkEmailDestination -&gt; String
 (Int -&gt; BulkEmailDestination -&gt; ShowS)
@@ -122,8 +122,8 @@ $cfrom :: forall x. BulkEmailDestination -&gt; Rep BulkEmailDestination x
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span>
 </span><span id="line-68"></span><span id="newBulkEmailDestination"><span class="annot"><span class="annottext">newBulkEmailDestination :: Destination -&gt; BulkEmailDestination
-</span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#newBulkEmailDestination"><span class="hs-identifier hs-var hs-var">newBulkEmailDestination</span></a></span></span><span> </span><span id="local-6989586621679273527"><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679273527"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#newBulkEmailDestination"><span class="hs-identifier hs-var hs-var">newBulkEmailDestination</span></a></span></span><span> </span><span id="local-6989586621679273536"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679273536"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">BulkEmailDestination' :: Maybe Text
 -&gt; Maybe [MessageTag] -&gt; Destination -&gt; BulkEmailDestination
 </span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span>
@@ -138,7 +138,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:BulkEmailDestination' :: Destination
 </span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#%24sel%3Adestination%3ABulkEmailDestination%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679273527"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><a href="#local-6989586621679273536"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | A list of replacement values to apply to the template. This parameter is</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; Lens
      BulkEmailDestination BulkEmailDestination (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273523"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273532"><span class="annot"><span class="annottext">Maybe Text
 replacementTemplateData :: Maybe Text
 $sel:replacementTemplateData:BulkEmailDestination' :: BulkEmailDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679273523"><span class="hs-identifier hs-var hs-var">replacementTemplateData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273523"><span class="hs-identifier hs-var">replacementTemplateData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273522"><span class="annot"><span class="annottext">s :: BulkEmailDestination
-</span><a href="#local-6989586621679273522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273521"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestination
-</span><a href="#local-6989586621679273522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementTemplateData:BulkEmailDestination' :: Maybe Text
+</span><a href="#local-6989586621679273532"><span class="hs-identifier hs-var hs-var">replacementTemplateData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273532"><span class="hs-identifier hs-var">replacementTemplateData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273531"><span class="annot"><span class="annottext">s :: BulkEmailDestination
+</span><a href="#local-6989586621679273531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestination
+</span><a href="#local-6989586621679273531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementTemplateData:BulkEmailDestination' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#%24sel%3AreplacementTemplateData%3ABulkEmailDestination%27"><span class="hs-identifier hs-var">replacementTemplateData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | A list of tags, in the form of name\/value pairs, to apply to an email</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- that you send using @SendBulkTemplatedEmail@. Tags correspond to</span><span>
@@ -179,16 +179,16 @@ $sel:replacementTemplateData:BulkEmailDestination' :: BulkEmailDestination -&gt;
      (Maybe [MessageTag])
      (Maybe [MessageTag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273519"><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273528"><span class="annot"><span class="annottext">Maybe [MessageTag]
 replacementTags :: Maybe [MessageTag]
 $sel:replacementTags:BulkEmailDestination' :: BulkEmailDestination -&gt; Maybe [MessageTag]
-</span><a href="#local-6989586621679273519"><span class="hs-identifier hs-var hs-var">replacementTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679273519"><span class="hs-identifier hs-var">replacementTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273518"><span class="annot"><span class="annottext">s :: BulkEmailDestination
-</span><a href="#local-6989586621679273518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273517"><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679273517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestination
-</span><a href="#local-6989586621679273518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementTags:BulkEmailDestination' :: Maybe [MessageTag]
+</span><a href="#local-6989586621679273528"><span class="hs-identifier hs-var hs-var">replacementTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679273528"><span class="hs-identifier hs-var">replacementTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273527"><span class="annot"><span class="annottext">s :: BulkEmailDestination
+</span><a href="#local-6989586621679273527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273526"><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><a href="#local-6989586621679273526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestination
+</span><a href="#local-6989586621679273527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replacementTags:BulkEmailDestination' :: Maybe [MessageTag]
 </span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#%24sel%3AreplacementTags%3ABulkEmailDestination%27"><span class="hs-identifier hs-var">replacementTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679273517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
+</span><a href="#local-6989586621679273526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
  -&gt; BulkEmailDestination -&gt; f BulkEmailDestination)
 -&gt; ((Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
     -&gt; Maybe [MessageTag] -&gt; f (Maybe [MessageTag]))
@@ -218,24 +218,24 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      BulkEmailDestination BulkEmailDestination Destination Destination
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273512"><span class="annot"><span class="annottext">Destination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273521"><span class="annot"><span class="annottext">Destination
 destination :: Destination
 $sel:destination:BulkEmailDestination' :: BulkEmailDestination -&gt; Destination
-</span><a href="#local-6989586621679273512"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679273512"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273511"><span class="annot"><span class="annottext">s :: BulkEmailDestination
-</span><a href="#local-6989586621679273511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273510"><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679273510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestination
-</span><a href="#local-6989586621679273511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:BulkEmailDestination' :: Destination
+</span><a href="#local-6989586621679273521"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679273521"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273520"><span class="annot"><span class="annottext">s :: BulkEmailDestination
+</span><a href="#local-6989586621679273520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273519"><span class="annot"><span class="annottext">Destination
+</span><a href="#local-6989586621679273519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestination
+</span><a href="#local-6989586621679273520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:BulkEmailDestination' :: Destination
 </span><a href="Network.AWS.SES.Types.BulkEmailDestination.html#%24sel%3Adestination%3ABulkEmailDestination%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679273510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273506"><span id="local-6989586621679273508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273515"><span id="local-6989586621679273517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination"><span class="hs-identifier hs-type">BulkEmailDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679273499"><span class="annot"><span class="annottext">toQuery :: BulkEmailDestination -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273495"><span id="local-6989586621679273496"><span id="local-6989586621679273497"><span class="annot"><span class="annottext">Maybe [MessageTag]
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679273508"><span class="annot"><span class="annottext">toQuery :: BulkEmailDestination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestination.html#BulkEmailDestination%27"><span class="hs-identifier hs-type">BulkEmailDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273504"><span id="local-6989586621679273505"><span id="local-6989586621679273506"><span class="annot"><span class="annottext">Maybe [MessageTag]
 Maybe Text
 Destination
 destination :: Destination
@@ -244,7 +244,7 @@ replacementTemplateData :: Maybe Text
 $sel:destination:BulkEmailDestination' :: BulkEmailDestination -&gt; Destination
 $sel:replacementTags:BulkEmailDestination' :: BulkEmailDestination -&gt; Maybe [MessageTag]
 $sel:replacementTemplateData:BulkEmailDestination' :: BulkEmailDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679273495"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273504"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -253,7 +253,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273497"><span class="hs-identifier hs-var">replacementTemplateData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273506"><span class="hs-identifier hs-var">replacementTemplateData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplacementTags&quot;</span></span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -271,12 +271,12 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [MessageTag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MessageTag]
-</span><a href="#local-6989586621679273496"><span class="hs-identifier hs-var">replacementTags</span></a></span><span>
+</span><a href="#local-6989586621679273505"><span class="hs-identifier hs-var">replacementTags</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Destination -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Destination
-</span><a href="#local-6989586621679273495"><span class="hs-identifier hs-var">destination</span></a></span><span>
+</span><a href="#local-6989586621679273504"><span class="hs-identifier hs-var">destination</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span></pre></body></html>

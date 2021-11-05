@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681191019"><span id="local-6989586621681191020"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpnStaticRouteSource"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource"><span class="hs-identifier hs-var">VpnStaticRouteSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpnStaticRouteSource%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource%27"><span class="hs-identifier hs-var">VpnStaticRouteSource'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681191028"><span id="local-6989586621681191029"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VpnStaticRouteSource"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource"><span class="hs-identifier hs-var">VpnStaticRouteSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpnStaticRouteSource%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource%27"><span class="hs-identifier hs-var">VpnStaticRouteSource'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVpnStaticRouteSource"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; Text
 </span><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#fromVpnStaticRouteSource"><span class="hs-identifier hs-var hs-var">fromVpnStaticRouteSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681191011"><span id="local-6989586621681191013"><span id="local-6989586621681191015"><span class="annot"><span class="annottext">Int -&gt; VpnStaticRouteSource -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681191020"><span id="local-6989586621681191022"><span id="local-6989586621681191024"><span class="annot"><span class="annottext">Int -&gt; VpnStaticRouteSource -&gt; ShowS
 [VpnStaticRouteSource] -&gt; ShowS
 VpnStaticRouteSource -&gt; String
 (Int -&gt; VpnStaticRouteSource -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: VpnStaticRouteSource -&gt; String
 showsPrec :: Int -&gt; VpnStaticRouteSource -&gt; ShowS
 $cshowsPrec :: Int -&gt; VpnStaticRouteSource -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681191002"><span id="local-6989586621681191004"><span id="local-6989586621681191006"><span id="local-6989586621681191008"><span class="annot"><span class="annottext">ReadPrec [VpnStaticRouteSource]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681191011"><span id="local-6989586621681191013"><span id="local-6989586621681191015"><span id="local-6989586621681191017"><span class="annot"><span class="annottext">ReadPrec [VpnStaticRouteSource]
 ReadPrec VpnStaticRouteSource
 Int -&gt; ReadS VpnStaticRouteSource
 ReadS [VpnStaticRouteSource]
@@ -72,7 +72,7 @@ $creadList :: ReadS [VpnStaticRouteSource]
 readsPrec :: Int -&gt; ReadS VpnStaticRouteSource
 $creadsPrec :: Int -&gt; ReadS VpnStaticRouteSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681190997"><span id="local-6989586621681190999"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681191006"><span id="local-6989586621681191008"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool
 (VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool)
 -&gt; (VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool)
 -&gt; Eq VpnStaticRouteSource
@@ -82,7 +82,7 @@ $c/= :: VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool
 == :: VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool
 $c== :: VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681190981"><span id="local-6989586621681190983"><span id="local-6989586621681190985"><span id="local-6989586621681190987"><span id="local-6989586621681190989"><span id="local-6989586621681190991"><span id="local-6989586621681190993"><span class="annot"><span class="annottext">Eq VpnStaticRouteSource
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681190990"><span id="local-6989586621681190992"><span id="local-6989586621681190994"><span id="local-6989586621681190996"><span id="local-6989586621681190998"><span id="local-6989586621681191000"><span id="local-6989586621681191002"><span class="annot"><span class="annottext">Eq VpnStaticRouteSource
 Eq VpnStaticRouteSource
 -&gt; (VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Ordering)
 -&gt; (VpnStaticRouteSource -&gt; VpnStaticRouteSource -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. VpnStaticRouteSource -&gt; Rep VpnStaticRouteSource x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681190973"><span id="local-6989586621681190975"><span class="annot"><span class="annottext">Int -&gt; VpnStaticRouteSource -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681190982"><span id="local-6989586621681190984"><span class="annot"><span class="annottext">Int -&gt; VpnStaticRouteSource -&gt; Int
 VpnStaticRouteSource -&gt; Int
 (Int -&gt; VpnStaticRouteSource -&gt; Int)
 -&gt; (VpnStaticRouteSource -&gt; Int) -&gt; Hashable VpnStaticRouteSource
@@ -150,54 +150,54 @@ $chash :: VpnStaticRouteSource -&gt; Int
 hashWithSalt :: Int -&gt; VpnStaticRouteSource -&gt; Int
 $chashWithSalt :: Int -&gt; VpnStaticRouteSource -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681190970"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681190979"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; ()
 (VpnStaticRouteSource -&gt; ()) -&gt; NFData VpnStaticRouteSource
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VpnStaticRouteSource -&gt; ()
 $crnf :: VpnStaticRouteSource -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681190967"><span class="annot"><span class="annottext">Text -&gt; Either String VpnStaticRouteSource
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681190976"><span class="annot"><span class="annottext">Text -&gt; Either String VpnStaticRouteSource
 (Text -&gt; Either String VpnStaticRouteSource)
 -&gt; FromText VpnStaticRouteSource
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VpnStaticRouteSource
 $cfromText :: Text -&gt; Either String VpnStaticRouteSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681190964"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681190973"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; Text
 (VpnStaticRouteSource -&gt; Text) -&gt; ToText VpnStaticRouteSource
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VpnStaticRouteSource -&gt; Text
 $ctoText :: VpnStaticRouteSource -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681190961"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681190970"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; ByteString
 (VpnStaticRouteSource -&gt; ByteString)
 -&gt; ToByteString VpnStaticRouteSource
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VpnStaticRouteSource -&gt; ByteString
 $ctoBS :: VpnStaticRouteSource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681190958"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681190967"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; ByteStringBuilder
 (VpnStaticRouteSource -&gt; ByteStringBuilder)
 -&gt; ToLog VpnStaticRouteSource
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VpnStaticRouteSource -&gt; ByteStringBuilder
 $cbuild :: VpnStaticRouteSource -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681190955"><span class="annot"><span class="annottext">HeaderName -&gt; VpnStaticRouteSource -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681190964"><span class="annot"><span class="annottext">HeaderName -&gt; VpnStaticRouteSource -&gt; [Header]
 (HeaderName -&gt; VpnStaticRouteSource -&gt; [Header])
 -&gt; ToHeader VpnStaticRouteSource
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VpnStaticRouteSource -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VpnStaticRouteSource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681190952"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681190961"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; QueryString
 (VpnStaticRouteSource -&gt; QueryString)
 -&gt; ToQuery VpnStaticRouteSource
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VpnStaticRouteSource -&gt; QueryString
 $ctoQuery :: VpnStaticRouteSource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681190947"><span id="local-6989586621681190949"><span class="annot"><span class="annottext">Value -&gt; Parser [VpnStaticRouteSource]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681190956"><span id="local-6989586621681190958"><span class="annot"><span class="annottext">Value -&gt; Parser [VpnStaticRouteSource]
 Value -&gt; Parser VpnStaticRouteSource
 (Value -&gt; Parser VpnStaticRouteSource)
 -&gt; (Value -&gt; Parser [VpnStaticRouteSource])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [VpnStaticRouteSource]
 parseJSON :: Value -&gt; Parser VpnStaticRouteSource
 $cparseJSON :: Value -&gt; Parser VpnStaticRouteSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681190942"><span id="local-6989586621681190944"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpnStaticRouteSource]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681190951"><span id="local-6989586621681190953"><span class="annot"><span class="annottext">FromJSONKeyFunction [VpnStaticRouteSource]
 FromJSONKeyFunction VpnStaticRouteSource
 FromJSONKeyFunction VpnStaticRouteSource
 -&gt; FromJSONKeyFunction [VpnStaticRouteSource]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VpnStaticRouteSource]
 fromJSONKey :: FromJSONKeyFunction VpnStaticRouteSource
 $cfromJSONKey :: FromJSONKeyFunction VpnStaticRouteSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681190933"><span id="local-6989586621681190935"><span id="local-6989586621681190937"><span id="local-6989586621681190939"><span class="annot"><span class="annottext">[VpnStaticRouteSource] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681190942"><span id="local-6989586621681190944"><span id="local-6989586621681190946"><span id="local-6989586621681190948"><span class="annot"><span class="annottext">[VpnStaticRouteSource] -&gt; Encoding
 [VpnStaticRouteSource] -&gt; Value
 VpnStaticRouteSource -&gt; Encoding
 VpnStaticRouteSource -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: VpnStaticRouteSource -&gt; Encoding
 toJSON :: VpnStaticRouteSource -&gt; Value
 $ctoJSON :: VpnStaticRouteSource -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681190928"><span id="local-6989586621681190930"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpnStaticRouteSource]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681190937"><span id="local-6989586621681190939"><span class="annot"><span class="annottext">ToJSONKeyFunction [VpnStaticRouteSource]
 ToJSONKeyFunction VpnStaticRouteSource
 ToJSONKeyFunction VpnStaticRouteSource
 -&gt; ToJSONKeyFunction [VpnStaticRouteSource]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VpnStaticRouteSource]
 toJSONKey :: ToJSONKeyFunction VpnStaticRouteSource
 $ctoJSONKey :: ToJSONKeyFunction VpnStaticRouteSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681190925"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpnStaticRouteSource
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681190934"><span class="annot"><span class="annottext">[Node] -&gt; Either String VpnStaticRouteSource
 ([Node] -&gt; Either String VpnStaticRouteSource)
 -&gt; FromXML VpnStaticRouteSource
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VpnStaticRouteSource
 $cparseXML :: [Node] -&gt; Either String VpnStaticRouteSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681190922"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681190931"><span class="annot"><span class="annottext">VpnStaticRouteSource -&gt; XML
 (VpnStaticRouteSource -&gt; XML) -&gt; ToXML VpnStaticRouteSource
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VpnStaticRouteSource -&gt; XML

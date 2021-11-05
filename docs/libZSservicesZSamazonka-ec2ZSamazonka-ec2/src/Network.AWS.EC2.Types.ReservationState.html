@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681143634"><span id="local-6989586621681143635"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationState"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationState.html#ReservationState"><span class="hs-identifier hs-var">ReservationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationState.html#ReservationState%27"><span class="hs-identifier hs-var">ReservationState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681143643"><span id="local-6989586621681143644"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationState"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationState.html#ReservationState"><span class="hs-identifier hs-var">ReservationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationState%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReservationState.html#ReservationState%27"><span class="hs-identifier hs-var">ReservationState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservationState"><span class="annot"><span class="annottext">ReservationState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ReservationState.html#fromReservationState"><span class="hs-identifier hs-var hs-var">fromReservationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143626"><span id="local-6989586621681143628"><span id="local-6989586621681143630"><span class="annot"><span class="annottext">Int -&gt; ReservationState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143635"><span id="local-6989586621681143637"><span id="local-6989586621681143639"><span class="annot"><span class="annottext">Int -&gt; ReservationState -&gt; ShowS
 [ReservationState] -&gt; ShowS
 ReservationState -&gt; String
 (Int -&gt; ReservationState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: ReservationState -&gt; String
 showsPrec :: Int -&gt; ReservationState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReservationState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681143617"><span id="local-6989586621681143619"><span id="local-6989586621681143621"><span id="local-6989586621681143623"><span class="annot"><span class="annottext">ReadPrec [ReservationState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681143626"><span id="local-6989586621681143628"><span id="local-6989586621681143630"><span id="local-6989586621681143632"><span class="annot"><span class="annottext">ReadPrec [ReservationState]
 ReadPrec ReservationState
 Int -&gt; ReadS ReservationState
 ReadS [ReservationState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [ReservationState]
 readsPrec :: Int -&gt; ReadS ReservationState
 $creadsPrec :: Int -&gt; ReadS ReservationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681143612"><span id="local-6989586621681143614"><span class="annot"><span class="annottext">ReservationState -&gt; ReservationState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681143621"><span id="local-6989586621681143623"><span class="annot"><span class="annottext">ReservationState -&gt; ReservationState -&gt; Bool
 (ReservationState -&gt; ReservationState -&gt; Bool)
 -&gt; (ReservationState -&gt; ReservationState -&gt; Bool)
 -&gt; Eq ReservationState
@@ -85,7 +85,7 @@ $c/= :: ReservationState -&gt; ReservationState -&gt; Bool
 == :: ReservationState -&gt; ReservationState -&gt; Bool
 $c== :: ReservationState -&gt; ReservationState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681143596"><span id="local-6989586621681143598"><span id="local-6989586621681143600"><span id="local-6989586621681143602"><span id="local-6989586621681143604"><span id="local-6989586621681143606"><span id="local-6989586621681143608"><span class="annot"><span class="annottext">Eq ReservationState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681143605"><span id="local-6989586621681143607"><span id="local-6989586621681143609"><span id="local-6989586621681143611"><span id="local-6989586621681143613"><span id="local-6989586621681143615"><span id="local-6989586621681143617"><span class="annot"><span class="annottext">Eq ReservationState
 Eq ReservationState
 -&gt; (ReservationState -&gt; ReservationState -&gt; Ordering)
 -&gt; (ReservationState -&gt; ReservationState -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ReservationState -&gt; Rep ReservationState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143588"><span id="local-6989586621681143590"><span class="annot"><span class="annottext">Int -&gt; ReservationState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681143597"><span id="local-6989586621681143599"><span class="annot"><span class="annottext">Int -&gt; ReservationState -&gt; Int
 ReservationState -&gt; Int
 (Int -&gt; ReservationState -&gt; Int)
 -&gt; (ReservationState -&gt; Int) -&gt; Hashable ReservationState
@@ -146,51 +146,51 @@ $chash :: ReservationState -&gt; Int
 hashWithSalt :: Int -&gt; ReservationState -&gt; Int
 $chashWithSalt :: Int -&gt; ReservationState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681143585"><span class="annot"><span class="annottext">ReservationState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681143594"><span class="annot"><span class="annottext">ReservationState -&gt; ()
 (ReservationState -&gt; ()) -&gt; NFData ReservationState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReservationState -&gt; ()
 $crnf :: ReservationState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681143582"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681143591"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationState
 (Text -&gt; Either String ReservationState)
 -&gt; FromText ReservationState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReservationState
 $cfromText :: Text -&gt; Either String ReservationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681143579"><span class="annot"><span class="annottext">ReservationState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681143588"><span class="annot"><span class="annottext">ReservationState -&gt; Text
 (ReservationState -&gt; Text) -&gt; ToText ReservationState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReservationState -&gt; Text
 $ctoText :: ReservationState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681143576"><span class="annot"><span class="annottext">ReservationState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681143585"><span class="annot"><span class="annottext">ReservationState -&gt; ByteString
 (ReservationState -&gt; ByteString) -&gt; ToByteString ReservationState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReservationState -&gt; ByteString
 $ctoBS :: ReservationState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681143573"><span class="annot"><span class="annottext">ReservationState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681143582"><span class="annot"><span class="annottext">ReservationState -&gt; ByteStringBuilder
 (ReservationState -&gt; ByteStringBuilder) -&gt; ToLog ReservationState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReservationState -&gt; ByteStringBuilder
 $cbuild :: ReservationState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681143570"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681143579"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationState -&gt; [Header]
 (HeaderName -&gt; ReservationState -&gt; [Header])
 -&gt; ToHeader ReservationState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReservationState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReservationState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681143567"><span class="annot"><span class="annottext">ReservationState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681143576"><span class="annot"><span class="annottext">ReservationState -&gt; QueryString
 (ReservationState -&gt; QueryString) -&gt; ToQuery ReservationState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReservationState -&gt; QueryString
 $ctoQuery :: ReservationState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681143562"><span id="local-6989586621681143564"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681143571"><span id="local-6989586621681143573"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationState]
 Value -&gt; Parser ReservationState
 (Value -&gt; Parser ReservationState)
 -&gt; (Value -&gt; Parser [ReservationState])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ReservationState]
 parseJSON :: Value -&gt; Parser ReservationState
 $cparseJSON :: Value -&gt; Parser ReservationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681143557"><span id="local-6989586621681143559"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681143566"><span id="local-6989586621681143568"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationState]
 FromJSONKeyFunction ReservationState
 FromJSONKeyFunction ReservationState
 -&gt; FromJSONKeyFunction [ReservationState]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReservationState]
 fromJSONKey :: FromJSONKeyFunction ReservationState
 $cfromJSONKey :: FromJSONKeyFunction ReservationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681143548"><span id="local-6989586621681143550"><span id="local-6989586621681143552"><span id="local-6989586621681143554"><span class="annot"><span class="annottext">[ReservationState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681143557"><span id="local-6989586621681143559"><span id="local-6989586621681143561"><span id="local-6989586621681143563"><span class="annot"><span class="annottext">[ReservationState] -&gt; Encoding
 [ReservationState] -&gt; Value
 ReservationState -&gt; Encoding
 ReservationState -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ReservationState -&gt; Encoding
 toJSON :: ReservationState -&gt; Value
 $ctoJSON :: ReservationState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681143543"><span id="local-6989586621681143545"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681143552"><span id="local-6989586621681143554"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationState]
 ToJSONKeyFunction ReservationState
 ToJSONKeyFunction ReservationState
 -&gt; ToJSONKeyFunction [ReservationState]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReservationState]
 toJSONKey :: ToJSONKeyFunction ReservationState
 $ctoJSONKey :: ToJSONKeyFunction ReservationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681143540"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681143549"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationState
 ([Node] -&gt; Either String ReservationState)
 -&gt; FromXML ReservationState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReservationState
 $cparseXML :: [Node] -&gt; Either String ReservationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681143537"><span class="annot"><span class="annottext">ReservationState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681143546"><span class="annot"><span class="annottext">ReservationState -&gt; XML
 (ReservationState -&gt; XML) -&gt; ToXML ReservationState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReservationState -&gt; XML

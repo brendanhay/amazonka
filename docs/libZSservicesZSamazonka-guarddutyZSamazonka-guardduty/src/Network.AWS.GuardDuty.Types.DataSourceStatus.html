@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679294783"><span id="local-6989586621679294784"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataSourceStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceStatus.html#DataSourceStatus"><span class="hs-identifier hs-var">DataSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSourceStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceStatus.html#DataSourceStatus%27"><span class="hs-identifier hs-var">DataSourceStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679294792"><span id="local-6989586621679294793"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataSourceStatus"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceStatus.html#DataSourceStatus"><span class="hs-identifier hs-var">DataSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataSourceStatus%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceStatus.html#DataSourceStatus%27"><span class="hs-identifier hs-var">DataSourceStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataSourceStatus"><span class="annot"><span class="annottext">DataSourceStatus -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.DataSourceStatus.html#fromDataSourceStatus"><span class="hs-identifier hs-var hs-var">fromDataSourceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294775"><span id="local-6989586621679294777"><span id="local-6989586621679294779"><span class="annot"><span class="annottext">Int -&gt; DataSourceStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294784"><span id="local-6989586621679294786"><span id="local-6989586621679294788"><span class="annot"><span class="annottext">Int -&gt; DataSourceStatus -&gt; ShowS
 [DataSourceStatus] -&gt; ShowS
 DataSourceStatus -&gt; String
 (Int -&gt; DataSourceStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DataSourceStatus -&gt; String
 showsPrec :: Int -&gt; DataSourceStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DataSourceStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679294766"><span id="local-6989586621679294768"><span id="local-6989586621679294770"><span id="local-6989586621679294772"><span class="annot"><span class="annottext">ReadPrec [DataSourceStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679294775"><span id="local-6989586621679294777"><span id="local-6989586621679294779"><span id="local-6989586621679294781"><span class="annot"><span class="annottext">ReadPrec [DataSourceStatus]
 ReadPrec DataSourceStatus
 Int -&gt; ReadS DataSourceStatus
 ReadS [DataSourceStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DataSourceStatus]
 readsPrec :: Int -&gt; ReadS DataSourceStatus
 $creadsPrec :: Int -&gt; ReadS DataSourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679294761"><span id="local-6989586621679294763"><span class="annot"><span class="annottext">DataSourceStatus -&gt; DataSourceStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679294770"><span id="local-6989586621679294772"><span class="annot"><span class="annottext">DataSourceStatus -&gt; DataSourceStatus -&gt; Bool
 (DataSourceStatus -&gt; DataSourceStatus -&gt; Bool)
 -&gt; (DataSourceStatus -&gt; DataSourceStatus -&gt; Bool)
 -&gt; Eq DataSourceStatus
@@ -82,7 +82,7 @@ $c/= :: DataSourceStatus -&gt; DataSourceStatus -&gt; Bool
 == :: DataSourceStatus -&gt; DataSourceStatus -&gt; Bool
 $c== :: DataSourceStatus -&gt; DataSourceStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679294745"><span id="local-6989586621679294747"><span id="local-6989586621679294749"><span id="local-6989586621679294751"><span id="local-6989586621679294753"><span id="local-6989586621679294755"><span id="local-6989586621679294757"><span class="annot"><span class="annottext">Eq DataSourceStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679294754"><span id="local-6989586621679294756"><span id="local-6989586621679294758"><span id="local-6989586621679294760"><span id="local-6989586621679294762"><span id="local-6989586621679294764"><span id="local-6989586621679294766"><span class="annot"><span class="annottext">Eq DataSourceStatus
 Eq DataSourceStatus
 -&gt; (DataSourceStatus -&gt; DataSourceStatus -&gt; Ordering)
 -&gt; (DataSourceStatus -&gt; DataSourceStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DataSourceStatus -&gt; Rep DataSourceStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294737"><span id="local-6989586621679294739"><span class="annot"><span class="annottext">Int -&gt; DataSourceStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294746"><span id="local-6989586621679294748"><span class="annot"><span class="annottext">Int -&gt; DataSourceStatus -&gt; Int
 DataSourceStatus -&gt; Int
 (Int -&gt; DataSourceStatus -&gt; Int)
 -&gt; (DataSourceStatus -&gt; Int) -&gt; Hashable DataSourceStatus
@@ -143,51 +143,51 @@ $chash :: DataSourceStatus -&gt; Int
 hashWithSalt :: Int -&gt; DataSourceStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DataSourceStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294734"><span class="annot"><span class="annottext">DataSourceStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294743"><span class="annot"><span class="annottext">DataSourceStatus -&gt; ()
 (DataSourceStatus -&gt; ()) -&gt; NFData DataSourceStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DataSourceStatus -&gt; ()
 $crnf :: DataSourceStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294731"><span class="annot"><span class="annottext">Text -&gt; Either String DataSourceStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294740"><span class="annot"><span class="annottext">Text -&gt; Either String DataSourceStatus
 (Text -&gt; Either String DataSourceStatus)
 -&gt; FromText DataSourceStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DataSourceStatus
 $cfromText :: Text -&gt; Either String DataSourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294728"><span class="annot"><span class="annottext">DataSourceStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294737"><span class="annot"><span class="annottext">DataSourceStatus -&gt; Text
 (DataSourceStatus -&gt; Text) -&gt; ToText DataSourceStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DataSourceStatus -&gt; Text
 $ctoText :: DataSourceStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679294725"><span class="annot"><span class="annottext">DataSourceStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679294734"><span class="annot"><span class="annottext">DataSourceStatus -&gt; ByteString
 (DataSourceStatus -&gt; ByteString) -&gt; ToByteString DataSourceStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DataSourceStatus -&gt; ByteString
 $ctoBS :: DataSourceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294722"><span class="annot"><span class="annottext">DataSourceStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679294731"><span class="annot"><span class="annottext">DataSourceStatus -&gt; ByteStringBuilder
 (DataSourceStatus -&gt; ByteStringBuilder) -&gt; ToLog DataSourceStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DataSourceStatus -&gt; ByteStringBuilder
 $cbuild :: DataSourceStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294719"><span class="annot"><span class="annottext">HeaderName -&gt; DataSourceStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679294728"><span class="annot"><span class="annottext">HeaderName -&gt; DataSourceStatus -&gt; [Header]
 (HeaderName -&gt; DataSourceStatus -&gt; [Header])
 -&gt; ToHeader DataSourceStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DataSourceStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DataSourceStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294716"><span class="annot"><span class="annottext">DataSourceStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679294725"><span class="annot"><span class="annottext">DataSourceStatus -&gt; QueryString
 (DataSourceStatus -&gt; QueryString) -&gt; ToQuery DataSourceStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DataSourceStatus -&gt; QueryString
 $ctoQuery :: DataSourceStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294711"><span id="local-6989586621679294713"><span class="annot"><span class="annottext">Value -&gt; Parser [DataSourceStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294720"><span id="local-6989586621679294722"><span class="annot"><span class="annottext">Value -&gt; Parser [DataSourceStatus]
 Value -&gt; Parser DataSourceStatus
 (Value -&gt; Parser DataSourceStatus)
 -&gt; (Value -&gt; Parser [DataSourceStatus])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [DataSourceStatus]
 parseJSON :: Value -&gt; Parser DataSourceStatus
 $cparseJSON :: Value -&gt; Parser DataSourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294706"><span id="local-6989586621679294708"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataSourceStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294715"><span id="local-6989586621679294717"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataSourceStatus]
 FromJSONKeyFunction DataSourceStatus
 FromJSONKeyFunction DataSourceStatus
 -&gt; FromJSONKeyFunction [DataSourceStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DataSourceStatus]
 fromJSONKey :: FromJSONKeyFunction DataSourceStatus
 $cfromJSONKey :: FromJSONKeyFunction DataSourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294697"><span id="local-6989586621679294699"><span id="local-6989586621679294701"><span id="local-6989586621679294703"><span class="annot"><span class="annottext">[DataSourceStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294706"><span id="local-6989586621679294708"><span id="local-6989586621679294710"><span id="local-6989586621679294712"><span class="annot"><span class="annottext">[DataSourceStatus] -&gt; Encoding
 [DataSourceStatus] -&gt; Value
 DataSourceStatus -&gt; Encoding
 DataSourceStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: DataSourceStatus -&gt; Encoding
 toJSON :: DataSourceStatus -&gt; Value
 $ctoJSON :: DataSourceStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294692"><span id="local-6989586621679294694"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataSourceStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294701"><span id="local-6989586621679294703"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataSourceStatus]
 ToJSONKeyFunction DataSourceStatus
 ToJSONKeyFunction DataSourceStatus
 -&gt; ToJSONKeyFunction [DataSourceStatus]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DataSourceStatus]
 toJSONKey :: ToJSONKeyFunction DataSourceStatus
 $ctoJSONKey :: ToJSONKeyFunction DataSourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294689"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataSourceStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294698"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataSourceStatus
 ([Node] -&gt; Either String DataSourceStatus)
 -&gt; FromXML DataSourceStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DataSourceStatus
 $cparseXML :: [Node] -&gt; Either String DataSourceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294686"><span class="annot"><span class="annottext">DataSourceStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294695"><span class="annot"><span class="annottext">DataSourceStatus -&gt; XML
 (DataSourceStatus -&gt; XML) -&gt; ToXML DataSourceStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DataSourceStatus -&gt; XML

@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDescribeReservedNodes' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679514740"><span id="local-6989586621679514741"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReservedNodes"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-var">DescribeReservedNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReservedNodes%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-var">DescribeReservedNodes'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679514749"><span id="local-6989586621679514750"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReservedNodes"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-var">DescribeReservedNodes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReservedNodes%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-var">DescribeReservedNodes'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier for the node reservation.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AreservedNodeId%3ADescribeReservedNodes%27"><span class="annot"><span class="annottext">DescribeReservedNodes -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AreservedNodeId%3ADescribeReservedNodes%27"><span class="hs-identifier hs-var hs-var">reservedNodeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeReservedNodes%27"><span class="annot"><span class="annottext">DescribeReservedNodes -&gt; Maybe Int
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AmaxRecords%3ADescribeReservedNodes%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679514732"><span id="local-6989586621679514734"><span class="annot"><span class="annottext">DescribeReservedNodes -&gt; DescribeReservedNodes -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679514741"><span id="local-6989586621679514743"><span class="annot"><span class="annottext">DescribeReservedNodes -&gt; DescribeReservedNodes -&gt; Bool
 (DescribeReservedNodes -&gt; DescribeReservedNodes -&gt; Bool)
 -&gt; (DescribeReservedNodes -&gt; DescribeReservedNodes -&gt; Bool)
 -&gt; Eq DescribeReservedNodes
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeReservedNodes -&gt; DescribeReservedNodes -&gt; Bool
 == :: DescribeReservedNodes -&gt; DescribeReservedNodes -&gt; Bool
 $c== :: DescribeReservedNodes -&gt; DescribeReservedNodes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514723"><span id="local-6989586621679514725"><span id="local-6989586621679514727"><span id="local-6989586621679514729"><span class="annot"><span class="annottext">ReadPrec [DescribeReservedNodes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514732"><span id="local-6989586621679514734"><span id="local-6989586621679514736"><span id="local-6989586621679514738"><span class="annot"><span class="annottext">ReadPrec [DescribeReservedNodes]
 ReadPrec DescribeReservedNodes
 Int -&gt; ReadS DescribeReservedNodes
 ReadS [DescribeReservedNodes]
@@ -107,7 +107,7 @@ readList :: ReadS [DescribeReservedNodes]
 $creadList :: ReadS [DescribeReservedNodes]
 readsPrec :: Int -&gt; ReadS DescribeReservedNodes
 $creadsPrec :: Int -&gt; ReadS DescribeReservedNodes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514716"><span id="local-6989586621679514718"><span id="local-6989586621679514720"><span class="annot"><span class="annottext">Int -&gt; DescribeReservedNodes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514725"><span id="local-6989586621679514727"><span id="local-6989586621679514729"><span class="annot"><span class="annottext">Int -&gt; DescribeReservedNodes -&gt; ShowS
 [DescribeReservedNodes] -&gt; ShowS
 DescribeReservedNodes -&gt; String
 (Int -&gt; DescribeReservedNodes -&gt; ShowS)
@@ -192,16 +192,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514710"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514719"><span class="annot"><span class="annottext">Maybe Text
 reservedNodeId :: Maybe Text
 $sel:reservedNodeId:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe Text
-</span><a href="#local-6989586621679514710"><span class="hs-identifier hs-var hs-var">reservedNodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514710"><span class="hs-identifier hs-var">reservedNodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514709"><span class="annot"><span class="annottext">s :: DescribeReservedNodes
-</span><a href="#local-6989586621679514709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514708"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodes
-</span><a href="#local-6989586621679514709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodeId:DescribeReservedNodes' :: Maybe Text
+</span><a href="#local-6989586621679514719"><span class="hs-identifier hs-var hs-var">reservedNodeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514719"><span class="hs-identifier hs-var">reservedNodeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514718"><span class="annot"><span class="annottext">s :: DescribeReservedNodes
+</span><a href="#local-6989586621679514718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodes
+</span><a href="#local-6989586621679514718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodeId:DescribeReservedNodes' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AreservedNodeId%3ADescribeReservedNodes%27"><span class="hs-identifier hs-var">reservedNodeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679514717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- of response records. When the results of a DescribeReservedNodes request</span><span>
@@ -220,16 +220,16 @@ $sel:reservedNodeId:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514707"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514716"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe Text
-</span><a href="#local-6989586621679514707"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514707"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514706"><span class="annot"><span class="annottext">s :: DescribeReservedNodes
-</span><a href="#local-6989586621679514706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514705"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodes
-</span><a href="#local-6989586621679514706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReservedNodes' :: Maybe Text
+</span><a href="#local-6989586621679514716"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514716"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514715"><span class="annot"><span class="annottext">s :: DescribeReservedNodes
+</span><a href="#local-6989586621679514715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodes
+</span><a href="#local-6989586621679514715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReservedNodes' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3Amarker%3ADescribeReservedNodes%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679514714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
@@ -248,29 +248,29 @@ $sel:marker:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe Text
 -&gt; Lens
      DescribeReservedNodes DescribeReservedNodes (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514704"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514713"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe Int
-</span><a href="#local-6989586621679514704"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679514704"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514703"><span class="annot"><span class="annottext">s :: DescribeReservedNodes
-</span><a href="#local-6989586621679514703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514702"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679514702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodes
-</span><a href="#local-6989586621679514703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReservedNodes' :: Maybe Int
+</span><a href="#local-6989586621679514713"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679514713"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514712"><span class="annot"><span class="annottext">s :: DescribeReservedNodes
+</span><a href="#local-6989586621679514712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514711"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679514711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodes
+</span><a href="#local-6989586621679514712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReservedNodes' :: Maybe Int
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AmaxRecords%3ADescribeReservedNodes%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679514702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679514711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679514698"><span class="annot"><span class="annottext">page :: DescribeReservedNodes
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679514707"><span class="annot"><span class="annottext">page :: DescribeReservedNodes
 -&gt; AWSResponse DescribeReservedNodes -&gt; Maybe DescribeReservedNodes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679514696"><span class="annot"><span class="annottext">DescribeReservedNodes
-</span><a href="#local-6989586621679514696"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679514695"><span class="annot"><span class="annottext">AWSResponse DescribeReservedNodes
-</span><a href="#local-6989586621679514695"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679514705"><span class="annot"><span class="annottext">DescribeReservedNodes
+</span><a href="#local-6989586621679514705"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679514704"><span class="annot"><span class="annottext">AWSResponse DescribeReservedNodes
+</span><a href="#local-6989586621679514704"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-144"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReservedNodes
 DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514695"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679514704"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
 -&gt; Getting (First Text) DescribeReservedNodesResponse Text
 -&gt; Maybe Text
@@ -300,7 +300,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-150"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReservedNodes
 DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514695"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679514704"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
 -&gt; Getting
      (First [ReservedNode]) DescribeReservedNodesResponse [ReservedNode]
@@ -340,7 +340,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">DescribeReservedNodes
-</span><a href="#local-6989586621679514696"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679514705"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">DescribeReservedNodes
 -&gt; (DescribeReservedNodes -&gt; DescribeReservedNodes)
 -&gt; DescribeReservedNodes
@@ -359,7 +359,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReservedNodes
 DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514695"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679514704"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
 -&gt; Getting (First Text) DescribeReservedNodesResponse Text
 -&gt; Maybe Text
@@ -385,12 +385,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-165"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679514685"><span class="annot"><span class="annottext">request :: DescribeReservedNodes -&gt; Request DescribeReservedNodes
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679514694"><span class="annot"><span class="annottext">request :: DescribeReservedNodes -&gt; Request DescribeReservedNodes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeReservedNodes -&gt; Request DescribeReservedNodes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679514681"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679514690"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeReservedNodes
 -&gt; ClientResponse ClientBody
@@ -421,10 +421,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeReservedNodesResult&quot;</span></span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679514678"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679514677"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679514677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679514676"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679514676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679514687"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679514687"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679514686"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679514686"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679514685"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679514685"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReservedNode]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeReservedNodesResponse
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-var">DescribeReservedNodesResponse'</span></a></span><span>
@@ -435,7 +435,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeReservedNodesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679514676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679514685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReservedNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -462,7 +462,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeReservedNodesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679514676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679514685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -474,15 +474,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679514687"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514665"><span id="local-6989586621679514667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514674"><span id="local-6989586621679514676"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514671"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679514658"><span class="annot"><span class="annottext">toHeaders :: DescribeReservedNodes -&gt; ResponseHeaders
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679514667"><span class="annot"><span class="annottext">toHeaders :: DescribeReservedNodes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeReservedNodes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -490,15 +490,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679514653"><span class="annot"><span class="annottext">toPath :: DescribeReservedNodes -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679514662"><span class="annot"><span class="annottext">toPath :: DescribeReservedNodes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeReservedNodes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes"><span class="hs-identifier hs-type">DescribeReservedNodes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679514649"><span class="annot"><span class="annottext">toQuery :: DescribeReservedNodes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514645"><span id="local-6989586621679514646"><span id="local-6989586621679514647"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679514658"><span class="annot"><span class="annottext">toQuery :: DescribeReservedNodes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodes%27"><span class="hs-identifier hs-type">DescribeReservedNodes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514654"><span id="local-6989586621679514655"><span id="local-6989586621679514656"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 maxRecords :: Maybe Int
 marker :: Maybe Text
@@ -506,7 +506,7 @@ reservedNodeId :: Maybe Text
 $sel:maxRecords:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe Int
 $sel:marker:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe Text
 $sel:reservedNodeId:DescribeReservedNodes' :: DescribeReservedNodes -&gt; Maybe Text
-</span><a href="#local-6989586621679514645"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679514654"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -526,23 +526,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ReservedNodeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514647"><span class="hs-identifier hs-var">reservedNodeId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679514656"><span class="hs-identifier hs-var">reservedNodeId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514646"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679514655"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679514645"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><a href="#local-6989586621679514654"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-203"></span><span class="hs-comment">--</span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- /See:/ 'newDescribeReservedNodesResponse' smart constructor.</span><span>
-</span><span id="line-205"></span><span id="local-6989586621679514642"><span id="local-6989586621679514643"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReservedNodesResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-var">DescribeReservedNodesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReservedNodesResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-var">DescribeReservedNodesResponse'</span></a></span></span><span>
+</span><span id="line-205"></span><span id="local-6989586621679514651"><span id="local-6989586621679514652"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReservedNodesResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-var">DescribeReservedNodesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReservedNodesResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-var">DescribeReservedNodesResponse'</span></a></span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of @ReservedNode@ objects.</span><span>
 </span><span id="line-207"></span><span>    </span><span id="%24sel%3AreservedNodes%3ADescribeReservedNodesResponse%27"><span class="annot"><span class="annottext">DescribeReservedNodesResponse -&gt; Maybe [ReservedNode]
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AreservedNodes%3ADescribeReservedNodesResponse%27"><span class="hs-identifier hs-var hs-var">reservedNodes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.ReservedNode.html#ReservedNode"><span class="hs-identifier hs-type">ReservedNode</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -558,7 +558,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeReservedNodesResponse%27"><span class="annot"><span class="annottext">DescribeReservedNodesResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AhttpStatus%3ADescribeReservedNodesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679514635"><span id="local-6989586621679514637"><span class="annot"><span class="annottext">DescribeReservedNodesResponse
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679514644"><span id="local-6989586621679514646"><span class="annot"><span class="annottext">DescribeReservedNodesResponse
 -&gt; DescribeReservedNodesResponse -&gt; Bool
 (DescribeReservedNodesResponse
  -&gt; DescribeReservedNodesResponse -&gt; Bool)
@@ -574,7 +574,7 @@ $c/= :: DescribeReservedNodesResponse
 -&gt; DescribeReservedNodesResponse -&gt; Bool
 $c== :: DescribeReservedNodesResponse
 -&gt; DescribeReservedNodesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514627"><span id="local-6989586621679514629"><span id="local-6989586621679514631"><span id="local-6989586621679514633"><span class="annot"><span class="annottext">ReadPrec [DescribeReservedNodesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514636"><span id="local-6989586621679514638"><span id="local-6989586621679514640"><span id="local-6989586621679514642"><span class="annot"><span class="annottext">ReadPrec [DescribeReservedNodesResponse]
 ReadPrec DescribeReservedNodesResponse
 Int -&gt; ReadS DescribeReservedNodesResponse
 ReadS [DescribeReservedNodesResponse]
@@ -594,7 +594,7 @@ readList :: ReadS [DescribeReservedNodesResponse]
 $creadList :: ReadS [DescribeReservedNodesResponse]
 readsPrec :: Int -&gt; ReadS DescribeReservedNodesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeReservedNodesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514621"><span id="local-6989586621679514623"><span id="local-6989586621679514625"><span class="annot"><span class="annottext">Int -&gt; DescribeReservedNodesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514630"><span id="local-6989586621679514632"><span id="local-6989586621679514634"><span class="annot"><span class="annottext">Int -&gt; DescribeReservedNodesResponse -&gt; ShowS
 [DescribeReservedNodesResponse] -&gt; ShowS
 DescribeReservedNodesResponse -&gt; String
 (Int -&gt; DescribeReservedNodesResponse -&gt; ShowS)
@@ -655,8 +655,8 @@ DescribeReservedNodesResponse
 </span><span id="line-240"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span>
 </span><span id="line-242"></span><span id="newDescribeReservedNodesResponse"><span class="annot"><span class="annottext">newDescribeReservedNodesResponse :: Int -&gt; DescribeReservedNodesResponse
-</span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#newDescribeReservedNodesResponse"><span class="hs-identifier hs-var hs-var">newDescribeReservedNodesResponse</span></a></span></span><span> </span><span id="local-6989586621679514618"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#newDescribeReservedNodesResponse"><span class="hs-identifier hs-var hs-var">newDescribeReservedNodesResponse</span></a></span></span><span> </span><span id="local-6989586621679514627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679514627"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>  </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse' :: Maybe [ReservedNode]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeReservedNodesResponse
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span>
@@ -671,7 +671,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReservedNodesResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AhttpStatus%3ADescribeReservedNodesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514618"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679514627"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The list of @ReservedNode@ objects.</span><span>
@@ -683,16 +683,16 @@ forall a. Maybe a
     -&gt; Maybe [ReservedNode] -&gt; DescribeReservedNodesResponse)
 -&gt; Lens' DescribeReservedNodesResponse (Maybe [ReservedNode])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514617"><span class="annot"><span class="annottext">Maybe [ReservedNode]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514626"><span class="annot"><span class="annottext">Maybe [ReservedNode]
 reservedNodes :: Maybe [ReservedNode]
 $sel:reservedNodes:DescribeReservedNodesResponse' :: DescribeReservedNodesResponse -&gt; Maybe [ReservedNode]
-</span><a href="#local-6989586621679514617"><span class="hs-identifier hs-var hs-var">reservedNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservedNode]
-</span><a href="#local-6989586621679514617"><span class="hs-identifier hs-var">reservedNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514616"><span class="annot"><span class="annottext">s :: DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514615"><span class="annot"><span class="annottext">Maybe [ReservedNode]
-</span><a href="#local-6989586621679514615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodes:DescribeReservedNodesResponse' :: Maybe [ReservedNode]
+</span><a href="#local-6989586621679514626"><span class="hs-identifier hs-var hs-var">reservedNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservedNode]
+</span><a href="#local-6989586621679514626"><span class="hs-identifier hs-var">reservedNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514625"><span class="annot"><span class="annottext">s :: DescribeReservedNodesResponse
+</span><a href="#local-6989586621679514625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514624"><span class="annot"><span class="annottext">Maybe [ReservedNode]
+</span><a href="#local-6989586621679514624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
+</span><a href="#local-6989586621679514625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedNodes:DescribeReservedNodesResponse' :: Maybe [ReservedNode]
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AreservedNodes%3ADescribeReservedNodesResponse%27"><span class="hs-identifier hs-var">reservedNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReservedNode]
-</span><a href="#local-6989586621679514615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReservedNode] -&gt; f (Maybe [ReservedNode]))
+</span><a href="#local-6989586621679514624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReservedNode] -&gt; f (Maybe [ReservedNode]))
  -&gt; DescribeReservedNodesResponse
  -&gt; f DescribeReservedNodesResponse)
 -&gt; ((Maybe [ReservedNode] -&gt; f (Maybe [ReservedNode]))
@@ -728,16 +728,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeReservedNodesResponse)
 -&gt; Lens' DescribeReservedNodesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514612"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514621"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeReservedNodesResponse' :: DescribeReservedNodesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679514612"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514612"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514611"><span class="annot"><span class="annottext">s :: DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514610"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReservedNodesResponse' :: Maybe Text
+</span><a href="#local-6989586621679514621"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514621"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514620"><span class="annot"><span class="annottext">s :: DescribeReservedNodesResponse
+</span><a href="#local-6989586621679514620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514619"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679514619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
+</span><a href="#local-6989586621679514620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReservedNodesResponse' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3Amarker%3ADescribeReservedNodesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679514619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-264"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#describeReservedNodesResponse_httpStatus"><span class="hs-identifier hs-type">describeReservedNodesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -749,16 +749,16 @@ $sel:marker:DescribeReservedNodesResponse' :: DescribeReservedNodesResponse -&gt
 -&gt; Lens
      DescribeReservedNodesResponse DescribeReservedNodesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514609"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514618"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeReservedNodesResponse' :: DescribeReservedNodesResponse -&gt; Int
-</span><a href="#local-6989586621679514609"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514609"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514608"><span class="annot"><span class="annottext">s :: DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514607"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
-</span><a href="#local-6989586621679514608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReservedNodesResponse' :: Int
+</span><a href="#local-6989586621679514618"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679514618"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514617"><span class="annot"><span class="annottext">s :: DescribeReservedNodesResponse
+</span><a href="#local-6989586621679514617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse%27"><span class="hs-identifier hs-type">DescribeReservedNodesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514616"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679514616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReservedNodesResponse
+</span><a href="#local-6989586621679514617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReservedNodesResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeReservedNodes.html#%24sel%3AhttpStatus%3ADescribeReservedNodesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679514616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679514614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeReservedNodes.html#DescribeReservedNodesResponse"><span class="hs-identifier hs-type">DescribeReservedNodesResponse</span></a></span></span><span>
 </span><span id="line-268"></span></pre></body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.Types.AccountType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.Types.AccountType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType"><span class="hs-identifier">AccountType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseDirectory"><span class="hs-identifier">AccountType_EnterpriseDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseLWA"><span class="hs-identifier">AccountType_EnterpriseLWA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseOIDC"><span class="hs-identifier">AccountType_EnterpriseOIDC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_Team"><span class="hs-identifier">AccountType_Team</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679504439"><span id="local-6989586621679504440"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountType"><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType"><span class="hs-identifier hs-var">AccountType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountType%27"><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType%27"><span class="hs-identifier hs-var">AccountType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccountType"><span class="annot"><span class="annottext">AccountType -&gt; Text
+</span><a href="Network.AWS.Chime.Types.AccountType.html#fromAccountType"><span class="hs-identifier hs-var hs-var">fromAccountType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679504431"><span id="local-6989586621679504433"><span id="local-6989586621679504435"><span class="annot"><span class="annottext">Int -&gt; AccountType -&gt; ShowS
+[AccountType] -&gt; ShowS
+AccountType -&gt; String
+(Int -&gt; AccountType -&gt; ShowS)
+-&gt; (AccountType -&gt; String)
+-&gt; ([AccountType] -&gt; ShowS)
+-&gt; Show AccountType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccountType] -&gt; ShowS
+$cshowList :: [AccountType] -&gt; ShowS
+show :: AccountType -&gt; String
+$cshow :: AccountType -&gt; String
+showsPrec :: Int -&gt; AccountType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccountType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679504422"><span id="local-6989586621679504424"><span id="local-6989586621679504426"><span id="local-6989586621679504428"><span class="annot"><span class="annottext">ReadPrec [AccountType]
+ReadPrec AccountType
+Int -&gt; ReadS AccountType
+ReadS [AccountType]
+(Int -&gt; ReadS AccountType)
+-&gt; ReadS [AccountType]
+-&gt; ReadPrec AccountType
+-&gt; ReadPrec [AccountType]
+-&gt; Read AccountType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccountType]
+$creadListPrec :: ReadPrec [AccountType]
+readPrec :: ReadPrec AccountType
+$creadPrec :: ReadPrec AccountType
+readList :: ReadS [AccountType]
+$creadList :: ReadS [AccountType]
+readsPrec :: Int -&gt; ReadS AccountType
+$creadsPrec :: Int -&gt; ReadS AccountType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679504417"><span id="local-6989586621679504419"><span class="annot"><span class="annottext">AccountType -&gt; AccountType -&gt; Bool
+(AccountType -&gt; AccountType -&gt; Bool)
+-&gt; (AccountType -&gt; AccountType -&gt; Bool) -&gt; Eq AccountType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccountType -&gt; AccountType -&gt; Bool
+$c/= :: AccountType -&gt; AccountType -&gt; Bool
+== :: AccountType -&gt; AccountType -&gt; Bool
+$c== :: AccountType -&gt; AccountType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679504401"><span id="local-6989586621679504403"><span id="local-6989586621679504405"><span id="local-6989586621679504407"><span id="local-6989586621679504409"><span id="local-6989586621679504411"><span id="local-6989586621679504413"><span class="annot"><span class="annottext">Eq AccountType
+Eq AccountType
+-&gt; (AccountType -&gt; AccountType -&gt; Ordering)
+-&gt; (AccountType -&gt; AccountType -&gt; Bool)
+-&gt; (AccountType -&gt; AccountType -&gt; Bool)
+-&gt; (AccountType -&gt; AccountType -&gt; Bool)
+-&gt; (AccountType -&gt; AccountType -&gt; Bool)
+-&gt; (AccountType -&gt; AccountType -&gt; AccountType)
+-&gt; (AccountType -&gt; AccountType -&gt; AccountType)
+-&gt; Ord AccountType
+AccountType -&gt; AccountType -&gt; Bool
+AccountType -&gt; AccountType -&gt; Ordering
+AccountType -&gt; AccountType -&gt; AccountType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccountType -&gt; AccountType -&gt; AccountType
+$cmin :: AccountType -&gt; AccountType -&gt; AccountType
+max :: AccountType -&gt; AccountType -&gt; AccountType
+$cmax :: AccountType -&gt; AccountType -&gt; AccountType
+&gt;= :: AccountType -&gt; AccountType -&gt; Bool
+$c&gt;= :: AccountType -&gt; AccountType -&gt; Bool
+&gt; :: AccountType -&gt; AccountType -&gt; Bool
+$c&gt; :: AccountType -&gt; AccountType -&gt; Bool
+&lt;= :: AccountType -&gt; AccountType -&gt; Bool
+$c&lt;= :: AccountType -&gt; AccountType -&gt; Bool
+&lt; :: AccountType -&gt; AccountType -&gt; Bool
+$c&lt; :: AccountType -&gt; AccountType -&gt; Bool
+compare :: AccountType -&gt; AccountType -&gt; Ordering
+$ccompare :: AccountType -&gt; AccountType -&gt; Ordering
+$cp1Ord :: Eq AccountType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccountType -&gt; Rep AccountType x)
+-&gt; (forall x. Rep AccountType x -&gt; AccountType)
+-&gt; Generic AccountType
+forall x. Rep AccountType x -&gt; AccountType
+forall x. AccountType -&gt; Rep AccountType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccountType x -&gt; AccountType
+$cfrom :: forall x. AccountType -&gt; Rep AccountType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679504393"><span id="local-6989586621679504395"><span class="annot"><span class="annottext">Int -&gt; AccountType -&gt; Int
+AccountType -&gt; Int
+(Int -&gt; AccountType -&gt; Int)
+-&gt; (AccountType -&gt; Int) -&gt; Hashable AccountType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccountType -&gt; Int
+$chash :: AccountType -&gt; Int
+hashWithSalt :: Int -&gt; AccountType -&gt; Int
+$chashWithSalt :: Int -&gt; AccountType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679504390"><span class="annot"><span class="annottext">AccountType -&gt; ()
+(AccountType -&gt; ()) -&gt; NFData AccountType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccountType -&gt; ()
+$crnf :: AccountType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679504387"><span class="annot"><span class="annottext">Text -&gt; Either String AccountType
+(Text -&gt; Either String AccountType) -&gt; FromText AccountType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccountType
+$cfromText :: Text -&gt; Either String AccountType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679504384"><span class="annot"><span class="annottext">AccountType -&gt; Text
+(AccountType -&gt; Text) -&gt; ToText AccountType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccountType -&gt; Text
+$ctoText :: AccountType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679504381"><span class="annot"><span class="annottext">AccountType -&gt; ByteString
+(AccountType -&gt; ByteString) -&gt; ToByteString AccountType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccountType -&gt; ByteString
+$ctoBS :: AccountType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679504378"><span class="annot"><span class="annottext">AccountType -&gt; ByteStringBuilder
+(AccountType -&gt; ByteStringBuilder) -&gt; ToLog AccountType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccountType -&gt; ByteStringBuilder
+$cbuild :: AccountType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679504375"><span class="annot"><span class="annottext">HeaderName -&gt; AccountType -&gt; [Header]
+(HeaderName -&gt; AccountType -&gt; [Header]) -&gt; ToHeader AccountType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccountType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccountType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679504372"><span class="annot"><span class="annottext">AccountType -&gt; QueryString
+(AccountType -&gt; QueryString) -&gt; ToQuery AccountType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccountType -&gt; QueryString
+$ctoQuery :: AccountType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679504367"><span id="local-6989586621679504369"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountType]
+Value -&gt; Parser AccountType
+(Value -&gt; Parser AccountType)
+-&gt; (Value -&gt; Parser [AccountType]) -&gt; FromJSON AccountType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccountType]
+$cparseJSONList :: Value -&gt; Parser [AccountType]
+parseJSON :: Value -&gt; Parser AccountType
+$cparseJSON :: Value -&gt; Parser AccountType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679504362"><span id="local-6989586621679504364"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountType]
+FromJSONKeyFunction AccountType
+FromJSONKeyFunction AccountType
+-&gt; FromJSONKeyFunction [AccountType] -&gt; FromJSONKey AccountType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccountType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccountType]
+fromJSONKey :: FromJSONKeyFunction AccountType
+$cfromJSONKey :: FromJSONKeyFunction AccountType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679504353"><span id="local-6989586621679504355"><span id="local-6989586621679504357"><span id="local-6989586621679504359"><span class="annot"><span class="annottext">[AccountType] -&gt; Encoding
+[AccountType] -&gt; Value
+AccountType -&gt; Encoding
+AccountType -&gt; Value
+(AccountType -&gt; Value)
+-&gt; (AccountType -&gt; Encoding)
+-&gt; ([AccountType] -&gt; Value)
+-&gt; ([AccountType] -&gt; Encoding)
+-&gt; ToJSON AccountType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccountType] -&gt; Encoding
+$ctoEncodingList :: [AccountType] -&gt; Encoding
+toJSONList :: [AccountType] -&gt; Value
+$ctoJSONList :: [AccountType] -&gt; Value
+toEncoding :: AccountType -&gt; Encoding
+$ctoEncoding :: AccountType -&gt; Encoding
+toJSON :: AccountType -&gt; Value
+$ctoJSON :: AccountType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679504348"><span id="local-6989586621679504350"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountType]
+ToJSONKeyFunction AccountType
+ToJSONKeyFunction AccountType
+-&gt; ToJSONKeyFunction [AccountType] -&gt; ToJSONKey AccountType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccountType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccountType]
+toJSONKey :: ToJSONKeyFunction AccountType
+$ctoJSONKey :: ToJSONKeyFunction AccountType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679504345"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountType
+([Node] -&gt; Either String AccountType) -&gt; FromXML AccountType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccountType
+$cparseXML :: [Node] -&gt; Either String AccountType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679504342"><span class="annot"><span class="annottext">AccountType -&gt; XML
+(AccountType -&gt; XML) -&gt; ToXML AccountType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccountType -&gt; XML
+$ctoXML :: AccountType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseDirectory"><span class="hs-identifier hs-type">AccountType_EnterpriseDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType"><span class="hs-identifier hs-type">AccountType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountType_EnterpriseDirectory"><span id="%24mAccountType_EnterpriseDirectory"><span id="AccountType_EnterpriseDirectory"><span class="annot"><span class="annottext">$bAccountType_EnterpriseDirectory :: AccountType
+$mAccountType_EnterpriseDirectory :: forall r. AccountType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.AccountType.html#%24bAccountType_EnterpriseDirectory"><span class="hs-identifier hs-var hs-var hs-var">AccountType_EnterpriseDirectory</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType%27"><span class="hs-identifier hs-type">AccountType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EnterpriseDirectory&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseLWA"><span class="hs-identifier hs-type">AccountType_EnterpriseLWA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType"><span class="hs-identifier hs-type">AccountType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountType_EnterpriseLWA"><span id="%24mAccountType_EnterpriseLWA"><span id="AccountType_EnterpriseLWA"><span class="annot"><span class="annottext">$bAccountType_EnterpriseLWA :: AccountType
+$mAccountType_EnterpriseLWA :: forall r. AccountType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.AccountType.html#%24bAccountType_EnterpriseLWA"><span class="hs-identifier hs-var hs-var hs-var">AccountType_EnterpriseLWA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType%27"><span class="hs-identifier hs-type">AccountType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EnterpriseLWA&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseOIDC"><span class="hs-identifier hs-type">AccountType_EnterpriseOIDC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType"><span class="hs-identifier hs-type">AccountType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountType_EnterpriseOIDC"><span id="%24mAccountType_EnterpriseOIDC"><span id="AccountType_EnterpriseOIDC"><span class="annot"><span class="annottext">$bAccountType_EnterpriseOIDC :: AccountType
+$mAccountType_EnterpriseOIDC :: forall r. AccountType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.AccountType.html#%24bAccountType_EnterpriseOIDC"><span class="hs-identifier hs-var hs-var hs-var">AccountType_EnterpriseOIDC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType%27"><span class="hs-identifier hs-type">AccountType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EnterpriseOIDC&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_Team"><span class="hs-identifier hs-type">AccountType_Team</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType"><span class="hs-identifier hs-type">AccountType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccountType_Team"><span id="%24mAccountType_Team"><span id="AccountType_Team"><span class="annot"><span class="annottext">$bAccountType_Team :: AccountType
+$mAccountType_Team :: forall r. AccountType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Chime.Types.AccountType.html#%24bAccountType_Team"><span class="hs-identifier hs-var hs-var hs-var">AccountType_Team</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType%27"><span class="hs-identifier hs-type">AccountType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Team&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseDirectory"><span class="hs-pragma hs-type">AccountType_EnterpriseDirectory</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseLWA"><span class="hs-pragma hs-type">AccountType_EnterpriseLWA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_EnterpriseOIDC"><span class="hs-pragma hs-type">AccountType_EnterpriseOIDC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType_Team"><span class="hs-pragma hs-type">AccountType_Team</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.Types.AccountType.html#AccountType%27"><span class="hs-pragma hs-type">AccountType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

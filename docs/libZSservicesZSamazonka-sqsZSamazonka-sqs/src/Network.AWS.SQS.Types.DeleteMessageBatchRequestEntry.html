@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Encloses a receipt handle and an identifier for it.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDeleteMessageBatchRequestEntry' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679175309"><span id="local-6989586621679175310"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMessageBatchRequestEntry"><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-var">DeleteMessageBatchRequestEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMessageBatchRequestEntry%27"><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-var">DeleteMessageBatchRequestEntry'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679175318"><span id="local-6989586621679175319"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMessageBatchRequestEntry"><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-var">DeleteMessageBatchRequestEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMessageBatchRequestEntry%27"><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-var">DeleteMessageBatchRequestEntry'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier for this particular receipt handle. This is used to</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- communicate the result.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AreceiptHandle%3ADeleteMessageBatchRequestEntry%27"><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry -&gt; Text
 </span><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#%24sel%3AreceiptHandle%3ADeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175302"><span id="local-6989586621679175304"><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175311"><span id="local-6989586621679175313"><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry
 -&gt; DeleteMessageBatchRequestEntry -&gt; Bool
 (DeleteMessageBatchRequestEntry
  -&gt; DeleteMessageBatchRequestEntry -&gt; Bool)
@@ -56,7 +56,7 @@ $c/= :: DeleteMessageBatchRequestEntry
 -&gt; DeleteMessageBatchRequestEntry -&gt; Bool
 $c== :: DeleteMessageBatchRequestEntry
 -&gt; DeleteMessageBatchRequestEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175293"><span id="local-6989586621679175295"><span id="local-6989586621679175297"><span id="local-6989586621679175299"><span class="annot"><span class="annottext">ReadPrec [DeleteMessageBatchRequestEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175302"><span id="local-6989586621679175304"><span id="local-6989586621679175306"><span id="local-6989586621679175308"><span class="annot"><span class="annottext">ReadPrec [DeleteMessageBatchRequestEntry]
 ReadPrec DeleteMessageBatchRequestEntry
 Int -&gt; ReadS DeleteMessageBatchRequestEntry
 ReadS [DeleteMessageBatchRequestEntry]
@@ -76,7 +76,7 @@ readList :: ReadS [DeleteMessageBatchRequestEntry]
 $creadList :: ReadS [DeleteMessageBatchRequestEntry]
 readsPrec :: Int -&gt; ReadS DeleteMessageBatchRequestEntry
 $creadsPrec :: Int -&gt; ReadS DeleteMessageBatchRequestEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175286"><span id="local-6989586621679175288"><span id="local-6989586621679175290"><span class="annot"><span class="annottext">Int -&gt; DeleteMessageBatchRequestEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175295"><span id="local-6989586621679175297"><span id="local-6989586621679175299"><span class="annot"><span class="annottext">Int -&gt; DeleteMessageBatchRequestEntry -&gt; ShowS
 [DeleteMessageBatchRequestEntry] -&gt; ShowS
 DeleteMessageBatchRequestEntry -&gt; String
 (Int -&gt; DeleteMessageBatchRequestEntry -&gt; ShowS)
@@ -139,18 +139,18 @@ DeleteMessageBatchRequestEntry
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span><span>
 </span><span id="line-66"></span><span id="newDeleteMessageBatchRequestEntry"><span class="annot"><span class="annottext">newDeleteMessageBatchRequestEntry :: Text -&gt; Text -&gt; DeleteMessageBatchRequestEntry
 </span><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#newDeleteMessageBatchRequestEntry"><span class="hs-identifier hs-var hs-var">newDeleteMessageBatchRequestEntry</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679175280"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175280"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679175279"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175279"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679175289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175289"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679175288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175288"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry' :: Text -&gt; Text -&gt; DeleteMessageBatchRequestEntry
 </span><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:DeleteMessageBatchRequestEntry' :: Text
 </span><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#%24sel%3Aid%3ADeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175280"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175289"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:receiptHandle:DeleteMessageBatchRequestEntry' :: Text
 </span><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#%24sel%3AreceiptHandle%3ADeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175279"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span><span>
+</span><a href="#local-6989586621679175288"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | An identifier for this particular receipt handle. This is used to</span><span>
@@ -173,16 +173,16 @@ DeleteMessageBatchRequestEntry
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175275"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175284"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteMessageBatchRequestEntry' :: DeleteMessageBatchRequestEntry -&gt; Text
-</span><a href="#local-6989586621679175275"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175275"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175274"><span class="annot"><span class="annottext">s :: DeleteMessageBatchRequestEntry
-</span><a href="#local-6989586621679175274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175273"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry
-</span><a href="#local-6989586621679175274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteMessageBatchRequestEntry' :: Text
+</span><a href="#local-6989586621679175284"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175284"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175283"><span class="annot"><span class="annottext">s :: DeleteMessageBatchRequestEntry
+</span><a href="#local-6989586621679175283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175282"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry
+</span><a href="#local-6989586621679175283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteMessageBatchRequestEntry' :: Text
 </span><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#%24sel%3Aid%3ADeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | A receipt handle.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#deleteMessageBatchRequestEntry_receiptHandle"><span class="hs-identifier hs-type">deleteMessageBatchRequestEntry_receiptHandle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,33 +198,33 @@ $sel:id:DeleteMessageBatchRequestEntry' :: DeleteMessageBatchRequestEntry -&gt; 
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175271"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175280"><span class="annot"><span class="annottext">Text
 receiptHandle :: Text
 $sel:receiptHandle:DeleteMessageBatchRequestEntry' :: DeleteMessageBatchRequestEntry -&gt; Text
-</span><a href="#local-6989586621679175271"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175271"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175270"><span class="annot"><span class="annottext">s :: DeleteMessageBatchRequestEntry
-</span><a href="#local-6989586621679175270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175269"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry
-</span><a href="#local-6989586621679175270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiptHandle:DeleteMessageBatchRequestEntry' :: Text
+</span><a href="#local-6989586621679175280"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175280"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175279"><span class="annot"><span class="annottext">s :: DeleteMessageBatchRequestEntry
+</span><a href="#local-6989586621679175279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175278"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMessageBatchRequestEntry
+</span><a href="#local-6989586621679175279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiptHandle:DeleteMessageBatchRequestEntry' :: Text
 </span><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#%24sel%3AreceiptHandle%3ADeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679175265"><span id="local-6989586621679175267"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679175274"><span id="local-6989586621679175276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679175262"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679175271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679175258"><span class="annot"><span class="annottext">toQuery :: DeleteMessageBatchRequestEntry -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175255"><span id="local-6989586621679175256"><span class="annot"><span class="annottext">Text
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679175267"><span class="annot"><span class="annottext">toQuery :: DeleteMessageBatchRequestEntry -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry.html#DeleteMessageBatchRequestEntry%27"><span class="hs-identifier hs-type">DeleteMessageBatchRequestEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175264"><span id="local-6989586621679175265"><span class="annot"><span class="annottext">Text
 receiptHandle :: Text
 id :: Text
 $sel:receiptHandle:DeleteMessageBatchRequestEntry' :: DeleteMessageBatchRequestEntry -&gt; Text
 $sel:id:DeleteMessageBatchRequestEntry' :: DeleteMessageBatchRequestEntry -&gt; Text
-</span><a href="#local-6989586621679175255"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175264"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -232,11 +232,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175256"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175265"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReceiptHandle&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175255"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span>
+</span><a href="#local-6989586621679175264"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span></pre></body></html>

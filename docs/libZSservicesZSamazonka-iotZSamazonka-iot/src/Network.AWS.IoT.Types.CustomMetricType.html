@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679782216"><span id="local-6989586621679782217"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomMetricType"><span class="annot"><a href="Network.AWS.IoT.Types.CustomMetricType.html#CustomMetricType"><span class="hs-identifier hs-var">CustomMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomMetricType%27"><span class="annot"><a href="Network.AWS.IoT.Types.CustomMetricType.html#CustomMetricType%27"><span class="hs-identifier hs-var">CustomMetricType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679782225"><span id="local-6989586621679782226"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CustomMetricType"><span class="annot"><a href="Network.AWS.IoT.Types.CustomMetricType.html#CustomMetricType"><span class="hs-identifier hs-var">CustomMetricType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomMetricType%27"><span class="annot"><a href="Network.AWS.IoT.Types.CustomMetricType.html#CustomMetricType%27"><span class="hs-identifier hs-var">CustomMetricType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCustomMetricType"><span class="annot"><span class="annottext">CustomMetricType -&gt; Text
 </span><a href="Network.AWS.IoT.Types.CustomMetricType.html#fromCustomMetricType"><span class="hs-identifier hs-var hs-var">fromCustomMetricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782208"><span id="local-6989586621679782210"><span id="local-6989586621679782212"><span class="annot"><span class="annottext">Int -&gt; CustomMetricType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782217"><span id="local-6989586621679782219"><span id="local-6989586621679782221"><span class="annot"><span class="annottext">Int -&gt; CustomMetricType -&gt; ShowS
 [CustomMetricType] -&gt; ShowS
 CustomMetricType -&gt; String
 (Int -&gt; CustomMetricType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: CustomMetricType -&gt; String
 showsPrec :: Int -&gt; CustomMetricType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CustomMetricType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679782199"><span id="local-6989586621679782201"><span id="local-6989586621679782203"><span id="local-6989586621679782205"><span class="annot"><span class="annottext">ReadPrec [CustomMetricType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679782208"><span id="local-6989586621679782210"><span id="local-6989586621679782212"><span id="local-6989586621679782214"><span class="annot"><span class="annottext">ReadPrec [CustomMetricType]
 ReadPrec CustomMetricType
 Int -&gt; ReadS CustomMetricType
 ReadS [CustomMetricType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [CustomMetricType]
 readsPrec :: Int -&gt; ReadS CustomMetricType
 $creadsPrec :: Int -&gt; ReadS CustomMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679782194"><span id="local-6989586621679782196"><span class="annot"><span class="annottext">CustomMetricType -&gt; CustomMetricType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679782203"><span id="local-6989586621679782205"><span class="annot"><span class="annottext">CustomMetricType -&gt; CustomMetricType -&gt; Bool
 (CustomMetricType -&gt; CustomMetricType -&gt; Bool)
 -&gt; (CustomMetricType -&gt; CustomMetricType -&gt; Bool)
 -&gt; Eq CustomMetricType
@@ -84,7 +84,7 @@ $c/= :: CustomMetricType -&gt; CustomMetricType -&gt; Bool
 == :: CustomMetricType -&gt; CustomMetricType -&gt; Bool
 $c== :: CustomMetricType -&gt; CustomMetricType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679782178"><span id="local-6989586621679782180"><span id="local-6989586621679782182"><span id="local-6989586621679782184"><span id="local-6989586621679782186"><span id="local-6989586621679782188"><span id="local-6989586621679782190"><span class="annot"><span class="annottext">Eq CustomMetricType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679782187"><span id="local-6989586621679782189"><span id="local-6989586621679782191"><span id="local-6989586621679782193"><span id="local-6989586621679782195"><span id="local-6989586621679782197"><span id="local-6989586621679782199"><span class="annot"><span class="annottext">Eq CustomMetricType
 Eq CustomMetricType
 -&gt; (CustomMetricType -&gt; CustomMetricType -&gt; Ordering)
 -&gt; (CustomMetricType -&gt; CustomMetricType -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. CustomMetricType -&gt; Rep CustomMetricType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782170"><span id="local-6989586621679782172"><span class="annot"><span class="annottext">Int -&gt; CustomMetricType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782179"><span id="local-6989586621679782181"><span class="annot"><span class="annottext">Int -&gt; CustomMetricType -&gt; Int
 CustomMetricType -&gt; Int
 (Int -&gt; CustomMetricType -&gt; Int)
 -&gt; (CustomMetricType -&gt; Int) -&gt; Hashable CustomMetricType
@@ -145,51 +145,51 @@ $chash :: CustomMetricType -&gt; Int
 hashWithSalt :: Int -&gt; CustomMetricType -&gt; Int
 $chashWithSalt :: Int -&gt; CustomMetricType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679782167"><span class="annot"><span class="annottext">CustomMetricType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679782176"><span class="annot"><span class="annottext">CustomMetricType -&gt; ()
 (CustomMetricType -&gt; ()) -&gt; NFData CustomMetricType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CustomMetricType -&gt; ()
 $crnf :: CustomMetricType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679782164"><span class="annot"><span class="annottext">Text -&gt; Either String CustomMetricType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679782173"><span class="annot"><span class="annottext">Text -&gt; Either String CustomMetricType
 (Text -&gt; Either String CustomMetricType)
 -&gt; FromText CustomMetricType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CustomMetricType
 $cfromText :: Text -&gt; Either String CustomMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679782161"><span class="annot"><span class="annottext">CustomMetricType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679782170"><span class="annot"><span class="annottext">CustomMetricType -&gt; Text
 (CustomMetricType -&gt; Text) -&gt; ToText CustomMetricType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CustomMetricType -&gt; Text
 $ctoText :: CustomMetricType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679782158"><span class="annot"><span class="annottext">CustomMetricType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679782167"><span class="annot"><span class="annottext">CustomMetricType -&gt; ByteString
 (CustomMetricType -&gt; ByteString) -&gt; ToByteString CustomMetricType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CustomMetricType -&gt; ByteString
 $ctoBS :: CustomMetricType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679782155"><span class="annot"><span class="annottext">CustomMetricType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679782164"><span class="annot"><span class="annottext">CustomMetricType -&gt; ByteStringBuilder
 (CustomMetricType -&gt; ByteStringBuilder) -&gt; ToLog CustomMetricType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CustomMetricType -&gt; ByteStringBuilder
 $cbuild :: CustomMetricType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679782152"><span class="annot"><span class="annottext">HeaderName -&gt; CustomMetricType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679782161"><span class="annot"><span class="annottext">HeaderName -&gt; CustomMetricType -&gt; [Header]
 (HeaderName -&gt; CustomMetricType -&gt; [Header])
 -&gt; ToHeader CustomMetricType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CustomMetricType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CustomMetricType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679782149"><span class="annot"><span class="annottext">CustomMetricType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679782158"><span class="annot"><span class="annottext">CustomMetricType -&gt; QueryString
 (CustomMetricType -&gt; QueryString) -&gt; ToQuery CustomMetricType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CustomMetricType -&gt; QueryString
 $ctoQuery :: CustomMetricType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679782144"><span id="local-6989586621679782146"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomMetricType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679782153"><span id="local-6989586621679782155"><span class="annot"><span class="annottext">Value -&gt; Parser [CustomMetricType]
 Value -&gt; Parser CustomMetricType
 (Value -&gt; Parser CustomMetricType)
 -&gt; (Value -&gt; Parser [CustomMetricType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [CustomMetricType]
 parseJSON :: Value -&gt; Parser CustomMetricType
 $cparseJSON :: Value -&gt; Parser CustomMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679782139"><span id="local-6989586621679782141"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomMetricType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679782148"><span id="local-6989586621679782150"><span class="annot"><span class="annottext">FromJSONKeyFunction [CustomMetricType]
 FromJSONKeyFunction CustomMetricType
 FromJSONKeyFunction CustomMetricType
 -&gt; FromJSONKeyFunction [CustomMetricType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CustomMetricType]
 fromJSONKey :: FromJSONKeyFunction CustomMetricType
 $cfromJSONKey :: FromJSONKeyFunction CustomMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679782130"><span id="local-6989586621679782132"><span id="local-6989586621679782134"><span id="local-6989586621679782136"><span class="annot"><span class="annottext">[CustomMetricType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679782139"><span id="local-6989586621679782141"><span id="local-6989586621679782143"><span id="local-6989586621679782145"><span class="annot"><span class="annottext">[CustomMetricType] -&gt; Encoding
 [CustomMetricType] -&gt; Value
 CustomMetricType -&gt; Encoding
 CustomMetricType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: CustomMetricType -&gt; Encoding
 toJSON :: CustomMetricType -&gt; Value
 $ctoJSON :: CustomMetricType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679782125"><span id="local-6989586621679782127"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomMetricType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679782134"><span id="local-6989586621679782136"><span class="annot"><span class="annottext">ToJSONKeyFunction [CustomMetricType]
 ToJSONKeyFunction CustomMetricType
 ToJSONKeyFunction CustomMetricType
 -&gt; ToJSONKeyFunction [CustomMetricType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CustomMetricType]
 toJSONKey :: ToJSONKeyFunction CustomMetricType
 $ctoJSONKey :: ToJSONKeyFunction CustomMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679782122"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomMetricType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679782131"><span class="annot"><span class="annottext">[Node] -&gt; Either String CustomMetricType
 ([Node] -&gt; Either String CustomMetricType)
 -&gt; FromXML CustomMetricType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CustomMetricType
 $cparseXML :: [Node] -&gt; Either String CustomMetricType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679782119"><span class="annot"><span class="annottext">CustomMetricType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679782128"><span class="annot"><span class="annottext">CustomMetricType -&gt; XML
 (CustomMetricType -&gt; XML) -&gt; ToXML CustomMetricType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CustomMetricType -&gt; XML

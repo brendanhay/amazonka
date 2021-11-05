@@ -64,12 +64,12 @@
 </span><span id="line-64"></span><span class="hs-comment">-- | The input for the GetRetainedMessage operation.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- /See:/ 'newGetRetainedMessage' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679144646"><span id="local-6989586621679144647"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRetainedMessage"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-var">GetRetainedMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRetainedMessage%27"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-var">GetRetainedMessage'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679144655"><span id="local-6989586621679144656"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRetainedMessage"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-var">GetRetainedMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRetainedMessage%27"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-var">GetRetainedMessage'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The topic name of the retained message to retrieve.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Atopic%3AGetRetainedMessage%27"><span class="annot"><span class="annottext">GetRetainedMessage -&gt; Text
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3Atopic%3AGetRetainedMessage%27"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144640"><span id="local-6989586621679144642"><span class="annot"><span class="annottext">GetRetainedMessage -&gt; GetRetainedMessage -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144649"><span id="local-6989586621679144651"><span class="annot"><span class="annottext">GetRetainedMessage -&gt; GetRetainedMessage -&gt; Bool
 (GetRetainedMessage -&gt; GetRetainedMessage -&gt; Bool)
 -&gt; (GetRetainedMessage -&gt; GetRetainedMessage -&gt; Bool)
 -&gt; Eq GetRetainedMessage
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRetainedMessage -&gt; GetRetainedMessage -&gt; Bool
 == :: GetRetainedMessage -&gt; GetRetainedMessage -&gt; Bool
 $c== :: GetRetainedMessage -&gt; GetRetainedMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144631"><span id="local-6989586621679144633"><span id="local-6989586621679144635"><span id="local-6989586621679144637"><span class="annot"><span class="annottext">ReadPrec [GetRetainedMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144640"><span id="local-6989586621679144642"><span id="local-6989586621679144644"><span id="local-6989586621679144646"><span class="annot"><span class="annottext">ReadPrec [GetRetainedMessage]
 ReadPrec GetRetainedMessage
 Int -&gt; ReadS GetRetainedMessage
 ReadS [GetRetainedMessage]
@@ -98,7 +98,7 @@ readList :: ReadS [GetRetainedMessage]
 $creadList :: ReadS [GetRetainedMessage]
 readsPrec :: Int -&gt; ReadS GetRetainedMessage
 $creadsPrec :: Int -&gt; ReadS GetRetainedMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144624"><span id="local-6989586621679144626"><span id="local-6989586621679144628"><span class="annot"><span class="annottext">Int -&gt; GetRetainedMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144633"><span id="local-6989586621679144635"><span id="local-6989586621679144637"><span class="annot"><span class="annottext">Int -&gt; GetRetainedMessage -&gt; ShowS
 [GetRetainedMessage] -&gt; ShowS
 GetRetainedMessage -&gt; String
 (Int -&gt; GetRetainedMessage -&gt; ShowS)
@@ -138,12 +138,12 @@ $cfrom :: forall x. GetRetainedMessage -&gt; Rep GetRetainedMessage x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span>
 </span><span id="line-86"></span><span id="newGetRetainedMessage"><span class="annot"><span class="annottext">newGetRetainedMessage :: Text -&gt; GetRetainedMessage
-</span><a href="Network.AWS.IoTData.GetRetainedMessage.html#newGetRetainedMessage"><span class="hs-identifier hs-var hs-var">newGetRetainedMessage</span></a></span></span><span> </span><span id="local-6989586621679144619"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144619"><span class="hs-identifier hs-var">pTopic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTData.GetRetainedMessage.html#newGetRetainedMessage"><span class="hs-identifier hs-var hs-var">newGetRetainedMessage</span></a></span></span><span> </span><span id="local-6989586621679144628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144628"><span class="hs-identifier hs-var">pTopic_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">GetRetainedMessage' :: Text -&gt; GetRetainedMessage
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-type">GetRetainedMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:GetRetainedMessage' :: Text
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3Atopic%3AGetRetainedMessage%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144619"><span class="hs-identifier hs-var">pTopic_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679144628"><span class="hs-identifier hs-var">pTopic_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The topic name of the retained message to retrieve.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#getRetainedMessage_topic"><span class="hs-identifier hs-type">getRetainedMessage_topic</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -152,27 +152,27 @@ $cfrom :: forall x. GetRetainedMessage -&gt; Rep GetRetainedMessage x
 -&gt; (GetRetainedMessage -&gt; Text -&gt; GetRetainedMessage)
 -&gt; Lens GetRetainedMessage GetRetainedMessage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-type">GetRetainedMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144616"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-type">GetRetainedMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144625"><span class="annot"><span class="annottext">Text
 topic :: Text
 $sel:topic:GetRetainedMessage' :: GetRetainedMessage -&gt; Text
-</span><a href="#local-6989586621679144616"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144616"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144615"><span class="annot"><span class="annottext">s :: GetRetainedMessage
-</span><a href="#local-6989586621679144615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-type">GetRetainedMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144614"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessage
-</span><a href="#local-6989586621679144615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:GetRetainedMessage' :: Text
+</span><a href="#local-6989586621679144625"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144625"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144624"><span class="annot"><span class="annottext">s :: GetRetainedMessage
+</span><a href="#local-6989586621679144624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-type">GetRetainedMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessage
+</span><a href="#local-6989586621679144624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:GetRetainedMessage' :: Text
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3Atopic%3AGetRetainedMessage%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679144610"><span class="annot"><span class="annottext">request :: GetRetainedMessage -&gt; Request GetRetainedMessage
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679144619"><span class="annot"><span class="annottext">request :: GetRetainedMessage -&gt; Request GetRetainedMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRetainedMessage -&gt; Request GetRetainedMessage
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679144606"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679144615"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRetainedMessage
 -&gt; ClientResponse ClientBody
@@ -198,10 +198,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144603"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144603"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144602"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679144602"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144601"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144612"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144611"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679144611"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679144610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Base64
 -&gt; Maybe Text
@@ -225,7 +225,7 @@ MonadResource m =&gt;
       -&gt; GetRetainedMessageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679144610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,7 +242,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text -&gt; Maybe Natural -&gt; Int -&gt; GetRetainedMessageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
+</span><a href="#local-6989586621679144610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;payload&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,7 +254,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Natural -&gt; Int -&gt; GetRetainedMessageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679144610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;topic&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,7 +263,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetRetainedMessageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679144601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679144610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;qos&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,15 +275,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144603"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144612"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144593"><span id="local-6989586621679144595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144602"><span id="local-6989586621679144604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679144586"><span class="annot"><span class="annottext">toHeaders :: GetRetainedMessage -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679144595"><span class="annot"><span class="annottext">toHeaders :: GetRetainedMessage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRetainedMessage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -291,11 +291,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679144581"><span class="annot"><span class="annottext">toPath :: GetRetainedMessage -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-type">GetRetainedMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144579"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679144590"><span class="annot"><span class="annottext">toPath :: GetRetainedMessage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage%27"><span class="hs-identifier hs-type">GetRetainedMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144588"><span class="annot"><span class="annottext">Text
 topic :: Text
 $sel:topic:GetRetainedMessage' :: GetRetainedMessage -&gt; Text
-</span><a href="#local-6989586621679144579"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679144588"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -303,10 +303,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/retainedMessage/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679144579"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679144588"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessage"><span class="hs-identifier hs-type">GetRetainedMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679144575"><span class="annot"><span class="annottext">toQuery :: GetRetainedMessage -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679144584"><span class="annot"><span class="annottext">toQuery :: GetRetainedMessage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRetainedMessage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -316,7 +316,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-124"></span><span class="hs-comment">-- | The output from the GetRetainedMessage operation.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- /See:/ 'newGetRetainedMessageResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679144572"><span id="local-6989586621679144573"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRetainedMessageResponse"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-var">GetRetainedMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRetainedMessageResponse%27"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-var">GetRetainedMessageResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679144581"><span id="local-6989586621679144582"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRetainedMessageResponse"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-var">GetRetainedMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRetainedMessageResponse%27"><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-var">GetRetainedMessageResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Epoch date and time, in milliseconds, when the retained message was</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- stored by IoT.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AGetRetainedMessageResponse%27"><span class="annot"><span class="annottext">GetRetainedMessageResponse -&gt; Maybe Integer
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRetainedMessageResponse%27"><span class="annot"><span class="annottext">GetRetainedMessageResponse -&gt; Int
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3AhttpStatus%3AGetRetainedMessageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144563"><span id="local-6989586621679144565"><span class="annot"><span class="annottext">GetRetainedMessageResponse -&gt; GetRetainedMessageResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144572"><span id="local-6989586621679144574"><span class="annot"><span class="annottext">GetRetainedMessageResponse -&gt; GetRetainedMessageResponse -&gt; Bool
 (GetRetainedMessageResponse -&gt; GetRetainedMessageResponse -&gt; Bool)
 -&gt; (GetRetainedMessageResponse
     -&gt; GetRetainedMessageResponse -&gt; Bool)
@@ -344,7 +344,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRetainedMessageResponse -&gt; GetRetainedMessageResponse -&gt; Bool
 == :: GetRetainedMessageResponse -&gt; GetRetainedMessageResponse -&gt; Bool
 $c== :: GetRetainedMessageResponse -&gt; GetRetainedMessageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144555"><span id="local-6989586621679144557"><span id="local-6989586621679144559"><span id="local-6989586621679144561"><span class="annot"><span class="annottext">ReadPrec [GetRetainedMessageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144564"><span id="local-6989586621679144566"><span id="local-6989586621679144568"><span id="local-6989586621679144570"><span class="annot"><span class="annottext">ReadPrec [GetRetainedMessageResponse]
 ReadPrec GetRetainedMessageResponse
 Int -&gt; ReadS GetRetainedMessageResponse
 ReadS [GetRetainedMessageResponse]
@@ -364,7 +364,7 @@ readList :: ReadS [GetRetainedMessageResponse]
 $creadList :: ReadS [GetRetainedMessageResponse]
 readsPrec :: Int -&gt; ReadS GetRetainedMessageResponse
 $creadsPrec :: Int -&gt; ReadS GetRetainedMessageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144549"><span id="local-6989586621679144551"><span id="local-6989586621679144553"><span class="annot"><span class="annottext">Int -&gt; GetRetainedMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144558"><span id="local-6989586621679144560"><span id="local-6989586621679144562"><span class="annot"><span class="annottext">Int -&gt; GetRetainedMessageResponse -&gt; ShowS
 [GetRetainedMessageResponse] -&gt; ShowS
 GetRetainedMessageResponse -&gt; String
 (Int -&gt; GetRetainedMessageResponse -&gt; ShowS)
@@ -423,8 +423,8 @@ GetRetainedMessageResponse -&gt; Rep GetRetainedMessageResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newGetRetainedMessageResponse"><span class="annot"><span class="annottext">newGetRetainedMessageResponse :: Int -&gt; GetRetainedMessageResponse
-</span><a href="Network.AWS.IoTData.GetRetainedMessage.html#newGetRetainedMessageResponse"><span class="hs-identifier hs-var hs-var">newGetRetainedMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679144546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTData.GetRetainedMessage.html#newGetRetainedMessageResponse"><span class="hs-identifier hs-var hs-var">newGetRetainedMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679144555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">GetRetainedMessageResponse' :: Maybe Integer
 -&gt; Maybe Base64
 -&gt; Maybe Text
@@ -451,7 +451,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRetainedMessageResponse' :: Int
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3AhttpStatus%3AGetRetainedMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144546"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679144555"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The Epoch date and time, in milliseconds, when the retained message was</span><span>
@@ -468,16 +468,16 @@ forall a. Maybe a
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144545"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144554"><span class="annot"><span class="annottext">Maybe Integer
 lastModifiedTime :: Maybe Integer
 $sel:lastModifiedTime:GetRetainedMessageResponse' :: GetRetainedMessageResponse -&gt; Maybe Integer
-</span><a href="#local-6989586621679144545"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679144545"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144544"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
-</span><a href="#local-6989586621679144544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144543"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679144543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
-</span><a href="#local-6989586621679144544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:GetRetainedMessageResponse' :: Maybe Integer
+</span><a href="#local-6989586621679144554"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679144554"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144553"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
+</span><a href="#local-6989586621679144553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144552"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679144552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
+</span><a href="#local-6989586621679144553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:GetRetainedMessageResponse' :: Maybe Integer
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3AlastModifiedTime%3AGetRetainedMessageResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679144543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The Base64-encoded message payload of the retained message body.--</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
@@ -496,16 +496,16 @@ $sel:lastModifiedTime:GetRetainedMessageResponse' :: GetRetainedMessageResponse 
      (Maybe Base64)
      (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144542"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144551"><span class="annot"><span class="annottext">Maybe Base64
 payload :: Maybe Base64
 $sel:payload:GetRetainedMessageResponse' :: GetRetainedMessageResponse -&gt; Maybe Base64
-</span><a href="#local-6989586621679144542"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679144542"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144541"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
-</span><a href="#local-6989586621679144541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144540"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679144540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
-</span><a href="#local-6989586621679144541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:GetRetainedMessageResponse' :: Maybe Base64
+</span><a href="#local-6989586621679144551"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679144551"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144550"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
+</span><a href="#local-6989586621679144550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144549"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679144549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
+</span><a href="#local-6989586621679144550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:GetRetainedMessageResponse' :: Maybe Base64
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3Apayload%3AGetRetainedMessageResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679144540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679144549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; GetRetainedMessageResponse -&gt; f GetRetainedMessageResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -536,16 +536,16 @@ Iso' Base64 ByteString
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144536"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144545"><span class="annot"><span class="annottext">Maybe Text
 topic :: Maybe Text
 $sel:topic:GetRetainedMessageResponse' :: GetRetainedMessageResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679144536"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144536"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144535"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
-</span><a href="#local-6989586621679144535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144534"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
-</span><a href="#local-6989586621679144535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:GetRetainedMessageResponse' :: Maybe Text
+</span><a href="#local-6989586621679144545"><span class="hs-identifier hs-var hs-var">topic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144545"><span class="hs-identifier hs-var">topic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144544"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
+</span><a href="#local-6989586621679144544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144543"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
+</span><a href="#local-6989586621679144544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topic:GetRetainedMessageResponse' :: Maybe Text
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3Atopic%3AGetRetainedMessageResponse%27"><span class="hs-identifier hs-var">topic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679144534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The quality of service (QoS) level used to publish the retained message.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#getRetainedMessageResponse_qos"><span class="hs-identifier hs-type">getRetainedMessageResponse_qos</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -560,16 +560,16 @@ $sel:topic:GetRetainedMessageResponse' :: GetRetainedMessageResponse -&gt; Maybe
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144533"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144542"><span class="annot"><span class="annottext">Maybe Natural
 qos :: Maybe Natural
 $sel:qos:GetRetainedMessageResponse' :: GetRetainedMessageResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679144533"><span class="hs-identifier hs-var hs-var">qos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679144533"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144532"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
-</span><a href="#local-6989586621679144532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144531"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679144531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
-</span><a href="#local-6989586621679144532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qos:GetRetainedMessageResponse' :: Maybe Natural
+</span><a href="#local-6989586621679144542"><span class="hs-identifier hs-var hs-var">qos</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144542"><span class="hs-identifier hs-var">qos</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144541"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
+</span><a href="#local-6989586621679144541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144540"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679144540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
+</span><a href="#local-6989586621679144541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qos:GetRetainedMessageResponse' :: Maybe Natural
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3Aqos%3AGetRetainedMessageResponse%27"><span class="hs-identifier hs-var">qos</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679144531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#getRetainedMessageResponse_httpStatus"><span class="hs-identifier hs-type">getRetainedMessageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -581,16 +581,16 @@ $sel:qos:GetRetainedMessageResponse' :: GetRetainedMessageResponse -&gt; Maybe N
 -&gt; Lens
      GetRetainedMessageResponse GetRetainedMessageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144530"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144539"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRetainedMessageResponse' :: GetRetainedMessageResponse -&gt; Int
-</span><a href="#local-6989586621679144530"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144530"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144529"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
-</span><a href="#local-6989586621679144529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144528"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
-</span><a href="#local-6989586621679144529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRetainedMessageResponse' :: Int
+</span><a href="#local-6989586621679144539"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144539"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144538"><span class="annot"><span class="annottext">s :: GetRetainedMessageResponse
+</span><a href="#local-6989586621679144538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse%27"><span class="hs-identifier hs-type">GetRetainedMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRetainedMessageResponse
+</span><a href="#local-6989586621679144538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRetainedMessageResponse' :: Int
 </span><a href="Network.AWS.IoTData.GetRetainedMessage.html#%24sel%3AhttpStatus%3AGetRetainedMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679144528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679144537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144535"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTData.GetRetainedMessage.html#GetRetainedMessageResponse"><span class="hs-identifier hs-type">GetRetainedMessageResponse</span></a></span></span><span>
 </span><span id="line-204"></span></pre></body></html>

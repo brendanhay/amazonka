@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681084939"><span id="local-6989586621681084940"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Affinity"><span class="annot"><a href="Network.AWS.EC2.Types.Affinity.html#Affinity"><span class="hs-identifier hs-var">Affinity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Affinity%27"><span class="annot"><a href="Network.AWS.EC2.Types.Affinity.html#Affinity%27"><span class="hs-identifier hs-var">Affinity'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681084948"><span id="local-6989586621681084949"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Affinity"><span class="annot"><a href="Network.AWS.EC2.Types.Affinity.html#Affinity"><span class="hs-identifier hs-var">Affinity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Affinity%27"><span class="annot"><a href="Network.AWS.EC2.Types.Affinity.html#Affinity%27"><span class="hs-identifier hs-var">Affinity'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAffinity"><span class="annot"><span class="annottext">Affinity -&gt; Text
 </span><a href="Network.AWS.EC2.Types.Affinity.html#fromAffinity"><span class="hs-identifier hs-var hs-var">fromAffinity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084931"><span id="local-6989586621681084933"><span id="local-6989586621681084935"><span class="annot"><span class="annottext">Int -&gt; Affinity -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084940"><span id="local-6989586621681084942"><span id="local-6989586621681084944"><span class="annot"><span class="annottext">Int -&gt; Affinity -&gt; ShowS
 [Affinity] -&gt; ShowS
 Affinity -&gt; String
 (Int -&gt; Affinity -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: Affinity -&gt; String
 showsPrec :: Int -&gt; Affinity -&gt; ShowS
 $cshowsPrec :: Int -&gt; Affinity -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681084922"><span id="local-6989586621681084924"><span id="local-6989586621681084926"><span id="local-6989586621681084928"><span class="annot"><span class="annottext">ReadPrec [Affinity]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681084931"><span id="local-6989586621681084933"><span id="local-6989586621681084935"><span id="local-6989586621681084937"><span class="annot"><span class="annottext">ReadPrec [Affinity]
 ReadPrec Affinity
 Int -&gt; ReadS Affinity
 ReadS [Affinity]
@@ -71,7 +71,7 @@ $creadList :: ReadS [Affinity]
 readsPrec :: Int -&gt; ReadS Affinity
 $creadsPrec :: Int -&gt; ReadS Affinity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681084917"><span id="local-6989586621681084919"><span class="annot"><span class="annottext">Affinity -&gt; Affinity -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681084926"><span id="local-6989586621681084928"><span class="annot"><span class="annottext">Affinity -&gt; Affinity -&gt; Bool
 (Affinity -&gt; Affinity -&gt; Bool)
 -&gt; (Affinity -&gt; Affinity -&gt; Bool) -&gt; Eq Affinity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: Affinity -&gt; Affinity -&gt; Bool
 == :: Affinity -&gt; Affinity -&gt; Bool
 $c== :: Affinity -&gt; Affinity -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681084901"><span id="local-6989586621681084903"><span id="local-6989586621681084905"><span id="local-6989586621681084907"><span id="local-6989586621681084909"><span id="local-6989586621681084911"><span id="local-6989586621681084913"><span class="annot"><span class="annottext">Eq Affinity
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681084910"><span id="local-6989586621681084912"><span id="local-6989586621681084914"><span id="local-6989586621681084916"><span id="local-6989586621681084918"><span id="local-6989586621681084920"><span id="local-6989586621681084922"><span class="annot"><span class="annottext">Eq Affinity
 Eq Affinity
 -&gt; (Affinity -&gt; Affinity -&gt; Ordering)
 -&gt; (Affinity -&gt; Affinity -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. Affinity -&gt; Rep Affinity x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084893"><span id="local-6989586621681084895"><span class="annot"><span class="annottext">Int -&gt; Affinity -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084902"><span id="local-6989586621681084904"><span class="annot"><span class="annottext">Int -&gt; Affinity -&gt; Int
 Affinity -&gt; Int
 (Int -&gt; Affinity -&gt; Int) -&gt; (Affinity -&gt; Int) -&gt; Hashable Affinity
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -139,49 +139,49 @@ $chash :: Affinity -&gt; Int
 hashWithSalt :: Int -&gt; Affinity -&gt; Int
 $chashWithSalt :: Int -&gt; Affinity -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681084890"><span class="annot"><span class="annottext">Affinity -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681084899"><span class="annot"><span class="annottext">Affinity -&gt; ()
 (Affinity -&gt; ()) -&gt; NFData Affinity
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Affinity -&gt; ()
 $crnf :: Affinity -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681084887"><span class="annot"><span class="annottext">Text -&gt; Either String Affinity
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681084896"><span class="annot"><span class="annottext">Text -&gt; Either String Affinity
 (Text -&gt; Either String Affinity) -&gt; FromText Affinity
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Affinity
 $cfromText :: Text -&gt; Either String Affinity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681084884"><span class="annot"><span class="annottext">Affinity -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681084893"><span class="annot"><span class="annottext">Affinity -&gt; Text
 (Affinity -&gt; Text) -&gt; ToText Affinity
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Affinity -&gt; Text
 $ctoText :: Affinity -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681084881"><span class="annot"><span class="annottext">Affinity -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681084890"><span class="annot"><span class="annottext">Affinity -&gt; ByteString
 (Affinity -&gt; ByteString) -&gt; ToByteString Affinity
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Affinity -&gt; ByteString
 $ctoBS :: Affinity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681084878"><span class="annot"><span class="annottext">Affinity -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681084887"><span class="annot"><span class="annottext">Affinity -&gt; ByteStringBuilder
 (Affinity -&gt; ByteStringBuilder) -&gt; ToLog Affinity
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Affinity -&gt; ByteStringBuilder
 $cbuild :: Affinity -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681084875"><span class="annot"><span class="annottext">HeaderName -&gt; Affinity -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681084884"><span class="annot"><span class="annottext">HeaderName -&gt; Affinity -&gt; [Header]
 (HeaderName -&gt; Affinity -&gt; [Header]) -&gt; ToHeader Affinity
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Affinity -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Affinity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681084872"><span class="annot"><span class="annottext">Affinity -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681084881"><span class="annot"><span class="annottext">Affinity -&gt; QueryString
 (Affinity -&gt; QueryString) -&gt; ToQuery Affinity
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Affinity -&gt; QueryString
 $ctoQuery :: Affinity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681084867"><span id="local-6989586621681084869"><span class="annot"><span class="annottext">Value -&gt; Parser [Affinity]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681084876"><span id="local-6989586621681084878"><span class="annot"><span class="annottext">Value -&gt; Parser [Affinity]
 Value -&gt; Parser Affinity
 (Value -&gt; Parser Affinity)
 -&gt; (Value -&gt; Parser [Affinity]) -&gt; FromJSON Affinity
@@ -192,7 +192,7 @@ $cparseJSONList :: Value -&gt; Parser [Affinity]
 parseJSON :: Value -&gt; Parser Affinity
 $cparseJSON :: Value -&gt; Parser Affinity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681084862"><span id="local-6989586621681084864"><span class="annot"><span class="annottext">FromJSONKeyFunction [Affinity]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681084871"><span id="local-6989586621681084873"><span class="annot"><span class="annottext">FromJSONKeyFunction [Affinity]
 FromJSONKeyFunction Affinity
 FromJSONKeyFunction Affinity
 -&gt; FromJSONKeyFunction [Affinity] -&gt; FromJSONKey Affinity
@@ -203,7 +203,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Affinity]
 fromJSONKey :: FromJSONKeyFunction Affinity
 $cfromJSONKey :: FromJSONKeyFunction Affinity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681084853"><span id="local-6989586621681084855"><span id="local-6989586621681084857"><span id="local-6989586621681084859"><span class="annot"><span class="annottext">[Affinity] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681084862"><span id="local-6989586621681084864"><span id="local-6989586621681084866"><span id="local-6989586621681084868"><span class="annot"><span class="annottext">[Affinity] -&gt; Encoding
 [Affinity] -&gt; Value
 Affinity -&gt; Encoding
 Affinity -&gt; Value
@@ -227,7 +227,7 @@ $ctoEncoding :: Affinity -&gt; Encoding
 toJSON :: Affinity -&gt; Value
 $ctoJSON :: Affinity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681084848"><span id="local-6989586621681084850"><span class="annot"><span class="annottext">ToJSONKeyFunction [Affinity]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681084857"><span id="local-6989586621681084859"><span class="annot"><span class="annottext">ToJSONKeyFunction [Affinity]
 ToJSONKeyFunction Affinity
 ToJSONKeyFunction Affinity
 -&gt; ToJSONKeyFunction [Affinity] -&gt; ToJSONKey Affinity
@@ -238,13 +238,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Affinity]
 toJSONKey :: ToJSONKeyFunction Affinity
 $ctoJSONKey :: ToJSONKeyFunction Affinity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681084845"><span class="annot"><span class="annottext">[Node] -&gt; Either String Affinity
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681084854"><span class="annot"><span class="annottext">[Node] -&gt; Either String Affinity
 ([Node] -&gt; Either String Affinity) -&gt; FromXML Affinity
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Affinity
 $cparseXML :: [Node] -&gt; Either String Affinity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681084842"><span class="annot"><span class="annottext">Affinity -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681084851"><span class="annot"><span class="annottext">Affinity -&gt; XML
 (Affinity -&gt; XML) -&gt; ToXML Affinity
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Affinity -&gt; XML

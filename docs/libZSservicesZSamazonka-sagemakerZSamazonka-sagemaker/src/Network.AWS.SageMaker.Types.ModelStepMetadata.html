@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Metadata for Model steps.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newModelStepMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680320066"><span id="local-6989586621680320067"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-var">ModelStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata%27"><span class="hs-identifier hs-var">ModelStepMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680320075"><span id="local-6989586621680320076"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-var">ModelStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata%27"><span class="hs-identifier hs-var">ModelStepMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the created model.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3AModelStepMetadata%27"><span class="annot"><span class="annottext">ModelStepMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#%24sel%3Aarn%3AModelStepMetadata%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680320060"><span id="local-6989586621680320062"><span class="annot"><span class="annottext">ModelStepMetadata -&gt; ModelStepMetadata -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680320069"><span id="local-6989586621680320071"><span class="annot"><span class="annottext">ModelStepMetadata -&gt; ModelStepMetadata -&gt; Bool
 (ModelStepMetadata -&gt; ModelStepMetadata -&gt; Bool)
 -&gt; (ModelStepMetadata -&gt; ModelStepMetadata -&gt; Bool)
 -&gt; Eq ModelStepMetadata
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModelStepMetadata -&gt; ModelStepMetadata -&gt; Bool
 == :: ModelStepMetadata -&gt; ModelStepMetadata -&gt; Bool
 $c== :: ModelStepMetadata -&gt; ModelStepMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320051"><span id="local-6989586621680320053"><span id="local-6989586621680320055"><span id="local-6989586621680320057"><span class="annot"><span class="annottext">ReadPrec [ModelStepMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320060"><span id="local-6989586621680320062"><span id="local-6989586621680320064"><span id="local-6989586621680320066"><span class="annot"><span class="annottext">ReadPrec [ModelStepMetadata]
 ReadPrec ModelStepMetadata
 Int -&gt; ReadS ModelStepMetadata
 ReadS [ModelStepMetadata]
@@ -60,7 +60,7 @@ readList :: ReadS [ModelStepMetadata]
 $creadList :: ReadS [ModelStepMetadata]
 readsPrec :: Int -&gt; ReadS ModelStepMetadata
 $creadsPrec :: Int -&gt; ReadS ModelStepMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320044"><span id="local-6989586621680320046"><span id="local-6989586621680320048"><span class="annot"><span class="annottext">Int -&gt; ModelStepMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320053"><span id="local-6989586621680320055"><span id="local-6989586621680320057"><span class="annot"><span class="annottext">Int -&gt; ModelStepMetadata -&gt; ShowS
 [ModelStepMetadata] -&gt; ShowS
 ModelStepMetadata -&gt; String
 (Int -&gt; ModelStepMetadata -&gt; ShowS)
@@ -114,19 +114,19 @@ forall a. Maybe a
 -&gt; Lens
      ModelStepMetadata ModelStepMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata%27"><span class="hs-identifier hs-type">ModelStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320035"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata%27"><span class="hs-identifier hs-type">ModelStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320044"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:ModelStepMetadata' :: ModelStepMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621680320035"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680320035"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320034"><span class="annot"><span class="annottext">s :: ModelStepMetadata
-</span><a href="#local-6989586621680320034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata%27"><span class="hs-identifier hs-type">ModelStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320033"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680320033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelStepMetadata
-</span><a href="#local-6989586621680320034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ModelStepMetadata' :: Maybe Text
+</span><a href="#local-6989586621680320044"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320044"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320043"><span class="annot"><span class="annottext">s :: ModelStepMetadata
+</span><a href="#local-6989586621680320043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata%27"><span class="hs-identifier hs-type">ModelStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680320042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelStepMetadata
+</span><a href="#local-6989586621680320043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ModelStepMetadata' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#%24sel%3Aarn%3AModelStepMetadata%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680320033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680320042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320030"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621680320028"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelStepMetadata
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320039"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621680320037"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelStepMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ModelStepMetadata)
@@ -136,20 +136,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ModelStepMetadata&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680320025"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320025"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680320034"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680320034"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ModelStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata%27"><span class="hs-identifier hs-var">ModelStepMetadata'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ModelStepMetadata)
 -&gt; Parser (Maybe Text) -&gt; Parser ModelStepMetadata
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320025"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680320034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320019"><span id="local-6989586621680320021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320028"><span id="local-6989586621680320030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelStepMetadata.html#ModelStepMetadata"><span class="hs-identifier hs-type">ModelStepMetadata</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

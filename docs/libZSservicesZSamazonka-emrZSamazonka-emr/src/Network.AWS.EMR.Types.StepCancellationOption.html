@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679377008"><span id="local-6989586621679377009"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StepCancellationOption"><span class="annot"><a href="Network.AWS.EMR.Types.StepCancellationOption.html#StepCancellationOption"><span class="hs-identifier hs-var">StepCancellationOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepCancellationOption%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepCancellationOption.html#StepCancellationOption%27"><span class="hs-identifier hs-var">StepCancellationOption'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679377017"><span id="local-6989586621679377018"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StepCancellationOption"><span class="annot"><a href="Network.AWS.EMR.Types.StepCancellationOption.html#StepCancellationOption"><span class="hs-identifier hs-var">StepCancellationOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepCancellationOption%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepCancellationOption.html#StepCancellationOption%27"><span class="hs-identifier hs-var">StepCancellationOption'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStepCancellationOption"><span class="annot"><span class="annottext">StepCancellationOption -&gt; Text
 </span><a href="Network.AWS.EMR.Types.StepCancellationOption.html#fromStepCancellationOption"><span class="hs-identifier hs-var hs-var">fromStepCancellationOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377000"><span id="local-6989586621679377002"><span id="local-6989586621679377004"><span class="annot"><span class="annottext">Int -&gt; StepCancellationOption -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377009"><span id="local-6989586621679377011"><span id="local-6989586621679377013"><span class="annot"><span class="annottext">Int -&gt; StepCancellationOption -&gt; ShowS
 [StepCancellationOption] -&gt; ShowS
 StepCancellationOption -&gt; String
 (Int -&gt; StepCancellationOption -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: StepCancellationOption -&gt; String
 showsPrec :: Int -&gt; StepCancellationOption -&gt; ShowS
 $cshowsPrec :: Int -&gt; StepCancellationOption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679376991"><span id="local-6989586621679376993"><span id="local-6989586621679376995"><span id="local-6989586621679376997"><span class="annot"><span class="annottext">ReadPrec [StepCancellationOption]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377000"><span id="local-6989586621679377002"><span id="local-6989586621679377004"><span id="local-6989586621679377006"><span class="annot"><span class="annottext">ReadPrec [StepCancellationOption]
 ReadPrec StepCancellationOption
 Int -&gt; ReadS StepCancellationOption
 ReadS [StepCancellationOption]
@@ -72,7 +72,7 @@ $creadList :: ReadS [StepCancellationOption]
 readsPrec :: Int -&gt; ReadS StepCancellationOption
 $creadsPrec :: Int -&gt; ReadS StepCancellationOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679376986"><span id="local-6989586621679376988"><span class="annot"><span class="annottext">StepCancellationOption -&gt; StepCancellationOption -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679376995"><span id="local-6989586621679376997"><span class="annot"><span class="annottext">StepCancellationOption -&gt; StepCancellationOption -&gt; Bool
 (StepCancellationOption -&gt; StepCancellationOption -&gt; Bool)
 -&gt; (StepCancellationOption -&gt; StepCancellationOption -&gt; Bool)
 -&gt; Eq StepCancellationOption
@@ -82,7 +82,7 @@ $c/= :: StepCancellationOption -&gt; StepCancellationOption -&gt; Bool
 == :: StepCancellationOption -&gt; StepCancellationOption -&gt; Bool
 $c== :: StepCancellationOption -&gt; StepCancellationOption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679376970"><span id="local-6989586621679376972"><span id="local-6989586621679376974"><span id="local-6989586621679376976"><span id="local-6989586621679376978"><span id="local-6989586621679376980"><span id="local-6989586621679376982"><span class="annot"><span class="annottext">Eq StepCancellationOption
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679376979"><span id="local-6989586621679376981"><span id="local-6989586621679376983"><span id="local-6989586621679376985"><span id="local-6989586621679376987"><span id="local-6989586621679376989"><span id="local-6989586621679376991"><span class="annot"><span class="annottext">Eq StepCancellationOption
 Eq StepCancellationOption
 -&gt; (StepCancellationOption -&gt; StepCancellationOption -&gt; Ordering)
 -&gt; (StepCancellationOption -&gt; StepCancellationOption -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. StepCancellationOption -&gt; Rep StepCancellationOption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376962"><span id="local-6989586621679376964"><span class="annot"><span class="annottext">Int -&gt; StepCancellationOption -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679376971"><span id="local-6989586621679376973"><span class="annot"><span class="annottext">Int -&gt; StepCancellationOption -&gt; Int
 StepCancellationOption -&gt; Int
 (Int -&gt; StepCancellationOption -&gt; Int)
 -&gt; (StepCancellationOption -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: StepCancellationOption -&gt; Int
 hashWithSalt :: Int -&gt; StepCancellationOption -&gt; Int
 $chashWithSalt :: Int -&gt; StepCancellationOption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679376959"><span class="annot"><span class="annottext">StepCancellationOption -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679376968"><span class="annot"><span class="annottext">StepCancellationOption -&gt; ()
 (StepCancellationOption -&gt; ()) -&gt; NFData StepCancellationOption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StepCancellationOption -&gt; ()
 $crnf :: StepCancellationOption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679376956"><span class="annot"><span class="annottext">Text -&gt; Either String StepCancellationOption
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679376965"><span class="annot"><span class="annottext">Text -&gt; Either String StepCancellationOption
 (Text -&gt; Either String StepCancellationOption)
 -&gt; FromText StepCancellationOption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StepCancellationOption
 $cfromText :: Text -&gt; Either String StepCancellationOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679376953"><span class="annot"><span class="annottext">StepCancellationOption -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679376962"><span class="annot"><span class="annottext">StepCancellationOption -&gt; Text
 (StepCancellationOption -&gt; Text) -&gt; ToText StepCancellationOption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StepCancellationOption -&gt; Text
 $ctoText :: StepCancellationOption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679376950"><span class="annot"><span class="annottext">StepCancellationOption -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679376959"><span class="annot"><span class="annottext">StepCancellationOption -&gt; ByteString
 (StepCancellationOption -&gt; ByteString)
 -&gt; ToByteString StepCancellationOption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StepCancellationOption -&gt; ByteString
 $ctoBS :: StepCancellationOption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679376947"><span class="annot"><span class="annottext">StepCancellationOption -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679376956"><span class="annot"><span class="annottext">StepCancellationOption -&gt; ByteStringBuilder
 (StepCancellationOption -&gt; ByteStringBuilder)
 -&gt; ToLog StepCancellationOption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StepCancellationOption -&gt; ByteStringBuilder
 $cbuild :: StepCancellationOption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679376944"><span class="annot"><span class="annottext">HeaderName -&gt; StepCancellationOption -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679376953"><span class="annot"><span class="annottext">HeaderName -&gt; StepCancellationOption -&gt; [Header]
 (HeaderName -&gt; StepCancellationOption -&gt; [Header])
 -&gt; ToHeader StepCancellationOption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StepCancellationOption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StepCancellationOption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679376941"><span class="annot"><span class="annottext">StepCancellationOption -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679376950"><span class="annot"><span class="annottext">StepCancellationOption -&gt; QueryString
 (StepCancellationOption -&gt; QueryString)
 -&gt; ToQuery StepCancellationOption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StepCancellationOption -&gt; QueryString
 $ctoQuery :: StepCancellationOption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679376936"><span id="local-6989586621679376938"><span class="annot"><span class="annottext">Value -&gt; Parser [StepCancellationOption]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679376945"><span id="local-6989586621679376947"><span class="annot"><span class="annottext">Value -&gt; Parser [StepCancellationOption]
 Value -&gt; Parser StepCancellationOption
 (Value -&gt; Parser StepCancellationOption)
 -&gt; (Value -&gt; Parser [StepCancellationOption])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [StepCancellationOption]
 parseJSON :: Value -&gt; Parser StepCancellationOption
 $cparseJSON :: Value -&gt; Parser StepCancellationOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679376931"><span id="local-6989586621679376933"><span class="annot"><span class="annottext">FromJSONKeyFunction [StepCancellationOption]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679376940"><span id="local-6989586621679376942"><span class="annot"><span class="annottext">FromJSONKeyFunction [StepCancellationOption]
 FromJSONKeyFunction StepCancellationOption
 FromJSONKeyFunction StepCancellationOption
 -&gt; FromJSONKeyFunction [StepCancellationOption]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StepCancellationOption]
 fromJSONKey :: FromJSONKeyFunction StepCancellationOption
 $cfromJSONKey :: FromJSONKeyFunction StepCancellationOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679376922"><span id="local-6989586621679376924"><span id="local-6989586621679376926"><span id="local-6989586621679376928"><span class="annot"><span class="annottext">[StepCancellationOption] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679376931"><span id="local-6989586621679376933"><span id="local-6989586621679376935"><span id="local-6989586621679376937"><span class="annot"><span class="annottext">[StepCancellationOption] -&gt; Encoding
 [StepCancellationOption] -&gt; Value
 StepCancellationOption -&gt; Encoding
 StepCancellationOption -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: StepCancellationOption -&gt; Encoding
 toJSON :: StepCancellationOption -&gt; Value
 $ctoJSON :: StepCancellationOption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679376917"><span id="local-6989586621679376919"><span class="annot"><span class="annottext">ToJSONKeyFunction [StepCancellationOption]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679376926"><span id="local-6989586621679376928"><span class="annot"><span class="annottext">ToJSONKeyFunction [StepCancellationOption]
 ToJSONKeyFunction StepCancellationOption
 ToJSONKeyFunction StepCancellationOption
 -&gt; ToJSONKeyFunction [StepCancellationOption]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StepCancellationOption]
 toJSONKey :: ToJSONKeyFunction StepCancellationOption
 $ctoJSONKey :: ToJSONKeyFunction StepCancellationOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679376914"><span class="annot"><span class="annottext">[Node] -&gt; Either String StepCancellationOption
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679376923"><span class="annot"><span class="annottext">[Node] -&gt; Either String StepCancellationOption
 ([Node] -&gt; Either String StepCancellationOption)
 -&gt; FromXML StepCancellationOption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StepCancellationOption
 $cparseXML :: [Node] -&gt; Either String StepCancellationOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679376911"><span class="annot"><span class="annottext">StepCancellationOption -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679376920"><span class="annot"><span class="annottext">StepCancellationOption -&gt; XML
 (StepCancellationOption -&gt; XML) -&gt; ToXML StepCancellationOption
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StepCancellationOption -&gt; XML

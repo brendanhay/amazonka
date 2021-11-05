@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- used to access the AWS Lambda expression.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInputLambdaProcessorDescription' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679205479"><span id="local-6989586621679205480"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputLambdaProcessorDescription"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-var">InputLambdaProcessorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputLambdaProcessorDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-var">InputLambdaProcessorDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679205488"><span id="local-6989586621679205489"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputLambdaProcessorDescription"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-var">InputLambdaProcessorDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputLambdaProcessorDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-var">InputLambdaProcessorDescription'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the &lt;https://docs.aws.amazon.com/lambda/ AWS Lambda&gt; function</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- that is used to preprocess the records in the stream.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AresourceARN%3AInputLambdaProcessorDescription%27"><span class="annot"><span class="annottext">InputLambdaProcessorDescription -&gt; Maybe Text
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AroleARN%3AInputLambdaProcessorDescription%27"><span class="annot"><span class="annottext">InputLambdaProcessorDescription -&gt; Maybe Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#%24sel%3AroleARN%3AInputLambdaProcessorDescription%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205472"><span id="local-6989586621679205474"><span class="annot"><span class="annottext">InputLambdaProcessorDescription
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679205481"><span id="local-6989586621679205483"><span class="annot"><span class="annottext">InputLambdaProcessorDescription
 -&gt; InputLambdaProcessorDescription -&gt; Bool
 (InputLambdaProcessorDescription
  -&gt; InputLambdaProcessorDescription -&gt; Bool)
@@ -54,7 +54,7 @@ $c/= :: InputLambdaProcessorDescription
 -&gt; InputLambdaProcessorDescription -&gt; Bool
 $c== :: InputLambdaProcessorDescription
 -&gt; InputLambdaProcessorDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205463"><span id="local-6989586621679205465"><span id="local-6989586621679205467"><span id="local-6989586621679205469"><span class="annot"><span class="annottext">ReadPrec [InputLambdaProcessorDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205472"><span id="local-6989586621679205474"><span id="local-6989586621679205476"><span id="local-6989586621679205478"><span class="annot"><span class="annottext">ReadPrec [InputLambdaProcessorDescription]
 ReadPrec InputLambdaProcessorDescription
 Int -&gt; ReadS InputLambdaProcessorDescription
 ReadS [InputLambdaProcessorDescription]
@@ -74,7 +74,7 @@ readList :: ReadS [InputLambdaProcessorDescription]
 $creadList :: ReadS [InputLambdaProcessorDescription]
 readsPrec :: Int -&gt; ReadS InputLambdaProcessorDescription
 $creadsPrec :: Int -&gt; ReadS InputLambdaProcessorDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205456"><span id="local-6989586621679205458"><span id="local-6989586621679205460"><span class="annot"><span class="annottext">Int -&gt; InputLambdaProcessorDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679205465"><span id="local-6989586621679205467"><span id="local-6989586621679205469"><span class="annot"><span class="annottext">Int -&gt; InputLambdaProcessorDescription -&gt; ShowS
 [InputLambdaProcessorDescription] -&gt; ShowS
 InputLambdaProcessorDescription -&gt; String
 (Int -&gt; InputLambdaProcessorDescription -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205447"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205456"><span class="annot"><span class="annottext">Maybe Text
 resourceARN :: Maybe Text
 $sel:resourceARN:InputLambdaProcessorDescription' :: InputLambdaProcessorDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679205447"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205447"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205446"><span class="annot"><span class="annottext">s :: InputLambdaProcessorDescription
-</span><a href="#local-6989586621679205446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205445"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLambdaProcessorDescription
-</span><a href="#local-6989586621679205446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:InputLambdaProcessorDescription' :: Maybe Text
+</span><a href="#local-6989586621679205456"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205456"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205455"><span class="annot"><span class="annottext">s :: InputLambdaProcessorDescription
+</span><a href="#local-6989586621679205455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLambdaProcessorDescription
+</span><a href="#local-6989586621679205455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:InputLambdaProcessorDescription' :: Maybe Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#%24sel%3AresourceARN%3AInputLambdaProcessorDescription%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The ARN of the IAM role that is used to access the AWS Lambda function.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#inputLambdaProcessorDescription_roleARN"><span class="hs-identifier hs-type">inputLambdaProcessorDescription_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -181,22 +181,22 @@ $sel:resourceARN:InputLambdaProcessorDescription' :: InputLambdaProcessorDescrip
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205443"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679205452"><span class="annot"><span class="annottext">Maybe Text
 roleARN :: Maybe Text
 $sel:roleARN:InputLambdaProcessorDescription' :: InputLambdaProcessorDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679205443"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205443"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205442"><span class="annot"><span class="annottext">s :: InputLambdaProcessorDescription
-</span><a href="#local-6989586621679205442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205441"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLambdaProcessorDescription
-</span><a href="#local-6989586621679205442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:InputLambdaProcessorDescription' :: Maybe Text
+</span><a href="#local-6989586621679205452"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205452"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679205451"><span class="annot"><span class="annottext">s :: InputLambdaProcessorDescription
+</span><a href="#local-6989586621679205451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-type">InputLambdaProcessorDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679205450"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679205450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputLambdaProcessorDescription
+</span><a href="#local-6989586621679205451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:InputLambdaProcessorDescription' :: Maybe Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#%24sel%3AroleARN%3AInputLambdaProcessorDescription%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679205441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679205450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679205438"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679205447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679205436"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputLambdaProcessorDescription
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679205445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputLambdaProcessorDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputLambdaProcessorDescription)
@@ -206,8 +206,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputLambdaProcessorDescription&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205433"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205433"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679205442"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679205442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; InputLambdaProcessorDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription%27"><span class="hs-identifier hs-var">InputLambdaProcessorDescription'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; InputLambdaProcessorDescription)
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; InputLambdaProcessorDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679205442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -223,17 +223,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser InputLambdaProcessorDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679205433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679205442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679205427"><span id="local-6989586621679205429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679205436"><span id="local-6989586621679205438"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679205424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679205433"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription.html#InputLambdaProcessorDescription"><span class="hs-identifier hs-type">InputLambdaProcessorDescription</span></a></span></span><span>
 </span><span id="line-91"></span></pre></body></html>

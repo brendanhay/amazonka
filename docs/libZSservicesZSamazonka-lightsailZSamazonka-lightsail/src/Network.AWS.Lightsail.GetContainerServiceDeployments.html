@@ -58,12 +58,12 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newGetContainerServiceDeployments' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679645859"><span id="local-6989586621679645860"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServiceDeployments"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-var">GetContainerServiceDeployments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServiceDeployments%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-var">GetContainerServiceDeployments'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679645868"><span id="local-6989586621679645869"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServiceDeployments"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-var">GetContainerServiceDeployments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServiceDeployments%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-var">GetContainerServiceDeployments'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container service for which to return deployments.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AserviceName%3AGetContainerServiceDeployments%27"><span class="annot"><span class="annottext">GetContainerServiceDeployments -&gt; Text
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#%24sel%3AserviceName%3AGetContainerServiceDeployments%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645853"><span id="local-6989586621679645855"><span class="annot"><span class="annottext">GetContainerServiceDeployments
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645862"><span id="local-6989586621679645864"><span class="annot"><span class="annottext">GetContainerServiceDeployments
 -&gt; GetContainerServiceDeployments -&gt; Bool
 (GetContainerServiceDeployments
  -&gt; GetContainerServiceDeployments -&gt; Bool)
@@ -79,7 +79,7 @@ $c/= :: GetContainerServiceDeployments
 -&gt; GetContainerServiceDeployments -&gt; Bool
 $c== :: GetContainerServiceDeployments
 -&gt; GetContainerServiceDeployments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645844"><span id="local-6989586621679645846"><span id="local-6989586621679645848"><span id="local-6989586621679645850"><span class="annot"><span class="annottext">ReadPrec [GetContainerServiceDeployments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645853"><span id="local-6989586621679645855"><span id="local-6989586621679645857"><span id="local-6989586621679645859"><span class="annot"><span class="annottext">ReadPrec [GetContainerServiceDeployments]
 ReadPrec GetContainerServiceDeployments
 Int -&gt; ReadS GetContainerServiceDeployments
 ReadS [GetContainerServiceDeployments]
@@ -99,7 +99,7 @@ readList :: ReadS [GetContainerServiceDeployments]
 $creadList :: ReadS [GetContainerServiceDeployments]
 readsPrec :: Int -&gt; ReadS GetContainerServiceDeployments
 $creadsPrec :: Int -&gt; ReadS GetContainerServiceDeployments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645837"><span id="local-6989586621679645839"><span id="local-6989586621679645841"><span class="annot"><span class="annottext">Int -&gt; GetContainerServiceDeployments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645846"><span id="local-6989586621679645848"><span id="local-6989586621679645850"><span class="annot"><span class="annottext">Int -&gt; GetContainerServiceDeployments -&gt; ShowS
 [GetContainerServiceDeployments] -&gt; ShowS
 GetContainerServiceDeployments -&gt; String
 (Int -&gt; GetContainerServiceDeployments -&gt; ShowS)
@@ -151,14 +151,14 @@ GetContainerServiceDeployments
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span><span>
 </span><span id="line-80"></span><span id="newGetContainerServiceDeployments"><span class="annot"><span class="annottext">newGetContainerServiceDeployments :: Text -&gt; GetContainerServiceDeployments
-</span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#newGetContainerServiceDeployments"><span class="hs-identifier hs-var hs-var">newGetContainerServiceDeployments</span></a></span></span><span> </span><span id="local-6989586621679645832"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679645832"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#newGetContainerServiceDeployments"><span class="hs-identifier hs-var hs-var">newGetContainerServiceDeployments</span></a></span></span><span> </span><span id="local-6989586621679645841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645841"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetContainerServiceDeployments' :: Text -&gt; GetContainerServiceDeployments
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-type">GetContainerServiceDeployments'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceName:GetContainerServiceDeployments' :: Text
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#%24sel%3AserviceName%3AGetContainerServiceDeployments%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679645832"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span>
+</span><a href="#local-6989586621679645841"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the container service for which to return deployments.</span><span>
@@ -175,16 +175,16 @@ GetContainerServiceDeployments
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-type">GetContainerServiceDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645829"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-type">GetContainerServiceDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645838"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:GetContainerServiceDeployments' :: GetContainerServiceDeployments -&gt; Text
-</span><a href="#local-6989586621679645829"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679645829"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645828"><span class="annot"><span class="annottext">s :: GetContainerServiceDeployments
-</span><a href="#local-6989586621679645828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-type">GetContainerServiceDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645827"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679645827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServiceDeployments
-</span><a href="#local-6989586621679645828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:GetContainerServiceDeployments' :: Text
+</span><a href="#local-6989586621679645838"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645838"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645837"><span class="annot"><span class="annottext">s :: GetContainerServiceDeployments
+</span><a href="#local-6989586621679645837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-type">GetContainerServiceDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServiceDeployments
+</span><a href="#local-6989586621679645837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:GetContainerServiceDeployments' :: Text
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#%24sel%3AserviceName%3AGetContainerServiceDeployments%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679645827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679645836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -193,7 +193,7 @@ $sel:serviceName:GetContainerServiceDeployments' :: GetContainerServiceDeploymen
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679645823"><span class="annot"><span class="annottext">request :: GetContainerServiceDeployments
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679645832"><span class="annot"><span class="annottext">request :: GetContainerServiceDeployments
 -&gt; Request GetContainerServiceDeployments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetContainerServiceDeployments
@@ -201,7 +201,7 @@ $sel:serviceName:GetContainerServiceDeployments' :: GetContainerServiceDeploymen
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679645819"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679645828"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetContainerServiceDeployments
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679645816"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645816"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679645815"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679645815"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679645814"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679645814"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679645825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645825"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679645824"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679645824"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679645823"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679645823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
 -&gt; Int -&gt; GetContainerServiceDeploymentsResponse
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-var">GetContainerServiceDeploymentsResponse'</span></a></span><span>
@@ -242,7 +242,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetContainerServiceDeploymentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679645814"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679645823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [ContainerServiceDeployment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -263,22 +263,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645816"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679645825"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679645805"><span id="local-6989586621679645807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679645814"><span id="local-6989586621679645816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679645802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679645811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679645798"><span class="annot"><span class="annottext">toHeaders :: GetContainerServiceDeployments -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679645807"><span class="annot"><span class="annottext">toHeaders :: GetContainerServiceDeployments -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetContainerServiceDeployments -&gt; ResponseHeaders
@@ -306,12 +306,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645788"><span id="local-6989586621679645790"><span id="local-6989586621679645792"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679645786"><span class="annot"><span class="annottext">toJSON :: GetContainerServiceDeployments -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-type">GetContainerServiceDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645784"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645797"><span id="local-6989586621679645799"><span id="local-6989586621679645801"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679645795"><span class="annot"><span class="annottext">toJSON :: GetContainerServiceDeployments -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments%27"><span class="hs-identifier hs-type">GetContainerServiceDeployments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645793"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:GetContainerServiceDeployments' :: GetContainerServiceDeployments -&gt; Text
-</span><a href="#local-6989586621679645784"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679645793"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -323,18 +323,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679645784"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679645793"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679645778"><span class="annot"><span class="annottext">toPath :: GetContainerServiceDeployments -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679645787"><span class="annot"><span class="annottext">toPath :: GetContainerServiceDeployments -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContainerServiceDeployments -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeployments"><span class="hs-identifier hs-type">GetContainerServiceDeployments</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679645774"><span class="annot"><span class="annottext">toQuery :: GetContainerServiceDeployments -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679645783"><span class="annot"><span class="annottext">toQuery :: GetContainerServiceDeployments -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContainerServiceDeployments -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,7 +342,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newGetContainerServiceDeploymentsResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679645771"><span id="local-6989586621679645772"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServiceDeploymentsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-var">GetContainerServiceDeploymentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServiceDeploymentsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-var">GetContainerServiceDeploymentsResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679645780"><span id="local-6989586621679645781"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerServiceDeploymentsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-var">GetContainerServiceDeploymentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerServiceDeploymentsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-var">GetContainerServiceDeploymentsResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe deployments for a container service.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3Adeployments%3AGetContainerServiceDeploymentsResponse%27"><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse
 -&gt; Maybe [ContainerServiceDeployment]
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContainerServiceDeploymentsResponse%27"><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#%24sel%3AhttpStatus%3AGetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645765"><span id="local-6989586621679645767"><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645774"><span id="local-6989586621679645776"><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse
 -&gt; GetContainerServiceDeploymentsResponse -&gt; Bool
 (GetContainerServiceDeploymentsResponse
  -&gt; GetContainerServiceDeploymentsResponse -&gt; Bool)
@@ -367,7 +367,7 @@ $c/= :: GetContainerServiceDeploymentsResponse
 -&gt; GetContainerServiceDeploymentsResponse -&gt; Bool
 $c== :: GetContainerServiceDeploymentsResponse
 -&gt; GetContainerServiceDeploymentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645757"><span id="local-6989586621679645759"><span id="local-6989586621679645761"><span id="local-6989586621679645763"><span class="annot"><span class="annottext">ReadPrec [GetContainerServiceDeploymentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645766"><span id="local-6989586621679645768"><span id="local-6989586621679645770"><span id="local-6989586621679645772"><span class="annot"><span class="annottext">ReadPrec [GetContainerServiceDeploymentsResponse]
 ReadPrec GetContainerServiceDeploymentsResponse
 Int -&gt; ReadS GetContainerServiceDeploymentsResponse
 ReadS [GetContainerServiceDeploymentsResponse]
@@ -387,7 +387,7 @@ readList :: ReadS [GetContainerServiceDeploymentsResponse]
 $creadList :: ReadS [GetContainerServiceDeploymentsResponse]
 readsPrec :: Int -&gt; ReadS GetContainerServiceDeploymentsResponse
 $creadsPrec :: Int -&gt; ReadS GetContainerServiceDeploymentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645751"><span id="local-6989586621679645753"><span id="local-6989586621679645755"><span class="annot"><span class="annottext">Int -&gt; GetContainerServiceDeploymentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645760"><span id="local-6989586621679645762"><span id="local-6989586621679645764"><span class="annot"><span class="annottext">Int -&gt; GetContainerServiceDeploymentsResponse -&gt; ShowS
 [GetContainerServiceDeploymentsResponse] -&gt; ShowS
 GetContainerServiceDeploymentsResponse -&gt; String
 (Int -&gt; GetContainerServiceDeploymentsResponse -&gt; ShowS)
@@ -442,8 +442,8 @@ GetContainerServiceDeploymentsResponse
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newGetContainerServiceDeploymentsResponse"><span class="annot"><span class="annottext">newGetContainerServiceDeploymentsResponse :: Int -&gt; GetContainerServiceDeploymentsResponse
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#newGetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-var hs-var">newGetContainerServiceDeploymentsResponse</span></a></span></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679645748"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679645757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse' :: Maybe [ContainerServiceDeployment]
 -&gt; Int -&gt; GetContainerServiceDeploymentsResponse
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span>
@@ -454,7 +454,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerServiceDeploymentsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#%24sel%3AhttpStatus%3AGetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645748"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679645757"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | An array of objects that describe deployments for a container service.</span><span>
@@ -474,17 +474,17 @@ forall a. Maybe a
      (Maybe [ContainerServiceDeployment])
      (Maybe [ContainerServiceDeployment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645747"><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645756"><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
 deployments :: Maybe [ContainerServiceDeployment]
 $sel:deployments:GetContainerServiceDeploymentsResponse' :: GetContainerServiceDeploymentsResponse
 -&gt; Maybe [ContainerServiceDeployment]
-</span><a href="#local-6989586621679645747"><span class="hs-identifier hs-var hs-var">deployments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
-</span><a href="#local-6989586621679645747"><span class="hs-identifier hs-var">deployments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645746"><span class="annot"><span class="annottext">s :: GetContainerServiceDeploymentsResponse
-</span><a href="#local-6989586621679645746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645745"><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
-</span><a href="#local-6989586621679645745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse
-</span><a href="#local-6989586621679645746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployments:GetContainerServiceDeploymentsResponse' :: Maybe [ContainerServiceDeployment]
+</span><a href="#local-6989586621679645756"><span class="hs-identifier hs-var hs-var">deployments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
+</span><a href="#local-6989586621679645756"><span class="hs-identifier hs-var">deployments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645755"><span class="annot"><span class="annottext">s :: GetContainerServiceDeploymentsResponse
+</span><a href="#local-6989586621679645755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645754"><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
+</span><a href="#local-6989586621679645754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse
+</span><a href="#local-6989586621679645755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployments:GetContainerServiceDeploymentsResponse' :: Maybe [ContainerServiceDeployment]
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#%24sel%3Adeployments%3AGetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-var">deployments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContainerServiceDeployment]
-</span><a href="#local-6989586621679645745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerServiceDeployment]
+</span><a href="#local-6989586621679645754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContainerServiceDeployment]
   -&gt; f (Maybe [ContainerServiceDeployment]))
  -&gt; GetContainerServiceDeploymentsResponse
  -&gt; f GetContainerServiceDeploymentsResponse)
@@ -532,18 +532,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645741"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645750"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetContainerServiceDeploymentsResponse' :: GetContainerServiceDeploymentsResponse -&gt; Int
-</span><a href="#local-6989586621679645741"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645741"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645740"><span class="annot"><span class="annottext">s :: GetContainerServiceDeploymentsResponse
-</span><a href="#local-6989586621679645740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645739"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse
-</span><a href="#local-6989586621679645740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerServiceDeploymentsResponse' :: Int
+</span><a href="#local-6989586621679645750"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645750"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645749"><span class="annot"><span class="annottext">s :: GetContainerServiceDeploymentsResponse
+</span><a href="#local-6989586621679645749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645748"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerServiceDeploymentsResponse
+</span><a href="#local-6989586621679645749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerServiceDeploymentsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#%24sel%3AhttpStatus%3AGetContainerServiceDeploymentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679645748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679645737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679645746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerServiceDeployments.html#GetContainerServiceDeploymentsResponse"><span class="hs-identifier hs-type">GetContainerServiceDeploymentsResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

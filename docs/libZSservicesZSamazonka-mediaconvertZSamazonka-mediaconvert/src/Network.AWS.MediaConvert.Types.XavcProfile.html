@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- MediaConvert doesn\'t support the interlaced video XAVC operating points</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- for XAVC_HD_INTRA_CBG. To create an interlaced XAVC output, choose the</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- profile XAVC_HD.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621680022457"><span id="local-6989586621680022458"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcProfile.html#XavcProfile"><span class="hs-identifier hs-var">XavcProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcProfile.html#XavcProfile%27"><span class="hs-identifier hs-var">XavcProfile'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680022466"><span id="local-6989586621680022467"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcProfile"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcProfile.html#XavcProfile"><span class="hs-identifier hs-var">XavcProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcProfile%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.XavcProfile.html#XavcProfile%27"><span class="hs-identifier hs-var">XavcProfile'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcProfile"><span class="annot"><span class="annottext">XavcProfile -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.XavcProfile.html#fromXavcProfile"><span class="hs-identifier hs-var hs-var">fromXavcProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022449"><span id="local-6989586621680022451"><span id="local-6989586621680022453"><span class="annot"><span class="annottext">Int -&gt; XavcProfile -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022458"><span id="local-6989586621680022460"><span id="local-6989586621680022462"><span class="annot"><span class="annottext">Int -&gt; XavcProfile -&gt; ShowS
 [XavcProfile] -&gt; ShowS
 XavcProfile -&gt; String
 (Int -&gt; XavcProfile -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: XavcProfile -&gt; String
 showsPrec :: Int -&gt; XavcProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; XavcProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680022440"><span id="local-6989586621680022442"><span id="local-6989586621680022444"><span id="local-6989586621680022446"><span class="annot"><span class="annottext">ReadPrec [XavcProfile]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680022449"><span id="local-6989586621680022451"><span id="local-6989586621680022453"><span id="local-6989586621680022455"><span class="annot"><span class="annottext">ReadPrec [XavcProfile]
 ReadPrec XavcProfile
 Int -&gt; ReadS XavcProfile
 ReadS [XavcProfile]
@@ -80,7 +80,7 @@ $creadList :: ReadS [XavcProfile]
 readsPrec :: Int -&gt; ReadS XavcProfile
 $creadsPrec :: Int -&gt; ReadS XavcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680022435"><span id="local-6989586621680022437"><span class="annot"><span class="annottext">XavcProfile -&gt; XavcProfile -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680022444"><span id="local-6989586621680022446"><span class="annot"><span class="annottext">XavcProfile -&gt; XavcProfile -&gt; Bool
 (XavcProfile -&gt; XavcProfile -&gt; Bool)
 -&gt; (XavcProfile -&gt; XavcProfile -&gt; Bool) -&gt; Eq XavcProfile
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: XavcProfile -&gt; XavcProfile -&gt; Bool
 == :: XavcProfile -&gt; XavcProfile -&gt; Bool
 $c== :: XavcProfile -&gt; XavcProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680022419"><span id="local-6989586621680022421"><span id="local-6989586621680022423"><span id="local-6989586621680022425"><span id="local-6989586621680022427"><span id="local-6989586621680022429"><span id="local-6989586621680022431"><span class="annot"><span class="annottext">Eq XavcProfile
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680022428"><span id="local-6989586621680022430"><span id="local-6989586621680022432"><span id="local-6989586621680022434"><span id="local-6989586621680022436"><span id="local-6989586621680022438"><span id="local-6989586621680022440"><span class="annot"><span class="annottext">Eq XavcProfile
 Eq XavcProfile
 -&gt; (XavcProfile -&gt; XavcProfile -&gt; Ordering)
 -&gt; (XavcProfile -&gt; XavcProfile -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. XavcProfile -&gt; Rep XavcProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022411"><span id="local-6989586621680022413"><span class="annot"><span class="annottext">Int -&gt; XavcProfile -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680022420"><span id="local-6989586621680022422"><span class="annot"><span class="annottext">Int -&gt; XavcProfile -&gt; Int
 XavcProfile -&gt; Int
 (Int -&gt; XavcProfile -&gt; Int)
 -&gt; (XavcProfile -&gt; Int) -&gt; Hashable XavcProfile
@@ -150,49 +150,49 @@ $chash :: XavcProfile -&gt; Int
 hashWithSalt :: Int -&gt; XavcProfile -&gt; Int
 $chashWithSalt :: Int -&gt; XavcProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680022408"><span class="annot"><span class="annottext">XavcProfile -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680022417"><span class="annot"><span class="annottext">XavcProfile -&gt; ()
 (XavcProfile -&gt; ()) -&gt; NFData XavcProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: XavcProfile -&gt; ()
 $crnf :: XavcProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680022405"><span class="annot"><span class="annottext">Text -&gt; Either String XavcProfile
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680022414"><span class="annot"><span class="annottext">Text -&gt; Either String XavcProfile
 (Text -&gt; Either String XavcProfile) -&gt; FromText XavcProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String XavcProfile
 $cfromText :: Text -&gt; Either String XavcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680022402"><span class="annot"><span class="annottext">XavcProfile -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680022411"><span class="annot"><span class="annottext">XavcProfile -&gt; Text
 (XavcProfile -&gt; Text) -&gt; ToText XavcProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: XavcProfile -&gt; Text
 $ctoText :: XavcProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680022399"><span class="annot"><span class="annottext">XavcProfile -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680022408"><span class="annot"><span class="annottext">XavcProfile -&gt; ByteString
 (XavcProfile -&gt; ByteString) -&gt; ToByteString XavcProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: XavcProfile -&gt; ByteString
 $ctoBS :: XavcProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680022396"><span class="annot"><span class="annottext">XavcProfile -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680022405"><span class="annot"><span class="annottext">XavcProfile -&gt; ByteStringBuilder
 (XavcProfile -&gt; ByteStringBuilder) -&gt; ToLog XavcProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: XavcProfile -&gt; ByteStringBuilder
 $cbuild :: XavcProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680022393"><span class="annot"><span class="annottext">HeaderName -&gt; XavcProfile -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680022402"><span class="annot"><span class="annottext">HeaderName -&gt; XavcProfile -&gt; [Header]
 (HeaderName -&gt; XavcProfile -&gt; [Header]) -&gt; ToHeader XavcProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; XavcProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; XavcProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680022390"><span class="annot"><span class="annottext">XavcProfile -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680022399"><span class="annot"><span class="annottext">XavcProfile -&gt; QueryString
 (XavcProfile -&gt; QueryString) -&gt; ToQuery XavcProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: XavcProfile -&gt; QueryString
 $ctoQuery :: XavcProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680022385"><span id="local-6989586621680022387"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcProfile]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680022394"><span id="local-6989586621680022396"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcProfile]
 Value -&gt; Parser XavcProfile
 (Value -&gt; Parser XavcProfile)
 -&gt; (Value -&gt; Parser [XavcProfile]) -&gt; FromJSON XavcProfile
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [XavcProfile]
 parseJSON :: Value -&gt; Parser XavcProfile
 $cparseJSON :: Value -&gt; Parser XavcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680022380"><span id="local-6989586621680022382"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcProfile]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680022389"><span id="local-6989586621680022391"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcProfile]
 FromJSONKeyFunction XavcProfile
 FromJSONKeyFunction XavcProfile
 -&gt; FromJSONKeyFunction [XavcProfile] -&gt; FromJSONKey XavcProfile
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [XavcProfile]
 fromJSONKey :: FromJSONKeyFunction XavcProfile
 $cfromJSONKey :: FromJSONKeyFunction XavcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680022371"><span id="local-6989586621680022373"><span id="local-6989586621680022375"><span id="local-6989586621680022377"><span class="annot"><span class="annottext">[XavcProfile] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680022380"><span id="local-6989586621680022382"><span id="local-6989586621680022384"><span id="local-6989586621680022386"><span class="annot"><span class="annottext">[XavcProfile] -&gt; Encoding
 [XavcProfile] -&gt; Value
 XavcProfile -&gt; Encoding
 XavcProfile -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: XavcProfile -&gt; Encoding
 toJSON :: XavcProfile -&gt; Value
 $ctoJSON :: XavcProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680022366"><span id="local-6989586621680022368"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcProfile]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680022375"><span id="local-6989586621680022377"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcProfile]
 ToJSONKeyFunction XavcProfile
 ToJSONKeyFunction XavcProfile
 -&gt; ToJSONKeyFunction [XavcProfile] -&gt; ToJSONKey XavcProfile
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [XavcProfile]
 toJSONKey :: ToJSONKeyFunction XavcProfile
 $ctoJSONKey :: ToJSONKeyFunction XavcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680022363"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcProfile
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680022372"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcProfile
 ([Node] -&gt; Either String XavcProfile) -&gt; FromXML XavcProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String XavcProfile
 $cparseXML :: [Node] -&gt; Either String XavcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680022360"><span class="annot"><span class="annottext">XavcProfile -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680022369"><span class="annot"><span class="annottext">XavcProfile -&gt; XML
 (XavcProfile -&gt; XML) -&gt; ToXML XavcProfile
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: XavcProfile -&gt; XML

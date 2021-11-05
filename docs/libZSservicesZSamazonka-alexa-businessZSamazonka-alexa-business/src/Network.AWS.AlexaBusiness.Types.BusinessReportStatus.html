@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679364080"><span id="local-6989586621679364081"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BusinessReportStatus"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportStatus.html#BusinessReportStatus"><span class="hs-identifier hs-var">BusinessReportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportStatus%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportStatus.html#BusinessReportStatus%27"><span class="hs-identifier hs-var">BusinessReportStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679364089"><span id="local-6989586621679364090"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BusinessReportStatus"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportStatus.html#BusinessReportStatus"><span class="hs-identifier hs-var">BusinessReportStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReportStatus%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.BusinessReportStatus.html#BusinessReportStatus%27"><span class="hs-identifier hs-var">BusinessReportStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBusinessReportStatus"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.BusinessReportStatus.html#fromBusinessReportStatus"><span class="hs-identifier hs-var hs-var">fromBusinessReportStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364072"><span id="local-6989586621679364074"><span id="local-6989586621679364076"><span class="annot"><span class="annottext">Int -&gt; BusinessReportStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364081"><span id="local-6989586621679364083"><span id="local-6989586621679364085"><span class="annot"><span class="annottext">Int -&gt; BusinessReportStatus -&gt; ShowS
 [BusinessReportStatus] -&gt; ShowS
 BusinessReportStatus -&gt; String
 (Int -&gt; BusinessReportStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BusinessReportStatus -&gt; String
 showsPrec :: Int -&gt; BusinessReportStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; BusinessReportStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364063"><span id="local-6989586621679364065"><span id="local-6989586621679364067"><span id="local-6989586621679364069"><span class="annot"><span class="annottext">ReadPrec [BusinessReportStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364072"><span id="local-6989586621679364074"><span id="local-6989586621679364076"><span id="local-6989586621679364078"><span class="annot"><span class="annottext">ReadPrec [BusinessReportStatus]
 ReadPrec BusinessReportStatus
 Int -&gt; ReadS BusinessReportStatus
 ReadS [BusinessReportStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BusinessReportStatus]
 readsPrec :: Int -&gt; ReadS BusinessReportStatus
 $creadsPrec :: Int -&gt; ReadS BusinessReportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364058"><span id="local-6989586621679364060"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364067"><span id="local-6989586621679364069"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool
 (BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool)
 -&gt; (BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool)
 -&gt; Eq BusinessReportStatus
@@ -83,7 +83,7 @@ $c/= :: BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool
 == :: BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool
 $c== :: BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679364042"><span id="local-6989586621679364044"><span id="local-6989586621679364046"><span id="local-6989586621679364048"><span id="local-6989586621679364050"><span id="local-6989586621679364052"><span id="local-6989586621679364054"><span class="annot"><span class="annottext">Eq BusinessReportStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679364051"><span id="local-6989586621679364053"><span id="local-6989586621679364055"><span id="local-6989586621679364057"><span id="local-6989586621679364059"><span id="local-6989586621679364061"><span id="local-6989586621679364063"><span class="annot"><span class="annottext">Eq BusinessReportStatus
 Eq BusinessReportStatus
 -&gt; (BusinessReportStatus -&gt; BusinessReportStatus -&gt; Ordering)
 -&gt; (BusinessReportStatus -&gt; BusinessReportStatus -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. BusinessReportStatus -&gt; Rep BusinessReportStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364034"><span id="local-6989586621679364036"><span class="annot"><span class="annottext">Int -&gt; BusinessReportStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364043"><span id="local-6989586621679364045"><span class="annot"><span class="annottext">Int -&gt; BusinessReportStatus -&gt; Int
 BusinessReportStatus -&gt; Int
 (Int -&gt; BusinessReportStatus -&gt; Int)
 -&gt; (BusinessReportStatus -&gt; Int) -&gt; Hashable BusinessReportStatus
@@ -151,54 +151,54 @@ $chash :: BusinessReportStatus -&gt; Int
 hashWithSalt :: Int -&gt; BusinessReportStatus -&gt; Int
 $chashWithSalt :: Int -&gt; BusinessReportStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364031"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364040"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; ()
 (BusinessReportStatus -&gt; ()) -&gt; NFData BusinessReportStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BusinessReportStatus -&gt; ()
 $crnf :: BusinessReportStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364028"><span class="annot"><span class="annottext">Text -&gt; Either String BusinessReportStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364037"><span class="annot"><span class="annottext">Text -&gt; Either String BusinessReportStatus
 (Text -&gt; Either String BusinessReportStatus)
 -&gt; FromText BusinessReportStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BusinessReportStatus
 $cfromText :: Text -&gt; Either String BusinessReportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364025"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364034"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; Text
 (BusinessReportStatus -&gt; Text) -&gt; ToText BusinessReportStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BusinessReportStatus -&gt; Text
 $ctoText :: BusinessReportStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364022"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364031"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; ByteString
 (BusinessReportStatus -&gt; ByteString)
 -&gt; ToByteString BusinessReportStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BusinessReportStatus -&gt; ByteString
 $ctoBS :: BusinessReportStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364019"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364028"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; ByteStringBuilder
 (BusinessReportStatus -&gt; ByteStringBuilder)
 -&gt; ToLog BusinessReportStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BusinessReportStatus -&gt; ByteStringBuilder
 $cbuild :: BusinessReportStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364016"><span class="annot"><span class="annottext">HeaderName -&gt; BusinessReportStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364025"><span class="annot"><span class="annottext">HeaderName -&gt; BusinessReportStatus -&gt; [Header]
 (HeaderName -&gt; BusinessReportStatus -&gt; [Header])
 -&gt; ToHeader BusinessReportStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BusinessReportStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BusinessReportStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364013"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364022"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; QueryString
 (BusinessReportStatus -&gt; QueryString)
 -&gt; ToQuery BusinessReportStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BusinessReportStatus -&gt; QueryString
 $ctoQuery :: BusinessReportStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364008"><span id="local-6989586621679364010"><span class="annot"><span class="annottext">Value -&gt; Parser [BusinessReportStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364017"><span id="local-6989586621679364019"><span class="annot"><span class="annottext">Value -&gt; Parser [BusinessReportStatus]
 Value -&gt; Parser BusinessReportStatus
 (Value -&gt; Parser BusinessReportStatus)
 -&gt; (Value -&gt; Parser [BusinessReportStatus])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [BusinessReportStatus]
 parseJSON :: Value -&gt; Parser BusinessReportStatus
 $cparseJSON :: Value -&gt; Parser BusinessReportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364003"><span id="local-6989586621679364005"><span class="annot"><span class="annottext">FromJSONKeyFunction [BusinessReportStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364012"><span id="local-6989586621679364014"><span class="annot"><span class="annottext">FromJSONKeyFunction [BusinessReportStatus]
 FromJSONKeyFunction BusinessReportStatus
 FromJSONKeyFunction BusinessReportStatus
 -&gt; FromJSONKeyFunction [BusinessReportStatus]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BusinessReportStatus]
 fromJSONKey :: FromJSONKeyFunction BusinessReportStatus
 $cfromJSONKey :: FromJSONKeyFunction BusinessReportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363994"><span id="local-6989586621679363996"><span id="local-6989586621679363998"><span id="local-6989586621679364000"><span class="annot"><span class="annottext">[BusinessReportStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364003"><span id="local-6989586621679364005"><span id="local-6989586621679364007"><span id="local-6989586621679364009"><span class="annot"><span class="annottext">[BusinessReportStatus] -&gt; Encoding
 [BusinessReportStatus] -&gt; Value
 BusinessReportStatus -&gt; Encoding
 BusinessReportStatus -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: BusinessReportStatus -&gt; Encoding
 toJSON :: BusinessReportStatus -&gt; Value
 $ctoJSON :: BusinessReportStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363989"><span id="local-6989586621679363991"><span class="annot"><span class="annottext">ToJSONKeyFunction [BusinessReportStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363998"><span id="local-6989586621679364000"><span class="annot"><span class="annottext">ToJSONKeyFunction [BusinessReportStatus]
 ToJSONKeyFunction BusinessReportStatus
 ToJSONKeyFunction BusinessReportStatus
 -&gt; ToJSONKeyFunction [BusinessReportStatus]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BusinessReportStatus]
 toJSONKey :: ToJSONKeyFunction BusinessReportStatus
 $ctoJSONKey :: ToJSONKeyFunction BusinessReportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363986"><span class="annot"><span class="annottext">[Node] -&gt; Either String BusinessReportStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363995"><span class="annot"><span class="annottext">[Node] -&gt; Either String BusinessReportStatus
 ([Node] -&gt; Either String BusinessReportStatus)
 -&gt; FromXML BusinessReportStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BusinessReportStatus
 $cparseXML :: [Node] -&gt; Either String BusinessReportStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679363983"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679363992"><span class="annot"><span class="annottext">BusinessReportStatus -&gt; XML
 (BusinessReportStatus -&gt; XML) -&gt; ToXML BusinessReportStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BusinessReportStatus -&gt; XML

@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- recommended to use for particular TargetPlatform.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newOutputConfig' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621680346966"><span id="local-6989586621680346967"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-var">OutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-var">OutputConfig'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621680346975"><span id="local-6989586621680346976"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-var">OutputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-var">OutputConfig'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about a target platform that you want your model to</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- run on, such as OS, architecture, and accelerators. It is an alternative</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- of @TargetDevice@.</span><span>
@@ -199,7 +199,7 @@
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3As3OutputLocation%3AOutputConfig%27"><span class="annot"><span class="annottext">OutputConfig -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#%24sel%3As3OutputLocation%3AOutputConfig%27"><span class="hs-identifier hs-var hs-var">s3OutputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680346956"><span id="local-6989586621680346958"><span class="annot"><span class="annottext">OutputConfig -&gt; OutputConfig -&gt; Bool
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680346965"><span id="local-6989586621680346967"><span class="annot"><span class="annottext">OutputConfig -&gt; OutputConfig -&gt; Bool
 (OutputConfig -&gt; OutputConfig -&gt; Bool)
 -&gt; (OutputConfig -&gt; OutputConfig -&gt; Bool) -&gt; Eq OutputConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -207,7 +207,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputConfig -&gt; OutputConfig -&gt; Bool
 == :: OutputConfig -&gt; OutputConfig -&gt; Bool
 $c== :: OutputConfig -&gt; OutputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346947"><span id="local-6989586621680346949"><span id="local-6989586621680346951"><span id="local-6989586621680346953"><span class="annot"><span class="annottext">ReadPrec [OutputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346956"><span id="local-6989586621680346958"><span id="local-6989586621680346960"><span id="local-6989586621680346962"><span class="annot"><span class="annottext">ReadPrec [OutputConfig]
 ReadPrec OutputConfig
 Int -&gt; ReadS OutputConfig
 ReadS [OutputConfig]
@@ -227,7 +227,7 @@ readList :: ReadS [OutputConfig]
 $creadList :: ReadS [OutputConfig]
 readsPrec :: Int -&gt; ReadS OutputConfig
 $creadsPrec :: Int -&gt; ReadS OutputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346940"><span id="local-6989586621680346942"><span id="local-6989586621680346944"><span class="annot"><span class="annottext">Int -&gt; OutputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680346949"><span id="local-6989586621680346951"><span id="local-6989586621680346953"><span class="annot"><span class="annottext">Int -&gt; OutputConfig -&gt; ShowS
 [OutputConfig] -&gt; ShowS
 OutputConfig -&gt; String
 (Int -&gt; OutputConfig -&gt; ShowS)
@@ -422,8 +422,8 @@ $cfrom :: forall x. OutputConfig -&gt; Rep OutputConfig x
 </span><span id="line-365"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-366"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span>
 </span><span id="line-367"></span><span id="newOutputConfig"><span class="annot"><span class="annottext">newOutputConfig :: Text -&gt; OutputConfig
-</span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#newOutputConfig"><span class="hs-identifier hs-var hs-var">newOutputConfig</span></a></span></span><span> </span><span id="local-6989586621680346934"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680346934"><span class="hs-identifier hs-var">pS3OutputLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#newOutputConfig"><span class="hs-identifier hs-var hs-var">newOutputConfig</span></a></span></span><span> </span><span id="local-6989586621680346943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680346943"><span class="hs-identifier hs-var">pS3OutputLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-368"></span><span>  </span><span class="annot"><span class="annottext">OutputConfig' :: Maybe TargetPlatform
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -449,7 +449,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-373"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3OutputLocation:OutputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#%24sel%3As3OutputLocation%3AOutputConfig%27"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680346934"><span class="hs-identifier hs-var">pS3OutputLocation_</span></a></span><span>
+</span><a href="#local-6989586621680346943"><span class="hs-identifier hs-var">pS3OutputLocation_</span></a></span><span>
 </span><span id="line-374"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-375"></span><span>
 </span><span id="line-376"></span><span class="hs-comment">-- | Contains information about a target platform that you want your model to</span><span>
@@ -503,16 +503,16 @@ forall a. Maybe a
      (Maybe TargetPlatform)
      (Maybe TargetPlatform)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346930"><span class="annot"><span class="annottext">Maybe TargetPlatform
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346939"><span class="annot"><span class="annottext">Maybe TargetPlatform
 targetPlatform :: Maybe TargetPlatform
 $sel:targetPlatform:OutputConfig' :: OutputConfig -&gt; Maybe TargetPlatform
-</span><a href="#local-6989586621680346930"><span class="hs-identifier hs-var hs-var">targetPlatform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatform
-</span><a href="#local-6989586621680346930"><span class="hs-identifier hs-var">targetPlatform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346929"><span class="annot"><span class="annottext">s :: OutputConfig
-</span><a href="#local-6989586621680346929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346928"><span class="annot"><span class="annottext">Maybe TargetPlatform
-</span><a href="#local-6989586621680346928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
-</span><a href="#local-6989586621680346929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPlatform:OutputConfig' :: Maybe TargetPlatform
+</span><a href="#local-6989586621680346939"><span class="hs-identifier hs-var hs-var">targetPlatform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatform
+</span><a href="#local-6989586621680346939"><span class="hs-identifier hs-var">targetPlatform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346938"><span class="annot"><span class="annottext">s :: OutputConfig
+</span><a href="#local-6989586621680346938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346937"><span class="annot"><span class="annottext">Maybe TargetPlatform
+</span><a href="#local-6989586621680346937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680346938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPlatform:OutputConfig' :: Maybe TargetPlatform
 </span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#%24sel%3AtargetPlatform%3AOutputConfig%27"><span class="hs-identifier hs-var">targetPlatform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatform
-</span><a href="#local-6989586621680346928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-418"></span><span>
 </span><span id="line-419"></span><span class="hs-comment">-- | The Amazon Web Services Key Management Service key (Amazon Web Services</span><span>
 </span><span id="line-420"></span><span class="hs-comment">-- KMS) that Amazon SageMaker uses to encrypt your output models with</span><span>
@@ -539,16 +539,16 @@ $sel:targetPlatform:OutputConfig' :: OutputConfig -&gt; Maybe TargetPlatform
 -&gt; (OutputConfig -&gt; Maybe Text -&gt; OutputConfig)
 -&gt; Lens OutputConfig OutputConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346926"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346935"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:OutputConfig' :: OutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680346926"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346926"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346925"><span class="annot"><span class="annottext">s :: OutputConfig
-</span><a href="#local-6989586621680346925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346924"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
-</span><a href="#local-6989586621680346925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:OutputConfig' :: Maybe Text
+</span><a href="#local-6989586621680346935"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680346935"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346934"><span class="annot"><span class="annottext">s :: OutputConfig
+</span><a href="#local-6989586621680346934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680346933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680346934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:OutputConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#%24sel%3AkmsKeyId%3AOutputConfig%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-440"></span><span>
 </span><span id="line-441"></span><span class="hs-comment">-- | Specifies additional parameters for compiler options in JSON format. The</span><span>
 </span><span id="line-442"></span><span class="hs-comment">-- compiler options are @TargetPlatform@ specific. It is required for</span><span>
@@ -643,16 +643,16 @@ $sel:kmsKeyId:OutputConfig' :: OutputConfig -&gt; Maybe Text
 -&gt; (OutputConfig -&gt; Maybe Text -&gt; OutputConfig)
 -&gt; Lens OutputConfig OutputConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346922"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346931"><span class="annot"><span class="annottext">Maybe Text
 compilerOptions :: Maybe Text
 $sel:compilerOptions:OutputConfig' :: OutputConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680346922"><span class="hs-identifier hs-var hs-var">compilerOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346922"><span class="hs-identifier hs-var">compilerOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346921"><span class="annot"><span class="annottext">s :: OutputConfig
-</span><a href="#local-6989586621680346921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346920"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
-</span><a href="#local-6989586621680346921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compilerOptions:OutputConfig' :: Maybe Text
+</span><a href="#local-6989586621680346931"><span class="hs-identifier hs-var hs-var">compilerOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680346931"><span class="hs-identifier hs-var">compilerOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346930"><span class="annot"><span class="annottext">s :: OutputConfig
+</span><a href="#local-6989586621680346930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680346929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680346930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compilerOptions:OutputConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#%24sel%3AcompilerOptions%3AOutputConfig%27"><span class="hs-identifier hs-var">compilerOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-530"></span><span>
 </span><span id="line-531"></span><span class="hs-comment">-- | Identifies the target device or the machine learning instance that you</span><span>
 </span><span id="line-532"></span><span class="hs-comment">-- want to run your model on after the compilation has completed.</span><span>
@@ -666,16 +666,16 @@ $sel:compilerOptions:OutputConfig' :: OutputConfig -&gt; Maybe Text
 -&gt; Lens
      OutputConfig OutputConfig (Maybe TargetDevice) (Maybe TargetDevice)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346918"><span class="annot"><span class="annottext">Maybe TargetDevice
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346927"><span class="annot"><span class="annottext">Maybe TargetDevice
 targetDevice :: Maybe TargetDevice
 $sel:targetDevice:OutputConfig' :: OutputConfig -&gt; Maybe TargetDevice
-</span><a href="#local-6989586621680346918"><span class="hs-identifier hs-var hs-var">targetDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetDevice
-</span><a href="#local-6989586621680346918"><span class="hs-identifier hs-var">targetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346917"><span class="annot"><span class="annottext">s :: OutputConfig
-</span><a href="#local-6989586621680346917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346916"><span class="annot"><span class="annottext">Maybe TargetDevice
-</span><a href="#local-6989586621680346916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
-</span><a href="#local-6989586621680346917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDevice:OutputConfig' :: Maybe TargetDevice
+</span><a href="#local-6989586621680346927"><span class="hs-identifier hs-var hs-var">targetDevice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetDevice
+</span><a href="#local-6989586621680346927"><span class="hs-identifier hs-var">targetDevice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346926"><span class="annot"><span class="annottext">s :: OutputConfig
+</span><a href="#local-6989586621680346926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346925"><span class="annot"><span class="annottext">Maybe TargetDevice
+</span><a href="#local-6989586621680346925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680346926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDevice:OutputConfig' :: Maybe TargetDevice
 </span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#%24sel%3AtargetDevice%3AOutputConfig%27"><span class="hs-identifier hs-var">targetDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetDevice
-</span><a href="#local-6989586621680346916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-537"></span><span>
 </span><span id="line-538"></span><span class="hs-comment">-- | Identifies the S3 bucket where you want Amazon SageMaker to store the</span><span>
 </span><span id="line-539"></span><span class="hs-comment">-- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.</span><span>
@@ -685,19 +685,19 @@ $sel:targetDevice:OutputConfig' :: OutputConfig -&gt; Maybe TargetDevice
 -&gt; (OutputConfig -&gt; Text -&gt; OutputConfig)
 -&gt; Lens OutputConfig OutputConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346914"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346923"><span class="annot"><span class="annottext">Text
 s3OutputLocation :: Text
 $sel:s3OutputLocation:OutputConfig' :: OutputConfig -&gt; Text
-</span><a href="#local-6989586621680346914"><span class="hs-identifier hs-var hs-var">s3OutputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680346914"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346913"><span class="annot"><span class="annottext">s :: OutputConfig
-</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346912"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680346912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
-</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputLocation:OutputConfig' :: Text
+</span><a href="#local-6989586621680346923"><span class="hs-identifier hs-var hs-var">s3OutputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680346923"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680346922"><span class="annot"><span class="annottext">s :: OutputConfig
+</span><a href="#local-6989586621680346922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680346921"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680346921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputConfig
+</span><a href="#local-6989586621680346922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputLocation:OutputConfig' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OutputConfig.html#%24sel%3As3OutputLocation%3AOutputConfig%27"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680346912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-542"></span><span>
-</span><span id="line-543"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346909"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-544"></span><span>  </span><span id="local-6989586621680346907"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputConfig
+</span><span id="line-543"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346918"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-544"></span><span>  </span><span id="local-6989586621680346916"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-545"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputConfig) -&gt; Value -&gt; Parser OutputConfig
@@ -705,8 +705,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-546"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputConfig&quot;</span></span><span>
-</span><span id="line-547"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680346904"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-547"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680346913"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-548"></span><span>          </span><span class="annot"><span class="annottext">Maybe TargetPlatform
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -726,7 +726,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe TargetDevice -&gt; Text -&gt; OutputConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetPlatform)
+</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetPlatform)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetPlatform&quot;</span></span><span class="hs-special">)</span><span>
@@ -738,7 +738,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe TargetDevice -&gt; Text -&gt; OutputConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -747,7 +747,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe TargetDevice -&gt; Text -&gt; OutputConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CompilerOptions&quot;</span></span><span class="hs-special">)</span><span>
@@ -755,26 +755,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe TargetDevice) -&gt; Parser (Text -&gt; OutputConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetDevice)
+</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetDevice)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetDevice&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-553"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; OutputConfig) -&gt; Parser Text -&gt; Parser OutputConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680346904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680346913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputLocation&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-554"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-555"></span><span>
-</span><span id="line-556"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346897"><span id="local-6989586621680346899"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span><span>
+</span><span id="line-556"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346906"><span id="local-6989586621680346908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span><span>
 </span><span id="line-557"></span><span>
-</span><span id="line-558"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346894"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span><span>
+</span><span id="line-558"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span><span>
 </span><span id="line-559"></span><span>
-</span><span id="line-560"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346886"><span id="local-6989586621680346888"><span id="local-6989586621680346890"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-561"></span><span>  </span><span id="local-6989586621680346884"><span class="annot"><span class="annottext">toJSON :: OutputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346878"><span id="local-6989586621680346879"><span id="local-6989586621680346880"><span id="local-6989586621680346881"><span id="local-6989586621680346882"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-560"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680346895"><span id="local-6989586621680346897"><span id="local-6989586621680346899"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig"><span class="hs-identifier hs-type">OutputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-561"></span><span>  </span><span id="local-6989586621680346893"><span class="annot"><span class="annottext">toJSON :: OutputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputConfig.html#OutputConfig%27"><span class="hs-identifier hs-type">OutputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680346887"><span id="local-6989586621680346888"><span id="local-6989586621680346889"><span id="local-6989586621680346890"><span id="local-6989586621680346891"><span class="annot"><span class="annottext">Maybe Text
 Maybe TargetDevice
 Maybe TargetPlatform
 Text
@@ -788,7 +788,7 @@ $sel:targetDevice:OutputConfig' :: OutputConfig -&gt; Maybe TargetDevice
 $sel:compilerOptions:OutputConfig' :: OutputConfig -&gt; Maybe Text
 $sel:kmsKeyId:OutputConfig' :: OutputConfig -&gt; Maybe Text
 $sel:targetPlatform:OutputConfig' :: OutputConfig -&gt; Maybe TargetPlatform
-</span><a href="#local-6989586621680346878"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680346887"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-562"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-563"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -801,14 +801,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-565"></span><span>              </span><span class="annot"><span class="annottext">(TargetPlatform -&gt; Pair) -&gt; Maybe TargetPlatform -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TargetPlatform
-</span><a href="#local-6989586621680346882"><span class="hs-identifier hs-var">targetPlatform</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680346891"><span class="hs-identifier hs-var">targetPlatform</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-566"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346881"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680346890"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-567"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CompilerOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -816,14 +816,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-568"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680346880"><span class="hs-identifier hs-var">compilerOptions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680346889"><span class="hs-identifier hs-var">compilerOptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-569"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetDevice&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TargetDevice -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TargetDevice -&gt; Pair) -&gt; Maybe TargetDevice -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TargetDevice
-</span><a href="#local-6989586621680346879"><span class="hs-identifier hs-var">targetDevice</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680346888"><span class="hs-identifier hs-var">targetDevice</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-570"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -831,7 +831,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3OutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680346878"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680346887"><span class="hs-identifier hs-var">s3OutputLocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-572"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-573"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-574"></span></pre></body></html>

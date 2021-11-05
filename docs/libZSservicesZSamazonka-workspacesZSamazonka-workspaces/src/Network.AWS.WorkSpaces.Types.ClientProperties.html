@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an Amazon WorkSpaces client.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newClientProperties' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679273080"><span id="local-6989586621679273081"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-var">ClientProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-var">ClientProperties'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679273089"><span id="local-6989586621679273090"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-var">ClientProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-var">ClientProperties'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether users can cache their credentials on the Amazon</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- WorkSpaces client. When enabled, users can choose to reconnect to their</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- WorkSpaces without re-entering their credentials.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AreconnectEnabled%3AClientProperties%27"><span class="annot"><span class="annottext">ClientProperties -&gt; Maybe ReconnectEnum
 </span><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#%24sel%3AreconnectEnabled%3AClientProperties%27"><span class="hs-identifier hs-var hs-var">reconnectEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ReconnectEnum.html#ReconnectEnum"><span class="hs-identifier hs-type">ReconnectEnum</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273074"><span id="local-6989586621679273076"><span class="annot"><span class="annottext">ClientProperties -&gt; ClientProperties -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273083"><span id="local-6989586621679273085"><span class="annot"><span class="annottext">ClientProperties -&gt; ClientProperties -&gt; Bool
 (ClientProperties -&gt; ClientProperties -&gt; Bool)
 -&gt; (ClientProperties -&gt; ClientProperties -&gt; Bool)
 -&gt; Eq ClientProperties
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClientProperties -&gt; ClientProperties -&gt; Bool
 == :: ClientProperties -&gt; ClientProperties -&gt; Bool
 $c== :: ClientProperties -&gt; ClientProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273065"><span id="local-6989586621679273067"><span id="local-6989586621679273069"><span id="local-6989586621679273071"><span class="annot"><span class="annottext">ReadPrec [ClientProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273074"><span id="local-6989586621679273076"><span id="local-6989586621679273078"><span id="local-6989586621679273080"><span class="annot"><span class="annottext">ReadPrec [ClientProperties]
 ReadPrec ClientProperties
 Int -&gt; ReadS ClientProperties
 ReadS [ClientProperties]
@@ -63,7 +63,7 @@ readList :: ReadS [ClientProperties]
 $creadList :: ReadS [ClientProperties]
 readsPrec :: Int -&gt; ReadS ClientProperties
 $creadsPrec :: Int -&gt; ReadS ClientProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273058"><span id="local-6989586621679273060"><span id="local-6989586621679273062"><span class="annot"><span class="annottext">Int -&gt; ClientProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273067"><span id="local-6989586621679273069"><span id="local-6989586621679273071"><span class="annot"><span class="annottext">Int -&gt; ClientProperties -&gt; ShowS
 [ClientProperties] -&gt; ShowS
 ClientProperties -&gt; String
 (Int -&gt; ClientProperties -&gt; ShowS)
@@ -127,19 +127,19 @@ forall a. Maybe a
      (Maybe ReconnectEnum)
      (Maybe ReconnectEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-type">ClientProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273049"><span class="annot"><span class="annottext">Maybe ReconnectEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-type">ClientProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273058"><span class="annot"><span class="annottext">Maybe ReconnectEnum
 reconnectEnabled :: Maybe ReconnectEnum
 $sel:reconnectEnabled:ClientProperties' :: ClientProperties -&gt; Maybe ReconnectEnum
-</span><a href="#local-6989586621679273049"><span class="hs-identifier hs-var hs-var">reconnectEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReconnectEnum
-</span><a href="#local-6989586621679273049"><span class="hs-identifier hs-var">reconnectEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273048"><span class="annot"><span class="annottext">s :: ClientProperties
-</span><a href="#local-6989586621679273048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-type">ClientProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273047"><span class="annot"><span class="annottext">Maybe ReconnectEnum
-</span><a href="#local-6989586621679273047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientProperties
-</span><a href="#local-6989586621679273048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reconnectEnabled:ClientProperties' :: Maybe ReconnectEnum
+</span><a href="#local-6989586621679273058"><span class="hs-identifier hs-var hs-var">reconnectEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReconnectEnum
+</span><a href="#local-6989586621679273058"><span class="hs-identifier hs-var">reconnectEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273057"><span class="annot"><span class="annottext">s :: ClientProperties
+</span><a href="#local-6989586621679273057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-type">ClientProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273056"><span class="annot"><span class="annottext">Maybe ReconnectEnum
+</span><a href="#local-6989586621679273056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientProperties
+</span><a href="#local-6989586621679273057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reconnectEnabled:ClientProperties' :: Maybe ReconnectEnum
 </span><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#%24sel%3AreconnectEnabled%3AClientProperties%27"><span class="hs-identifier hs-var">reconnectEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReconnectEnum
-</span><a href="#local-6989586621679273047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273044"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679273042"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientProperties
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273053"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679273051"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClientProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ClientProperties)
@@ -149,30 +149,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ClientProperties&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273039"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273048"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReconnectEnum -&gt; ClientProperties
 </span><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-var">ClientProperties'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReconnectEnum -&gt; ClientProperties)
 -&gt; Parser (Maybe ReconnectEnum) -&gt; Parser ClientProperties
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReconnectEnum)
+</span><a href="#local-6989586621679273048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReconnectEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReconnectEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273033"><span id="local-6989586621679273035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273042"><span id="local-6989586621679273044"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273039"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273022"><span id="local-6989586621679273024"><span id="local-6989586621679273026"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679273020"><span class="annot"><span class="annottext">toJSON :: ClientProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-type">ClientProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273018"><span class="annot"><span class="annottext">Maybe ReconnectEnum
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273031"><span id="local-6989586621679273033"><span id="local-6989586621679273035"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties"><span class="hs-identifier hs-type">ClientProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679273029"><span class="annot"><span class="annottext">toJSON :: ClientProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.ClientProperties.html#ClientProperties%27"><span class="hs-identifier hs-type">ClientProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273027"><span class="annot"><span class="annottext">Maybe ReconnectEnum
 reconnectEnabled :: Maybe ReconnectEnum
 $sel:reconnectEnabled:ClientProperties' :: ClientProperties -&gt; Maybe ReconnectEnum
-</span><a href="#local-6989586621679273018"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273027"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -185,7 +185,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-81"></span><span>              </span><span class="annot"><span class="annottext">(ReconnectEnum -&gt; Pair) -&gt; Maybe ReconnectEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReconnectEnum
-</span><a href="#local-6989586621679273018"><span class="hs-identifier hs-var">reconnectEnabled</span></a></span><span>
+</span><a href="#local-6989586621679273027"><span class="hs-identifier hs-var">reconnectEnabled</span></a></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newModifyUserGroup' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679411957"><span id="local-6989586621679411958"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyUserGroup"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-var">ModifyUserGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyUserGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-var">ModifyUserGroup'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679411966"><span id="local-6989586621679411967"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyUserGroup"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-var">ModifyUserGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyUserGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-var">ModifyUserGroup'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of user IDs to add to the user group.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AuserIdsToAdd%3AModifyUserGroup%27"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToAdd%3AModifyUserGroup%27"><span class="hs-identifier hs-var hs-var">userIdsToAdd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; Text
 </span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411949"><span id="local-6989586621679411951"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679411958"><span id="local-6989586621679411960"><span class="annot"><span class="annottext">ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
 (ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool)
 -&gt; (ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool)
 -&gt; Eq ModifyUserGroup
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
 == :: ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
 $c== :: ModifyUserGroup -&gt; ModifyUserGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411940"><span id="local-6989586621679411942"><span id="local-6989586621679411944"><span id="local-6989586621679411946"><span class="annot"><span class="annottext">ReadPrec [ModifyUserGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411949"><span id="local-6989586621679411951"><span id="local-6989586621679411953"><span id="local-6989586621679411955"><span class="annot"><span class="annottext">ReadPrec [ModifyUserGroup]
 ReadPrec ModifyUserGroup
 Int -&gt; ReadS ModifyUserGroup
 ReadS [ModifyUserGroup]
@@ -94,7 +94,7 @@ readList :: ReadS [ModifyUserGroup]
 $creadList :: ReadS [ModifyUserGroup]
 readsPrec :: Int -&gt; ReadS ModifyUserGroup
 $creadsPrec :: Int -&gt; ReadS ModifyUserGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411933"><span id="local-6989586621679411935"><span id="local-6989586621679411937"><span class="annot"><span class="annottext">Int -&gt; ModifyUserGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679411942"><span id="local-6989586621679411944"><span id="local-6989586621679411946"><span class="annot"><span class="annottext">Int -&gt; ModifyUserGroup -&gt; ShowS
 [ModifyUserGroup] -&gt; ShowS
 ModifyUserGroup -&gt; String
 (Int -&gt; ModifyUserGroup -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. ModifyUserGroup -&gt; Rep ModifyUserGroup x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span>
 </span><span id="line-84"></span><span id="newModifyUserGroup"><span class="annot"><span class="annottext">newModifyUserGroup :: Text -&gt; ModifyUserGroup
-</span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#newModifyUserGroup"><span class="hs-identifier hs-var hs-var">newModifyUserGroup</span></a></span></span><span> </span><span id="local-6989586621679411928"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411928"><span class="hs-identifier hs-var">pUserGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#newModifyUserGroup"><span class="hs-identifier hs-var hs-var">newModifyUserGroup</span></a></span></span><span> </span><span id="local-6989586621679411937"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411937"><span class="hs-identifier hs-var">pUserGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ModifyUserGroup' :: Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text) -&gt; Text -&gt; ModifyUserGroup
 </span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span>
@@ -153,7 +153,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:userGroupId:ModifyUserGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411928"><span class="hs-identifier hs-var">pUserGroupId_</span></a></span><span>
+</span><a href="#local-6989586621679411937"><span class="hs-identifier hs-var">pUserGroupId_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The list of user IDs to add to the user group.</span><span>
@@ -168,16 +168,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411925"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411934"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 userIdsToAdd :: Maybe (NonEmpty Text)
 $sel:userIdsToAdd:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411925"><span class="hs-identifier hs-var hs-var">userIdsToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411925"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411924"><span class="annot"><span class="annottext">s :: ModifyUserGroup
-</span><a href="#local-6989586621679411924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411923"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
-</span><a href="#local-6989586621679411924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdsToAdd:ModifyUserGroup' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411934"><span class="hs-identifier hs-var hs-var">userIdsToAdd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411934"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411933"><span class="annot"><span class="annottext">s :: ModifyUserGroup
+</span><a href="#local-6989586621679411933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411932"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
+</span><a href="#local-6989586621679411933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdsToAdd:ModifyUserGroup' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToAdd%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679411932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ModifyUserGroup -&gt; f ModifyUserGroup)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -212,16 +212,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411919"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411928"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 userIdsToRemove :: Maybe (NonEmpty Text)
 $sel:userIdsToRemove:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411919"><span class="hs-identifier hs-var hs-var">userIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411919"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411918"><span class="annot"><span class="annottext">s :: ModifyUserGroup
-</span><a href="#local-6989586621679411918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411917"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
-</span><a href="#local-6989586621679411918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdsToRemove:ModifyUserGroup' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411928"><span class="hs-identifier hs-var hs-var">userIdsToRemove</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411928"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411927"><span class="annot"><span class="annottext">s :: ModifyUserGroup
+</span><a href="#local-6989586621679411927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411926"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679411926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
+</span><a href="#local-6989586621679411927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIdsToRemove:ModifyUserGroup' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#%24sel%3AuserIdsToRemove%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679411926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ModifyUserGroup -&gt; f ModifyUserGroup)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -251,25 +251,25 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ModifyUserGroup -&gt; Text -&gt; ModifyUserGroup)
 -&gt; Lens ModifyUserGroup ModifyUserGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411916"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411925"><span class="annot"><span class="annottext">Text
 userGroupId :: Text
 $sel:userGroupId:ModifyUserGroup' :: ModifyUserGroup -&gt; Text
-</span><a href="#local-6989586621679411916"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411916"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411915"><span class="annot"><span class="annottext">s :: ModifyUserGroup
-</span><a href="#local-6989586621679411915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411914"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
-</span><a href="#local-6989586621679411915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroupId:ModifyUserGroup' :: Text
+</span><a href="#local-6989586621679411925"><span class="hs-identifier hs-var hs-var">userGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411925"><span class="hs-identifier hs-var">userGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411924"><span class="annot"><span class="annottext">s :: ModifyUserGroup
+</span><a href="#local-6989586621679411924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679411923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679411923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUserGroup
+</span><a href="#local-6989586621679411924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userGroupId:ModifyUserGroup' :: Text
 </span><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#%24sel%3AuserGroupId%3AModifyUserGroup%27"><span class="hs-identifier hs-var">userGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UserGroup.html#UserGroup"><span class="hs-identifier hs-type">UserGroup</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679411910"><span class="annot"><span class="annottext">request :: ModifyUserGroup -&gt; Request ModifyUserGroup
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679411919"><span class="annot"><span class="annottext">request :: ModifyUserGroup -&gt; Request ModifyUserGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyUserGroup -&gt; Request ModifyUserGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679411906"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679411915"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyUserGroup
 -&gt; ClientResponse ClientBody
@@ -298,20 +298,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyUserGroupResult&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411903"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679411903"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411902"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679411902"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411901"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679411901"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String UserGroup
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679411912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679411912"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679411911"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679411911"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679411910"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679411910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String UserGroup
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679411901"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679411910"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411896"><span id="local-6989586621679411898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411905"><span id="local-6989586621679411907"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679411902"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679411889"><span class="annot"><span class="annottext">toHeaders :: ModifyUserGroup -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679411898"><span class="annot"><span class="annottext">toHeaders :: ModifyUserGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyUserGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -319,15 +319,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679411884"><span class="annot"><span class="annottext">toPath :: ModifyUserGroup -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679411893"><span class="annot"><span class="annottext">toPath :: ModifyUserGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyUserGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup"><span class="hs-identifier hs-type">ModifyUserGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679411880"><span class="annot"><span class="annottext">toQuery :: ModifyUserGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411876"><span id="local-6989586621679411877"><span id="local-6989586621679411878"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679411889"><span class="annot"><span class="annottext">toQuery :: ModifyUserGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUserGroup.html#ModifyUserGroup%27"><span class="hs-identifier hs-type">ModifyUserGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679411885"><span id="local-6989586621679411886"><span id="local-6989586621679411887"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Text
 userGroupId :: Text
 userIdsToRemove :: Maybe (NonEmpty Text)
@@ -335,7 +335,7 @@ userIdsToAdd :: Maybe (NonEmpty Text)
 $sel:userGroupId:ModifyUserGroup' :: ModifyUserGroup -&gt; Text
 $sel:userIdsToRemove:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
 $sel:userIdsToAdd:ModifyUserGroup' :: ModifyUserGroup -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411876"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679411885"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -367,7 +367,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411878"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679411887"><span class="hs-identifier hs-var">userIdsToAdd</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserIdsToRemove&quot;</span></span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -385,12 +385,12 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679411877"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span>
+</span><a href="#local-6989586621679411886"><span class="hs-identifier hs-var">userIdsToRemove</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679411876"><span class="hs-identifier hs-var">userGroupId</span></a></span><span>
+</span><a href="#local-6989586621679411885"><span class="hs-identifier hs-var">userGroupId</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span></pre></body></html>

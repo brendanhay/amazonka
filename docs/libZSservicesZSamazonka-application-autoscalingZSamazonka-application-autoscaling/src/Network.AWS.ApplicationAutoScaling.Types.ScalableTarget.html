@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Represents a scalable target.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newScalableTarget' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679186191"><span id="local-6989586621679186192"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalableTarget"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-var">ScalableTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalableTarget%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-var">ScalableTarget'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679186200"><span id="local-6989586621679186201"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScalableTarget"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-var">ScalableTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScalableTarget%27"><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-var">ScalableTarget'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AsuspendedState%3AScalableTarget%27"><span class="annot"><span class="annottext">ScalableTarget -&gt; Maybe SuspendedState
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AsuspendedState%3AScalableTarget%27"><span class="hs-identifier hs-var hs-var">suspendedState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.SuspendedState.html#SuspendedState"><span class="hs-identifier hs-type">SuspendedState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
@@ -186,7 +186,7 @@
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AcreationTime%3AScalableTarget%27"><span class="annot"><span class="annottext">ScalableTarget -&gt; POSIX
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AcreationTime%3AScalableTarget%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186178"><span id="local-6989586621679186180"><span class="annot"><span class="annottext">ScalableTarget -&gt; ScalableTarget -&gt; Bool
+</span><span id="line-181"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186187"><span id="local-6989586621679186189"><span class="annot"><span class="annottext">ScalableTarget -&gt; ScalableTarget -&gt; Bool
 (ScalableTarget -&gt; ScalableTarget -&gt; Bool)
 -&gt; (ScalableTarget -&gt; ScalableTarget -&gt; Bool) -&gt; Eq ScalableTarget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -194,7 +194,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScalableTarget -&gt; ScalableTarget -&gt; Bool
 == :: ScalableTarget -&gt; ScalableTarget -&gt; Bool
 $c== :: ScalableTarget -&gt; ScalableTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186169"><span id="local-6989586621679186171"><span id="local-6989586621679186173"><span id="local-6989586621679186175"><span class="annot"><span class="annottext">ReadPrec [ScalableTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186178"><span id="local-6989586621679186180"><span id="local-6989586621679186182"><span id="local-6989586621679186184"><span class="annot"><span class="annottext">ReadPrec [ScalableTarget]
 ReadPrec ScalableTarget
 Int -&gt; ReadS ScalableTarget
 ReadS [ScalableTarget]
@@ -214,7 +214,7 @@ readList :: ReadS [ScalableTarget]
 $creadList :: ReadS [ScalableTarget]
 readsPrec :: Int -&gt; ReadS ScalableTarget
 $creadsPrec :: Int -&gt; ReadS ScalableTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186162"><span id="local-6989586621679186164"><span id="local-6989586621679186166"><span class="annot"><span class="annottext">Int -&gt; ScalableTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186171"><span id="local-6989586621679186173"><span id="local-6989586621679186175"><span class="annot"><span class="annottext">Int -&gt; ScalableTarget -&gt; ShowS
 [ScalableTarget] -&gt; ShowS
 ScalableTarget -&gt; String
 (Int -&gt; ScalableTarget -&gt; ShowS)
@@ -420,20 +420,20 @@ $cfrom :: forall x. ScalableTarget -&gt; Rep ScalableTarget x
 -&gt; UTCTime
 -&gt; ScalableTarget
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#newScalableTarget"><span class="hs-identifier hs-var hs-var">newScalableTarget</span></a></span></span><span>
-</span><span id="line-355"></span><span>  </span><span id="local-6989586621679186156"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679186156"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
-</span><span id="line-356"></span><span>  </span><span id="local-6989586621679186155"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186155"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-357"></span><span>  </span><span id="local-6989586621679186154"><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679186154"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span>
-</span><span id="line-358"></span><span>  </span><span id="local-6989586621679186153"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186153"><span class="hs-identifier hs-var">pMinCapacity_</span></a></span></span><span>
-</span><span id="line-359"></span><span>  </span><span id="local-6989586621679186152"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186152"><span class="hs-identifier hs-var">pMaxCapacity_</span></a></span></span><span>
-</span><span id="line-360"></span><span>  </span><span id="local-6989586621679186151"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186151"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span>
-</span><span id="line-361"></span><span>  </span><span id="local-6989586621679186150"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679186150"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-355"></span><span>  </span><span id="local-6989586621679186165"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186165"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
+</span><span id="line-356"></span><span>  </span><span id="local-6989586621679186164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186164"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-357"></span><span>  </span><span id="local-6989586621679186163"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186163"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span>
+</span><span id="line-358"></span><span>  </span><span id="local-6989586621679186162"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186162"><span class="hs-identifier hs-var">pMinCapacity_</span></a></span></span><span>
+</span><span id="line-359"></span><span>  </span><span id="local-6989586621679186161"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186161"><span class="hs-identifier hs-var">pMaxCapacity_</span></a></span></span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621679186160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186160"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span>
+</span><span id="line-361"></span><span>  </span><span id="local-6989586621679186159"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679186159"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-362"></span><span>    </span><span class="annot"><span class="annottext">ScalableTarget' :: Maybe SuspendedState
 -&gt; ServiceNamespace
 -&gt; Text
@@ -450,22 +450,22 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-364"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalableTarget' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AserviceNamespace%3AScalableTarget%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679186156"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186165"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-365"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:ScalableTarget' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AresourceId%3AScalableTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186155"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186164"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-366"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalableTarget' :: ScalableDimension
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AscalableDimension%3AScalableTarget%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679186154"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186163"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-367"></span><span>        </span><span class="annot"><span class="annottext">$sel:minCapacity:ScalableTarget' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AminCapacity%3AScalableTarget%27"><span class="hs-identifier hs-var">minCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186153"><span class="hs-identifier hs-var">pMinCapacity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186162"><span class="hs-identifier hs-var">pMinCapacity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-368"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxCapacity:ScalableTarget' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AmaxCapacity%3AScalableTarget%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186152"><span class="hs-identifier hs-var">pMaxCapacity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186161"><span class="hs-identifier hs-var">pMaxCapacity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-369"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:ScalableTarget' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AroleARN%3AScalableTarget%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186151"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679186160"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-370"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:ScalableTarget' :: POSIX
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AcreationTime%3AScalableTarget%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -474,7 +474,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679186150"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span>
+</span><a href="#local-6989586621679186159"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span>
 </span><span id="line-371"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-372"></span><span>
 </span><span id="line-373"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -489,16 +489,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe SuspendedState)
      (Maybe SuspendedState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186144"><span class="annot"><span class="annottext">Maybe SuspendedState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186153"><span class="annot"><span class="annottext">Maybe SuspendedState
 suspendedState :: Maybe SuspendedState
 $sel:suspendedState:ScalableTarget' :: ScalableTarget -&gt; Maybe SuspendedState
-</span><a href="#local-6989586621679186144"><span class="hs-identifier hs-var hs-var">suspendedState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuspendedState
-</span><a href="#local-6989586621679186144"><span class="hs-identifier hs-var">suspendedState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186143"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186142"><span class="annot"><span class="annottext">Maybe SuspendedState
-</span><a href="#local-6989586621679186142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suspendedState:ScalableTarget' :: Maybe SuspendedState
+</span><a href="#local-6989586621679186153"><span class="hs-identifier hs-var hs-var">suspendedState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuspendedState
+</span><a href="#local-6989586621679186153"><span class="hs-identifier hs-var">suspendedState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186152"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186151"><span class="annot"><span class="annottext">Maybe SuspendedState
+</span><a href="#local-6989586621679186151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suspendedState:ScalableTarget' :: Maybe SuspendedState
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AsuspendedState%3AScalableTarget%27"><span class="hs-identifier hs-var">suspendedState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuspendedState
-</span><a href="#local-6989586621679186142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-376"></span><span>
 </span><span id="line-377"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
 </span><span id="line-378"></span><span class="hs-comment">-- resource, or a @custom-resource@.</span><span>
@@ -510,16 +510,16 @@ $sel:suspendedState:ScalableTarget' :: ScalableTarget -&gt; Maybe SuspendedState
 -&gt; Lens
      ScalableTarget ScalableTarget ServiceNamespace ServiceNamespace
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186140"><span class="annot"><span class="annottext">ServiceNamespace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186149"><span class="annot"><span class="annottext">ServiceNamespace
 serviceNamespace :: ServiceNamespace
 $sel:serviceNamespace:ScalableTarget' :: ScalableTarget -&gt; ServiceNamespace
-</span><a href="#local-6989586621679186140"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679186140"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186139"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186138"><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679186138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalableTarget' :: ServiceNamespace
+</span><a href="#local-6989586621679186149"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186149"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186148"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186147"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ScalableTarget' :: ServiceNamespace
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AserviceNamespace%3AScalableTarget%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
-</span><a href="#local-6989586621679186138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-381"></span><span>
 </span><span id="line-382"></span><span class="hs-comment">-- | The identifier of the resource associated with the scalable target. This</span><span>
 </span><span id="line-383"></span><span class="hs-comment">-- string consists of the resource type and unique identifier.</span><span>
@@ -594,16 +594,16 @@ $sel:serviceNamespace:ScalableTarget' :: ScalableTarget -&gt; ServiceNamespace
 -&gt; (ScalableTarget -&gt; Text -&gt; ScalableTarget)
 -&gt; Lens ScalableTarget ScalableTarget Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186136"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186145"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:ScalableTarget' :: ScalableTarget -&gt; Text
-</span><a href="#local-6989586621679186136"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186136"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186135"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186134"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ScalableTarget' :: Text
+</span><a href="#local-6989586621679186145"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186145"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186144"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ScalableTarget' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AresourceId%3AScalableTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-451"></span><span>
 </span><span id="line-452"></span><span class="hs-comment">-- | The scalable dimension associated with the scalable target. This string</span><span>
 </span><span id="line-453"></span><span class="hs-comment">-- consists of the service namespace, resource type, and scaling property.</span><span>
@@ -678,16 +678,16 @@ $sel:resourceId:ScalableTarget' :: ScalableTarget -&gt; Text
 -&gt; Lens
      ScalableTarget ScalableTarget ScalableDimension ScalableDimension
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186132"><span class="annot"><span class="annottext">ScalableDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186141"><span class="annot"><span class="annottext">ScalableDimension
 scalableDimension :: ScalableDimension
 $sel:scalableDimension:ScalableTarget' :: ScalableTarget -&gt; ScalableDimension
-</span><a href="#local-6989586621679186132"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679186132"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186131"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186130"><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679186130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalableTarget' :: ScalableDimension
+</span><a href="#local-6989586621679186141"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186141"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186140"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186139"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:ScalableTarget' :: ScalableDimension
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AscalableDimension%3AScalableTarget%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
-</span><a href="#local-6989586621679186130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-519"></span><span>
 </span><span id="line-520"></span><span class="hs-comment">-- | The minimum value to scale to in response to a scale-in activity.</span><span>
 </span><span id="line-521"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#scalableTarget_minCapacity"><span class="hs-identifier hs-type">scalableTarget_minCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -696,16 +696,16 @@ $sel:scalableDimension:ScalableTarget' :: ScalableTarget -&gt; ScalableDimension
 -&gt; (ScalableTarget -&gt; Int -&gt; ScalableTarget)
 -&gt; Lens ScalableTarget ScalableTarget Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186128"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186137"><span class="annot"><span class="annottext">Int
 minCapacity :: Int
 $sel:minCapacity:ScalableTarget' :: ScalableTarget -&gt; Int
-</span><a href="#local-6989586621679186128"><span class="hs-identifier hs-var hs-var">minCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186128"><span class="hs-identifier hs-var">minCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186127"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186126"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCapacity:ScalableTarget' :: Int
+</span><a href="#local-6989586621679186137"><span class="hs-identifier hs-var hs-var">minCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186137"><span class="hs-identifier hs-var">minCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186136"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186135"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCapacity:ScalableTarget' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AminCapacity%3AScalableTarget%27"><span class="hs-identifier hs-var">minCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-523"></span><span>
 </span><span id="line-524"></span><span class="hs-comment">-- | The maximum value to scale to in response to a scale-out activity.</span><span>
 </span><span id="line-525"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#scalableTarget_maxCapacity"><span class="hs-identifier hs-type">scalableTarget_maxCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -714,16 +714,16 @@ $sel:minCapacity:ScalableTarget' :: ScalableTarget -&gt; Int
 -&gt; (ScalableTarget -&gt; Int -&gt; ScalableTarget)
 -&gt; Lens ScalableTarget ScalableTarget Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186124"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186133"><span class="annot"><span class="annottext">Int
 maxCapacity :: Int
 $sel:maxCapacity:ScalableTarget' :: ScalableTarget -&gt; Int
-</span><a href="#local-6989586621679186124"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186124"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186123"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186122"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCapacity:ScalableTarget' :: Int
+</span><a href="#local-6989586621679186133"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186133"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186132"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186131"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCapacity:ScalableTarget' :: Int
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AmaxCapacity%3AScalableTarget%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679186122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-527"></span><span>
 </span><span id="line-528"></span><span class="hs-comment">-- | The ARN of an IAM role that allows Application Auto Scaling to modify</span><span>
 </span><span id="line-529"></span><span class="hs-comment">-- the scalable target on your behalf.</span><span>
@@ -733,16 +733,16 @@ $sel:maxCapacity:ScalableTarget' :: ScalableTarget -&gt; Int
 -&gt; (ScalableTarget -&gt; Text -&gt; ScalableTarget)
 -&gt; Lens ScalableTarget ScalableTarget Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186120"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186129"><span class="annot"><span class="annottext">Text
 roleARN :: Text
 $sel:roleARN:ScalableTarget' :: ScalableTarget -&gt; Text
-</span><a href="#local-6989586621679186120"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186120"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186119"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186118"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ScalableTarget' :: Text
+</span><a href="#local-6989586621679186129"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186129"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186128"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186127"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:ScalableTarget' :: Text
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AroleARN%3AScalableTarget%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679186118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679186127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-532"></span><span>
 </span><span id="line-533"></span><span class="hs-comment">-- | The Unix timestamp for when the scalable target was created.</span><span>
 </span><span id="line-534"></span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#scalableTarget_creationTime"><span class="hs-identifier hs-type">scalableTarget_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -751,16 +751,16 @@ $sel:roleARN:ScalableTarget' :: ScalableTarget -&gt; Text
 -&gt; (ScalableTarget -&gt; POSIX -&gt; ScalableTarget)
 -&gt; Lens ScalableTarget ScalableTarget POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186116"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186125"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:ScalableTarget' :: ScalableTarget -&gt; POSIX
-</span><a href="#local-6989586621679186116"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679186116"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186115"><span class="annot"><span class="annottext">s :: ScalableTarget
-</span><a href="#local-6989586621679186115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186114"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
-</span><a href="#local-6989586621679186115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ScalableTarget' :: POSIX
+</span><a href="#local-6989586621679186125"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186125"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186124"><span class="annot"><span class="annottext">s :: ScalableTarget
+</span><a href="#local-6989586621679186124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget%27"><span class="hs-identifier hs-type">ScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186123"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679186123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableTarget
+</span><a href="#local-6989586621679186124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:ScalableTarget' :: POSIX
 </span><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#%24sel%3AcreationTime%3AScalableTarget%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ScalableTarget -&gt; f ScalableTarget)
+</span><a href="#local-6989586621679186123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ScalableTarget -&gt; f ScalableTarget)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ScalableTarget
@@ -770,8 +770,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-536"></span><span>
-</span><span id="line-537"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186110"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-538"></span><span>  </span><span id="local-6989586621679186108"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScalableTarget
+</span><span id="line-537"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186119"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-538"></span><span>  </span><span id="local-6989586621679186117"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ScalableTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-539"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ScalableTarget)
@@ -781,8 +781,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-540"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ScalableTarget&quot;</span></span><span>
-</span><span id="line-541"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186105"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-541"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186114"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-542"></span><span>          </span><span class="annot"><span class="annottext">Maybe SuspendedState
 -&gt; ServiceNamespace
 -&gt; Text
@@ -814,7 +814,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ScalableTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SuspendedState)
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SuspendedState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SuspendedState&quot;</span></span><span class="hs-special">)</span><span>
@@ -838,7 +838,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ScalableTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ServiceNamespace
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ServiceNamespace
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span class="hs-special">)</span><span>
@@ -856,7 +856,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; Int -&gt; Int -&gt; Text -&gt; POSIX -&gt; ScalableTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -867,7 +867,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Int -&gt; Int -&gt; Text -&gt; POSIX -&gt; ScalableTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalableDimension
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ScalableDimension
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalableDimension&quot;</span></span><span class="hs-special">)</span><span>
@@ -875,7 +875,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Int -&gt; Parser (Int -&gt; Text -&gt; POSIX -&gt; ScalableTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinCapacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -883,7 +883,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Int -&gt; Parser (Text -&gt; POSIX -&gt; ScalableTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxCapacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -891,7 +891,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (POSIX -&gt; ScalableTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -899,13 +899,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ScalableTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679186105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679186114"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-551"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-552"></span><span>
-</span><span id="line-553"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186098"><span id="local-6989586621679186100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span></span></span><span>
+</span><span id="line-553"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186107"><span id="local-6989586621679186109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span></span></span><span>
 </span><span id="line-554"></span><span>
-</span><span id="line-555"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span></span><span>
+</span><span id="line-555"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ApplicationAutoScaling.Types.ScalableTarget.html#ScalableTarget"><span class="hs-identifier hs-type">ScalableTarget</span></a></span></span><span>
 </span><span id="line-556"></span></pre></body></html>

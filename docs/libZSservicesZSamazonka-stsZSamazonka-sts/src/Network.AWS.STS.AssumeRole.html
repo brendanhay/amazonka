@@ -159,7 +159,7 @@
 </span><span id="line-159"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.STS.Types.html"><span class="hs-identifier">Network.AWS.STS.Types</span></a></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | /See:/ 'newAssumeRole' smart constructor.</span><span>
-</span><span id="line-162"></span><span id="local-6989586621679153192"><span id="local-6989586621679153193"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssumeRole"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-var">AssumeRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssumeRole%27"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-var">AssumeRole'</span></a></span></span><span>
+</span><span id="line-162"></span><span id="local-6989586621679153201"><span id="local-6989586621679153202"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssumeRole"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-var">AssumeRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssumeRole%27"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-var">AssumeRole'</span></a></span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of keys for session tags that you want to set as transitive. If</span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-comment">-- you set a tag key as transitive, the corresponding key and value passes</span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-comment">-- to subsequent sessions in a role chain. For more information, see</span><span>
@@ -377,7 +377,7 @@
 </span><span id="line-367"></span><span>    </span><span id="%24sel%3AroleSessionName%3AAssumeRole%27"><span class="annot"><span class="annottext">AssumeRole -&gt; Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AroleSessionName%3AAssumeRole%27"><span class="hs-identifier hs-var hs-var">roleSessionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-368"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-369"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153176"><span id="local-6989586621679153178"><span class="annot"><span class="annottext">AssumeRole -&gt; AssumeRole -&gt; Bool
+</span><span id="line-369"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153185"><span id="local-6989586621679153187"><span class="annot"><span class="annottext">AssumeRole -&gt; AssumeRole -&gt; Bool
 (AssumeRole -&gt; AssumeRole -&gt; Bool)
 -&gt; (AssumeRole -&gt; AssumeRole -&gt; Bool) -&gt; Eq AssumeRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -385,7 +385,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssumeRole -&gt; AssumeRole -&gt; Bool
 == :: AssumeRole -&gt; AssumeRole -&gt; Bool
 $c== :: AssumeRole -&gt; AssumeRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153167"><span id="local-6989586621679153169"><span id="local-6989586621679153171"><span id="local-6989586621679153173"><span class="annot"><span class="annottext">ReadPrec [AssumeRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153176"><span id="local-6989586621679153178"><span id="local-6989586621679153180"><span id="local-6989586621679153182"><span class="annot"><span class="annottext">ReadPrec [AssumeRole]
 ReadPrec AssumeRole
 Int -&gt; ReadS AssumeRole
 ReadS [AssumeRole]
@@ -405,7 +405,7 @@ readList :: ReadS [AssumeRole]
 $creadList :: ReadS [AssumeRole]
 readsPrec :: Int -&gt; ReadS AssumeRole
 $creadsPrec :: Int -&gt; ReadS AssumeRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153160"><span id="local-6989586621679153162"><span id="local-6989586621679153164"><span class="annot"><span class="annottext">Int -&gt; AssumeRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153169"><span id="local-6989586621679153171"><span id="local-6989586621679153173"><span class="annot"><span class="annottext">Int -&gt; AssumeRole -&gt; ShowS
 [AssumeRole] -&gt; ShowS
 AssumeRole -&gt; String
 (Int -&gt; AssumeRole -&gt; ShowS)
@@ -649,9 +649,9 @@ $cfrom :: forall x. AssumeRole -&gt; Rep AssumeRole x
 </span><span id="line-587"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-588"></span><span>  </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span>
 </span><span id="line-589"></span><span id="newAssumeRole"><span class="annot"><span class="annottext">newAssumeRole :: Text -&gt; Text -&gt; AssumeRole
-</span><a href="Network.AWS.STS.AssumeRole.html#newAssumeRole"><span class="hs-identifier hs-var hs-var">newAssumeRole</span></a></span></span><span> </span><span id="local-6989586621679153155"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153155"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679153154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153154"><span class="hs-identifier hs-var">pRoleSessionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.STS.AssumeRole.html#newAssumeRole"><span class="hs-identifier hs-var hs-var">newAssumeRole</span></a></span></span><span> </span><span id="local-6989586621679153164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153164"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span id="local-6989586621679153163"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153163"><span class="hs-identifier hs-var">pRoleSessionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-590"></span><span>  </span><span class="annot"><span class="annottext">AssumeRole' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe [PolicyDescriptorType]
@@ -703,10 +703,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-600"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:AssumeRole' :: Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AroleArn%3AAssumeRole%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153155"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153164"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-601"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleSessionName:AssumeRole' :: Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AroleSessionName%3AAssumeRole%27"><span class="hs-identifier hs-var">roleSessionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153154"><span class="hs-identifier hs-var">pRoleSessionName_</span></a></span><span>
+</span><a href="#local-6989586621679153163"><span class="hs-identifier hs-var">pRoleSessionName_</span></a></span><span>
 </span><span id="line-602"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-603"></span><span>
 </span><span id="line-604"></span><span class="hs-comment">-- | A list of keys for session tags that you want to set as transitive. If</span><span>
@@ -726,16 +726,16 @@ forall a. Maybe a
 -&gt; (AssumeRole -&gt; Maybe [Text] -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153151"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153160"><span class="annot"><span class="annottext">Maybe [Text]
 transitiveTagKeys :: Maybe [Text]
 $sel:transitiveTagKeys:AssumeRole' :: AssumeRole -&gt; Maybe [Text]
-</span><a href="#local-6989586621679153151"><span class="hs-identifier hs-var hs-var">transitiveTagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679153151"><span class="hs-identifier hs-var">transitiveTagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153150"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153149"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679153149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitiveTagKeys:AssumeRole' :: Maybe [Text]
+</span><a href="#local-6989586621679153160"><span class="hs-identifier hs-var hs-var">transitiveTagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679153160"><span class="hs-identifier hs-var">transitiveTagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153159"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153158"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679153158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitiveTagKeys:AssumeRole' :: Maybe [Text]
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AtransitiveTagKeys%3AAssumeRole%27"><span class="hs-identifier hs-var">transitiveTagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679153149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; AssumeRole -&gt; f AssumeRole)
+</span><a href="#local-6989586621679153158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; AssumeRole -&gt; f AssumeRole)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -765,16 +765,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AssumeRole -&gt; Maybe Text -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153145"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153154"><span class="annot"><span class="annottext">Maybe Text
 tokenCode :: Maybe Text
 $sel:tokenCode:AssumeRole' :: AssumeRole -&gt; Maybe Text
-</span><a href="#local-6989586621679153145"><span class="hs-identifier hs-var hs-var">tokenCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153145"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153144"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153143"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenCode:AssumeRole' :: Maybe Text
+</span><a href="#local-6989586621679153154"><span class="hs-identifier hs-var hs-var">tokenCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153154"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153153"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenCode:AssumeRole' :: Maybe Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AtokenCode%3AAssumeRole%27"><span class="hs-identifier hs-var">tokenCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-628"></span><span>
 </span><span id="line-629"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the IAM managed policies that you</span><span>
 </span><span id="line-630"></span><span class="hs-comment">-- want to use as managed session policies. The policies must exist in the</span><span>
@@ -815,16 +815,16 @@ $sel:tokenCode:AssumeRole' :: AssumeRole -&gt; Maybe Text
      (Maybe [PolicyDescriptorType])
      (Maybe [PolicyDescriptorType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153142"><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153151"><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
 policyArns :: Maybe [PolicyDescriptorType]
 $sel:policyArns:AssumeRole' :: AssumeRole -&gt; Maybe [PolicyDescriptorType]
-</span><a href="#local-6989586621679153142"><span class="hs-identifier hs-var hs-var">policyArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
-</span><a href="#local-6989586621679153142"><span class="hs-identifier hs-var">policyArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153141"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153140"><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
-</span><a href="#local-6989586621679153140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArns:AssumeRole' :: Maybe [PolicyDescriptorType]
+</span><a href="#local-6989586621679153151"><span class="hs-identifier hs-var hs-var">policyArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
+</span><a href="#local-6989586621679153151"><span class="hs-identifier hs-var">policyArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153150"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153149"><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
+</span><a href="#local-6989586621679153149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArns:AssumeRole' :: Maybe [PolicyDescriptorType]
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3ApolicyArns%3AAssumeRole%27"><span class="hs-identifier hs-var">policyArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
-</span><a href="#local-6989586621679153140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyDescriptorType] -&gt; f (Maybe [PolicyDescriptorType]))
+</span><a href="#local-6989586621679153149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyDescriptorType] -&gt; f (Maybe [PolicyDescriptorType]))
  -&gt; AssumeRole -&gt; f AssumeRole)
 -&gt; ((Maybe [PolicyDescriptorType]
      -&gt; f (Maybe [PolicyDescriptorType]))
@@ -883,16 +883,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AssumeRole -&gt; Maybe Natural -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153139"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153148"><span class="annot"><span class="annottext">Maybe Natural
 durationSeconds :: Maybe Natural
 $sel:durationSeconds:AssumeRole' :: AssumeRole -&gt; Maybe Natural
-</span><a href="#local-6989586621679153139"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679153139"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153138"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153137"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679153137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:AssumeRole' :: Maybe Natural
+</span><a href="#local-6989586621679153148"><span class="hs-identifier hs-var hs-var">durationSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679153148"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153147"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153146"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679153146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSeconds:AssumeRole' :: Maybe Natural
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AdurationSeconds%3AAssumeRole%27"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679153137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-683"></span><span>
 </span><span id="line-684"></span><span class="hs-comment">-- | An IAM policy in JSON format that you want to use as an inline session</span><span>
 </span><span id="line-685"></span><span class="hs-comment">-- policy.</span><span>
@@ -926,16 +926,16 @@ $sel:durationSeconds:AssumeRole' :: AssumeRole -&gt; Maybe Natural
 -&gt; (AssumeRole -&gt; Maybe Text -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153136"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153145"><span class="annot"><span class="annottext">Maybe Text
 policy :: Maybe Text
 $sel:policy:AssumeRole' :: AssumeRole -&gt; Maybe Text
-</span><a href="#local-6989586621679153136"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153136"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153135"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153134"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:AssumeRole' :: Maybe Text
+</span><a href="#local-6989586621679153145"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153145"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153144"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:AssumeRole' :: Maybe Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3Apolicy%3AAssumeRole%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-712"></span><span>
 </span><span id="line-713"></span><span class="hs-comment">-- | A unique identifier that might be required when you assume a role in</span><span>
 </span><span id="line-714"></span><span class="hs-comment">-- another account. If the administrator of the account to which the role</span><span>
@@ -960,16 +960,16 @@ $sel:policy:AssumeRole' :: AssumeRole -&gt; Maybe Text
 -&gt; (AssumeRole -&gt; Maybe Text -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153133"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153142"><span class="annot"><span class="annottext">Maybe Text
 externalId :: Maybe Text
 $sel:externalId:AssumeRole' :: AssumeRole -&gt; Maybe Text
-</span><a href="#local-6989586621679153133"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153133"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153132"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalId:AssumeRole' :: Maybe Text
+</span><a href="#local-6989586621679153142"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153142"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153141"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153140"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalId:AssumeRole' :: Maybe Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AexternalId%3AAssumeRole%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-732"></span><span>
 </span><span id="line-733"></span><span class="hs-comment">-- | The source identity specified by the principal that is calling the</span><span>
 </span><span id="line-734"></span><span class="hs-comment">-- @AssumeRole@ operation.</span><span>
@@ -995,16 +995,16 @@ $sel:externalId:AssumeRole' :: AssumeRole -&gt; Maybe Text
 -&gt; (AssumeRole -&gt; Maybe Text -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153130"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153139"><span class="annot"><span class="annottext">Maybe Text
 sourceIdentity :: Maybe Text
 $sel:sourceIdentity:AssumeRole' :: AssumeRole -&gt; Maybe Text
-</span><a href="#local-6989586621679153130"><span class="hs-identifier hs-var hs-var">sourceIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153130"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153129"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentity:AssumeRole' :: Maybe Text
+</span><a href="#local-6989586621679153139"><span class="hs-identifier hs-var hs-var">sourceIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153139"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153138"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153137"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentity:AssumeRole' :: Maybe Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AsourceIdentity%3AAssumeRole%27"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-753"></span><span>
 </span><span id="line-754"></span><span class="hs-comment">-- | The identification number of the MFA device that is associated with the</span><span>
 </span><span id="line-755"></span><span class="hs-comment">-- user who is making the @AssumeRole@ call. Specify this value if the</span><span>
@@ -1024,16 +1024,16 @@ $sel:sourceIdentity:AssumeRole' :: AssumeRole -&gt; Maybe Text
 -&gt; (AssumeRole -&gt; Maybe Text -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153127"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153136"><span class="annot"><span class="annottext">Maybe Text
 serialNumber :: Maybe Text
 $sel:serialNumber:AssumeRole' :: AssumeRole -&gt; Maybe Text
-</span><a href="#local-6989586621679153127"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153127"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153126"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153125"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:AssumeRole' :: Maybe Text
+</span><a href="#local-6989586621679153136"><span class="hs-identifier hs-var hs-var">serialNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153136"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153135"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153134"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serialNumber:AssumeRole' :: Maybe Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AserialNumber%3AAssumeRole%27"><span class="hs-identifier hs-var">serialNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-768"></span><span>
 </span><span id="line-769"></span><span class="hs-comment">-- | A list of session tags that you want to pass. Each session tag consists</span><span>
 </span><span id="line-770"></span><span class="hs-comment">-- of a key name and an associated value. For more information about</span><span>
@@ -1078,16 +1078,16 @@ $sel:serialNumber:AssumeRole' :: AssumeRole -&gt; Maybe Text
 -&gt; (AssumeRole -&gt; Maybe [Tag] -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153124"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153133"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:AssumeRole' :: AssumeRole -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679153124"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679153124"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153123"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153122"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679153122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AssumeRole' :: Maybe [Tag]
+</span><a href="#local-6989586621679153133"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679153133"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153132"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153131"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679153131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AssumeRole' :: Maybe [Tag]
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3Atags%3AAssumeRole%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679153122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; AssumeRole -&gt; f AssumeRole)
+</span><a href="#local-6989586621679153131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; AssumeRole -&gt; f AssumeRole)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -1110,16 +1110,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (AssumeRole -&gt; Text -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153121"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153130"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:AssumeRole' :: AssumeRole -&gt; Text
-</span><a href="#local-6989586621679153121"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153121"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153120"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153119"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AssumeRole' :: Text
+</span><a href="#local-6989586621679153130"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153130"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153129"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AssumeRole' :: Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AroleArn%3AAssumeRole%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-812"></span><span>
 </span><span id="line-813"></span><span class="hs-comment">-- | An identifier for the assumed role session.</span><span>
 </span><span id="line-814"></span><span class="hs-comment">--</span><span>
@@ -1142,25 +1142,25 @@ $sel:roleArn:AssumeRole' :: AssumeRole -&gt; Text
 -&gt; (AssumeRole -&gt; Text -&gt; AssumeRole)
 -&gt; Lens AssumeRole AssumeRole Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153118"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153127"><span class="annot"><span class="annottext">Text
 roleSessionName :: Text
 $sel:roleSessionName:AssumeRole' :: AssumeRole -&gt; Text
-</span><a href="#local-6989586621679153118"><span class="hs-identifier hs-var hs-var">roleSessionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153118"><span class="hs-identifier hs-var">roleSessionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153117"><span class="annot"><span class="annottext">s :: AssumeRole
-</span><a href="#local-6989586621679153117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153116"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
-</span><a href="#local-6989586621679153117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleSessionName:AssumeRole' :: Text
+</span><a href="#local-6989586621679153127"><span class="hs-identifier hs-var hs-var">roleSessionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153127"><span class="hs-identifier hs-var">roleSessionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153126"><span class="annot"><span class="annottext">s :: AssumeRole
+</span><a href="#local-6989586621679153126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679153125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRole
+</span><a href="#local-6989586621679153126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleSessionName:AssumeRole' :: Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AroleSessionName%3AAssumeRole%27"><span class="hs-identifier hs-var">roleSessionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-830"></span><span>
 </span><span id="line-831"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-832"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span>
-</span><span id="line-833"></span><span>  </span><span id="local-6989586621679153112"><span class="annot"><span class="annottext">request :: AssumeRole -&gt; Request AssumeRole
+</span><span id="line-833"></span><span>  </span><span id="local-6989586621679153121"><span class="annot"><span class="annottext">request :: AssumeRole -&gt; Request AssumeRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssumeRole -&gt; Request AssumeRole
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.STS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-834"></span><span>  </span><span id="local-6989586621679153108"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-834"></span><span>  </span><span id="local-6989586621679153117"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssumeRole
 -&gt; ClientResponse ClientBody
@@ -1189,10 +1189,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-836"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssumeRoleResult&quot;</span></span><span>
-</span><span id="line-837"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679153105"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679153105"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679153104"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679153104"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679153103"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679153103"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-837"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679153114"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679153114"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679153113"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679153113"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679153112"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679153112"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-838"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe AuthEnv
 -&gt; Maybe AssumedRoleUser
@@ -1216,7 +1216,7 @@ Text
       -&gt; AssumeRoleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679153103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679153112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PackedPolicySize&quot;</span></span><span class="hs-special">)</span><span>
@@ -1233,7 +1233,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe AssumedRoleUser -&gt; Maybe Text -&gt; Int -&gt; AssumeRoleResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679153103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AuthEnv)
+</span><a href="#local-6989586621679153112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AuthEnv)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Credentials&quot;</span></span><span class="hs-special">)</span><span>
@@ -1244,7 +1244,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; AssumeRoleResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679153103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AssumedRoleUser)
+</span><a href="#local-6989586621679153112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AssumedRoleUser)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssumedRoleUser&quot;</span></span><span class="hs-special">)</span><span>
@@ -1253,7 +1253,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; AssumeRoleResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679153103"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679153112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceIdentity&quot;</span></span><span class="hs-special">)</span><span>
@@ -1265,15 +1265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679153105"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153114"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-844"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-845"></span><span>
-</span><span id="line-846"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153095"><span id="local-6989586621679153097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span></span></span><span>
+</span><span id="line-846"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153104"><span id="local-6989586621679153106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span></span></span><span>
 </span><span id="line-847"></span><span>
-</span><span id="line-848"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span></span><span>
+</span><span id="line-848"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span></span><span>
 </span><span id="line-849"></span><span>
 </span><span id="line-850"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-851"></span><span>  </span><span id="local-6989586621679153088"><span class="annot"><span class="annottext">toHeaders :: AssumeRole -&gt; ResponseHeaders
+</span><span id="line-851"></span><span>  </span><span id="local-6989586621679153097"><span class="annot"><span class="annottext">toHeaders :: AssumeRole -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssumeRole -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -1281,15 +1281,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-852"></span><span>
 </span><span id="line-853"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-854"></span><span>  </span><span id="local-6989586621679153083"><span class="annot"><span class="annottext">toPath :: AssumeRole -&gt; ByteString
+</span><span id="line-854"></span><span>  </span><span id="local-6989586621679153092"><span class="annot"><span class="annottext">toPath :: AssumeRole -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssumeRole -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-855"></span><span>
 </span><span id="line-856"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole"><span class="hs-identifier hs-type">AssumeRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-857"></span><span>  </span><span id="local-6989586621679153079"><span class="annot"><span class="annottext">toQuery :: AssumeRole -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153067"><span id="local-6989586621679153068"><span id="local-6989586621679153069"><span id="local-6989586621679153070"><span id="local-6989586621679153071"><span id="local-6989586621679153072"><span id="local-6989586621679153073"><span id="local-6989586621679153074"><span id="local-6989586621679153075"><span id="local-6989586621679153076"><span id="local-6989586621679153077"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-857"></span><span>  </span><span id="local-6989586621679153088"><span class="annot"><span class="annottext">toQuery :: AssumeRole -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRole%27"><span class="hs-identifier hs-type">AssumeRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153076"><span id="local-6989586621679153077"><span id="local-6989586621679153078"><span id="local-6989586621679153079"><span id="local-6989586621679153080"><span id="local-6989586621679153081"><span id="local-6989586621679153082"><span id="local-6989586621679153083"><span id="local-6989586621679153084"><span id="local-6989586621679153085"><span id="local-6989586621679153086"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Text]
 Maybe [PolicyDescriptorType]
 Maybe [Tag]
@@ -1317,7 +1317,7 @@ $sel:durationSeconds:AssumeRole' :: AssumeRole -&gt; Maybe Natural
 $sel:policyArns:AssumeRole' :: AssumeRole -&gt; Maybe [PolicyDescriptorType]
 $sel:tokenCode:AssumeRole' :: AssumeRole -&gt; Maybe Text
 $sel:transitiveTagKeys:AssumeRole' :: AssumeRole -&gt; Maybe [Text]
-</span><a href="#local-6989586621679153067"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679153076"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-858"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1349,13 +1349,13 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-866"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679153077"><span class="hs-identifier hs-var">transitiveTagKeys</span></a></span><span>
+</span><a href="#local-6989586621679153086"><span class="hs-identifier hs-var">transitiveTagKeys</span></a></span><span>
 </span><span id="line-867"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-868"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TokenCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153076"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153085"><span class="hs-identifier hs-var">tokenCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-869"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyArns&quot;</span></span><span>
 </span><span id="line-870"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -1372,32 +1372,32 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [PolicyDescriptorType] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyDescriptorType]
-</span><a href="#local-6989586621679153075"><span class="hs-identifier hs-var">policyArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153084"><span class="hs-identifier hs-var">policyArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-872"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DurationSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679153074"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153083"><span class="hs-identifier hs-var">durationSeconds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-873"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153073"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153082"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-874"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ExternalId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153072"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153081"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-875"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceIdentity&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153071"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153080"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-876"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SerialNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153070"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153079"><span class="hs-identifier hs-var">serialNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-877"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
 </span><span id="line-878"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -1413,17 +1413,17 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679153069"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153078"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-880"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153068"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679153077"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-881"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RoleSessionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679153067"><span class="hs-identifier hs-var">roleSessionName</span></a></span><span>
+</span><a href="#local-6989586621679153076"><span class="hs-identifier hs-var">roleSessionName</span></a></span><span>
 </span><span id="line-882"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-883"></span><span>
 </span><span id="line-884"></span><span class="hs-comment">-- | Contains the response to a successful AssumeRole request, including</span><span>
@@ -1431,7 +1431,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-886"></span><span class="hs-comment">-- Amazon Web Services requests.</span><span>
 </span><span id="line-887"></span><span class="hs-comment">--</span><span>
 </span><span id="line-888"></span><span class="hs-comment">-- /See:/ 'newAssumeRoleResponse' smart constructor.</span><span>
-</span><span id="line-889"></span><span id="local-6989586621679153063"><span id="local-6989586621679153064"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssumeRoleResponse"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-var">AssumeRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssumeRoleResponse%27"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-var">AssumeRoleResponse'</span></a></span></span><span>
+</span><span id="line-889"></span><span id="local-6989586621679153072"><span id="local-6989586621679153073"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssumeRoleResponse"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-var">AssumeRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssumeRoleResponse%27"><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-var">AssumeRoleResponse'</span></a></span></span><span>
 </span><span id="line-890"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A percentage value that indicates the packed size of the session</span><span>
 </span><span id="line-891"></span><span>    </span><span class="hs-comment">-- policies and session tags combined passed in the request. The request</span><span>
 </span><span id="line-892"></span><span>    </span><span class="hs-comment">-- fails if the packed size is greater than 100 percent, which means the</span><span>
@@ -1477,7 +1477,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-928"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssumeRoleResponse%27"><span class="annot"><span class="annottext">AssumeRoleResponse -&gt; Int
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AhttpStatus%3AAssumeRoleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-929"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-930"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153054"><span id="local-6989586621679153056"><span class="annot"><span class="annottext">AssumeRoleResponse -&gt; AssumeRoleResponse -&gt; Bool
+</span><span id="line-930"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153063"><span id="local-6989586621679153065"><span class="annot"><span class="annottext">AssumeRoleResponse -&gt; AssumeRoleResponse -&gt; Bool
 (AssumeRoleResponse -&gt; AssumeRoleResponse -&gt; Bool)
 -&gt; (AssumeRoleResponse -&gt; AssumeRoleResponse -&gt; Bool)
 -&gt; Eq AssumeRoleResponse
@@ -1486,7 +1486,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssumeRoleResponse -&gt; AssumeRoleResponse -&gt; Bool
 == :: AssumeRoleResponse -&gt; AssumeRoleResponse -&gt; Bool
 $c== :: AssumeRoleResponse -&gt; AssumeRoleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153048"><span id="local-6989586621679153050"><span id="local-6989586621679153052"><span class="annot"><span class="annottext">Int -&gt; AssumeRoleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153057"><span id="local-6989586621679153059"><span id="local-6989586621679153061"><span class="annot"><span class="annottext">Int -&gt; AssumeRoleResponse -&gt; ShowS
 [AssumeRoleResponse] -&gt; ShowS
 AssumeRoleResponse -&gt; String
 (Int -&gt; AssumeRoleResponse -&gt; ShowS)
@@ -1563,8 +1563,8 @@ $cfrom :: forall x. AssumeRoleResponse -&gt; Rep AssumeRoleResponse x
 </span><span id="line-980"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-981"></span><span>  </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span>
 </span><span id="line-982"></span><span id="newAssumeRoleResponse"><span class="annot"><span class="annottext">newAssumeRoleResponse :: Int -&gt; AssumeRoleResponse
-</span><a href="Network.AWS.STS.AssumeRole.html#newAssumeRoleResponse"><span class="hs-identifier hs-var hs-var">newAssumeRoleResponse</span></a></span></span><span> </span><span id="local-6989586621679153045"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679153045"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.STS.AssumeRole.html#newAssumeRoleResponse"><span class="hs-identifier hs-var hs-var">newAssumeRoleResponse</span></a></span></span><span> </span><span id="local-6989586621679153054"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679153054"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-983"></span><span>  </span><span class="annot"><span class="annottext">AssumeRoleResponse' :: Maybe Natural
 -&gt; Maybe AuthEnv
 -&gt; Maybe AssumedRoleUser
@@ -1591,7 +1591,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-989"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssumeRoleResponse' :: Int
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AhttpStatus%3AAssumeRoleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679153045"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679153054"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-990"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-991"></span><span>
 </span><span id="line-992"></span><span class="hs-comment">-- | A percentage value that indicates the packed size of the session</span><span>
@@ -1609,16 +1609,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153044"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153053"><span class="annot"><span class="annottext">Maybe Natural
 packedPolicySize :: Maybe Natural
 $sel:packedPolicySize:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679153044"><span class="hs-identifier hs-var hs-var">packedPolicySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679153044"><span class="hs-identifier hs-var">packedPolicySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153043"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
-</span><a href="#local-6989586621679153043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153042"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679153042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
-</span><a href="#local-6989586621679153043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packedPolicySize:AssumeRoleResponse' :: Maybe Natural
+</span><a href="#local-6989586621679153053"><span class="hs-identifier hs-var hs-var">packedPolicySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679153053"><span class="hs-identifier hs-var">packedPolicySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153052"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
+</span><a href="#local-6989586621679153052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153051"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679153051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
+</span><a href="#local-6989586621679153052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packedPolicySize:AssumeRoleResponse' :: Maybe Natural
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3ApackedPolicySize%3AAssumeRoleResponse%27"><span class="hs-identifier hs-var">packedPolicySize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679153042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-998"></span><span>
 </span><span id="line-999"></span><span class="hs-comment">-- | The temporary security credentials, which include an access key ID, a</span><span>
 </span><span id="line-1000"></span><span class="hs-comment">-- secret access key, and a security (or session) token.</span><span>
@@ -1637,16 +1637,16 @@ $sel:packedPolicySize:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe Natu
      (Maybe AuthEnv)
      (Maybe AuthEnv)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153041"><span class="annot"><span class="annottext">Maybe AuthEnv
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153050"><span class="annot"><span class="annottext">Maybe AuthEnv
 credentials :: Maybe AuthEnv
 $sel:credentials:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe AuthEnv
-</span><a href="#local-6989586621679153041"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthEnv
-</span><a href="#local-6989586621679153041"><span class="hs-identifier hs-var">credentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153040"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
-</span><a href="#local-6989586621679153040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153039"><span class="annot"><span class="annottext">Maybe AuthEnv
-</span><a href="#local-6989586621679153039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
-</span><a href="#local-6989586621679153040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentials:AssumeRoleResponse' :: Maybe AuthEnv
+</span><a href="#local-6989586621679153050"><span class="hs-identifier hs-var hs-var">credentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthEnv
+</span><a href="#local-6989586621679153050"><span class="hs-identifier hs-var">credentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153049"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
+</span><a href="#local-6989586621679153049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153048"><span class="annot"><span class="annottext">Maybe AuthEnv
+</span><a href="#local-6989586621679153048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
+</span><a href="#local-6989586621679153049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:credentials:AssumeRoleResponse' :: Maybe AuthEnv
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3Acredentials%3AAssumeRoleResponse%27"><span class="hs-identifier hs-var">credentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthEnv
-</span><a href="#local-6989586621679153039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1007"></span><span>
 </span><span id="line-1008"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) and the assumed role ID, which are</span><span>
 </span><span id="line-1009"></span><span class="hs-comment">-- identifiers that you can use to refer to the resulting temporary</span><span>
@@ -1666,16 +1666,16 @@ $sel:credentials:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe AuthEnv
      (Maybe AssumedRoleUser)
      (Maybe AssumedRoleUser)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153038"><span class="annot"><span class="annottext">Maybe AssumedRoleUser
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153047"><span class="annot"><span class="annottext">Maybe AssumedRoleUser
 assumedRoleUser :: Maybe AssumedRoleUser
 $sel:assumedRoleUser:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe AssumedRoleUser
-</span><a href="#local-6989586621679153038"><span class="hs-identifier hs-var hs-var">assumedRoleUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssumedRoleUser
-</span><a href="#local-6989586621679153038"><span class="hs-identifier hs-var">assumedRoleUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153037"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
-</span><a href="#local-6989586621679153037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153036"><span class="annot"><span class="annottext">Maybe AssumedRoleUser
-</span><a href="#local-6989586621679153036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
-</span><a href="#local-6989586621679153037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assumedRoleUser:AssumeRoleResponse' :: Maybe AssumedRoleUser
+</span><a href="#local-6989586621679153047"><span class="hs-identifier hs-var hs-var">assumedRoleUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssumedRoleUser
+</span><a href="#local-6989586621679153047"><span class="hs-identifier hs-var">assumedRoleUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153046"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
+</span><a href="#local-6989586621679153046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153045"><span class="annot"><span class="annottext">Maybe AssumedRoleUser
+</span><a href="#local-6989586621679153045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
+</span><a href="#local-6989586621679153046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assumedRoleUser:AssumeRoleResponse' :: Maybe AssumedRoleUser
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AassumedRoleUser%3AAssumeRoleResponse%27"><span class="hs-identifier hs-var">assumedRoleUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssumedRoleUser
-</span><a href="#local-6989586621679153036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1016"></span><span>
 </span><span id="line-1017"></span><span class="hs-comment">-- | The source identity specified by the principal that is calling the</span><span>
 </span><span id="line-1018"></span><span class="hs-comment">-- @AssumeRole@ operation.</span><span>
@@ -1702,16 +1702,16 @@ $sel:assumedRoleUser:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe Assum
 -&gt; Lens
      AssumeRoleResponse AssumeRoleResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153035"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153044"><span class="annot"><span class="annottext">Maybe Text
 sourceIdentity :: Maybe Text
 $sel:sourceIdentity:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679153035"><span class="hs-identifier hs-var hs-var">sourceIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153035"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153034"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
-</span><a href="#local-6989586621679153034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153033"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
-</span><a href="#local-6989586621679153034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentity:AssumeRoleResponse' :: Maybe Text
+</span><a href="#local-6989586621679153044"><span class="hs-identifier hs-var hs-var">sourceIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153044"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153043"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
+</span><a href="#local-6989586621679153043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
+</span><a href="#local-6989586621679153043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentity:AssumeRoleResponse' :: Maybe Text
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AsourceIdentity%3AAssumeRoleResponse%27"><span class="hs-identifier hs-var">sourceIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1036"></span><span>
 </span><span id="line-1037"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-1038"></span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#assumeRoleResponse_httpStatus"><span class="hs-identifier hs-type">assumeRoleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1720,16 +1720,16 @@ $sel:sourceIdentity:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Maybe Text
 -&gt; (AssumeRoleResponse -&gt; Int -&gt; AssumeRoleResponse)
 -&gt; Lens AssumeRoleResponse AssumeRoleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153032"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153041"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssumeRoleResponse' :: AssumeRoleResponse -&gt; Int
-</span><a href="#local-6989586621679153032"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679153032"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153031"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
-</span><a href="#local-6989586621679153031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153030"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679153030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
-</span><a href="#local-6989586621679153031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssumeRoleResponse' :: Int
+</span><a href="#local-6989586621679153041"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679153041"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153040"><span class="annot"><span class="annottext">s :: AssumeRoleResponse
+</span><a href="#local-6989586621679153040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse%27"><span class="hs-identifier hs-type">AssumeRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153039"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679153039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumeRoleResponse
+</span><a href="#local-6989586621679153040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssumeRoleResponse' :: Int
 </span><a href="Network.AWS.STS.AssumeRole.html#%24sel%3AhttpStatus%3AAssumeRoleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679153030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1040"></span><span>
-</span><span id="line-1041"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153028"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span></span><span>
+</span><span id="line-1041"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.STS.AssumeRole.html#AssumeRoleResponse"><span class="hs-identifier hs-type">AssumeRoleResponse</span></a></span></span><span>
 </span><span id="line-1042"></span></pre></body></html>

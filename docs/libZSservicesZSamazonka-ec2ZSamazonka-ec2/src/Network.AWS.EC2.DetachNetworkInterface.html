@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- | Contains the parameters for DetachNetworkInterface.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newDetachNetworkInterface' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621681238090"><span id="local-6989586621681238091"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachNetworkInterface"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-var">DetachNetworkInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachNetworkInterface%27"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-var">DetachNetworkInterface'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621681238099"><span id="local-6989586621681238100"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachNetworkInterface"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-var">DetachNetworkInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachNetworkInterface%27"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-var">DetachNetworkInterface'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to force a detachment.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   Use the @Force@ parameter only as a last resort to detach a network</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AattachmentId%3ADetachNetworkInterface%27"><span class="annot"><span class="annottext">DetachNetworkInterface -&gt; Text
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#%24sel%3AattachmentId%3ADetachNetworkInterface%27"><span class="hs-identifier hs-var hs-var">attachmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681238082"><span id="local-6989586621681238084"><span class="annot"><span class="annottext">DetachNetworkInterface -&gt; DetachNetworkInterface -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681238091"><span id="local-6989586621681238093"><span class="annot"><span class="annottext">DetachNetworkInterface -&gt; DetachNetworkInterface -&gt; Bool
 (DetachNetworkInterface -&gt; DetachNetworkInterface -&gt; Bool)
 -&gt; (DetachNetworkInterface -&gt; DetachNetworkInterface -&gt; Bool)
 -&gt; Eq DetachNetworkInterface
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachNetworkInterface -&gt; DetachNetworkInterface -&gt; Bool
 == :: DetachNetworkInterface -&gt; DetachNetworkInterface -&gt; Bool
 $c== :: DetachNetworkInterface -&gt; DetachNetworkInterface -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681238073"><span id="local-6989586621681238075"><span id="local-6989586621681238077"><span id="local-6989586621681238079"><span class="annot"><span class="annottext">ReadPrec [DetachNetworkInterface]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681238082"><span id="local-6989586621681238084"><span id="local-6989586621681238086"><span id="local-6989586621681238088"><span class="annot"><span class="annottext">ReadPrec [DetachNetworkInterface]
 ReadPrec DetachNetworkInterface
 Int -&gt; ReadS DetachNetworkInterface
 ReadS [DetachNetworkInterface]
@@ -105,7 +105,7 @@ readList :: ReadS [DetachNetworkInterface]
 $creadList :: ReadS [DetachNetworkInterface]
 readsPrec :: Int -&gt; ReadS DetachNetworkInterface
 $creadsPrec :: Int -&gt; ReadS DetachNetworkInterface
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681238066"><span id="local-6989586621681238068"><span id="local-6989586621681238070"><span class="annot"><span class="annottext">Int -&gt; DetachNetworkInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681238075"><span id="local-6989586621681238077"><span id="local-6989586621681238079"><span class="annot"><span class="annottext">Int -&gt; DetachNetworkInterface -&gt; ShowS
 [DetachNetworkInterface] -&gt; ShowS
 DetachNetworkInterface -&gt; String
 (Int -&gt; DetachNetworkInterface -&gt; ShowS)
@@ -168,8 +168,8 @@ $cfrom :: forall x. DetachNetworkInterface -&gt; Rep DetachNetworkInterface x
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span>
 </span><span id="line-113"></span><span id="newDetachNetworkInterface"><span class="annot"><span class="annottext">newDetachNetworkInterface :: Text -&gt; DetachNetworkInterface
-</span><a href="Network.AWS.EC2.DetachNetworkInterface.html#newDetachNetworkInterface"><span class="hs-identifier hs-var hs-var">newDetachNetworkInterface</span></a></span></span><span> </span><span id="local-6989586621681238061"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681238061"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DetachNetworkInterface.html#newDetachNetworkInterface"><span class="hs-identifier hs-var hs-var">newDetachNetworkInterface</span></a></span></span><span> </span><span id="local-6989586621681238070"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681238070"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">DetachNetworkInterface' :: Maybe Bool -&gt; Maybe Bool -&gt; Text -&gt; DetachNetworkInterface
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:DetachNetworkInterface' :: Maybe Bool
@@ -182,7 +182,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentId:DetachNetworkInterface' :: Text
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#%24sel%3AattachmentId%3ADetachNetworkInterface%27"><span class="hs-identifier hs-var">attachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681238061"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span><span>
+</span><a href="#local-6989586621681238070"><span class="hs-identifier hs-var">pAttachmentId_</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Specifies whether to force a detachment.</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238058"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238067"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Maybe Bool
-</span><a href="#local-6989586621681238058"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238058"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681238057"><span class="annot"><span class="annottext">s :: DetachNetworkInterface
-</span><a href="#local-6989586621681238057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681238056"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachNetworkInterface
-</span><a href="#local-6989586621681238057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DetachNetworkInterface' :: Maybe Bool
+</span><a href="#local-6989586621681238067"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681238067"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681238066"><span class="annot"><span class="annottext">s :: DetachNetworkInterface
+</span><a href="#local-6989586621681238066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681238065"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681238065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachNetworkInterface
+</span><a href="#local-6989586621681238066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:DetachNetworkInterface' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#%24sel%3Aforce%3ADetachNetworkInterface%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681238065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -238,16 +238,16 @@ $sel:force:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Maybe Bool
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238055"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238064"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Maybe Bool
-</span><a href="#local-6989586621681238055"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238055"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681238054"><span class="annot"><span class="annottext">s :: DetachNetworkInterface
-</span><a href="#local-6989586621681238054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681238053"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachNetworkInterface
-</span><a href="#local-6989586621681238054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DetachNetworkInterface' :: Maybe Bool
+</span><a href="#local-6989586621681238064"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681238064"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681238063"><span class="annot"><span class="annottext">s :: DetachNetworkInterface
+</span><a href="#local-6989586621681238063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681238062"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681238062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachNetworkInterface
+</span><a href="#local-6989586621681238063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DetachNetworkInterface' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#%24sel%3AdryRun%3ADetachNetworkInterface%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681238062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The ID of the attachment.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#detachNetworkInterface_attachmentId"><span class="hs-identifier hs-type">detachNetworkInterface_attachmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -257,27 +257,27 @@ $sel:dryRun:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Maybe Bool
 -&gt; (DetachNetworkInterface -&gt; Text -&gt; DetachNetworkInterface)
 -&gt; Lens DetachNetworkInterface DetachNetworkInterface Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238052"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238061"><span class="annot"><span class="annottext">Text
 attachmentId :: Text
 $sel:attachmentId:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Text
-</span><a href="#local-6989586621681238052"><span class="hs-identifier hs-var hs-var">attachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681238052"><span class="hs-identifier hs-var">attachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681238051"><span class="annot"><span class="annottext">s :: DetachNetworkInterface
-</span><a href="#local-6989586621681238051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681238050"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681238050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachNetworkInterface
-</span><a href="#local-6989586621681238051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentId:DetachNetworkInterface' :: Text
+</span><a href="#local-6989586621681238061"><span class="hs-identifier hs-var hs-var">attachmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681238061"><span class="hs-identifier hs-var">attachmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681238060"><span class="annot"><span class="annottext">s :: DetachNetworkInterface
+</span><a href="#local-6989586621681238060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681238059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681238059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachNetworkInterface
+</span><a href="#local-6989586621681238060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentId:DetachNetworkInterface' :: Text
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#%24sel%3AattachmentId%3ADetachNetworkInterface%27"><span class="hs-identifier hs-var">attachmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681238050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681238059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse"><span class="hs-identifier hs-type">DetachNetworkInterfaceResponse</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621681238046"><span class="annot"><span class="annottext">request :: DetachNetworkInterface -&gt; Request DetachNetworkInterface
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681238055"><span class="annot"><span class="annottext">request :: DetachNetworkInterface -&gt; Request DetachNetworkInterface
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachNetworkInterface -&gt; Request DetachNetworkInterface
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621681238042"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681238051"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachNetworkInterface
 -&gt; ClientResponse ClientBody
@@ -304,12 +304,12 @@ AWSResponse a
 DetachNetworkInterfaceResponse
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse%27"><span class="hs-identifier hs-var">DetachNetworkInterfaceResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681238035"><span id="local-6989586621681238037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681238044"><span id="local-6989586621681238046"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681238032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681238041"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621681238028"><span class="annot"><span class="annottext">toHeaders :: DetachNetworkInterface -&gt; [Header]
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681238037"><span class="annot"><span class="annottext">toHeaders :: DetachNetworkInterface -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DetachNetworkInterface -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -317,15 +317,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621681238023"><span class="annot"><span class="annottext">toPath :: DetachNetworkInterface -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681238032"><span class="annot"><span class="annottext">toPath :: DetachNetworkInterface -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetachNetworkInterface -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface"><span class="hs-identifier hs-type">DetachNetworkInterface</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621681238019"><span class="annot"><span class="annottext">toQuery :: DetachNetworkInterface -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238015"><span id="local-6989586621681238016"><span id="local-6989586621681238017"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621681238028"><span class="annot"><span class="annottext">toQuery :: DetachNetworkInterface -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterface%27"><span class="hs-identifier hs-type">DetachNetworkInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681238024"><span id="local-6989586621681238025"><span id="local-6989586621681238026"><span class="annot"><span class="annottext">Maybe Bool
 Text
 attachmentId :: Text
 dryRun :: Maybe Bool
@@ -333,7 +333,7 @@ force :: Maybe Bool
 $sel:attachmentId:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Text
 $sel:dryRun:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Maybe Bool
 $sel:force:DetachNetworkInterface' :: DetachNetworkInterface -&gt; Maybe Bool
-</span><a href="#local-6989586621681238015"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681238024"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -353,24 +353,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238017"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681238026"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681238016"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681238025"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AttachmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681238015"><span class="hs-identifier hs-var">attachmentId</span></a></span><span>
+</span><a href="#local-6989586621681238024"><span class="hs-identifier hs-var">attachmentId</span></a></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newDetachNetworkInterfaceResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621681238012"><span id="local-6989586621681238013"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachNetworkInterfaceResponse"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse"><span class="hs-identifier hs-var">DetachNetworkInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachNetworkInterfaceResponse%27"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse%27"><span class="hs-identifier hs-var">DetachNetworkInterfaceResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621681238021"><span id="local-6989586621681238022"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachNetworkInterfaceResponse"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse"><span class="hs-identifier hs-var">DetachNetworkInterfaceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachNetworkInterfaceResponse%27"><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse%27"><span class="hs-identifier hs-var">DetachNetworkInterfaceResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681238008"><span id="local-6989586621681238010"><span class="annot"><span class="annottext">DetachNetworkInterfaceResponse
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681238017"><span id="local-6989586621681238019"><span class="annot"><span class="annottext">DetachNetworkInterfaceResponse
 -&gt; DetachNetworkInterfaceResponse -&gt; Bool
 (DetachNetworkInterfaceResponse
  -&gt; DetachNetworkInterfaceResponse -&gt; Bool)
@@ -386,7 +386,7 @@ $c/= :: DetachNetworkInterfaceResponse
 -&gt; DetachNetworkInterfaceResponse -&gt; Bool
 $c== :: DetachNetworkInterfaceResponse
 -&gt; DetachNetworkInterfaceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681238000"><span id="local-6989586621681238002"><span id="local-6989586621681238004"><span id="local-6989586621681238006"><span class="annot"><span class="annottext">ReadPrec [DetachNetworkInterfaceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681238009"><span id="local-6989586621681238011"><span id="local-6989586621681238013"><span id="local-6989586621681238015"><span class="annot"><span class="annottext">ReadPrec [DetachNetworkInterfaceResponse]
 ReadPrec DetachNetworkInterfaceResponse
 Int -&gt; ReadS DetachNetworkInterfaceResponse
 ReadS [DetachNetworkInterfaceResponse]
@@ -406,7 +406,7 @@ readList :: ReadS [DetachNetworkInterfaceResponse]
 $creadList :: ReadS [DetachNetworkInterfaceResponse]
 readsPrec :: Int -&gt; ReadS DetachNetworkInterfaceResponse
 $creadsPrec :: Int -&gt; ReadS DetachNetworkInterfaceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237994"><span id="local-6989586621681237996"><span id="local-6989586621681237998"><span class="annot"><span class="annottext">Int -&gt; DetachNetworkInterfaceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681238003"><span id="local-6989586621681238005"><span id="local-6989586621681238007"><span class="annot"><span class="annottext">Int -&gt; DetachNetworkInterfaceResponse -&gt; ShowS
 [DetachNetworkInterfaceResponse] -&gt; ShowS
 DetachNetworkInterfaceResponse -&gt; String
 (Int -&gt; DetachNetworkInterfaceResponse -&gt; ShowS)
@@ -456,6 +456,6 @@ DetachNetworkInterfaceResponse
 </span><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse%27"><span class="hs-identifier hs-var">DetachNetworkInterfaceResponse'</span></a></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621681237990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621681237999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DetachNetworkInterface.html#DetachNetworkInterfaceResponse"><span class="hs-identifier hs-type">DetachNetworkInterfaceResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

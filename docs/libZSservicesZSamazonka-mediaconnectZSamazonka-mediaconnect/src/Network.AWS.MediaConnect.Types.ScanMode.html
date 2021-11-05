@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.ScanMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.ScanMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode"><span class="hs-identifier">ScanMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Interlace"><span class="hs-identifier">ScanMode_Interlace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Progressive"><span class="hs-identifier">ScanMode_Progressive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Progressive_segmented_frame"><span class="hs-identifier">ScanMode_Progressive_segmented_frame</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679269830"><span id="local-6989586621679269831"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ScanMode"><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode"><span class="hs-identifier hs-var">ScanMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScanMode%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode%27"><span class="hs-identifier hs-var">ScanMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScanMode"><span class="annot"><span class="annottext">ScanMode -&gt; Text
+</span><a href="Network.AWS.MediaConnect.Types.ScanMode.html#fromScanMode"><span class="hs-identifier hs-var hs-var">fromScanMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269822"><span id="local-6989586621679269824"><span id="local-6989586621679269826"><span class="annot"><span class="annottext">Int -&gt; ScanMode -&gt; ShowS
+[ScanMode] -&gt; ShowS
+ScanMode -&gt; String
+(Int -&gt; ScanMode -&gt; ShowS)
+-&gt; (ScanMode -&gt; String) -&gt; ([ScanMode] -&gt; ShowS) -&gt; Show ScanMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScanMode] -&gt; ShowS
+$cshowList :: [ScanMode] -&gt; ShowS
+show :: ScanMode -&gt; String
+$cshow :: ScanMode -&gt; String
+showsPrec :: Int -&gt; ScanMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScanMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679269813"><span id="local-6989586621679269815"><span id="local-6989586621679269817"><span id="local-6989586621679269819"><span class="annot"><span class="annottext">ReadPrec [ScanMode]
+ReadPrec ScanMode
+Int -&gt; ReadS ScanMode
+ReadS [ScanMode]
+(Int -&gt; ReadS ScanMode)
+-&gt; ReadS [ScanMode]
+-&gt; ReadPrec ScanMode
+-&gt; ReadPrec [ScanMode]
+-&gt; Read ScanMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScanMode]
+$creadListPrec :: ReadPrec [ScanMode]
+readPrec :: ReadPrec ScanMode
+$creadPrec :: ReadPrec ScanMode
+readList :: ReadS [ScanMode]
+$creadList :: ReadS [ScanMode]
+readsPrec :: Int -&gt; ReadS ScanMode
+$creadsPrec :: Int -&gt; ReadS ScanMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679269808"><span id="local-6989586621679269810"><span class="annot"><span class="annottext">ScanMode -&gt; ScanMode -&gt; Bool
+(ScanMode -&gt; ScanMode -&gt; Bool)
+-&gt; (ScanMode -&gt; ScanMode -&gt; Bool) -&gt; Eq ScanMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScanMode -&gt; ScanMode -&gt; Bool
+$c/= :: ScanMode -&gt; ScanMode -&gt; Bool
+== :: ScanMode -&gt; ScanMode -&gt; Bool
+$c== :: ScanMode -&gt; ScanMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679269792"><span id="local-6989586621679269794"><span id="local-6989586621679269796"><span id="local-6989586621679269798"><span id="local-6989586621679269800"><span id="local-6989586621679269802"><span id="local-6989586621679269804"><span class="annot"><span class="annottext">Eq ScanMode
+Eq ScanMode
+-&gt; (ScanMode -&gt; ScanMode -&gt; Ordering)
+-&gt; (ScanMode -&gt; ScanMode -&gt; Bool)
+-&gt; (ScanMode -&gt; ScanMode -&gt; Bool)
+-&gt; (ScanMode -&gt; ScanMode -&gt; Bool)
+-&gt; (ScanMode -&gt; ScanMode -&gt; Bool)
+-&gt; (ScanMode -&gt; ScanMode -&gt; ScanMode)
+-&gt; (ScanMode -&gt; ScanMode -&gt; ScanMode)
+-&gt; Ord ScanMode
+ScanMode -&gt; ScanMode -&gt; Bool
+ScanMode -&gt; ScanMode -&gt; Ordering
+ScanMode -&gt; ScanMode -&gt; ScanMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ScanMode -&gt; ScanMode -&gt; ScanMode
+$cmin :: ScanMode -&gt; ScanMode -&gt; ScanMode
+max :: ScanMode -&gt; ScanMode -&gt; ScanMode
+$cmax :: ScanMode -&gt; ScanMode -&gt; ScanMode
+&gt;= :: ScanMode -&gt; ScanMode -&gt; Bool
+$c&gt;= :: ScanMode -&gt; ScanMode -&gt; Bool
+&gt; :: ScanMode -&gt; ScanMode -&gt; Bool
+$c&gt; :: ScanMode -&gt; ScanMode -&gt; Bool
+&lt;= :: ScanMode -&gt; ScanMode -&gt; Bool
+$c&lt;= :: ScanMode -&gt; ScanMode -&gt; Bool
+&lt; :: ScanMode -&gt; ScanMode -&gt; Bool
+$c&lt; :: ScanMode -&gt; ScanMode -&gt; Bool
+compare :: ScanMode -&gt; ScanMode -&gt; Ordering
+$ccompare :: ScanMode -&gt; ScanMode -&gt; Ordering
+$cp1Ord :: Eq ScanMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ScanMode -&gt; Rep ScanMode x)
+-&gt; (forall x. Rep ScanMode x -&gt; ScanMode) -&gt; Generic ScanMode
+forall x. Rep ScanMode x -&gt; ScanMode
+forall x. ScanMode -&gt; Rep ScanMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScanMode x -&gt; ScanMode
+$cfrom :: forall x. ScanMode -&gt; Rep ScanMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269784"><span id="local-6989586621679269786"><span class="annot"><span class="annottext">Int -&gt; ScanMode -&gt; Int
+ScanMode -&gt; Int
+(Int -&gt; ScanMode -&gt; Int) -&gt; (ScanMode -&gt; Int) -&gt; Hashable ScanMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ScanMode -&gt; Int
+$chash :: ScanMode -&gt; Int
+hashWithSalt :: Int -&gt; ScanMode -&gt; Int
+$chashWithSalt :: Int -&gt; ScanMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679269781"><span class="annot"><span class="annottext">ScanMode -&gt; ()
+(ScanMode -&gt; ()) -&gt; NFData ScanMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ScanMode -&gt; ()
+$crnf :: ScanMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679269778"><span class="annot"><span class="annottext">Text -&gt; Either String ScanMode
+(Text -&gt; Either String ScanMode) -&gt; FromText ScanMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ScanMode
+$cfromText :: Text -&gt; Either String ScanMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679269775"><span class="annot"><span class="annottext">ScanMode -&gt; Text
+(ScanMode -&gt; Text) -&gt; ToText ScanMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ScanMode -&gt; Text
+$ctoText :: ScanMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679269772"><span class="annot"><span class="annottext">ScanMode -&gt; ByteString
+(ScanMode -&gt; ByteString) -&gt; ToByteString ScanMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ScanMode -&gt; ByteString
+$ctoBS :: ScanMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679269769"><span class="annot"><span class="annottext">ScanMode -&gt; ByteStringBuilder
+(ScanMode -&gt; ByteStringBuilder) -&gt; ToLog ScanMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ScanMode -&gt; ByteStringBuilder
+$cbuild :: ScanMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679269766"><span class="annot"><span class="annottext">HeaderName -&gt; ScanMode -&gt; [Header]
+(HeaderName -&gt; ScanMode -&gt; [Header]) -&gt; ToHeader ScanMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ScanMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ScanMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679269763"><span class="annot"><span class="annottext">ScanMode -&gt; QueryString
+(ScanMode -&gt; QueryString) -&gt; ToQuery ScanMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ScanMode -&gt; QueryString
+$ctoQuery :: ScanMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679269758"><span id="local-6989586621679269760"><span class="annot"><span class="annottext">Value -&gt; Parser [ScanMode]
+Value -&gt; Parser ScanMode
+(Value -&gt; Parser ScanMode)
+-&gt; (Value -&gt; Parser [ScanMode]) -&gt; FromJSON ScanMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ScanMode]
+$cparseJSONList :: Value -&gt; Parser [ScanMode]
+parseJSON :: Value -&gt; Parser ScanMode
+$cparseJSON :: Value -&gt; Parser ScanMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679269753"><span id="local-6989586621679269755"><span class="annot"><span class="annottext">FromJSONKeyFunction [ScanMode]
+FromJSONKeyFunction ScanMode
+FromJSONKeyFunction ScanMode
+-&gt; FromJSONKeyFunction [ScanMode] -&gt; FromJSONKey ScanMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ScanMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ScanMode]
+fromJSONKey :: FromJSONKeyFunction ScanMode
+$cfromJSONKey :: FromJSONKeyFunction ScanMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679269744"><span id="local-6989586621679269746"><span id="local-6989586621679269748"><span id="local-6989586621679269750"><span class="annot"><span class="annottext">[ScanMode] -&gt; Encoding
+[ScanMode] -&gt; Value
+ScanMode -&gt; Encoding
+ScanMode -&gt; Value
+(ScanMode -&gt; Value)
+-&gt; (ScanMode -&gt; Encoding)
+-&gt; ([ScanMode] -&gt; Value)
+-&gt; ([ScanMode] -&gt; Encoding)
+-&gt; ToJSON ScanMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ScanMode] -&gt; Encoding
+$ctoEncodingList :: [ScanMode] -&gt; Encoding
+toJSONList :: [ScanMode] -&gt; Value
+$ctoJSONList :: [ScanMode] -&gt; Value
+toEncoding :: ScanMode -&gt; Encoding
+$ctoEncoding :: ScanMode -&gt; Encoding
+toJSON :: ScanMode -&gt; Value
+$ctoJSON :: ScanMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679269739"><span id="local-6989586621679269741"><span class="annot"><span class="annottext">ToJSONKeyFunction [ScanMode]
+ToJSONKeyFunction ScanMode
+ToJSONKeyFunction ScanMode
+-&gt; ToJSONKeyFunction [ScanMode] -&gt; ToJSONKey ScanMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ScanMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ScanMode]
+toJSONKey :: ToJSONKeyFunction ScanMode
+$ctoJSONKey :: ToJSONKeyFunction ScanMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679269736"><span class="annot"><span class="annottext">[Node] -&gt; Either String ScanMode
+([Node] -&gt; Either String ScanMode) -&gt; FromXML ScanMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ScanMode
+$cparseXML :: [Node] -&gt; Either String ScanMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679269733"><span class="annot"><span class="annottext">ScanMode -&gt; XML
+(ScanMode -&gt; XML) -&gt; ToXML ScanMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ScanMode -&gt; XML
+$ctoXML :: ScanMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Interlace"><span class="hs-identifier hs-type">ScanMode_Interlace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode"><span class="hs-identifier hs-type">ScanMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScanMode_Interlace"><span id="%24mScanMode_Interlace"><span id="ScanMode_Interlace"><span class="annot"><span class="annottext">$bScanMode_Interlace :: ScanMode
+$mScanMode_Interlace :: forall r. ScanMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.ScanMode.html#%24bScanMode_Interlace"><span class="hs-identifier hs-var hs-var hs-var">ScanMode_Interlace</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode%27"><span class="hs-identifier hs-type">ScanMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;interlace&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Progressive"><span class="hs-identifier hs-type">ScanMode_Progressive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode"><span class="hs-identifier hs-type">ScanMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScanMode_Progressive"><span id="%24mScanMode_Progressive"><span id="ScanMode_Progressive"><span class="annot"><span class="annottext">$bScanMode_Progressive :: ScanMode
+$mScanMode_Progressive :: forall r. ScanMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.ScanMode.html#%24bScanMode_Progressive"><span class="hs-identifier hs-var hs-var hs-var">ScanMode_Progressive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode%27"><span class="hs-identifier hs-type">ScanMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;progressive&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Progressive_segmented_frame"><span class="hs-identifier hs-type">ScanMode_Progressive_segmented_frame</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode"><span class="hs-identifier hs-type">ScanMode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bScanMode_Progressive_segmented_frame"><span id="%24mScanMode_Progressive_segmented_frame"><span id="ScanMode_Progressive_segmented_frame"><span class="annot"><span class="annottext">$bScanMode_Progressive_segmented_frame :: ScanMode
+$mScanMode_Progressive_segmented_frame :: forall r. ScanMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MediaConnect.Types.ScanMode.html#%24bScanMode_Progressive_segmented_frame"><span class="hs-identifier hs-var hs-var hs-var">ScanMode_Progressive_segmented_frame</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode%27"><span class="hs-identifier hs-type">ScanMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;progressive-segmented-frame&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Interlace"><span class="hs-pragma hs-type">ScanMode_Interlace</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Progressive"><span class="hs-pragma hs-type">ScanMode_Progressive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode_Progressive_segmented_frame"><span class="hs-pragma hs-type">ScanMode_Progressive_segmented_frame</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.ScanMode.html#ScanMode%27"><span class="hs-pragma hs-type">ScanMode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

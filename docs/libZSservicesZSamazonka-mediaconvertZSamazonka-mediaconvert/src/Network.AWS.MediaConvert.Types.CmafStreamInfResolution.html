@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- tag of variant manifest.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679950756"><span id="local-6989586621679950757"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafStreamInfResolution"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafStreamInfResolution.html#CmafStreamInfResolution"><span class="hs-identifier hs-var">CmafStreamInfResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafStreamInfResolution%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafStreamInfResolution.html#CmafStreamInfResolution%27"><span class="hs-identifier hs-var">CmafStreamInfResolution'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679950765"><span id="local-6989586621679950766"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafStreamInfResolution"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafStreamInfResolution.html#CmafStreamInfResolution"><span class="hs-identifier hs-var">CmafStreamInfResolution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafStreamInfResolution%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafStreamInfResolution.html#CmafStreamInfResolution%27"><span class="hs-identifier hs-var">CmafStreamInfResolution'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafStreamInfResolution"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafStreamInfResolution.html#fromCmafStreamInfResolution"><span class="hs-identifier hs-var hs-var">fromCmafStreamInfResolution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950748"><span id="local-6989586621679950750"><span id="local-6989586621679950752"><span class="annot"><span class="annottext">Int -&gt; CmafStreamInfResolution -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950757"><span id="local-6989586621679950759"><span id="local-6989586621679950761"><span class="annot"><span class="annottext">Int -&gt; CmafStreamInfResolution -&gt; ShowS
 [CmafStreamInfResolution] -&gt; ShowS
 CmafStreamInfResolution -&gt; String
 (Int -&gt; CmafStreamInfResolution -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: CmafStreamInfResolution -&gt; String
 showsPrec :: Int -&gt; CmafStreamInfResolution -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafStreamInfResolution -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679950739"><span id="local-6989586621679950741"><span id="local-6989586621679950743"><span id="local-6989586621679950745"><span class="annot"><span class="annottext">ReadPrec [CmafStreamInfResolution]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679950748"><span id="local-6989586621679950750"><span id="local-6989586621679950752"><span id="local-6989586621679950754"><span class="annot"><span class="annottext">ReadPrec [CmafStreamInfResolution]
 ReadPrec CmafStreamInfResolution
 Int -&gt; ReadS CmafStreamInfResolution
 ReadS [CmafStreamInfResolution]
@@ -74,7 +74,7 @@ $creadList :: ReadS [CmafStreamInfResolution]
 readsPrec :: Int -&gt; ReadS CmafStreamInfResolution
 $creadsPrec :: Int -&gt; ReadS CmafStreamInfResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679950734"><span id="local-6989586621679950736"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679950743"><span id="local-6989586621679950745"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool
 (CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool)
 -&gt; (CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool)
 -&gt; Eq CmafStreamInfResolution
@@ -84,7 +84,7 @@ $c/= :: CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool
 == :: CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool
 $c== :: CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679950718"><span id="local-6989586621679950720"><span id="local-6989586621679950722"><span id="local-6989586621679950724"><span id="local-6989586621679950726"><span id="local-6989586621679950728"><span id="local-6989586621679950730"><span class="annot"><span class="annottext">Eq CmafStreamInfResolution
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679950727"><span id="local-6989586621679950729"><span id="local-6989586621679950731"><span id="local-6989586621679950733"><span id="local-6989586621679950735"><span id="local-6989586621679950737"><span id="local-6989586621679950739"><span class="annot"><span class="annottext">Eq CmafStreamInfResolution
 Eq CmafStreamInfResolution
 -&gt; (CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Ordering)
 -&gt; (CmafStreamInfResolution -&gt; CmafStreamInfResolution -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. CmafStreamInfResolution -&gt; Rep CmafStreamInfResolution x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950710"><span id="local-6989586621679950712"><span class="annot"><span class="annottext">Int -&gt; CmafStreamInfResolution -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679950719"><span id="local-6989586621679950721"><span class="annot"><span class="annottext">Int -&gt; CmafStreamInfResolution -&gt; Int
 CmafStreamInfResolution -&gt; Int
 (Int -&gt; CmafStreamInfResolution -&gt; Int)
 -&gt; (CmafStreamInfResolution -&gt; Int)
@@ -155,54 +155,54 @@ $chash :: CmafStreamInfResolution -&gt; Int
 hashWithSalt :: Int -&gt; CmafStreamInfResolution -&gt; Int
 $chashWithSalt :: Int -&gt; CmafStreamInfResolution -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679950707"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679950716"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; ()
 (CmafStreamInfResolution -&gt; ()) -&gt; NFData CmafStreamInfResolution
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafStreamInfResolution -&gt; ()
 $crnf :: CmafStreamInfResolution -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679950704"><span class="annot"><span class="annottext">Text -&gt; Either String CmafStreamInfResolution
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679950713"><span class="annot"><span class="annottext">Text -&gt; Either String CmafStreamInfResolution
 (Text -&gt; Either String CmafStreamInfResolution)
 -&gt; FromText CmafStreamInfResolution
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafStreamInfResolution
 $cfromText :: Text -&gt; Either String CmafStreamInfResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679950701"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679950710"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; Text
 (CmafStreamInfResolution -&gt; Text) -&gt; ToText CmafStreamInfResolution
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafStreamInfResolution -&gt; Text
 $ctoText :: CmafStreamInfResolution -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679950698"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679950707"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; ByteString
 (CmafStreamInfResolution -&gt; ByteString)
 -&gt; ToByteString CmafStreamInfResolution
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafStreamInfResolution -&gt; ByteString
 $ctoBS :: CmafStreamInfResolution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679950695"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679950704"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; ByteStringBuilder
 (CmafStreamInfResolution -&gt; ByteStringBuilder)
 -&gt; ToLog CmafStreamInfResolution
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafStreamInfResolution -&gt; ByteStringBuilder
 $cbuild :: CmafStreamInfResolution -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679950692"><span class="annot"><span class="annottext">HeaderName -&gt; CmafStreamInfResolution -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679950701"><span class="annot"><span class="annottext">HeaderName -&gt; CmafStreamInfResolution -&gt; [Header]
 (HeaderName -&gt; CmafStreamInfResolution -&gt; [Header])
 -&gt; ToHeader CmafStreamInfResolution
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafStreamInfResolution -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafStreamInfResolution -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950689"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679950698"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; QueryString
 (CmafStreamInfResolution -&gt; QueryString)
 -&gt; ToQuery CmafStreamInfResolution
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafStreamInfResolution -&gt; QueryString
 $ctoQuery :: CmafStreamInfResolution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950684"><span id="local-6989586621679950686"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafStreamInfResolution]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679950693"><span id="local-6989586621679950695"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafStreamInfResolution]
 Value -&gt; Parser CmafStreamInfResolution
 (Value -&gt; Parser CmafStreamInfResolution)
 -&gt; (Value -&gt; Parser [CmafStreamInfResolution])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafStreamInfResolution]
 parseJSON :: Value -&gt; Parser CmafStreamInfResolution
 $cparseJSON :: Value -&gt; Parser CmafStreamInfResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679950679"><span id="local-6989586621679950681"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafStreamInfResolution]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679950688"><span id="local-6989586621679950690"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafStreamInfResolution]
 FromJSONKeyFunction CmafStreamInfResolution
 FromJSONKeyFunction CmafStreamInfResolution
 -&gt; FromJSONKeyFunction [CmafStreamInfResolution]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafStreamInfResolution]
 fromJSONKey :: FromJSONKeyFunction CmafStreamInfResolution
 $cfromJSONKey :: FromJSONKeyFunction CmafStreamInfResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950670"><span id="local-6989586621679950672"><span id="local-6989586621679950674"><span id="local-6989586621679950676"><span class="annot"><span class="annottext">[CmafStreamInfResolution] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679950679"><span id="local-6989586621679950681"><span id="local-6989586621679950683"><span id="local-6989586621679950685"><span class="annot"><span class="annottext">[CmafStreamInfResolution] -&gt; Encoding
 [CmafStreamInfResolution] -&gt; Value
 CmafStreamInfResolution -&gt; Encoding
 CmafStreamInfResolution -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: CmafStreamInfResolution -&gt; Encoding
 toJSON :: CmafStreamInfResolution -&gt; Value
 $ctoJSON :: CmafStreamInfResolution -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950665"><span id="local-6989586621679950667"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafStreamInfResolution]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679950674"><span id="local-6989586621679950676"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafStreamInfResolution]
 ToJSONKeyFunction CmafStreamInfResolution
 ToJSONKeyFunction CmafStreamInfResolution
 -&gt; ToJSONKeyFunction [CmafStreamInfResolution]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafStreamInfResolution]
 toJSONKey :: ToJSONKeyFunction CmafStreamInfResolution
 $ctoJSONKey :: ToJSONKeyFunction CmafStreamInfResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950662"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafStreamInfResolution
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679950671"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafStreamInfResolution
 ([Node] -&gt; Either String CmafStreamInfResolution)
 -&gt; FromXML CmafStreamInfResolution
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafStreamInfResolution
 $cparseXML :: [Node] -&gt; Either String CmafStreamInfResolution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950659"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679950668"><span class="annot"><span class="annottext">CmafStreamInfResolution -&gt; XML
 (CmafStreamInfResolution -&gt; XML) -&gt; ToXML CmafStreamInfResolution
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafStreamInfResolution -&gt; XML

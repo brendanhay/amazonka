@@ -71,7 +71,7 @@
 </span><span id="line-71"></span><span class="hs-comment">--     deleted after deletion time.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- /See:/ 'newApiKey' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621679247607"><span id="local-6989586621679247608"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApiKey"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-var">ApiKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiKey%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-var">ApiKey'</span></a></span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621679247616"><span id="local-6989586621679247617"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApiKey"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-var">ApiKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiKey%27"><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-var">ApiKey'</span></a></span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time after which the API key expires. The date is represented as</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- seconds since the epoch, rounded down to the nearest hour.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Aexpires%3AApiKey%27"><span class="annot"><span class="annottext">ApiKey -&gt; Maybe Integer
@@ -87,7 +87,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3Adescription%3AApiKey%27"><span class="annot"><span class="annottext">ApiKey -&gt; Maybe Text
 </span><a href="Network.AWS.AppSync.Types.ApiKey.html#%24sel%3Adescription%3AApiKey%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247598"><span id="local-6989586621679247600"><span class="annot"><span class="annottext">ApiKey -&gt; ApiKey -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247607"><span id="local-6989586621679247609"><span class="annot"><span class="annottext">ApiKey -&gt; ApiKey -&gt; Bool
 (ApiKey -&gt; ApiKey -&gt; Bool)
 -&gt; (ApiKey -&gt; ApiKey -&gt; Bool) -&gt; Eq ApiKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ApiKey -&gt; ApiKey -&gt; Bool
 == :: ApiKey -&gt; ApiKey -&gt; Bool
 $c== :: ApiKey -&gt; ApiKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247589"><span id="local-6989586621679247591"><span id="local-6989586621679247593"><span id="local-6989586621679247595"><span class="annot"><span class="annottext">ReadPrec [ApiKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247598"><span id="local-6989586621679247600"><span id="local-6989586621679247602"><span id="local-6989586621679247604"><span class="annot"><span class="annottext">ReadPrec [ApiKey]
 ReadPrec ApiKey
 Int -&gt; ReadS ApiKey
 ReadS [ApiKey]
@@ -115,7 +115,7 @@ readList :: ReadS [ApiKey]
 $creadList :: ReadS [ApiKey]
 readsPrec :: Int -&gt; ReadS ApiKey
 $creadsPrec :: Int -&gt; ReadS ApiKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247582"><span id="local-6989586621679247584"><span id="local-6989586621679247586"><span class="annot"><span class="annottext">Int -&gt; ApiKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247591"><span id="local-6989586621679247593"><span id="local-6989586621679247595"><span class="annot"><span class="annottext">Int -&gt; ApiKey -&gt; ShowS
 [ApiKey] -&gt; ShowS
 ApiKey -&gt; String
 (Int -&gt; ApiKey -&gt; ShowS)
@@ -188,16 +188,16 @@ forall a. Maybe a
 -&gt; (ApiKey -&gt; Maybe Integer -&gt; ApiKey)
 -&gt; Lens ApiKey ApiKey (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247573"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247582"><span class="annot"><span class="annottext">Maybe Integer
 expires :: Maybe Integer
 $sel:expires:ApiKey' :: ApiKey -&gt; Maybe Integer
-</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247572"><span class="annot"><span class="annottext">s :: ApiKey
-</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247571"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
-</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:ApiKey' :: Maybe Integer
+</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var hs-var">expires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679247582"><span class="hs-identifier hs-var">expires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247581"><span class="annot"><span class="annottext">s :: ApiKey
+</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247580"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679247580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
+</span><a href="#local-6989586621679247581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expires:ApiKey' :: Maybe Integer
 </span><a href="Network.AWS.AppSync.Types.ApiKey.html#%24sel%3Aexpires%3AApiKey%27"><span class="hs-identifier hs-var">expires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The time after which the API key is deleted. The date is represented as</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- seconds since the epoch, rounded down to the nearest hour.</span><span>
@@ -207,16 +207,16 @@ $sel:expires:ApiKey' :: ApiKey -&gt; Maybe Integer
 -&gt; (ApiKey -&gt; Maybe Integer -&gt; ApiKey)
 -&gt; Lens ApiKey ApiKey (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247569"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247578"><span class="annot"><span class="annottext">Maybe Integer
 deletes :: Maybe Integer
 $sel:deletes:ApiKey' :: ApiKey -&gt; Maybe Integer
-</span><a href="#local-6989586621679247569"><span class="hs-identifier hs-var hs-var">deletes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247569"><span class="hs-identifier hs-var">deletes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247568"><span class="annot"><span class="annottext">s :: ApiKey
-</span><a href="#local-6989586621679247568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247567"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
-</span><a href="#local-6989586621679247568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletes:ApiKey' :: Maybe Integer
+</span><a href="#local-6989586621679247578"><span class="hs-identifier hs-var hs-var">deletes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679247578"><span class="hs-identifier hs-var">deletes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247577"><span class="annot"><span class="annottext">s :: ApiKey
+</span><a href="#local-6989586621679247577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247576"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679247576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
+</span><a href="#local-6989586621679247577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletes:ApiKey' :: Maybe Integer
 </span><a href="Network.AWS.AppSync.Types.ApiKey.html#%24sel%3Adeletes%3AApiKey%27"><span class="hs-identifier hs-var">deletes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679247567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The API key ID.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#apiKey_id"><span class="hs-identifier hs-type">apiKey_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -225,16 +225,16 @@ $sel:deletes:ApiKey' :: ApiKey -&gt; Maybe Integer
 -&gt; (ApiKey -&gt; Maybe Text -&gt; ApiKey)
 -&gt; Lens ApiKey ApiKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247565"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247574"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:ApiKey' :: ApiKey -&gt; Maybe Text
-</span><a href="#local-6989586621679247565"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247565"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247564"><span class="annot"><span class="annottext">s :: ApiKey
-</span><a href="#local-6989586621679247564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247563"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
-</span><a href="#local-6989586621679247564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ApiKey' :: Maybe Text
+</span><a href="#local-6989586621679247574"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247574"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247573"><span class="annot"><span class="annottext">s :: ApiKey
+</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
+</span><a href="#local-6989586621679247573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ApiKey' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.ApiKey.html#%24sel%3Aid%3AApiKey%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | A description of the purpose of the API key.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#apiKey_description"><span class="hs-identifier hs-type">apiKey_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -243,27 +243,27 @@ $sel:id:ApiKey' :: ApiKey -&gt; Maybe Text
 -&gt; (ApiKey -&gt; Maybe Text -&gt; ApiKey)
 -&gt; Lens ApiKey ApiKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247561"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247570"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:ApiKey' :: ApiKey -&gt; Maybe Text
-</span><a href="#local-6989586621679247561"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247561"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247560"><span class="annot"><span class="annottext">s :: ApiKey
-</span><a href="#local-6989586621679247560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247559"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
-</span><a href="#local-6989586621679247560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ApiKey' :: Maybe Text
+</span><a href="#local-6989586621679247570"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247570"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247569"><span class="annot"><span class="annottext">s :: ApiKey
+</span><a href="#local-6989586621679247569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-type">ApiKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiKey
+</span><a href="#local-6989586621679247569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ApiKey' :: Maybe Text
 </span><a href="Network.AWS.AppSync.Types.ApiKey.html#%24sel%3Adescription%3AApiKey%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247556"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679247554"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApiKey
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247565"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679247563"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApiKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser ApiKey) -&gt; Value -&gt; Parser ApiKey
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ApiKey&quot;</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247551"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247560"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247560"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Integer -&gt; Maybe Text -&gt; Maybe Text -&gt; ApiKey
 </span><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey%27"><span class="hs-identifier hs-var">ApiKey'</span></a></span><span>
@@ -273,7 +273,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Integer -&gt; Maybe Text -&gt; Maybe Text -&gt; ApiKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679247560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;expires&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,7 +282,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ApiKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679247560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deletes&quot;</span></span><span class="hs-special">)</span><span>
@@ -290,7 +290,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ApiKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679247560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,13 +298,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ApiKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679247560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247545"><span id="local-6989586621679247547"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247554"><span id="local-6989586621679247556"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247542"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.ApiKey.html#ApiKey"><span class="hs-identifier hs-type">ApiKey</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

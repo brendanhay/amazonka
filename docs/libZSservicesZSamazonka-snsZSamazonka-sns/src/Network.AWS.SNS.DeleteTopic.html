@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.html"><span class="hs-identifier">Network.AWS.SNS.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteTopic' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679198440"><span id="local-6989586621679198441"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopic"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-var">DeleteTopic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopic%27"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-var">DeleteTopic'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679198449"><span id="local-6989586621679198450"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopic"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-var">DeleteTopic</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopic%27"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-var">DeleteTopic'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the topic you want to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AtopicArn%3ADeleteTopic%27"><span class="annot"><span class="annottext">DeleteTopic -&gt; Text
 </span><a href="Network.AWS.SNS.DeleteTopic.html#%24sel%3AtopicArn%3ADeleteTopic%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198434"><span id="local-6989586621679198436"><span class="annot"><span class="annottext">DeleteTopic -&gt; DeleteTopic -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198443"><span id="local-6989586621679198445"><span class="annot"><span class="annottext">DeleteTopic -&gt; DeleteTopic -&gt; Bool
 (DeleteTopic -&gt; DeleteTopic -&gt; Bool)
 -&gt; (DeleteTopic -&gt; DeleteTopic -&gt; Bool) -&gt; Eq DeleteTopic
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTopic -&gt; DeleteTopic -&gt; Bool
 == :: DeleteTopic -&gt; DeleteTopic -&gt; Bool
 $c== :: DeleteTopic -&gt; DeleteTopic -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198425"><span id="local-6989586621679198427"><span id="local-6989586621679198429"><span id="local-6989586621679198431"><span class="annot"><span class="annottext">ReadPrec [DeleteTopic]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198434"><span id="local-6989586621679198436"><span id="local-6989586621679198438"><span id="local-6989586621679198440"><span class="annot"><span class="annottext">ReadPrec [DeleteTopic]
 ReadPrec DeleteTopic
 Int -&gt; ReadS DeleteTopic
 ReadS [DeleteTopic]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteTopic]
 $creadList :: ReadS [DeleteTopic]
 readsPrec :: Int -&gt; ReadS DeleteTopic
 $creadsPrec :: Int -&gt; ReadS DeleteTopic
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198418"><span id="local-6989586621679198420"><span id="local-6989586621679198422"><span class="annot"><span class="annottext">Int -&gt; DeleteTopic -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198427"><span id="local-6989586621679198429"><span id="local-6989586621679198431"><span class="annot"><span class="annottext">Int -&gt; DeleteTopic -&gt; ShowS
 [DeleteTopic] -&gt; ShowS
 DeleteTopic -&gt; String
 (Int -&gt; DeleteTopic -&gt; ShowS)
@@ -119,12 +119,12 @@ $cfrom :: forall x. DeleteTopic -&gt; Rep DeleteTopic x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteTopic"><span class="annot"><span class="annottext">newDeleteTopic :: Text -&gt; DeleteTopic
-</span><a href="Network.AWS.SNS.DeleteTopic.html#newDeleteTopic"><span class="hs-identifier hs-var hs-var">newDeleteTopic</span></a></span></span><span> </span><span id="local-6989586621679198413"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198413"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.DeleteTopic.html#newDeleteTopic"><span class="hs-identifier hs-var hs-var">newDeleteTopic</span></a></span></span><span> </span><span id="local-6989586621679198422"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198422"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteTopic' :: Text -&gt; DeleteTopic
 </span><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-type">DeleteTopic'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:DeleteTopic' :: Text
 </span><a href="Network.AWS.SNS.DeleteTopic.html#%24sel%3AtopicArn%3ADeleteTopic%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198413"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679198422"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The ARN of the topic you want to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#deleteTopic_topicArn"><span class="hs-identifier hs-type">deleteTopic_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,25 +133,25 @@ $cfrom :: forall x. DeleteTopic -&gt; Rep DeleteTopic x
 -&gt; (DeleteTopic -&gt; Text -&gt; DeleteTopic)
 -&gt; Lens DeleteTopic DeleteTopic Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-type">DeleteTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198410"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-type">DeleteTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198419"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:DeleteTopic' :: DeleteTopic -&gt; Text
-</span><a href="#local-6989586621679198410"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198410"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198409"><span class="annot"><span class="annottext">s :: DeleteTopic
-</span><a href="#local-6989586621679198409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-type">DeleteTopic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198408"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTopic
-</span><a href="#local-6989586621679198409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:DeleteTopic' :: Text
+</span><a href="#local-6989586621679198419"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198419"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198418"><span class="annot"><span class="annottext">s :: DeleteTopic
+</span><a href="#local-6989586621679198418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-type">DeleteTopic'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679198417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTopic
+</span><a href="#local-6989586621679198418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:DeleteTopic' :: Text
 </span><a href="Network.AWS.SNS.DeleteTopic.html#%24sel%3AtopicArn%3ADeleteTopic%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679198417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse"><span class="hs-identifier hs-type">DeleteTopicResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679198404"><span class="annot"><span class="annottext">request :: DeleteTopic -&gt; Request DeleteTopic
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679198413"><span class="annot"><span class="annottext">request :: DeleteTopic -&gt; Request DeleteTopic
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTopic -&gt; Request DeleteTopic
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679198400"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679198409"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTopic
 -&gt; ClientResponse ClientBody
@@ -174,12 +174,12 @@ AWSResponse a
 DeleteTopicResponse
 </span><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse%27"><span class="hs-identifier hs-var">DeleteTopicResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198393"><span id="local-6989586621679198395"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198402"><span id="local-6989586621679198404"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198390"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679198386"><span class="annot"><span class="annottext">toHeaders :: DeleteTopic -&gt; [Header]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679198395"><span class="annot"><span class="annottext">toHeaders :: DeleteTopic -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteTopic -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -187,18 +187,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679198381"><span class="annot"><span class="annottext">toPath :: DeleteTopic -&gt; ByteString
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679198390"><span class="annot"><span class="annottext">toPath :: DeleteTopic -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTopic -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic"><span class="hs-identifier hs-type">DeleteTopic</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679198377"><span class="annot"><span class="annottext">toQuery :: DeleteTopic -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-type">DeleteTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198375"><span class="annot"><span class="annottext">Text
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679198386"><span class="annot"><span class="annottext">toQuery :: DeleteTopic -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopic%27"><span class="hs-identifier hs-type">DeleteTopic'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198384"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:DeleteTopic' :: DeleteTopic -&gt; Text
-</span><a href="#local-6989586621679198375"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679198384"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -218,14 +218,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679198375"><span class="hs-identifier hs-var">topicArn</span></a></span><span>
+</span><a href="#local-6989586621679198384"><span class="hs-identifier hs-var">topicArn</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | /See:/ 'newDeleteTopicResponse' smart constructor.</span><span>
-</span><span id="line-101"></span><span id="local-6989586621679198372"><span id="local-6989586621679198373"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopicResponse"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse"><span class="hs-identifier hs-var">DeleteTopicResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopicResponse%27"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse%27"><span class="hs-identifier hs-var">DeleteTopicResponse'</span></a></span></span><span>
+</span><span id="line-101"></span><span id="local-6989586621679198381"><span id="local-6989586621679198382"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTopicResponse"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse"><span class="hs-identifier hs-var">DeleteTopicResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTopicResponse%27"><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse%27"><span class="hs-identifier hs-var">DeleteTopicResponse'</span></a></span></span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198368"><span id="local-6989586621679198370"><span class="annot"><span class="annottext">DeleteTopicResponse -&gt; DeleteTopicResponse -&gt; Bool
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198377"><span id="local-6989586621679198379"><span class="annot"><span class="annottext">DeleteTopicResponse -&gt; DeleteTopicResponse -&gt; Bool
 (DeleteTopicResponse -&gt; DeleteTopicResponse -&gt; Bool)
 -&gt; (DeleteTopicResponse -&gt; DeleteTopicResponse -&gt; Bool)
 -&gt; Eq DeleteTopicResponse
@@ -234,7 +234,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTopicResponse -&gt; DeleteTopicResponse -&gt; Bool
 == :: DeleteTopicResponse -&gt; DeleteTopicResponse -&gt; Bool
 $c== :: DeleteTopicResponse -&gt; DeleteTopicResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198360"><span id="local-6989586621679198362"><span id="local-6989586621679198364"><span id="local-6989586621679198366"><span class="annot"><span class="annottext">ReadPrec [DeleteTopicResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198369"><span id="local-6989586621679198371"><span id="local-6989586621679198373"><span id="local-6989586621679198375"><span class="annot"><span class="annottext">ReadPrec [DeleteTopicResponse]
 ReadPrec DeleteTopicResponse
 Int -&gt; ReadS DeleteTopicResponse
 ReadS [DeleteTopicResponse]
@@ -254,7 +254,7 @@ readList :: ReadS [DeleteTopicResponse]
 $creadList :: ReadS [DeleteTopicResponse]
 readsPrec :: Int -&gt; ReadS DeleteTopicResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTopicResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198354"><span id="local-6989586621679198356"><span id="local-6989586621679198358"><span class="annot"><span class="annottext">Int -&gt; DeleteTopicResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198363"><span id="local-6989586621679198365"><span id="local-6989586621679198367"><span class="annot"><span class="annottext">Int -&gt; DeleteTopicResponse -&gt; ShowS
 [DeleteTopicResponse] -&gt; ShowS
 DeleteTopicResponse -&gt; String
 (Int -&gt; DeleteTopicResponse -&gt; ShowS)
@@ -290,5 +290,5 @@ $cfrom :: forall x. DeleteTopicResponse -&gt; Rep DeleteTopicResponse x
 </span><a href="Network.AWS.SNS.DeleteTopic.html#newDeleteTopicResponse"><span class="hs-identifier hs-var hs-var">newDeleteTopicResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteTopicResponse
 </span><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse%27"><span class="hs-identifier hs-var">DeleteTopicResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse"><span class="hs-identifier hs-type">DeleteTopicResponse</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.DeleteTopic.html#DeleteTopicResponse"><span class="hs-identifier hs-type">DeleteTopicResponse</span></a></span></span><span>
 </span><span id="line-115"></span></pre></body></html>

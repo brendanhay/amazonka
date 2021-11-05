@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Nameserver includes the following elements.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNameserver' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679209698"><span id="local-6989586621679209699"></span></span><span class="hs-keyword">data</span><span> </span><span id="Nameserver"><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-var">Nameserver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Nameserver%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-var">Nameserver'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679209707"><span id="local-6989586621679209708"></span></span><span class="hs-keyword">data</span><span> </span><span id="Nameserver"><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-var">Nameserver</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Nameserver%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-var">Nameserver'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Glue IP address of a name server entry. Glue IP addresses are required</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- only when the name of the name server is a subdomain of the domain. For</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- example, if your domain is example.com and the name server for the</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3ANameserver%27"><span class="annot"><span class="annottext">Nameserver -&gt; Text
 </span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#%24sel%3Aname%3ANameserver%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209691"><span id="local-6989586621679209693"><span class="annot"><span class="annottext">Nameserver -&gt; Nameserver -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209700"><span id="local-6989586621679209702"><span class="annot"><span class="annottext">Nameserver -&gt; Nameserver -&gt; Bool
 (Nameserver -&gt; Nameserver -&gt; Bool)
 -&gt; (Nameserver -&gt; Nameserver -&gt; Bool) -&gt; Eq Nameserver
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Nameserver -&gt; Nameserver -&gt; Bool
 == :: Nameserver -&gt; Nameserver -&gt; Bool
 $c== :: Nameserver -&gt; Nameserver -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209682"><span id="local-6989586621679209684"><span id="local-6989586621679209686"><span id="local-6989586621679209688"><span class="annot"><span class="annottext">ReadPrec [Nameserver]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209691"><span id="local-6989586621679209693"><span id="local-6989586621679209695"><span id="local-6989586621679209697"><span class="annot"><span class="annottext">ReadPrec [Nameserver]
 ReadPrec Nameserver
 Int -&gt; ReadS Nameserver
 ReadS [Nameserver]
@@ -70,7 +70,7 @@ readList :: ReadS [Nameserver]
 $creadList :: ReadS [Nameserver]
 readsPrec :: Int -&gt; ReadS Nameserver
 $creadsPrec :: Int -&gt; ReadS Nameserver
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209675"><span id="local-6989586621679209677"><span id="local-6989586621679209679"><span class="annot"><span class="annottext">Int -&gt; Nameserver -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209684"><span id="local-6989586621679209686"><span id="local-6989586621679209688"><span class="annot"><span class="annottext">Int -&gt; Nameserver -&gt; ShowS
 [Nameserver] -&gt; ShowS
 Nameserver -&gt; String
 (Int -&gt; Nameserver -&gt; ShowS)
@@ -119,8 +119,8 @@ $cfrom :: forall x. Nameserver -&gt; Rep Nameserver x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span>
 </span><span id="line-68"></span><span id="newNameserver"><span class="annot"><span class="annottext">newNameserver :: Text -&gt; Nameserver
-</span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#newNameserver"><span class="hs-identifier hs-var hs-var">newNameserver</span></a></span></span><span> </span><span id="local-6989586621679209669"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209669"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#newNameserver"><span class="hs-identifier hs-var hs-var">newNameserver</span></a></span></span><span> </span><span id="local-6989586621679209678"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209678"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">Nameserver' :: Maybe [Text] -&gt; Text -&gt; Nameserver
 </span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:glueIps:Nameserver' :: Maybe [Text]
@@ -129,7 +129,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Nameserver' :: Text
 </span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#%24sel%3Aname%3ANameserver%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209669"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679209678"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Glue IP address of a name server entry. Glue IP addresses are required</span><span>
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; (Nameserver -&gt; Maybe [Text] -&gt; Nameserver)
 -&gt; Lens Nameserver Nameserver (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209665"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209674"><span class="annot"><span class="annottext">Maybe [Text]
 glueIps :: Maybe [Text]
 $sel:glueIps:Nameserver' :: Nameserver -&gt; Maybe [Text]
-</span><a href="#local-6989586621679209665"><span class="hs-identifier hs-var hs-var">glueIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679209665"><span class="hs-identifier hs-var">glueIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209664"><span class="annot"><span class="annottext">s :: Nameserver
-</span><a href="#local-6989586621679209664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209663"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679209663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Nameserver
-</span><a href="#local-6989586621679209664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glueIps:Nameserver' :: Maybe [Text]
+</span><a href="#local-6989586621679209674"><span class="hs-identifier hs-var hs-var">glueIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679209674"><span class="hs-identifier hs-var">glueIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209673"><span class="annot"><span class="annottext">s :: Nameserver
+</span><a href="#local-6989586621679209673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209672"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679209672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Nameserver
+</span><a href="#local-6989586621679209673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glueIps:Nameserver' :: Maybe [Text]
 </span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#%24sel%3AglueIps%3ANameserver%27"><span class="hs-identifier hs-var">glueIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679209663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Nameserver -&gt; f Nameserver)
+</span><a href="#local-6989586621679209672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Nameserver -&gt; f Nameserver)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -179,19 +179,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Nameserver -&gt; Text -&gt; Nameserver)
 -&gt; Lens Nameserver Nameserver Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209658"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209667"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Nameserver' :: Nameserver -&gt; Text
-</span><a href="#local-6989586621679209658"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209658"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209657"><span class="annot"><span class="annottext">s :: Nameserver
-</span><a href="#local-6989586621679209657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209656"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Nameserver
-</span><a href="#local-6989586621679209657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Nameserver' :: Text
+</span><a href="#local-6989586621679209667"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209667"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209666"><span class="annot"><span class="annottext">s :: Nameserver
+</span><a href="#local-6989586621679209666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Nameserver
+</span><a href="#local-6989586621679209666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Nameserver' :: Text
 </span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#%24sel%3Aname%3ANameserver%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209653"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679209651"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Nameserver
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209662"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679209660"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Nameserver
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Nameserver) -&gt; Value -&gt; Parser Nameserver
@@ -199,15 +199,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Nameserver&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209648"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209657"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Text -&gt; Nameserver
 </span><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-var">Nameserver'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Text -&gt; Nameserver)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Text -&gt; Nameserver)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679209657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GlueIps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -219,25 +219,25 @@ forall a. Monoid a =&gt; a
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Nameserver) -&gt; Parser Text -&gt; Parser Nameserver
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679209657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209640"><span id="local-6989586621679209642"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209649"><span id="local-6989586621679209651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209637"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209629"><span id="local-6989586621679209631"><span id="local-6989586621679209633"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679209627"><span class="annot"><span class="annottext">toJSON :: Nameserver -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209624"><span id="local-6989586621679209625"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209638"><span id="local-6989586621679209640"><span id="local-6989586621679209642"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver"><span class="hs-identifier hs-type">Nameserver</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679209636"><span class="annot"><span class="annottext">toJSON :: Nameserver -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.Nameserver.html#Nameserver%27"><span class="hs-identifier hs-type">Nameserver'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209633"><span id="local-6989586621679209634"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 name :: Text
 glueIps :: Maybe [Text]
 $sel:name:Nameserver' :: Nameserver -&gt; Text
 $sel:glueIps:Nameserver' :: Nameserver -&gt; Maybe [Text]
-</span><a href="#local-6989586621679209624"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209633"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,14 +249,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679209625"><span class="hs-identifier hs-var">glueIps</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209634"><span class="hs-identifier hs-var">glueIps</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209624"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209633"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

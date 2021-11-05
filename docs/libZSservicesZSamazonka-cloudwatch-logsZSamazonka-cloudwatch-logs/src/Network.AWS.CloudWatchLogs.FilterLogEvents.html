@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newFilterLogEvents' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679228023"><span id="local-6989586621679228024"></span></span><span class="hs-keyword">data</span><span> </span><span id="FilterLogEvents"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-var">FilterLogEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterLogEvents%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-var">FilterLogEvents'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679228032"><span id="local-6989586621679228033"></span></span><span class="hs-keyword">data</span><span> </span><span id="FilterLogEvents"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-var">FilterLogEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterLogEvents%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-var">FilterLogEvents'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start of the time range, expressed as the number of milliseconds</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- are not returned.</span><span>
@@ -127,7 +127,7 @@
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AlogGroupName%3AFilterLogEvents%27"><span class="annot"><span class="annottext">FilterLogEvents -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AlogGroupName%3AFilterLogEvents%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228009"><span id="local-6989586621679228011"><span class="annot"><span class="annottext">FilterLogEvents -&gt; FilterLogEvents -&gt; Bool
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228018"><span id="local-6989586621679228020"><span class="annot"><span class="annottext">FilterLogEvents -&gt; FilterLogEvents -&gt; Bool
 (FilterLogEvents -&gt; FilterLogEvents -&gt; Bool)
 -&gt; (FilterLogEvents -&gt; FilterLogEvents -&gt; Bool)
 -&gt; Eq FilterLogEvents
@@ -136,7 +136,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FilterLogEvents -&gt; FilterLogEvents -&gt; Bool
 == :: FilterLogEvents -&gt; FilterLogEvents -&gt; Bool
 $c== :: FilterLogEvents -&gt; FilterLogEvents -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228000"><span id="local-6989586621679228002"><span id="local-6989586621679228004"><span id="local-6989586621679228006"><span class="annot"><span class="annottext">ReadPrec [FilterLogEvents]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228009"><span id="local-6989586621679228011"><span id="local-6989586621679228013"><span id="local-6989586621679228015"><span class="annot"><span class="annottext">ReadPrec [FilterLogEvents]
 ReadPrec FilterLogEvents
 Int -&gt; ReadS FilterLogEvents
 ReadS [FilterLogEvents]
@@ -156,7 +156,7 @@ readList :: ReadS [FilterLogEvents]
 $creadList :: ReadS [FilterLogEvents]
 readsPrec :: Int -&gt; ReadS FilterLogEvents
 $creadsPrec :: Int -&gt; ReadS FilterLogEvents
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227993"><span id="local-6989586621679227995"><span id="local-6989586621679227997"><span class="annot"><span class="annottext">Int -&gt; FilterLogEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228002"><span id="local-6989586621679228004"><span id="local-6989586621679228006"><span class="annot"><span class="annottext">Int -&gt; FilterLogEvents -&gt; ShowS
 [FilterLogEvents] -&gt; ShowS
 FilterLogEvents -&gt; String
 (Int -&gt; FilterLogEvents -&gt; ShowS)
@@ -238,8 +238,8 @@ $cfrom :: forall x. FilterLogEvents -&gt; Rep FilterLogEvents x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span>
 </span><span id="line-178"></span><span id="newFilterLogEvents"><span class="annot"><span class="annottext">newFilterLogEvents :: Text -&gt; FilterLogEvents
-</span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#newFilterLogEvents"><span class="hs-identifier hs-var hs-var">newFilterLogEvents</span></a></span></span><span> </span><span id="local-6989586621679227988"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227988"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#newFilterLogEvents"><span class="hs-identifier hs-var hs-var">newFilterLogEvents</span></a></span></span><span> </span><span id="local-6989586621679227997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227997"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">FilterLogEvents' :: Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe (NonEmpty Text)
@@ -285,7 +285,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:logGroupName:FilterLogEvents' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AlogGroupName%3AFilterLogEvents%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227988"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679227997"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The start of the time range, expressed as the number of milliseconds</span><span>
@@ -299,16 +299,16 @@ forall a. Maybe a
 -&gt; Lens
      FilterLogEvents FilterLogEvents (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227986"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227995"><span class="annot"><span class="annottext">Maybe Natural
 startTime :: Maybe Natural
 $sel:startTime:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Natural
-</span><a href="#local-6989586621679227986"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227986"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227985"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227984"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:FilterLogEvents' :: Maybe Natural
+</span><a href="#local-6989586621679227995"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227995"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227994"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227993"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:FilterLogEvents' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AstartTime%3AFilterLogEvents%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | The token for the next set of events to return. (You received this token</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- from a previous call.)</span><span>
@@ -319,16 +319,16 @@ $sel:startTime:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Natural
 -&gt; (FilterLogEvents -&gt; Maybe Text -&gt; FilterLogEvents)
 -&gt; Lens FilterLogEvents FilterLogEvents (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227983"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227992"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
-</span><a href="#local-6989586621679227983"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227983"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227982"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227981"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:FilterLogEvents' :: Maybe Text
+</span><a href="#local-6989586621679227992"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227992"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227991"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:FilterLogEvents' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AnextToken%3AFilterLogEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | Filters the results to only logs from the log streams in this list.</span><span>
 </span><span id="line-203"></span><span class="hs-comment">--</span><span>
@@ -346,16 +346,16 @@ $sel:nextToken:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227980"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227989"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 logStreamNames :: Maybe (NonEmpty Text)
 $sel:logStreamNames:FilterLogEvents' :: FilterLogEvents -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679227980"><span class="hs-identifier hs-var hs-var">logStreamNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679227980"><span class="hs-identifier hs-var">logStreamNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227979"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227978"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679227978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNames:FilterLogEvents' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679227989"><span class="hs-identifier hs-var hs-var">logStreamNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679227989"><span class="hs-identifier hs-var">logStreamNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227988"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227987"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679227987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNames:FilterLogEvents' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AlogStreamNames%3AFilterLogEvents%27"><span class="hs-identifier hs-var">logStreamNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679227978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679227987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; FilterLogEvents -&gt; f FilterLogEvents)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -392,16 +392,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (FilterLogEvents -&gt; Maybe Text -&gt; FilterLogEvents)
 -&gt; Lens FilterLogEvents FilterLogEvents (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227974"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227983"><span class="annot"><span class="annottext">Maybe Text
 logStreamNamePrefix :: Maybe Text
 $sel:logStreamNamePrefix:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
-</span><a href="#local-6989586621679227974"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227974"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227973"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227972"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:FilterLogEvents' :: Maybe Text
+</span><a href="#local-6989586621679227983"><span class="hs-identifier hs-var hs-var">logStreamNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227983"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227982"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227981"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamNamePrefix:FilterLogEvents' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AlogStreamNamePrefix%3AFilterLogEvents%27"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The end of the time range, expressed as the number of milliseconds after</span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time</span><span>
@@ -414,16 +414,16 @@ $sel:logStreamNamePrefix:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
 -&gt; Lens
      FilterLogEvents FilterLogEvents (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227971"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227980"><span class="annot"><span class="annottext">Maybe Natural
 endTime :: Maybe Natural
 $sel:endTime:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Natural
-</span><a href="#local-6989586621679227971"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227971"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227970"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227969"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:FilterLogEvents' :: Maybe Natural
+</span><a href="#local-6989586621679227980"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227980"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227979"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227978"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:FilterLogEvents' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AendTime%3AFilterLogEvents%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The maximum number of events to return. The default is 10,000 events.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#filterLogEvents_limit"><span class="hs-identifier hs-type">filterLogEvents_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -434,16 +434,16 @@ $sel:endTime:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Natural
 -&gt; Lens
      FilterLogEvents FilterLogEvents (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227968"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227977"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Natural
-</span><a href="#local-6989586621679227968"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227968"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227967"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227966"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:FilterLogEvents' :: Maybe Natural
+</span><a href="#local-6989586621679227977"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227977"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227976"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227975"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679227975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:FilterLogEvents' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3Alimit%3AFilterLogEvents%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The filter pattern to use. For more information, see</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html Filter and Pattern Syntax&gt;.</span><span>
@@ -456,16 +456,16 @@ $sel:limit:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Natural
 -&gt; (FilterLogEvents -&gt; Maybe Text -&gt; FilterLogEvents)
 -&gt; Lens FilterLogEvents FilterLogEvents (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227965"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227974"><span class="annot"><span class="annottext">Maybe Text
 filterPattern :: Maybe Text
 $sel:filterPattern:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
-</span><a href="#local-6989586621679227965"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227965"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227964"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227963"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:FilterLogEvents' :: Maybe Text
+</span><a href="#local-6989586621679227974"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227974"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227973"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227972"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:FilterLogEvents' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AfilterPattern%3AFilterLogEvents%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | If the value is true, the operation makes a best effort to provide</span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- responses that contain events from multiple log streams within the log</span><span>
@@ -483,16 +483,16 @@ $sel:filterPattern:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
 -&gt; (FilterLogEvents -&gt; Maybe Bool -&gt; FilterLogEvents)
 -&gt; Lens FilterLogEvents FilterLogEvents (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227962"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227971"><span class="annot"><span class="annottext">Maybe Bool
 interleaved :: Maybe Bool
 $sel:interleaved:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Bool
-</span><a href="#local-6989586621679227962"><span class="hs-identifier hs-var hs-var">interleaved</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679227962"><span class="hs-identifier hs-var">interleaved</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227961"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227960"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679227960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interleaved:FilterLogEvents' :: Maybe Bool
+</span><a href="#local-6989586621679227971"><span class="hs-identifier hs-var hs-var">interleaved</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227971"><span class="hs-identifier hs-var">interleaved</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227970"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227969"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679227969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interleaved:FilterLogEvents' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3Ainterleaved%3AFilterLogEvents%27"><span class="hs-identifier hs-var">interleaved</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679227960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The name of the log group to search.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#filterLogEvents_logGroupName"><span class="hs-identifier hs-type">filterLogEvents_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -501,29 +501,29 @@ $sel:interleaved:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Bool
 -&gt; (FilterLogEvents -&gt; Text -&gt; FilterLogEvents)
 -&gt; Lens FilterLogEvents FilterLogEvents Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227959"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227968"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:FilterLogEvents' :: FilterLogEvents -&gt; Text
-</span><a href="#local-6989586621679227959"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227959"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227958"><span class="annot"><span class="annottext">s :: FilterLogEvents
-</span><a href="#local-6989586621679227958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227957"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:FilterLogEvents' :: Text
+</span><a href="#local-6989586621679227968"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227968"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227967"><span class="annot"><span class="annottext">s :: FilterLogEvents
+</span><a href="#local-6989586621679227967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227966"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679227966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:FilterLogEvents' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AlogGroupName%3AFilterLogEvents%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-254"></span><span>  </span><span id="local-6989586621679227953"><span class="annot"><span class="annottext">page :: FilterLogEvents
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679227962"><span class="annot"><span class="annottext">page :: FilterLogEvents
 -&gt; AWSResponse FilterLogEvents -&gt; Maybe FilterLogEvents
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679227951"><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227951"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679227950"><span class="annot"><span class="annottext">AWSResponse FilterLogEvents
-</span><a href="#local-6989586621679227950"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679227960"><span class="annot"><span class="annottext">FilterLogEvents
+</span><a href="#local-6989586621679227960"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679227959"><span class="annot"><span class="annottext">AWSResponse FilterLogEvents
+</span><a href="#local-6989586621679227959"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-255"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-256"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse FilterLogEvents
 FilterLogEventsResponse
-</span><a href="#local-6989586621679227950"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679227959"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">FilterLogEventsResponse
 -&gt; Getting (First Text) FilterLogEventsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -556,7 +556,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">FilterLogEvents
-</span><a href="#local-6989586621679227951"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679227960"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-264"></span><span>          </span><span class="annot"><span class="annottext">FilterLogEvents
 -&gt; (FilterLogEvents -&gt; FilterLogEvents) -&gt; FilterLogEvents
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -570,7 +570,7 @@ Lens FilterLogEvents FilterLogEvents (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse FilterLogEvents
 FilterLogEventsResponse
-</span><a href="#local-6989586621679227950"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679227959"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">FilterLogEventsResponse
 -&gt; Getting (First Text) FilterLogEventsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -595,12 +595,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-270"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-271"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679227941"><span class="annot"><span class="annottext">request :: FilterLogEvents -&gt; Request FilterLogEvents
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679227950"><span class="annot"><span class="annottext">request :: FilterLogEvents -&gt; Request FilterLogEvents
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; FilterLogEvents -&gt; Request FilterLogEvents
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679227937"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679227946"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy FilterLogEvents
 -&gt; ClientResponse ClientBody
@@ -624,10 +624,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227934"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227934"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227933"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679227933"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227932"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227943"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227943"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227942"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679227942"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227941"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679227941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-277"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
 -&gt; Maybe Text
 -&gt; Maybe [FilteredLogEvent]
@@ -646,7 +646,7 @@ MonadResource m =&gt;
       -&gt; Maybe [FilteredLogEvent] -&gt; Int -&gt; FilterLogEventsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SearchedLogStream]))
+</span><a href="#local-6989586621679227941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SearchedLogStream]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;searchedLogStreams&quot;</span></span><span>
@@ -667,7 +667,7 @@ forall a. Monoid a =&gt; a
      String (Maybe [FilteredLogEvent] -&gt; Int -&gt; FilterLogEventsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679227941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -677,7 +677,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; FilterLogEventsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FilteredLogEvent]))
+</span><a href="#local-6989586621679227941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FilteredLogEvent]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FilteredLogEvent]))
@@ -695,15 +695,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227934"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227943"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
-</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227923"><span id="local-6989586621679227925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span></span></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227932"><span id="local-6989586621679227934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span></span></span><span>
 </span><span id="line-287"></span><span>
-</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span></span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-291"></span><span>  </span><span id="local-6989586621679227916"><span class="annot"><span class="annottext">toHeaders :: FilterLogEvents -&gt; ResponseHeaders
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679227925"><span class="annot"><span class="annottext">toHeaders :: FilterLogEvents -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-292"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; FilterLogEvents -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -730,9 +730,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-302"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-303"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227906"><span id="local-6989586621679227908"><span id="local-6989586621679227910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621679227904"><span class="annot"><span class="annottext">toJSON :: FilterLogEvents -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227894"><span id="local-6989586621679227895"><span id="local-6989586621679227896"><span id="local-6989586621679227897"><span id="local-6989586621679227898"><span id="local-6989586621679227899"><span id="local-6989586621679227900"><span id="local-6989586621679227901"><span id="local-6989586621679227902"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227915"><span id="local-6989586621679227917"><span id="local-6989586621679227919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679227913"><span class="annot"><span class="annottext">toJSON :: FilterLogEvents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents%27"><span class="hs-identifier hs-type">FilterLogEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227903"><span id="local-6989586621679227904"><span id="local-6989586621679227905"><span id="local-6989586621679227906"><span id="local-6989586621679227907"><span id="local-6989586621679227908"><span id="local-6989586621679227909"><span id="local-6989586621679227910"><span id="local-6989586621679227911"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe (NonEmpty Text)
 Maybe Text
@@ -755,7 +755,7 @@ $sel:logStreamNamePrefix:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
 $sel:logStreamNames:FilterLogEvents' :: FilterLogEvents -&gt; Maybe (NonEmpty Text)
 $sel:nextToken:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Text
 $sel:startTime:FilterLogEvents' :: FilterLogEvents -&gt; Maybe Natural
-</span><a href="#local-6989586621679227894"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679227903"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-307"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-308"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -767,14 +767,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227902"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227911"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-310"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227901"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227910"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-311"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logStreamNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -782,7 +782,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-312"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679227900"><span class="hs-identifier hs-var">logStreamNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227909"><span class="hs-identifier hs-var">logStreamNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logStreamNamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -790,54 +790,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-314"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227899"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227908"><span class="hs-identifier hs-var">logStreamNamePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227898"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227907"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679227897"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227906"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-317"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227896"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227905"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-318"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;interleaved&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679227895"><span class="hs-identifier hs-var">interleaved</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679227904"><span class="hs-identifier hs-var">interleaved</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227894"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227903"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-320"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-321"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-322"></span><span>
 </span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-324"></span><span>  </span><span id="local-6989586621679227888"><span class="annot"><span class="annottext">toPath :: FilterLogEvents -&gt; ByteString
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679227897"><span class="annot"><span class="annottext">toPath :: FilterLogEvents -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; FilterLogEvents -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEvents"><span class="hs-identifier hs-type">FilterLogEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-327"></span><span>  </span><span id="local-6989586621679227884"><span class="annot"><span class="annottext">toQuery :: FilterLogEvents -&gt; QueryString
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621679227893"><span class="annot"><span class="annottext">toQuery :: FilterLogEvents -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; FilterLogEvents -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -845,7 +845,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- | /See:/ 'newFilterLogEventsResponse' smart constructor.</span><span>
-</span><span id="line-330"></span><span id="local-6989586621679227881"><span id="local-6989586621679227882"></span></span><span class="hs-keyword">data</span><span> </span><span id="FilterLogEventsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-var">FilterLogEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterLogEventsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-var">FilterLogEventsResponse'</span></a></span></span><span>
+</span><span id="line-330"></span><span id="local-6989586621679227890"><span id="local-6989586621679227891"></span></span><span class="hs-keyword">data</span><span> </span><span id="FilterLogEventsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-var">FilterLogEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FilterLogEventsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-var">FilterLogEventsResponse'</span></a></span></span><span>
 </span><span id="line-331"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | __IMPORTANT__ Starting on May 15, 2020, this parameter will be</span><span>
 </span><span id="line-332"></span><span>    </span><span class="hs-comment">-- deprecated. This parameter will be an empty list after the deprecation</span><span>
 </span><span id="line-333"></span><span>    </span><span class="hs-comment">-- occurs.</span><span>
@@ -865,7 +865,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-344"></span><span>    </span><span id="%24sel%3AhttpStatus%3AFilterLogEventsResponse%27"><span class="annot"><span class="annottext">FilterLogEventsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AhttpStatus%3AFilterLogEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-345"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-346"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227873"><span id="local-6989586621679227875"><span class="annot"><span class="annottext">FilterLogEventsResponse -&gt; FilterLogEventsResponse -&gt; Bool
+</span><span id="line-346"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227882"><span id="local-6989586621679227884"><span class="annot"><span class="annottext">FilterLogEventsResponse -&gt; FilterLogEventsResponse -&gt; Bool
 (FilterLogEventsResponse -&gt; FilterLogEventsResponse -&gt; Bool)
 -&gt; (FilterLogEventsResponse -&gt; FilterLogEventsResponse -&gt; Bool)
 -&gt; Eq FilterLogEventsResponse
@@ -874,7 +874,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FilterLogEventsResponse -&gt; FilterLogEventsResponse -&gt; Bool
 == :: FilterLogEventsResponse -&gt; FilterLogEventsResponse -&gt; Bool
 $c== :: FilterLogEventsResponse -&gt; FilterLogEventsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227865"><span id="local-6989586621679227867"><span id="local-6989586621679227869"><span id="local-6989586621679227871"><span class="annot"><span class="annottext">ReadPrec [FilterLogEventsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227874"><span id="local-6989586621679227876"><span id="local-6989586621679227878"><span id="local-6989586621679227880"><span class="annot"><span class="annottext">ReadPrec [FilterLogEventsResponse]
 ReadPrec FilterLogEventsResponse
 Int -&gt; ReadS FilterLogEventsResponse
 ReadS [FilterLogEventsResponse]
@@ -894,7 +894,7 @@ readList :: ReadS [FilterLogEventsResponse]
 $creadList :: ReadS [FilterLogEventsResponse]
 readsPrec :: Int -&gt; ReadS FilterLogEventsResponse
 $creadsPrec :: Int -&gt; ReadS FilterLogEventsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227859"><span id="local-6989586621679227861"><span id="local-6989586621679227863"><span class="annot"><span class="annottext">Int -&gt; FilterLogEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227868"><span id="local-6989586621679227870"><span id="local-6989586621679227872"><span class="annot"><span class="annottext">Int -&gt; FilterLogEventsResponse -&gt; ShowS
 [FilterLogEventsResponse] -&gt; ShowS
 FilterLogEventsResponse -&gt; String
 (Int -&gt; FilterLogEventsResponse -&gt; ShowS)
@@ -948,8 +948,8 @@ $cfrom :: forall x. FilterLogEventsResponse -&gt; Rep FilterLogEventsResponse x
 </span><span id="line-371"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-372"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span>
 </span><span id="line-373"></span><span id="newFilterLogEventsResponse"><span class="annot"><span class="annottext">newFilterLogEventsResponse :: Int -&gt; FilterLogEventsResponse
-</span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#newFilterLogEventsResponse"><span class="hs-identifier hs-var hs-var">newFilterLogEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679227856"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#newFilterLogEventsResponse"><span class="hs-identifier hs-var hs-var">newFilterLogEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679227865"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-374"></span><span>  </span><span class="annot"><span class="annottext">FilterLogEventsResponse' :: Maybe [SearchedLogStream]
 -&gt; Maybe Text
 -&gt; Maybe [FilteredLogEvent]
@@ -971,7 +971,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-379"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:FilterLogEventsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AhttpStatus%3AFilterLogEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227856"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679227865"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-380"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-381"></span><span>
 </span><span id="line-382"></span><span class="hs-comment">-- | __IMPORTANT__ Starting on May 15, 2020, this parameter will be</span><span>
@@ -992,16 +992,16 @@ forall a. Maybe a
      (Maybe [SearchedLogStream])
      (Maybe [SearchedLogStream])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227855"><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227864"><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
 searchedLogStreams :: Maybe [SearchedLogStream]
 $sel:searchedLogStreams:FilterLogEventsResponse' :: FilterLogEventsResponse -&gt; Maybe [SearchedLogStream]
-</span><a href="#local-6989586621679227855"><span class="hs-identifier hs-var hs-var">searchedLogStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
-</span><a href="#local-6989586621679227855"><span class="hs-identifier hs-var">searchedLogStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227854"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
-</span><a href="#local-6989586621679227854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227853"><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
-</span><a href="#local-6989586621679227853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
-</span><a href="#local-6989586621679227854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchedLogStreams:FilterLogEventsResponse' :: Maybe [SearchedLogStream]
+</span><a href="#local-6989586621679227864"><span class="hs-identifier hs-var hs-var">searchedLogStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
+</span><a href="#local-6989586621679227864"><span class="hs-identifier hs-var">searchedLogStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227863"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
+</span><a href="#local-6989586621679227863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227862"><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
+</span><a href="#local-6989586621679227862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
+</span><a href="#local-6989586621679227863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchedLogStreams:FilterLogEventsResponse' :: Maybe [SearchedLogStream]
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AsearchedLogStreams%3AFilterLogEventsResponse%27"><span class="hs-identifier hs-var">searchedLogStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SearchedLogStream]
-</span><a href="#local-6989586621679227853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SearchedLogStream] -&gt; f (Maybe [SearchedLogStream]))
+</span><a href="#local-6989586621679227862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SearchedLogStream] -&gt; f (Maybe [SearchedLogStream]))
  -&gt; FilterLogEventsResponse -&gt; f FilterLogEventsResponse)
 -&gt; ((Maybe [SearchedLogStream] -&gt; f (Maybe [SearchedLogStream]))
     -&gt; Maybe [SearchedLogStream] -&gt; f (Maybe [SearchedLogStream]))
@@ -1040,16 +1040,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; FilterLogEventsResponse)
 -&gt; Lens' FilterLogEventsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227852"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227861"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:FilterLogEventsResponse' :: FilterLogEventsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679227852"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227852"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227851"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
-</span><a href="#local-6989586621679227851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227850"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
-</span><a href="#local-6989586621679227851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:FilterLogEventsResponse' :: Maybe Text
+</span><a href="#local-6989586621679227861"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227861"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227860"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
+</span><a href="#local-6989586621679227860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227859"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679227859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
+</span><a href="#local-6989586621679227860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:FilterLogEventsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AnextToken%3AFilterLogEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679227850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-395"></span><span>
 </span><span id="line-396"></span><span class="hs-comment">-- | The matched events.</span><span>
 </span><span id="line-397"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#filterLogEventsResponse_events"><span class="hs-identifier hs-type">filterLogEventsResponse_events</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.FilteredLogEvent.html#FilteredLogEvent"><span class="hs-identifier hs-type">FilteredLogEvent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -1064,16 +1064,16 @@ $sel:nextToken:FilterLogEventsResponse' :: FilterLogEventsResponse -&gt; Maybe T
      (Maybe [FilteredLogEvent])
      (Maybe [FilteredLogEvent])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227849"><span class="annot"><span class="annottext">Maybe [FilteredLogEvent]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227858"><span class="annot"><span class="annottext">Maybe [FilteredLogEvent]
 events :: Maybe [FilteredLogEvent]
 $sel:events:FilterLogEventsResponse' :: FilterLogEventsResponse -&gt; Maybe [FilteredLogEvent]
-</span><a href="#local-6989586621679227849"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilteredLogEvent]
-</span><a href="#local-6989586621679227849"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227848"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
-</span><a href="#local-6989586621679227848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227847"><span class="annot"><span class="annottext">Maybe [FilteredLogEvent]
-</span><a href="#local-6989586621679227847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
-</span><a href="#local-6989586621679227848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:FilterLogEventsResponse' :: Maybe [FilteredLogEvent]
+</span><a href="#local-6989586621679227858"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilteredLogEvent]
+</span><a href="#local-6989586621679227858"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227857"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
+</span><a href="#local-6989586621679227857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227856"><span class="annot"><span class="annottext">Maybe [FilteredLogEvent]
+</span><a href="#local-6989586621679227856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
+</span><a href="#local-6989586621679227857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:FilterLogEventsResponse' :: Maybe [FilteredLogEvent]
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3Aevents%3AFilterLogEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilteredLogEvent]
-</span><a href="#local-6989586621679227847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilteredLogEvent] -&gt; f (Maybe [FilteredLogEvent]))
+</span><a href="#local-6989586621679227856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilteredLogEvent] -&gt; f (Maybe [FilteredLogEvent]))
  -&gt; FilterLogEventsResponse -&gt; f FilterLogEventsResponse)
 -&gt; ((Maybe [FilteredLogEvent] -&gt; f (Maybe [FilteredLogEvent]))
     -&gt; Maybe [FilteredLogEvent] -&gt; f (Maybe [FilteredLogEvent]))
@@ -1110,16 +1110,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (FilterLogEventsResponse -&gt; Int -&gt; FilterLogEventsResponse)
 -&gt; Lens FilterLogEventsResponse FilterLogEventsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227846"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227855"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:FilterLogEventsResponse' :: FilterLogEventsResponse -&gt; Int
-</span><a href="#local-6989586621679227846"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227846"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227845"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
-</span><a href="#local-6989586621679227845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227844"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
-</span><a href="#local-6989586621679227845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FilterLogEventsResponse' :: Int
+</span><a href="#local-6989586621679227855"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227855"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227854"><span class="annot"><span class="annottext">s :: FilterLogEventsResponse
+</span><a href="#local-6989586621679227854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse%27"><span class="hs-identifier hs-type">FilterLogEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FilterLogEventsResponse
+</span><a href="#local-6989586621679227854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FilterLogEventsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#%24sel%3AhttpStatus%3AFilterLogEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-403"></span><span>
-</span><span id="line-404"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span></span><span>
+</span><span id="line-404"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.FilterLogEvents.html#FilterLogEventsResponse"><span class="hs-identifier hs-type">FilterLogEventsResponse</span></a></span></span><span>
 </span><span id="line-405"></span></pre></body></html>

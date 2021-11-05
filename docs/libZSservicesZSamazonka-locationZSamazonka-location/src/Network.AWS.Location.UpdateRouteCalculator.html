@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Location.UpdateRouteCalculator</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified properties for a given route calculator resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Location.UpdateRouteCalculator</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#newUpdateRouteCalculator"><span class="hs-identifier">newUpdateRouteCalculator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_pricingPlan"><span class="hs-identifier">updateRouteCalculator_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_description"><span class="hs-identifier">updateRouteCalculator_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_calculatorName"><span class="hs-identifier">updateRouteCalculator_calculatorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier">UpdateRouteCalculatorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#newUpdateRouteCalculatorResponse"><span class="hs-identifier">newUpdateRouteCalculatorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_httpStatus"><span class="hs-identifier">updateRouteCalculatorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_calculatorArn"><span class="hs-identifier">updateRouteCalculatorResponse_calculatorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_calculatorName"><span class="hs-identifier">updateRouteCalculatorResponse_calculatorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_updateTime"><span class="hs-identifier">updateRouteCalculatorResponse_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.html"><span class="hs-identifier">Network.AWS.Location.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateRouteCalculator' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679276162"><span id="local-6989586621679276163"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRouteCalculator"><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-var">UpdateRouteCalculator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRouteCalculator%27"><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-var">UpdateRouteCalculator'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updates the pricing plan for the route calculator resource.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- For more information about each pricing plan option restrictions, see</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApricingPlan%3AUpdateRouteCalculator%27"><span class="annot"><span class="annottext">UpdateRouteCalculator -&gt; Maybe PricingPlan
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3ApricingPlan%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Updates the description for the route calculator resource.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateRouteCalculator%27"><span class="annot"><span class="annottext">UpdateRouteCalculator -&gt; Maybe Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3Adescription%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The name of the route calculator resource to update.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AcalculatorName%3AUpdateRouteCalculator%27"><span class="annot"><span class="annottext">UpdateRouteCalculator -&gt; Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorName%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276154"><span id="local-6989586621679276156"><span class="annot"><span class="annottext">UpdateRouteCalculator -&gt; UpdateRouteCalculator -&gt; Bool
+(UpdateRouteCalculator -&gt; UpdateRouteCalculator -&gt; Bool)
+-&gt; (UpdateRouteCalculator -&gt; UpdateRouteCalculator -&gt; Bool)
+-&gt; Eq UpdateRouteCalculator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRouteCalculator -&gt; UpdateRouteCalculator -&gt; Bool
+$c/= :: UpdateRouteCalculator -&gt; UpdateRouteCalculator -&gt; Bool
+== :: UpdateRouteCalculator -&gt; UpdateRouteCalculator -&gt; Bool
+$c== :: UpdateRouteCalculator -&gt; UpdateRouteCalculator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276145"><span id="local-6989586621679276147"><span id="local-6989586621679276149"><span id="local-6989586621679276151"><span class="annot"><span class="annottext">ReadPrec [UpdateRouteCalculator]
+ReadPrec UpdateRouteCalculator
+Int -&gt; ReadS UpdateRouteCalculator
+ReadS [UpdateRouteCalculator]
+(Int -&gt; ReadS UpdateRouteCalculator)
+-&gt; ReadS [UpdateRouteCalculator]
+-&gt; ReadPrec UpdateRouteCalculator
+-&gt; ReadPrec [UpdateRouteCalculator]
+-&gt; Read UpdateRouteCalculator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRouteCalculator]
+$creadListPrec :: ReadPrec [UpdateRouteCalculator]
+readPrec :: ReadPrec UpdateRouteCalculator
+$creadPrec :: ReadPrec UpdateRouteCalculator
+readList :: ReadS [UpdateRouteCalculator]
+$creadList :: ReadS [UpdateRouteCalculator]
+readsPrec :: Int -&gt; ReadS UpdateRouteCalculator
+$creadsPrec :: Int -&gt; ReadS UpdateRouteCalculator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276138"><span id="local-6989586621679276140"><span id="local-6989586621679276142"><span class="annot"><span class="annottext">Int -&gt; UpdateRouteCalculator -&gt; ShowS
+[UpdateRouteCalculator] -&gt; ShowS
+UpdateRouteCalculator -&gt; String
+(Int -&gt; UpdateRouteCalculator -&gt; ShowS)
+-&gt; (UpdateRouteCalculator -&gt; String)
+-&gt; ([UpdateRouteCalculator] -&gt; ShowS)
+-&gt; Show UpdateRouteCalculator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRouteCalculator] -&gt; ShowS
+$cshowList :: [UpdateRouteCalculator] -&gt; ShowS
+show :: UpdateRouteCalculator -&gt; String
+$cshow :: UpdateRouteCalculator -&gt; String
+showsPrec :: Int -&gt; UpdateRouteCalculator -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRouteCalculator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateRouteCalculator -&gt; Rep UpdateRouteCalculator x)
+-&gt; (forall x. Rep UpdateRouteCalculator x -&gt; UpdateRouteCalculator)
+-&gt; Generic UpdateRouteCalculator
+forall x. Rep UpdateRouteCalculator x -&gt; UpdateRouteCalculator
+forall x. UpdateRouteCalculator -&gt; Rep UpdateRouteCalculator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateRouteCalculator x -&gt; UpdateRouteCalculator
+$cfrom :: forall x. UpdateRouteCalculator -&gt; Rep UpdateRouteCalculator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'UpdateRouteCalculator' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'pricingPlan', 'updateRouteCalculator_pricingPlan' - Updates the pricing plan for the route calculator resource.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- For more information about each pricing plan option restrictions, see</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'description', 'updateRouteCalculator_description' - Updates the description for the route calculator resource.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'calculatorName', 'updateRouteCalculator_calculatorName' - The name of the route calculator resource to update.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#newUpdateRouteCalculator"><span class="hs-identifier hs-type">newUpdateRouteCalculator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'calculatorName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span>
+</span><span id="line-87"></span><span id="newUpdateRouteCalculator"><span class="annot"><span class="annottext">newUpdateRouteCalculator :: Text -&gt; UpdateRouteCalculator
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#newUpdateRouteCalculator"><span class="hs-identifier hs-var hs-var">newUpdateRouteCalculator</span></a></span></span><span> </span><span id="local-6989586621679276133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276133"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">UpdateRouteCalculator' :: Maybe PricingPlan -&gt; Maybe Text -&gt; Text -&gt; UpdateRouteCalculator
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pricingPlan:UpdateRouteCalculator' :: Maybe PricingPlan
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3ApricingPlan%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe PricingPlan
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateRouteCalculator' :: Maybe Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3Adescription%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:calculatorName:UpdateRouteCalculator' :: Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorName%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276133"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Updates the pricing plan for the route calculator resource.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- For more information about each pricing plan option restrictions, see</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_pricingPlan"><span class="hs-identifier hs-type">updateRouteCalculator_pricingPlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="updateRouteCalculator_pricingPlan"><span class="annot"><span class="annottext">updateRouteCalculator_pricingPlan :: (Maybe PricingPlan -&gt; f (Maybe PricingPlan))
+-&gt; UpdateRouteCalculator -&gt; f UpdateRouteCalculator
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_pricingPlan"><span class="hs-identifier hs-var hs-var">updateRouteCalculator_pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRouteCalculator -&gt; Maybe PricingPlan)
+-&gt; (UpdateRouteCalculator
+    -&gt; Maybe PricingPlan -&gt; UpdateRouteCalculator)
+-&gt; Lens
+     UpdateRouteCalculator
+     UpdateRouteCalculator
+     (Maybe PricingPlan)
+     (Maybe PricingPlan)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276130"><span class="annot"><span class="annottext">Maybe PricingPlan
+pricingPlan :: Maybe PricingPlan
+$sel:pricingPlan:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Maybe PricingPlan
+</span><a href="#local-6989586621679276130"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679276130"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276129"><span class="annot"><span class="annottext">s :: UpdateRouteCalculator
+</span><a href="#local-6989586621679276129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276128"><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679276128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRouteCalculator
+</span><a href="#local-6989586621679276129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pricingPlan:UpdateRouteCalculator' :: Maybe PricingPlan
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3ApricingPlan%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679276128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Updates the description for the route calculator resource.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_description"><span class="hs-identifier hs-type">updateRouteCalculator_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="updateRouteCalculator_description"><span class="annot"><span class="annottext">updateRouteCalculator_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRouteCalculator -&gt; f UpdateRouteCalculator
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_description"><span class="hs-identifier hs-var hs-var">updateRouteCalculator_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRouteCalculator -&gt; Maybe Text)
+-&gt; (UpdateRouteCalculator -&gt; Maybe Text -&gt; UpdateRouteCalculator)
+-&gt; Lens
+     UpdateRouteCalculator
+     UpdateRouteCalculator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276127"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Maybe Text
+</span><a href="#local-6989586621679276127"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276127"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276126"><span class="annot"><span class="annottext">s :: UpdateRouteCalculator
+</span><a href="#local-6989586621679276126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276125"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRouteCalculator
+</span><a href="#local-6989586621679276126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateRouteCalculator' :: Maybe Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3Adescription%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the route calculator resource to update.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_calculatorName"><span class="hs-identifier hs-type">updateRouteCalculator_calculatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="updateRouteCalculator_calculatorName"><span class="annot"><span class="annottext">updateRouteCalculator_calculatorName :: (Text -&gt; f Text)
+-&gt; UpdateRouteCalculator -&gt; f UpdateRouteCalculator
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculator_calculatorName"><span class="hs-identifier hs-var hs-var">updateRouteCalculator_calculatorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRouteCalculator -&gt; Text)
+-&gt; (UpdateRouteCalculator -&gt; Text -&gt; UpdateRouteCalculator)
+-&gt; Lens UpdateRouteCalculator UpdateRouteCalculator Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276124"><span class="annot"><span class="annottext">Text
+calculatorName :: Text
+$sel:calculatorName:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Text
+</span><a href="#local-6989586621679276124"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276124"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276123"><span class="annot"><span class="annottext">s :: UpdateRouteCalculator
+</span><a href="#local-6989586621679276123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRouteCalculator
+</span><a href="#local-6989586621679276123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:calculatorName:UpdateRouteCalculator' :: Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorName%3AUpdateRouteCalculator%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679276118"><span class="annot"><span class="annottext">request :: UpdateRouteCalculator -&gt; Request UpdateRouteCalculator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRouteCalculator -&gt; Request UpdateRouteCalculator
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679276114"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateRouteCalculator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRouteCalculator)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateRouteCalculator))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateRouteCalculator
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateRouteCalculator)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679276110"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679276110"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679276109"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; POSIX -&gt; UpdateRouteCalculatorResponse
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">UpdateRouteCalculatorResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; POSIX -&gt; UpdateRouteCalculatorResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Text -&gt; Text -&gt; POSIX -&gt; UpdateRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276111"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; Text -&gt; POSIX -&gt; UpdateRouteCalculatorResponse)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; POSIX -&gt; UpdateRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CalculatorArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; POSIX -&gt; UpdateRouteCalculatorResponse)
+-&gt; Either String Text
+-&gt; Either String (POSIX -&gt; UpdateRouteCalculatorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CalculatorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; UpdateRouteCalculatorResponse)
+-&gt; Either String POSIX
+-&gt; Either String UpdateRouteCalculatorResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276101"><span id="local-6989586621679276103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679276094"><span class="annot"><span class="annottext">toHeaders :: UpdateRouteCalculator -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRouteCalculator -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276084"><span id="local-6989586621679276086"><span id="local-6989586621679276088"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679276082"><span class="annot"><span class="annottext">toJSON :: UpdateRouteCalculator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276078"><span id="local-6989586621679276079"><span id="local-6989586621679276080"><span class="annot"><span class="annottext">Maybe Text
+Maybe PricingPlan
+Text
+calculatorName :: Text
+description :: Maybe Text
+pricingPlan :: Maybe PricingPlan
+$sel:calculatorName:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Text
+$sel:description:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Maybe Text
+$sel:pricingPlan:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Maybe PricingPlan
+</span><a href="#local-6989586621679276078"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PricingPlan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PricingPlan -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PricingPlan -&gt; Pair) -&gt; Maybe PricingPlan -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679276080"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276079"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679276072"><span class="annot"><span class="annottext">toPath :: UpdateRouteCalculator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator%27"><span class="hs-identifier hs-type">UpdateRouteCalculator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276068"><span id="local-6989586621679276069"><span id="local-6989586621679276070"><span class="annot"><span class="annottext">Maybe Text
+Maybe PricingPlan
+Text
+calculatorName :: Text
+description :: Maybe Text
+pricingPlan :: Maybe PricingPlan
+$sel:calculatorName:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Text
+$sel:description:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Maybe Text
+$sel:pricingPlan:UpdateRouteCalculator' :: UpdateRouteCalculator -&gt; Maybe PricingPlan
+</span><a href="#local-6989586621679276068"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routes/v0/calculators/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276068"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculator"><span class="hs-identifier hs-type">UpdateRouteCalculator</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679276064"><span class="annot"><span class="annottext">toQuery :: UpdateRouteCalculator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRouteCalculator -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newUpdateRouteCalculatorResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679276061"><span id="local-6989586621679276062"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRouteCalculatorResponse"><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-var">UpdateRouteCalculatorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRouteCalculatorResponse%27"><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">UpdateRouteCalculatorResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRouteCalculatorResponse%27"><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse -&gt; Int
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AhttpStatus%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the updated route calculator resource.</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- Used to specify a resource across AWS.</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--     @arn:aws:geo:region:account-id:route- calculator\/ExampleCalculator@</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AcalculatorArn%3AUpdateRouteCalculatorResponse%27"><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse -&gt; Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorArn%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">calculatorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The name of the updated route calculator resource.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AcalculatorName%3AUpdateRouteCalculatorResponse%27"><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse -&gt; Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorName%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The timestamp for when the route calculator was last updated in</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AupdateTime%3AUpdateRouteCalculatorResponse%27"><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse -&gt; POSIX
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AupdateTime%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276053"><span id="local-6989586621679276055"><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse
+-&gt; UpdateRouteCalculatorResponse -&gt; Bool
+(UpdateRouteCalculatorResponse
+ -&gt; UpdateRouteCalculatorResponse -&gt; Bool)
+-&gt; (UpdateRouteCalculatorResponse
+    -&gt; UpdateRouteCalculatorResponse -&gt; Bool)
+-&gt; Eq UpdateRouteCalculatorResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateRouteCalculatorResponse
+-&gt; UpdateRouteCalculatorResponse -&gt; Bool
+$c/= :: UpdateRouteCalculatorResponse
+-&gt; UpdateRouteCalculatorResponse -&gt; Bool
+== :: UpdateRouteCalculatorResponse
+-&gt; UpdateRouteCalculatorResponse -&gt; Bool
+$c== :: UpdateRouteCalculatorResponse
+-&gt; UpdateRouteCalculatorResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276045"><span id="local-6989586621679276047"><span id="local-6989586621679276049"><span id="local-6989586621679276051"><span class="annot"><span class="annottext">ReadPrec [UpdateRouteCalculatorResponse]
+ReadPrec UpdateRouteCalculatorResponse
+Int -&gt; ReadS UpdateRouteCalculatorResponse
+ReadS [UpdateRouteCalculatorResponse]
+(Int -&gt; ReadS UpdateRouteCalculatorResponse)
+-&gt; ReadS [UpdateRouteCalculatorResponse]
+-&gt; ReadPrec UpdateRouteCalculatorResponse
+-&gt; ReadPrec [UpdateRouteCalculatorResponse]
+-&gt; Read UpdateRouteCalculatorResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateRouteCalculatorResponse]
+$creadListPrec :: ReadPrec [UpdateRouteCalculatorResponse]
+readPrec :: ReadPrec UpdateRouteCalculatorResponse
+$creadPrec :: ReadPrec UpdateRouteCalculatorResponse
+readList :: ReadS [UpdateRouteCalculatorResponse]
+$creadList :: ReadS [UpdateRouteCalculatorResponse]
+readsPrec :: Int -&gt; ReadS UpdateRouteCalculatorResponse
+$creadsPrec :: Int -&gt; ReadS UpdateRouteCalculatorResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276039"><span id="local-6989586621679276041"><span id="local-6989586621679276043"><span class="annot"><span class="annottext">Int -&gt; UpdateRouteCalculatorResponse -&gt; ShowS
+[UpdateRouteCalculatorResponse] -&gt; ShowS
+UpdateRouteCalculatorResponse -&gt; String
+(Int -&gt; UpdateRouteCalculatorResponse -&gt; ShowS)
+-&gt; (UpdateRouteCalculatorResponse -&gt; String)
+-&gt; ([UpdateRouteCalculatorResponse] -&gt; ShowS)
+-&gt; Show UpdateRouteCalculatorResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateRouteCalculatorResponse] -&gt; ShowS
+$cshowList :: [UpdateRouteCalculatorResponse] -&gt; ShowS
+show :: UpdateRouteCalculatorResponse -&gt; String
+$cshow :: UpdateRouteCalculatorResponse -&gt; String
+showsPrec :: Int -&gt; UpdateRouteCalculatorResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateRouteCalculatorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateRouteCalculatorResponse
+ -&gt; Rep UpdateRouteCalculatorResponse x)
+-&gt; (forall x.
+    Rep UpdateRouteCalculatorResponse x
+    -&gt; UpdateRouteCalculatorResponse)
+-&gt; Generic UpdateRouteCalculatorResponse
+forall x.
+Rep UpdateRouteCalculatorResponse x
+-&gt; UpdateRouteCalculatorResponse
+forall x.
+UpdateRouteCalculatorResponse
+-&gt; Rep UpdateRouteCalculatorResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateRouteCalculatorResponse x
+-&gt; UpdateRouteCalculatorResponse
+$cfrom :: forall x.
+UpdateRouteCalculatorResponse
+-&gt; Rep UpdateRouteCalculatorResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'UpdateRouteCalculatorResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'updateRouteCalculatorResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'calculatorArn', 'updateRouteCalculatorResponse_calculatorArn' - The Amazon Resource Name (ARN) of the updated route calculator resource.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Used to specify a resource across AWS.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:route- calculator\/ExampleCalculator@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'calculatorName', 'updateRouteCalculatorResponse_calculatorName' - The name of the updated route calculator resource.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'updateTime', 'updateRouteCalculatorResponse_updateTime' - The timestamp for when the route calculator was last updated in</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#newUpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">newUpdateRouteCalculatorResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'calculatorArn'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'calculatorName'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-comment">-- | 'updateTime'</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span>
+</span><span id="line-207"></span><span id="newUpdateRouteCalculatorResponse"><span class="annot"><span class="annottext">newUpdateRouteCalculatorResponse :: Int -&gt; Text -&gt; Text -&gt; UTCTime -&gt; UpdateRouteCalculatorResponse
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#newUpdateRouteCalculatorResponse"><span class="hs-identifier hs-var hs-var">newUpdateRouteCalculatorResponse</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679276036"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679276035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276035"><span class="hs-identifier hs-var">pCalculatorArn_</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679276034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276034"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679276033"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679276033"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse' :: Int -&gt; Text -&gt; Text -&gt; POSIX -&gt; UpdateRouteCalculatorResponse
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRouteCalculatorResponse' :: Int
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AhttpStatus%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:calculatorArn:UpdateRouteCalculatorResponse' :: Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorArn%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276035"><span class="hs-identifier hs-var">pCalculatorArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">$sel:calculatorName:UpdateRouteCalculatorResponse' :: Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorName%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276034"><span class="hs-identifier hs-var">pCalculatorName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateTime:UpdateRouteCalculatorResponse' :: POSIX
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AupdateTime%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679276033"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_httpStatus"><span class="hs-identifier hs-type">updateRouteCalculatorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span id="updateRouteCalculatorResponse_httpStatus"><span class="annot"><span class="annottext">updateRouteCalculatorResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateRouteCalculatorResponse -&gt; f UpdateRouteCalculatorResponse
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRouteCalculatorResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRouteCalculatorResponse -&gt; Int)
+-&gt; (UpdateRouteCalculatorResponse
+    -&gt; Int -&gt; UpdateRouteCalculatorResponse)
+-&gt; Lens
+     UpdateRouteCalculatorResponse UpdateRouteCalculatorResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276030"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateRouteCalculatorResponse' :: UpdateRouteCalculatorResponse -&gt; Int
+</span><a href="#local-6989586621679276030"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276030"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276029"><span class="annot"><span class="annottext">s :: UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRouteCalculatorResponse' :: Int
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AhttpStatus%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679276028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the updated route calculator resource.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Used to specify a resource across AWS.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:route- calculator\/ExampleCalculator@</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_calculatorArn"><span class="hs-identifier hs-type">updateRouteCalculatorResponse_calculatorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-230"></span><span id="updateRouteCalculatorResponse_calculatorArn"><span class="annot"><span class="annottext">updateRouteCalculatorResponse_calculatorArn :: (Text -&gt; f Text)
+-&gt; UpdateRouteCalculatorResponse -&gt; f UpdateRouteCalculatorResponse
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_calculatorArn"><span class="hs-identifier hs-var hs-var">updateRouteCalculatorResponse_calculatorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRouteCalculatorResponse -&gt; Text)
+-&gt; (UpdateRouteCalculatorResponse
+    -&gt; Text -&gt; UpdateRouteCalculatorResponse)
+-&gt; Lens
+     UpdateRouteCalculatorResponse
+     UpdateRouteCalculatorResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276027"><span class="annot"><span class="annottext">Text
+calculatorArn :: Text
+$sel:calculatorArn:UpdateRouteCalculatorResponse' :: UpdateRouteCalculatorResponse -&gt; Text
+</span><a href="#local-6989586621679276027"><span class="hs-identifier hs-var hs-var">calculatorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276027"><span class="hs-identifier hs-var">calculatorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276026"><span class="annot"><span class="annottext">s :: UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276025"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:calculatorArn:UpdateRouteCalculatorResponse' :: Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorArn%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The name of the updated route calculator resource.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_calculatorName"><span class="hs-identifier hs-type">updateRouteCalculatorResponse_calculatorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-234"></span><span id="updateRouteCalculatorResponse_calculatorName"><span class="annot"><span class="annottext">updateRouteCalculatorResponse_calculatorName :: (Text -&gt; f Text)
+-&gt; UpdateRouteCalculatorResponse -&gt; f UpdateRouteCalculatorResponse
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_calculatorName"><span class="hs-identifier hs-var hs-var">updateRouteCalculatorResponse_calculatorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRouteCalculatorResponse -&gt; Text)
+-&gt; (UpdateRouteCalculatorResponse
+    -&gt; Text -&gt; UpdateRouteCalculatorResponse)
+-&gt; Lens
+     UpdateRouteCalculatorResponse
+     UpdateRouteCalculatorResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276024"><span class="annot"><span class="annottext">Text
+calculatorName :: Text
+$sel:calculatorName:UpdateRouteCalculatorResponse' :: UpdateRouteCalculatorResponse -&gt; Text
+</span><a href="#local-6989586621679276024"><span class="hs-identifier hs-var hs-var">calculatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276024"><span class="hs-identifier hs-var">calculatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276023"><span class="annot"><span class="annottext">s :: UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:calculatorName:UpdateRouteCalculatorResponse' :: Text
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AcalculatorName%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">calculatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The timestamp for when the route calculator was last updated in</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_updateTime"><span class="hs-identifier hs-type">updateRouteCalculatorResponse_updateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-240"></span><span id="updateRouteCalculatorResponse_updateTime"><span class="annot"><span class="annottext">updateRouteCalculatorResponse_updateTime :: (UTCTime -&gt; f UTCTime)
+-&gt; UpdateRouteCalculatorResponse -&gt; f UpdateRouteCalculatorResponse
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#updateRouteCalculatorResponse_updateTime"><span class="hs-identifier hs-var hs-var">updateRouteCalculatorResponse_updateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRouteCalculatorResponse -&gt; POSIX)
+-&gt; (UpdateRouteCalculatorResponse
+    -&gt; POSIX -&gt; UpdateRouteCalculatorResponse)
+-&gt; Lens
+     UpdateRouteCalculatorResponse
+     UpdateRouteCalculatorResponse
+     POSIX
+     POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276021"><span class="annot"><span class="annottext">POSIX
+updateTime :: POSIX
+$sel:updateTime:UpdateRouteCalculatorResponse' :: UpdateRouteCalculatorResponse -&gt; POSIX
+</span><a href="#local-6989586621679276021"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679276021"><span class="hs-identifier hs-var">updateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276020"><span class="annot"><span class="annottext">s :: UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276019"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679276019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRouteCalculatorResponse
+</span><a href="#local-6989586621679276020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTime:UpdateRouteCalculatorResponse' :: POSIX
+</span><a href="Network.AWS.Location.UpdateRouteCalculator.html#%24sel%3AupdateTime%3AUpdateRouteCalculatorResponse%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679276019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; UpdateRouteCalculatorResponse
+ -&gt; f UpdateRouteCalculatorResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; UpdateRouteCalculatorResponse
+-&gt; f UpdateRouteCalculatorResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Location.UpdateRouteCalculator.html#UpdateRouteCalculatorResponse"><span class="hs-identifier hs-type">UpdateRouteCalculatorResponse</span></a></span></span><span>
+</span><span id="line-243"></span></pre></body></html>

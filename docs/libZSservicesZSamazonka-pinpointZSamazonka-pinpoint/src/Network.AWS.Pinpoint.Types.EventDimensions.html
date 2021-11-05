@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- campaign is sent or a journey activity is performed.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newEventDimensions' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679611156"><span id="local-6989586621679611157"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventDimensions"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-var">EventDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventDimensions%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-var">EventDimensions'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679611165"><span id="local-6989586621679611166"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventDimensions"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-var">EventDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventDimensions%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-var">EventDimensions'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more custom metrics that your application reports to Amazon</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Pinpoint. You can use these metrics as selection criteria when you</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- create an event filter.</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aattributes%3AEventDimensions%27"><span class="annot"><span class="annottext">EventDimensions -&gt; Maybe (HashMap Text AttributeDimension)
 </span><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#%24sel%3Aattributes%3AEventDimensions%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AttributeDimension.html#AttributeDimension"><span class="hs-identifier hs-type">AttributeDimension</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611148"><span id="local-6989586621679611150"><span class="annot"><span class="annottext">EventDimensions -&gt; EventDimensions -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611157"><span id="local-6989586621679611159"><span class="annot"><span class="annottext">EventDimensions -&gt; EventDimensions -&gt; Bool
 (EventDimensions -&gt; EventDimensions -&gt; Bool)
 -&gt; (EventDimensions -&gt; EventDimensions -&gt; Bool)
 -&gt; Eq EventDimensions
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventDimensions -&gt; EventDimensions -&gt; Bool
 == :: EventDimensions -&gt; EventDimensions -&gt; Bool
 $c== :: EventDimensions -&gt; EventDimensions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611139"><span id="local-6989586621679611141"><span id="local-6989586621679611143"><span id="local-6989586621679611145"><span class="annot"><span class="annottext">ReadPrec [EventDimensions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611148"><span id="local-6989586621679611150"><span id="local-6989586621679611152"><span id="local-6989586621679611154"><span class="annot"><span class="annottext">ReadPrec [EventDimensions]
 ReadPrec EventDimensions
 Int -&gt; ReadS EventDimensions
 ReadS [EventDimensions]
@@ -80,7 +80,7 @@ readList :: ReadS [EventDimensions]
 $creadList :: ReadS [EventDimensions]
 readsPrec :: Int -&gt; ReadS EventDimensions
 $creadsPrec :: Int -&gt; ReadS EventDimensions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611132"><span id="local-6989586621679611134"><span id="local-6989586621679611136"><span class="annot"><span class="annottext">Int -&gt; EventDimensions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611141"><span id="local-6989586621679611143"><span id="local-6989586621679611145"><span class="annot"><span class="annottext">Int -&gt; EventDimensions -&gt; ShowS
 [EventDimensions] -&gt; ShowS
 EventDimensions -&gt; String
 (Int -&gt; EventDimensions -&gt; ShowS)
@@ -168,16 +168,16 @@ forall a. Maybe a
      (Maybe (HashMap Text MetricDimension))
      (Maybe (HashMap Text MetricDimension))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611123"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611132"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
 metrics :: Maybe (HashMap Text MetricDimension)
 $sel:metrics:EventDimensions' :: EventDimensions -&gt; Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679611123"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679611123"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611122"><span class="annot"><span class="annottext">s :: EventDimensions
-</span><a href="#local-6989586621679611122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611121"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679611121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:EventDimensions' :: Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679611132"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679611132"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611131"><span class="annot"><span class="annottext">s :: EventDimensions
+</span><a href="#local-6989586621679611131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611130"><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679611130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
+</span><a href="#local-6989586621679611131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:EventDimensions' :: Maybe (HashMap Text MetricDimension)
 </span><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#%24sel%3Ametrics%3AEventDimensions%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679611121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetricDimension)
+</span><a href="#local-6989586621679611130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text MetricDimension)
   -&gt; f (Maybe (HashMap Text MetricDimension)))
  -&gt; EventDimensions -&gt; f EventDimensions)
 -&gt; ((Maybe (HashMap Text MetricDimension)
@@ -228,16 +228,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe SetDimension)
      (Maybe SetDimension)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611116"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611125"><span class="annot"><span class="annottext">Maybe SetDimension
 eventType :: Maybe SetDimension
 $sel:eventType:EventDimensions' :: EventDimensions -&gt; Maybe SetDimension
-</span><a href="#local-6989586621679611116"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679611116"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611115"><span class="annot"><span class="annottext">s :: EventDimensions
-</span><a href="#local-6989586621679611115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611114"><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679611114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:EventDimensions' :: Maybe SetDimension
+</span><a href="#local-6989586621679611125"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679611125"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611124"><span class="annot"><span class="annottext">s :: EventDimensions
+</span><a href="#local-6989586621679611124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611123"><span class="annot"><span class="annottext">Maybe SetDimension
+</span><a href="#local-6989586621679611123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
+</span><a href="#local-6989586621679611124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:EventDimensions' :: Maybe SetDimension
 </span><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#%24sel%3AeventType%3AEventDimensions%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679611114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | One or more custom attributes that your application reports to Amazon</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- Pinpoint. You can use these attributes as selection criteria when you</span><span>
@@ -255,16 +255,16 @@ $sel:eventType:EventDimensions' :: EventDimensions -&gt; Maybe SetDimension
      (Maybe (HashMap Text AttributeDimension))
      (Maybe (HashMap Text AttributeDimension))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611112"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611121"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
 attributes :: Maybe (HashMap Text AttributeDimension)
 $sel:attributes:EventDimensions' :: EventDimensions -&gt; Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679611112"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679611112"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611111"><span class="annot"><span class="annottext">s :: EventDimensions
-</span><a href="#local-6989586621679611111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611110"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679611110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
-</span><a href="#local-6989586621679611111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:EventDimensions' :: Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679611121"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679611121"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611120"><span class="annot"><span class="annottext">s :: EventDimensions
+</span><a href="#local-6989586621679611120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611119"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679611119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventDimensions
+</span><a href="#local-6989586621679611120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:EventDimensions' :: Maybe (HashMap Text AttributeDimension)
 </span><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#%24sel%3Aattributes%3AEventDimensions%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679611110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeDimension)
+</span><a href="#local-6989586621679611119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeDimension)
   -&gt; f (Maybe (HashMap Text AttributeDimension)))
  -&gt; EventDimensions -&gt; f EventDimensions)
 -&gt; ((Maybe (HashMap Text AttributeDimension)
@@ -297,8 +297,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611107"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679611105"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventDimensions
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611116"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679611114"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventDimensions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EventDimensions)
@@ -308,8 +308,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventDimensions&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611102"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611102"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611111"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611111"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
 -&gt; Maybe SetDimension
 -&gt; Maybe (HashMap Text AttributeDimension)
@@ -325,7 +325,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe (HashMap Text AttributeDimension) -&gt; EventDimensions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text MetricDimension)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -344,7 +344,7 @@ forall a. Monoid a =&gt; a
      (Maybe (HashMap Text AttributeDimension) -&gt; EventDimensions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
+</span><a href="#local-6989586621679611111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SetDimension)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventType&quot;</span></span><span class="hs-special">)</span><span>
@@ -353,7 +353,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser EventDimensions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AttributeDimension)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -366,13 +366,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611095"><span id="local-6989586621679611097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611104"><span id="local-6989586621679611106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611084"><span id="local-6989586621679611086"><span id="local-6989586621679611088"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679611082"><span class="annot"><span class="annottext">toJSON :: EventDimensions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611078"><span id="local-6989586621679611079"><span id="local-6989586621679611080"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611093"><span id="local-6989586621679611095"><span id="local-6989586621679611097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679611091"><span class="annot"><span class="annottext">toJSON :: EventDimensions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions%27"><span class="hs-identifier hs-type">EventDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611087"><span id="local-6989586621679611088"><span id="local-6989586621679611089"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
 Maybe (HashMap Text MetricDimension)
 Maybe SetDimension
 attributes :: Maybe (HashMap Text AttributeDimension)
@@ -381,7 +381,7 @@ metrics :: Maybe (HashMap Text MetricDimension)
 $sel:attributes:EventDimensions' :: EventDimensions -&gt; Maybe (HashMap Text AttributeDimension)
 $sel:eventType:EventDimensions' :: EventDimensions -&gt; Maybe SetDimension
 $sel:metrics:EventDimensions' :: EventDimensions -&gt; Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679611078"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679611087"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -394,14 +394,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text MetricDimension) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text MetricDimension)
-</span><a href="#local-6989586621679611080"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611089"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SetDimension -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SetDimension -&gt; Pair) -&gt; Maybe SetDimension -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SetDimension
-</span><a href="#local-6989586621679611079"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611088"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeDimension -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -409,7 +409,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeDimension) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeDimension)
-</span><a href="#local-6989586621679611078"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679611087"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span></pre></body></html>

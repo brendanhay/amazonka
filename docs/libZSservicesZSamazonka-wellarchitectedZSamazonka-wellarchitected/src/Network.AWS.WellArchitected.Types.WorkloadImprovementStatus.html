@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WellArchitected.Types.WorkloadImprovementStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WellArchitected.Types.WorkloadImprovementStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier">WorkloadImprovementStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_COMPLETE"><span class="hs-identifier">WorkloadImprovementStatus_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_IN_PROGRESS"><span class="hs-identifier">WorkloadImprovementStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_NOT_APPLICABLE"><span class="hs-identifier">WorkloadImprovementStatus_NOT_APPLICABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_NOT_STARTED"><span class="hs-identifier">WorkloadImprovementStatus_NOT_STARTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_RISK_ACKNOWLEDGED"><span class="hs-identifier">WorkloadImprovementStatus_RISK_ACKNOWLEDGED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | The improvement status for a workload.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679244775"><span id="local-6989586621679244776"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkloadImprovementStatus"><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-var">WorkloadImprovementStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkloadImprovementStatus%27"><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus%27"><span class="hs-identifier hs-var">WorkloadImprovementStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkloadImprovementStatus"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; Text
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#fromWorkloadImprovementStatus"><span class="hs-identifier hs-var hs-var">fromWorkloadImprovementStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244767"><span id="local-6989586621679244769"><span id="local-6989586621679244771"><span class="annot"><span class="annottext">Int -&gt; WorkloadImprovementStatus -&gt; ShowS
+[WorkloadImprovementStatus] -&gt; ShowS
+WorkloadImprovementStatus -&gt; String
+(Int -&gt; WorkloadImprovementStatus -&gt; ShowS)
+-&gt; (WorkloadImprovementStatus -&gt; String)
+-&gt; ([WorkloadImprovementStatus] -&gt; ShowS)
+-&gt; Show WorkloadImprovementStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkloadImprovementStatus] -&gt; ShowS
+$cshowList :: [WorkloadImprovementStatus] -&gt; ShowS
+show :: WorkloadImprovementStatus -&gt; String
+$cshow :: WorkloadImprovementStatus -&gt; String
+showsPrec :: Int -&gt; WorkloadImprovementStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkloadImprovementStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244758"><span id="local-6989586621679244760"><span id="local-6989586621679244762"><span id="local-6989586621679244764"><span class="annot"><span class="annottext">ReadPrec [WorkloadImprovementStatus]
+ReadPrec WorkloadImprovementStatus
+Int -&gt; ReadS WorkloadImprovementStatus
+ReadS [WorkloadImprovementStatus]
+(Int -&gt; ReadS WorkloadImprovementStatus)
+-&gt; ReadS [WorkloadImprovementStatus]
+-&gt; ReadPrec WorkloadImprovementStatus
+-&gt; ReadPrec [WorkloadImprovementStatus]
+-&gt; Read WorkloadImprovementStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkloadImprovementStatus]
+$creadListPrec :: ReadPrec [WorkloadImprovementStatus]
+readPrec :: ReadPrec WorkloadImprovementStatus
+$creadPrec :: ReadPrec WorkloadImprovementStatus
+readList :: ReadS [WorkloadImprovementStatus]
+$creadList :: ReadS [WorkloadImprovementStatus]
+readsPrec :: Int -&gt; ReadS WorkloadImprovementStatus
+$creadsPrec :: Int -&gt; ReadS WorkloadImprovementStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679244753"><span id="local-6989586621679244755"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+(WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool)
+-&gt; (WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool)
+-&gt; Eq WorkloadImprovementStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+$c/= :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+== :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+$c== :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679244737"><span id="local-6989586621679244739"><span id="local-6989586621679244741"><span id="local-6989586621679244743"><span id="local-6989586621679244745"><span id="local-6989586621679244747"><span id="local-6989586621679244749"><span class="annot"><span class="annottext">Eq WorkloadImprovementStatus
+Eq WorkloadImprovementStatus
+-&gt; (WorkloadImprovementStatus
+    -&gt; WorkloadImprovementStatus -&gt; Ordering)
+-&gt; (WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool)
+-&gt; (WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool)
+-&gt; (WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool)
+-&gt; (WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool)
+-&gt; (WorkloadImprovementStatus
+    -&gt; WorkloadImprovementStatus -&gt; WorkloadImprovementStatus)
+-&gt; (WorkloadImprovementStatus
+    -&gt; WorkloadImprovementStatus -&gt; WorkloadImprovementStatus)
+-&gt; Ord WorkloadImprovementStatus
+WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Ordering
+WorkloadImprovementStatus
+-&gt; WorkloadImprovementStatus -&gt; WorkloadImprovementStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WorkloadImprovementStatus
+-&gt; WorkloadImprovementStatus -&gt; WorkloadImprovementStatus
+$cmin :: WorkloadImprovementStatus
+-&gt; WorkloadImprovementStatus -&gt; WorkloadImprovementStatus
+max :: WorkloadImprovementStatus
+-&gt; WorkloadImprovementStatus -&gt; WorkloadImprovementStatus
+$cmax :: WorkloadImprovementStatus
+-&gt; WorkloadImprovementStatus -&gt; WorkloadImprovementStatus
+&gt;= :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+$c&gt;= :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+&gt; :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+$c&gt; :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+&lt;= :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+$c&lt;= :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+&lt; :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+$c&lt; :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Bool
+compare :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Ordering
+$ccompare :: WorkloadImprovementStatus -&gt; WorkloadImprovementStatus -&gt; Ordering
+$cp1Ord :: Eq WorkloadImprovementStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ WorkloadImprovementStatus -&gt; Rep WorkloadImprovementStatus x)
+-&gt; (forall x.
+    Rep WorkloadImprovementStatus x -&gt; WorkloadImprovementStatus)
+-&gt; Generic WorkloadImprovementStatus
+forall x.
+Rep WorkloadImprovementStatus x -&gt; WorkloadImprovementStatus
+forall x.
+WorkloadImprovementStatus -&gt; Rep WorkloadImprovementStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep WorkloadImprovementStatus x -&gt; WorkloadImprovementStatus
+$cfrom :: forall x.
+WorkloadImprovementStatus -&gt; Rep WorkloadImprovementStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244729"><span id="local-6989586621679244731"><span class="annot"><span class="annottext">Int -&gt; WorkloadImprovementStatus -&gt; Int
+WorkloadImprovementStatus -&gt; Int
+(Int -&gt; WorkloadImprovementStatus -&gt; Int)
+-&gt; (WorkloadImprovementStatus -&gt; Int)
+-&gt; Hashable WorkloadImprovementStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WorkloadImprovementStatus -&gt; Int
+$chash :: WorkloadImprovementStatus -&gt; Int
+hashWithSalt :: Int -&gt; WorkloadImprovementStatus -&gt; Int
+$chashWithSalt :: Int -&gt; WorkloadImprovementStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244726"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; ()
+(WorkloadImprovementStatus -&gt; ())
+-&gt; NFData WorkloadImprovementStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WorkloadImprovementStatus -&gt; ()
+$crnf :: WorkloadImprovementStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244723"><span class="annot"><span class="annottext">Text -&gt; Either String WorkloadImprovementStatus
+(Text -&gt; Either String WorkloadImprovementStatus)
+-&gt; FromText WorkloadImprovementStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WorkloadImprovementStatus
+$cfromText :: Text -&gt; Either String WorkloadImprovementStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244720"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; Text
+(WorkloadImprovementStatus -&gt; Text)
+-&gt; ToText WorkloadImprovementStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WorkloadImprovementStatus -&gt; Text
+$ctoText :: WorkloadImprovementStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244717"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; ByteString
+(WorkloadImprovementStatus -&gt; ByteString)
+-&gt; ToByteString WorkloadImprovementStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WorkloadImprovementStatus -&gt; ByteString
+$ctoBS :: WorkloadImprovementStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244714"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; ByteStringBuilder
+(WorkloadImprovementStatus -&gt; ByteStringBuilder)
+-&gt; ToLog WorkloadImprovementStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WorkloadImprovementStatus -&gt; ByteStringBuilder
+$cbuild :: WorkloadImprovementStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244711"><span class="annot"><span class="annottext">HeaderName -&gt; WorkloadImprovementStatus -&gt; [Header]
+(HeaderName -&gt; WorkloadImprovementStatus -&gt; [Header])
+-&gt; ToHeader WorkloadImprovementStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WorkloadImprovementStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WorkloadImprovementStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244708"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; QueryString
+(WorkloadImprovementStatus -&gt; QueryString)
+-&gt; ToQuery WorkloadImprovementStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WorkloadImprovementStatus -&gt; QueryString
+$ctoQuery :: WorkloadImprovementStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244703"><span id="local-6989586621679244705"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkloadImprovementStatus]
+Value -&gt; Parser WorkloadImprovementStatus
+(Value -&gt; Parser WorkloadImprovementStatus)
+-&gt; (Value -&gt; Parser [WorkloadImprovementStatus])
+-&gt; FromJSON WorkloadImprovementStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WorkloadImprovementStatus]
+$cparseJSONList :: Value -&gt; Parser [WorkloadImprovementStatus]
+parseJSON :: Value -&gt; Parser WorkloadImprovementStatus
+$cparseJSON :: Value -&gt; Parser WorkloadImprovementStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244698"><span id="local-6989586621679244700"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkloadImprovementStatus]
+FromJSONKeyFunction WorkloadImprovementStatus
+FromJSONKeyFunction WorkloadImprovementStatus
+-&gt; FromJSONKeyFunction [WorkloadImprovementStatus]
+-&gt; FromJSONKey WorkloadImprovementStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WorkloadImprovementStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [WorkloadImprovementStatus]
+fromJSONKey :: FromJSONKeyFunction WorkloadImprovementStatus
+$cfromJSONKey :: FromJSONKeyFunction WorkloadImprovementStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244689"><span id="local-6989586621679244691"><span id="local-6989586621679244693"><span id="local-6989586621679244695"><span class="annot"><span class="annottext">[WorkloadImprovementStatus] -&gt; Encoding
+[WorkloadImprovementStatus] -&gt; Value
+WorkloadImprovementStatus -&gt; Encoding
+WorkloadImprovementStatus -&gt; Value
+(WorkloadImprovementStatus -&gt; Value)
+-&gt; (WorkloadImprovementStatus -&gt; Encoding)
+-&gt; ([WorkloadImprovementStatus] -&gt; Value)
+-&gt; ([WorkloadImprovementStatus] -&gt; Encoding)
+-&gt; ToJSON WorkloadImprovementStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WorkloadImprovementStatus] -&gt; Encoding
+$ctoEncodingList :: [WorkloadImprovementStatus] -&gt; Encoding
+toJSONList :: [WorkloadImprovementStatus] -&gt; Value
+$ctoJSONList :: [WorkloadImprovementStatus] -&gt; Value
+toEncoding :: WorkloadImprovementStatus -&gt; Encoding
+$ctoEncoding :: WorkloadImprovementStatus -&gt; Encoding
+toJSON :: WorkloadImprovementStatus -&gt; Value
+$ctoJSON :: WorkloadImprovementStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244684"><span id="local-6989586621679244686"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkloadImprovementStatus]
+ToJSONKeyFunction WorkloadImprovementStatus
+ToJSONKeyFunction WorkloadImprovementStatus
+-&gt; ToJSONKeyFunction [WorkloadImprovementStatus]
+-&gt; ToJSONKey WorkloadImprovementStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WorkloadImprovementStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [WorkloadImprovementStatus]
+toJSONKey :: ToJSONKeyFunction WorkloadImprovementStatus
+$ctoJSONKey :: ToJSONKeyFunction WorkloadImprovementStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244681"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkloadImprovementStatus
+([Node] -&gt; Either String WorkloadImprovementStatus)
+-&gt; FromXML WorkloadImprovementStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WorkloadImprovementStatus
+$cparseXML :: [Node] -&gt; Either String WorkloadImprovementStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679244678"><span class="annot"><span class="annottext">WorkloadImprovementStatus -&gt; XML
+(WorkloadImprovementStatus -&gt; XML)
+-&gt; ToXML WorkloadImprovementStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WorkloadImprovementStatus -&gt; XML
+$ctoXML :: WorkloadImprovementStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_COMPLETE"><span class="hs-identifier hs-type">WorkloadImprovementStatus_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-type">WorkloadImprovementStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkloadImprovementStatus_COMPLETE"><span id="%24mWorkloadImprovementStatus_COMPLETE"><span id="WorkloadImprovementStatus_COMPLETE"><span class="annot"><span class="annottext">$bWorkloadImprovementStatus_COMPLETE :: WorkloadImprovementStatus
+$mWorkloadImprovementStatus_COMPLETE :: forall r.
+WorkloadImprovementStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#%24bWorkloadImprovementStatus_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">WorkloadImprovementStatus_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus%27"><span class="hs-identifier hs-type">WorkloadImprovementStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_IN_PROGRESS"><span class="hs-identifier hs-type">WorkloadImprovementStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-type">WorkloadImprovementStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkloadImprovementStatus_IN_PROGRESS"><span id="%24mWorkloadImprovementStatus_IN_PROGRESS"><span id="WorkloadImprovementStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bWorkloadImprovementStatus_IN_PROGRESS :: WorkloadImprovementStatus
+$mWorkloadImprovementStatus_IN_PROGRESS :: forall r.
+WorkloadImprovementStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#%24bWorkloadImprovementStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">WorkloadImprovementStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus%27"><span class="hs-identifier hs-type">WorkloadImprovementStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_NOT_APPLICABLE"><span class="hs-identifier hs-type">WorkloadImprovementStatus_NOT_APPLICABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-type">WorkloadImprovementStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkloadImprovementStatus_NOT_APPLICABLE"><span id="%24mWorkloadImprovementStatus_NOT_APPLICABLE"><span id="WorkloadImprovementStatus_NOT_APPLICABLE"><span class="annot"><span class="annottext">$bWorkloadImprovementStatus_NOT_APPLICABLE :: WorkloadImprovementStatus
+$mWorkloadImprovementStatus_NOT_APPLICABLE :: forall r.
+WorkloadImprovementStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#%24bWorkloadImprovementStatus_NOT_APPLICABLE"><span class="hs-identifier hs-var hs-var hs-var">WorkloadImprovementStatus_NOT_APPLICABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus%27"><span class="hs-identifier hs-type">WorkloadImprovementStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_APPLICABLE&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_NOT_STARTED"><span class="hs-identifier hs-type">WorkloadImprovementStatus_NOT_STARTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-type">WorkloadImprovementStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkloadImprovementStatus_NOT_STARTED"><span id="%24mWorkloadImprovementStatus_NOT_STARTED"><span id="WorkloadImprovementStatus_NOT_STARTED"><span class="annot"><span class="annottext">$bWorkloadImprovementStatus_NOT_STARTED :: WorkloadImprovementStatus
+$mWorkloadImprovementStatus_NOT_STARTED :: forall r.
+WorkloadImprovementStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#%24bWorkloadImprovementStatus_NOT_STARTED"><span class="hs-identifier hs-var hs-var hs-var">WorkloadImprovementStatus_NOT_STARTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus%27"><span class="hs-identifier hs-type">WorkloadImprovementStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_STARTED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_RISK_ACKNOWLEDGED"><span class="hs-identifier hs-type">WorkloadImprovementStatus_RISK_ACKNOWLEDGED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus"><span class="hs-identifier hs-type">WorkloadImprovementStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkloadImprovementStatus_RISK_ACKNOWLEDGED"><span id="%24mWorkloadImprovementStatus_RISK_ACKNOWLEDGED"><span id="WorkloadImprovementStatus_RISK_ACKNOWLEDGED"><span class="annot"><span class="annottext">$bWorkloadImprovementStatus_RISK_ACKNOWLEDGED :: WorkloadImprovementStatus
+$mWorkloadImprovementStatus_RISK_ACKNOWLEDGED :: forall r.
+WorkloadImprovementStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#%24bWorkloadImprovementStatus_RISK_ACKNOWLEDGED"><span class="hs-identifier hs-var hs-var hs-var">WorkloadImprovementStatus_RISK_ACKNOWLEDGED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus%27"><span class="hs-identifier hs-type">WorkloadImprovementStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RISK_ACKNOWLEDGED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_COMPLETE"><span class="hs-pragma hs-type">WorkloadImprovementStatus_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_IN_PROGRESS"><span class="hs-pragma hs-type">WorkloadImprovementStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_NOT_APPLICABLE"><span class="hs-pragma hs-type">WorkloadImprovementStatus_NOT_APPLICABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_NOT_STARTED"><span class="hs-pragma hs-type">WorkloadImprovementStatus_NOT_STARTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus_RISK_ACKNOWLEDGED"><span class="hs-pragma hs-type">WorkloadImprovementStatus_RISK_ACKNOWLEDGED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadImprovementStatus.html#WorkloadImprovementStatus%27"><span class="hs-pragma hs-type">WorkloadImprovementStatus'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

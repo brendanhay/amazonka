@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newSampleChannelData' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679264527"><span id="local-6989586621679264528"></span></span><span class="hs-keyword">data</span><span> </span><span id="SampleChannelData"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-var">SampleChannelData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleChannelData%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-var">SampleChannelData'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679264536"><span id="local-6989586621679264537"></span></span><span class="hs-keyword">data</span><span> </span><span id="SampleChannelData"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-var">SampleChannelData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleChannelData%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-var">SampleChannelData'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start of the time window from which sample messages are retrieved.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AstartTime%3ASampleChannelData%27"><span class="annot"><span class="annottext">SampleChannelData -&gt; Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AstartTime%3ASampleChannelData%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AchannelName%3ASampleChannelData%27"><span class="annot"><span class="annottext">SampleChannelData -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AchannelName%3ASampleChannelData%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264518"><span id="local-6989586621679264520"><span class="annot"><span class="annottext">SampleChannelData -&gt; SampleChannelData -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264527"><span id="local-6989586621679264529"><span class="annot"><span class="annottext">SampleChannelData -&gt; SampleChannelData -&gt; Bool
 (SampleChannelData -&gt; SampleChannelData -&gt; Bool)
 -&gt; (SampleChannelData -&gt; SampleChannelData -&gt; Bool)
 -&gt; Eq SampleChannelData
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SampleChannelData -&gt; SampleChannelData -&gt; Bool
 == :: SampleChannelData -&gt; SampleChannelData -&gt; Bool
 $c== :: SampleChannelData -&gt; SampleChannelData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264509"><span id="local-6989586621679264511"><span id="local-6989586621679264513"><span id="local-6989586621679264515"><span class="annot"><span class="annottext">ReadPrec [SampleChannelData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264518"><span id="local-6989586621679264520"><span id="local-6989586621679264522"><span id="local-6989586621679264524"><span class="annot"><span class="annottext">ReadPrec [SampleChannelData]
 ReadPrec SampleChannelData
 Int -&gt; ReadS SampleChannelData
 ReadS [SampleChannelData]
@@ -95,7 +95,7 @@ readList :: ReadS [SampleChannelData]
 $creadList :: ReadS [SampleChannelData]
 readsPrec :: Int -&gt; ReadS SampleChannelData
 $creadsPrec :: Int -&gt; ReadS SampleChannelData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264502"><span id="local-6989586621679264504"><span id="local-6989586621679264506"><span class="annot"><span class="annottext">Int -&gt; SampleChannelData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264511"><span id="local-6989586621679264513"><span id="local-6989586621679264515"><span class="annot"><span class="annottext">Int -&gt; SampleChannelData -&gt; ShowS
 [SampleChannelData] -&gt; ShowS
 SampleChannelData -&gt; String
 (Int -&gt; SampleChannelData -&gt; ShowS)
@@ -142,8 +142,8 @@ $cfrom :: forall x. SampleChannelData -&gt; Rep SampleChannelData x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span>
 </span><span id="line-87"></span><span id="newSampleChannelData"><span class="annot"><span class="annottext">newSampleChannelData :: Text -&gt; SampleChannelData
-</span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#newSampleChannelData"><span class="hs-identifier hs-var hs-var">newSampleChannelData</span></a></span></span><span> </span><span id="local-6989586621679264497"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679264497"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#newSampleChannelData"><span class="hs-identifier hs-var hs-var">newSampleChannelData</span></a></span></span><span> </span><span id="local-6989586621679264506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264506"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">SampleChannelData' :: Maybe POSIX
 -&gt; Maybe Natural -&gt; Maybe POSIX -&gt; Text -&gt; SampleChannelData
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span>
@@ -161,7 +161,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelName:SampleChannelData' :: Text
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AchannelName%3ASampleChannelData%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679264497"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span>
+</span><a href="#local-6989586621679264506"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The start of the time window from which sample messages are retrieved.</span><span>
@@ -173,16 +173,16 @@ forall a. Maybe a
 -&gt; Lens
      SampleChannelData SampleChannelData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264494"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264503"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679264494"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264494"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264493"><span class="annot"><span class="annottext">s :: SampleChannelData
-</span><a href="#local-6989586621679264493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264492"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
-</span><a href="#local-6989586621679264493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:SampleChannelData' :: Maybe POSIX
+</span><a href="#local-6989586621679264503"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679264503"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264502"><span class="annot"><span class="annottext">s :: SampleChannelData
+</span><a href="#local-6989586621679264502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264501"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679264501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
+</span><a href="#local-6989586621679264502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:SampleChannelData' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AstartTime%3ASampleChannelData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679264501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; SampleChannelData -&gt; f SampleChannelData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -209,16 +209,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      SampleChannelData SampleChannelData (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264488"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264497"><span class="annot"><span class="annottext">Maybe Natural
 maxMessages :: Maybe Natural
 $sel:maxMessages:SampleChannelData' :: SampleChannelData -&gt; Maybe Natural
-</span><a href="#local-6989586621679264488"><span class="hs-identifier hs-var hs-var">maxMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264488"><span class="hs-identifier hs-var">maxMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264487"><span class="annot"><span class="annottext">s :: SampleChannelData
-</span><a href="#local-6989586621679264487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264486"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
-</span><a href="#local-6989586621679264487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxMessages:SampleChannelData' :: Maybe Natural
+</span><a href="#local-6989586621679264497"><span class="hs-identifier hs-var hs-var">maxMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264497"><span class="hs-identifier hs-var">maxMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264496"><span class="annot"><span class="annottext">s :: SampleChannelData
+</span><a href="#local-6989586621679264496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264495"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679264495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
+</span><a href="#local-6989586621679264496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxMessages:SampleChannelData' :: Maybe Natural
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AmaxMessages%3ASampleChannelData%27"><span class="hs-identifier hs-var">maxMessages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The end of the time window from which sample messages are retrieved.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#sampleChannelData_endTime"><span class="hs-identifier hs-type">sampleChannelData_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -229,16 +229,16 @@ $sel:maxMessages:SampleChannelData' :: SampleChannelData -&gt; Maybe Natural
 -&gt; Lens
      SampleChannelData SampleChannelData (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264485"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264494"><span class="annot"><span class="annottext">Maybe POSIX
 endTime :: Maybe POSIX
 $sel:endTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679264485"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264485"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264484"><span class="annot"><span class="annottext">s :: SampleChannelData
-</span><a href="#local-6989586621679264484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264483"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
-</span><a href="#local-6989586621679264484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:SampleChannelData' :: Maybe POSIX
+</span><a href="#local-6989586621679264494"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679264494"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264493"><span class="annot"><span class="annottext">s :: SampleChannelData
+</span><a href="#local-6989586621679264493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264492"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679264492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
+</span><a href="#local-6989586621679264493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:SampleChannelData' :: Maybe POSIX
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AendTime%3ASampleChannelData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679264492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; SampleChannelData -&gt; f SampleChannelData)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -262,27 +262,27 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (SampleChannelData -&gt; Text -&gt; SampleChannelData)
 -&gt; Lens SampleChannelData SampleChannelData Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264482"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264491"><span class="annot"><span class="annottext">Text
 channelName :: Text
 $sel:channelName:SampleChannelData' :: SampleChannelData -&gt; Text
-</span><a href="#local-6989586621679264482"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679264482"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264481"><span class="annot"><span class="annottext">s :: SampleChannelData
-</span><a href="#local-6989586621679264481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264480"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679264480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
-</span><a href="#local-6989586621679264481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:SampleChannelData' :: Text
+</span><a href="#local-6989586621679264491"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264491"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264490"><span class="annot"><span class="annottext">s :: SampleChannelData
+</span><a href="#local-6989586621679264490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264489"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelData
+</span><a href="#local-6989586621679264490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:SampleChannelData' :: Text
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AchannelName%3ASampleChannelData%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679264480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679264476"><span class="annot"><span class="annottext">request :: SampleChannelData -&gt; Request SampleChannelData
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679264485"><span class="annot"><span class="annottext">request :: SampleChannelData -&gt; Request SampleChannelData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SampleChannelData -&gt; Request SampleChannelData
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679264472"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679264481"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SampleChannelData
 -&gt; ClientResponse ClientBody
@@ -308,10 +308,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264469"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264469"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264468"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679264468"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264467"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264467"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679264478"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264478"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679264477"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679264477"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679264476"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679264476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Base64) -&gt; Int -&gt; SampleChannelDataResponse
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-var">SampleChannelDataResponse'</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Base64) -&gt; Int -&gt; SampleChannelDataResponse)
@@ -319,7 +319,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; SampleChannelDataResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679264467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Base64))
+</span><a href="#local-6989586621679264476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Base64))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;payloads&quot;</span></span><span class="hs-special">)</span><span>
@@ -331,15 +331,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264469"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264478"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264459"><span id="local-6989586621679264461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264468"><span id="local-6989586621679264470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679264452"><span class="annot"><span class="annottext">toHeaders :: SampleChannelData -&gt; ResponseHeaders
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679264461"><span class="annot"><span class="annottext">toHeaders :: SampleChannelData -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SampleChannelData -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -347,8 +347,32 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679264447"><span class="annot"><span class="annottext">toPath :: SampleChannelData -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264442"><span id="local-6989586621679264443"><span id="local-6989586621679264444"><span id="local-6989586621679264445"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679264456"><span class="annot"><span class="annottext">toPath :: SampleChannelData -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264451"><span id="local-6989586621679264452"><span id="local-6989586621679264453"><span id="local-6989586621679264454"><span class="annot"><span class="annottext">Maybe Natural
+Maybe POSIX
+Text
+channelName :: Text
+endTime :: Maybe POSIX
+maxMessages :: Maybe Natural
+startTime :: Maybe POSIX
+$sel:channelName:SampleChannelData' :: SampleChannelData -&gt; Text
+$sel:endTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
+$sel:maxMessages:SampleChannelData' :: SampleChannelData -&gt; Maybe Natural
+$sel:startTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679264451"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679264451"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sample&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679264447"><span class="annot"><span class="annottext">toQuery :: SampleChannelData -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264442"><span id="local-6989586621679264443"><span id="local-6989586621679264444"><span id="local-6989586621679264445"><span class="annot"><span class="annottext">Maybe Natural
 Maybe POSIX
 Text
 channelName :: Text
@@ -360,30 +384,6 @@ $sel:endTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
 $sel:maxMessages:SampleChannelData' :: SampleChannelData -&gt; Maybe Natural
 $sel:startTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
 </span><a href="#local-6989586621679264442"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679264442"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/sample&quot;</span></span><span class="hs-special">]</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData"><span class="hs-identifier hs-type">SampleChannelData</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679264438"><span class="annot"><span class="annottext">toQuery :: SampleChannelData -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelData%27"><span class="hs-identifier hs-type">SampleChannelData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264433"><span id="local-6989586621679264434"><span id="local-6989586621679264435"><span id="local-6989586621679264436"><span class="annot"><span class="annottext">Maybe Natural
-Maybe POSIX
-Text
-channelName :: Text
-endTime :: Maybe POSIX
-maxMessages :: Maybe Natural
-startTime :: Maybe POSIX
-$sel:channelName:SampleChannelData' :: SampleChannelData -&gt; Text
-$sel:endTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
-$sel:maxMessages:SampleChannelData' :: SampleChannelData -&gt; Maybe Natural
-$sel:startTime:SampleChannelData' :: SampleChannelData -&gt; Maybe POSIX
-</span><a href="#local-6989586621679264433"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -391,21 +391,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;startTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264436"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679264445"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxMessages&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264435"><span class="hs-identifier hs-var">maxMessages</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679264444"><span class="hs-identifier hs-var">maxMessages</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;endTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679264434"><span class="hs-identifier hs-var">endTime</span></a></span><span>
+</span><a href="#local-6989586621679264443"><span class="hs-identifier hs-var">endTime</span></a></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newSampleChannelDataResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679264430"><span id="local-6989586621679264431"></span></span><span class="hs-keyword">data</span><span> </span><span id="SampleChannelDataResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-var">SampleChannelDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleChannelDataResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-var">SampleChannelDataResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679264439"><span id="local-6989586621679264440"></span></span><span class="hs-keyword">data</span><span> </span><span id="SampleChannelDataResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-var">SampleChannelDataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SampleChannelDataResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-var">SampleChannelDataResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of message samples. Each sample message is returned as a</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- base64-encoded string.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3Apayloads%3ASampleChannelDataResponse%27"><span class="annot"><span class="annottext">SampleChannelDataResponse -&gt; Maybe (NonEmpty Base64)
@@ -414,7 +414,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASampleChannelDataResponse%27"><span class="annot"><span class="annottext">SampleChannelDataResponse -&gt; Int
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AhttpStatus%3ASampleChannelDataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264424"><span id="local-6989586621679264426"><span class="annot"><span class="annottext">SampleChannelDataResponse -&gt; SampleChannelDataResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264433"><span id="local-6989586621679264435"><span class="annot"><span class="annottext">SampleChannelDataResponse -&gt; SampleChannelDataResponse -&gt; Bool
 (SampleChannelDataResponse -&gt; SampleChannelDataResponse -&gt; Bool)
 -&gt; (SampleChannelDataResponse -&gt; SampleChannelDataResponse -&gt; Bool)
 -&gt; Eq SampleChannelDataResponse
@@ -423,7 +423,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SampleChannelDataResponse -&gt; SampleChannelDataResponse -&gt; Bool
 == :: SampleChannelDataResponse -&gt; SampleChannelDataResponse -&gt; Bool
 $c== :: SampleChannelDataResponse -&gt; SampleChannelDataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264416"><span id="local-6989586621679264418"><span id="local-6989586621679264420"><span id="local-6989586621679264422"><span class="annot"><span class="annottext">ReadPrec [SampleChannelDataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264425"><span id="local-6989586621679264427"><span id="local-6989586621679264429"><span id="local-6989586621679264431"><span class="annot"><span class="annottext">ReadPrec [SampleChannelDataResponse]
 ReadPrec SampleChannelDataResponse
 Int -&gt; ReadS SampleChannelDataResponse
 ReadS [SampleChannelDataResponse]
@@ -443,7 +443,7 @@ readList :: ReadS [SampleChannelDataResponse]
 $creadList :: ReadS [SampleChannelDataResponse]
 readsPrec :: Int -&gt; ReadS SampleChannelDataResponse
 $creadsPrec :: Int -&gt; ReadS SampleChannelDataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264410"><span id="local-6989586621679264412"><span id="local-6989586621679264414"><span class="annot"><span class="annottext">Int -&gt; SampleChannelDataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264419"><span id="local-6989586621679264421"><span id="local-6989586621679264423"><span class="annot"><span class="annottext">Int -&gt; SampleChannelDataResponse -&gt; ShowS
 [SampleChannelDataResponse] -&gt; ShowS
 SampleChannelDataResponse -&gt; String
 (Int -&gt; SampleChannelDataResponse -&gt; ShowS)
@@ -492,8 +492,8 @@ SampleChannelDataResponse -&gt; Rep SampleChannelDataResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newSampleChannelDataResponse"><span class="annot"><span class="annottext">newSampleChannelDataResponse :: Int -&gt; SampleChannelDataResponse
-</span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#newSampleChannelDataResponse"><span class="hs-identifier hs-var hs-var">newSampleChannelDataResponse</span></a></span></span><span> </span><span id="local-6989586621679264407"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#newSampleChannelDataResponse"><span class="hs-identifier hs-var hs-var">newSampleChannelDataResponse</span></a></span></span><span> </span><span id="local-6989586621679264416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">SampleChannelDataResponse' :: Maybe (NonEmpty Base64) -&gt; Int -&gt; SampleChannelDataResponse
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:payloads:SampleChannelDataResponse' :: Maybe (NonEmpty Base64)
@@ -503,7 +503,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SampleChannelDataResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AhttpStatus%3ASampleChannelDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264407"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679264416"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The list of message samples. Each sample message is returned as a</span><span>
@@ -520,16 +520,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Base64))
      (Maybe (NonEmpty Base64))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264406"><span class="annot"><span class="annottext">Maybe (NonEmpty Base64)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264415"><span class="annot"><span class="annottext">Maybe (NonEmpty Base64)
 payloads :: Maybe (NonEmpty Base64)
 $sel:payloads:SampleChannelDataResponse' :: SampleChannelDataResponse -&gt; Maybe (NonEmpty Base64)
-</span><a href="#local-6989586621679264406"><span class="hs-identifier hs-var hs-var">payloads</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Base64)
-</span><a href="#local-6989586621679264406"><span class="hs-identifier hs-var">payloads</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264405"><span class="annot"><span class="annottext">s :: SampleChannelDataResponse
-</span><a href="#local-6989586621679264405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264404"><span class="annot"><span class="annottext">Maybe (NonEmpty Base64)
-</span><a href="#local-6989586621679264404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelDataResponse
-</span><a href="#local-6989586621679264405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payloads:SampleChannelDataResponse' :: Maybe (NonEmpty Base64)
+</span><a href="#local-6989586621679264415"><span class="hs-identifier hs-var hs-var">payloads</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Base64)
+</span><a href="#local-6989586621679264415"><span class="hs-identifier hs-var">payloads</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264414"><span class="annot"><span class="annottext">s :: SampleChannelDataResponse
+</span><a href="#local-6989586621679264414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264413"><span class="annot"><span class="annottext">Maybe (NonEmpty Base64)
+</span><a href="#local-6989586621679264413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelDataResponse
+</span><a href="#local-6989586621679264414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payloads:SampleChannelDataResponse' :: Maybe (NonEmpty Base64)
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3Apayloads%3ASampleChannelDataResponse%27"><span class="hs-identifier hs-var">payloads</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Base64)
-</span><a href="#local-6989586621679264404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Base64) -&gt; f (Maybe (NonEmpty Base64)))
+</span><a href="#local-6989586621679264413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Base64) -&gt; f (Maybe (NonEmpty Base64)))
  -&gt; SampleChannelDataResponse -&gt; f SampleChannelDataResponse)
 -&gt; ((Maybe (NonEmpty ByteString)
      -&gt; f (Maybe (NonEmpty ByteString)))
@@ -567,16 +567,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SampleChannelDataResponse -&gt; Int -&gt; SampleChannelDataResponse)
 -&gt; Lens SampleChannelDataResponse SampleChannelDataResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264402"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264411"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SampleChannelDataResponse' :: SampleChannelDataResponse -&gt; Int
-</span><a href="#local-6989586621679264402"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264402"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264401"><span class="annot"><span class="annottext">s :: SampleChannelDataResponse
-</span><a href="#local-6989586621679264401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264400"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelDataResponse
-</span><a href="#local-6989586621679264401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SampleChannelDataResponse' :: Int
+</span><a href="#local-6989586621679264411"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264411"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264410"><span class="annot"><span class="annottext">s :: SampleChannelDataResponse
+</span><a href="#local-6989586621679264410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse%27"><span class="hs-identifier hs-type">SampleChannelDataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264409"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679264409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SampleChannelDataResponse
+</span><a href="#local-6989586621679264410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SampleChannelDataResponse' :: Int
 </span><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#%24sel%3AhttpStatus%3ASampleChannelDataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679264400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679264409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.SampleChannelData.html#SampleChannelDataResponse"><span class="hs-identifier hs-type">SampleChannelDataResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

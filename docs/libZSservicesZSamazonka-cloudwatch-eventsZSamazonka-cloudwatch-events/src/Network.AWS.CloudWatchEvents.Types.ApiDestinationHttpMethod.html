@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679298318"><span id="local-6989586621679298319"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiDestinationHttpMethod"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod"><span class="hs-identifier hs-var">ApiDestinationHttpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiDestinationHttpMethod%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod%27"><span class="hs-identifier hs-var">ApiDestinationHttpMethod'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679298327"><span id="local-6989586621679298328"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiDestinationHttpMethod"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod"><span class="hs-identifier hs-var">ApiDestinationHttpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiDestinationHttpMethod%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod%27"><span class="hs-identifier hs-var">ApiDestinationHttpMethod'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApiDestinationHttpMethod"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#fromApiDestinationHttpMethod"><span class="hs-identifier hs-var hs-var">fromApiDestinationHttpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298310"><span id="local-6989586621679298312"><span id="local-6989586621679298314"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationHttpMethod -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298319"><span id="local-6989586621679298321"><span id="local-6989586621679298323"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationHttpMethod -&gt; ShowS
 [ApiDestinationHttpMethod] -&gt; ShowS
 ApiDestinationHttpMethod -&gt; String
 (Int -&gt; ApiDestinationHttpMethod -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: ApiDestinationHttpMethod -&gt; String
 showsPrec :: Int -&gt; ApiDestinationHttpMethod -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApiDestinationHttpMethod -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679298301"><span id="local-6989586621679298303"><span id="local-6989586621679298305"><span id="local-6989586621679298307"><span class="annot"><span class="annottext">ReadPrec [ApiDestinationHttpMethod]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679298310"><span id="local-6989586621679298312"><span id="local-6989586621679298314"><span id="local-6989586621679298316"><span class="annot"><span class="annottext">ReadPrec [ApiDestinationHttpMethod]
 ReadPrec ApiDestinationHttpMethod
 Int -&gt; ReadS ApiDestinationHttpMethod
 ReadS [ApiDestinationHttpMethod]
@@ -77,7 +77,7 @@ $creadList :: ReadS [ApiDestinationHttpMethod]
 readsPrec :: Int -&gt; ReadS ApiDestinationHttpMethod
 $creadsPrec :: Int -&gt; ReadS ApiDestinationHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298296"><span id="local-6989586621679298298"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ApiDestinationHttpMethod -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298305"><span id="local-6989586621679298307"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ApiDestinationHttpMethod -&gt; Bool
 (ApiDestinationHttpMethod -&gt; ApiDestinationHttpMethod -&gt; Bool)
 -&gt; (ApiDestinationHttpMethod -&gt; ApiDestinationHttpMethod -&gt; Bool)
 -&gt; Eq ApiDestinationHttpMethod
@@ -87,7 +87,7 @@ $c/= :: ApiDestinationHttpMethod -&gt; ApiDestinationHttpMethod -&gt; Bool
 == :: ApiDestinationHttpMethod -&gt; ApiDestinationHttpMethod -&gt; Bool
 $c== :: ApiDestinationHttpMethod -&gt; ApiDestinationHttpMethod -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298280"><span id="local-6989586621679298282"><span id="local-6989586621679298284"><span id="local-6989586621679298286"><span id="local-6989586621679298288"><span id="local-6989586621679298290"><span id="local-6989586621679298292"><span class="annot"><span class="annottext">Eq ApiDestinationHttpMethod
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298289"><span id="local-6989586621679298291"><span id="local-6989586621679298293"><span id="local-6989586621679298295"><span id="local-6989586621679298297"><span id="local-6989586621679298299"><span id="local-6989586621679298301"><span class="annot"><span class="annottext">Eq ApiDestinationHttpMethod
 Eq ApiDestinationHttpMethod
 -&gt; (ApiDestinationHttpMethod
     -&gt; ApiDestinationHttpMethod -&gt; Ordering)
@@ -152,7 +152,7 @@ ApiDestinationHttpMethod -&gt; Rep ApiDestinationHttpMethod x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298272"><span id="local-6989586621679298274"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationHttpMethod -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298281"><span id="local-6989586621679298283"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationHttpMethod -&gt; Int
 ApiDestinationHttpMethod -&gt; Int
 (Int -&gt; ApiDestinationHttpMethod -&gt; Int)
 -&gt; (ApiDestinationHttpMethod -&gt; Int)
@@ -163,55 +163,55 @@ $chash :: ApiDestinationHttpMethod -&gt; Int
 hashWithSalt :: Int -&gt; ApiDestinationHttpMethod -&gt; Int
 $chashWithSalt :: Int -&gt; ApiDestinationHttpMethod -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298269"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298278"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ()
 (ApiDestinationHttpMethod -&gt; ()) -&gt; NFData ApiDestinationHttpMethod
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApiDestinationHttpMethod -&gt; ()
 $crnf :: ApiDestinationHttpMethod -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298266"><span class="annot"><span class="annottext">Text -&gt; Either String ApiDestinationHttpMethod
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298275"><span class="annot"><span class="annottext">Text -&gt; Either String ApiDestinationHttpMethod
 (Text -&gt; Either String ApiDestinationHttpMethod)
 -&gt; FromText ApiDestinationHttpMethod
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApiDestinationHttpMethod
 $cfromText :: Text -&gt; Either String ApiDestinationHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298263"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298272"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; Text
 (ApiDestinationHttpMethod -&gt; Text)
 -&gt; ToText ApiDestinationHttpMethod
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApiDestinationHttpMethod -&gt; Text
 $ctoText :: ApiDestinationHttpMethod -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298260"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298269"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ByteString
 (ApiDestinationHttpMethod -&gt; ByteString)
 -&gt; ToByteString ApiDestinationHttpMethod
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApiDestinationHttpMethod -&gt; ByteString
 $ctoBS :: ApiDestinationHttpMethod -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298257"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298266"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; ByteStringBuilder
 (ApiDestinationHttpMethod -&gt; ByteStringBuilder)
 -&gt; ToLog ApiDestinationHttpMethod
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApiDestinationHttpMethod -&gt; ByteStringBuilder
 $cbuild :: ApiDestinationHttpMethod -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298254"><span class="annot"><span class="annottext">HeaderName -&gt; ApiDestinationHttpMethod -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298263"><span class="annot"><span class="annottext">HeaderName -&gt; ApiDestinationHttpMethod -&gt; [Header]
 (HeaderName -&gt; ApiDestinationHttpMethod -&gt; [Header])
 -&gt; ToHeader ApiDestinationHttpMethod
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApiDestinationHttpMethod -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApiDestinationHttpMethod -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298251"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298260"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; QueryString
 (ApiDestinationHttpMethod -&gt; QueryString)
 -&gt; ToQuery ApiDestinationHttpMethod
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApiDestinationHttpMethod -&gt; QueryString
 $ctoQuery :: ApiDestinationHttpMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298246"><span id="local-6989586621679298248"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiDestinationHttpMethod]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298255"><span id="local-6989586621679298257"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiDestinationHttpMethod]
 Value -&gt; Parser ApiDestinationHttpMethod
 (Value -&gt; Parser ApiDestinationHttpMethod)
 -&gt; (Value -&gt; Parser [ApiDestinationHttpMethod])
@@ -223,7 +223,7 @@ $cparseJSONList :: Value -&gt; Parser [ApiDestinationHttpMethod]
 parseJSON :: Value -&gt; Parser ApiDestinationHttpMethod
 $cparseJSON :: Value -&gt; Parser ApiDestinationHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298241"><span id="local-6989586621679298243"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiDestinationHttpMethod]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298250"><span id="local-6989586621679298252"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiDestinationHttpMethod]
 FromJSONKeyFunction ApiDestinationHttpMethod
 FromJSONKeyFunction ApiDestinationHttpMethod
 -&gt; FromJSONKeyFunction [ApiDestinationHttpMethod]
@@ -235,7 +235,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApiDestinationHttpMethod]
 fromJSONKey :: FromJSONKeyFunction ApiDestinationHttpMethod
 $cfromJSONKey :: FromJSONKeyFunction ApiDestinationHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298232"><span id="local-6989586621679298234"><span id="local-6989586621679298236"><span id="local-6989586621679298238"><span class="annot"><span class="annottext">[ApiDestinationHttpMethod] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298241"><span id="local-6989586621679298243"><span id="local-6989586621679298245"><span id="local-6989586621679298247"><span class="annot"><span class="annottext">[ApiDestinationHttpMethod] -&gt; Encoding
 [ApiDestinationHttpMethod] -&gt; Value
 ApiDestinationHttpMethod -&gt; Encoding
 ApiDestinationHttpMethod -&gt; Value
@@ -259,7 +259,7 @@ $ctoEncoding :: ApiDestinationHttpMethod -&gt; Encoding
 toJSON :: ApiDestinationHttpMethod -&gt; Value
 $ctoJSON :: ApiDestinationHttpMethod -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679298227"><span id="local-6989586621679298229"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiDestinationHttpMethod]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679298236"><span id="local-6989586621679298238"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiDestinationHttpMethod]
 ToJSONKeyFunction ApiDestinationHttpMethod
 ToJSONKeyFunction ApiDestinationHttpMethod
 -&gt; ToJSONKeyFunction [ApiDestinationHttpMethod]
@@ -271,14 +271,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApiDestinationHttpMethod]
 toJSONKey :: ToJSONKeyFunction ApiDestinationHttpMethod
 $ctoJSONKey :: ToJSONKeyFunction ApiDestinationHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679298224"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiDestinationHttpMethod
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679298233"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiDestinationHttpMethod
 ([Node] -&gt; Either String ApiDestinationHttpMethod)
 -&gt; FromXML ApiDestinationHttpMethod
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApiDestinationHttpMethod
 $cparseXML :: [Node] -&gt; Either String ApiDestinationHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679298221"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679298230"><span class="annot"><span class="annottext">ApiDestinationHttpMethod -&gt; XML
 (ApiDestinationHttpMethod -&gt; XML) -&gt; ToXML ApiDestinationHttpMethod
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApiDestinationHttpMethod -&gt; XML

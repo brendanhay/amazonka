@@ -75,7 +75,7 @@
 </span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newPutSubscriptionFilter' smart constructor.</span><span>
-</span><span id="line-78"></span><span id="local-6989586621679225004"><span id="local-6989586621679225005"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSubscriptionFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-var">PutSubscriptionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSubscriptionFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-var">PutSubscriptionFilter'</span></a></span></span><span>
+</span><span id="line-78"></span><span id="local-6989586621679225013"><span id="local-6989586621679225014"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSubscriptionFilter"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-var">PutSubscriptionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSubscriptionFilter%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-var">PutSubscriptionFilter'</span></a></span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The method used to distribute log data to the destination. By default,</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- log data is grouped by log stream, but the grouping can be set to random</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- for a more even distribution. This property is only applicable when the</span><span>
@@ -122,7 +122,7 @@
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AdestinationArn%3APutSubscriptionFilter%27"><span class="annot"><span class="annottext">PutSubscriptionFilter -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AdestinationArn%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224993"><span id="local-6989586621679224995"><span class="annot"><span class="annottext">PutSubscriptionFilter -&gt; PutSubscriptionFilter -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225002"><span id="local-6989586621679225004"><span class="annot"><span class="annottext">PutSubscriptionFilter -&gt; PutSubscriptionFilter -&gt; Bool
 (PutSubscriptionFilter -&gt; PutSubscriptionFilter -&gt; Bool)
 -&gt; (PutSubscriptionFilter -&gt; PutSubscriptionFilter -&gt; Bool)
 -&gt; Eq PutSubscriptionFilter
@@ -131,7 +131,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutSubscriptionFilter -&gt; PutSubscriptionFilter -&gt; Bool
 == :: PutSubscriptionFilter -&gt; PutSubscriptionFilter -&gt; Bool
 $c== :: PutSubscriptionFilter -&gt; PutSubscriptionFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224984"><span id="local-6989586621679224986"><span id="local-6989586621679224988"><span id="local-6989586621679224990"><span class="annot"><span class="annottext">ReadPrec [PutSubscriptionFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224993"><span id="local-6989586621679224995"><span id="local-6989586621679224997"><span id="local-6989586621679224999"><span class="annot"><span class="annottext">ReadPrec [PutSubscriptionFilter]
 ReadPrec PutSubscriptionFilter
 Int -&gt; ReadS PutSubscriptionFilter
 ReadS [PutSubscriptionFilter]
@@ -151,7 +151,7 @@ readList :: ReadS [PutSubscriptionFilter]
 $creadList :: ReadS [PutSubscriptionFilter]
 readsPrec :: Int -&gt; ReadS PutSubscriptionFilter
 $creadsPrec :: Int -&gt; ReadS PutSubscriptionFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224977"><span id="local-6989586621679224979"><span id="local-6989586621679224981"><span class="annot"><span class="annottext">Int -&gt; PutSubscriptionFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224986"><span id="local-6989586621679224988"><span id="local-6989586621679224990"><span class="annot"><span class="annottext">Int -&gt; PutSubscriptionFilter -&gt; ShowS
 [PutSubscriptionFilter] -&gt; ShowS
 PutSubscriptionFilter -&gt; String
 (Int -&gt; PutSubscriptionFilter -&gt; ShowS)
@@ -235,14 +235,14 @@ $cfrom :: forall x. PutSubscriptionFilter -&gt; Rep PutSubscriptionFilter x
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span>
 </span><span id="line-177"></span><span id="newPutSubscriptionFilter"><span class="annot"><span class="annottext">newPutSubscriptionFilter :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; PutSubscriptionFilter
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#newPutSubscriptionFilter"><span class="hs-identifier hs-var hs-var">newPutSubscriptionFilter</span></a></span></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679224972"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224972"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679224971"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224971"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679224970"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224970"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679224969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224969"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679224981"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224981"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679224980"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224980"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679224979"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224979"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679224978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224978"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">PutSubscriptionFilter' :: Maybe Distribution
 -&gt; Maybe Text
 -&gt; Text
@@ -262,16 +262,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:logGroupName:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AlogGroupName%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224972"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224981"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:filterName:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AfilterName%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224971"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224980"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:filterPattern:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AfilterPattern%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224970"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224979"><span class="hs-identifier hs-var">pFilterPattern_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationArn:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AdestinationArn%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224969"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span><span>
+</span><a href="#local-6989586621679224978"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The method used to distribute log data to the destination. By default,</span><span>
@@ -290,16 +290,16 @@ forall a. Maybe a
      (Maybe Distribution)
      (Maybe Distribution)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224966"><span class="annot"><span class="annottext">Maybe Distribution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224975"><span class="annot"><span class="annottext">Maybe Distribution
 distribution :: Maybe Distribution
 $sel:distribution:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Maybe Distribution
-</span><a href="#local-6989586621679224966"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
-</span><a href="#local-6989586621679224966"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224965"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
-</span><a href="#local-6989586621679224965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224964"><span class="annot"><span class="annottext">Maybe Distribution
-</span><a href="#local-6989586621679224964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
-</span><a href="#local-6989586621679224965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distribution:PutSubscriptionFilter' :: Maybe Distribution
+</span><a href="#local-6989586621679224975"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
+</span><a href="#local-6989586621679224975"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224974"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
+</span><a href="#local-6989586621679224974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224973"><span class="annot"><span class="annottext">Maybe Distribution
+</span><a href="#local-6989586621679224973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
+</span><a href="#local-6989586621679224974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distribution:PutSubscriptionFilter' :: Maybe Distribution
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3Adistribution%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">distribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
-</span><a href="#local-6989586621679224964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The ARN of an IAM role that grants CloudWatch Logs permissions to</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- deliver ingested log events to the destination stream. You don\'t need</span><span>
@@ -316,16 +316,16 @@ $sel:distribution:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Maybe Di
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224963"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224972"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679224963"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224963"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224962"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
-</span><a href="#local-6989586621679224962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224961"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
-</span><a href="#local-6989586621679224962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PutSubscriptionFilter' :: Maybe Text
+</span><a href="#local-6989586621679224972"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224972"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224971"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
+</span><a href="#local-6989586621679224971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224970"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679224970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
+</span><a href="#local-6989586621679224971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PutSubscriptionFilter' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AroleArn%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#putSubscriptionFilter_logGroupName"><span class="hs-identifier hs-type">putSubscriptionFilter_logGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -335,16 +335,16 @@ $sel:roleArn:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Maybe Text
 -&gt; (PutSubscriptionFilter -&gt; Text -&gt; PutSubscriptionFilter)
 -&gt; Lens PutSubscriptionFilter PutSubscriptionFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224960"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224969"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
-</span><a href="#local-6989586621679224960"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224960"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224959"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
-</span><a href="#local-6989586621679224959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224958"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
-</span><a href="#local-6989586621679224959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:PutSubscriptionFilter' :: Text
+</span><a href="#local-6989586621679224969"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224969"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224968"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
+</span><a href="#local-6989586621679224968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224967"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
+</span><a href="#local-6989586621679224968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AlogGroupName%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | A name for the subscription filter. If you are updating an existing</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- filter, you must specify the correct name in @filterName@. To find the</span><span>
@@ -357,16 +357,16 @@ $sel:logGroupName:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
 -&gt; (PutSubscriptionFilter -&gt; Text -&gt; PutSubscriptionFilter)
 -&gt; Lens PutSubscriptionFilter PutSubscriptionFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224957"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224966"><span class="annot"><span class="annottext">Text
 filterName :: Text
 $sel:filterName:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
-</span><a href="#local-6989586621679224957"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224957"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224956"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
-</span><a href="#local-6989586621679224956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224955"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
-</span><a href="#local-6989586621679224956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:PutSubscriptionFilter' :: Text
+</span><a href="#local-6989586621679224966"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224966"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224965"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
+</span><a href="#local-6989586621679224965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224964"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
+</span><a href="#local-6989586621679224965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AfilterName%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | A filter pattern for subscribing to a filtered stream of log events.</span><span>
 </span><span id="line-218"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#putSubscriptionFilter_filterPattern"><span class="hs-identifier hs-type">putSubscriptionFilter_filterPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -376,16 +376,16 @@ $sel:filterName:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
 -&gt; (PutSubscriptionFilter -&gt; Text -&gt; PutSubscriptionFilter)
 -&gt; Lens PutSubscriptionFilter PutSubscriptionFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224954"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224963"><span class="annot"><span class="annottext">Text
 filterPattern :: Text
 $sel:filterPattern:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
-</span><a href="#local-6989586621679224954"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224954"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224953"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
-</span><a href="#local-6989586621679224953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224952"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
-</span><a href="#local-6989586621679224953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:PutSubscriptionFilter' :: Text
+</span><a href="#local-6989586621679224963"><span class="hs-identifier hs-var hs-var">filterPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224963"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224962"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
+</span><a href="#local-6989586621679224962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224961"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
+</span><a href="#local-6989586621679224962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterPattern:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AfilterPattern%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">filterPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The ARN of the destination to deliver matching log events to. Currently,</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- the supported destinations are:</span><span>
@@ -413,27 +413,27 @@ $sel:filterPattern:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
 -&gt; (PutSubscriptionFilter -&gt; Text -&gt; PutSubscriptionFilter)
 -&gt; Lens PutSubscriptionFilter PutSubscriptionFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224951"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224960"><span class="annot"><span class="annottext">Text
 destinationArn :: Text
 $sel:destinationArn:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
-</span><a href="#local-6989586621679224951"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224951"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224950"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
-</span><a href="#local-6989586621679224950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224949"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
-</span><a href="#local-6989586621679224950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:PutSubscriptionFilter' :: Text
+</span><a href="#local-6989586621679224960"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224960"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224959"><span class="annot"><span class="annottext">s :: PutSubscriptionFilter
+</span><a href="#local-6989586621679224959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSubscriptionFilter
+</span><a href="#local-6989586621679224959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:PutSubscriptionFilter' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#%24sel%3AdestinationArn%3APutSubscriptionFilter%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-244"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-245"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse"><span class="hs-identifier hs-type">PutSubscriptionFilterResponse</span></a></span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679224945"><span class="annot"><span class="annottext">request :: PutSubscriptionFilter -&gt; Request PutSubscriptionFilter
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679224954"><span class="annot"><span class="annottext">request :: PutSubscriptionFilter -&gt; Request PutSubscriptionFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutSubscriptionFilter -&gt; Request PutSubscriptionFilter
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621679224941"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679224950"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutSubscriptionFilter
 -&gt; ClientResponse ClientBody
@@ -459,12 +459,12 @@ AWSResponse a
 PutSubscriptionFilterResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse%27"><span class="hs-identifier hs-var">PutSubscriptionFilterResponse'</span></a></span><span>
 </span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224934"><span id="local-6989586621679224936"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span></span></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224943"><span id="local-6989586621679224945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span></span></span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span></span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679224927"><span class="annot"><span class="annottext">toHeaders :: PutSubscriptionFilter -&gt; [Header]
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679224936"><span class="annot"><span class="annottext">toHeaders :: PutSubscriptionFilter -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutSubscriptionFilter -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -491,9 +491,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224917"><span id="local-6989586621679224919"><span id="local-6989586621679224921"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679224915"><span class="annot"><span class="annottext">toJSON :: PutSubscriptionFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224908"><span id="local-6989586621679224909"><span id="local-6989586621679224910"><span id="local-6989586621679224911"><span id="local-6989586621679224912"><span id="local-6989586621679224913"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224926"><span id="local-6989586621679224928"><span id="local-6989586621679224930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679224924"><span class="annot"><span class="annottext">toJSON :: PutSubscriptionFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter%27"><span class="hs-identifier hs-type">PutSubscriptionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224917"><span id="local-6989586621679224918"><span id="local-6989586621679224919"><span id="local-6989586621679224920"><span id="local-6989586621679224921"><span id="local-6989586621679224922"><span class="annot"><span class="annottext">Maybe Text
 Maybe Distribution
 Text
 destinationArn :: Text
@@ -508,7 +508,7 @@ $sel:filterName:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
 $sel:logGroupName:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Text
 $sel:roleArn:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Maybe Text
 $sel:distribution:PutSubscriptionFilter' :: PutSubscriptionFilter -&gt; Maybe Distribution
-</span><a href="#local-6989586621679224908"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224917"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -520,35 +520,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Distribution -&gt; Pair) -&gt; Maybe Distribution -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
-</span><a href="#local-6989586621679224913"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224922"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679224912"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224921"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224911"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224920"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-277"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224910"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224919"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterPattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224909"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224918"><span class="hs-identifier hs-var">filterPattern</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -556,19 +556,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;destinationArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224908"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679224917"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-282"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-285"></span><span>  </span><span id="local-6989586621679224901"><span class="annot"><span class="annottext">toPath :: PutSubscriptionFilter -&gt; ByteString
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621679224910"><span class="annot"><span class="annottext">toPath :: PutSubscriptionFilter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutSubscriptionFilter -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilter"><span class="hs-identifier hs-type">PutSubscriptionFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-288"></span><span>  </span><span id="local-6989586621679224897"><span class="annot"><span class="annottext">toQuery :: PutSubscriptionFilter -&gt; QueryString
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679224906"><span class="annot"><span class="annottext">toQuery :: PutSubscriptionFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutSubscriptionFilter -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -576,10 +576,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | /See:/ 'newPutSubscriptionFilterResponse' smart constructor.</span><span>
-</span><span id="line-291"></span><span id="local-6989586621679224894"><span id="local-6989586621679224895"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSubscriptionFilterResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse"><span class="hs-identifier hs-var">PutSubscriptionFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSubscriptionFilterResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse%27"><span class="hs-identifier hs-var">PutSubscriptionFilterResponse'</span></a></span></span><span>
+</span><span id="line-291"></span><span id="local-6989586621679224903"><span id="local-6989586621679224904"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSubscriptionFilterResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse"><span class="hs-identifier hs-var">PutSubscriptionFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSubscriptionFilterResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse%27"><span class="hs-identifier hs-var">PutSubscriptionFilterResponse'</span></a></span></span><span>
 </span><span id="line-292"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-293"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-294"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224890"><span id="local-6989586621679224892"><span class="annot"><span class="annottext">PutSubscriptionFilterResponse
+</span><span id="line-294"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224899"><span id="local-6989586621679224901"><span class="annot"><span class="annottext">PutSubscriptionFilterResponse
 -&gt; PutSubscriptionFilterResponse -&gt; Bool
 (PutSubscriptionFilterResponse
  -&gt; PutSubscriptionFilterResponse -&gt; Bool)
@@ -595,7 +595,7 @@ $c/= :: PutSubscriptionFilterResponse
 -&gt; PutSubscriptionFilterResponse -&gt; Bool
 $c== :: PutSubscriptionFilterResponse
 -&gt; PutSubscriptionFilterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224882"><span id="local-6989586621679224884"><span id="local-6989586621679224886"><span id="local-6989586621679224888"><span class="annot"><span class="annottext">ReadPrec [PutSubscriptionFilterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224891"><span id="local-6989586621679224893"><span id="local-6989586621679224895"><span id="local-6989586621679224897"><span class="annot"><span class="annottext">ReadPrec [PutSubscriptionFilterResponse]
 ReadPrec PutSubscriptionFilterResponse
 Int -&gt; ReadS PutSubscriptionFilterResponse
 ReadS [PutSubscriptionFilterResponse]
@@ -615,7 +615,7 @@ readList :: ReadS [PutSubscriptionFilterResponse]
 $creadList :: ReadS [PutSubscriptionFilterResponse]
 readsPrec :: Int -&gt; ReadS PutSubscriptionFilterResponse
 $creadsPrec :: Int -&gt; ReadS PutSubscriptionFilterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224876"><span id="local-6989586621679224878"><span id="local-6989586621679224880"><span class="annot"><span class="annottext">Int -&gt; PutSubscriptionFilterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224885"><span id="local-6989586621679224887"><span id="local-6989586621679224889"><span class="annot"><span class="annottext">Int -&gt; PutSubscriptionFilterResponse -&gt; ShowS
 [PutSubscriptionFilterResponse] -&gt; ShowS
 PutSubscriptionFilterResponse -&gt; String
 (Int -&gt; PutSubscriptionFilterResponse -&gt; ShowS)
@@ -664,5 +664,5 @@ PutSubscriptionFilterResponse
 </span><span id="line-303"></span><span>  </span><span class="annot"><span class="annottext">PutSubscriptionFilterResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse%27"><span class="hs-identifier hs-var">PutSubscriptionFilterResponse'</span></a></span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse"><span class="hs-identifier hs-type">PutSubscriptionFilterResponse</span></a></span></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutSubscriptionFilter.html#PutSubscriptionFilterResponse"><span class="hs-identifier hs-type">PutSubscriptionFilterResponse</span></a></span></span><span>
 </span><span id="line-306"></span></pre></body></html>

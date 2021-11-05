@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The recipient of @AnomalySubscription@ notifications.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSubscriber' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679338103"><span id="local-6989586621679338104"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subscriber"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-var">Subscriber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subscriber%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-var">Subscriber'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679338112"><span id="local-6989586621679338113"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subscriber"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-var">Subscriber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subscriber%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-var">Subscriber'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates if the subscriber accepts the notifications.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ASubscriber%27"><span class="annot"><span class="annottext">Subscriber -&gt; Maybe SubscriberStatus
 </span><a href="Network.AWS.CostExplorer.Types.Subscriber.html#%24sel%3Astatus%3ASubscriber%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SubscriberStatus.html#SubscriberStatus"><span class="hs-identifier hs-type">SubscriberStatus</span></a></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3ASubscriber%27"><span class="annot"><span class="annottext">Subscriber -&gt; Maybe SubscriberType
 </span><a href="Network.AWS.CostExplorer.Types.Subscriber.html#%24sel%3Atype%27%3ASubscriber%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SubscriberType.html#SubscriberType"><span class="hs-identifier hs-type">SubscriberType</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338095"><span id="local-6989586621679338097"><span class="annot"><span class="annottext">Subscriber -&gt; Subscriber -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338104"><span id="local-6989586621679338106"><span class="annot"><span class="annottext">Subscriber -&gt; Subscriber -&gt; Bool
 (Subscriber -&gt; Subscriber -&gt; Bool)
 -&gt; (Subscriber -&gt; Subscriber -&gt; Bool) -&gt; Eq Subscriber
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Subscriber -&gt; Subscriber -&gt; Bool
 == :: Subscriber -&gt; Subscriber -&gt; Bool
 $c== :: Subscriber -&gt; Subscriber -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338086"><span id="local-6989586621679338088"><span id="local-6989586621679338090"><span id="local-6989586621679338092"><span class="annot"><span class="annottext">ReadPrec [Subscriber]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338095"><span id="local-6989586621679338097"><span id="local-6989586621679338099"><span id="local-6989586621679338101"><span class="annot"><span class="annottext">ReadPrec [Subscriber]
 ReadPrec Subscriber
 Int -&gt; ReadS Subscriber
 ReadS [Subscriber]
@@ -68,7 +68,7 @@ readList :: ReadS [Subscriber]
 $creadList :: ReadS [Subscriber]
 readsPrec :: Int -&gt; ReadS Subscriber
 $creadsPrec :: Int -&gt; ReadS Subscriber
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338079"><span id="local-6989586621679338081"><span id="local-6989586621679338083"><span class="annot"><span class="annottext">Int -&gt; Subscriber -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338088"><span id="local-6989586621679338090"><span id="local-6989586621679338092"><span class="annot"><span class="annottext">Int -&gt; Subscriber -&gt; ShowS
 [Subscriber] -&gt; ShowS
 Subscriber -&gt; String
 (Int -&gt; Subscriber -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe SubscriberStatus)
      (Maybe SubscriberStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338070"><span class="annot"><span class="annottext">Maybe SubscriberStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338079"><span class="annot"><span class="annottext">Maybe SubscriberStatus
 status :: Maybe SubscriberStatus
 $sel:status:Subscriber' :: Subscriber -&gt; Maybe SubscriberStatus
-</span><a href="#local-6989586621679338070"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberStatus
-</span><a href="#local-6989586621679338070"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338069"><span class="annot"><span class="annottext">s :: Subscriber
-</span><a href="#local-6989586621679338069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338068"><span class="annot"><span class="annottext">Maybe SubscriberStatus
-</span><a href="#local-6989586621679338068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679338069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Subscriber' :: Maybe SubscriberStatus
+</span><a href="#local-6989586621679338079"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberStatus
+</span><a href="#local-6989586621679338079"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338078"><span class="annot"><span class="annottext">s :: Subscriber
+</span><a href="#local-6989586621679338078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338077"><span class="annot"><span class="annottext">Maybe SubscriberStatus
+</span><a href="#local-6989586621679338077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679338078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Subscriber' :: Maybe SubscriberStatus
 </span><a href="Network.AWS.CostExplorer.Types.Subscriber.html#%24sel%3Astatus%3ASubscriber%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberStatus
-</span><a href="#local-6989586621679338068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The email address or SNS Amazon Resource Name (ARN). This depends on the</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- @Type@.</span><span>
@@ -159,16 +159,16 @@ $sel:status:Subscriber' :: Subscriber -&gt; Maybe SubscriberStatus
 -&gt; (Subscriber -&gt; Maybe Text -&gt; Subscriber)
 -&gt; Lens Subscriber Subscriber (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338066"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338075"><span class="annot"><span class="annottext">Maybe Text
 address :: Maybe Text
 $sel:address:Subscriber' :: Subscriber -&gt; Maybe Text
-</span><a href="#local-6989586621679338066"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338066"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338065"><span class="annot"><span class="annottext">s :: Subscriber
-</span><a href="#local-6989586621679338065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338064"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679338065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:Subscriber' :: Maybe Text
+</span><a href="#local-6989586621679338075"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338075"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338074"><span class="annot"><span class="annottext">s :: Subscriber
+</span><a href="#local-6989586621679338074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679338074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:Subscriber' :: Maybe Text
 </span><a href="Network.AWS.CostExplorer.Types.Subscriber.html#%24sel%3Aaddress%3ASubscriber%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The notification delivery channel.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#subscriber_type"><span class="hs-identifier hs-type">subscriber_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.SubscriberType.html#SubscriberType"><span class="hs-identifier hs-type">SubscriberType</span></a></span><span class="hs-special">)</span><span>
@@ -179,19 +179,19 @@ $sel:address:Subscriber' :: Subscriber -&gt; Maybe Text
 -&gt; Lens
      Subscriber Subscriber (Maybe SubscriberType) (Maybe SubscriberType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338062"><span class="annot"><span class="annottext">Maybe SubscriberType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338071"><span class="annot"><span class="annottext">Maybe SubscriberType
 type' :: Maybe SubscriberType
 $sel:type':Subscriber' :: Subscriber -&gt; Maybe SubscriberType
-</span><a href="#local-6989586621679338062"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberType
-</span><a href="#local-6989586621679338062"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338061"><span class="annot"><span class="annottext">s :: Subscriber
-</span><a href="#local-6989586621679338061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338060"><span class="annot"><span class="annottext">Maybe SubscriberType
-</span><a href="#local-6989586621679338060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
-</span><a href="#local-6989586621679338061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Subscriber' :: Maybe SubscriberType
+</span><a href="#local-6989586621679338071"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberType
+</span><a href="#local-6989586621679338071"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338070"><span class="annot"><span class="annottext">s :: Subscriber
+</span><a href="#local-6989586621679338070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338069"><span class="annot"><span class="annottext">Maybe SubscriberType
+</span><a href="#local-6989586621679338069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscriber
+</span><a href="#local-6989586621679338070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Subscriber' :: Maybe SubscriberType
 </span><a href="Network.AWS.CostExplorer.Types.Subscriber.html#%24sel%3Atype%27%3ASubscriber%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberType
-</span><a href="#local-6989586621679338060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338057"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679338055"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Subscriber
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338066"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679338064"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Subscriber
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Subscriber) -&gt; Value -&gt; Parser Subscriber
@@ -199,8 +199,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Subscriber&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338052"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338061"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338061"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe SubscriberStatus
 -&gt; Maybe Text -&gt; Maybe SubscriberType -&gt; Subscriber
 </span><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-var">Subscriber'</span></a></span><span>
@@ -210,7 +210,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe SubscriberType -&gt; Subscriber)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SubscriberStatus)
+</span><a href="#local-6989586621679338061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SubscriberStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,7 +219,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SubscriberType -&gt; Subscriber)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679338061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Address&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,19 +227,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe SubscriberType) -&gt; Parser Subscriber
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679338052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SubscriberType)
+</span><a href="#local-6989586621679338061"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SubscriberType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338046"><span id="local-6989586621679338048"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338055"><span id="local-6989586621679338057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338043"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338035"><span id="local-6989586621679338037"><span id="local-6989586621679338039"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679338033"><span class="annot"><span class="annottext">toJSON :: Subscriber -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338029"><span id="local-6989586621679338030"><span id="local-6989586621679338031"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338044"><span id="local-6989586621679338046"><span id="local-6989586621679338048"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber"><span class="hs-identifier hs-type">Subscriber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679338042"><span class="annot"><span class="annottext">toJSON :: Subscriber -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.Subscriber.html#Subscriber%27"><span class="hs-identifier hs-type">Subscriber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338038"><span id="local-6989586621679338039"><span id="local-6989586621679338040"><span class="annot"><span class="annottext">Maybe Text
 Maybe SubscriberStatus
 Maybe SubscriberType
 type' :: Maybe SubscriberType
@@ -248,7 +248,7 @@ status :: Maybe SubscriberStatus
 $sel:type':Subscriber' :: Subscriber -&gt; Maybe SubscriberType
 $sel:address:Subscriber' :: Subscriber -&gt; Maybe Text
 $sel:status:Subscriber' :: Subscriber -&gt; Maybe SubscriberStatus
-</span><a href="#local-6989586621679338029"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679338038"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,21 +260,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SubscriberStatus -&gt; Pair) -&gt; Maybe SubscriberStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberStatus
-</span><a href="#local-6989586621679338031"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338040"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Address&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679338030"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338039"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SubscriberType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SubscriberType -&gt; Pair) -&gt; Maybe SubscriberType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SubscriberType
-</span><a href="#local-6989586621679338029"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679338038"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

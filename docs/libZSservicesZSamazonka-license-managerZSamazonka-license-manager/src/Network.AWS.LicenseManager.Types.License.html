@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.License</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.License</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ConsumptionConfiguration.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types.ConsumptionConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.DatetimeRange.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types.DatetimeRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Entitlement.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types.Entitlement</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.IssuerDetails.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types.IssuerDetails</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseStatus.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types.LicenseStatus</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Metadata.html"><span class="hs-identifier">Network.AWS.LicenseManager.Types.Metadata</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Software license that is managed in License Manager.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newLicense' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679300716"><span id="local-6989586621679300717"></span></span><span class="hs-keyword">data</span><span> </span><span id="License"><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-var">License</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="License%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-var">License'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | License status.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe LicenseStatus
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Astatus%3ALicense%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Product name.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AproductName%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AproductName%3ALicense%27"><span class="hs-identifier hs-var hs-var">productName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | License name.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlicenseName%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseName%3ALicense%27"><span class="hs-identifier hs-var hs-var">licenseName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Product SKU.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AproductSKU%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AproductSKU%3ALicense%27"><span class="hs-identifier hs-var hs-var">productSKU</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Home Region of the license.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AhomeRegion%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AhomeRegion%3ALicense%27"><span class="hs-identifier hs-var hs-var">homeRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | License version.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aversion%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aversion%3ALicense%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | License entitlements.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aentitlements%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe [Entitlement]
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aentitlements%3ALicense%27"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Date and time range during which the license is valid, in ISO8601-UTC</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Avalidity%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe DatetimeRange
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Avalidity%3ALicense%27"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.DatetimeRange.html#DatetimeRange"><span class="hs-identifier hs-type">DatetimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Configuration for consumption of the license.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AconsumptionConfiguration%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe ConsumptionConfiguration
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AconsumptionConfiguration%3ALicense%27"><span class="hs-identifier hs-var hs-var">consumptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ConsumptionConfiguration.html#ConsumptionConfiguration"><span class="hs-identifier hs-type">ConsumptionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | License beneficiary.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Abeneficiary%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Abeneficiary%3ALicense%27"><span class="hs-identifier hs-var hs-var">beneficiary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | License issuer.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aissuer%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe IssuerDetails
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aissuer%3ALicense%27"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.IssuerDetails.html#IssuerDetails"><span class="hs-identifier hs-type">IssuerDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the license.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlicenseArn%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseArn%3ALicense%27"><span class="hs-identifier hs-var hs-var">licenseArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | License metadata.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AlicenseMetadata%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe [Metadata]
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseMetadata%3ALicense%27"><span class="hs-identifier hs-var hs-var">licenseMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Metadata.html#Metadata"><span class="hs-identifier hs-type">Metadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | License creation time.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AcreateTime%3ALicense%27"><span class="annot"><span class="annottext">License -&gt; Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AcreateTime%3ALicense%27"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300697"><span id="local-6989586621679300699"><span class="annot"><span class="annottext">License -&gt; License -&gt; Bool
+(License -&gt; License -&gt; Bool)
+-&gt; (License -&gt; License -&gt; Bool) -&gt; Eq License
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: License -&gt; License -&gt; Bool
+$c/= :: License -&gt; License -&gt; Bool
+== :: License -&gt; License -&gt; Bool
+$c== :: License -&gt; License -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300688"><span id="local-6989586621679300690"><span id="local-6989586621679300692"><span id="local-6989586621679300694"><span class="annot"><span class="annottext">ReadPrec [License]
+ReadPrec License
+Int -&gt; ReadS License
+ReadS [License]
+(Int -&gt; ReadS License)
+-&gt; ReadS [License]
+-&gt; ReadPrec License
+-&gt; ReadPrec [License]
+-&gt; Read License
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [License]
+$creadListPrec :: ReadPrec [License]
+readPrec :: ReadPrec License
+$creadPrec :: ReadPrec License
+readList :: ReadS [License]
+$creadList :: ReadS [License]
+readsPrec :: Int -&gt; ReadS License
+$creadsPrec :: Int -&gt; ReadS License
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300681"><span id="local-6989586621679300683"><span id="local-6989586621679300685"><span class="annot"><span class="annottext">Int -&gt; License -&gt; ShowS
+[License] -&gt; ShowS
+License -&gt; String
+(Int -&gt; License -&gt; ShowS)
+-&gt; (License -&gt; String) -&gt; ([License] -&gt; ShowS) -&gt; Show License
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [License] -&gt; ShowS
+$cshowList :: [License] -&gt; ShowS
+show :: License -&gt; String
+$cshow :: License -&gt; String
+showsPrec :: Int -&gt; License -&gt; ShowS
+$cshowsPrec :: Int -&gt; License -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. License -&gt; Rep License x)
+-&gt; (forall x. Rep License x -&gt; License) -&gt; Generic License
+forall x. Rep License x -&gt; License
+forall x. License -&gt; Rep License x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep License x -&gt; License
+$cfrom :: forall x. License -&gt; Rep License x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'License' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'status', 'license_status' - License status.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'productName', 'license_productName' - Product name.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'licenseName', 'license_licenseName' - License name.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'productSKU', 'license_productSKU' - Product SKU.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'homeRegion', 'license_homeRegion' - Home Region of the license.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'version', 'license_version' - License version.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'entitlements', 'license_entitlements' - License entitlements.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'validity', 'license_validity' - Date and time range during which the license is valid, in ISO8601-UTC</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'consumptionConfiguration', 'license_consumptionConfiguration' - Configuration for consumption of the license.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'beneficiary', 'license_beneficiary' - License beneficiary.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'issuer', 'license_issuer' - License issuer.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'licenseArn', 'license_licenseArn' - Amazon Resource Name (ARN) of the license.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'licenseMetadata', 'license_licenseMetadata' - License metadata.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'createTime', 'license_createTime' - License creation time.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#newLicense"><span class="hs-identifier hs-type">newLicense</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span>
+</span><span id="line-106"></span><span id="newLicense"><span class="annot"><span class="annottext">newLicense :: License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#newLicense"><span class="hs-identifier hs-var hs-var">newLicense</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">License' :: Maybe LicenseStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Entitlement]
+-&gt; Maybe DatetimeRange
+-&gt; Maybe ConsumptionConfiguration
+-&gt; Maybe Text
+-&gt; Maybe IssuerDetails
+-&gt; Maybe Text
+-&gt; Maybe [Metadata]
+-&gt; Maybe Text
+-&gt; License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:License' :: Maybe LicenseStatus
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Astatus%3ALicense%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:productName:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AproductName%3ALicense%27"><span class="hs-identifier hs-var">productName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseName:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseName%3ALicense%27"><span class="hs-identifier hs-var">licenseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:productSKU:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AproductSKU%3ALicense%27"><span class="hs-identifier hs-var">productSKU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:homeRegion:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AhomeRegion%3ALicense%27"><span class="hs-identifier hs-var">homeRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aversion%3ALicense%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:entitlements:License' :: Maybe [Entitlement]
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aentitlements%3ALicense%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:validity:License' :: Maybe DatetimeRange
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Avalidity%3ALicense%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatetimeRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumptionConfiguration:License' :: Maybe ConsumptionConfiguration
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AconsumptionConfiguration%3ALicense%27"><span class="hs-identifier hs-var">consumptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumptionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:beneficiary:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Abeneficiary%3ALicense%27"><span class="hs-identifier hs-var">beneficiary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:issuer:License' :: Maybe IssuerDetails
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aissuer%3ALicense%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IssuerDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseArn:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseArn%3ALicense%27"><span class="hs-identifier hs-var">licenseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:licenseMetadata:License' :: Maybe [Metadata]
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseMetadata%3ALicense%27"><span class="hs-identifier hs-var">licenseMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTime:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AcreateTime%3ALicense%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | License status.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_status"><span class="hs-identifier hs-type">license_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseStatus.html#LicenseStatus"><span class="hs-identifier hs-type">LicenseStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="license_status"><span class="annot"><span class="annottext">license_status :: (Maybe LicenseStatus -&gt; f (Maybe LicenseStatus))
+-&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_status"><span class="hs-identifier hs-var hs-var">license_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe LicenseStatus)
+-&gt; (License -&gt; Maybe LicenseStatus -&gt; License)
+-&gt; Lens License License (Maybe LicenseStatus) (Maybe LicenseStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300672"><span class="annot"><span class="annottext">Maybe LicenseStatus
+status :: Maybe LicenseStatus
+$sel:status:License' :: License -&gt; Maybe LicenseStatus
+</span><a href="#local-6989586621679300672"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+</span><a href="#local-6989586621679300672"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300671"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300670"><span class="annot"><span class="annottext">Maybe LicenseStatus
+</span><a href="#local-6989586621679300670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:License' :: Maybe LicenseStatus
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Astatus%3ALicense%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+</span><a href="#local-6989586621679300670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Product name.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_productName"><span class="hs-identifier hs-type">license_productName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="license_productName"><span class="annot"><span class="annottext">license_productName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_productName"><span class="hs-identifier hs-var hs-var">license_productName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300668"><span class="annot"><span class="annottext">Maybe Text
+productName :: Maybe Text
+$sel:productName:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300668"><span class="hs-identifier hs-var hs-var">productName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300668"><span class="hs-identifier hs-var">productName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300667"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300666"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productName:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AproductName%3ALicense%27"><span class="hs-identifier hs-var">productName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | License name.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_licenseName"><span class="hs-identifier hs-type">license_licenseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="license_licenseName"><span class="annot"><span class="annottext">license_licenseName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_licenseName"><span class="hs-identifier hs-var hs-var">license_licenseName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300664"><span class="annot"><span class="annottext">Maybe Text
+licenseName :: Maybe Text
+$sel:licenseName:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300664"><span class="hs-identifier hs-var hs-var">licenseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300664"><span class="hs-identifier hs-var">licenseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300663"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseName:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseName%3ALicense%27"><span class="hs-identifier hs-var">licenseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Product SKU.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_productSKU"><span class="hs-identifier hs-type">license_productSKU</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="license_productSKU"><span class="annot"><span class="annottext">license_productSKU :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_productSKU"><span class="hs-identifier hs-var hs-var">license_productSKU</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300660"><span class="annot"><span class="annottext">Maybe Text
+productSKU :: Maybe Text
+$sel:productSKU:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300660"><span class="hs-identifier hs-var hs-var">productSKU</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300660"><span class="hs-identifier hs-var">productSKU</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300659"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productSKU:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AproductSKU%3ALicense%27"><span class="hs-identifier hs-var">productSKU</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Home Region of the license.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_homeRegion"><span class="hs-identifier hs-type">license_homeRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="license_homeRegion"><span class="annot"><span class="annottext">license_homeRegion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_homeRegion"><span class="hs-identifier hs-var hs-var">license_homeRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300656"><span class="annot"><span class="annottext">Maybe Text
+homeRegion :: Maybe Text
+$sel:homeRegion:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300656"><span class="hs-identifier hs-var hs-var">homeRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300656"><span class="hs-identifier hs-var">homeRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300655"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:homeRegion:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AhomeRegion%3ALicense%27"><span class="hs-identifier hs-var">homeRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | License version.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_version"><span class="hs-identifier hs-type">license_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="license_version"><span class="annot"><span class="annottext">license_version :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_version"><span class="hs-identifier hs-var hs-var">license_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300652"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300652"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300652"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300651"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aversion%3ALicense%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | License entitlements.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_entitlements"><span class="hs-identifier hs-type">license_entitlements</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Entitlement.html#Entitlement"><span class="hs-identifier hs-type">Entitlement</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="license_entitlements"><span class="annot"><span class="annottext">license_entitlements :: (Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+-&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_entitlements"><span class="hs-identifier hs-var hs-var">license_entitlements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe [Entitlement])
+-&gt; (License -&gt; Maybe [Entitlement] -&gt; License)
+-&gt; Lens License License (Maybe [Entitlement]) (Maybe [Entitlement])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300648"><span class="annot"><span class="annottext">Maybe [Entitlement]
+entitlements :: Maybe [Entitlement]
+$sel:entitlements:License' :: License -&gt; Maybe [Entitlement]
+</span><a href="#local-6989586621679300648"><span class="hs-identifier hs-var hs-var">entitlements</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+</span><a href="#local-6989586621679300648"><span class="hs-identifier hs-var">entitlements</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300647"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300646"><span class="annot"><span class="annottext">Maybe [Entitlement]
+</span><a href="#local-6989586621679300646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entitlements:License' :: Maybe [Entitlement]
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aentitlements%3ALicense%27"><span class="hs-identifier hs-var">entitlements</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+</span><a href="#local-6989586621679300646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+ -&gt; License -&gt; f License)
+-&gt; ((Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+    -&gt; Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+-&gt; (Maybe [Entitlement] -&gt; f (Maybe [Entitlement]))
+-&gt; License
+-&gt; f License
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Entitlement] [Entitlement] [Entitlement] [Entitlement]
+-&gt; Iso
+     (Maybe [Entitlement])
+     (Maybe [Entitlement])
+     (Maybe [Entitlement])
+     (Maybe [Entitlement])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Entitlement] [Entitlement] [Entitlement] [Entitlement]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Date and time range during which the license is valid, in ISO8601-UTC</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- format.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_validity"><span class="hs-identifier hs-type">license_validity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.DatetimeRange.html#DatetimeRange"><span class="hs-identifier hs-type">DatetimeRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="license_validity"><span class="annot"><span class="annottext">license_validity :: (Maybe DatetimeRange -&gt; f (Maybe DatetimeRange))
+-&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_validity"><span class="hs-identifier hs-var hs-var">license_validity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe DatetimeRange)
+-&gt; (License -&gt; Maybe DatetimeRange -&gt; License)
+-&gt; Lens License License (Maybe DatetimeRange) (Maybe DatetimeRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300641"><span class="annot"><span class="annottext">Maybe DatetimeRange
+validity :: Maybe DatetimeRange
+$sel:validity:License' :: License -&gt; Maybe DatetimeRange
+</span><a href="#local-6989586621679300641"><span class="hs-identifier hs-var hs-var">validity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DatetimeRange
+</span><a href="#local-6989586621679300641"><span class="hs-identifier hs-var">validity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300640"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300639"><span class="annot"><span class="annottext">Maybe DatetimeRange
+</span><a href="#local-6989586621679300639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validity:License' :: Maybe DatetimeRange
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Avalidity%3ALicense%27"><span class="hs-identifier hs-var">validity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DatetimeRange
+</span><a href="#local-6989586621679300639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | Configuration for consumption of the license.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_consumptionConfiguration"><span class="hs-identifier hs-type">license_consumptionConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.ConsumptionConfiguration.html#ConsumptionConfiguration"><span class="hs-identifier hs-type">ConsumptionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="license_consumptionConfiguration"><span class="annot"><span class="annottext">license_consumptionConfiguration :: (Maybe ConsumptionConfiguration
+ -&gt; f (Maybe ConsumptionConfiguration))
+-&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_consumptionConfiguration"><span class="hs-identifier hs-var hs-var">license_consumptionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe ConsumptionConfiguration)
+-&gt; (License -&gt; Maybe ConsumptionConfiguration -&gt; License)
+-&gt; Lens
+     License
+     License
+     (Maybe ConsumptionConfiguration)
+     (Maybe ConsumptionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300637"><span class="annot"><span class="annottext">Maybe ConsumptionConfiguration
+consumptionConfiguration :: Maybe ConsumptionConfiguration
+$sel:consumptionConfiguration:License' :: License -&gt; Maybe ConsumptionConfiguration
+</span><a href="#local-6989586621679300637"><span class="hs-identifier hs-var hs-var">consumptionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumptionConfiguration
+</span><a href="#local-6989586621679300637"><span class="hs-identifier hs-var">consumptionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300636"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300635"><span class="annot"><span class="annottext">Maybe ConsumptionConfiguration
+</span><a href="#local-6989586621679300635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumptionConfiguration:License' :: Maybe ConsumptionConfiguration
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AconsumptionConfiguration%3ALicense%27"><span class="hs-identifier hs-var">consumptionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumptionConfiguration
+</span><a href="#local-6989586621679300635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | License beneficiary.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_beneficiary"><span class="hs-identifier hs-type">license_beneficiary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="license_beneficiary"><span class="annot"><span class="annottext">license_beneficiary :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_beneficiary"><span class="hs-identifier hs-var hs-var">license_beneficiary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300633"><span class="annot"><span class="annottext">Maybe Text
+beneficiary :: Maybe Text
+$sel:beneficiary:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300633"><span class="hs-identifier hs-var hs-var">beneficiary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300633"><span class="hs-identifier hs-var">beneficiary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300632"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beneficiary:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Abeneficiary%3ALicense%27"><span class="hs-identifier hs-var">beneficiary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | License issuer.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_issuer"><span class="hs-identifier hs-type">license_issuer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.IssuerDetails.html#IssuerDetails"><span class="hs-identifier hs-type">IssuerDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="license_issuer"><span class="annot"><span class="annottext">license_issuer :: (Maybe IssuerDetails -&gt; f (Maybe IssuerDetails))
+-&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_issuer"><span class="hs-identifier hs-var hs-var">license_issuer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe IssuerDetails)
+-&gt; (License -&gt; Maybe IssuerDetails -&gt; License)
+-&gt; Lens License License (Maybe IssuerDetails) (Maybe IssuerDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300629"><span class="annot"><span class="annottext">Maybe IssuerDetails
+issuer :: Maybe IssuerDetails
+$sel:issuer:License' :: License -&gt; Maybe IssuerDetails
+</span><a href="#local-6989586621679300629"><span class="hs-identifier hs-var hs-var">issuer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IssuerDetails
+</span><a href="#local-6989586621679300629"><span class="hs-identifier hs-var">issuer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300628"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300627"><span class="annot"><span class="annottext">Maybe IssuerDetails
+</span><a href="#local-6989586621679300627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issuer:License' :: Maybe IssuerDetails
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3Aissuer%3ALicense%27"><span class="hs-identifier hs-var">issuer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IssuerDetails
+</span><a href="#local-6989586621679300627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the license.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_licenseArn"><span class="hs-identifier hs-type">license_licenseArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="license_licenseArn"><span class="annot"><span class="annottext">license_licenseArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_licenseArn"><span class="hs-identifier hs-var hs-var">license_licenseArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300625"><span class="annot"><span class="annottext">Maybe Text
+licenseArn :: Maybe Text
+$sel:licenseArn:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300625"><span class="hs-identifier hs-var hs-var">licenseArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300625"><span class="hs-identifier hs-var">licenseArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300624"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300623"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseArn:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseArn%3ALicense%27"><span class="hs-identifier hs-var">licenseArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | License metadata.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_licenseMetadata"><span class="hs-identifier hs-type">license_licenseMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.Metadata.html#Metadata"><span class="hs-identifier hs-type">Metadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="license_licenseMetadata"><span class="annot"><span class="annottext">license_licenseMetadata :: (Maybe [Metadata] -&gt; f (Maybe [Metadata])) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_licenseMetadata"><span class="hs-identifier hs-var hs-var">license_licenseMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe [Metadata])
+-&gt; (License -&gt; Maybe [Metadata] -&gt; License)
+-&gt; Lens License License (Maybe [Metadata]) (Maybe [Metadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300621"><span class="annot"><span class="annottext">Maybe [Metadata]
+licenseMetadata :: Maybe [Metadata]
+$sel:licenseMetadata:License' :: License -&gt; Maybe [Metadata]
+</span><a href="#local-6989586621679300621"><span class="hs-identifier hs-var hs-var">licenseMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+</span><a href="#local-6989586621679300621"><span class="hs-identifier hs-var">licenseMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300620"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300619"><span class="annot"><span class="annottext">Maybe [Metadata]
+</span><a href="#local-6989586621679300619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:licenseMetadata:License' :: Maybe [Metadata]
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AlicenseMetadata%3ALicense%27"><span class="hs-identifier hs-var">licenseMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+</span><a href="#local-6989586621679300619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+ -&gt; License -&gt; f License)
+-&gt; ((Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+    -&gt; Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+-&gt; (Maybe [Metadata] -&gt; f (Maybe [Metadata]))
+-&gt; License
+-&gt; f License
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Metadata] [Metadata] [Metadata] [Metadata]
+-&gt; Iso
+     (Maybe [Metadata])
+     (Maybe [Metadata])
+     (Maybe [Metadata])
+     (Maybe [Metadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Metadata] [Metadata] [Metadata] [Metadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | License creation time.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#license_createTime"><span class="hs-identifier hs-type">license_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="license_createTime"><span class="annot"><span class="annottext">license_createTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; License -&gt; f License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#license_createTime"><span class="hs-identifier hs-var hs-var">license_createTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(License -&gt; Maybe Text)
+-&gt; (License -&gt; Maybe Text -&gt; License)
+-&gt; Lens License License (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300617"><span class="annot"><span class="annottext">Maybe Text
+createTime :: Maybe Text
+$sel:createTime:License' :: License -&gt; Maybe Text
+</span><a href="#local-6989586621679300617"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300617"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300616"><span class="annot"><span class="annottext">s :: License
+</span><a href="#local-6989586621679300616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-type">License'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300615"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">License
+</span><a href="#local-6989586621679300616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:License' :: Maybe Text
+</span><a href="Network.AWS.LicenseManager.Types.License.html#%24sel%3AcreateTime%3ALicense%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300612"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679300610"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser License
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser License) -&gt; Value -&gt; Parser License
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;License&quot;</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300607"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Maybe LicenseStatus
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Entitlement]
+-&gt; Maybe DatetimeRange
+-&gt; Maybe ConsumptionConfiguration
+-&gt; Maybe Text
+-&gt; Maybe IssuerDetails
+-&gt; Maybe Text
+-&gt; Maybe [Metadata]
+-&gt; Maybe Text
+-&gt; License
+</span><a href="Network.AWS.LicenseManager.Types.License.html#License%27"><span class="hs-identifier hs-var">License'</span></a></span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LicenseStatus
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Entitlement]
+ -&gt; Maybe DatetimeRange
+ -&gt; Maybe ConsumptionConfiguration
+ -&gt; Maybe Text
+ -&gt; Maybe IssuerDetails
+ -&gt; Maybe Text
+ -&gt; Maybe [Metadata]
+ -&gt; Maybe Text
+ -&gt; License)
+-&gt; Parser (Maybe LicenseStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Entitlement]
+      -&gt; Maybe DatetimeRange
+      -&gt; Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LicenseStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Entitlement]
+   -&gt; Maybe DatetimeRange
+   -&gt; Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Entitlement]
+      -&gt; Maybe DatetimeRange
+      -&gt; Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Entitlement]
+   -&gt; Maybe DatetimeRange
+   -&gt; Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Entitlement]
+      -&gt; Maybe DatetimeRange
+      -&gt; Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Entitlement]
+   -&gt; Maybe DatetimeRange
+   -&gt; Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Entitlement]
+      -&gt; Maybe DatetimeRange
+      -&gt; Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductSKU&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Entitlement]
+   -&gt; Maybe DatetimeRange
+   -&gt; Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Entitlement]
+      -&gt; Maybe DatetimeRange
+      -&gt; Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HomeRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Entitlement]
+   -&gt; Maybe DatetimeRange
+   -&gt; Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Entitlement]
+      -&gt; Maybe DatetimeRange
+      -&gt; Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Entitlement]
+   -&gt; Maybe DatetimeRange
+   -&gt; Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe [Entitlement])
+-&gt; Parser
+     (Maybe DatetimeRange
+      -&gt; Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Entitlement]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Entitlements&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Entitlement]))
+-&gt; Maybe [Entitlement] -&gt; Parser (Maybe [Entitlement])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Entitlement]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DatetimeRange
+   -&gt; Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe DatetimeRange)
+-&gt; Parser
+     (Maybe ConsumptionConfiguration
+      -&gt; Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DatetimeRange)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Validity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConsumptionConfiguration
+   -&gt; Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe ConsumptionConfiguration)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe IssuerDetails
+      -&gt; Maybe Text
+      -&gt; Maybe [Metadata]
+      -&gt; Maybe Text
+      -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConsumptionConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConsumptionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe IssuerDetails
+   -&gt; Maybe Text
+   -&gt; Maybe [Metadata]
+   -&gt; Maybe Text
+   -&gt; License)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe IssuerDetails
+      -&gt; Maybe Text -&gt; Maybe [Metadata] -&gt; Maybe Text -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Beneficiary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IssuerDetails
+   -&gt; Maybe Text -&gt; Maybe [Metadata] -&gt; Maybe Text -&gt; License)
+-&gt; Parser (Maybe IssuerDetails)
+-&gt; Parser (Maybe Text -&gt; Maybe [Metadata] -&gt; Maybe Text -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IssuerDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Issuer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Metadata] -&gt; Maybe Text -&gt; License)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Metadata] -&gt; Maybe Text -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Metadata] -&gt; Maybe Text -&gt; License)
+-&gt; Parser (Maybe [Metadata]) -&gt; Parser (Maybe Text -&gt; License)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Metadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LicenseMetadata&quot;</span></span><span>
+</span><span id="line-200"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Metadata]))
+-&gt; Maybe [Metadata] -&gt; Parser (Maybe [Metadata])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Metadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-201"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; License)
+-&gt; Parser (Maybe Text) -&gt; Parser License
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300600"><span id="local-6989586621679300602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span></span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.License.html#License"><span class="hs-identifier hs-type">License</span></a></span></span><span>
+</span><span id="line-208"></span></pre></body></html>

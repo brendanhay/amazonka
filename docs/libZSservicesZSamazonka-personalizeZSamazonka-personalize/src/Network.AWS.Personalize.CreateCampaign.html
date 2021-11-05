@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.CreateCampaign</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a campaign by deploying a solution version. When a client calls</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html GetRecommendations&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html GetPersonalizedRanking&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- APIs, a campaign is specified in the request.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- __Minimum Provisioned TPS and Auto-Scaling__</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- A transaction is a single @GetRecommendations@ or</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @GetPersonalizedRanking@ call. Transactions per second (TPS) is the</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- throughput and unit of billing for Amazon Personalize. The minimum</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- provisioned TPS (@minProvisionedTPS@) specifies the baseline throughput</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- provisioned by Amazon Personalize, and thus, the minimum billing charge.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- If your TPS increases beyond @minProvisionedTPS@, Amazon Personalize</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- auto-scales the provisioned capacity up and down, but never below</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- @minProvisionedTPS@. There\'s a short time delay while the capacity is</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- increased that might cause loss of transactions.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The actual TPS used is calculated as the average requests\/second within</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- a 5-minute window. You pay for maximum of either the minimum provisioned</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- TPS or the actual TPS. We recommend starting with a low</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- @minProvisionedTPS@, track your usage using Amazon CloudWatch metrics,</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- and then increase the @minProvisionedTPS@ as necessary.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- __Status__</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- A campaign can be in one of the following states:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- -   DELETE PENDING &gt; DELETE IN_PROGRESS</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- To get the campaign status, call DescribeCampaign.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Wait until the @status@ of the campaign is @ACTIVE@ before asking the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- campaign for recommendations.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- __Related APIs__</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- -   ListCampaigns</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- -   DescribeCampaign</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- -   UpdateCampaign</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -   DeleteCampaign</span><span>
+</span><span id="line-71"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.CreateCampaign</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier">CreateCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#newCreateCampaign"><span class="hs-identifier">newCreateCampaign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_campaignConfig"><span class="hs-identifier">createCampaign_campaignConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_minProvisionedTPS"><span class="hs-identifier">createCampaign_minProvisionedTPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_name"><span class="hs-identifier">createCampaign_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_solutionVersionArn"><span class="hs-identifier">createCampaign_solutionVersionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier">CreateCampaignResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#newCreateCampaignResponse"><span class="hs-identifier">newCreateCampaignResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaignResponse_campaignArn"><span class="hs-identifier">createCampaignResponse_campaignArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaignResponse_httpStatus"><span class="hs-identifier">createCampaignResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.html"><span class="hs-identifier">Network.AWS.Personalize.Types</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newCreateCampaign' smart constructor.</span><span>
+</span><span id="line-100"></span><span id="local-6989586621679285576"><span id="local-6989586621679285577"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCampaign"><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-var">CreateCampaign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCampaign%27"><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-var">CreateCampaign'</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The configuration details of a campaign.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AcampaignConfig%3ACreateCampaign%27"><span class="annot"><span class="annottext">CreateCampaign -&gt; Maybe CampaignConfig
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AcampaignConfig%3ACreateCampaign%27"><span class="hs-identifier hs-var hs-var">campaignConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.CampaignConfig.html#CampaignConfig"><span class="hs-identifier hs-type">CampaignConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | Specifies the requested minimum provisioned transactions</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- (recommendations) per second that Amazon Personalize will support.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AminProvisionedTPS%3ACreateCampaign%27"><span class="annot"><span class="annottext">CreateCampaign -&gt; Maybe Natural
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AminProvisionedTPS%3ACreateCampaign%27"><span class="hs-identifier hs-var hs-var">minProvisionedTPS</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | A name for the new campaign. The campaign name must be unique within</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- your account.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3Aname%3ACreateCampaign%27"><span class="annot"><span class="annottext">CreateCampaign -&gt; Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3Aname%3ACreateCampaign%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the solution version to deploy.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AsolutionVersionArn%3ACreateCampaign%27"><span class="annot"><span class="annottext">CreateCampaign -&gt; Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AsolutionVersionArn%3ACreateCampaign%27"><span class="hs-identifier hs-var hs-var">solutionVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285567"><span id="local-6989586621679285569"><span class="annot"><span class="annottext">CreateCampaign -&gt; CreateCampaign -&gt; Bool
+(CreateCampaign -&gt; CreateCampaign -&gt; Bool)
+-&gt; (CreateCampaign -&gt; CreateCampaign -&gt; Bool) -&gt; Eq CreateCampaign
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCampaign -&gt; CreateCampaign -&gt; Bool
+$c/= :: CreateCampaign -&gt; CreateCampaign -&gt; Bool
+== :: CreateCampaign -&gt; CreateCampaign -&gt; Bool
+$c== :: CreateCampaign -&gt; CreateCampaign -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285558"><span id="local-6989586621679285560"><span id="local-6989586621679285562"><span id="local-6989586621679285564"><span class="annot"><span class="annottext">ReadPrec [CreateCampaign]
+ReadPrec CreateCampaign
+Int -&gt; ReadS CreateCampaign
+ReadS [CreateCampaign]
+(Int -&gt; ReadS CreateCampaign)
+-&gt; ReadS [CreateCampaign]
+-&gt; ReadPrec CreateCampaign
+-&gt; ReadPrec [CreateCampaign]
+-&gt; Read CreateCampaign
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCampaign]
+$creadListPrec :: ReadPrec [CreateCampaign]
+readPrec :: ReadPrec CreateCampaign
+$creadPrec :: ReadPrec CreateCampaign
+readList :: ReadS [CreateCampaign]
+$creadList :: ReadS [CreateCampaign]
+readsPrec :: Int -&gt; ReadS CreateCampaign
+$creadsPrec :: Int -&gt; ReadS CreateCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285551"><span id="local-6989586621679285553"><span id="local-6989586621679285555"><span class="annot"><span class="annottext">Int -&gt; CreateCampaign -&gt; ShowS
+[CreateCampaign] -&gt; ShowS
+CreateCampaign -&gt; String
+(Int -&gt; CreateCampaign -&gt; ShowS)
+-&gt; (CreateCampaign -&gt; String)
+-&gt; ([CreateCampaign] -&gt; ShowS)
+-&gt; Show CreateCampaign
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCampaign] -&gt; ShowS
+$cshowList :: [CreateCampaign] -&gt; ShowS
+show :: CreateCampaign -&gt; String
+$cshow :: CreateCampaign -&gt; String
+showsPrec :: Int -&gt; CreateCampaign -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCampaign -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCampaign -&gt; Rep CreateCampaign x)
+-&gt; (forall x. Rep CreateCampaign x -&gt; CreateCampaign)
+-&gt; Generic CreateCampaign
+forall x. Rep CreateCampaign x -&gt; CreateCampaign
+forall x. CreateCampaign -&gt; Rep CreateCampaign x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCampaign x -&gt; CreateCampaign
+$cfrom :: forall x. CreateCampaign -&gt; Rep CreateCampaign x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Create a value of 'CreateCampaign' with all optional fields omitted.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'campaignConfig', 'createCampaign_campaignConfig' - The configuration details of a campaign.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'minProvisionedTPS', 'createCampaign_minProvisionedTPS' - Specifies the requested minimum provisioned transactions</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- (recommendations) per second that Amazon Personalize will support.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'name', 'createCampaign_name' - A name for the new campaign. The campaign name must be unique within</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- your account.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'solutionVersionArn', 'createCampaign_solutionVersionArn' - The Amazon Resource Name (ARN) of the solution version to deploy.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#newCreateCampaign"><span class="hs-identifier hs-type">newCreateCampaign</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'solutionVersionArn'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span>
+</span><span id="line-137"></span><span id="newCreateCampaign"><span class="annot"><span class="annottext">newCreateCampaign :: Text -&gt; Text -&gt; CreateCampaign
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#newCreateCampaign"><span class="hs-identifier hs-var hs-var">newCreateCampaign</span></a></span></span><span> </span><span id="local-6989586621679285546"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285546"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679285545"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285545"><span class="hs-identifier hs-var">pSolutionVersionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">CreateCampaign' :: Maybe CampaignConfig
+-&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; CreateCampaign
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:campaignConfig:CreateCampaign' :: Maybe CampaignConfig
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AcampaignConfig%3ACreateCampaign%27"><span class="hs-identifier hs-var">campaignConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:minProvisionedTPS:CreateCampaign' :: Maybe Natural
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AminProvisionedTPS%3ACreateCampaign%27"><span class="hs-identifier hs-var">minProvisionedTPS</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateCampaign' :: Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3Aname%3ACreateCampaign%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285546"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:solutionVersionArn:CreateCampaign' :: Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AsolutionVersionArn%3ACreateCampaign%27"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285545"><span class="hs-identifier hs-var">pSolutionVersionArn_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The configuration details of a campaign.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_campaignConfig"><span class="hs-identifier hs-type">createCampaign_campaignConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.CampaignConfig.html#CampaignConfig"><span class="hs-identifier hs-type">CampaignConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="createCampaign_campaignConfig"><span class="annot"><span class="annottext">createCampaign_campaignConfig :: (Maybe CampaignConfig -&gt; f (Maybe CampaignConfig))
+-&gt; CreateCampaign -&gt; f CreateCampaign
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_campaignConfig"><span class="hs-identifier hs-var hs-var">createCampaign_campaignConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCampaign -&gt; Maybe CampaignConfig)
+-&gt; (CreateCampaign -&gt; Maybe CampaignConfig -&gt; CreateCampaign)
+-&gt; Lens
+     CreateCampaign
+     CreateCampaign
+     (Maybe CampaignConfig)
+     (Maybe CampaignConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285542"><span class="annot"><span class="annottext">Maybe CampaignConfig
+campaignConfig :: Maybe CampaignConfig
+$sel:campaignConfig:CreateCampaign' :: CreateCampaign -&gt; Maybe CampaignConfig
+</span><a href="#local-6989586621679285542"><span class="hs-identifier hs-var hs-var">campaignConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignConfig
+</span><a href="#local-6989586621679285542"><span class="hs-identifier hs-var">campaignConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285541"><span class="annot"><span class="annottext">s :: CreateCampaign
+</span><a href="#local-6989586621679285541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285540"><span class="annot"><span class="annottext">Maybe CampaignConfig
+</span><a href="#local-6989586621679285540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCampaign
+</span><a href="#local-6989586621679285541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignConfig:CreateCampaign' :: Maybe CampaignConfig
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AcampaignConfig%3ACreateCampaign%27"><span class="hs-identifier hs-var">campaignConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignConfig
+</span><a href="#local-6989586621679285540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Specifies the requested minimum provisioned transactions</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- (recommendations) per second that Amazon Personalize will support.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_minProvisionedTPS"><span class="hs-identifier hs-type">createCampaign_minProvisionedTPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="createCampaign_minProvisionedTPS"><span class="annot"><span class="annottext">createCampaign_minProvisionedTPS :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateCampaign -&gt; f CreateCampaign
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_minProvisionedTPS"><span class="hs-identifier hs-var hs-var">createCampaign_minProvisionedTPS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCampaign -&gt; Maybe Natural)
+-&gt; (CreateCampaign -&gt; Maybe Natural -&gt; CreateCampaign)
+-&gt; Lens
+     CreateCampaign CreateCampaign (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285539"><span class="annot"><span class="annottext">Maybe Natural
+minProvisionedTPS :: Maybe Natural
+$sel:minProvisionedTPS:CreateCampaign' :: CreateCampaign -&gt; Maybe Natural
+</span><a href="#local-6989586621679285539"><span class="hs-identifier hs-var hs-var">minProvisionedTPS</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679285539"><span class="hs-identifier hs-var">minProvisionedTPS</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285538"><span class="annot"><span class="annottext">s :: CreateCampaign
+</span><a href="#local-6989586621679285538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285537"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679285537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCampaign
+</span><a href="#local-6989586621679285538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minProvisionedTPS:CreateCampaign' :: Maybe Natural
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AminProvisionedTPS%3ACreateCampaign%27"><span class="hs-identifier hs-var">minProvisionedTPS</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679285537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | A name for the new campaign. The campaign name must be unique within</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- your account.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_name"><span class="hs-identifier hs-type">createCampaign_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="createCampaign_name"><span class="annot"><span class="annottext">createCampaign_name :: (Text -&gt; f Text) -&gt; CreateCampaign -&gt; f CreateCampaign
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_name"><span class="hs-identifier hs-var hs-var">createCampaign_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCampaign -&gt; Text)
+-&gt; (CreateCampaign -&gt; Text -&gt; CreateCampaign)
+-&gt; Lens CreateCampaign CreateCampaign Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285536"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateCampaign' :: CreateCampaign -&gt; Text
+</span><a href="#local-6989586621679285536"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285536"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285535"><span class="annot"><span class="annottext">s :: CreateCampaign
+</span><a href="#local-6989586621679285535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285534"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCampaign
+</span><a href="#local-6989586621679285535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateCampaign' :: Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3Aname%3ACreateCampaign%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the solution version to deploy.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_solutionVersionArn"><span class="hs-identifier hs-type">createCampaign_solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="createCampaign_solutionVersionArn"><span class="annot"><span class="annottext">createCampaign_solutionVersionArn :: (Text -&gt; f Text) -&gt; CreateCampaign -&gt; f CreateCampaign
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaign_solutionVersionArn"><span class="hs-identifier hs-var hs-var">createCampaign_solutionVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCampaign -&gt; Text)
+-&gt; (CreateCampaign -&gt; Text -&gt; CreateCampaign)
+-&gt; Lens CreateCampaign CreateCampaign Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285533"><span class="annot"><span class="annottext">Text
+solutionVersionArn :: Text
+$sel:solutionVersionArn:CreateCampaign' :: CreateCampaign -&gt; Text
+</span><a href="#local-6989586621679285533"><span class="hs-identifier hs-var hs-var">solutionVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285533"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285532"><span class="annot"><span class="annottext">s :: CreateCampaign
+</span><a href="#local-6989586621679285532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCampaign
+</span><a href="#local-6989586621679285532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:solutionVersionArn:CreateCampaign' :: Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AsolutionVersionArn%3ACreateCampaign%27"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-165"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-type">CreateCampaignResponse</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679285527"><span class="annot"><span class="annottext">request :: CreateCampaign -&gt; Request CreateCampaign
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCampaign -&gt; Request CreateCampaign
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679285523"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateCampaign
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateCampaign)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateCampaign))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateCampaign
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateCampaign)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285520"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679285519"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679285519"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679285518"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679285518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateCampaignResponse
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse%27"><span class="hs-identifier hs-var">CreateCampaignResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateCampaignResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateCampaignResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679285518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;campaignArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateCampaignResponse)
+-&gt; Either String Int -&gt; Either String CreateCampaignResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285520"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285510"><span id="local-6989586621679285512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679285503"><span class="annot"><span class="annottext">toHeaders :: CreateCampaign -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCampaign -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.CreateCampaign&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-187"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-190"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-191"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285493"><span id="local-6989586621679285495"><span id="local-6989586621679285497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679285491"><span class="annot"><span class="annottext">toJSON :: CreateCampaign -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign%27"><span class="hs-identifier hs-type">CreateCampaign'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285486"><span id="local-6989586621679285487"><span id="local-6989586621679285488"><span id="local-6989586621679285489"><span class="annot"><span class="annottext">Maybe Natural
+Maybe CampaignConfig
+Text
+solutionVersionArn :: Text
+name :: Text
+minProvisionedTPS :: Maybe Natural
+campaignConfig :: Maybe CampaignConfig
+$sel:solutionVersionArn:CreateCampaign' :: CreateCampaign -&gt; Text
+$sel:name:CreateCampaign' :: CreateCampaign -&gt; Text
+$sel:minProvisionedTPS:CreateCampaign' :: CreateCampaign -&gt; Maybe Natural
+$sel:campaignConfig:CreateCampaign' :: CreateCampaign -&gt; Maybe CampaignConfig
+</span><a href="#local-6989586621679285486"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;campaignConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CampaignConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(CampaignConfig -&gt; Pair) -&gt; Maybe CampaignConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CampaignConfig
+</span><a href="#local-6989586621679285489"><span class="hs-identifier hs-var">campaignConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minProvisionedTPS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679285488"><span class="hs-identifier hs-var">minProvisionedTPS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285487"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-205"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;solutionVersionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679285486"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679285480"><span class="annot"><span class="annottext">toPath :: CreateCampaign -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCampaign -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaign"><span class="hs-identifier hs-type">CreateCampaign</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679285476"><span class="annot"><span class="annottext">toQuery :: CreateCampaign -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCampaign -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | /See:/ 'newCreateCampaignResponse' smart constructor.</span><span>
+</span><span id="line-216"></span><span id="local-6989586621679285473"><span id="local-6989586621679285474"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCampaignResponse"><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-var">CreateCampaignResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCampaignResponse%27"><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse%27"><span class="hs-identifier hs-var">CreateCampaignResponse'</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the campaign.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AcampaignArn%3ACreateCampaignResponse%27"><span class="annot"><span class="annottext">CreateCampaignResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AcampaignArn%3ACreateCampaignResponse%27"><span class="hs-identifier hs-var hs-var">campaignArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCampaignResponse%27"><span class="annot"><span class="annottext">CreateCampaignResponse -&gt; Int
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AhttpStatus%3ACreateCampaignResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285467"><span id="local-6989586621679285469"><span class="annot"><span class="annottext">CreateCampaignResponse -&gt; CreateCampaignResponse -&gt; Bool
+(CreateCampaignResponse -&gt; CreateCampaignResponse -&gt; Bool)
+-&gt; (CreateCampaignResponse -&gt; CreateCampaignResponse -&gt; Bool)
+-&gt; Eq CreateCampaignResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateCampaignResponse -&gt; CreateCampaignResponse -&gt; Bool
+$c/= :: CreateCampaignResponse -&gt; CreateCampaignResponse -&gt; Bool
+== :: CreateCampaignResponse -&gt; CreateCampaignResponse -&gt; Bool
+$c== :: CreateCampaignResponse -&gt; CreateCampaignResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285459"><span id="local-6989586621679285461"><span id="local-6989586621679285463"><span id="local-6989586621679285465"><span class="annot"><span class="annottext">ReadPrec [CreateCampaignResponse]
+ReadPrec CreateCampaignResponse
+Int -&gt; ReadS CreateCampaignResponse
+ReadS [CreateCampaignResponse]
+(Int -&gt; ReadS CreateCampaignResponse)
+-&gt; ReadS [CreateCampaignResponse]
+-&gt; ReadPrec CreateCampaignResponse
+-&gt; ReadPrec [CreateCampaignResponse]
+-&gt; Read CreateCampaignResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateCampaignResponse]
+$creadListPrec :: ReadPrec [CreateCampaignResponse]
+readPrec :: ReadPrec CreateCampaignResponse
+$creadPrec :: ReadPrec CreateCampaignResponse
+readList :: ReadS [CreateCampaignResponse]
+$creadList :: ReadS [CreateCampaignResponse]
+readsPrec :: Int -&gt; ReadS CreateCampaignResponse
+$creadsPrec :: Int -&gt; ReadS CreateCampaignResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285453"><span id="local-6989586621679285455"><span id="local-6989586621679285457"><span class="annot"><span class="annottext">Int -&gt; CreateCampaignResponse -&gt; ShowS
+[CreateCampaignResponse] -&gt; ShowS
+CreateCampaignResponse -&gt; String
+(Int -&gt; CreateCampaignResponse -&gt; ShowS)
+-&gt; (CreateCampaignResponse -&gt; String)
+-&gt; ([CreateCampaignResponse] -&gt; ShowS)
+-&gt; Show CreateCampaignResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateCampaignResponse] -&gt; ShowS
+$cshowList :: [CreateCampaignResponse] -&gt; ShowS
+show :: CreateCampaignResponse -&gt; String
+$cshow :: CreateCampaignResponse -&gt; String
+showsPrec :: Int -&gt; CreateCampaignResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateCampaignResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateCampaignResponse -&gt; Rep CreateCampaignResponse x)
+-&gt; (forall x.
+    Rep CreateCampaignResponse x -&gt; CreateCampaignResponse)
+-&gt; Generic CreateCampaignResponse
+forall x. Rep CreateCampaignResponse x -&gt; CreateCampaignResponse
+forall x. CreateCampaignResponse -&gt; Rep CreateCampaignResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateCampaignResponse x -&gt; CreateCampaignResponse
+$cfrom :: forall x. CreateCampaignResponse -&gt; Rep CreateCampaignResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- Create a value of 'CreateCampaignResponse' with all optional fields omitted.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'campaignArn', 'createCampaignResponse_campaignArn' - The Amazon Resource Name (ARN) of the campaign.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'httpStatus', 'createCampaignResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#newCreateCampaignResponse"><span class="hs-identifier hs-type">newCreateCampaignResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-type">CreateCampaignResponse</span></a></span><span>
+</span><span id="line-239"></span><span id="newCreateCampaignResponse"><span class="annot"><span class="annottext">newCreateCampaignResponse :: Int -&gt; CreateCampaignResponse
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#newCreateCampaignResponse"><span class="hs-identifier hs-var hs-var">newCreateCampaignResponse</span></a></span></span><span> </span><span id="local-6989586621679285450"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285450"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">CreateCampaignResponse' :: Maybe Text -&gt; Int -&gt; CreateCampaignResponse
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse%27"><span class="hs-identifier hs-type">CreateCampaignResponse'</span></a></span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:campaignArn:CreateCampaignResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AcampaignArn%3ACreateCampaignResponse%27"><span class="hs-identifier hs-var">campaignArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCampaignResponse' :: Int
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AhttpStatus%3ACreateCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285450"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the campaign.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaignResponse_campaignArn"><span class="hs-identifier hs-type">createCampaignResponse_campaignArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-type">CreateCampaignResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="createCampaignResponse_campaignArn"><span class="annot"><span class="annottext">createCampaignResponse_campaignArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateCampaignResponse -&gt; f CreateCampaignResponse
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaignResponse_campaignArn"><span class="hs-identifier hs-var hs-var">createCampaignResponse_campaignArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCampaignResponse -&gt; Maybe Text)
+-&gt; (CreateCampaignResponse -&gt; Maybe Text -&gt; CreateCampaignResponse)
+-&gt; Lens
+     CreateCampaignResponse
+     CreateCampaignResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse%27"><span class="hs-identifier hs-type">CreateCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285449"><span class="annot"><span class="annottext">Maybe Text
+campaignArn :: Maybe Text
+$sel:campaignArn:CreateCampaignResponse' :: CreateCampaignResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679285449"><span class="hs-identifier hs-var hs-var">campaignArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285449"><span class="hs-identifier hs-var">campaignArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285448"><span class="annot"><span class="annottext">s :: CreateCampaignResponse
+</span><a href="#local-6989586621679285448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse%27"><span class="hs-identifier hs-type">CreateCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285447"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCampaignResponse
+</span><a href="#local-6989586621679285448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:campaignArn:CreateCampaignResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AcampaignArn%3ACreateCampaignResponse%27"><span class="hs-identifier hs-var">campaignArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-type">CreateCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaignResponse_httpStatus"><span class="hs-identifier hs-type">createCampaignResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-type">CreateCampaignResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="createCampaignResponse_httpStatus"><span class="annot"><span class="annottext">createCampaignResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateCampaignResponse -&gt; f CreateCampaignResponse
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#createCampaignResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createCampaignResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCampaignResponse -&gt; Int)
+-&gt; (CreateCampaignResponse -&gt; Int -&gt; CreateCampaignResponse)
+-&gt; Lens CreateCampaignResponse CreateCampaignResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse%27"><span class="hs-identifier hs-type">CreateCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285446"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateCampaignResponse' :: CreateCampaignResponse -&gt; Int
+</span><a href="#local-6989586621679285446"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285446"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285445"><span class="annot"><span class="annottext">s :: CreateCampaignResponse
+</span><a href="#local-6989586621679285445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse%27"><span class="hs-identifier hs-type">CreateCampaignResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCampaignResponse
+</span><a href="#local-6989586621679285445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCampaignResponse' :: Int
+</span><a href="Network.AWS.Personalize.CreateCampaign.html#%24sel%3AhttpStatus%3ACreateCampaignResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-type">CreateCampaignResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateCampaign.html#CreateCampaignResponse"><span class="hs-identifier hs-type">CreateCampaignResponse</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

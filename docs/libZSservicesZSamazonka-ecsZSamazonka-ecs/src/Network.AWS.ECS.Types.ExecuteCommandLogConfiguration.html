@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- The logs can be sent to CloudWatch Logs or an Amazon S3 bucket.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExecuteCommandLogConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679452544"><span id="local-6989586621679452545"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteCommandLogConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-var">ExecuteCommandLogConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteCommandLogConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var">ExecuteCommandLogConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679452553"><span id="local-6989586621679452554"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExecuteCommandLogConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-var">ExecuteCommandLogConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecuteCommandLogConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var">ExecuteCommandLogConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the CloudWatch log group to send logs to.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The CloudWatch log group must already be created.</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3As3BucketName%3AExecuteCommandLogConfiguration%27"><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#%24sel%3As3BucketName%3AExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452534"><span id="local-6989586621679452536"><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452543"><span id="local-6989586621679452545"><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
 -&gt; ExecuteCommandLogConfiguration -&gt; Bool
 (ExecuteCommandLogConfiguration
  -&gt; ExecuteCommandLogConfiguration -&gt; Bool)
@@ -66,7 +66,7 @@ $c/= :: ExecuteCommandLogConfiguration
 -&gt; ExecuteCommandLogConfiguration -&gt; Bool
 $c== :: ExecuteCommandLogConfiguration
 -&gt; ExecuteCommandLogConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452525"><span id="local-6989586621679452527"><span id="local-6989586621679452529"><span id="local-6989586621679452531"><span class="annot"><span class="annottext">ReadPrec [ExecuteCommandLogConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452534"><span id="local-6989586621679452536"><span id="local-6989586621679452538"><span id="local-6989586621679452540"><span class="annot"><span class="annottext">ReadPrec [ExecuteCommandLogConfiguration]
 ReadPrec ExecuteCommandLogConfiguration
 Int -&gt; ReadS ExecuteCommandLogConfiguration
 ReadS [ExecuteCommandLogConfiguration]
@@ -86,7 +86,7 @@ readList :: ReadS [ExecuteCommandLogConfiguration]
 $creadList :: ReadS [ExecuteCommandLogConfiguration]
 readsPrec :: Int -&gt; ReadS ExecuteCommandLogConfiguration
 $creadsPrec :: Int -&gt; ReadS ExecuteCommandLogConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452518"><span id="local-6989586621679452520"><span id="local-6989586621679452522"><span class="annot"><span class="annottext">Int -&gt; ExecuteCommandLogConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452527"><span id="local-6989586621679452529"><span id="local-6989586621679452531"><span class="annot"><span class="annottext">Int -&gt; ExecuteCommandLogConfiguration -&gt; ShowS
 [ExecuteCommandLogConfiguration] -&gt; ShowS
 ExecuteCommandLogConfiguration -&gt; String
 (Int -&gt; ExecuteCommandLogConfiguration -&gt; ShowS)
@@ -198,16 +198,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452509"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452518"><span class="annot"><span class="annottext">Maybe Text
 cloudWatchLogGroupName :: Maybe Text
 $sel:cloudWatchLogGroupName:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679452509"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452509"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452508"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452507"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupName:ExecuteCommandLogConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679452518"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452518"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452517"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupName:ExecuteCommandLogConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#%24sel%3AcloudWatchLogGroupName%3AExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | An optional folder in the S3 bucket to place logs in.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#executeCommandLogConfiguration_s3KeyPrefix"><span class="hs-identifier hs-type">executeCommandLogConfiguration_s3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:cloudWatchLogGroupName:ExecuteCommandLogConfiguration' :: ExecuteCommandLog
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452505"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452514"><span class="annot"><span class="annottext">Maybe Text
 s3KeyPrefix :: Maybe Text
 $sel:s3KeyPrefix:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679452505"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452505"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452504"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452503"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:ExecuteCommandLogConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679452514"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452514"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452513"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:ExecuteCommandLogConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#%24sel%3As3KeyPrefix%3AExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | Whether or not to enable encryption on the CloudWatch logs. If not</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- specified, encryption will be disabled.</span><span>
@@ -249,16 +249,16 @@ $sel:s3KeyPrefix:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfigurati
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452501"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452510"><span class="annot"><span class="annottext">Maybe Bool
 cloudWatchEncryptionEnabled :: Maybe Bool
 $sel:cloudWatchEncryptionEnabled:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679452501"><span class="hs-identifier hs-var hs-var">cloudWatchEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452501"><span class="hs-identifier hs-var">cloudWatchEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452500"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452499"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchEncryptionEnabled:ExecuteCommandLogConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679452510"><span class="hs-identifier hs-var hs-var">cloudWatchEncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679452510"><span class="hs-identifier hs-var">cloudWatchEncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452509"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452508"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679452508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchEncryptionEnabled:ExecuteCommandLogConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#%24sel%3AcloudWatchEncryptionEnabled%3AExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var">cloudWatchEncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | Whether or not to enable encryption on the CloudWatch logs. If not</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- specified, encryption will be disabled.</span><span>
@@ -275,16 +275,16 @@ $sel:cloudWatchEncryptionEnabled:ExecuteCommandLogConfiguration' :: ExecuteComma
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452497"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452506"><span class="annot"><span class="annottext">Maybe Bool
 s3EncryptionEnabled :: Maybe Bool
 $sel:s3EncryptionEnabled:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679452497"><span class="hs-identifier hs-var hs-var">s3EncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452497"><span class="hs-identifier hs-var">s3EncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452496"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452495"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3EncryptionEnabled:ExecuteCommandLogConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679452506"><span class="hs-identifier hs-var hs-var">s3EncryptionEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679452506"><span class="hs-identifier hs-var">s3EncryptionEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452505"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452504"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679452504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3EncryptionEnabled:ExecuteCommandLogConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#%24sel%3As3EncryptionEnabled%3AExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var">s3EncryptionEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the S3 bucket to send logs to.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
@@ -302,19 +302,19 @@ $sel:s3EncryptionEnabled:ExecuteCommandLogConfiguration' :: ExecuteCommandLogCon
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452493"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452502"><span class="annot"><span class="annottext">Maybe Text
 s3BucketName :: Maybe Text
 $sel:s3BucketName:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679452493"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452493"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452492"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452491"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
-</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:ExecuteCommandLogConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679452502"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452502"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452501"><span class="annot"><span class="annottext">s :: ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExecuteCommandLogConfiguration
+</span><a href="#local-6989586621679452501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:ExecuteCommandLogConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#%24sel%3As3BucketName%3AExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452488"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679452486"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecuteCommandLogConfiguration
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452497"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679452495"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExecuteCommandLogConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExecuteCommandLogConfiguration)
@@ -324,8 +324,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExecuteCommandLogConfiguration&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452483"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452492"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Bool
@@ -348,7 +348,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ExecuteCommandLogConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudWatchLogGroupName&quot;</span></span><span class="hs-special">)</span><span>
@@ -364,7 +364,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Bool -&gt; Maybe Text -&gt; ExecuteCommandLogConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3KeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -376,7 +376,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Maybe Text -&gt; ExecuteCommandLogConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudWatchEncryptionEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -385,7 +385,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; ExecuteCommandLogConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3EncryptionEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -393,23 +393,23 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ExecuteCommandLogConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679452492"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3BucketName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679452477"><span id="local-6989586621679452479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679452486"><span id="local-6989586621679452488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679452474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679452483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452466"><span id="local-6989586621679452468"><span id="local-6989586621679452470"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679452464"><span class="annot"><span class="annottext">toJSON :: ExecuteCommandLogConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452458"><span id="local-6989586621679452459"><span id="local-6989586621679452460"><span id="local-6989586621679452461"><span id="local-6989586621679452462"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452475"><span id="local-6989586621679452477"><span id="local-6989586621679452479"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679452473"><span class="annot"><span class="annottext">toJSON :: ExecuteCommandLogConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandLogConfiguration.html#ExecuteCommandLogConfiguration%27"><span class="hs-identifier hs-type">ExecuteCommandLogConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452467"><span id="local-6989586621679452468"><span id="local-6989586621679452469"><span id="local-6989586621679452470"><span id="local-6989586621679452471"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 s3BucketName :: Maybe Text
 s3EncryptionEnabled :: Maybe Bool
@@ -421,7 +421,7 @@ $sel:s3EncryptionEnabled:ExecuteCommandLogConfiguration' :: ExecuteCommandLogCon
 $sel:cloudWatchEncryptionEnabled:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Bool
 $sel:s3KeyPrefix:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Text
 $sel:cloudWatchLogGroupName:ExecuteCommandLogConfiguration' :: ExecuteCommandLogConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679452458"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679452467"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -434,14 +434,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452462"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452471"><span class="hs-identifier hs-var">cloudWatchLogGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3KeyPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452461"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452470"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cloudWatchEncryptionEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -449,7 +449,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452460"><span class="hs-identifier hs-var">cloudWatchEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452469"><span class="hs-identifier hs-var">cloudWatchEncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3EncryptionEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -457,14 +457,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452459"><span class="hs-identifier hs-var">s3EncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452468"><span class="hs-identifier hs-var">s3EncryptionEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679452458"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span>
+</span><a href="#local-6989586621679452467"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span></pre></body></html>

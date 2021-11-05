@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeActivations' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679849386"><span id="local-6989586621679849387"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeActivations"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-var">DescribeActivations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeActivations%27"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-var">DescribeActivations'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679849395"><span id="local-6989586621679849396"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeActivations"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-var">DescribeActivations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeActivations%27"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-var">DescribeActivations'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter to view information about your activations.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeActivations%27"><span class="annot"><span class="annottext">DescribeActivations -&gt; Maybe [DescribeActivationsFilter]
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3Afilters%3ADescribeActivations%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.DescribeActivationsFilter.html#DescribeActivationsFilter"><span class="hs-identifier hs-type">DescribeActivationsFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeActivations%27"><span class="annot"><span class="annottext">DescribeActivations -&gt; Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AmaxResults%3ADescribeActivations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849378"><span id="local-6989586621679849380"><span class="annot"><span class="annottext">DescribeActivations -&gt; DescribeActivations -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849387"><span id="local-6989586621679849389"><span class="annot"><span class="annottext">DescribeActivations -&gt; DescribeActivations -&gt; Bool
 (DescribeActivations -&gt; DescribeActivations -&gt; Bool)
 -&gt; (DescribeActivations -&gt; DescribeActivations -&gt; Bool)
 -&gt; Eq DescribeActivations
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeActivations -&gt; DescribeActivations -&gt; Bool
 == :: DescribeActivations -&gt; DescribeActivations -&gt; Bool
 $c== :: DescribeActivations -&gt; DescribeActivations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849369"><span id="local-6989586621679849371"><span id="local-6989586621679849373"><span id="local-6989586621679849375"><span class="annot"><span class="annottext">ReadPrec [DescribeActivations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849378"><span id="local-6989586621679849380"><span id="local-6989586621679849382"><span id="local-6989586621679849384"><span class="annot"><span class="annottext">ReadPrec [DescribeActivations]
 ReadPrec DescribeActivations
 Int -&gt; ReadS DescribeActivations
 ReadS [DescribeActivations]
@@ -98,7 +98,7 @@ readList :: ReadS [DescribeActivations]
 $creadList :: ReadS [DescribeActivations]
 readsPrec :: Int -&gt; ReadS DescribeActivations
 $creadsPrec :: Int -&gt; ReadS DescribeActivations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849362"><span id="local-6989586621679849364"><span id="local-6989586621679849366"><span class="annot"><span class="annottext">Int -&gt; DescribeActivations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849371"><span id="local-6989586621679849373"><span id="local-6989586621679849375"><span class="annot"><span class="annottext">Int -&gt; DescribeActivations -&gt; ShowS
 [DescribeActivations] -&gt; ShowS
 DescribeActivations -&gt; String
 (Int -&gt; DescribeActivations -&gt; ShowS)
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe [DescribeActivationsFilter])
      (Maybe [DescribeActivationsFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849356"><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849365"><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
 filters :: Maybe [DescribeActivationsFilter]
 $sel:filters:DescribeActivations' :: DescribeActivations -&gt; Maybe [DescribeActivationsFilter]
-</span><a href="#local-6989586621679849356"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
-</span><a href="#local-6989586621679849356"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849355"><span class="annot"><span class="annottext">s :: DescribeActivations
-</span><a href="#local-6989586621679849355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849354"><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
-</span><a href="#local-6989586621679849354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivations
-</span><a href="#local-6989586621679849355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeActivations' :: Maybe [DescribeActivationsFilter]
+</span><a href="#local-6989586621679849365"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
+</span><a href="#local-6989586621679849365"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849364"><span class="annot"><span class="annottext">s :: DescribeActivations
+</span><a href="#local-6989586621679849364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849363"><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
+</span><a href="#local-6989586621679849363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivations
+</span><a href="#local-6989586621679849364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeActivations' :: Maybe [DescribeActivationsFilter]
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3Afilters%3ADescribeActivations%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
-</span><a href="#local-6989586621679849354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DescribeActivationsFilter]
+</span><a href="#local-6989586621679849363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DescribeActivationsFilter]
   -&gt; f (Maybe [DescribeActivationsFilter]))
  -&gt; DescribeActivations -&gt; f DescribeActivations)
 -&gt; ((Maybe [DescribeActivationsFilter]
@@ -227,16 +227,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeActivations DescribeActivations (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849350"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849359"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeActivations' :: DescribeActivations -&gt; Maybe Text
-</span><a href="#local-6989586621679849350"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679849350"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849349"><span class="annot"><span class="annottext">s :: DescribeActivations
-</span><a href="#local-6989586621679849349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849348"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679849348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivations
-</span><a href="#local-6989586621679849349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeActivations' :: Maybe Text
+</span><a href="#local-6989586621679849359"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849359"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849358"><span class="annot"><span class="annottext">s :: DescribeActivations
+</span><a href="#local-6989586621679849358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849357"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivations
+</span><a href="#local-6989586621679849358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeActivations' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AnextToken%3ADescribeActivations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679849348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
@@ -252,29 +252,29 @@ $sel:nextToken:DescribeActivations' :: DescribeActivations -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849347"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849356"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeActivations' :: DescribeActivations -&gt; Maybe Natural
-</span><a href="#local-6989586621679849347"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679849347"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849346"><span class="annot"><span class="annottext">s :: DescribeActivations
-</span><a href="#local-6989586621679849346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849345"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679849345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivations
-</span><a href="#local-6989586621679849346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeActivations' :: Maybe Natural
+</span><a href="#local-6989586621679849356"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679849356"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849355"><span class="annot"><span class="annottext">s :: DescribeActivations
+</span><a href="#local-6989586621679849355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849354"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679849354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivations
+</span><a href="#local-6989586621679849355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeActivations' :: Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AmaxResults%3ADescribeActivations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679849345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679849341"><span class="annot"><span class="annottext">page :: DescribeActivations
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679849350"><span class="annot"><span class="annottext">page :: DescribeActivations
 -&gt; AWSResponse DescribeActivations -&gt; Maybe DescribeActivations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679849339"><span class="annot"><span class="annottext">DescribeActivations
-</span><a href="#local-6989586621679849339"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679849338"><span class="annot"><span class="annottext">AWSResponse DescribeActivations
-</span><a href="#local-6989586621679849338"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679849348"><span class="annot"><span class="annottext">DescribeActivations
+</span><a href="#local-6989586621679849348"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679849347"><span class="annot"><span class="annottext">AWSResponse DescribeActivations
+</span><a href="#local-6989586621679849347"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeActivations
 DescribeActivationsResponse
-</span><a href="#local-6989586621679849338"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679849347"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">DescribeActivationsResponse
 -&gt; Getting (First Text) DescribeActivationsResponse Text
 -&gt; Maybe Text
@@ -304,7 +304,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeActivations
 DescribeActivationsResponse
-</span><a href="#local-6989586621679849338"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679849347"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">DescribeActivationsResponse
 -&gt; Getting
      (First [Activation]) DescribeActivationsResponse [Activation]
@@ -344,7 +344,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">DescribeActivations
-</span><a href="#local-6989586621679849339"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679849348"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">DescribeActivations
 -&gt; (DescribeActivations -&gt; DescribeActivations)
 -&gt; DescribeActivations
@@ -360,7 +360,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeActivations
 DescribeActivationsResponse
-</span><a href="#local-6989586621679849338"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679849347"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">DescribeActivationsResponse
 -&gt; Getting (First Text) DescribeActivationsResponse Text
 -&gt; Maybe Text
@@ -386,12 +386,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679849329"><span class="annot"><span class="annottext">request :: DescribeActivations -&gt; Request DescribeActivations
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679849338"><span class="annot"><span class="annottext">request :: DescribeActivations -&gt; Request DescribeActivations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeActivations -&gt; Request DescribeActivations
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679849325"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679849334"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeActivations
 -&gt; ClientResponse ClientBody
@@ -417,10 +417,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679849322"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679849322"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679849321"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679849321"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679849320"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679849320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679849331"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849331"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679849330"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679849330"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679849329"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Activation]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeActivationsResponse
 </span><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-var">DescribeActivationsResponse'</span></a></span><span>
@@ -430,7 +430,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeActivationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679849320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Activation]))
+</span><a href="#local-6989586621679849329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Activation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActivationList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Activation]))
@@ -444,7 +444,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeActivationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679849320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679849329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -456,15 +456,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679849322"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849331"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849311"><span id="local-6989586621679849313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849320"><span id="local-6989586621679849322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679849304"><span class="annot"><span class="annottext">toHeaders :: DescribeActivations -&gt; ResponseHeaders
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679849313"><span class="annot"><span class="annottext">toHeaders :: DescribeActivations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeActivations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -491,9 +491,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849294"><span id="local-6989586621679849296"><span id="local-6989586621679849298"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679849292"><span class="annot"><span class="annottext">toJSON :: DescribeActivations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849288"><span id="local-6989586621679849289"><span id="local-6989586621679849290"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849303"><span id="local-6989586621679849305"><span id="local-6989586621679849307"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679849301"><span class="annot"><span class="annottext">toJSON :: DescribeActivations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations%27"><span class="hs-identifier hs-type">DescribeActivations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849297"><span id="local-6989586621679849298"><span id="local-6989586621679849299"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [DescribeActivationsFilter]
 Maybe Text
 maxResults :: Maybe Natural
@@ -502,7 +502,7 @@ filters :: Maybe [DescribeActivationsFilter]
 $sel:maxResults:DescribeActivations' :: DescribeActivations -&gt; Maybe Natural
 $sel:nextToken:DescribeActivations' :: DescribeActivations -&gt; Maybe Text
 $sel:filters:DescribeActivations' :: DescribeActivations -&gt; Maybe [DescribeActivationsFilter]
-</span><a href="#local-6989586621679849288"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679849297"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -515,33 +515,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [DescribeActivationsFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DescribeActivationsFilter]
-</span><a href="#local-6989586621679849290"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679849299"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679849289"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679849298"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679849288"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679849297"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679849282"><span class="annot"><span class="annottext">toPath :: DescribeActivations -&gt; ByteString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679849291"><span class="annot"><span class="annottext">toPath :: DescribeActivations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeActivations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivations"><span class="hs-identifier hs-type">DescribeActivations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679849278"><span class="annot"><span class="annottext">toQuery :: DescribeActivations -&gt; QueryString
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679849287"><span class="annot"><span class="annottext">toQuery :: DescribeActivations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeActivations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -549,7 +549,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newDescribeActivationsResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679849275"><span id="local-6989586621679849276"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeActivationsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-var">DescribeActivationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeActivationsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-var">DescribeActivationsResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span id="local-6989586621679849284"><span id="local-6989586621679849285"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeActivationsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-var">DescribeActivationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeActivationsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-var">DescribeActivationsResponse'</span></a></span></span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of activations for your Amazon Web Services account.</span><span>
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AactivationList%3ADescribeActivationsResponse%27"><span class="annot"><span class="annottext">DescribeActivationsResponse -&gt; Maybe [Activation]
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AactivationList%3ADescribeActivationsResponse%27"><span class="hs-identifier hs-var hs-var">activationList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Activation.html#Activation"><span class="hs-identifier hs-type">Activation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -561,7 +561,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeActivationsResponse%27"><span class="annot"><span class="annottext">DescribeActivationsResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AhttpStatus%3ADescribeActivationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849268"><span id="local-6989586621679849270"><span class="annot"><span class="annottext">DescribeActivationsResponse -&gt; DescribeActivationsResponse -&gt; Bool
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849277"><span id="local-6989586621679849279"><span class="annot"><span class="annottext">DescribeActivationsResponse -&gt; DescribeActivationsResponse -&gt; Bool
 (DescribeActivationsResponse
  -&gt; DescribeActivationsResponse -&gt; Bool)
 -&gt; (DescribeActivationsResponse
@@ -572,7 +572,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeActivationsResponse -&gt; DescribeActivationsResponse -&gt; Bool
 == :: DescribeActivationsResponse -&gt; DescribeActivationsResponse -&gt; Bool
 $c== :: DescribeActivationsResponse -&gt; DescribeActivationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849260"><span id="local-6989586621679849262"><span id="local-6989586621679849264"><span id="local-6989586621679849266"><span class="annot"><span class="annottext">ReadPrec [DescribeActivationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849269"><span id="local-6989586621679849271"><span id="local-6989586621679849273"><span id="local-6989586621679849275"><span class="annot"><span class="annottext">ReadPrec [DescribeActivationsResponse]
 ReadPrec DescribeActivationsResponse
 Int -&gt; ReadS DescribeActivationsResponse
 ReadS [DescribeActivationsResponse]
@@ -592,7 +592,7 @@ readList :: ReadS [DescribeActivationsResponse]
 $creadList :: ReadS [DescribeActivationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeActivationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeActivationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849254"><span id="local-6989586621679849256"><span id="local-6989586621679849258"><span class="annot"><span class="annottext">Int -&gt; DescribeActivationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849263"><span id="local-6989586621679849265"><span id="local-6989586621679849267"><span class="annot"><span class="annottext">Int -&gt; DescribeActivationsResponse -&gt; ShowS
 [DescribeActivationsResponse] -&gt; ShowS
 DescribeActivationsResponse -&gt; String
 (Int -&gt; DescribeActivationsResponse -&gt; ShowS)
@@ -643,8 +643,8 @@ DescribeActivationsResponse -&gt; Rep DescribeActivationsResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newDescribeActivationsResponse"><span class="annot"><span class="annottext">newDescribeActivationsResponse :: Int -&gt; DescribeActivationsResponse
-</span><a href="Network.AWS.SSM.DescribeActivations.html#newDescribeActivationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeActivationsResponse</span></a></span></span><span> </span><span id="local-6989586621679849251"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679849251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DescribeActivations.html#newDescribeActivationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeActivationsResponse</span></a></span></span><span> </span><span id="local-6989586621679849260"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849260"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">DescribeActivationsResponse' :: Maybe [Activation]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeActivationsResponse
 </span><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span>
@@ -659,7 +659,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeActivationsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AhttpStatus%3ADescribeActivationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679849251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679849260"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | A list of activations for your Amazon Web Services account.</span><span>
@@ -671,16 +671,16 @@ forall a. Maybe a
     -&gt; Maybe [Activation] -&gt; DescribeActivationsResponse)
 -&gt; Lens' DescribeActivationsResponse (Maybe [Activation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849250"><span class="annot"><span class="annottext">Maybe [Activation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849259"><span class="annot"><span class="annottext">Maybe [Activation]
 activationList :: Maybe [Activation]
 $sel:activationList:DescribeActivationsResponse' :: DescribeActivationsResponse -&gt; Maybe [Activation]
-</span><a href="#local-6989586621679849250"><span class="hs-identifier hs-var hs-var">activationList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Activation]
-</span><a href="#local-6989586621679849250"><span class="hs-identifier hs-var">activationList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849249"><span class="annot"><span class="annottext">s :: DescribeActivationsResponse
-</span><a href="#local-6989586621679849249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849248"><span class="annot"><span class="annottext">Maybe [Activation]
-</span><a href="#local-6989586621679849248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivationsResponse
-</span><a href="#local-6989586621679849249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationList:DescribeActivationsResponse' :: Maybe [Activation]
+</span><a href="#local-6989586621679849259"><span class="hs-identifier hs-var hs-var">activationList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Activation]
+</span><a href="#local-6989586621679849259"><span class="hs-identifier hs-var">activationList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849258"><span class="annot"><span class="annottext">s :: DescribeActivationsResponse
+</span><a href="#local-6989586621679849258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849257"><span class="annot"><span class="annottext">Maybe [Activation]
+</span><a href="#local-6989586621679849257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivationsResponse
+</span><a href="#local-6989586621679849258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationList:DescribeActivationsResponse' :: Maybe [Activation]
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AactivationList%3ADescribeActivationsResponse%27"><span class="hs-identifier hs-var">activationList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Activation]
-</span><a href="#local-6989586621679849248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Activation] -&gt; f (Maybe [Activation]))
+</span><a href="#local-6989586621679849257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Activation] -&gt; f (Maybe [Activation]))
  -&gt; DescribeActivationsResponse -&gt; f DescribeActivationsResponse)
 -&gt; ((Maybe [Activation] -&gt; f (Maybe [Activation]))
     -&gt; Maybe [Activation] -&gt; f (Maybe [Activation]))
@@ -711,16 +711,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeActivationsResponse)
 -&gt; Lens' DescribeActivationsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849247"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849256"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeActivationsResponse' :: DescribeActivationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679849247"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679849247"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849246"><span class="annot"><span class="annottext">s :: DescribeActivationsResponse
-</span><a href="#local-6989586621679849246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849245"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679849245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivationsResponse
-</span><a href="#local-6989586621679849246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeActivationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679849256"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849256"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849255"><span class="annot"><span class="annottext">s :: DescribeActivationsResponse
+</span><a href="#local-6989586621679849255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivationsResponse
+</span><a href="#local-6989586621679849255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeActivationsResponse' :: Maybe Text
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AnextToken%3ADescribeActivationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679849245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-230"></span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#describeActivationsResponse_httpStatus"><span class="hs-identifier hs-type">describeActivationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -732,16 +732,16 @@ $sel:nextToken:DescribeActivationsResponse' :: DescribeActivationsResponse -&gt;
 -&gt; Lens
      DescribeActivationsResponse DescribeActivationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849244"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849253"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeActivationsResponse' :: DescribeActivationsResponse -&gt; Int
-</span><a href="#local-6989586621679849244"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679849244"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849243"><span class="annot"><span class="annottext">s :: DescribeActivationsResponse
-</span><a href="#local-6989586621679849243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849242"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679849242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivationsResponse
-</span><a href="#local-6989586621679849243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeActivationsResponse' :: Int
+</span><a href="#local-6989586621679849253"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849253"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849252"><span class="annot"><span class="annottext">s :: DescribeActivationsResponse
+</span><a href="#local-6989586621679849252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse%27"><span class="hs-identifier hs-type">DescribeActivationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849251"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeActivationsResponse
+</span><a href="#local-6989586621679849252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeActivationsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeActivations.html#%24sel%3AhttpStatus%3ADescribeActivationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679849242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679849251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849240"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679849249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeActivations.html#DescribeActivationsResponse"><span class="hs-identifier hs-type">DescribeActivationsResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

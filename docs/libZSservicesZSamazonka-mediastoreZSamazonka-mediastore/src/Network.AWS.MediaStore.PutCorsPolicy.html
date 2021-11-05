@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newPutCorsPolicy' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679165646"><span id="local-6989586621679165647"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCorsPolicy"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-var">PutCorsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCorsPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-var">PutCorsPolicy'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679165655"><span id="local-6989586621679165656"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCorsPolicy"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-var">PutCorsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCorsPolicy%27"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-var">PutCorsPolicy'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the container that you want to assign the CORS policy to.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AcontainerName%3APutCorsPolicy%27"><span class="annot"><span class="annottext">PutCorsPolicy -&gt; Text
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AcontainerName%3APutCorsPolicy%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AcorsPolicy%3APutCorsPolicy%27"><span class="annot"><span class="annottext">PutCorsPolicy -&gt; NonEmpty CorsRule
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AcorsPolicy%3APutCorsPolicy%27"><span class="hs-identifier hs-var hs-var">corsPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165639"><span id="local-6989586621679165641"><span class="annot"><span class="annottext">PutCorsPolicy -&gt; PutCorsPolicy -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165648"><span id="local-6989586621679165650"><span class="annot"><span class="annottext">PutCorsPolicy -&gt; PutCorsPolicy -&gt; Bool
 (PutCorsPolicy -&gt; PutCorsPolicy -&gt; Bool)
 -&gt; (PutCorsPolicy -&gt; PutCorsPolicy -&gt; Bool) -&gt; Eq PutCorsPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutCorsPolicy -&gt; PutCorsPolicy -&gt; Bool
 == :: PutCorsPolicy -&gt; PutCorsPolicy -&gt; Bool
 $c== :: PutCorsPolicy -&gt; PutCorsPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165630"><span id="local-6989586621679165632"><span id="local-6989586621679165634"><span id="local-6989586621679165636"><span class="annot"><span class="annottext">ReadPrec [PutCorsPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165639"><span id="local-6989586621679165641"><span id="local-6989586621679165643"><span id="local-6989586621679165645"><span class="annot"><span class="annottext">ReadPrec [PutCorsPolicy]
 ReadPrec PutCorsPolicy
 Int -&gt; ReadS PutCorsPolicy
 ReadS [PutCorsPolicy]
@@ -98,7 +98,7 @@ readList :: ReadS [PutCorsPolicy]
 $creadList :: ReadS [PutCorsPolicy]
 readsPrec :: Int -&gt; ReadS PutCorsPolicy
 $creadsPrec :: Int -&gt; ReadS PutCorsPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165623"><span id="local-6989586621679165625"><span id="local-6989586621679165627"><span class="annot"><span class="annottext">Int -&gt; PutCorsPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165632"><span id="local-6989586621679165634"><span id="local-6989586621679165636"><span class="annot"><span class="annottext">Int -&gt; PutCorsPolicy -&gt; ShowS
 [PutCorsPolicy] -&gt; ShowS
 PutCorsPolicy -&gt; String
 (Int -&gt; PutCorsPolicy -&gt; ShowS)
@@ -142,14 +142,14 @@ $cfrom :: forall x. PutCorsPolicy -&gt; Rep PutCorsPolicy x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span>
 </span><span id="line-90"></span><span id="newPutCorsPolicy"><span class="annot"><span class="annottext">newPutCorsPolicy :: Text -&gt; NonEmpty CorsRule -&gt; PutCorsPolicy
-</span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#newPutCorsPolicy"><span class="hs-identifier hs-var hs-var">newPutCorsPolicy</span></a></span></span><span> </span><span id="local-6989586621679165618"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165618"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span id="local-6989586621679165617"><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679165617"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#newPutCorsPolicy"><span class="hs-identifier hs-var hs-var">newPutCorsPolicy</span></a></span></span><span> </span><span id="local-6989586621679165627"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165627"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span id="local-6989586621679165626"><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><a href="#local-6989586621679165626"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">PutCorsPolicy' :: Text -&gt; NonEmpty CorsRule -&gt; PutCorsPolicy
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerName:PutCorsPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AcontainerName%3APutCorsPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165618"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165627"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:corsPolicy:PutCorsPolicy' :: NonEmpty CorsRule
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AcorsPolicy%3APutCorsPolicy%27"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty CorsRule) (Identity (NonEmpty CorsRule))
 -&gt; Tagged (NonEmpty CorsRule) (Identity (NonEmpty CorsRule))
@@ -159,7 +159,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty CorsRule -&gt; NonEmpty CorsRule
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679165617"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679165626"><span class="hs-identifier hs-var">pCorsPolicy_</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The name of the container that you want to assign the CORS policy to.</span><span>
@@ -169,16 +169,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (PutCorsPolicy -&gt; Text -&gt; PutCorsPolicy)
 -&gt; Lens PutCorsPolicy PutCorsPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165612"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165621"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:PutCorsPolicy' :: PutCorsPolicy -&gt; Text
-</span><a href="#local-6989586621679165612"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165612"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165611"><span class="annot"><span class="annottext">s :: PutCorsPolicy
-</span><a href="#local-6989586621679165611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165610"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCorsPolicy
-</span><a href="#local-6989586621679165611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:PutCorsPolicy' :: Text
+</span><a href="#local-6989586621679165621"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165621"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165620"><span class="annot"><span class="annottext">s :: PutCorsPolicy
+</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165619"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679165619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCorsPolicy
+</span><a href="#local-6989586621679165620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:PutCorsPolicy' :: Text
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AcontainerName%3APutCorsPolicy%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The CORS policy to apply to the container.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#putCorsPolicy_corsPolicy"><span class="hs-identifier hs-type">putCorsPolicy_corsPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.CorsRule.html#CorsRule"><span class="hs-identifier hs-type">CorsRule</span></a></span><span class="hs-special">)</span><span>
@@ -189,16 +189,16 @@ $sel:containerName:PutCorsPolicy' :: PutCorsPolicy -&gt; Text
 -&gt; Lens
      PutCorsPolicy PutCorsPolicy (NonEmpty CorsRule) (NonEmpty CorsRule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165609"><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165618"><span class="annot"><span class="annottext">NonEmpty CorsRule
 corsPolicy :: NonEmpty CorsRule
 $sel:corsPolicy:PutCorsPolicy' :: PutCorsPolicy -&gt; NonEmpty CorsRule
-</span><a href="#local-6989586621679165609"><span class="hs-identifier hs-var hs-var">corsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679165609"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165608"><span class="annot"><span class="annottext">s :: PutCorsPolicy
-</span><a href="#local-6989586621679165608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165607"><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679165607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCorsPolicy
-</span><a href="#local-6989586621679165608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:corsPolicy:PutCorsPolicy' :: NonEmpty CorsRule
+</span><a href="#local-6989586621679165618"><span class="hs-identifier hs-var hs-var">corsPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><a href="#local-6989586621679165618"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165617"><span class="annot"><span class="annottext">s :: PutCorsPolicy
+</span><a href="#local-6989586621679165617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165616"><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><a href="#local-6989586621679165616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCorsPolicy
+</span><a href="#local-6989586621679165617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:corsPolicy:PutCorsPolicy' :: NonEmpty CorsRule
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AcorsPolicy%3APutCorsPolicy%27"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679165607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
+</span><a href="#local-6989586621679165616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
  -&gt; PutCorsPolicy -&gt; f PutCorsPolicy)
 -&gt; ((NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
     -&gt; NonEmpty CorsRule -&gt; f (NonEmpty CorsRule))
@@ -215,12 +215,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-type">PutCorsPolicyResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679165602"><span class="annot"><span class="annottext">request :: PutCorsPolicy -&gt; Request PutCorsPolicy
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679165611"><span class="annot"><span class="annottext">request :: PutCorsPolicy -&gt; Request PutCorsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutCorsPolicy -&gt; Request PutCorsPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679165598"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679165607"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutCorsPolicy
 -&gt; ClientResponse ClientBody
@@ -244,10 +244,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679165595"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165595"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679165594"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679165594"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679165593"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679165593"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679165604"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165604"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679165603"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679165603"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679165602"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679165602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutCorsPolicyResponse
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-var">PutCorsPolicyResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutCorsPolicyResponse)
@@ -258,15 +258,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165595"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165604"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165586"><span id="local-6989586621679165588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165595"><span id="local-6989586621679165597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679165579"><span class="annot"><span class="annottext">toHeaders :: PutCorsPolicy -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679165588"><span class="annot"><span class="annottext">toHeaders :: PutCorsPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutCorsPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -293,15 +293,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165569"><span id="local-6989586621679165571"><span id="local-6989586621679165573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679165567"><span class="annot"><span class="annottext">toJSON :: PutCorsPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165564"><span id="local-6989586621679165565"><span class="annot"><span class="annottext">NonEmpty CorsRule
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165578"><span id="local-6989586621679165580"><span id="local-6989586621679165582"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679165576"><span class="annot"><span class="annottext">toJSON :: PutCorsPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy%27"><span class="hs-identifier hs-type">PutCorsPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165573"><span id="local-6989586621679165574"><span class="annot"><span class="annottext">NonEmpty CorsRule
 Text
 corsPolicy :: NonEmpty CorsRule
 containerName :: Text
 $sel:corsPolicy:PutCorsPolicy' :: PutCorsPolicy -&gt; NonEmpty CorsRule
 $sel:containerName:PutCorsPolicy' :: PutCorsPolicy -&gt; Text
-</span><a href="#local-6989586621679165564"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679165573"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,26 +314,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679165565"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679165574"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CorsPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty CorsRule -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CorsRule
-</span><a href="#local-6989586621679165564"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165573"><span class="hs-identifier hs-var">corsPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679165558"><span class="annot"><span class="annottext">toPath :: PutCorsPolicy -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679165567"><span class="annot"><span class="annottext">toPath :: PutCorsPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutCorsPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicy"><span class="hs-identifier hs-type">PutCorsPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679165554"><span class="annot"><span class="annottext">toQuery :: PutCorsPolicy -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679165563"><span class="annot"><span class="annottext">toQuery :: PutCorsPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutCorsPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -341,12 +341,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newPutCorsPolicyResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679165551"><span id="local-6989586621679165552"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCorsPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-var">PutCorsPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCorsPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-var">PutCorsPolicyResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679165560"><span id="local-6989586621679165561"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutCorsPolicyResponse"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-var">PutCorsPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutCorsPolicyResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-var">PutCorsPolicyResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutCorsPolicyResponse%27"><span class="annot"><span class="annottext">PutCorsPolicyResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AhttpStatus%3APutCorsPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165546"><span id="local-6989586621679165548"><span class="annot"><span class="annottext">PutCorsPolicyResponse -&gt; PutCorsPolicyResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679165555"><span id="local-6989586621679165557"><span class="annot"><span class="annottext">PutCorsPolicyResponse -&gt; PutCorsPolicyResponse -&gt; Bool
 (PutCorsPolicyResponse -&gt; PutCorsPolicyResponse -&gt; Bool)
 -&gt; (PutCorsPolicyResponse -&gt; PutCorsPolicyResponse -&gt; Bool)
 -&gt; Eq PutCorsPolicyResponse
@@ -355,7 +355,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutCorsPolicyResponse -&gt; PutCorsPolicyResponse -&gt; Bool
 == :: PutCorsPolicyResponse -&gt; PutCorsPolicyResponse -&gt; Bool
 $c== :: PutCorsPolicyResponse -&gt; PutCorsPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165538"><span id="local-6989586621679165540"><span id="local-6989586621679165542"><span id="local-6989586621679165544"><span class="annot"><span class="annottext">ReadPrec [PutCorsPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165547"><span id="local-6989586621679165549"><span id="local-6989586621679165551"><span id="local-6989586621679165553"><span class="annot"><span class="annottext">ReadPrec [PutCorsPolicyResponse]
 ReadPrec PutCorsPolicyResponse
 Int -&gt; ReadS PutCorsPolicyResponse
 ReadS [PutCorsPolicyResponse]
@@ -375,7 +375,7 @@ readList :: ReadS [PutCorsPolicyResponse]
 $creadList :: ReadS [PutCorsPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutCorsPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutCorsPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165532"><span id="local-6989586621679165534"><span id="local-6989586621679165536"><span class="annot"><span class="annottext">Int -&gt; PutCorsPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679165541"><span id="local-6989586621679165543"><span id="local-6989586621679165545"><span class="annot"><span class="annottext">Int -&gt; PutCorsPolicyResponse -&gt; ShowS
 [PutCorsPolicyResponse] -&gt; ShowS
 PutCorsPolicyResponse -&gt; String
 (Int -&gt; PutCorsPolicyResponse -&gt; ShowS)
@@ -415,12 +415,12 @@ $cfrom :: forall x. PutCorsPolicyResponse -&gt; Rep PutCorsPolicyResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-type">PutCorsPolicyResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newPutCorsPolicyResponse"><span class="annot"><span class="annottext">newPutCorsPolicyResponse :: Int -&gt; PutCorsPolicyResponse
-</span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#newPutCorsPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutCorsPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679165529"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165529"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#newPutCorsPolicyResponse"><span class="hs-identifier hs-var hs-var">newPutCorsPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679165538"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165538"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">PutCorsPolicyResponse' :: Int -&gt; PutCorsPolicyResponse
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-type">PutCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutCorsPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AhttpStatus%3APutCorsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165529"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679165538"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#putCorsPolicyResponse_httpStatus"><span class="hs-identifier hs-type">putCorsPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-type">PutCorsPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -429,16 +429,16 @@ $cfrom :: forall x. PutCorsPolicyResponse -&gt; Rep PutCorsPolicyResponse x
 -&gt; (PutCorsPolicyResponse -&gt; Int -&gt; PutCorsPolicyResponse)
 -&gt; Lens PutCorsPolicyResponse PutCorsPolicyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-type">PutCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165528"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-type">PutCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679165537"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutCorsPolicyResponse' :: PutCorsPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679165528"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165528"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165527"><span class="annot"><span class="annottext">s :: PutCorsPolicyResponse
-</span><a href="#local-6989586621679165527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-type">PutCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165526"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCorsPolicyResponse
-</span><a href="#local-6989586621679165527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutCorsPolicyResponse' :: Int
+</span><a href="#local-6989586621679165537"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165537"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679165536"><span class="annot"><span class="annottext">s :: PutCorsPolicyResponse
+</span><a href="#local-6989586621679165536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse%27"><span class="hs-identifier hs-type">PutCorsPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679165535"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679165535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutCorsPolicyResponse
+</span><a href="#local-6989586621679165536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutCorsPolicyResponse' :: Int
 </span><a href="Network.AWS.MediaStore.PutCorsPolicy.html#%24sel%3AhttpStatus%3APutCorsPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679165526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-type">PutCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679165535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-type">PutCorsPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-type">PutCorsPolicyResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679165533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.PutCorsPolicy.html#PutCorsPolicyResponse"><span class="hs-identifier hs-type">PutCorsPolicyResponse</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

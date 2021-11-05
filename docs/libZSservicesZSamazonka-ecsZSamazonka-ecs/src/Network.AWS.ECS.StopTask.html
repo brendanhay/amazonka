@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newStopTask' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679470361"><span id="local-6989586621679470362"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTask"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-var">StopTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTask%27"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-var">StopTask'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679470370"><span id="local-6989586621679470371"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTask"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-var">StopTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTask%27"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-var">StopTask'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- hosts the task to stop. If you do not specify a cluster, the default</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- cluster is assumed.</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Atask%3AStopTask%27"><span class="annot"><span class="annottext">StopTask -&gt; Text
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3Atask%3AStopTask%27"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470353"><span id="local-6989586621679470355"><span class="annot"><span class="annottext">StopTask -&gt; StopTask -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470362"><span id="local-6989586621679470364"><span class="annot"><span class="annottext">StopTask -&gt; StopTask -&gt; Bool
 (StopTask -&gt; StopTask -&gt; Bool)
 -&gt; (StopTask -&gt; StopTask -&gt; Bool) -&gt; Eq StopTask
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopTask -&gt; StopTask -&gt; Bool
 == :: StopTask -&gt; StopTask -&gt; Bool
 $c== :: StopTask -&gt; StopTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470344"><span id="local-6989586621679470346"><span id="local-6989586621679470348"><span id="local-6989586621679470350"><span class="annot"><span class="annottext">ReadPrec [StopTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470353"><span id="local-6989586621679470355"><span id="local-6989586621679470357"><span id="local-6989586621679470359"><span class="annot"><span class="annottext">ReadPrec [StopTask]
 ReadPrec StopTask
 Int -&gt; ReadS StopTask
 ReadS [StopTask]
@@ -107,7 +107,7 @@ readList :: ReadS [StopTask]
 $creadList :: ReadS [StopTask]
 readsPrec :: Int -&gt; ReadS StopTask
 $creadsPrec :: Int -&gt; ReadS StopTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470337"><span id="local-6989586621679470339"><span id="local-6989586621679470341"><span class="annot"><span class="annottext">Int -&gt; StopTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470346"><span id="local-6989586621679470348"><span id="local-6989586621679470350"><span class="annot"><span class="annottext">Int -&gt; StopTask -&gt; ShowS
 [StopTask] -&gt; ShowS
 StopTask -&gt; String
 (Int -&gt; StopTask -&gt; ShowS)
@@ -154,8 +154,8 @@ $cfrom :: forall x. StopTask -&gt; Rep StopTask x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span>
 </span><span id="line-104"></span><span id="newStopTask"><span class="annot"><span class="annottext">newStopTask :: Text -&gt; StopTask
-</span><a href="Network.AWS.ECS.StopTask.html#newStopTask"><span class="hs-identifier hs-var hs-var">newStopTask</span></a></span></span><span> </span><span id="local-6989586621679470332"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470332"><span class="hs-identifier hs-var">pTask_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.StopTask.html#newStopTask"><span class="hs-identifier hs-var hs-var">newStopTask</span></a></span></span><span> </span><span id="local-6989586621679470341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470341"><span class="hs-identifier hs-var">pTask_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">StopTask' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; StopTask
 </span><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:StopTask' :: Maybe Text
@@ -168,7 +168,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:task:StopTask' :: Text
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3Atask%3AStopTask%27"><span class="hs-identifier hs-var">task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470332"><span class="hs-identifier hs-var">pTask_</span></a></span><span>
+</span><a href="#local-6989586621679470341"><span class="hs-identifier hs-var">pTask_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; (StopTask -&gt; Maybe Text -&gt; StopTask)
 -&gt; Lens StopTask StopTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470329"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470338"><span class="annot"><span class="annottext">Maybe Text
 cluster :: Maybe Text
 $sel:cluster:StopTask' :: StopTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470329"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470329"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470328"><span class="annot"><span class="annottext">s :: StopTask
-</span><a href="#local-6989586621679470328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470327"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTask
-</span><a href="#local-6989586621679470328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:StopTask' :: Maybe Text
+</span><a href="#local-6989586621679470338"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470338"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470337"><span class="annot"><span class="annottext">s :: StopTask
+</span><a href="#local-6989586621679470337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470336"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTask
+</span><a href="#local-6989586621679470337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:StopTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3Acluster%3AStopTask%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | An optional message specified when a task is stopped. For example, if</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- you are using a custom scheduler, you can use this parameter to specify</span><span>
@@ -202,16 +202,16 @@ $sel:cluster:StopTask' :: StopTask -&gt; Maybe Text
 -&gt; (StopTask -&gt; Maybe Text -&gt; StopTask)
 -&gt; Lens StopTask StopTask (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470326"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470335"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:StopTask' :: StopTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470326"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470326"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470325"><span class="annot"><span class="annottext">s :: StopTask
-</span><a href="#local-6989586621679470325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470324"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTask
-</span><a href="#local-6989586621679470325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:StopTask' :: Maybe Text
+</span><a href="#local-6989586621679470335"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470335"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470334"><span class="annot"><span class="annottext">s :: StopTask
+</span><a href="#local-6989586621679470334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470333"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679470333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTask
+</span><a href="#local-6989586621679470334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:StopTask' :: Maybe Text
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3Areason%3AStopTask%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The task ID or full Amazon Resource Name (ARN) of the task to stop.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#stopTask_task"><span class="hs-identifier hs-type">stopTask_task</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -220,25 +220,25 @@ $sel:reason:StopTask' :: StopTask -&gt; Maybe Text
 -&gt; (StopTask -&gt; Text -&gt; StopTask)
 -&gt; Lens StopTask StopTask Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470323"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470332"><span class="annot"><span class="annottext">Text
 task :: Text
 $sel:task:StopTask' :: StopTask -&gt; Text
-</span><a href="#local-6989586621679470323"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470323"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470322"><span class="annot"><span class="annottext">s :: StopTask
-</span><a href="#local-6989586621679470322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470321"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTask
-</span><a href="#local-6989586621679470322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:task:StopTask' :: Text
+</span><a href="#local-6989586621679470332"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470332"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470331"><span class="annot"><span class="annottext">s :: StopTask
+</span><a href="#local-6989586621679470331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470330"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679470330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTask
+</span><a href="#local-6989586621679470331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:task:StopTask' :: Text
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3Atask%3AStopTask%27"><span class="hs-identifier hs-var">task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679470317"><span class="annot"><span class="annottext">request :: StopTask -&gt; Request StopTask
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679470326"><span class="annot"><span class="annottext">request :: StopTask -&gt; Request StopTask
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopTask -&gt; Request StopTask
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679470313"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679470322"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopTask
 -&gt; ClientResponse ClientBody
@@ -262,10 +262,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679470310"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470310"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679470309"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679470309"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679470308"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679470319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470319"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679470318"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679470318"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679470317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679470317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Task -&gt; Int -&gt; StopTaskResponse
 </span><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-var">StopTaskResponse'</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Task -&gt; Int -&gt; StopTaskResponse)
@@ -273,7 +273,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StopTaskResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679470308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Task)
+</span><a href="#local-6989586621679470317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Task)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;task&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,15 +285,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470310"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470319"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470300"><span id="local-6989586621679470302"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470309"><span id="local-6989586621679470311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470297"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679470293"><span class="annot"><span class="annottext">toHeaders :: StopTask -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679470302"><span class="annot"><span class="annottext">toHeaders :: StopTask -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopTask -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -320,9 +320,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470283"><span id="local-6989586621679470285"><span id="local-6989586621679470287"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679470281"><span class="annot"><span class="annottext">toJSON :: StopTask -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470277"><span id="local-6989586621679470278"><span id="local-6989586621679470279"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470292"><span id="local-6989586621679470294"><span id="local-6989586621679470296"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679470290"><span class="annot"><span class="annottext">toJSON :: StopTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask%27"><span class="hs-identifier hs-type">StopTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470286"><span id="local-6989586621679470287"><span id="local-6989586621679470288"><span class="annot"><span class="annottext">Maybe Text
 Text
 task :: Text
 reason :: Maybe Text
@@ -330,7 +330,7 @@ cluster :: Maybe Text
 $sel:task:StopTask' :: StopTask -&gt; Text
 $sel:reason:StopTask' :: StopTask -&gt; Maybe Text
 $sel:cluster:StopTask' :: StopTask -&gt; Maybe Text
-</span><a href="#local-6989586621679470277"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679470286"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -342,33 +342,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470279"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470288"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reason&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679470278"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679470287"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;task&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679470277"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470286"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679470271"><span class="annot"><span class="annottext">toPath :: StopTask -&gt; ByteString
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679470280"><span class="annot"><span class="annottext">toPath :: StopTask -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopTask -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTask"><span class="hs-identifier hs-type">StopTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679470267"><span class="annot"><span class="annottext">toQuery :: StopTask -&gt; QueryString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679470276"><span class="annot"><span class="annottext">toQuery :: StopTask -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopTask -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -376,7 +376,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newStopTaskResponse' smart constructor.</span><span>
-</span><span id="line-176"></span><span id="local-6989586621679470264"><span id="local-6989586621679470265"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTaskResponse"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-var">StopTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTaskResponse%27"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-var">StopTaskResponse'</span></a></span></span><span>
+</span><span id="line-176"></span><span id="local-6989586621679470273"><span id="local-6989586621679470274"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopTaskResponse"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-var">StopTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopTaskResponse%27"><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-var">StopTaskResponse'</span></a></span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The task that was stopped.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3Atask%3AStopTaskResponse%27"><span class="annot"><span class="annottext">StopTaskResponse -&gt; Maybe Task
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3Atask%3AStopTaskResponse%27"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Task.html#Task"><span class="hs-identifier hs-type">Task</span></a></span><span class="hs-special">,</span><span>
@@ -384,7 +384,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopTaskResponse%27"><span class="annot"><span class="annottext">StopTaskResponse -&gt; Int
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3AhttpStatus%3AStopTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470258"><span id="local-6989586621679470260"><span class="annot"><span class="annottext">StopTaskResponse -&gt; StopTaskResponse -&gt; Bool
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679470267"><span id="local-6989586621679470269"><span class="annot"><span class="annottext">StopTaskResponse -&gt; StopTaskResponse -&gt; Bool
 (StopTaskResponse -&gt; StopTaskResponse -&gt; Bool)
 -&gt; (StopTaskResponse -&gt; StopTaskResponse -&gt; Bool)
 -&gt; Eq StopTaskResponse
@@ -393,7 +393,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopTaskResponse -&gt; StopTaskResponse -&gt; Bool
 == :: StopTaskResponse -&gt; StopTaskResponse -&gt; Bool
 $c== :: StopTaskResponse -&gt; StopTaskResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470250"><span id="local-6989586621679470252"><span id="local-6989586621679470254"><span id="local-6989586621679470256"><span class="annot"><span class="annottext">ReadPrec [StopTaskResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470259"><span id="local-6989586621679470261"><span id="local-6989586621679470263"><span id="local-6989586621679470265"><span class="annot"><span class="annottext">ReadPrec [StopTaskResponse]
 ReadPrec StopTaskResponse
 Int -&gt; ReadS StopTaskResponse
 ReadS [StopTaskResponse]
@@ -413,7 +413,7 @@ readList :: ReadS [StopTaskResponse]
 $creadList :: ReadS [StopTaskResponse]
 readsPrec :: Int -&gt; ReadS StopTaskResponse
 $creadsPrec :: Int -&gt; ReadS StopTaskResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470244"><span id="local-6989586621679470246"><span id="local-6989586621679470248"><span class="annot"><span class="annottext">Int -&gt; StopTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679470253"><span id="local-6989586621679470255"><span id="local-6989586621679470257"><span class="annot"><span class="annottext">Int -&gt; StopTaskResponse -&gt; ShowS
 [StopTaskResponse] -&gt; ShowS
 StopTaskResponse -&gt; String
 (Int -&gt; StopTaskResponse -&gt; ShowS)
@@ -455,8 +455,8 @@ $cfrom :: forall x. StopTaskResponse -&gt; Rep StopTaskResponse x
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span><span>
 </span><span id="line-199"></span><span id="newStopTaskResponse"><span class="annot"><span class="annottext">newStopTaskResponse :: Int -&gt; StopTaskResponse
-</span><a href="Network.AWS.ECS.StopTask.html#newStopTaskResponse"><span class="hs-identifier hs-var hs-var">newStopTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679470241"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.StopTask.html#newStopTaskResponse"><span class="hs-identifier hs-var hs-var">newStopTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679470250"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">StopTaskResponse' :: Maybe Task -&gt; Int -&gt; StopTaskResponse
 </span><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:task:StopTaskResponse' :: Maybe Task
@@ -465,7 +465,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopTaskResponse' :: Int
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3AhttpStatus%3AStopTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679470250"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The task that was stopped.</span><span>
@@ -476,16 +476,16 @@ forall a. Maybe a
 -&gt; (StopTaskResponse -&gt; Maybe Task -&gt; StopTaskResponse)
 -&gt; Lens StopTaskResponse StopTaskResponse (Maybe Task) (Maybe Task)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470240"><span class="annot"><span class="annottext">Maybe Task
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470249"><span class="annot"><span class="annottext">Maybe Task
 task :: Maybe Task
 $sel:task:StopTaskResponse' :: StopTaskResponse -&gt; Maybe Task
-</span><a href="#local-6989586621679470240"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Task
-</span><a href="#local-6989586621679470240"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470239"><span class="annot"><span class="annottext">s :: StopTaskResponse
-</span><a href="#local-6989586621679470239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470238"><span class="annot"><span class="annottext">Maybe Task
-</span><a href="#local-6989586621679470238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTaskResponse
-</span><a href="#local-6989586621679470239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:task:StopTaskResponse' :: Maybe Task
+</span><a href="#local-6989586621679470249"><span class="hs-identifier hs-var hs-var">task</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Task
+</span><a href="#local-6989586621679470249"><span class="hs-identifier hs-var">task</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470248"><span class="annot"><span class="annottext">s :: StopTaskResponse
+</span><a href="#local-6989586621679470248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470247"><span class="annot"><span class="annottext">Maybe Task
+</span><a href="#local-6989586621679470247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTaskResponse
+</span><a href="#local-6989586621679470248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:task:StopTaskResponse' :: Maybe Task
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3Atask%3AStopTaskResponse%27"><span class="hs-identifier hs-var">task</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Task
-</span><a href="#local-6989586621679470238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#stopTaskResponse_httpStatus"><span class="hs-identifier hs-type">stopTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -494,16 +494,16 @@ $sel:task:StopTaskResponse' :: StopTaskResponse -&gt; Maybe Task
 -&gt; (StopTaskResponse -&gt; Int -&gt; StopTaskResponse)
 -&gt; Lens StopTaskResponse StopTaskResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470237"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679470246"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopTaskResponse' :: StopTaskResponse -&gt; Int
-</span><a href="#local-6989586621679470237"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470237"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470236"><span class="annot"><span class="annottext">s :: StopTaskResponse
-</span><a href="#local-6989586621679470236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470235"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTaskResponse
-</span><a href="#local-6989586621679470236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopTaskResponse' :: Int
+</span><a href="#local-6989586621679470246"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470246"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679470245"><span class="annot"><span class="annottext">s :: StopTaskResponse
+</span><a href="#local-6989586621679470245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse%27"><span class="hs-identifier hs-type">StopTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679470244"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679470244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopTaskResponse
+</span><a href="#local-6989586621679470245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopTaskResponse' :: Int
 </span><a href="Network.AWS.ECS.StopTask.html#%24sel%3AhttpStatus%3AStopTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679470235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679470244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679470242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.StopTask.html#StopTaskResponse"><span class="hs-identifier hs-type">StopTaskResponse</span></a></span></span><span>
 </span><span id="line-214"></span></pre></body></html>

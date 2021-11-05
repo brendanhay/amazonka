@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol"><span class="hs-identifier">VirtualGatewayPortProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Grpc"><span class="hs-identifier">VirtualGatewayPortProtocol_Grpc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Http"><span class="hs-identifier">VirtualGatewayPortProtocol_Http</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Http2"><span class="hs-identifier">VirtualGatewayPortProtocol_Http2</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679336272"><span id="local-6989586621679336273"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VirtualGatewayPortProtocol"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol"><span class="hs-identifier hs-var">VirtualGatewayPortProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualGatewayPortProtocol%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol%27"><span class="hs-identifier hs-var">VirtualGatewayPortProtocol'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVirtualGatewayPortProtocol"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#fromVirtualGatewayPortProtocol"><span class="hs-identifier hs-var hs-var">fromVirtualGatewayPortProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679336264"><span id="local-6989586621679336266"><span id="local-6989586621679336268"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayPortProtocol -&gt; ShowS
+[VirtualGatewayPortProtocol] -&gt; ShowS
+VirtualGatewayPortProtocol -&gt; String
+(Int -&gt; VirtualGatewayPortProtocol -&gt; ShowS)
+-&gt; (VirtualGatewayPortProtocol -&gt; String)
+-&gt; ([VirtualGatewayPortProtocol] -&gt; ShowS)
+-&gt; Show VirtualGatewayPortProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualGatewayPortProtocol] -&gt; ShowS
+$cshowList :: [VirtualGatewayPortProtocol] -&gt; ShowS
+show :: VirtualGatewayPortProtocol -&gt; String
+$cshow :: VirtualGatewayPortProtocol -&gt; String
+showsPrec :: Int -&gt; VirtualGatewayPortProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualGatewayPortProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679336255"><span id="local-6989586621679336257"><span id="local-6989586621679336259"><span id="local-6989586621679336261"><span class="annot"><span class="annottext">ReadPrec [VirtualGatewayPortProtocol]
+ReadPrec VirtualGatewayPortProtocol
+Int -&gt; ReadS VirtualGatewayPortProtocol
+ReadS [VirtualGatewayPortProtocol]
+(Int -&gt; ReadS VirtualGatewayPortProtocol)
+-&gt; ReadS [VirtualGatewayPortProtocol]
+-&gt; ReadPrec VirtualGatewayPortProtocol
+-&gt; ReadPrec [VirtualGatewayPortProtocol]
+-&gt; Read VirtualGatewayPortProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualGatewayPortProtocol]
+$creadListPrec :: ReadPrec [VirtualGatewayPortProtocol]
+readPrec :: ReadPrec VirtualGatewayPortProtocol
+$creadPrec :: ReadPrec VirtualGatewayPortProtocol
+readList :: ReadS [VirtualGatewayPortProtocol]
+$creadList :: ReadS [VirtualGatewayPortProtocol]
+readsPrec :: Int -&gt; ReadS VirtualGatewayPortProtocol
+$creadsPrec :: Int -&gt; ReadS VirtualGatewayPortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679336250"><span id="local-6989586621679336252"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+(VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool)
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; Bool)
+-&gt; Eq VirtualGatewayPortProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+$c/= :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+== :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+$c== :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679336234"><span id="local-6989586621679336236"><span id="local-6989586621679336238"><span id="local-6989586621679336240"><span id="local-6989586621679336242"><span id="local-6989586621679336244"><span id="local-6989586621679336246"><span class="annot"><span class="annottext">Eq VirtualGatewayPortProtocol
+Eq VirtualGatewayPortProtocol
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; Ordering)
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; Bool)
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; Bool)
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; Bool)
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; Bool)
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol)
+-&gt; (VirtualGatewayPortProtocol
+    -&gt; VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol)
+-&gt; Ord VirtualGatewayPortProtocol
+VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; Ordering
+VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol
+$cmin :: VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol
+max :: VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol
+$cmax :: VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol
+&gt;= :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+$c&gt;= :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+&gt; :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+$c&gt; :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+&lt;= :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+$c&lt;= :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+&lt; :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+$c&lt; :: VirtualGatewayPortProtocol -&gt; VirtualGatewayPortProtocol -&gt; Bool
+compare :: VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; Ordering
+$ccompare :: VirtualGatewayPortProtocol
+-&gt; VirtualGatewayPortProtocol -&gt; Ordering
+$cp1Ord :: Eq VirtualGatewayPortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ VirtualGatewayPortProtocol -&gt; Rep VirtualGatewayPortProtocol x)
+-&gt; (forall x.
+    Rep VirtualGatewayPortProtocol x -&gt; VirtualGatewayPortProtocol)
+-&gt; Generic VirtualGatewayPortProtocol
+forall x.
+Rep VirtualGatewayPortProtocol x -&gt; VirtualGatewayPortProtocol
+forall x.
+VirtualGatewayPortProtocol -&gt; Rep VirtualGatewayPortProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VirtualGatewayPortProtocol x -&gt; VirtualGatewayPortProtocol
+$cfrom :: forall x.
+VirtualGatewayPortProtocol -&gt; Rep VirtualGatewayPortProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679336226"><span id="local-6989586621679336228"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayPortProtocol -&gt; Int
+VirtualGatewayPortProtocol -&gt; Int
+(Int -&gt; VirtualGatewayPortProtocol -&gt; Int)
+-&gt; (VirtualGatewayPortProtocol -&gt; Int)
+-&gt; Hashable VirtualGatewayPortProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VirtualGatewayPortProtocol -&gt; Int
+$chash :: VirtualGatewayPortProtocol -&gt; Int
+hashWithSalt :: Int -&gt; VirtualGatewayPortProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; VirtualGatewayPortProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679336223"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; ()
+(VirtualGatewayPortProtocol -&gt; ())
+-&gt; NFData VirtualGatewayPortProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VirtualGatewayPortProtocol -&gt; ()
+$crnf :: VirtualGatewayPortProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679336220"><span class="annot"><span class="annottext">Text -&gt; Either String VirtualGatewayPortProtocol
+(Text -&gt; Either String VirtualGatewayPortProtocol)
+-&gt; FromText VirtualGatewayPortProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VirtualGatewayPortProtocol
+$cfromText :: Text -&gt; Either String VirtualGatewayPortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679336217"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; Text
+(VirtualGatewayPortProtocol -&gt; Text)
+-&gt; ToText VirtualGatewayPortProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VirtualGatewayPortProtocol -&gt; Text
+$ctoText :: VirtualGatewayPortProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679336214"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; ByteString
+(VirtualGatewayPortProtocol -&gt; ByteString)
+-&gt; ToByteString VirtualGatewayPortProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VirtualGatewayPortProtocol -&gt; ByteString
+$ctoBS :: VirtualGatewayPortProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679336211"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; ByteStringBuilder
+(VirtualGatewayPortProtocol -&gt; ByteStringBuilder)
+-&gt; ToLog VirtualGatewayPortProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VirtualGatewayPortProtocol -&gt; ByteStringBuilder
+$cbuild :: VirtualGatewayPortProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679336208"><span class="annot"><span class="annottext">HeaderName -&gt; VirtualGatewayPortProtocol -&gt; [Header]
+(HeaderName -&gt; VirtualGatewayPortProtocol -&gt; [Header])
+-&gt; ToHeader VirtualGatewayPortProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VirtualGatewayPortProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VirtualGatewayPortProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679336205"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; QueryString
+(VirtualGatewayPortProtocol -&gt; QueryString)
+-&gt; ToQuery VirtualGatewayPortProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VirtualGatewayPortProtocol -&gt; QueryString
+$ctoQuery :: VirtualGatewayPortProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679336200"><span id="local-6989586621679336202"><span class="annot"><span class="annottext">Value -&gt; Parser [VirtualGatewayPortProtocol]
+Value -&gt; Parser VirtualGatewayPortProtocol
+(Value -&gt; Parser VirtualGatewayPortProtocol)
+-&gt; (Value -&gt; Parser [VirtualGatewayPortProtocol])
+-&gt; FromJSON VirtualGatewayPortProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VirtualGatewayPortProtocol]
+$cparseJSONList :: Value -&gt; Parser [VirtualGatewayPortProtocol]
+parseJSON :: Value -&gt; Parser VirtualGatewayPortProtocol
+$cparseJSON :: Value -&gt; Parser VirtualGatewayPortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679336195"><span id="local-6989586621679336197"><span class="annot"><span class="annottext">FromJSONKeyFunction [VirtualGatewayPortProtocol]
+FromJSONKeyFunction VirtualGatewayPortProtocol
+FromJSONKeyFunction VirtualGatewayPortProtocol
+-&gt; FromJSONKeyFunction [VirtualGatewayPortProtocol]
+-&gt; FromJSONKey VirtualGatewayPortProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VirtualGatewayPortProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [VirtualGatewayPortProtocol]
+fromJSONKey :: FromJSONKeyFunction VirtualGatewayPortProtocol
+$cfromJSONKey :: FromJSONKeyFunction VirtualGatewayPortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679336186"><span id="local-6989586621679336188"><span id="local-6989586621679336190"><span id="local-6989586621679336192"><span class="annot"><span class="annottext">[VirtualGatewayPortProtocol] -&gt; Encoding
+[VirtualGatewayPortProtocol] -&gt; Value
+VirtualGatewayPortProtocol -&gt; Encoding
+VirtualGatewayPortProtocol -&gt; Value
+(VirtualGatewayPortProtocol -&gt; Value)
+-&gt; (VirtualGatewayPortProtocol -&gt; Encoding)
+-&gt; ([VirtualGatewayPortProtocol] -&gt; Value)
+-&gt; ([VirtualGatewayPortProtocol] -&gt; Encoding)
+-&gt; ToJSON VirtualGatewayPortProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VirtualGatewayPortProtocol] -&gt; Encoding
+$ctoEncodingList :: [VirtualGatewayPortProtocol] -&gt; Encoding
+toJSONList :: [VirtualGatewayPortProtocol] -&gt; Value
+$ctoJSONList :: [VirtualGatewayPortProtocol] -&gt; Value
+toEncoding :: VirtualGatewayPortProtocol -&gt; Encoding
+$ctoEncoding :: VirtualGatewayPortProtocol -&gt; Encoding
+toJSON :: VirtualGatewayPortProtocol -&gt; Value
+$ctoJSON :: VirtualGatewayPortProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679336181"><span id="local-6989586621679336183"><span class="annot"><span class="annottext">ToJSONKeyFunction [VirtualGatewayPortProtocol]
+ToJSONKeyFunction VirtualGatewayPortProtocol
+ToJSONKeyFunction VirtualGatewayPortProtocol
+-&gt; ToJSONKeyFunction [VirtualGatewayPortProtocol]
+-&gt; ToJSONKey VirtualGatewayPortProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VirtualGatewayPortProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [VirtualGatewayPortProtocol]
+toJSONKey :: ToJSONKeyFunction VirtualGatewayPortProtocol
+$ctoJSONKey :: ToJSONKeyFunction VirtualGatewayPortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679336178"><span class="annot"><span class="annottext">[Node] -&gt; Either String VirtualGatewayPortProtocol
+([Node] -&gt; Either String VirtualGatewayPortProtocol)
+-&gt; FromXML VirtualGatewayPortProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VirtualGatewayPortProtocol
+$cparseXML :: [Node] -&gt; Either String VirtualGatewayPortProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679336175"><span class="annot"><span class="annottext">VirtualGatewayPortProtocol -&gt; XML
+(VirtualGatewayPortProtocol -&gt; XML)
+-&gt; ToXML VirtualGatewayPortProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VirtualGatewayPortProtocol -&gt; XML
+$ctoXML :: VirtualGatewayPortProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Grpc"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol_Grpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayPortProtocol_Grpc"><span id="%24mVirtualGatewayPortProtocol_Grpc"><span id="VirtualGatewayPortProtocol_Grpc"><span class="annot"><span class="annottext">$bVirtualGatewayPortProtocol_Grpc :: VirtualGatewayPortProtocol
+$mVirtualGatewayPortProtocol_Grpc :: forall r.
+VirtualGatewayPortProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#%24bVirtualGatewayPortProtocol_Grpc"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayPortProtocol_Grpc</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol%27"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;grpc&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Http"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol_Http</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayPortProtocol_Http"><span id="%24mVirtualGatewayPortProtocol_Http"><span id="VirtualGatewayPortProtocol_Http"><span class="annot"><span class="annottext">$bVirtualGatewayPortProtocol_Http :: VirtualGatewayPortProtocol
+$mVirtualGatewayPortProtocol_Http :: forall r.
+VirtualGatewayPortProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#%24bVirtualGatewayPortProtocol_Http"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayPortProtocol_Http</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol%27"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;http&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Http2"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol_Http2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayPortProtocol_Http2"><span id="%24mVirtualGatewayPortProtocol_Http2"><span id="VirtualGatewayPortProtocol_Http2"><span class="annot"><span class="annottext">$bVirtualGatewayPortProtocol_Http2 :: VirtualGatewayPortProtocol
+$mVirtualGatewayPortProtocol_Http2 :: forall r.
+VirtualGatewayPortProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#%24bVirtualGatewayPortProtocol_Http2"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayPortProtocol_Http2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol%27"><span class="hs-identifier hs-type">VirtualGatewayPortProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;http2&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Grpc"><span class="hs-pragma hs-type">VirtualGatewayPortProtocol_Grpc</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Http"><span class="hs-pragma hs-type">VirtualGatewayPortProtocol_Http</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol_Http2"><span class="hs-pragma hs-type">VirtualGatewayPortProtocol_Http2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.VirtualGatewayPortProtocol.html#VirtualGatewayPortProtocol%27"><span class="hs-pragma hs-type">VirtualGatewayPortProtocol'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

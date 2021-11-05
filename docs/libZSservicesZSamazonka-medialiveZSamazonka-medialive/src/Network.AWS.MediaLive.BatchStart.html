@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | A request to start resources</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newBatchStart'' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679949677"><span id="local-6989586621679949678"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStart%27"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-var">BatchStart'</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStart%27%27"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-var">BatchStart''</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679949686"><span id="local-6989586621679949687"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStart%27"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-var">BatchStart'</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStart%27%27"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-var">BatchStart''</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of channel IDs</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AchannelIds%3ABatchStart%27%27"><span class="annot"><span class="annottext">BatchStart' -&gt; Maybe [Text]
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3AchannelIds%3ABatchStart%27%27"><span class="hs-identifier hs-var hs-var">channelIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmultiplexIds%3ABatchStart%27%27"><span class="annot"><span class="annottext">BatchStart' -&gt; Maybe [Text]
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3AmultiplexIds%3ABatchStart%27%27"><span class="hs-identifier hs-var hs-var">multiplexIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679949670"><span id="local-6989586621679949672"><span class="annot"><span class="annottext">BatchStart' -&gt; BatchStart' -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679949679"><span id="local-6989586621679949681"><span class="annot"><span class="annottext">BatchStart' -&gt; BatchStart' -&gt; Bool
 (BatchStart' -&gt; BatchStart' -&gt; Bool)
 -&gt; (BatchStart' -&gt; BatchStart' -&gt; Bool) -&gt; Eq BatchStart'
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchStart' -&gt; BatchStart' -&gt; Bool
 == :: BatchStart' -&gt; BatchStart' -&gt; Bool
 $c== :: BatchStart' -&gt; BatchStart' -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949661"><span id="local-6989586621679949663"><span id="local-6989586621679949665"><span id="local-6989586621679949667"><span class="annot"><span class="annottext">ReadPrec [BatchStart']
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949670"><span id="local-6989586621679949672"><span id="local-6989586621679949674"><span id="local-6989586621679949676"><span class="annot"><span class="annottext">ReadPrec [BatchStart']
 ReadPrec BatchStart'
 Int -&gt; ReadS BatchStart'
 ReadS [BatchStart']
@@ -87,7 +87,7 @@ readList :: ReadS [BatchStart']
 $creadList :: ReadS [BatchStart']
 readsPrec :: Int -&gt; ReadS BatchStart'
 $creadsPrec :: Int -&gt; ReadS BatchStart'
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949654"><span id="local-6989586621679949656"><span id="local-6989586621679949658"><span class="annot"><span class="annottext">Int -&gt; BatchStart' -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949663"><span id="local-6989586621679949665"><span id="local-6989586621679949667"><span class="annot"><span class="annottext">Int -&gt; BatchStart' -&gt; ShowS
 [BatchStart'] -&gt; ShowS
 BatchStart' -&gt; String
 (Int -&gt; BatchStart' -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (BatchStart' -&gt; Maybe [Text] -&gt; BatchStart')
 -&gt; Lens BatchStart' BatchStart' (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949647"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949656"><span class="annot"><span class="annottext">Maybe [Text]
 channelIds :: Maybe [Text]
 $sel:channelIds:BatchStart'' :: BatchStart' -&gt; Maybe [Text]
-</span><a href="#local-6989586621679949647"><span class="hs-identifier hs-var hs-var">channelIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949647"><span class="hs-identifier hs-var">channelIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949646"><span class="annot"><span class="annottext">s :: BatchStart'
-</span><a href="#local-6989586621679949646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949645"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStart'
-</span><a href="#local-6989586621679949646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelIds:BatchStart'' :: Maybe [Text]
+</span><a href="#local-6989586621679949656"><span class="hs-identifier hs-var hs-var">channelIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679949656"><span class="hs-identifier hs-var">channelIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949655"><span class="annot"><span class="annottext">s :: BatchStart'
+</span><a href="#local-6989586621679949655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949654"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679949654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStart'
+</span><a href="#local-6989586621679949655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelIds:BatchStart'' :: Maybe [Text]
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3AchannelIds%3ABatchStart%27%27"><span class="hs-identifier hs-var">channelIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679949654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchStart' -&gt; f BatchStart')
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -180,16 +180,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (BatchStart' -&gt; Maybe [Text] -&gt; BatchStart')
 -&gt; Lens BatchStart' BatchStart' (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949641"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949650"><span class="annot"><span class="annottext">Maybe [Text]
 multiplexIds :: Maybe [Text]
 $sel:multiplexIds:BatchStart'' :: BatchStart' -&gt; Maybe [Text]
-</span><a href="#local-6989586621679949641"><span class="hs-identifier hs-var hs-var">multiplexIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949641"><span class="hs-identifier hs-var">multiplexIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949640"><span class="annot"><span class="annottext">s :: BatchStart'
-</span><a href="#local-6989586621679949640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949639"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStart'
-</span><a href="#local-6989586621679949640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexIds:BatchStart'' :: Maybe [Text]
+</span><a href="#local-6989586621679949650"><span class="hs-identifier hs-var hs-var">multiplexIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679949650"><span class="hs-identifier hs-var">multiplexIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949649"><span class="annot"><span class="annottext">s :: BatchStart'
+</span><a href="#local-6989586621679949649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949648"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679949648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStart'
+</span><a href="#local-6989586621679949649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiplexIds:BatchStart'' :: Maybe [Text]
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3AmultiplexIds%3ABatchStart%27%27"><span class="hs-identifier hs-var">multiplexIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679949648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchStart' -&gt; f BatchStart')
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -208,12 +208,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679949635"><span class="annot"><span class="annottext">request :: BatchStart' -&gt; Request BatchStart'
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679949644"><span class="annot"><span class="annottext">request :: BatchStart' -&gt; Request BatchStart'
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchStart' -&gt; Request BatchStart'
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679949631"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679949640"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchStart'
 -&gt; ClientResponse ClientBody
@@ -237,10 +237,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679949628"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679949628"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679949627"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679949627"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679949626"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679949626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679949637"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949637"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679949636"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679949636"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679949635"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679949635"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
 -&gt; Maybe [BatchFailedResultModel] -&gt; Int -&gt; BatchStartResponse
 </span><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-var">BatchStartResponse'</span></a></span><span>
@@ -252,7 +252,7 @@ MonadResource m =&gt;
      (Maybe [BatchFailedResultModel] -&gt; Int -&gt; BatchStartResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679949626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679949635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [BatchSuccessfulResultModel]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -271,7 +271,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchStartResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679949626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679949635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [BatchFailedResultModel]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -290,15 +290,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679949628"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679949637"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949617"><span id="local-6989586621679949619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949626"><span id="local-6989586621679949628"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679949610"><span class="annot"><span class="annottext">toHeaders :: BatchStart' -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679949619"><span class="annot"><span class="annottext">toHeaders :: BatchStart' -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchStart' -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -317,14 +317,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949600"><span id="local-6989586621679949602"><span id="local-6989586621679949604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679949598"><span class="annot"><span class="annottext">toJSON :: BatchStart' -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949595"><span id="local-6989586621679949596"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949609"><span id="local-6989586621679949611"><span id="local-6989586621679949613"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679949607"><span class="annot"><span class="annottext">toJSON :: BatchStart' -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27%27"><span class="hs-identifier hs-type">BatchStart''</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949604"><span id="local-6989586621679949605"><span class="annot"><span class="annottext">Maybe [Text]
 multiplexIds :: Maybe [Text]
 channelIds :: Maybe [Text]
 $sel:multiplexIds:BatchStart'' :: BatchStart' -&gt; Maybe [Text]
 $sel:channelIds:BatchStart'' :: BatchStart' -&gt; Maybe [Text]
-</span><a href="#local-6989586621679949595"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679949604"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,26 +336,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949596"><span class="hs-identifier hs-var">channelIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679949605"><span class="hs-identifier hs-var">channelIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;multiplexIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679949595"><span class="hs-identifier hs-var">multiplexIds</span></a></span><span>
+</span><a href="#local-6989586621679949604"><span class="hs-identifier hs-var">multiplexIds</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679949589"><span class="annot"><span class="annottext">toPath :: BatchStart' -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679949598"><span class="annot"><span class="annottext">toPath :: BatchStart' -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchStart' -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/prod/batch/start&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStart%27"><span class="hs-identifier hs-type">BatchStart'</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679949585"><span class="annot"><span class="annottext">toQuery :: BatchStart' -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679949594"><span class="annot"><span class="annottext">toQuery :: BatchStart' -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchStart' -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -365,7 +365,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span class="hs-comment">-- | Placeholder documentation for BatchStartResponse</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- /See:/ 'newBatchStartResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679949582"><span id="local-6989586621679949583"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStartResponse"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-var">BatchStartResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStartResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-var">BatchStartResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679949591"><span id="local-6989586621679949592"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStartResponse"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-var">BatchStartResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStartResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-var">BatchStartResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of successful operations</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3Asuccessful%3ABatchStartResponse%27"><span class="annot"><span class="annottext">BatchStartResponse -&gt; Maybe [BatchSuccessfulResultModel]
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3Asuccessful%3ABatchStartResponse%27"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.BatchSuccessfulResultModel.html#BatchSuccessfulResultModel"><span class="hs-identifier hs-type">BatchSuccessfulResultModel</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -376,7 +376,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchStartResponse%27"><span class="annot"><span class="annottext">BatchStartResponse -&gt; Int
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3AhttpStatus%3ABatchStartResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679949575"><span id="local-6989586621679949577"><span class="annot"><span class="annottext">BatchStartResponse -&gt; BatchStartResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679949584"><span id="local-6989586621679949586"><span class="annot"><span class="annottext">BatchStartResponse -&gt; BatchStartResponse -&gt; Bool
 (BatchStartResponse -&gt; BatchStartResponse -&gt; Bool)
 -&gt; (BatchStartResponse -&gt; BatchStartResponse -&gt; Bool)
 -&gt; Eq BatchStartResponse
@@ -385,7 +385,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchStartResponse -&gt; BatchStartResponse -&gt; Bool
 == :: BatchStartResponse -&gt; BatchStartResponse -&gt; Bool
 $c== :: BatchStartResponse -&gt; BatchStartResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949567"><span id="local-6989586621679949569"><span id="local-6989586621679949571"><span id="local-6989586621679949573"><span class="annot"><span class="annottext">ReadPrec [BatchStartResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949576"><span id="local-6989586621679949578"><span id="local-6989586621679949580"><span id="local-6989586621679949582"><span class="annot"><span class="annottext">ReadPrec [BatchStartResponse]
 ReadPrec BatchStartResponse
 Int -&gt; ReadS BatchStartResponse
 ReadS [BatchStartResponse]
@@ -405,7 +405,7 @@ readList :: ReadS [BatchStartResponse]
 $creadList :: ReadS [BatchStartResponse]
 readsPrec :: Int -&gt; ReadS BatchStartResponse
 $creadsPrec :: Int -&gt; ReadS BatchStartResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949561"><span id="local-6989586621679949563"><span id="local-6989586621679949565"><span class="annot"><span class="annottext">Int -&gt; BatchStartResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679949570"><span id="local-6989586621679949572"><span id="local-6989586621679949574"><span class="annot"><span class="annottext">Int -&gt; BatchStartResponse -&gt; ShowS
 [BatchStartResponse] -&gt; ShowS
 BatchStartResponse -&gt; String
 (Int -&gt; BatchStartResponse -&gt; ShowS)
@@ -449,8 +449,8 @@ $cfrom :: forall x. BatchStartResponse -&gt; Rep BatchStartResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newBatchStartResponse"><span class="annot"><span class="annottext">newBatchStartResponse :: Int -&gt; BatchStartResponse
-</span><a href="Network.AWS.MediaLive.BatchStart.html#newBatchStartResponse"><span class="hs-identifier hs-var hs-var">newBatchStartResponse</span></a></span></span><span> </span><span id="local-6989586621679949558"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679949558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.BatchStart.html#newBatchStartResponse"><span class="hs-identifier hs-var hs-var">newBatchStartResponse</span></a></span></span><span> </span><span id="local-6989586621679949567"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949567"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">BatchStartResponse' :: Maybe [BatchSuccessfulResultModel]
 -&gt; Maybe [BatchFailedResultModel] -&gt; Int -&gt; BatchStartResponse
 </span><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span>
@@ -464,7 +464,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchStartResponse' :: Int
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3AhttpStatus%3ABatchStartResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679949558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679949567"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | List of successful operations</span><span>
@@ -481,16 +481,16 @@ forall a. Maybe a
      (Maybe [BatchSuccessfulResultModel])
      (Maybe [BatchSuccessfulResultModel])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949557"><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949566"><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
 successful :: Maybe [BatchSuccessfulResultModel]
 $sel:successful:BatchStartResponse' :: BatchStartResponse -&gt; Maybe [BatchSuccessfulResultModel]
-</span><a href="#local-6989586621679949557"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
-</span><a href="#local-6989586621679949557"><span class="hs-identifier hs-var">successful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949556"><span class="annot"><span class="annottext">s :: BatchStartResponse
-</span><a href="#local-6989586621679949556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949555"><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
-</span><a href="#local-6989586621679949555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStartResponse
-</span><a href="#local-6989586621679949556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successful:BatchStartResponse' :: Maybe [BatchSuccessfulResultModel]
+</span><a href="#local-6989586621679949566"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
+</span><a href="#local-6989586621679949566"><span class="hs-identifier hs-var">successful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949565"><span class="annot"><span class="annottext">s :: BatchStartResponse
+</span><a href="#local-6989586621679949565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949564"><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
+</span><a href="#local-6989586621679949564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStartResponse
+</span><a href="#local-6989586621679949565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successful:BatchStartResponse' :: Maybe [BatchSuccessfulResultModel]
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3Asuccessful%3ABatchStartResponse%27"><span class="hs-identifier hs-var">successful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchSuccessfulResultModel]
-</span><a href="#local-6989586621679949555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchSuccessfulResultModel]
+</span><a href="#local-6989586621679949564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchSuccessfulResultModel]
   -&gt; f (Maybe [BatchSuccessfulResultModel]))
  -&gt; BatchStartResponse -&gt; f BatchStartResponse)
 -&gt; ((Maybe [BatchSuccessfulResultModel]
@@ -537,16 +537,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [BatchFailedResultModel])
      (Maybe [BatchFailedResultModel])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949554"><span class="annot"><span class="annottext">Maybe [BatchFailedResultModel]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949563"><span class="annot"><span class="annottext">Maybe [BatchFailedResultModel]
 failed :: Maybe [BatchFailedResultModel]
 $sel:failed:BatchStartResponse' :: BatchStartResponse -&gt; Maybe [BatchFailedResultModel]
-</span><a href="#local-6989586621679949554"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchFailedResultModel]
-</span><a href="#local-6989586621679949554"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949553"><span class="annot"><span class="annottext">s :: BatchStartResponse
-</span><a href="#local-6989586621679949553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949552"><span class="annot"><span class="annottext">Maybe [BatchFailedResultModel]
-</span><a href="#local-6989586621679949552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStartResponse
-</span><a href="#local-6989586621679949553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:BatchStartResponse' :: Maybe [BatchFailedResultModel]
+</span><a href="#local-6989586621679949563"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchFailedResultModel]
+</span><a href="#local-6989586621679949563"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949562"><span class="annot"><span class="annottext">s :: BatchStartResponse
+</span><a href="#local-6989586621679949562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949561"><span class="annot"><span class="annottext">Maybe [BatchFailedResultModel]
+</span><a href="#local-6989586621679949561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStartResponse
+</span><a href="#local-6989586621679949562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:BatchStartResponse' :: Maybe [BatchFailedResultModel]
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3Afailed%3ABatchStartResponse%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchFailedResultModel]
-</span><a href="#local-6989586621679949552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchFailedResultModel]
+</span><a href="#local-6989586621679949561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchFailedResultModel]
   -&gt; f (Maybe [BatchFailedResultModel]))
  -&gt; BatchStartResponse -&gt; f BatchStartResponse)
 -&gt; ((Maybe [BatchFailedResultModel]
@@ -586,16 +586,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (BatchStartResponse -&gt; Int -&gt; BatchStartResponse)
 -&gt; Lens BatchStartResponse BatchStartResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949551"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679949560"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchStartResponse' :: BatchStartResponse -&gt; Int
-</span><a href="#local-6989586621679949551"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679949551"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949550"><span class="annot"><span class="annottext">s :: BatchStartResponse
-</span><a href="#local-6989586621679949550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949549"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679949549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStartResponse
-</span><a href="#local-6989586621679949550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchStartResponse' :: Int
+</span><a href="#local-6989586621679949560"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949560"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679949559"><span class="annot"><span class="annottext">s :: BatchStartResponse
+</span><a href="#local-6989586621679949559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse%27"><span class="hs-identifier hs-type">BatchStartResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679949558"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679949558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStartResponse
+</span><a href="#local-6989586621679949559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchStartResponse' :: Int
 </span><a href="Network.AWS.MediaLive.BatchStart.html#%24sel%3AhttpStatus%3ABatchStartResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679949549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679949558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679949556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.BatchStart.html#BatchStartResponse"><span class="hs-identifier hs-type">BatchStartResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

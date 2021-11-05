@@ -40,7 +40,7 @@
 </span><span id="line-40"></span><span class="hs-comment">-- same preset for up to four watermarks that have different dimensions.</span><span>
 </span><span id="line-41"></span><span class="hs-comment">--</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newPresetWatermark' smart constructor.</span><span>
-</span><span id="line-43"></span><span id="local-6989586621679212511"><span id="local-6989586621679212512"></span></span><span class="hs-keyword">data</span><span> </span><span id="PresetWatermark"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-var">PresetWatermark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PresetWatermark%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-var">PresetWatermark'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679212520"><span id="local-6989586621679212521"></span></span><span class="hs-keyword">data</span><span> </span><span id="PresetWatermark"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-var">PresetWatermark</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PresetWatermark%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-var">PresetWatermark'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The vertical position of the watermark unless you specify a non-zero</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- value for @VerticalOffset@:</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -200,7 +200,7 @@
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3Atarget%3APresetWatermark%27"><span class="annot"><span class="annottext">PresetWatermark -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3Atarget%3APresetWatermark%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212496"><span id="local-6989586621679212498"><span class="annot"><span class="annottext">PresetWatermark -&gt; PresetWatermark -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212505"><span id="local-6989586621679212507"><span class="annot"><span class="annottext">PresetWatermark -&gt; PresetWatermark -&gt; Bool
 (PresetWatermark -&gt; PresetWatermark -&gt; Bool)
 -&gt; (PresetWatermark -&gt; PresetWatermark -&gt; Bool)
 -&gt; Eq PresetWatermark
@@ -209,7 +209,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PresetWatermark -&gt; PresetWatermark -&gt; Bool
 == :: PresetWatermark -&gt; PresetWatermark -&gt; Bool
 $c== :: PresetWatermark -&gt; PresetWatermark -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212487"><span id="local-6989586621679212489"><span id="local-6989586621679212491"><span id="local-6989586621679212493"><span class="annot"><span class="annottext">ReadPrec [PresetWatermark]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212496"><span id="local-6989586621679212498"><span id="local-6989586621679212500"><span id="local-6989586621679212502"><span class="annot"><span class="annottext">ReadPrec [PresetWatermark]
 ReadPrec PresetWatermark
 Int -&gt; ReadS PresetWatermark
 ReadS [PresetWatermark]
@@ -229,7 +229,7 @@ readList :: ReadS [PresetWatermark]
 $creadList :: ReadS [PresetWatermark]
 readsPrec :: Int -&gt; ReadS PresetWatermark
 $creadsPrec :: Int -&gt; ReadS PresetWatermark
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212480"><span id="local-6989586621679212482"><span id="local-6989586621679212484"><span class="annot"><span class="annottext">Int -&gt; PresetWatermark -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212489"><span id="local-6989586621679212491"><span id="local-6989586621679212493"><span class="annot"><span class="annottext">Int -&gt; PresetWatermark -&gt; ShowS
 [PresetWatermark] -&gt; ShowS
 PresetWatermark -&gt; String
 (Int -&gt; PresetWatermark -&gt; ShowS)
@@ -486,16 +486,16 @@ forall a. Maybe a
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212471"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212480"><span class="annot"><span class="annottext">Maybe Text
 verticalAlign :: Maybe Text
 $sel:verticalAlign:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212471"><span class="hs-identifier hs-var hs-var">verticalAlign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212471"><span class="hs-identifier hs-var">verticalAlign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212470"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212469"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verticalAlign:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212480"><span class="hs-identifier hs-var hs-var">verticalAlign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212480"><span class="hs-identifier hs-var">verticalAlign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212479"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verticalAlign:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3AverticalAlign%3APresetWatermark%27"><span class="hs-identifier hs-var">verticalAlign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-379"></span><span>
 </span><span id="line-380"></span><span class="hs-comment">-- | A value that controls scaling of the watermark:</span><span>
 </span><span id="line-381"></span><span class="hs-comment">--</span><span>
@@ -520,16 +520,16 @@ $sel:verticalAlign:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212467"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212476"><span class="annot"><span class="annottext">Maybe Text
 sizingPolicy :: Maybe Text
 $sel:sizingPolicy:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var hs-var">sizingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212466"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212465"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizingPolicy:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212476"><span class="hs-identifier hs-var hs-var">sizingPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212476"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212475"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212474"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizingPolicy:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3AsizingPolicy%3APresetWatermark%27"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-398"></span><span>
 </span><span id="line-399"></span><span class="hs-comment">-- | The amount by which you want the horizontal position of the watermark to</span><span>
 </span><span id="line-400"></span><span class="hs-comment">-- be offset from the position specified by HorizontalAlign:</span><span>
@@ -560,16 +560,16 @@ $sel:sizingPolicy:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212463"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212472"><span class="annot"><span class="annottext">Maybe Text
 horizontalOffset :: Maybe Text
 $sel:horizontalOffset:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212463"><span class="hs-identifier hs-var hs-var">horizontalOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212463"><span class="hs-identifier hs-var">horizontalOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212462"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212461"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:horizontalOffset:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212472"><span class="hs-identifier hs-var hs-var">horizontalOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212472"><span class="hs-identifier hs-var">horizontalOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212471"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212470"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:horizontalOffset:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3AhorizontalOffset%3APresetWatermark%27"><span class="hs-identifier hs-var">horizontalOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-423"></span><span>
 </span><span id="line-424"></span><span class="hs-comment">-- | The maximum height of the watermark in one of the following formats:</span><span>
 </span><span id="line-425"></span><span class="hs-comment">--</span><span>
@@ -590,16 +590,16 @@ $sel:horizontalOffset:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212459"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212468"><span class="annot"><span class="annottext">Maybe Text
 maxHeight :: Maybe Text
 $sel:maxHeight:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212459"><span class="hs-identifier hs-var hs-var">maxHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212459"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212458"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212457"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxHeight:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212468"><span class="hs-identifier hs-var hs-var">maxHeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212468"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212467"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxHeight:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3AmaxHeight%3APresetWatermark%27"><span class="hs-identifier hs-var">maxHeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-438"></span><span>
 </span><span id="line-439"></span><span class="hs-comment">-- | A percentage that indicates how much you want a watermark to obscure the</span><span>
 </span><span id="line-440"></span><span class="hs-comment">-- video in the location where it appears. Valid values are 0 (the</span><span>
@@ -617,16 +617,16 @@ $sel:maxHeight:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212455"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212464"><span class="annot"><span class="annottext">Maybe Text
 opacity :: Maybe Text
 $sel:opacity:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212455"><span class="hs-identifier hs-var hs-var">opacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212455"><span class="hs-identifier hs-var">opacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212454"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212453"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opacity:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212464"><span class="hs-identifier hs-var hs-var">opacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212464"><span class="hs-identifier hs-var">opacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212463"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:opacity:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3Aopacity%3APresetWatermark%27"><span class="hs-identifier hs-var">opacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-450"></span><span>
 </span><span id="line-451"></span><span class="hs-comment">-- | @VerticalOffset@</span><span>
 </span><span id="line-452"></span><span class="hs-comment">--</span><span>
@@ -661,16 +661,16 @@ $sel:opacity:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212451"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212460"><span class="annot"><span class="annottext">Maybe Text
 verticalOffset :: Maybe Text
 $sel:verticalOffset:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212451"><span class="hs-identifier hs-var hs-var">verticalOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212451"><span class="hs-identifier hs-var">verticalOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212450"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212449"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verticalOffset:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212460"><span class="hs-identifier hs-var hs-var">verticalOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212460"><span class="hs-identifier hs-var">verticalOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212459"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verticalOffset:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3AverticalOffset%3APresetWatermark%27"><span class="hs-identifier hs-var">verticalOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-479"></span><span>
 </span><span id="line-480"></span><span class="hs-comment">-- | The maximum width of the watermark in one of the following formats:</span><span>
 </span><span id="line-481"></span><span class="hs-comment">--</span><span>
@@ -691,16 +691,16 @@ $sel:verticalOffset:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212447"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212456"><span class="annot"><span class="annottext">Maybe Text
 maxWidth :: Maybe Text
 $sel:maxWidth:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212447"><span class="hs-identifier hs-var hs-var">maxWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212447"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212446"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212445"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxWidth:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212456"><span class="hs-identifier hs-var hs-var">maxWidth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212456"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212455"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxWidth:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3AmaxWidth%3APresetWatermark%27"><span class="hs-identifier hs-var">maxWidth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-494"></span><span>
 </span><span id="line-495"></span><span class="hs-comment">-- | A unique identifier for the settings for one watermark. The value of</span><span>
 </span><span id="line-496"></span><span class="hs-comment">-- @Id@ can be up to 40 characters long.</span><span>
@@ -711,16 +711,16 @@ $sel:maxWidth:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212443"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212452"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212442"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212441"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212452"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212452"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212451"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212450"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3Aid%3APresetWatermark%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-499"></span><span>
 </span><span id="line-500"></span><span class="hs-comment">-- | The horizontal position of the watermark unless you specify a non-zero</span><span>
 </span><span id="line-501"></span><span class="hs-comment">-- value for @HorizontalOffset@:</span><span>
@@ -740,16 +740,16 @@ $sel:id:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212439"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212448"><span class="annot"><span class="annottext">Maybe Text
 horizontalAlign :: Maybe Text
 $sel:horizontalAlign:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212439"><span class="hs-identifier hs-var hs-var">horizontalAlign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212439"><span class="hs-identifier hs-var">horizontalAlign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212438"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212437"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:horizontalAlign:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212448"><span class="hs-identifier hs-var hs-var">horizontalAlign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212448"><span class="hs-identifier hs-var">horizontalAlign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212447"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212446"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:horizontalAlign:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3AhorizontalAlign%3APresetWatermark%27"><span class="hs-identifier hs-var">horizontalAlign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-513"></span><span>
 </span><span id="line-514"></span><span class="hs-comment">-- | A value that determines how Elastic Transcoder interprets values that</span><span>
 </span><span id="line-515"></span><span class="hs-comment">-- you specified for @HorizontalOffset@, @VerticalOffset@, @MaxWidth@, and</span><span>
@@ -775,19 +775,19 @@ $sel:horizontalAlign:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 -&gt; (PresetWatermark -&gt; Maybe Text -&gt; PresetWatermark)
 -&gt; Lens PresetWatermark PresetWatermark (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212435"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212444"><span class="annot"><span class="annottext">Maybe Text
 target :: Maybe Text
 $sel:target:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212435"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212435"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212434"><span class="annot"><span class="annottext">s :: PresetWatermark
-</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212433"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
-</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:PresetWatermark' :: Maybe Text
+</span><a href="#local-6989586621679212444"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212444"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212443"><span class="annot"><span class="annottext">s :: PresetWatermark
+</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PresetWatermark
+</span><a href="#local-6989586621679212443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:PresetWatermark' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#%24sel%3Atarget%3APresetWatermark%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-533"></span><span>
-</span><span id="line-534"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212430"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-535"></span><span>  </span><span id="local-6989586621679212428"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PresetWatermark
+</span><span id="line-534"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212439"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-535"></span><span>  </span><span id="local-6989586621679212437"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PresetWatermark
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-536"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PresetWatermark)
@@ -797,8 +797,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-537"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PresetWatermark&quot;</span></span><span>
-</span><span id="line-538"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212425"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-538"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212434"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-539"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -836,7 +836,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerticalAlign&quot;</span></span><span class="hs-special">)</span><span>
@@ -864,7 +864,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizingPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -890,7 +890,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HorizontalOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -914,7 +914,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxHeight&quot;</span></span><span class="hs-special">)</span><span>
@@ -936,7 +936,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Opacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -953,7 +953,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerticalOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -965,7 +965,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxWidth&quot;</span></span><span class="hs-special">)</span><span>
@@ -974,7 +974,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -982,7 +982,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PresetWatermark)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HorizontalAlign&quot;</span></span><span class="hs-special">)</span><span>
@@ -990,19 +990,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser PresetWatermark
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679212434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-550"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-551"></span><span>
-</span><span id="line-552"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212419"><span id="local-6989586621679212421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span></span><span>
+</span><span id="line-552"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212428"><span id="local-6989586621679212430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span></span><span>
 </span><span id="line-553"></span><span>
-</span><span id="line-554"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span><span>
+</span><span id="line-554"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span><span>
 </span><span id="line-555"></span><span>
-</span><span id="line-556"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212408"><span id="local-6989586621679212410"><span id="local-6989586621679212412"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-557"></span><span>  </span><span id="local-6989586621679212406"><span class="annot"><span class="annottext">toJSON :: PresetWatermark -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212395"><span id="local-6989586621679212396"><span id="local-6989586621679212397"><span id="local-6989586621679212398"><span id="local-6989586621679212399"><span id="local-6989586621679212400"><span id="local-6989586621679212401"><span id="local-6989586621679212402"><span id="local-6989586621679212403"><span id="local-6989586621679212404"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-556"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212417"><span id="local-6989586621679212419"><span id="local-6989586621679212421"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark"><span class="hs-identifier hs-type">PresetWatermark</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-557"></span><span>  </span><span id="local-6989586621679212415"><span class="annot"><span class="annottext">toJSON :: PresetWatermark -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.PresetWatermark.html#PresetWatermark%27"><span class="hs-identifier hs-type">PresetWatermark'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212404"><span id="local-6989586621679212405"><span id="local-6989586621679212406"><span id="local-6989586621679212407"><span id="local-6989586621679212408"><span id="local-6989586621679212409"><span id="local-6989586621679212410"><span id="local-6989586621679212411"><span id="local-6989586621679212412"><span id="local-6989586621679212413"><span class="annot"><span class="annottext">Maybe Text
 target :: Maybe Text
 horizontalAlign :: Maybe Text
 id :: Maybe Text
@@ -1023,7 +1023,7 @@ $sel:maxHeight:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 $sel:horizontalOffset:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 $sel:sizingPolicy:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
 $sel:verticalAlign:PresetWatermark' :: PresetWatermark -&gt; Maybe Text
-</span><a href="#local-6989586621679212395"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679212404"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-558"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-559"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1035,14 +1035,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212404"><span class="hs-identifier hs-var">verticalAlign</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212413"><span class="hs-identifier hs-var">verticalAlign</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-561"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SizingPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212403"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212412"><span class="hs-identifier hs-var">sizingPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-562"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HorizontalOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1050,21 +1050,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-563"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212402"><span class="hs-identifier hs-var">horizontalOffset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212411"><span class="hs-identifier hs-var">horizontalOffset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-564"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxHeight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212401"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212410"><span class="hs-identifier hs-var">maxHeight</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-565"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Opacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212400"><span class="hs-identifier hs-var">opacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212409"><span class="hs-identifier hs-var">opacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-566"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VerticalOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1072,21 +1072,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-567"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212399"><span class="hs-identifier hs-var">verticalOffset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212408"><span class="hs-identifier hs-var">verticalOffset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-568"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxWidth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212398"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212407"><span class="hs-identifier hs-var">maxWidth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-569"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212397"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212406"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-570"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HorizontalAlign&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1094,14 +1094,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-571"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212396"><span class="hs-identifier hs-var">horizontalAlign</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679212405"><span class="hs-identifier hs-var">horizontalAlign</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-572"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679212395"><span class="hs-identifier hs-var">target</span></a></span><span>
+</span><a href="#local-6989586621679212404"><span class="hs-identifier hs-var">target</span></a></span><span>
 </span><span id="line-573"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-574"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-575"></span></pre></body></html>

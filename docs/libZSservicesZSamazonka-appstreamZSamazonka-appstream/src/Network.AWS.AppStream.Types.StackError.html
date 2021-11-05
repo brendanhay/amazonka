@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a stack error.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStackError' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679289636"><span id="local-6989586621679289637"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackError"><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-var">StackError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackError%27"><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-var">StackError'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679289645"><span id="local-6989586621679289646"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackError"><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-var">StackError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackError%27"><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-var">StackError'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AerrorCode%3AStackError%27"><span class="annot"><span class="annottext">StackError -&gt; Maybe StackErrorCode
 </span><a href="Network.AWS.AppStream.Types.StackError.html#%24sel%3AerrorCode%3AStackError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackErrorCode.html#StackErrorCode"><span class="hs-identifier hs-type">StackErrorCode</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AerrorMessage%3AStackError%27"><span class="annot"><span class="annottext">StackError -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.Types.StackError.html#%24sel%3AerrorMessage%3AStackError%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289629"><span id="local-6989586621679289631"><span class="annot"><span class="annottext">StackError -&gt; StackError -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289638"><span id="local-6989586621679289640"><span class="annot"><span class="annottext">StackError -&gt; StackError -&gt; Bool
 (StackError -&gt; StackError -&gt; Bool)
 -&gt; (StackError -&gt; StackError -&gt; Bool) -&gt; Eq StackError
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StackError -&gt; StackError -&gt; Bool
 == :: StackError -&gt; StackError -&gt; Bool
 $c== :: StackError -&gt; StackError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289620"><span id="local-6989586621679289622"><span id="local-6989586621679289624"><span id="local-6989586621679289626"><span class="annot"><span class="annottext">ReadPrec [StackError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289629"><span id="local-6989586621679289631"><span id="local-6989586621679289633"><span id="local-6989586621679289635"><span class="annot"><span class="annottext">ReadPrec [StackError]
 ReadPrec StackError
 Int -&gt; ReadS StackError
 ReadS [StackError]
@@ -63,7 +63,7 @@ readList :: ReadS [StackError]
 $creadList :: ReadS [StackError]
 readsPrec :: Int -&gt; ReadS StackError
 $creadsPrec :: Int -&gt; ReadS StackError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289613"><span id="local-6989586621679289615"><span id="local-6989586621679289617"><span class="annot"><span class="annottext">Int -&gt; StackError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289622"><span id="local-6989586621679289624"><span id="local-6989586621679289626"><span class="annot"><span class="annottext">Int -&gt; StackError -&gt; ShowS
 [StackError] -&gt; ShowS
 StackError -&gt; String
 (Int -&gt; StackError -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; Lens
      StackError StackError (Maybe StackErrorCode) (Maybe StackErrorCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289604"><span class="annot"><span class="annottext">Maybe StackErrorCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289613"><span class="annot"><span class="annottext">Maybe StackErrorCode
 errorCode :: Maybe StackErrorCode
 $sel:errorCode:StackError' :: StackError -&gt; Maybe StackErrorCode
-</span><a href="#local-6989586621679289604"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackErrorCode
-</span><a href="#local-6989586621679289604"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289603"><span class="annot"><span class="annottext">s :: StackError
-</span><a href="#local-6989586621679289603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289602"><span class="annot"><span class="annottext">Maybe StackErrorCode
-</span><a href="#local-6989586621679289602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackError
-</span><a href="#local-6989586621679289603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:StackError' :: Maybe StackErrorCode
+</span><a href="#local-6989586621679289613"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackErrorCode
+</span><a href="#local-6989586621679289613"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289612"><span class="annot"><span class="annottext">s :: StackError
+</span><a href="#local-6989586621679289612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289611"><span class="annot"><span class="annottext">Maybe StackErrorCode
+</span><a href="#local-6989586621679289611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackError
+</span><a href="#local-6989586621679289612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:StackError' :: Maybe StackErrorCode
 </span><a href="Network.AWS.AppStream.Types.StackError.html#%24sel%3AerrorCode%3AStackError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackErrorCode
-</span><a href="#local-6989586621679289602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The error message.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#stackError_errorMessage"><span class="hs-identifier hs-type">stackError_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -142,19 +142,19 @@ $sel:errorCode:StackError' :: StackError -&gt; Maybe StackErrorCode
 -&gt; (StackError -&gt; Maybe Text -&gt; StackError)
 -&gt; Lens StackError StackError (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289600"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289609"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:StackError' :: StackError -&gt; Maybe Text
-</span><a href="#local-6989586621679289600"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289600"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289599"><span class="annot"><span class="annottext">s :: StackError
-</span><a href="#local-6989586621679289599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289598"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackError
-</span><a href="#local-6989586621679289599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:StackError' :: Maybe Text
+</span><a href="#local-6989586621679289609"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289609"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289608"><span class="annot"><span class="annottext">s :: StackError
+</span><a href="#local-6989586621679289608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-type">StackError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289607"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679289607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackError
+</span><a href="#local-6989586621679289608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:StackError' :: Maybe Text
 </span><a href="Network.AWS.AppStream.Types.StackError.html#%24sel%3AerrorMessage%3AStackError%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289595"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679289593"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StackError
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289604"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679289602"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StackError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StackError) -&gt; Value -&gt; Parser StackError
@@ -162,8 +162,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StackError&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289590"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289590"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289599"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289599"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe StackErrorCode -&gt; Maybe Text -&gt; StackError
 </span><a href="Network.AWS.AppStream.Types.StackError.html#StackError%27"><span class="hs-identifier hs-var">StackError'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StackErrorCode -&gt; Maybe Text -&gt; StackError)
@@ -171,7 +171,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; StackError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StackErrorCode)
+</span><a href="#local-6989586621679289599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StackErrorCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,13 +179,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser StackError
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289590"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679289599"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289584"><span id="local-6989586621679289586"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289593"><span id="local-6989586621679289595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289581"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.StackError.html#StackError"><span class="hs-identifier hs-type">StackError</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

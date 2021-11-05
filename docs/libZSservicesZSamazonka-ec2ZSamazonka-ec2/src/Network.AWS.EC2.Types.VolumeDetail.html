@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an EBS volume.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVolumeDetail' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681181199"><span id="local-6989586621681181200"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeDetail"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-var">VolumeDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeDetail%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-var">VolumeDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681181208"><span id="local-6989586621681181209"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeDetail"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-var">VolumeDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeDetail%27"><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-var">VolumeDetail'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the volume, in GiB.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Asize%3AVolumeDetail%27"><span class="annot"><span class="annottext">VolumeDetail -&gt; Integer
 </span><a href="Network.AWS.EC2.Types.VolumeDetail.html#%24sel%3Asize%3AVolumeDetail%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681181193"><span id="local-6989586621681181195"><span class="annot"><span class="annottext">VolumeDetail -&gt; VolumeDetail -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681181202"><span id="local-6989586621681181204"><span class="annot"><span class="annottext">VolumeDetail -&gt; VolumeDetail -&gt; Bool
 (VolumeDetail -&gt; VolumeDetail -&gt; Bool)
 -&gt; (VolumeDetail -&gt; VolumeDetail -&gt; Bool) -&gt; Eq VolumeDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VolumeDetail -&gt; VolumeDetail -&gt; Bool
 == :: VolumeDetail -&gt; VolumeDetail -&gt; Bool
 $c== :: VolumeDetail -&gt; VolumeDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181184"><span id="local-6989586621681181186"><span id="local-6989586621681181188"><span id="local-6989586621681181190"><span class="annot"><span class="annottext">ReadPrec [VolumeDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181193"><span id="local-6989586621681181195"><span id="local-6989586621681181197"><span id="local-6989586621681181199"><span class="annot"><span class="annottext">ReadPrec [VolumeDetail]
 ReadPrec VolumeDetail
 Int -&gt; ReadS VolumeDetail
 ReadS [VolumeDetail]
@@ -60,7 +60,7 @@ readList :: ReadS [VolumeDetail]
 $creadList :: ReadS [VolumeDetail]
 readsPrec :: Int -&gt; ReadS VolumeDetail
 $creadsPrec :: Int -&gt; ReadS VolumeDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181177"><span id="local-6989586621681181179"><span id="local-6989586621681181181"><span class="annot"><span class="annottext">Int -&gt; VolumeDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681181186"><span id="local-6989586621681181188"><span id="local-6989586621681181190"><span class="annot"><span class="annottext">Int -&gt; VolumeDetail -&gt; ShowS
 [VolumeDetail] -&gt; ShowS
 VolumeDetail -&gt; String
 (Int -&gt; VolumeDetail -&gt; ShowS)
@@ -100,11 +100,11 @@ $cfrom :: forall x. VolumeDetail -&gt; Rep VolumeDetail x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span>
 </span><span id="line-49"></span><span id="newVolumeDetail"><span class="annot"><span class="annottext">newVolumeDetail :: Integer -&gt; VolumeDetail
-</span><a href="Network.AWS.EC2.Types.VolumeDetail.html#newVolumeDetail"><span class="hs-identifier hs-var hs-var">newVolumeDetail</span></a></span></span><span> </span><span id="local-6989586621681181171"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681181171"><span class="hs-identifier hs-var">pSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VolumeDetail' :: Integer -&gt; VolumeDetail
+</span><a href="Network.AWS.EC2.Types.VolumeDetail.html#newVolumeDetail"><span class="hs-identifier hs-var hs-var">newVolumeDetail</span></a></span></span><span> </span><span id="local-6989586621681181180"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621681181180"><span class="hs-identifier hs-var">pSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VolumeDetail' :: Integer -&gt; VolumeDetail
 </span><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-type">VolumeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:VolumeDetail' :: Integer
 </span><a href="Network.AWS.EC2.Types.VolumeDetail.html#%24sel%3Asize%3AVolumeDetail%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681181171"><span class="hs-identifier hs-var">pSize_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621681181180"><span class="hs-identifier hs-var">pSize_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The size of the volume, in GiB.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#volumeDetail_size"><span class="hs-identifier hs-type">volumeDetail_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -113,32 +113,32 @@ $cfrom :: forall x. VolumeDetail -&gt; Rep VolumeDetail x
 -&gt; (VolumeDetail -&gt; Integer -&gt; VolumeDetail)
 -&gt; Lens VolumeDetail VolumeDetail Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-type">VolumeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181167"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-type">VolumeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181176"><span class="annot"><span class="annottext">Integer
 size :: Integer
 $sel:size:VolumeDetail' :: VolumeDetail -&gt; Integer
-</span><a href="#local-6989586621681181167"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681181167"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181166"><span class="annot"><span class="annottext">s :: VolumeDetail
-</span><a href="#local-6989586621681181166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-type">VolumeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181165"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681181165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeDetail
-</span><a href="#local-6989586621681181166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:VolumeDetail' :: Integer
+</span><a href="#local-6989586621681181176"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621681181176"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681181175"><span class="annot"><span class="annottext">s :: VolumeDetail
+</span><a href="#local-6989586621681181175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-type">VolumeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681181174"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621681181174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeDetail
+</span><a href="#local-6989586621681181175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:VolumeDetail' :: Integer
 </span><a href="Network.AWS.EC2.Types.VolumeDetail.html#%24sel%3Asize%3AVolumeDetail%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681181165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681181174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681181161"><span id="local-6989586621681181163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681181170"><span id="local-6989586621681181172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681181158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681181167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail"><span class="hs-identifier hs-type">VolumeDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621681181154"><span class="annot"><span class="annottext">toQuery :: VolumeDetail -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-type">VolumeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181152"><span class="annot"><span class="annottext">Integer
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621681181163"><span class="annot"><span class="annottext">toQuery :: VolumeDetail -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeDetail.html#VolumeDetail%27"><span class="hs-identifier hs-type">VolumeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681181161"><span class="annot"><span class="annottext">Integer
 size :: Integer
 $sel:size:VolumeDetail' :: VolumeDetail -&gt; Integer
-</span><a href="#local-6989586621681181152"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681181161"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Size&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Integer -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621681181152"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681181161"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span></pre></body></html>

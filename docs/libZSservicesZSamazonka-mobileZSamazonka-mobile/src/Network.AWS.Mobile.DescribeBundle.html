@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Request structure to request the details of a specific bundle.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDescribeBundle' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679155683"><span id="local-6989586621679155684"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBundle"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-var">DescribeBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBundle%27"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-var">DescribeBundle'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679155692"><span id="local-6989586621679155693"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBundle"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-var">DescribeBundle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBundle%27"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-var">DescribeBundle'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique bundle identifier.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AbundleId%3ADescribeBundle%27"><span class="annot"><span class="annottext">DescribeBundle -&gt; Text
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3AbundleId%3ADescribeBundle%27"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155677"><span id="local-6989586621679155679"><span class="annot"><span class="annottext">DescribeBundle -&gt; DescribeBundle -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155686"><span id="local-6989586621679155688"><span class="annot"><span class="annottext">DescribeBundle -&gt; DescribeBundle -&gt; Bool
 (DescribeBundle -&gt; DescribeBundle -&gt; Bool)
 -&gt; (DescribeBundle -&gt; DescribeBundle -&gt; Bool) -&gt; Eq DescribeBundle
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeBundle -&gt; DescribeBundle -&gt; Bool
 == :: DescribeBundle -&gt; DescribeBundle -&gt; Bool
 $c== :: DescribeBundle -&gt; DescribeBundle -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155668"><span id="local-6989586621679155670"><span id="local-6989586621679155672"><span id="local-6989586621679155674"><span class="annot"><span class="annottext">ReadPrec [DescribeBundle]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155677"><span id="local-6989586621679155679"><span id="local-6989586621679155681"><span id="local-6989586621679155683"><span class="annot"><span class="annottext">ReadPrec [DescribeBundle]
 ReadPrec DescribeBundle
 Int -&gt; ReadS DescribeBundle
 ReadS [DescribeBundle]
@@ -82,7 +82,7 @@ readList :: ReadS [DescribeBundle]
 $creadList :: ReadS [DescribeBundle]
 readsPrec :: Int -&gt; ReadS DescribeBundle
 $creadsPrec :: Int -&gt; ReadS DescribeBundle
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155661"><span id="local-6989586621679155663"><span id="local-6989586621679155665"><span class="annot"><span class="annottext">Int -&gt; DescribeBundle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155670"><span id="local-6989586621679155672"><span id="local-6989586621679155674"><span class="annot"><span class="annottext">Int -&gt; DescribeBundle -&gt; ShowS
 [DescribeBundle] -&gt; ShowS
 DescribeBundle -&gt; String
 (Int -&gt; DescribeBundle -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. DescribeBundle -&gt; Rep DescribeBundle x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span>
 </span><span id="line-71"></span><span id="newDescribeBundle"><span class="annot"><span class="annottext">newDescribeBundle :: Text -&gt; DescribeBundle
-</span><a href="Network.AWS.Mobile.DescribeBundle.html#newDescribeBundle"><span class="hs-identifier hs-var hs-var">newDescribeBundle</span></a></span></span><span> </span><span id="local-6989586621679155656"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155656"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Mobile.DescribeBundle.html#newDescribeBundle"><span class="hs-identifier hs-var hs-var">newDescribeBundle</span></a></span></span><span> </span><span id="local-6989586621679155665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155665"><span class="hs-identifier hs-var">pBundleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DescribeBundle' :: Text -&gt; DescribeBundle
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-type">DescribeBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:DescribeBundle' :: Text
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3AbundleId%3ADescribeBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155656"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679155665"><span class="hs-identifier hs-var">pBundleId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Unique bundle identifier.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#describeBundle_bundleId"><span class="hs-identifier hs-type">describeBundle_bundleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. DescribeBundle -&gt; Rep DescribeBundle x
 -&gt; (DescribeBundle -&gt; Text -&gt; DescribeBundle)
 -&gt; Lens DescribeBundle DescribeBundle Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-type">DescribeBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155653"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-type">DescribeBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155662"><span class="annot"><span class="annottext">Text
 bundleId :: Text
 $sel:bundleId:DescribeBundle' :: DescribeBundle -&gt; Text
-</span><a href="#local-6989586621679155653"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155653"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155652"><span class="annot"><span class="annottext">s :: DescribeBundle
-</span><a href="#local-6989586621679155652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-type">DescribeBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155651"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundle
-</span><a href="#local-6989586621679155652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:DescribeBundle' :: Text
+</span><a href="#local-6989586621679155662"><span class="hs-identifier hs-var hs-var">bundleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155662"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155661"><span class="annot"><span class="annottext">s :: DescribeBundle
+</span><a href="#local-6989586621679155661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-type">DescribeBundle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155660"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundle
+</span><a href="#local-6989586621679155661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bundleId:DescribeBundle' :: Text
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3AbundleId%3ADescribeBundle%27"><span class="hs-identifier hs-var">bundleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679155660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679155647"><span class="annot"><span class="annottext">request :: DescribeBundle -&gt; Request DescribeBundle
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679155656"><span class="annot"><span class="annottext">request :: DescribeBundle -&gt; Request DescribeBundle
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeBundle -&gt; Request DescribeBundle
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Mobile.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679155643"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679155652"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeBundle
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155640"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155640"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155639"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679155639"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155638"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679155638"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155649"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155649"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155648"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155648"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155647"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155647"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe BundleDetails -&gt; Int -&gt; DescribeBundleResponse
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-var">DescribeBundleResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BundleDetails -&gt; Int -&gt; DescribeBundleResponse)
@@ -191,7 +191,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeBundleResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679155638"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BundleDetails)
+</span><a href="#local-6989586621679155647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BundleDetails)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;details&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,15 +203,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155640"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679155649"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155630"><span id="local-6989586621679155632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155639"><span id="local-6989586621679155641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679155623"><span class="annot"><span class="annottext">toHeaders :: DescribeBundle -&gt; ResponseHeaders
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679155632"><span class="annot"><span class="annottext">toHeaders :: DescribeBundle -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeBundle -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -231,21 +231,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679155617"><span class="annot"><span class="annottext">toPath :: DescribeBundle -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-type">DescribeBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155615"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679155626"><span class="annot"><span class="annottext">toPath :: DescribeBundle -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle%27"><span class="hs-identifier hs-type">DescribeBundle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155624"><span class="annot"><span class="annottext">Text
 bundleId :: Text
 $sel:bundleId:DescribeBundle' :: DescribeBundle -&gt; Text
-</span><a href="#local-6989586621679155615"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679155624"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/bundles/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679155615"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679155624"><span class="hs-identifier hs-var">bundleId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundle"><span class="hs-identifier hs-type">DescribeBundle</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679155611"><span class="annot"><span class="annottext">toQuery :: DescribeBundle -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679155620"><span class="annot"><span class="annottext">toQuery :: DescribeBundle -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeBundle -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-113"></span><span class="hs-comment">-- | Result structure contains the details of the bundle.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- /See:/ 'newDescribeBundleResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679155608"><span id="local-6989586621679155609"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBundleResponse"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-var">DescribeBundleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBundleResponse%27"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-var">DescribeBundleResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679155617"><span id="local-6989586621679155618"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeBundleResponse"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-var">DescribeBundleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeBundleResponse%27"><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-var">DescribeBundleResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the bundle.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3Adetails%3ADescribeBundleResponse%27"><span class="annot"><span class="annottext">DescribeBundleResponse -&gt; Maybe BundleDetails
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3Adetails%3ADescribeBundleResponse%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.Types.BundleDetails.html#BundleDetails"><span class="hs-identifier hs-type">BundleDetails</span></a></span><span class="hs-special">,</span><span>
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeBundleResponse%27"><span class="annot"><span class="annottext">DescribeBundleResponse -&gt; Int
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3AhttpStatus%3ADescribeBundleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155602"><span id="local-6989586621679155604"><span class="annot"><span class="annottext">DescribeBundleResponse -&gt; DescribeBundleResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155611"><span id="local-6989586621679155613"><span class="annot"><span class="annottext">DescribeBundleResponse -&gt; DescribeBundleResponse -&gt; Bool
 (DescribeBundleResponse -&gt; DescribeBundleResponse -&gt; Bool)
 -&gt; (DescribeBundleResponse -&gt; DescribeBundleResponse -&gt; Bool)
 -&gt; Eq DescribeBundleResponse
@@ -272,7 +272,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeBundleResponse -&gt; DescribeBundleResponse -&gt; Bool
 == :: DescribeBundleResponse -&gt; DescribeBundleResponse -&gt; Bool
 $c== :: DescribeBundleResponse -&gt; DescribeBundleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155594"><span id="local-6989586621679155596"><span id="local-6989586621679155598"><span id="local-6989586621679155600"><span class="annot"><span class="annottext">ReadPrec [DescribeBundleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155603"><span id="local-6989586621679155605"><span id="local-6989586621679155607"><span id="local-6989586621679155609"><span class="annot"><span class="annottext">ReadPrec [DescribeBundleResponse]
 ReadPrec DescribeBundleResponse
 Int -&gt; ReadS DescribeBundleResponse
 ReadS [DescribeBundleResponse]
@@ -292,7 +292,7 @@ readList :: ReadS [DescribeBundleResponse]
 $creadList :: ReadS [DescribeBundleResponse]
 readsPrec :: Int -&gt; ReadS DescribeBundleResponse
 $creadsPrec :: Int -&gt; ReadS DescribeBundleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155588"><span id="local-6989586621679155590"><span id="local-6989586621679155592"><span class="annot"><span class="annottext">Int -&gt; DescribeBundleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155597"><span id="local-6989586621679155599"><span id="local-6989586621679155601"><span class="annot"><span class="annottext">Int -&gt; DescribeBundleResponse -&gt; ShowS
 [DescribeBundleResponse] -&gt; ShowS
 DescribeBundleResponse -&gt; String
 (Int -&gt; DescribeBundleResponse -&gt; ShowS)
@@ -335,8 +335,8 @@ $cfrom :: forall x. DescribeBundleResponse -&gt; Rep DescribeBundleResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDescribeBundleResponse"><span class="annot"><span class="annottext">newDescribeBundleResponse :: Int -&gt; DescribeBundleResponse
-</span><a href="Network.AWS.Mobile.DescribeBundle.html#newDescribeBundleResponse"><span class="hs-identifier hs-var hs-var">newDescribeBundleResponse</span></a></span></span><span> </span><span id="local-6989586621679155585"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155585"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Mobile.DescribeBundle.html#newDescribeBundleResponse"><span class="hs-identifier hs-var hs-var">newDescribeBundleResponse</span></a></span></span><span> </span><span id="local-6989586621679155594"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155594"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DescribeBundleResponse' :: Maybe BundleDetails -&gt; Int -&gt; DescribeBundleResponse
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:details:DescribeBundleResponse' :: Maybe BundleDetails
@@ -345,7 +345,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBundleResponse' :: Int
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3AhttpStatus%3ADescribeBundleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155585"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679155594"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The details of the bundle.</span><span>
@@ -361,16 +361,16 @@ forall a. Maybe a
      (Maybe BundleDetails)
      (Maybe BundleDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155584"><span class="annot"><span class="annottext">Maybe BundleDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155593"><span class="annot"><span class="annottext">Maybe BundleDetails
 details :: Maybe BundleDetails
 $sel:details:DescribeBundleResponse' :: DescribeBundleResponse -&gt; Maybe BundleDetails
-</span><a href="#local-6989586621679155584"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BundleDetails
-</span><a href="#local-6989586621679155584"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155583"><span class="annot"><span class="annottext">s :: DescribeBundleResponse
-</span><a href="#local-6989586621679155583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155582"><span class="annot"><span class="annottext">Maybe BundleDetails
-</span><a href="#local-6989586621679155582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleResponse
-</span><a href="#local-6989586621679155583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:DescribeBundleResponse' :: Maybe BundleDetails
+</span><a href="#local-6989586621679155593"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BundleDetails
+</span><a href="#local-6989586621679155593"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155592"><span class="annot"><span class="annottext">s :: DescribeBundleResponse
+</span><a href="#local-6989586621679155592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155591"><span class="annot"><span class="annottext">Maybe BundleDetails
+</span><a href="#local-6989586621679155591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleResponse
+</span><a href="#local-6989586621679155592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:DescribeBundleResponse' :: Maybe BundleDetails
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3Adetails%3ADescribeBundleResponse%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BundleDetails
-</span><a href="#local-6989586621679155582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679155591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#describeBundleResponse_httpStatus"><span class="hs-identifier hs-type">describeBundleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -380,16 +380,16 @@ $sel:details:DescribeBundleResponse' :: DescribeBundleResponse -&gt; Maybe Bundl
 -&gt; (DescribeBundleResponse -&gt; Int -&gt; DescribeBundleResponse)
 -&gt; Lens DescribeBundleResponse DescribeBundleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155581"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155590"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeBundleResponse' :: DescribeBundleResponse -&gt; Int
-</span><a href="#local-6989586621679155581"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155581"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155580"><span class="annot"><span class="annottext">s :: DescribeBundleResponse
-</span><a href="#local-6989586621679155580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155579"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleResponse
-</span><a href="#local-6989586621679155580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBundleResponse' :: Int
+</span><a href="#local-6989586621679155590"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155590"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155589"><span class="annot"><span class="annottext">s :: DescribeBundleResponse
+</span><a href="#local-6989586621679155589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse%27"><span class="hs-identifier hs-type">DescribeBundleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeBundleResponse
+</span><a href="#local-6989586621679155589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeBundleResponse' :: Int
 </span><a href="Network.AWS.Mobile.DescribeBundle.html#%24sel%3AhttpStatus%3ADescribeBundleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679155579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679155588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Mobile.DescribeBundle.html#DescribeBundleResponse"><span class="hs-identifier hs-type">DescribeBundleResponse</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

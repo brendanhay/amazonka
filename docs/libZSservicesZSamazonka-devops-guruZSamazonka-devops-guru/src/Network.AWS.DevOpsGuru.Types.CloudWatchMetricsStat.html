@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Average"><span class="hs-identifier">CloudWatchMetricsStat_Average</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Maximum"><span class="hs-identifier">CloudWatchMetricsStat_Maximum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Minimum"><span class="hs-identifier">CloudWatchMetricsStat_Minimum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P50"><span class="hs-identifier">CloudWatchMetricsStat_P50</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P90"><span class="hs-identifier">CloudWatchMetricsStat_P90</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P99"><span class="hs-identifier">CloudWatchMetricsStat_P99</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_SampleCount"><span class="hs-identifier">CloudWatchMetricsStat_SampleCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Sum"><span class="hs-identifier">CloudWatchMetricsStat_Sum</span></a></span><span>
+</span><span id="line-31"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679231074"><span id="local-6989586621679231075"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchMetricsStat"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-var">CloudWatchMetricsStat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchMetricsStat%27"><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-var">CloudWatchMetricsStat'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudWatchMetricsStat"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; Text
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#fromCloudWatchMetricsStat"><span class="hs-identifier hs-var hs-var">fromCloudWatchMetricsStat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231066"><span id="local-6989586621679231068"><span id="local-6989586621679231070"><span class="annot"><span class="annottext">Int -&gt; CloudWatchMetricsStat -&gt; ShowS
+[CloudWatchMetricsStat] -&gt; ShowS
+CloudWatchMetricsStat -&gt; String
+(Int -&gt; CloudWatchMetricsStat -&gt; ShowS)
+-&gt; (CloudWatchMetricsStat -&gt; String)
+-&gt; ([CloudWatchMetricsStat] -&gt; ShowS)
+-&gt; Show CloudWatchMetricsStat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CloudWatchMetricsStat] -&gt; ShowS
+$cshowList :: [CloudWatchMetricsStat] -&gt; ShowS
+show :: CloudWatchMetricsStat -&gt; String
+$cshow :: CloudWatchMetricsStat -&gt; String
+showsPrec :: Int -&gt; CloudWatchMetricsStat -&gt; ShowS
+$cshowsPrec :: Int -&gt; CloudWatchMetricsStat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679231057"><span id="local-6989586621679231059"><span id="local-6989586621679231061"><span id="local-6989586621679231063"><span class="annot"><span class="annottext">ReadPrec [CloudWatchMetricsStat]
+ReadPrec CloudWatchMetricsStat
+Int -&gt; ReadS CloudWatchMetricsStat
+ReadS [CloudWatchMetricsStat]
+(Int -&gt; ReadS CloudWatchMetricsStat)
+-&gt; ReadS [CloudWatchMetricsStat]
+-&gt; ReadPrec CloudWatchMetricsStat
+-&gt; ReadPrec [CloudWatchMetricsStat]
+-&gt; Read CloudWatchMetricsStat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CloudWatchMetricsStat]
+$creadListPrec :: ReadPrec [CloudWatchMetricsStat]
+readPrec :: ReadPrec CloudWatchMetricsStat
+$creadPrec :: ReadPrec CloudWatchMetricsStat
+readList :: ReadS [CloudWatchMetricsStat]
+$creadList :: ReadS [CloudWatchMetricsStat]
+readsPrec :: Int -&gt; ReadS CloudWatchMetricsStat
+$creadsPrec :: Int -&gt; ReadS CloudWatchMetricsStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679231052"><span id="local-6989586621679231054"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+(CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool)
+-&gt; (CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool)
+-&gt; Eq CloudWatchMetricsStat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+$c/= :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+== :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+$c== :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679231036"><span id="local-6989586621679231038"><span id="local-6989586621679231040"><span id="local-6989586621679231042"><span id="local-6989586621679231044"><span id="local-6989586621679231046"><span id="local-6989586621679231048"><span class="annot"><span class="annottext">Eq CloudWatchMetricsStat
+Eq CloudWatchMetricsStat
+-&gt; (CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Ordering)
+-&gt; (CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool)
+-&gt; (CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool)
+-&gt; (CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool)
+-&gt; (CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool)
+-&gt; (CloudWatchMetricsStat
+    -&gt; CloudWatchMetricsStat -&gt; CloudWatchMetricsStat)
+-&gt; (CloudWatchMetricsStat
+    -&gt; CloudWatchMetricsStat -&gt; CloudWatchMetricsStat)
+-&gt; Ord CloudWatchMetricsStat
+CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Ordering
+CloudWatchMetricsStat
+-&gt; CloudWatchMetricsStat -&gt; CloudWatchMetricsStat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CloudWatchMetricsStat
+-&gt; CloudWatchMetricsStat -&gt; CloudWatchMetricsStat
+$cmin :: CloudWatchMetricsStat
+-&gt; CloudWatchMetricsStat -&gt; CloudWatchMetricsStat
+max :: CloudWatchMetricsStat
+-&gt; CloudWatchMetricsStat -&gt; CloudWatchMetricsStat
+$cmax :: CloudWatchMetricsStat
+-&gt; CloudWatchMetricsStat -&gt; CloudWatchMetricsStat
+&gt;= :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+$c&gt;= :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+&gt; :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+$c&gt; :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+&lt;= :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+$c&lt;= :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+&lt; :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+$c&lt; :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Bool
+compare :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Ordering
+$ccompare :: CloudWatchMetricsStat -&gt; CloudWatchMetricsStat -&gt; Ordering
+$cp1Ord :: Eq CloudWatchMetricsStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CloudWatchMetricsStat -&gt; Rep CloudWatchMetricsStat x)
+-&gt; (forall x. Rep CloudWatchMetricsStat x -&gt; CloudWatchMetricsStat)
+-&gt; Generic CloudWatchMetricsStat
+forall x. Rep CloudWatchMetricsStat x -&gt; CloudWatchMetricsStat
+forall x. CloudWatchMetricsStat -&gt; Rep CloudWatchMetricsStat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CloudWatchMetricsStat x -&gt; CloudWatchMetricsStat
+$cfrom :: forall x. CloudWatchMetricsStat -&gt; Rep CloudWatchMetricsStat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231028"><span id="local-6989586621679231030"><span class="annot"><span class="annottext">Int -&gt; CloudWatchMetricsStat -&gt; Int
+CloudWatchMetricsStat -&gt; Int
+(Int -&gt; CloudWatchMetricsStat -&gt; Int)
+-&gt; (CloudWatchMetricsStat -&gt; Int) -&gt; Hashable CloudWatchMetricsStat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CloudWatchMetricsStat -&gt; Int
+$chash :: CloudWatchMetricsStat -&gt; Int
+hashWithSalt :: Int -&gt; CloudWatchMetricsStat -&gt; Int
+$chashWithSalt :: Int -&gt; CloudWatchMetricsStat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679231025"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; ()
+(CloudWatchMetricsStat -&gt; ()) -&gt; NFData CloudWatchMetricsStat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CloudWatchMetricsStat -&gt; ()
+$crnf :: CloudWatchMetricsStat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679231022"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchMetricsStat
+(Text -&gt; Either String CloudWatchMetricsStat)
+-&gt; FromText CloudWatchMetricsStat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CloudWatchMetricsStat
+$cfromText :: Text -&gt; Either String CloudWatchMetricsStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679231019"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; Text
+(CloudWatchMetricsStat -&gt; Text) -&gt; ToText CloudWatchMetricsStat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CloudWatchMetricsStat -&gt; Text
+$ctoText :: CloudWatchMetricsStat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679231016"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; ByteString
+(CloudWatchMetricsStat -&gt; ByteString)
+-&gt; ToByteString CloudWatchMetricsStat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CloudWatchMetricsStat -&gt; ByteString
+$ctoBS :: CloudWatchMetricsStat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679231013"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; ByteStringBuilder
+(CloudWatchMetricsStat -&gt; ByteStringBuilder)
+-&gt; ToLog CloudWatchMetricsStat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CloudWatchMetricsStat -&gt; ByteStringBuilder
+$cbuild :: CloudWatchMetricsStat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679231010"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchMetricsStat -&gt; [Header]
+(HeaderName -&gt; CloudWatchMetricsStat -&gt; [Header])
+-&gt; ToHeader CloudWatchMetricsStat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CloudWatchMetricsStat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CloudWatchMetricsStat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679231007"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; QueryString
+(CloudWatchMetricsStat -&gt; QueryString)
+-&gt; ToQuery CloudWatchMetricsStat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CloudWatchMetricsStat -&gt; QueryString
+$ctoQuery :: CloudWatchMetricsStat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679231002"><span id="local-6989586621679231004"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchMetricsStat]
+Value -&gt; Parser CloudWatchMetricsStat
+(Value -&gt; Parser CloudWatchMetricsStat)
+-&gt; (Value -&gt; Parser [CloudWatchMetricsStat])
+-&gt; FromJSON CloudWatchMetricsStat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CloudWatchMetricsStat]
+$cparseJSONList :: Value -&gt; Parser [CloudWatchMetricsStat]
+parseJSON :: Value -&gt; Parser CloudWatchMetricsStat
+$cparseJSON :: Value -&gt; Parser CloudWatchMetricsStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679230997"><span id="local-6989586621679230999"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchMetricsStat]
+FromJSONKeyFunction CloudWatchMetricsStat
+FromJSONKeyFunction CloudWatchMetricsStat
+-&gt; FromJSONKeyFunction [CloudWatchMetricsStat]
+-&gt; FromJSONKey CloudWatchMetricsStat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CloudWatchMetricsStat]
+$cfromJSONKeyList :: FromJSONKeyFunction [CloudWatchMetricsStat]
+fromJSONKey :: FromJSONKeyFunction CloudWatchMetricsStat
+$cfromJSONKey :: FromJSONKeyFunction CloudWatchMetricsStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679230988"><span id="local-6989586621679230990"><span id="local-6989586621679230992"><span id="local-6989586621679230994"><span class="annot"><span class="annottext">[CloudWatchMetricsStat] -&gt; Encoding
+[CloudWatchMetricsStat] -&gt; Value
+CloudWatchMetricsStat -&gt; Encoding
+CloudWatchMetricsStat -&gt; Value
+(CloudWatchMetricsStat -&gt; Value)
+-&gt; (CloudWatchMetricsStat -&gt; Encoding)
+-&gt; ([CloudWatchMetricsStat] -&gt; Value)
+-&gt; ([CloudWatchMetricsStat] -&gt; Encoding)
+-&gt; ToJSON CloudWatchMetricsStat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CloudWatchMetricsStat] -&gt; Encoding
+$ctoEncodingList :: [CloudWatchMetricsStat] -&gt; Encoding
+toJSONList :: [CloudWatchMetricsStat] -&gt; Value
+$ctoJSONList :: [CloudWatchMetricsStat] -&gt; Value
+toEncoding :: CloudWatchMetricsStat -&gt; Encoding
+$ctoEncoding :: CloudWatchMetricsStat -&gt; Encoding
+toJSON :: CloudWatchMetricsStat -&gt; Value
+$ctoJSON :: CloudWatchMetricsStat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679230983"><span id="local-6989586621679230985"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchMetricsStat]
+ToJSONKeyFunction CloudWatchMetricsStat
+ToJSONKeyFunction CloudWatchMetricsStat
+-&gt; ToJSONKeyFunction [CloudWatchMetricsStat]
+-&gt; ToJSONKey CloudWatchMetricsStat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CloudWatchMetricsStat]
+$ctoJSONKeyList :: ToJSONKeyFunction [CloudWatchMetricsStat]
+toJSONKey :: ToJSONKeyFunction CloudWatchMetricsStat
+$ctoJSONKey :: ToJSONKeyFunction CloudWatchMetricsStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679230980"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchMetricsStat
+([Node] -&gt; Either String CloudWatchMetricsStat)
+-&gt; FromXML CloudWatchMetricsStat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CloudWatchMetricsStat
+$cparseXML :: [Node] -&gt; Either String CloudWatchMetricsStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679230977"><span class="annot"><span class="annottext">CloudWatchMetricsStat -&gt; XML
+(CloudWatchMetricsStat -&gt; XML) -&gt; ToXML CloudWatchMetricsStat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CloudWatchMetricsStat -&gt; XML
+$ctoXML :: CloudWatchMetricsStat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Average"><span class="hs-identifier hs-type">CloudWatchMetricsStat_Average</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_Average"><span id="%24mCloudWatchMetricsStat_Average"><span id="CloudWatchMetricsStat_Average"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_Average :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_Average :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_Average"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_Average</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Average&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Maximum"><span class="hs-identifier hs-type">CloudWatchMetricsStat_Maximum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_Maximum"><span id="%24mCloudWatchMetricsStat_Maximum"><span id="CloudWatchMetricsStat_Maximum"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_Maximum :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_Maximum :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_Maximum"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_Maximum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Maximum&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Minimum"><span class="hs-identifier hs-type">CloudWatchMetricsStat_Minimum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_Minimum"><span id="%24mCloudWatchMetricsStat_Minimum"><span id="CloudWatchMetricsStat_Minimum"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_Minimum :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_Minimum :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_Minimum"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_Minimum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Minimum&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P50"><span class="hs-identifier hs-type">CloudWatchMetricsStat_P50</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_P50"><span id="%24mCloudWatchMetricsStat_P50"><span id="CloudWatchMetricsStat_P50"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_P50 :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_P50 :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_P50"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_P50</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;p50&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P90"><span class="hs-identifier hs-type">CloudWatchMetricsStat_P90</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_P90"><span id="%24mCloudWatchMetricsStat_P90"><span id="CloudWatchMetricsStat_P90"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_P90 :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_P90 :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_P90"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_P90</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;p90&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P99"><span class="hs-identifier hs-type">CloudWatchMetricsStat_P99</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_P99"><span id="%24mCloudWatchMetricsStat_P99"><span id="CloudWatchMetricsStat_P99"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_P99 :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_P99 :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_P99"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_P99</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;p99&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_SampleCount"><span class="hs-identifier hs-type">CloudWatchMetricsStat_SampleCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_SampleCount"><span id="%24mCloudWatchMetricsStat_SampleCount"><span id="CloudWatchMetricsStat_SampleCount"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_SampleCount :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_SampleCount :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_SampleCount"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_SampleCount</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SampleCount&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Sum"><span class="hs-identifier hs-type">CloudWatchMetricsStat_Sum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat"><span class="hs-identifier hs-type">CloudWatchMetricsStat</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloudWatchMetricsStat_Sum"><span id="%24mCloudWatchMetricsStat_Sum"><span id="CloudWatchMetricsStat_Sum"><span class="annot"><span class="annottext">$bCloudWatchMetricsStat_Sum :: CloudWatchMetricsStat
+$mCloudWatchMetricsStat_Sum :: forall r.
+CloudWatchMetricsStat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#%24bCloudWatchMetricsStat_Sum"><span class="hs-identifier hs-var hs-var hs-var">CloudWatchMetricsStat_Sum</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-identifier hs-type">CloudWatchMetricsStat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Sum&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Average"><span class="hs-pragma hs-type">CloudWatchMetricsStat_Average</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Maximum"><span class="hs-pragma hs-type">CloudWatchMetricsStat_Maximum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Minimum"><span class="hs-pragma hs-type">CloudWatchMetricsStat_Minimum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P50"><span class="hs-pragma hs-type">CloudWatchMetricsStat_P50</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P90"><span class="hs-pragma hs-type">CloudWatchMetricsStat_P90</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_P99"><span class="hs-pragma hs-type">CloudWatchMetricsStat_P99</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_SampleCount"><span class="hs-pragma hs-type">CloudWatchMetricsStat_SampleCount</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat_Sum"><span class="hs-pragma hs-type">CloudWatchMetricsStat_Sum</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.DevOpsGuru.Types.CloudWatchMetricsStat.html#CloudWatchMetricsStat%27"><span class="hs-pragma hs-type">CloudWatchMetricsStat'</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-101"></span></pre></body></html>

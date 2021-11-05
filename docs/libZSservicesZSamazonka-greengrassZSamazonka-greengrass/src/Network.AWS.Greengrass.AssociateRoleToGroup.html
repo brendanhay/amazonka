@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newAssociateRoleToGroup' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679368261"><span id="local-6989586621679368262"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateRoleToGroup"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-var">AssociateRoleToGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateRoleToGroup%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-var">AssociateRoleToGroup'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679368270"><span id="local-6989586621679368271"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateRoleToGroup"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-var">AssociateRoleToGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateRoleToGroup%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-var">AssociateRoleToGroup'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Greengrass group.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AgroupId%3AAssociateRoleToGroup%27"><span class="annot"><span class="annottext">AssociateRoleToGroup -&gt; Text
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AgroupId%3AAssociateRoleToGroup%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AroleArn%3AAssociateRoleToGroup%27"><span class="annot"><span class="annottext">AssociateRoleToGroup -&gt; Text
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AroleArn%3AAssociateRoleToGroup%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368254"><span id="local-6989586621679368256"><span class="annot"><span class="annottext">AssociateRoleToGroup -&gt; AssociateRoleToGroup -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368263"><span id="local-6989586621679368265"><span class="annot"><span class="annottext">AssociateRoleToGroup -&gt; AssociateRoleToGroup -&gt; Bool
 (AssociateRoleToGroup -&gt; AssociateRoleToGroup -&gt; Bool)
 -&gt; (AssociateRoleToGroup -&gt; AssociateRoleToGroup -&gt; Bool)
 -&gt; Eq AssociateRoleToGroup
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateRoleToGroup -&gt; AssociateRoleToGroup -&gt; Bool
 == :: AssociateRoleToGroup -&gt; AssociateRoleToGroup -&gt; Bool
 $c== :: AssociateRoleToGroup -&gt; AssociateRoleToGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368245"><span id="local-6989586621679368247"><span id="local-6989586621679368249"><span id="local-6989586621679368251"><span class="annot"><span class="annottext">ReadPrec [AssociateRoleToGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368254"><span id="local-6989586621679368256"><span id="local-6989586621679368258"><span id="local-6989586621679368260"><span class="annot"><span class="annottext">ReadPrec [AssociateRoleToGroup]
 ReadPrec AssociateRoleToGroup
 Int -&gt; ReadS AssociateRoleToGroup
 ReadS [AssociateRoleToGroup]
@@ -88,7 +88,7 @@ readList :: ReadS [AssociateRoleToGroup]
 $creadList :: ReadS [AssociateRoleToGroup]
 readsPrec :: Int -&gt; ReadS AssociateRoleToGroup
 $creadsPrec :: Int -&gt; ReadS AssociateRoleToGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368238"><span id="local-6989586621679368240"><span id="local-6989586621679368242"><span class="annot"><span class="annottext">Int -&gt; AssociateRoleToGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368247"><span id="local-6989586621679368249"><span id="local-6989586621679368251"><span class="annot"><span class="annottext">Int -&gt; AssociateRoleToGroup -&gt; ShowS
 [AssociateRoleToGroup] -&gt; ShowS
 AssociateRoleToGroup -&gt; String
 (Int -&gt; AssociateRoleToGroup -&gt; ShowS)
@@ -133,17 +133,17 @@ $cfrom :: forall x. AssociateRoleToGroup -&gt; Rep AssociateRoleToGroup x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span>
 </span><span id="line-80"></span><span id="newAssociateRoleToGroup"><span class="annot"><span class="annottext">newAssociateRoleToGroup :: Text -&gt; Text -&gt; AssociateRoleToGroup
-</span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#newAssociateRoleToGroup"><span class="hs-identifier hs-var hs-var">newAssociateRoleToGroup</span></a></span></span><span> </span><span id="local-6989586621679368233"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368233"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span id="local-6989586621679368232"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368232"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#newAssociateRoleToGroup"><span class="hs-identifier hs-var hs-var">newAssociateRoleToGroup</span></a></span></span><span> </span><span id="local-6989586621679368242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368242"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span id="local-6989586621679368241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368241"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">AssociateRoleToGroup' :: Text -&gt; Text -&gt; AssociateRoleToGroup
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupId:AssociateRoleToGroup' :: Text
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AgroupId%3AAssociateRoleToGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368233"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679368242"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:AssociateRoleToGroup' :: Text
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AroleArn%3AAssociateRoleToGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368232"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679368241"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The ID of the Greengrass group.</span><span>
@@ -153,16 +153,16 @@ $cfrom :: forall x. AssociateRoleToGroup -&gt; Rep AssociateRoleToGroup x
 -&gt; (AssociateRoleToGroup -&gt; Text -&gt; AssociateRoleToGroup)
 -&gt; Lens AssociateRoleToGroup AssociateRoleToGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368229"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368238"><span class="annot"><span class="annottext">Text
 groupId :: Text
 $sel:groupId:AssociateRoleToGroup' :: AssociateRoleToGroup -&gt; Text
-</span><a href="#local-6989586621679368229"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368229"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368228"><span class="annot"><span class="annottext">s :: AssociateRoleToGroup
-</span><a href="#local-6989586621679368228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368227"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroup
-</span><a href="#local-6989586621679368228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:AssociateRoleToGroup' :: Text
+</span><a href="#local-6989586621679368238"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368238"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368237"><span class="annot"><span class="annottext">s :: AssociateRoleToGroup
+</span><a href="#local-6989586621679368237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroup
+</span><a href="#local-6989586621679368237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:AssociateRoleToGroup' :: Text
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AgroupId%3AAssociateRoleToGroup%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The ARN of the role you wish to associate with this group. The existence</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- of the role is not validated.</span><span>
@@ -172,27 +172,27 @@ $sel:groupId:AssociateRoleToGroup' :: AssociateRoleToGroup -&gt; Text
 -&gt; (AssociateRoleToGroup -&gt; Text -&gt; AssociateRoleToGroup)
 -&gt; Lens AssociateRoleToGroup AssociateRoleToGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368226"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368235"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:AssociateRoleToGroup' :: AssociateRoleToGroup -&gt; Text
-</span><a href="#local-6989586621679368226"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368226"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368225"><span class="annot"><span class="annottext">s :: AssociateRoleToGroup
-</span><a href="#local-6989586621679368225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368224"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroup
-</span><a href="#local-6989586621679368225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AssociateRoleToGroup' :: Text
+</span><a href="#local-6989586621679368235"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368235"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368234"><span class="annot"><span class="annottext">s :: AssociateRoleToGroup
+</span><a href="#local-6989586621679368234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroup
+</span><a href="#local-6989586621679368234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:AssociateRoleToGroup' :: Text
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AroleArn%3AAssociateRoleToGroup%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679368220"><span class="annot"><span class="annottext">request :: AssociateRoleToGroup -&gt; Request AssociateRoleToGroup
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679368229"><span class="annot"><span class="annottext">request :: AssociateRoleToGroup -&gt; Request AssociateRoleToGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateRoleToGroup -&gt; Request AssociateRoleToGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679368216"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679368225"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateRoleToGroup
 -&gt; ClientResponse ClientBody
@@ -218,10 +218,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368213"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368213"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368212"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679368212"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368211"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368222"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368222"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368221"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679368221"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368220"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; AssociateRoleToGroupResponse
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-var">AssociateRoleToGroupResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; AssociateRoleToGroupResponse)
@@ -229,7 +229,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AssociateRoleToGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679368220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssociatedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,15 +241,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368213"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368222"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368203"><span id="local-6989586621679368205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368212"><span id="local-6989586621679368214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679368196"><span class="annot"><span class="annottext">toHeaders :: AssociateRoleToGroup -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679368205"><span class="annot"><span class="annottext">toHeaders :: AssociateRoleToGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateRoleToGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -268,14 +268,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368186"><span id="local-6989586621679368188"><span id="local-6989586621679368190"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679368184"><span class="annot"><span class="annottext">toJSON :: AssociateRoleToGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368181"><span id="local-6989586621679368182"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368195"><span id="local-6989586621679368197"><span id="local-6989586621679368199"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679368193"><span class="annot"><span class="annottext">toJSON :: AssociateRoleToGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368190"><span id="local-6989586621679368191"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 groupId :: Text
 $sel:roleArn:AssociateRoleToGroup' :: AssociateRoleToGroup -&gt; Text
 $sel:groupId:AssociateRoleToGroup' :: AssociateRoleToGroup -&gt; Text
-</span><a href="#local-6989586621679368181"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368190"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -287,17 +287,17 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368181"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679368190"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679368175"><span class="annot"><span class="annottext">toPath :: AssociateRoleToGroup -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368172"><span id="local-6989586621679368173"><span class="annot"><span class="annottext">Text
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679368184"><span class="annot"><span class="annottext">toPath :: AssociateRoleToGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup%27"><span class="hs-identifier hs-type">AssociateRoleToGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368181"><span id="local-6989586621679368182"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 groupId :: Text
 $sel:roleArn:AssociateRoleToGroup' :: AssociateRoleToGroup -&gt; Text
 $sel:groupId:AssociateRoleToGroup' :: AssociateRoleToGroup -&gt; Text
-</span><a href="#local-6989586621679368172"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368181"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -305,11 +305,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/greengrass/groups/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368173"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679368182"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/role&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroup"><span class="hs-identifier hs-type">AssociateRoleToGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679368168"><span class="annot"><span class="annottext">toQuery :: AssociateRoleToGroup -&gt; QueryString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679368177"><span class="annot"><span class="annottext">toQuery :: AssociateRoleToGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssociateRoleToGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -317,7 +317,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newAssociateRoleToGroupResponse' smart constructor.</span><span>
-</span><span id="line-139"></span><span id="local-6989586621679368165"><span id="local-6989586621679368166"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateRoleToGroupResponse"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-var">AssociateRoleToGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateRoleToGroupResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-var">AssociateRoleToGroupResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span id="local-6989586621679368174"><span id="local-6989586621679368175"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateRoleToGroupResponse"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-var">AssociateRoleToGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateRoleToGroupResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-var">AssociateRoleToGroupResponse'</span></a></span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the role ARN was</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- associated with the group.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AassociatedAt%3AAssociateRoleToGroupResponse%27"><span class="annot"><span class="annottext">AssociateRoleToGroupResponse -&gt; Maybe Text
@@ -326,7 +326,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateRoleToGroupResponse%27"><span class="annot"><span class="annottext">AssociateRoleToGroupResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AhttpStatus%3AAssociateRoleToGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368159"><span id="local-6989586621679368161"><span class="annot"><span class="annottext">AssociateRoleToGroupResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368168"><span id="local-6989586621679368170"><span class="annot"><span class="annottext">AssociateRoleToGroupResponse
 -&gt; AssociateRoleToGroupResponse -&gt; Bool
 (AssociateRoleToGroupResponse
  -&gt; AssociateRoleToGroupResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: AssociateRoleToGroupResponse
 -&gt; AssociateRoleToGroupResponse -&gt; Bool
 $c== :: AssociateRoleToGroupResponse
 -&gt; AssociateRoleToGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368151"><span id="local-6989586621679368153"><span id="local-6989586621679368155"><span id="local-6989586621679368157"><span class="annot"><span class="annottext">ReadPrec [AssociateRoleToGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368160"><span id="local-6989586621679368162"><span id="local-6989586621679368164"><span id="local-6989586621679368166"><span class="annot"><span class="annottext">ReadPrec [AssociateRoleToGroupResponse]
 ReadPrec AssociateRoleToGroupResponse
 Int -&gt; ReadS AssociateRoleToGroupResponse
 ReadS [AssociateRoleToGroupResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [AssociateRoleToGroupResponse]
 $creadList :: ReadS [AssociateRoleToGroupResponse]
 readsPrec :: Int -&gt; ReadS AssociateRoleToGroupResponse
 $creadsPrec :: Int -&gt; ReadS AssociateRoleToGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368145"><span id="local-6989586621679368147"><span id="local-6989586621679368149"><span class="annot"><span class="annottext">Int -&gt; AssociateRoleToGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368154"><span id="local-6989586621679368156"><span id="local-6989586621679368158"><span class="annot"><span class="annottext">Int -&gt; AssociateRoleToGroupResponse -&gt; ShowS
 [AssociateRoleToGroupResponse] -&gt; ShowS
 AssociateRoleToGroupResponse -&gt; String
 (Int -&gt; AssociateRoleToGroupResponse -&gt; ShowS)
@@ -411,8 +411,8 @@ AssociateRoleToGroupResponse -&gt; Rep AssociateRoleToGroupResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newAssociateRoleToGroupResponse"><span class="annot"><span class="annottext">newAssociateRoleToGroupResponse :: Int -&gt; AssociateRoleToGroupResponse
-</span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#newAssociateRoleToGroupResponse"><span class="hs-identifier hs-var hs-var">newAssociateRoleToGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679368142"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#newAssociateRoleToGroupResponse"><span class="hs-identifier hs-var hs-var">newAssociateRoleToGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679368151"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368151"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">AssociateRoleToGroupResponse' :: Maybe Text -&gt; Int -&gt; AssociateRoleToGroupResponse
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associatedAt:AssociateRoleToGroupResponse' :: Maybe Text
@@ -422,7 +422,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateRoleToGroupResponse' :: Int
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AhttpStatus%3AAssociateRoleToGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368142"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679368151"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the role ARN was</span><span>
@@ -439,16 +439,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368141"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368150"><span class="annot"><span class="annottext">Maybe Text
 associatedAt :: Maybe Text
 $sel:associatedAt:AssociateRoleToGroupResponse' :: AssociateRoleToGroupResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679368141"><span class="hs-identifier hs-var hs-var">associatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368141"><span class="hs-identifier hs-var">associatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368140"><span class="annot"><span class="annottext">s :: AssociateRoleToGroupResponse
-</span><a href="#local-6989586621679368140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368139"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroupResponse
-</span><a href="#local-6989586621679368140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedAt:AssociateRoleToGroupResponse' :: Maybe Text
+</span><a href="#local-6989586621679368150"><span class="hs-identifier hs-var hs-var">associatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368150"><span class="hs-identifier hs-var">associatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368149"><span class="annot"><span class="annottext">s :: AssociateRoleToGroupResponse
+</span><a href="#local-6989586621679368149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368148"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroupResponse
+</span><a href="#local-6989586621679368149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associatedAt:AssociateRoleToGroupResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AassociatedAt%3AAssociateRoleToGroupResponse%27"><span class="hs-identifier hs-var">associatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#associateRoleToGroupResponse_httpStatus"><span class="hs-identifier hs-type">associateRoleToGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -460,16 +460,16 @@ $sel:associatedAt:AssociateRoleToGroupResponse' :: AssociateRoleToGroupResponse 
 -&gt; Lens
      AssociateRoleToGroupResponse AssociateRoleToGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368138"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368147"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateRoleToGroupResponse' :: AssociateRoleToGroupResponse -&gt; Int
-</span><a href="#local-6989586621679368138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368137"><span class="annot"><span class="annottext">s :: AssociateRoleToGroupResponse
-</span><a href="#local-6989586621679368137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368136"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroupResponse
-</span><a href="#local-6989586621679368137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateRoleToGroupResponse' :: Int
+</span><a href="#local-6989586621679368147"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368147"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368146"><span class="annot"><span class="annottext">s :: AssociateRoleToGroupResponse
+</span><a href="#local-6989586621679368146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse%27"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateRoleToGroupResponse
+</span><a href="#local-6989586621679368146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateRoleToGroupResponse' :: Int
 </span><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#%24sel%3AhttpStatus%3AAssociateRoleToGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.AssociateRoleToGroup.html#AssociateRoleToGroupResponse"><span class="hs-identifier hs-type">AssociateRoleToGroupResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

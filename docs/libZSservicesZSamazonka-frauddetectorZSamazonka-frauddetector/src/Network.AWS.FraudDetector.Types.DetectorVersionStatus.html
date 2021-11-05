@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.Types.DetectorVersionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.Types.DetectorVersionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier">DetectorVersionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_ACTIVE"><span class="hs-identifier">DetectorVersionStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_DRAFT"><span class="hs-identifier">DetectorVersionStatus_DRAFT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_INACTIVE"><span class="hs-identifier">DetectorVersionStatus_INACTIVE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679302637"><span id="local-6989586621679302638"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DetectorVersionStatus"><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier hs-var">DetectorVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectorVersionStatus%27"><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus%27"><span class="hs-identifier hs-var">DetectorVersionStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDetectorVersionStatus"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; Text
+</span><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#fromDetectorVersionStatus"><span class="hs-identifier hs-var hs-var">fromDetectorVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302629"><span id="local-6989586621679302631"><span id="local-6989586621679302633"><span class="annot"><span class="annottext">Int -&gt; DetectorVersionStatus -&gt; ShowS
+[DetectorVersionStatus] -&gt; ShowS
+DetectorVersionStatus -&gt; String
+(Int -&gt; DetectorVersionStatus -&gt; ShowS)
+-&gt; (DetectorVersionStatus -&gt; String)
+-&gt; ([DetectorVersionStatus] -&gt; ShowS)
+-&gt; Show DetectorVersionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectorVersionStatus] -&gt; ShowS
+$cshowList :: [DetectorVersionStatus] -&gt; ShowS
+show :: DetectorVersionStatus -&gt; String
+$cshow :: DetectorVersionStatus -&gt; String
+showsPrec :: Int -&gt; DetectorVersionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectorVersionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679302620"><span id="local-6989586621679302622"><span id="local-6989586621679302624"><span id="local-6989586621679302626"><span class="annot"><span class="annottext">ReadPrec [DetectorVersionStatus]
+ReadPrec DetectorVersionStatus
+Int -&gt; ReadS DetectorVersionStatus
+ReadS [DetectorVersionStatus]
+(Int -&gt; ReadS DetectorVersionStatus)
+-&gt; ReadS [DetectorVersionStatus]
+-&gt; ReadPrec DetectorVersionStatus
+-&gt; ReadPrec [DetectorVersionStatus]
+-&gt; Read DetectorVersionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectorVersionStatus]
+$creadListPrec :: ReadPrec [DetectorVersionStatus]
+readPrec :: ReadPrec DetectorVersionStatus
+$creadPrec :: ReadPrec DetectorVersionStatus
+readList :: ReadS [DetectorVersionStatus]
+$creadList :: ReadS [DetectorVersionStatus]
+readsPrec :: Int -&gt; ReadS DetectorVersionStatus
+$creadsPrec :: Int -&gt; ReadS DetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679302615"><span id="local-6989586621679302617"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+(DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool)
+-&gt; (DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool)
+-&gt; Eq DetectorVersionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+$c/= :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+== :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+$c== :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679302599"><span id="local-6989586621679302601"><span id="local-6989586621679302603"><span id="local-6989586621679302605"><span id="local-6989586621679302607"><span id="local-6989586621679302609"><span id="local-6989586621679302611"><span class="annot"><span class="annottext">Eq DetectorVersionStatus
+Eq DetectorVersionStatus
+-&gt; (DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Ordering)
+-&gt; (DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool)
+-&gt; (DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool)
+-&gt; (DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool)
+-&gt; (DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool)
+-&gt; (DetectorVersionStatus
+    -&gt; DetectorVersionStatus -&gt; DetectorVersionStatus)
+-&gt; (DetectorVersionStatus
+    -&gt; DetectorVersionStatus -&gt; DetectorVersionStatus)
+-&gt; Ord DetectorVersionStatus
+DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Ordering
+DetectorVersionStatus
+-&gt; DetectorVersionStatus -&gt; DetectorVersionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DetectorVersionStatus
+-&gt; DetectorVersionStatus -&gt; DetectorVersionStatus
+$cmin :: DetectorVersionStatus
+-&gt; DetectorVersionStatus -&gt; DetectorVersionStatus
+max :: DetectorVersionStatus
+-&gt; DetectorVersionStatus -&gt; DetectorVersionStatus
+$cmax :: DetectorVersionStatus
+-&gt; DetectorVersionStatus -&gt; DetectorVersionStatus
+&gt;= :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+$c&gt;= :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+&gt; :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+$c&gt; :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+&lt;= :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+$c&lt;= :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+&lt; :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+$c&lt; :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Bool
+compare :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Ordering
+$ccompare :: DetectorVersionStatus -&gt; DetectorVersionStatus -&gt; Ordering
+$cp1Ord :: Eq DetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DetectorVersionStatus -&gt; Rep DetectorVersionStatus x)
+-&gt; (forall x. Rep DetectorVersionStatus x -&gt; DetectorVersionStatus)
+-&gt; Generic DetectorVersionStatus
+forall x. Rep DetectorVersionStatus x -&gt; DetectorVersionStatus
+forall x. DetectorVersionStatus -&gt; Rep DetectorVersionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectorVersionStatus x -&gt; DetectorVersionStatus
+$cfrom :: forall x. DetectorVersionStatus -&gt; Rep DetectorVersionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302591"><span id="local-6989586621679302593"><span class="annot"><span class="annottext">Int -&gt; DetectorVersionStatus -&gt; Int
+DetectorVersionStatus -&gt; Int
+(Int -&gt; DetectorVersionStatus -&gt; Int)
+-&gt; (DetectorVersionStatus -&gt; Int) -&gt; Hashable DetectorVersionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DetectorVersionStatus -&gt; Int
+$chash :: DetectorVersionStatus -&gt; Int
+hashWithSalt :: Int -&gt; DetectorVersionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DetectorVersionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679302588"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; ()
+(DetectorVersionStatus -&gt; ()) -&gt; NFData DetectorVersionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DetectorVersionStatus -&gt; ()
+$crnf :: DetectorVersionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679302585"><span class="annot"><span class="annottext">Text -&gt; Either String DetectorVersionStatus
+(Text -&gt; Either String DetectorVersionStatus)
+-&gt; FromText DetectorVersionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DetectorVersionStatus
+$cfromText :: Text -&gt; Either String DetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679302582"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; Text
+(DetectorVersionStatus -&gt; Text) -&gt; ToText DetectorVersionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DetectorVersionStatus -&gt; Text
+$ctoText :: DetectorVersionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679302579"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; ByteString
+(DetectorVersionStatus -&gt; ByteString)
+-&gt; ToByteString DetectorVersionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DetectorVersionStatus -&gt; ByteString
+$ctoBS :: DetectorVersionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679302576"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; ByteStringBuilder
+(DetectorVersionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog DetectorVersionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DetectorVersionStatus -&gt; ByteStringBuilder
+$cbuild :: DetectorVersionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679302573"><span class="annot"><span class="annottext">HeaderName -&gt; DetectorVersionStatus -&gt; [Header]
+(HeaderName -&gt; DetectorVersionStatus -&gt; [Header])
+-&gt; ToHeader DetectorVersionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DetectorVersionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DetectorVersionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679302570"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; QueryString
+(DetectorVersionStatus -&gt; QueryString)
+-&gt; ToQuery DetectorVersionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DetectorVersionStatus -&gt; QueryString
+$ctoQuery :: DetectorVersionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679302565"><span id="local-6989586621679302567"><span class="annot"><span class="annottext">Value -&gt; Parser [DetectorVersionStatus]
+Value -&gt; Parser DetectorVersionStatus
+(Value -&gt; Parser DetectorVersionStatus)
+-&gt; (Value -&gt; Parser [DetectorVersionStatus])
+-&gt; FromJSON DetectorVersionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DetectorVersionStatus]
+$cparseJSONList :: Value -&gt; Parser [DetectorVersionStatus]
+parseJSON :: Value -&gt; Parser DetectorVersionStatus
+$cparseJSON :: Value -&gt; Parser DetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679302560"><span id="local-6989586621679302562"><span class="annot"><span class="annottext">FromJSONKeyFunction [DetectorVersionStatus]
+FromJSONKeyFunction DetectorVersionStatus
+FromJSONKeyFunction DetectorVersionStatus
+-&gt; FromJSONKeyFunction [DetectorVersionStatus]
+-&gt; FromJSONKey DetectorVersionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DetectorVersionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DetectorVersionStatus]
+fromJSONKey :: FromJSONKeyFunction DetectorVersionStatus
+$cfromJSONKey :: FromJSONKeyFunction DetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679302551"><span id="local-6989586621679302553"><span id="local-6989586621679302555"><span id="local-6989586621679302557"><span class="annot"><span class="annottext">[DetectorVersionStatus] -&gt; Encoding
+[DetectorVersionStatus] -&gt; Value
+DetectorVersionStatus -&gt; Encoding
+DetectorVersionStatus -&gt; Value
+(DetectorVersionStatus -&gt; Value)
+-&gt; (DetectorVersionStatus -&gt; Encoding)
+-&gt; ([DetectorVersionStatus] -&gt; Value)
+-&gt; ([DetectorVersionStatus] -&gt; Encoding)
+-&gt; ToJSON DetectorVersionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DetectorVersionStatus] -&gt; Encoding
+$ctoEncodingList :: [DetectorVersionStatus] -&gt; Encoding
+toJSONList :: [DetectorVersionStatus] -&gt; Value
+$ctoJSONList :: [DetectorVersionStatus] -&gt; Value
+toEncoding :: DetectorVersionStatus -&gt; Encoding
+$ctoEncoding :: DetectorVersionStatus -&gt; Encoding
+toJSON :: DetectorVersionStatus -&gt; Value
+$ctoJSON :: DetectorVersionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679302546"><span id="local-6989586621679302548"><span class="annot"><span class="annottext">ToJSONKeyFunction [DetectorVersionStatus]
+ToJSONKeyFunction DetectorVersionStatus
+ToJSONKeyFunction DetectorVersionStatus
+-&gt; ToJSONKeyFunction [DetectorVersionStatus]
+-&gt; ToJSONKey DetectorVersionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DetectorVersionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DetectorVersionStatus]
+toJSONKey :: ToJSONKeyFunction DetectorVersionStatus
+$ctoJSONKey :: ToJSONKeyFunction DetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679302543"><span class="annot"><span class="annottext">[Node] -&gt; Either String DetectorVersionStatus
+([Node] -&gt; Either String DetectorVersionStatus)
+-&gt; FromXML DetectorVersionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DetectorVersionStatus
+$cparseXML :: [Node] -&gt; Either String DetectorVersionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679302540"><span class="annot"><span class="annottext">DetectorVersionStatus -&gt; XML
+(DetectorVersionStatus -&gt; XML) -&gt; ToXML DetectorVersionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DetectorVersionStatus -&gt; XML
+$ctoXML :: DetectorVersionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_ACTIVE"><span class="hs-identifier hs-type">DetectorVersionStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier hs-type">DetectorVersionStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorVersionStatus_ACTIVE"><span id="%24mDetectorVersionStatus_ACTIVE"><span id="DetectorVersionStatus_ACTIVE"><span class="annot"><span class="annottext">$bDetectorVersionStatus_ACTIVE :: DetectorVersionStatus
+$mDetectorVersionStatus_ACTIVE :: forall r.
+DetectorVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#%24bDetectorVersionStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DetectorVersionStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus%27"><span class="hs-identifier hs-type">DetectorVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_DRAFT"><span class="hs-identifier hs-type">DetectorVersionStatus_DRAFT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier hs-type">DetectorVersionStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorVersionStatus_DRAFT"><span id="%24mDetectorVersionStatus_DRAFT"><span id="DetectorVersionStatus_DRAFT"><span class="annot"><span class="annottext">$bDetectorVersionStatus_DRAFT :: DetectorVersionStatus
+$mDetectorVersionStatus_DRAFT :: forall r.
+DetectorVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#%24bDetectorVersionStatus_DRAFT"><span class="hs-identifier hs-var hs-var hs-var">DetectorVersionStatus_DRAFT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus%27"><span class="hs-identifier hs-type">DetectorVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DRAFT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_INACTIVE"><span class="hs-identifier hs-type">DetectorVersionStatus_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier hs-type">DetectorVersionStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDetectorVersionStatus_INACTIVE"><span id="%24mDetectorVersionStatus_INACTIVE"><span id="DetectorVersionStatus_INACTIVE"><span class="annot"><span class="annottext">$bDetectorVersionStatus_INACTIVE :: DetectorVersionStatus
+$mDetectorVersionStatus_INACTIVE :: forall r.
+DetectorVersionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#%24bDetectorVersionStatus_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DetectorVersionStatus_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus%27"><span class="hs-identifier hs-type">DetectorVersionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_ACTIVE"><span class="hs-pragma hs-type">DetectorVersionStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_DRAFT"><span class="hs-pragma hs-type">DetectorVersionStatus_DRAFT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus_INACTIVE"><span class="hs-pragma hs-type">DetectorVersionStatus_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus%27"><span class="hs-pragma hs-type">DetectorVersionStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

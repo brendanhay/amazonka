@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the client certificate to be used for authentication.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCertificateAuthenticationRequest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681092679"><span id="local-6989586621681092680"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateAuthenticationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest"><span class="hs-identifier hs-var">CertificateAuthenticationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateAuthenticationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-var">CertificateAuthenticationRequest'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681092688"><span id="local-6989586621681092689"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateAuthenticationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest"><span class="hs-identifier hs-var">CertificateAuthenticationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateAuthenticationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-var">CertificateAuthenticationRequest'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the client certificate. The certificate must be signed by a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- certificate authority (CA) and it must be provisioned in Certificate</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Manager (ACM).</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AclientRootCertificateChainArn%3ACertificateAuthenticationRequest%27"><span class="annot"><span class="annottext">CertificateAuthenticationRequest -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#%24sel%3AclientRootCertificateChainArn%3ACertificateAuthenticationRequest%27"><span class="hs-identifier hs-var hs-var">clientRootCertificateChainArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092673"><span id="local-6989586621681092675"><span class="annot"><span class="annottext">CertificateAuthenticationRequest
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092682"><span id="local-6989586621681092684"><span class="annot"><span class="annottext">CertificateAuthenticationRequest
 -&gt; CertificateAuthenticationRequest -&gt; Bool
 (CertificateAuthenticationRequest
  -&gt; CertificateAuthenticationRequest -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: CertificateAuthenticationRequest
 -&gt; CertificateAuthenticationRequest -&gt; Bool
 $c== :: CertificateAuthenticationRequest
 -&gt; CertificateAuthenticationRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092664"><span id="local-6989586621681092666"><span id="local-6989586621681092668"><span id="local-6989586621681092670"><span class="annot"><span class="annottext">ReadPrec [CertificateAuthenticationRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092673"><span id="local-6989586621681092675"><span id="local-6989586621681092677"><span id="local-6989586621681092679"><span class="annot"><span class="annottext">ReadPrec [CertificateAuthenticationRequest]
 ReadPrec CertificateAuthenticationRequest
 Int -&gt; ReadS CertificateAuthenticationRequest
 ReadS [CertificateAuthenticationRequest]
@@ -70,7 +70,7 @@ readList :: ReadS [CertificateAuthenticationRequest]
 $creadList :: ReadS [CertificateAuthenticationRequest]
 readsPrec :: Int -&gt; ReadS CertificateAuthenticationRequest
 $creadsPrec :: Int -&gt; ReadS CertificateAuthenticationRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092657"><span id="local-6989586621681092659"><span id="local-6989586621681092661"><span class="annot"><span class="annottext">Int -&gt; CertificateAuthenticationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092666"><span id="local-6989586621681092668"><span id="local-6989586621681092670"><span class="annot"><span class="annottext">Int -&gt; CertificateAuthenticationRequest -&gt; ShowS
 [CertificateAuthenticationRequest] -&gt; ShowS
 CertificateAuthenticationRequest -&gt; String
 (Int -&gt; CertificateAuthenticationRequest -&gt; ShowS)
@@ -148,34 +148,34 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-type">CertificateAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092648"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-type">CertificateAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092657"><span class="annot"><span class="annottext">Maybe Text
 clientRootCertificateChainArn :: Maybe Text
 $sel:clientRootCertificateChainArn:CertificateAuthenticationRequest' :: CertificateAuthenticationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681092648"><span class="hs-identifier hs-var hs-var">clientRootCertificateChainArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681092648"><span class="hs-identifier hs-var">clientRootCertificateChainArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092647"><span class="annot"><span class="annottext">s :: CertificateAuthenticationRequest
-</span><a href="#local-6989586621681092647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-type">CertificateAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092646"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681092646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthenticationRequest
-</span><a href="#local-6989586621681092647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRootCertificateChainArn:CertificateAuthenticationRequest' :: Maybe Text
+</span><a href="#local-6989586621681092657"><span class="hs-identifier hs-var hs-var">clientRootCertificateChainArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092657"><span class="hs-identifier hs-var">clientRootCertificateChainArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092656"><span class="annot"><span class="annottext">s :: CertificateAuthenticationRequest
+</span><a href="#local-6989586621681092656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-type">CertificateAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092655"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateAuthenticationRequest
+</span><a href="#local-6989586621681092656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRootCertificateChainArn:CertificateAuthenticationRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#%24sel%3AclientRootCertificateChainArn%3ACertificateAuthenticationRequest%27"><span class="hs-identifier hs-var">clientRootCertificateChainArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681092646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest"><span class="hs-identifier hs-type">CertificateAuthenticationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681092655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest"><span class="hs-identifier hs-type">CertificateAuthenticationRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621681092642"><span id="local-6989586621681092644"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621681092651"><span id="local-6989586621681092653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest"><span class="hs-identifier hs-type">CertificateAuthenticationRequest</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681092639"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681092648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest"><span class="hs-identifier hs-type">CertificateAuthenticationRequest</span></a></span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest"><span class="hs-identifier hs-type">CertificateAuthenticationRequest</span></a></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621681092635"><span class="annot"><span class="annottext">toQuery :: CertificateAuthenticationRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-type">CertificateAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092633"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621681092644"><span class="annot"><span class="annottext">toQuery :: CertificateAuthenticationRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthenticationRequest.html#CertificateAuthenticationRequest%27"><span class="hs-identifier hs-type">CertificateAuthenticationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092642"><span class="annot"><span class="annottext">Maybe Text
 clientRootCertificateChainArn :: Maybe Text
 $sel:clientRootCertificateChainArn:CertificateAuthenticationRequest' :: CertificateAuthenticationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681092633"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681092642"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -184,6 +184,6 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681092633"><span class="hs-identifier hs-var">clientRootCertificateChainArn</span></a></span><span>
+</span><a href="#local-6989586621681092642"><span class="hs-identifier hs-var">clientRootCertificateChainArn</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span></pre></body></html>

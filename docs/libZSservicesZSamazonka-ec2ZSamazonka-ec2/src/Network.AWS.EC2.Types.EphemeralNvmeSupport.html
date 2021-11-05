@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681104362"><span id="local-6989586621681104363"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EphemeralNvmeSupport"><span class="annot"><a href="Network.AWS.EC2.Types.EphemeralNvmeSupport.html#EphemeralNvmeSupport"><span class="hs-identifier hs-var">EphemeralNvmeSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EphemeralNvmeSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.EphemeralNvmeSupport.html#EphemeralNvmeSupport%27"><span class="hs-identifier hs-var">EphemeralNvmeSupport'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681104371"><span id="local-6989586621681104372"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EphemeralNvmeSupport"><span class="annot"><a href="Network.AWS.EC2.Types.EphemeralNvmeSupport.html#EphemeralNvmeSupport"><span class="hs-identifier hs-var">EphemeralNvmeSupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EphemeralNvmeSupport%27"><span class="annot"><a href="Network.AWS.EC2.Types.EphemeralNvmeSupport.html#EphemeralNvmeSupport%27"><span class="hs-identifier hs-var">EphemeralNvmeSupport'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEphemeralNvmeSupport"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; Text
 </span><a href="Network.AWS.EC2.Types.EphemeralNvmeSupport.html#fromEphemeralNvmeSupport"><span class="hs-identifier hs-var hs-var">fromEphemeralNvmeSupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681104354"><span id="local-6989586621681104356"><span id="local-6989586621681104358"><span class="annot"><span class="annottext">Int -&gt; EphemeralNvmeSupport -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681104363"><span id="local-6989586621681104365"><span id="local-6989586621681104367"><span class="annot"><span class="annottext">Int -&gt; EphemeralNvmeSupport -&gt; ShowS
 [EphemeralNvmeSupport] -&gt; ShowS
 EphemeralNvmeSupport -&gt; String
 (Int -&gt; EphemeralNvmeSupport -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: EphemeralNvmeSupport -&gt; String
 showsPrec :: Int -&gt; EphemeralNvmeSupport -&gt; ShowS
 $cshowsPrec :: Int -&gt; EphemeralNvmeSupport -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681104345"><span id="local-6989586621681104347"><span id="local-6989586621681104349"><span id="local-6989586621681104351"><span class="annot"><span class="annottext">ReadPrec [EphemeralNvmeSupport]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681104354"><span id="local-6989586621681104356"><span id="local-6989586621681104358"><span id="local-6989586621681104360"><span class="annot"><span class="annottext">ReadPrec [EphemeralNvmeSupport]
 ReadPrec EphemeralNvmeSupport
 Int -&gt; ReadS EphemeralNvmeSupport
 ReadS [EphemeralNvmeSupport]
@@ -74,7 +74,7 @@ $creadList :: ReadS [EphemeralNvmeSupport]
 readsPrec :: Int -&gt; ReadS EphemeralNvmeSupport
 $creadsPrec :: Int -&gt; ReadS EphemeralNvmeSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681104340"><span id="local-6989586621681104342"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681104349"><span id="local-6989586621681104351"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool
 (EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool)
 -&gt; (EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool)
 -&gt; Eq EphemeralNvmeSupport
@@ -84,7 +84,7 @@ $c/= :: EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool
 == :: EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool
 $c== :: EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681104324"><span id="local-6989586621681104326"><span id="local-6989586621681104328"><span id="local-6989586621681104330"><span id="local-6989586621681104332"><span id="local-6989586621681104334"><span id="local-6989586621681104336"><span class="annot"><span class="annottext">Eq EphemeralNvmeSupport
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681104333"><span id="local-6989586621681104335"><span id="local-6989586621681104337"><span id="local-6989586621681104339"><span id="local-6989586621681104341"><span id="local-6989586621681104343"><span id="local-6989586621681104345"><span class="annot"><span class="annottext">Eq EphemeralNvmeSupport
 Eq EphemeralNvmeSupport
 -&gt; (EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Ordering)
 -&gt; (EphemeralNvmeSupport -&gt; EphemeralNvmeSupport -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. EphemeralNvmeSupport -&gt; Rep EphemeralNvmeSupport x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681104316"><span id="local-6989586621681104318"><span class="annot"><span class="annottext">Int -&gt; EphemeralNvmeSupport -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681104325"><span id="local-6989586621681104327"><span class="annot"><span class="annottext">Int -&gt; EphemeralNvmeSupport -&gt; Int
 EphemeralNvmeSupport -&gt; Int
 (Int -&gt; EphemeralNvmeSupport -&gt; Int)
 -&gt; (EphemeralNvmeSupport -&gt; Int) -&gt; Hashable EphemeralNvmeSupport
@@ -152,54 +152,54 @@ $chash :: EphemeralNvmeSupport -&gt; Int
 hashWithSalt :: Int -&gt; EphemeralNvmeSupport -&gt; Int
 $chashWithSalt :: Int -&gt; EphemeralNvmeSupport -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681104313"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681104322"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; ()
 (EphemeralNvmeSupport -&gt; ()) -&gt; NFData EphemeralNvmeSupport
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EphemeralNvmeSupport -&gt; ()
 $crnf :: EphemeralNvmeSupport -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681104310"><span class="annot"><span class="annottext">Text -&gt; Either String EphemeralNvmeSupport
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681104319"><span class="annot"><span class="annottext">Text -&gt; Either String EphemeralNvmeSupport
 (Text -&gt; Either String EphemeralNvmeSupport)
 -&gt; FromText EphemeralNvmeSupport
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EphemeralNvmeSupport
 $cfromText :: Text -&gt; Either String EphemeralNvmeSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681104307"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681104316"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; Text
 (EphemeralNvmeSupport -&gt; Text) -&gt; ToText EphemeralNvmeSupport
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EphemeralNvmeSupport -&gt; Text
 $ctoText :: EphemeralNvmeSupport -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681104304"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681104313"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; ByteString
 (EphemeralNvmeSupport -&gt; ByteString)
 -&gt; ToByteString EphemeralNvmeSupport
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EphemeralNvmeSupport -&gt; ByteString
 $ctoBS :: EphemeralNvmeSupport -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681104301"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681104310"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; ByteStringBuilder
 (EphemeralNvmeSupport -&gt; ByteStringBuilder)
 -&gt; ToLog EphemeralNvmeSupport
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EphemeralNvmeSupport -&gt; ByteStringBuilder
 $cbuild :: EphemeralNvmeSupport -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681104298"><span class="annot"><span class="annottext">HeaderName -&gt; EphemeralNvmeSupport -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681104307"><span class="annot"><span class="annottext">HeaderName -&gt; EphemeralNvmeSupport -&gt; [Header]
 (HeaderName -&gt; EphemeralNvmeSupport -&gt; [Header])
 -&gt; ToHeader EphemeralNvmeSupport
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EphemeralNvmeSupport -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EphemeralNvmeSupport -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681104295"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681104304"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; QueryString
 (EphemeralNvmeSupport -&gt; QueryString)
 -&gt; ToQuery EphemeralNvmeSupport
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EphemeralNvmeSupport -&gt; QueryString
 $ctoQuery :: EphemeralNvmeSupport -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681104290"><span id="local-6989586621681104292"><span class="annot"><span class="annottext">Value -&gt; Parser [EphemeralNvmeSupport]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681104299"><span id="local-6989586621681104301"><span class="annot"><span class="annottext">Value -&gt; Parser [EphemeralNvmeSupport]
 Value -&gt; Parser EphemeralNvmeSupport
 (Value -&gt; Parser EphemeralNvmeSupport)
 -&gt; (Value -&gt; Parser [EphemeralNvmeSupport])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [EphemeralNvmeSupport]
 parseJSON :: Value -&gt; Parser EphemeralNvmeSupport
 $cparseJSON :: Value -&gt; Parser EphemeralNvmeSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681104285"><span id="local-6989586621681104287"><span class="annot"><span class="annottext">FromJSONKeyFunction [EphemeralNvmeSupport]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681104294"><span id="local-6989586621681104296"><span class="annot"><span class="annottext">FromJSONKeyFunction [EphemeralNvmeSupport]
 FromJSONKeyFunction EphemeralNvmeSupport
 FromJSONKeyFunction EphemeralNvmeSupport
 -&gt; FromJSONKeyFunction [EphemeralNvmeSupport]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EphemeralNvmeSupport]
 fromJSONKey :: FromJSONKeyFunction EphemeralNvmeSupport
 $cfromJSONKey :: FromJSONKeyFunction EphemeralNvmeSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681104276"><span id="local-6989586621681104278"><span id="local-6989586621681104280"><span id="local-6989586621681104282"><span class="annot"><span class="annottext">[EphemeralNvmeSupport] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681104285"><span id="local-6989586621681104287"><span id="local-6989586621681104289"><span id="local-6989586621681104291"><span class="annot"><span class="annottext">[EphemeralNvmeSupport] -&gt; Encoding
 [EphemeralNvmeSupport] -&gt; Value
 EphemeralNvmeSupport -&gt; Encoding
 EphemeralNvmeSupport -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: EphemeralNvmeSupport -&gt; Encoding
 toJSON :: EphemeralNvmeSupport -&gt; Value
 $ctoJSON :: EphemeralNvmeSupport -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681104271"><span id="local-6989586621681104273"><span class="annot"><span class="annottext">ToJSONKeyFunction [EphemeralNvmeSupport]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681104280"><span id="local-6989586621681104282"><span class="annot"><span class="annottext">ToJSONKeyFunction [EphemeralNvmeSupport]
 ToJSONKeyFunction EphemeralNvmeSupport
 ToJSONKeyFunction EphemeralNvmeSupport
 -&gt; ToJSONKeyFunction [EphemeralNvmeSupport]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EphemeralNvmeSupport]
 toJSONKey :: ToJSONKeyFunction EphemeralNvmeSupport
 $ctoJSONKey :: ToJSONKeyFunction EphemeralNvmeSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681104268"><span class="annot"><span class="annottext">[Node] -&gt; Either String EphemeralNvmeSupport
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681104277"><span class="annot"><span class="annottext">[Node] -&gt; Either String EphemeralNvmeSupport
 ([Node] -&gt; Either String EphemeralNvmeSupport)
 -&gt; FromXML EphemeralNvmeSupport
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EphemeralNvmeSupport
 $cparseXML :: [Node] -&gt; Either String EphemeralNvmeSupport
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681104265"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681104274"><span class="annot"><span class="annottext">EphemeralNvmeSupport -&gt; XML
 (EphemeralNvmeSupport -&gt; XML) -&gt; ToXML EphemeralNvmeSupport
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EphemeralNvmeSupport -&gt; XML

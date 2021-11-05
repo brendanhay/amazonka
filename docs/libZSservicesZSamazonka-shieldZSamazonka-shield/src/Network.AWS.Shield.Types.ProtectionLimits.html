@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Limits settings on protections for your subscription.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProtectionLimits' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679203596"><span id="local-6989586621679203597"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProtectionLimits"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-var">ProtectionLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtectionLimits%27"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits%27"><span class="hs-identifier hs-var">ProtectionLimits'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679203605"><span id="local-6989586621679203606"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProtectionLimits"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-var">ProtectionLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProtectionLimits%27"><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits%27"><span class="hs-identifier hs-var">ProtectionLimits'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of resource types that you can specify in a</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- protection.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AprotectedResourceTypeLimits%3AProtectionLimits%27"><span class="annot"><span class="annottext">ProtectionLimits -&gt; [Limit]
 </span><a href="Network.AWS.Shield.Types.ProtectionLimits.html#%24sel%3AprotectedResourceTypeLimits%3AProtectionLimits%27"><span class="hs-identifier hs-var hs-var">protectedResourceTypeLimits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203590"><span id="local-6989586621679203592"><span class="annot"><span class="annottext">ProtectionLimits -&gt; ProtectionLimits -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203599"><span id="local-6989586621679203601"><span class="annot"><span class="annottext">ProtectionLimits -&gt; ProtectionLimits -&gt; Bool
 (ProtectionLimits -&gt; ProtectionLimits -&gt; Bool)
 -&gt; (ProtectionLimits -&gt; ProtectionLimits -&gt; Bool)
 -&gt; Eq ProtectionLimits
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProtectionLimits -&gt; ProtectionLimits -&gt; Bool
 == :: ProtectionLimits -&gt; ProtectionLimits -&gt; Bool
 $c== :: ProtectionLimits -&gt; ProtectionLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203581"><span id="local-6989586621679203583"><span id="local-6989586621679203585"><span id="local-6989586621679203587"><span class="annot"><span class="annottext">ReadPrec [ProtectionLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203590"><span id="local-6989586621679203592"><span id="local-6989586621679203594"><span id="local-6989586621679203596"><span class="annot"><span class="annottext">ReadPrec [ProtectionLimits]
 ReadPrec ProtectionLimits
 Int -&gt; ReadS ProtectionLimits
 ReadS [ProtectionLimits]
@@ -62,7 +62,7 @@ readList :: ReadS [ProtectionLimits]
 $creadList :: ReadS [ProtectionLimits]
 readsPrec :: Int -&gt; ReadS ProtectionLimits
 $creadsPrec :: Int -&gt; ReadS ProtectionLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203574"><span id="local-6989586621679203576"><span id="local-6989586621679203578"><span class="annot"><span class="annottext">Int -&gt; ProtectionLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203583"><span id="local-6989586621679203585"><span id="local-6989586621679203587"><span class="annot"><span class="annottext">Int -&gt; ProtectionLimits -&gt; ShowS
 [ProtectionLimits] -&gt; ShowS
 ProtectionLimits -&gt; String
 (Int -&gt; ProtectionLimits -&gt; ShowS)
@@ -119,16 +119,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ProtectionLimits -&gt; [Limit] -&gt; ProtectionLimits)
 -&gt; Lens ProtectionLimits ProtectionLimits [Limit] [Limit]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits%27"><span class="hs-identifier hs-type">ProtectionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203565"><span class="annot"><span class="annottext">[Limit]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits%27"><span class="hs-identifier hs-type">ProtectionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203574"><span class="annot"><span class="annottext">[Limit]
 protectedResourceTypeLimits :: [Limit]
 $sel:protectedResourceTypeLimits:ProtectionLimits' :: ProtectionLimits -&gt; [Limit]
-</span><a href="#local-6989586621679203565"><span class="hs-identifier hs-var hs-var">protectedResourceTypeLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Limit]
-</span><a href="#local-6989586621679203565"><span class="hs-identifier hs-var">protectedResourceTypeLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203564"><span class="annot"><span class="annottext">s :: ProtectionLimits
-</span><a href="#local-6989586621679203564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits%27"><span class="hs-identifier hs-type">ProtectionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203563"><span class="annot"><span class="annottext">[Limit]
-</span><a href="#local-6989586621679203563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionLimits
-</span><a href="#local-6989586621679203564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectedResourceTypeLimits:ProtectionLimits' :: [Limit]
+</span><a href="#local-6989586621679203574"><span class="hs-identifier hs-var hs-var">protectedResourceTypeLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Limit]
+</span><a href="#local-6989586621679203574"><span class="hs-identifier hs-var">protectedResourceTypeLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203573"><span class="annot"><span class="annottext">s :: ProtectionLimits
+</span><a href="#local-6989586621679203573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits%27"><span class="hs-identifier hs-type">ProtectionLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203572"><span class="annot"><span class="annottext">[Limit]
+</span><a href="#local-6989586621679203572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionLimits
+</span><a href="#local-6989586621679203573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectedResourceTypeLimits:ProtectionLimits' :: [Limit]
 </span><a href="Network.AWS.Shield.Types.ProtectionLimits.html#%24sel%3AprotectedResourceTypeLimits%3AProtectionLimits%27"><span class="hs-identifier hs-var">protectedResourceTypeLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Limit]
-</span><a href="#local-6989586621679203563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Limit] -&gt; f [Limit]) -&gt; ProtectionLimits -&gt; f ProtectionLimits)
+</span><a href="#local-6989586621679203572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Limit] -&gt; f [Limit]) -&gt; ProtectionLimits -&gt; f ProtectionLimits)
 -&gt; (([Limit] -&gt; f [Limit]) -&gt; [Limit] -&gt; f [Limit])
 -&gt; ([Limit] -&gt; f [Limit])
 -&gt; ProtectionLimits
@@ -138,8 +138,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203558"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679203556"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProtectionLimits
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203567"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679203565"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProtectionLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProtectionLimits)
@@ -149,15 +149,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProtectionLimits&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203553"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203562"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">[Limit] -&gt; ProtectionLimits
 </span><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits%27"><span class="hs-identifier hs-var">ProtectionLimits'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">([Limit] -&gt; ProtectionLimits)
 -&gt; Parser [Limit] -&gt; Parser ProtectionLimits
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Limit])
+</span><a href="#local-6989586621679203562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Limit])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProtectedResourceTypeLimits&quot;</span></span><span>
@@ -169,7 +169,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-68"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203546"><span id="local-6989586621679203548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203555"><span id="local-6989586621679203557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionLimits.html#ProtectionLimits"><span class="hs-identifier hs-type">ProtectionLimits</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

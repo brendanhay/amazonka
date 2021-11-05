@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CloudHSMV2.ModifyBackupAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies attributes for AWS CloudHSM backup.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CloudHSMV2.ModifyBackupAttributes</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier">ModifyBackupAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#newModifyBackupAttributes"><span class="hs-identifier">newModifyBackupAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributes_backupId"><span class="hs-identifier">modifyBackupAttributes_backupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributes_neverExpires"><span class="hs-identifier">modifyBackupAttributes_neverExpires</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier">ModifyBackupAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#newModifyBackupAttributesResponse"><span class="hs-identifier">newModifyBackupAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributesResponse_backup"><span class="hs-identifier">modifyBackupAttributesResponse_backup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributesResponse_httpStatus"><span class="hs-identifier">modifyBackupAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.Types.html"><span class="hs-identifier">Network.AWS.CloudHSMV2.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newModifyBackupAttributes' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679175845"><span id="local-6989586621679175846"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyBackupAttributes"><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-var">ModifyBackupAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyBackupAttributes%27"><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes%27"><span class="hs-identifier hs-var">ModifyBackupAttributes'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier (ID) of the backup to modify. To find the ID of a backup,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- use the DescribeBackups operation.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AbackupId%3AModifyBackupAttributes%27"><span class="annot"><span class="annottext">ModifyBackupAttributes -&gt; Text
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AbackupId%3AModifyBackupAttributes%27"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Specifies whether the service should exempt a backup from the retention</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- defined at the cluster.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AneverExpires%3AModifyBackupAttributes%27"><span class="annot"><span class="annottext">ModifyBackupAttributes -&gt; Bool
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AneverExpires%3AModifyBackupAttributes%27"><span class="hs-identifier hs-var hs-var">neverExpires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175838"><span id="local-6989586621679175840"><span class="annot"><span class="annottext">ModifyBackupAttributes -&gt; ModifyBackupAttributes -&gt; Bool
+(ModifyBackupAttributes -&gt; ModifyBackupAttributes -&gt; Bool)
+-&gt; (ModifyBackupAttributes -&gt; ModifyBackupAttributes -&gt; Bool)
+-&gt; Eq ModifyBackupAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyBackupAttributes -&gt; ModifyBackupAttributes -&gt; Bool
+$c/= :: ModifyBackupAttributes -&gt; ModifyBackupAttributes -&gt; Bool
+== :: ModifyBackupAttributes -&gt; ModifyBackupAttributes -&gt; Bool
+$c== :: ModifyBackupAttributes -&gt; ModifyBackupAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175829"><span id="local-6989586621679175831"><span id="local-6989586621679175833"><span id="local-6989586621679175835"><span class="annot"><span class="annottext">ReadPrec [ModifyBackupAttributes]
+ReadPrec ModifyBackupAttributes
+Int -&gt; ReadS ModifyBackupAttributes
+ReadS [ModifyBackupAttributes]
+(Int -&gt; ReadS ModifyBackupAttributes)
+-&gt; ReadS [ModifyBackupAttributes]
+-&gt; ReadPrec ModifyBackupAttributes
+-&gt; ReadPrec [ModifyBackupAttributes]
+-&gt; Read ModifyBackupAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyBackupAttributes]
+$creadListPrec :: ReadPrec [ModifyBackupAttributes]
+readPrec :: ReadPrec ModifyBackupAttributes
+$creadPrec :: ReadPrec ModifyBackupAttributes
+readList :: ReadS [ModifyBackupAttributes]
+$creadList :: ReadS [ModifyBackupAttributes]
+readsPrec :: Int -&gt; ReadS ModifyBackupAttributes
+$creadsPrec :: Int -&gt; ReadS ModifyBackupAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175822"><span id="local-6989586621679175824"><span id="local-6989586621679175826"><span class="annot"><span class="annottext">Int -&gt; ModifyBackupAttributes -&gt; ShowS
+[ModifyBackupAttributes] -&gt; ShowS
+ModifyBackupAttributes -&gt; String
+(Int -&gt; ModifyBackupAttributes -&gt; ShowS)
+-&gt; (ModifyBackupAttributes -&gt; String)
+-&gt; ([ModifyBackupAttributes] -&gt; ShowS)
+-&gt; Show ModifyBackupAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyBackupAttributes] -&gt; ShowS
+$cshowList :: [ModifyBackupAttributes] -&gt; ShowS
+show :: ModifyBackupAttributes -&gt; String
+$cshow :: ModifyBackupAttributes -&gt; String
+showsPrec :: Int -&gt; ModifyBackupAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyBackupAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyBackupAttributes -&gt; Rep ModifyBackupAttributes x)
+-&gt; (forall x.
+    Rep ModifyBackupAttributes x -&gt; ModifyBackupAttributes)
+-&gt; Generic ModifyBackupAttributes
+forall x. Rep ModifyBackupAttributes x -&gt; ModifyBackupAttributes
+forall x. ModifyBackupAttributes -&gt; Rep ModifyBackupAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyBackupAttributes x -&gt; ModifyBackupAttributes
+$cfrom :: forall x. ModifyBackupAttributes -&gt; Rep ModifyBackupAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ModifyBackupAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'backupId', 'modifyBackupAttributes_backupId' - The identifier (ID) of the backup to modify. To find the ID of a backup,</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- use the DescribeBackups operation.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'neverExpires', 'modifyBackupAttributes_neverExpires' - Specifies whether the service should exempt a backup from the retention</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- defined at the cluster.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#newModifyBackupAttributes"><span class="hs-identifier hs-type">newModifyBackupAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'backupId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'neverExpires'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span>
+</span><span id="line-84"></span><span id="newModifyBackupAttributes"><span class="annot"><span class="annottext">newModifyBackupAttributes :: Text -&gt; Bool -&gt; ModifyBackupAttributes
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#newModifyBackupAttributes"><span class="hs-identifier hs-var hs-var">newModifyBackupAttributes</span></a></span></span><span> </span><span id="local-6989586621679175817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175817"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span id="local-6989586621679175816"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679175816"><span class="hs-identifier hs-var">pNeverExpires_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ModifyBackupAttributes' :: Text -&gt; Bool -&gt; ModifyBackupAttributes
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes%27"><span class="hs-identifier hs-type">ModifyBackupAttributes'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupId:ModifyBackupAttributes' :: Text
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AbackupId%3AModifyBackupAttributes%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175817"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:neverExpires:ModifyBackupAttributes' :: Bool
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AneverExpires%3AModifyBackupAttributes%27"><span class="hs-identifier hs-var">neverExpires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679175816"><span class="hs-identifier hs-var">pNeverExpires_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The identifier (ID) of the backup to modify. To find the ID of a backup,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- use the DescribeBackups operation.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributes_backupId"><span class="hs-identifier hs-type">modifyBackupAttributes_backupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="modifyBackupAttributes_backupId"><span class="annot"><span class="annottext">modifyBackupAttributes_backupId :: (Text -&gt; f Text)
+-&gt; ModifyBackupAttributes -&gt; f ModifyBackupAttributes
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributes_backupId"><span class="hs-identifier hs-var hs-var">modifyBackupAttributes_backupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyBackupAttributes -&gt; Text)
+-&gt; (ModifyBackupAttributes -&gt; Text -&gt; ModifyBackupAttributes)
+-&gt; Lens ModifyBackupAttributes ModifyBackupAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes%27"><span class="hs-identifier hs-type">ModifyBackupAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175813"><span class="annot"><span class="annottext">Text
+backupId :: Text
+$sel:backupId:ModifyBackupAttributes' :: ModifyBackupAttributes -&gt; Text
+</span><a href="#local-6989586621679175813"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175813"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175812"><span class="annot"><span class="annottext">s :: ModifyBackupAttributes
+</span><a href="#local-6989586621679175812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes%27"><span class="hs-identifier hs-type">ModifyBackupAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175811"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyBackupAttributes
+</span><a href="#local-6989586621679175812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:ModifyBackupAttributes' :: Text
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AbackupId%3AModifyBackupAttributes%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Specifies whether the service should exempt a backup from the retention</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- defined at the cluster.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributes_neverExpires"><span class="hs-identifier hs-type">modifyBackupAttributes_neverExpires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-100"></span><span id="modifyBackupAttributes_neverExpires"><span class="annot"><span class="annottext">modifyBackupAttributes_neverExpires :: (Bool -&gt; f Bool)
+-&gt; ModifyBackupAttributes -&gt; f ModifyBackupAttributes
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributes_neverExpires"><span class="hs-identifier hs-var hs-var">modifyBackupAttributes_neverExpires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyBackupAttributes -&gt; Bool)
+-&gt; (ModifyBackupAttributes -&gt; Bool -&gt; ModifyBackupAttributes)
+-&gt; Lens ModifyBackupAttributes ModifyBackupAttributes Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes%27"><span class="hs-identifier hs-type">ModifyBackupAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175810"><span class="annot"><span class="annottext">Bool
+neverExpires :: Bool
+$sel:neverExpires:ModifyBackupAttributes' :: ModifyBackupAttributes -&gt; Bool
+</span><a href="#local-6989586621679175810"><span class="hs-identifier hs-var hs-var">neverExpires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679175810"><span class="hs-identifier hs-var">neverExpires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175809"><span class="annot"><span class="annottext">s :: ModifyBackupAttributes
+</span><a href="#local-6989586621679175809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes%27"><span class="hs-identifier hs-type">ModifyBackupAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175808"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679175808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyBackupAttributes
+</span><a href="#local-6989586621679175809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:neverExpires:ModifyBackupAttributes' :: Bool
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AneverExpires%3AModifyBackupAttributes%27"><span class="hs-identifier hs-var">neverExpires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679175808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679175804"><span class="annot"><span class="annottext">request :: ModifyBackupAttributes -&gt; Request ModifyBackupAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyBackupAttributes -&gt; Request ModifyBackupAttributes
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CloudHSMV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679175800"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyBackupAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyBackupAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ModifyBackupAttributes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyBackupAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyBackupAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175797"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175796"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175796"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175795"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Backup -&gt; Int -&gt; ModifyBackupAttributesResponse
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var">ModifyBackupAttributesResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Backup -&gt; Int -&gt; ModifyBackupAttributesResponse)
+-&gt; Either String (Maybe Backup)
+-&gt; Either String (Int -&gt; ModifyBackupAttributesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Backup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Backup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyBackupAttributesResponse)
+-&gt; Either String Int
+-&gt; Either String ModifyBackupAttributesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175797"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175787"><span id="local-6989586621679175789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679175780"><span class="annot"><span class="annottext">toHeaders :: ModifyBackupAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyBackupAttributes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BaldrApiService.ModifyBackupAttributes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175770"><span id="local-6989586621679175772"><span id="local-6989586621679175774"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679175768"><span class="annot"><span class="annottext">toJSON :: ModifyBackupAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes%27"><span class="hs-identifier hs-type">ModifyBackupAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175765"><span id="local-6989586621679175766"><span class="annot"><span class="annottext">Bool
+Text
+neverExpires :: Bool
+backupId :: Text
+$sel:neverExpires:ModifyBackupAttributes' :: ModifyBackupAttributes -&gt; Bool
+$sel:backupId:ModifyBackupAttributes' :: ModifyBackupAttributes -&gt; Text
+</span><a href="#local-6989586621679175765"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175766"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NeverExpires&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679175765"><span class="hs-identifier hs-var">neverExpires</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679175759"><span class="annot"><span class="annottext">toPath :: ModifyBackupAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyBackupAttributes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributes"><span class="hs-identifier hs-type">ModifyBackupAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679175755"><span class="annot"><span class="annottext">toQuery :: ModifyBackupAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyBackupAttributes -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newModifyBackupAttributesResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679175752"><span id="local-6989586621679175753"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyBackupAttributesResponse"><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-var">ModifyBackupAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyBackupAttributesResponse%27"><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var">ModifyBackupAttributesResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Abackup%3AModifyBackupAttributesResponse%27"><span class="annot"><span class="annottext">ModifyBackupAttributesResponse -&gt; Maybe Backup
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3Abackup%3AModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyBackupAttributesResponse%27"><span class="annot"><span class="annottext">ModifyBackupAttributesResponse -&gt; Int
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AhttpStatus%3AModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175746"><span id="local-6989586621679175748"><span class="annot"><span class="annottext">ModifyBackupAttributesResponse
+-&gt; ModifyBackupAttributesResponse -&gt; Bool
+(ModifyBackupAttributesResponse
+ -&gt; ModifyBackupAttributesResponse -&gt; Bool)
+-&gt; (ModifyBackupAttributesResponse
+    -&gt; ModifyBackupAttributesResponse -&gt; Bool)
+-&gt; Eq ModifyBackupAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyBackupAttributesResponse
+-&gt; ModifyBackupAttributesResponse -&gt; Bool
+$c/= :: ModifyBackupAttributesResponse
+-&gt; ModifyBackupAttributesResponse -&gt; Bool
+== :: ModifyBackupAttributesResponse
+-&gt; ModifyBackupAttributesResponse -&gt; Bool
+$c== :: ModifyBackupAttributesResponse
+-&gt; ModifyBackupAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175738"><span id="local-6989586621679175740"><span id="local-6989586621679175742"><span id="local-6989586621679175744"><span class="annot"><span class="annottext">ReadPrec [ModifyBackupAttributesResponse]
+ReadPrec ModifyBackupAttributesResponse
+Int -&gt; ReadS ModifyBackupAttributesResponse
+ReadS [ModifyBackupAttributesResponse]
+(Int -&gt; ReadS ModifyBackupAttributesResponse)
+-&gt; ReadS [ModifyBackupAttributesResponse]
+-&gt; ReadPrec ModifyBackupAttributesResponse
+-&gt; ReadPrec [ModifyBackupAttributesResponse]
+-&gt; Read ModifyBackupAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyBackupAttributesResponse]
+$creadListPrec :: ReadPrec [ModifyBackupAttributesResponse]
+readPrec :: ReadPrec ModifyBackupAttributesResponse
+$creadPrec :: ReadPrec ModifyBackupAttributesResponse
+readList :: ReadS [ModifyBackupAttributesResponse]
+$creadList :: ReadS [ModifyBackupAttributesResponse]
+readsPrec :: Int -&gt; ReadS ModifyBackupAttributesResponse
+$creadsPrec :: Int -&gt; ReadS ModifyBackupAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175732"><span id="local-6989586621679175734"><span id="local-6989586621679175736"><span class="annot"><span class="annottext">Int -&gt; ModifyBackupAttributesResponse -&gt; ShowS
+[ModifyBackupAttributesResponse] -&gt; ShowS
+ModifyBackupAttributesResponse -&gt; String
+(Int -&gt; ModifyBackupAttributesResponse -&gt; ShowS)
+-&gt; (ModifyBackupAttributesResponse -&gt; String)
+-&gt; ([ModifyBackupAttributesResponse] -&gt; ShowS)
+-&gt; Show ModifyBackupAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyBackupAttributesResponse] -&gt; ShowS
+$cshowList :: [ModifyBackupAttributesResponse] -&gt; ShowS
+show :: ModifyBackupAttributesResponse -&gt; String
+$cshow :: ModifyBackupAttributesResponse -&gt; String
+showsPrec :: Int -&gt; ModifyBackupAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyBackupAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyBackupAttributesResponse
+ -&gt; Rep ModifyBackupAttributesResponse x)
+-&gt; (forall x.
+    Rep ModifyBackupAttributesResponse x
+    -&gt; ModifyBackupAttributesResponse)
+-&gt; Generic ModifyBackupAttributesResponse
+forall x.
+Rep ModifyBackupAttributesResponse x
+-&gt; ModifyBackupAttributesResponse
+forall x.
+ModifyBackupAttributesResponse
+-&gt; Rep ModifyBackupAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyBackupAttributesResponse x
+-&gt; ModifyBackupAttributesResponse
+$cfrom :: forall x.
+ModifyBackupAttributesResponse
+-&gt; Rep ModifyBackupAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'ModifyBackupAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'backup', 'modifyBackupAttributesResponse_backup' - Undocumented member.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'modifyBackupAttributesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#newModifyBackupAttributesResponse"><span class="hs-identifier hs-type">newModifyBackupAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newModifyBackupAttributesResponse"><span class="annot"><span class="annottext">newModifyBackupAttributesResponse :: Int -&gt; ModifyBackupAttributesResponse
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#newModifyBackupAttributesResponse"><span class="hs-identifier hs-var hs-var">newModifyBackupAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679175729"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175729"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ModifyBackupAttributesResponse' :: Maybe Backup -&gt; Int -&gt; ModifyBackupAttributesResponse
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse%27"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backup:ModifyBackupAttributesResponse' :: Maybe Backup
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3Abackup%3AModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var">backup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe Backup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyBackupAttributesResponse' :: Int
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AhttpStatus%3AModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175729"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributesResponse_backup"><span class="hs-identifier hs-type">modifyBackupAttributesResponse_backup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="modifyBackupAttributesResponse_backup"><span class="annot"><span class="annottext">modifyBackupAttributesResponse_backup :: (Maybe Backup -&gt; f (Maybe Backup))
+-&gt; ModifyBackupAttributesResponse
+-&gt; f ModifyBackupAttributesResponse
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributesResponse_backup"><span class="hs-identifier hs-var hs-var">modifyBackupAttributesResponse_backup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyBackupAttributesResponse -&gt; Maybe Backup)
+-&gt; (ModifyBackupAttributesResponse
+    -&gt; Maybe Backup -&gt; ModifyBackupAttributesResponse)
+-&gt; Lens
+     ModifyBackupAttributesResponse
+     ModifyBackupAttributesResponse
+     (Maybe Backup)
+     (Maybe Backup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse%27"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175728"><span class="annot"><span class="annottext">Maybe Backup
+backup :: Maybe Backup
+$sel:backup:ModifyBackupAttributesResponse' :: ModifyBackupAttributesResponse -&gt; Maybe Backup
+</span><a href="#local-6989586621679175728"><span class="hs-identifier hs-var hs-var">backup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679175728"><span class="hs-identifier hs-var">backup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175727"><span class="annot"><span class="annottext">s :: ModifyBackupAttributesResponse
+</span><a href="#local-6989586621679175727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse%27"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175726"><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679175726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyBackupAttributesResponse
+</span><a href="#local-6989586621679175727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backup:ModifyBackupAttributesResponse' :: Maybe Backup
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3Abackup%3AModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var">backup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Backup
+</span><a href="#local-6989586621679175726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributesResponse_httpStatus"><span class="hs-identifier hs-type">modifyBackupAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="modifyBackupAttributesResponse_httpStatus"><span class="annot"><span class="annottext">modifyBackupAttributesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyBackupAttributesResponse
+-&gt; f ModifyBackupAttributesResponse
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#modifyBackupAttributesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyBackupAttributesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyBackupAttributesResponse -&gt; Int)
+-&gt; (ModifyBackupAttributesResponse
+    -&gt; Int -&gt; ModifyBackupAttributesResponse)
+-&gt; Lens
+     ModifyBackupAttributesResponse
+     ModifyBackupAttributesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse%27"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175725"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyBackupAttributesResponse' :: ModifyBackupAttributesResponse -&gt; Int
+</span><a href="#local-6989586621679175725"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175725"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175724"><span class="annot"><span class="annottext">s :: ModifyBackupAttributesResponse
+</span><a href="#local-6989586621679175724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse%27"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175723"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyBackupAttributesResponse
+</span><a href="#local-6989586621679175724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyBackupAttributesResponse' :: Int
+</span><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#%24sel%3AhttpStatus%3AModifyBackupAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679175721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudHSMV2.ModifyBackupAttributes.html#ModifyBackupAttributesResponse"><span class="hs-identifier hs-type">ModifyBackupAttributesResponse</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

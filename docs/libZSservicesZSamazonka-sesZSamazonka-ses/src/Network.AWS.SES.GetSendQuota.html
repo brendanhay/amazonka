@@ -48,10 +48,10 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.html"><span class="hs-identifier">Network.AWS.SES.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetSendQuota' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679283786"><span id="local-6989586621679283787"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSendQuota"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-var">GetSendQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSendQuota%27"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota%27"><span class="hs-identifier hs-var">GetSendQuota'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679283795"><span id="local-6989586621679283796"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSendQuota"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-var">GetSendQuota</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSendQuota%27"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota%27"><span class="hs-identifier hs-var">GetSendQuota'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283781"><span id="local-6989586621679283783"><span class="annot"><span class="annottext">GetSendQuota -&gt; GetSendQuota -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283790"><span id="local-6989586621679283792"><span class="annot"><span class="annottext">GetSendQuota -&gt; GetSendQuota -&gt; Bool
 (GetSendQuota -&gt; GetSendQuota -&gt; Bool)
 -&gt; (GetSendQuota -&gt; GetSendQuota -&gt; Bool) -&gt; Eq GetSendQuota
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSendQuota -&gt; GetSendQuota -&gt; Bool
 == :: GetSendQuota -&gt; GetSendQuota -&gt; Bool
 $c== :: GetSendQuota -&gt; GetSendQuota -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283772"><span id="local-6989586621679283774"><span id="local-6989586621679283776"><span id="local-6989586621679283778"><span class="annot"><span class="annottext">ReadPrec [GetSendQuota]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283781"><span id="local-6989586621679283783"><span id="local-6989586621679283785"><span id="local-6989586621679283787"><span class="annot"><span class="annottext">ReadPrec [GetSendQuota]
 ReadPrec GetSendQuota
 Int -&gt; ReadS GetSendQuota
 ReadS [GetSendQuota]
@@ -79,7 +79,7 @@ readList :: ReadS [GetSendQuota]
 $creadList :: ReadS [GetSendQuota]
 readsPrec :: Int -&gt; ReadS GetSendQuota
 $creadsPrec :: Int -&gt; ReadS GetSendQuota
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283765"><span id="local-6989586621679283767"><span id="local-6989586621679283769"><span class="annot"><span class="annottext">Int -&gt; GetSendQuota -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283774"><span id="local-6989586621679283776"><span id="local-6989586621679283778"><span class="annot"><span class="annottext">Int -&gt; GetSendQuota -&gt; ShowS
 [GetSendQuota] -&gt; ShowS
 GetSendQuota -&gt; String
 (Int -&gt; GetSendQuota -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. GetSendQuota -&gt; Rep GetSendQuota x
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679283757"><span class="annot"><span class="annottext">request :: GetSendQuota -&gt; Request GetSendQuota
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679283766"><span class="annot"><span class="annottext">request :: GetSendQuota -&gt; Request GetSendQuota
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetSendQuota -&gt; Request GetSendQuota
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679283753"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679283762"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSendQuota
 -&gt; ClientResponse ClientBody
@@ -151,10 +151,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetSendQuotaResult&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283750"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283750"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283749"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679283749"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283748"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679283748"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283759"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283758"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283758"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283757"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679283757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe Double -&gt; Maybe Double -&gt; Int -&gt; GetSendQuotaResponse
 </span><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-var">GetSendQuotaResponse'</span></a></span><span>
@@ -166,7 +166,7 @@ Text
      (Maybe Double -&gt; Maybe Double -&gt; Int -&gt; GetSendQuotaResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679283748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679283757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxSendRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -177,7 +177,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Double -&gt; Int -&gt; GetSendQuotaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679283748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679283757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SentLast24Hours&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,7 +186,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetSendQuotaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679283748"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621679283757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Max24HourSend&quot;</span></span><span class="hs-special">)</span><span>
@@ -198,15 +198,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283750"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283759"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283740"><span id="local-6989586621679283742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283749"><span id="local-6989586621679283751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679283733"><span class="annot"><span class="annottext">toHeaders :: GetSendQuota -&gt; ResponseHeaders
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679283742"><span class="annot"><span class="annottext">toHeaders :: GetSendQuota -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSendQuota -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -214,14 +214,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679283728"><span class="annot"><span class="annottext">toPath :: GetSendQuota -&gt; ByteString
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679283737"><span class="annot"><span class="annottext">toPath :: GetSendQuota -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSendQuota -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuota"><span class="hs-identifier hs-type">GetSendQuota</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679283724"><span class="annot"><span class="annottext">toQuery :: GetSendQuota -&gt; QueryString
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679283733"><span class="annot"><span class="annottext">toQuery :: GetSendQuota -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">QueryString -&gt; GetSendQuota -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -248,7 +248,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-100"></span><span class="hs-comment">-- the number of emails you have sent in the last 24 hours.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- /See:/ 'newGetSendQuotaResponse' smart constructor.</span><span>
-</span><span id="line-103"></span><span id="local-6989586621679283720"><span id="local-6989586621679283721"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSendQuotaResponse"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-var">GetSendQuotaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSendQuotaResponse%27"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-var">GetSendQuotaResponse'</span></a></span></span><span>
+</span><span id="line-103"></span><span id="local-6989586621679283729"><span id="local-6989586621679283730"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSendQuotaResponse"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-var">GetSendQuotaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSendQuotaResponse%27"><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-var">GetSendQuotaResponse'</span></a></span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of emails that Amazon SES can accept from the user\'s</span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-comment">-- account per second.</span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -267,7 +267,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSendQuotaResponse%27"><span class="annot"><span class="annottext">GetSendQuotaResponse -&gt; Int
 </span><a href="Network.AWS.SES.GetSendQuota.html#%24sel%3AhttpStatus%3AGetSendQuotaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283712"><span id="local-6989586621679283714"><span class="annot"><span class="annottext">GetSendQuotaResponse -&gt; GetSendQuotaResponse -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283721"><span id="local-6989586621679283723"><span class="annot"><span class="annottext">GetSendQuotaResponse -&gt; GetSendQuotaResponse -&gt; Bool
 (GetSendQuotaResponse -&gt; GetSendQuotaResponse -&gt; Bool)
 -&gt; (GetSendQuotaResponse -&gt; GetSendQuotaResponse -&gt; Bool)
 -&gt; Eq GetSendQuotaResponse
@@ -276,7 +276,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSendQuotaResponse -&gt; GetSendQuotaResponse -&gt; Bool
 == :: GetSendQuotaResponse -&gt; GetSendQuotaResponse -&gt; Bool
 $c== :: GetSendQuotaResponse -&gt; GetSendQuotaResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283704"><span id="local-6989586621679283706"><span id="local-6989586621679283708"><span id="local-6989586621679283710"><span class="annot"><span class="annottext">ReadPrec [GetSendQuotaResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283713"><span id="local-6989586621679283715"><span id="local-6989586621679283717"><span id="local-6989586621679283719"><span class="annot"><span class="annottext">ReadPrec [GetSendQuotaResponse]
 ReadPrec GetSendQuotaResponse
 Int -&gt; ReadS GetSendQuotaResponse
 ReadS [GetSendQuotaResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [GetSendQuotaResponse]
 $creadList :: ReadS [GetSendQuotaResponse]
 readsPrec :: Int -&gt; ReadS GetSendQuotaResponse
 $creadsPrec :: Int -&gt; ReadS GetSendQuotaResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283698"><span id="local-6989586621679283700"><span id="local-6989586621679283702"><span class="annot"><span class="annottext">Int -&gt; GetSendQuotaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283707"><span id="local-6989586621679283709"><span id="local-6989586621679283711"><span class="annot"><span class="annottext">Int -&gt; GetSendQuotaResponse -&gt; ShowS
 [GetSendQuotaResponse] -&gt; ShowS
 GetSendQuotaResponse -&gt; String
 (Int -&gt; GetSendQuotaResponse -&gt; ShowS)
@@ -347,8 +347,8 @@ $cfrom :: forall x. GetSendQuotaResponse -&gt; Rep GetSendQuotaResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newGetSendQuotaResponse"><span class="annot"><span class="annottext">newGetSendQuotaResponse :: Int -&gt; GetSendQuotaResponse
-</span><a href="Network.AWS.SES.GetSendQuota.html#newGetSendQuotaResponse"><span class="hs-identifier hs-var hs-var">newGetSendQuotaResponse</span></a></span></span><span> </span><span id="local-6989586621679283695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283695"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.GetSendQuota.html#newGetSendQuotaResponse"><span class="hs-identifier hs-var hs-var">newGetSendQuotaResponse</span></a></span></span><span> </span><span id="local-6989586621679283704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetSendQuotaResponse' :: Maybe Double
 -&gt; Maybe Double -&gt; Maybe Double -&gt; Int -&gt; GetSendQuotaResponse
 </span><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span>
@@ -367,7 +367,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSendQuotaResponse' :: Int
 </span><a href="Network.AWS.SES.GetSendQuota.html#%24sel%3AhttpStatus%3AGetSendQuotaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283695"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679283704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The maximum number of emails that Amazon SES can accept from the user\'s</span><span>
@@ -386,16 +386,16 @@ forall a. Maybe a
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283692"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283701"><span class="annot"><span class="annottext">Maybe Double
 maxSendRate :: Maybe Double
 $sel:maxSendRate:GetSendQuotaResponse' :: GetSendQuotaResponse -&gt; Maybe Double
-</span><a href="#local-6989586621679283692"><span class="hs-identifier hs-var hs-var">maxSendRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283692"><span class="hs-identifier hs-var">maxSendRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283691"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
-</span><a href="#local-6989586621679283691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283690"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
-</span><a href="#local-6989586621679283691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSendRate:GetSendQuotaResponse' :: Maybe Double
+</span><a href="#local-6989586621679283701"><span class="hs-identifier hs-var hs-var">maxSendRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679283701"><span class="hs-identifier hs-var">maxSendRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283700"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
+</span><a href="#local-6989586621679283700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283699"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679283699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
+</span><a href="#local-6989586621679283700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSendRate:GetSendQuotaResponse' :: Maybe Double
 </span><a href="Network.AWS.SES.GetSendQuota.html#%24sel%3AmaxSendRate%3AGetSendQuotaResponse%27"><span class="hs-identifier hs-var">maxSendRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The number of emails sent during the previous 24 hours.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#getSendQuotaResponse_sentLast24Hours"><span class="hs-identifier hs-type">getSendQuotaResponse_sentLast24Hours</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -409,16 +409,16 @@ $sel:maxSendRate:GetSendQuotaResponse' :: GetSendQuotaResponse -&gt; Maybe Doubl
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283689"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283698"><span class="annot"><span class="annottext">Maybe Double
 sentLast24Hours :: Maybe Double
 $sel:sentLast24Hours:GetSendQuotaResponse' :: GetSendQuotaResponse -&gt; Maybe Double
-</span><a href="#local-6989586621679283689"><span class="hs-identifier hs-var hs-var">sentLast24Hours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283689"><span class="hs-identifier hs-var">sentLast24Hours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283688"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
-</span><a href="#local-6989586621679283688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283687"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
-</span><a href="#local-6989586621679283688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentLast24Hours:GetSendQuotaResponse' :: Maybe Double
+</span><a href="#local-6989586621679283698"><span class="hs-identifier hs-var hs-var">sentLast24Hours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679283698"><span class="hs-identifier hs-var">sentLast24Hours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283697"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
+</span><a href="#local-6989586621679283697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283696"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679283696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
+</span><a href="#local-6989586621679283697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentLast24Hours:GetSendQuotaResponse' :: Maybe Double
 </span><a href="Network.AWS.SES.GetSendQuota.html#%24sel%3AsentLast24Hours%3AGetSendQuotaResponse%27"><span class="hs-identifier hs-var">sentLast24Hours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The maximum number of emails the user is allowed to send in a 24-hour</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- interval. A value of -1 signifies an unlimited quota.</span><span>
@@ -433,16 +433,16 @@ $sel:sentLast24Hours:GetSendQuotaResponse' :: GetSendQuotaResponse -&gt; Maybe D
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283686"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283695"><span class="annot"><span class="annottext">Maybe Double
 max24HourSend :: Maybe Double
 $sel:max24HourSend:GetSendQuotaResponse' :: GetSendQuotaResponse -&gt; Maybe Double
-</span><a href="#local-6989586621679283686"><span class="hs-identifier hs-var hs-var">max24HourSend</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283686"><span class="hs-identifier hs-var">max24HourSend</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283685"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
-</span><a href="#local-6989586621679283685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283684"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
-</span><a href="#local-6989586621679283685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max24HourSend:GetSendQuotaResponse' :: Maybe Double
+</span><a href="#local-6989586621679283695"><span class="hs-identifier hs-var hs-var">max24HourSend</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679283695"><span class="hs-identifier hs-var">max24HourSend</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283694"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
+</span><a href="#local-6989586621679283694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283693"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679283693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
+</span><a href="#local-6989586621679283694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max24HourSend:GetSendQuotaResponse' :: Maybe Double
 </span><a href="Network.AWS.SES.GetSendQuota.html#%24sel%3Amax24HourSend%3AGetSendQuotaResponse%27"><span class="hs-identifier hs-var">max24HourSend</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679283684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#getSendQuotaResponse_httpStatus"><span class="hs-identifier hs-type">getSendQuotaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -451,16 +451,16 @@ $sel:max24HourSend:GetSendQuotaResponse' :: GetSendQuotaResponse -&gt; Maybe Dou
 -&gt; (GetSendQuotaResponse -&gt; Int -&gt; GetSendQuotaResponse)
 -&gt; Lens GetSendQuotaResponse GetSendQuotaResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283683"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283692"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSendQuotaResponse' :: GetSendQuotaResponse -&gt; Int
-</span><a href="#local-6989586621679283683"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283683"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283682"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
-</span><a href="#local-6989586621679283682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283681"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
-</span><a href="#local-6989586621679283682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSendQuotaResponse' :: Int
+</span><a href="#local-6989586621679283692"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283692"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283691"><span class="annot"><span class="annottext">s :: GetSendQuotaResponse
+</span><a href="#local-6989586621679283691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse%27"><span class="hs-identifier hs-type">GetSendQuotaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283690"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSendQuotaResponse
+</span><a href="#local-6989586621679283691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSendQuotaResponse' :: Int
 </span><a href="Network.AWS.SES.GetSendQuota.html#%24sel%3AhttpStatus%3AGetSendQuotaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.GetSendQuota.html#GetSendQuotaResponse"><span class="hs-identifier hs-type">GetSendQuotaResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

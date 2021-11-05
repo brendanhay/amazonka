@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- and accounts. The root contains every AWS account in the organization.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRoot' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679239685"><span id="local-6989586621679239686"></span></span><span class="hs-keyword">data</span><span> </span><span id="Root"><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-var">Root</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Root%27"><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-var">Root'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679239694"><span id="local-6989586621679239695"></span></span><span class="hs-keyword">data</span><span> </span><span id="Root"><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-var">Root</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Root%27"><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-var">Root'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the root.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- For more information about ARNs in Organizations, see</span><span>
@@ -60,14 +60,14 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3ApolicyTypes%3ARoot%27"><span class="annot"><span class="annottext">Root -&gt; Maybe [PolicyTypeSummary]
 </span><a href="Network.AWS.Organizations.Types.Root.html#%24sel%3ApolicyTypes%3ARoot%27"><span class="hs-identifier hs-var hs-var">policyTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.PolicyTypeSummary.html#PolicyTypeSummary"><span class="hs-identifier hs-type">PolicyTypeSummary</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239676"><span id="local-6989586621679239678"><span class="annot"><span class="annottext">Root -&gt; Root -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679239685"><span id="local-6989586621679239687"><span class="annot"><span class="annottext">Root -&gt; Root -&gt; Bool
 (Root -&gt; Root -&gt; Bool) -&gt; (Root -&gt; Root -&gt; Bool) -&gt; Eq Root
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Root -&gt; Root -&gt; Bool
 $c/= :: Root -&gt; Root -&gt; Bool
 == :: Root -&gt; Root -&gt; Bool
 $c== :: Root -&gt; Root -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239667"><span id="local-6989586621679239669"><span id="local-6989586621679239671"><span id="local-6989586621679239673"><span class="annot"><span class="annottext">ReadPrec [Root]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239676"><span id="local-6989586621679239678"><span id="local-6989586621679239680"><span id="local-6989586621679239682"><span class="annot"><span class="annottext">ReadPrec [Root]
 ReadPrec Root
 Int -&gt; ReadS Root
 ReadS [Root]
@@ -84,7 +84,7 @@ readList :: ReadS [Root]
 $creadList :: ReadS [Root]
 readsPrec :: Int -&gt; ReadS Root
 $creadsPrec :: Int -&gt; ReadS Root
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239660"><span id="local-6989586621679239662"><span id="local-6989586621679239664"><span class="annot"><span class="annottext">Int -&gt; Root -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679239669"><span id="local-6989586621679239671"><span id="local-6989586621679239673"><span class="annot"><span class="annottext">Int -&gt; Root -&gt; ShowS
 [Root] -&gt; ShowS
 Root -&gt; String
 (Int -&gt; Root -&gt; ShowS)
@@ -175,16 +175,16 @@ forall a. Maybe a
 -&gt; (Root -&gt; Maybe Text -&gt; Root)
 -&gt; Lens Root Root (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239651"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239660"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Root' :: Root -&gt; Maybe Text
-</span><a href="#local-6989586621679239651"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239651"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239650"><span class="annot"><span class="annottext">s :: Root
-</span><a href="#local-6989586621679239650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
-</span><a href="#local-6989586621679239650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Root' :: Maybe Text
+</span><a href="#local-6989586621679239660"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239660"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239659"><span class="annot"><span class="annottext">s :: Root
+</span><a href="#local-6989586621679239659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239658"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
+</span><a href="#local-6989586621679239659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Root' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.Root.html#%24sel%3Aarn%3ARoot%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The friendly name of the root.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
@@ -197,16 +197,16 @@ $sel:arn:Root' :: Root -&gt; Maybe Text
 -&gt; (Root -&gt; Maybe Text -&gt; Root)
 -&gt; Lens Root Root (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239647"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239656"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Root' :: Root -&gt; Maybe Text
-</span><a href="#local-6989586621679239647"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239647"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239646"><span class="annot"><span class="annottext">s :: Root
-</span><a href="#local-6989586621679239646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239645"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
-</span><a href="#local-6989586621679239646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Root' :: Maybe Text
+</span><a href="#local-6989586621679239656"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239656"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239655"><span class="annot"><span class="annottext">s :: Root
+</span><a href="#local-6989586621679239655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239654"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
+</span><a href="#local-6989586621679239655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Root' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.Root.html#%24sel%3Aname%3ARoot%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The unique identifier (ID) for the root.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
@@ -218,16 +218,16 @@ $sel:name:Root' :: Root -&gt; Maybe Text
 -&gt; (Root -&gt; Maybe Text -&gt; Root)
 -&gt; Lens Root Root (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239643"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239652"><span class="annot"><span class="annottext">Maybe Text
 id :: Maybe Text
 $sel:id:Root' :: Root -&gt; Maybe Text
-</span><a href="#local-6989586621679239643"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239643"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239642"><span class="annot"><span class="annottext">s :: Root
-</span><a href="#local-6989586621679239642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239641"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
-</span><a href="#local-6989586621679239642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Root' :: Maybe Text
+</span><a href="#local-6989586621679239652"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239652"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239651"><span class="annot"><span class="annottext">s :: Root
+</span><a href="#local-6989586621679239651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679239650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
+</span><a href="#local-6989586621679239651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Root' :: Maybe Text
 </span><a href="Network.AWS.Organizations.Types.Root.html#%24sel%3Aid%3ARoot%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679239641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679239650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The types of policies that are currently enabled for the root and</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- therefore can be attached to the root or to its OUs or accounts.</span><span>
@@ -244,16 +244,16 @@ $sel:id:Root' :: Root -&gt; Maybe Text
 -&gt; Lens
      Root Root (Maybe [PolicyTypeSummary]) (Maybe [PolicyTypeSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239639"><span class="annot"><span class="annottext">Maybe [PolicyTypeSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679239648"><span class="annot"><span class="annottext">Maybe [PolicyTypeSummary]
 policyTypes :: Maybe [PolicyTypeSummary]
 $sel:policyTypes:Root' :: Root -&gt; Maybe [PolicyTypeSummary]
-</span><a href="#local-6989586621679239639"><span class="hs-identifier hs-var hs-var">policyTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyTypeSummary]
-</span><a href="#local-6989586621679239639"><span class="hs-identifier hs-var">policyTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239638"><span class="annot"><span class="annottext">s :: Root
-</span><a href="#local-6989586621679239638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239637"><span class="annot"><span class="annottext">Maybe [PolicyTypeSummary]
-</span><a href="#local-6989586621679239637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
-</span><a href="#local-6989586621679239638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypes:Root' :: Maybe [PolicyTypeSummary]
+</span><a href="#local-6989586621679239648"><span class="hs-identifier hs-var hs-var">policyTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyTypeSummary]
+</span><a href="#local-6989586621679239648"><span class="hs-identifier hs-var">policyTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679239647"><span class="annot"><span class="annottext">s :: Root
+</span><a href="#local-6989586621679239647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-type">Root'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679239646"><span class="annot"><span class="annottext">Maybe [PolicyTypeSummary]
+</span><a href="#local-6989586621679239646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Root
+</span><a href="#local-6989586621679239647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyTypes:Root' :: Maybe [PolicyTypeSummary]
 </span><a href="Network.AWS.Organizations.Types.Root.html#%24sel%3ApolicyTypes%3ARoot%27"><span class="hs-identifier hs-var">policyTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyTypeSummary]
-</span><a href="#local-6989586621679239637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyTypeSummary] -&gt; f (Maybe [PolicyTypeSummary]))
+</span><a href="#local-6989586621679239646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyTypeSummary] -&gt; f (Maybe [PolicyTypeSummary]))
  -&gt; Root -&gt; f Root)
 -&gt; ((Maybe [PolicyTypeSummary] -&gt; f (Maybe [PolicyTypeSummary]))
     -&gt; Maybe [PolicyTypeSummary] -&gt; f (Maybe [PolicyTypeSummary]))
@@ -282,16 +282,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239631"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679239629"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Root
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239640"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679239638"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Root
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Root) -&gt; Value -&gt; Parser Root
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Root&quot;</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239626"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679239635"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679239635"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [PolicyTypeSummary] -&gt; Root
 </span><a href="Network.AWS.Organizations.Types.Root.html#Root%27"><span class="hs-identifier hs-var">Root'</span></a></span><span>
@@ -302,7 +302,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe [PolicyTypeSummary] -&gt; Root)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679239635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -312,7 +312,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe [PolicyTypeSummary] -&gt; Root)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679239635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -321,7 +321,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [PolicyTypeSummary] -&gt; Root)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679239635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -329,7 +329,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [PolicyTypeSummary]) -&gt; Parser Root
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679239626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyTypeSummary]))
+</span><a href="#local-6989586621679239635"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyTypeSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PolicyTypeSummary]))
@@ -340,7 +340,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239619"><span id="local-6989586621679239621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239628"><span id="local-6989586621679239630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679239625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Root.html#Root"><span class="hs-identifier hs-type">Root</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679332418"><span id="local-6989586621679332419"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NumericOperator"><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-var">NumericOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NumericOperator%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-var">NumericOperator'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679332427"><span id="local-6989586621679332428"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NumericOperator"><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator"><span class="hs-identifier hs-var">NumericOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NumericOperator%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#NumericOperator%27"><span class="hs-identifier hs-var">NumericOperator'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNumericOperator"><span class="annot"><span class="annottext">NumericOperator -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.NumericOperator.html#fromNumericOperator"><span class="hs-identifier hs-var hs-var">fromNumericOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332410"><span id="local-6989586621679332412"><span id="local-6989586621679332414"><span class="annot"><span class="annottext">Int -&gt; NumericOperator -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332419"><span id="local-6989586621679332421"><span id="local-6989586621679332423"><span class="annot"><span class="annottext">Int -&gt; NumericOperator -&gt; ShowS
 [NumericOperator] -&gt; ShowS
 NumericOperator -&gt; String
 (Int -&gt; NumericOperator -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: NumericOperator -&gt; String
 showsPrec :: Int -&gt; NumericOperator -&gt; ShowS
 $cshowsPrec :: Int -&gt; NumericOperator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679332401"><span id="local-6989586621679332403"><span id="local-6989586621679332405"><span id="local-6989586621679332407"><span class="annot"><span class="annottext">ReadPrec [NumericOperator]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679332410"><span id="local-6989586621679332412"><span id="local-6989586621679332414"><span id="local-6989586621679332416"><span class="annot"><span class="annottext">ReadPrec [NumericOperator]
 ReadPrec NumericOperator
 Int -&gt; ReadS NumericOperator
 ReadS [NumericOperator]
@@ -76,7 +76,7 @@ $creadList :: ReadS [NumericOperator]
 readsPrec :: Int -&gt; ReadS NumericOperator
 $creadsPrec :: Int -&gt; ReadS NumericOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679332396"><span id="local-6989586621679332398"><span class="annot"><span class="annottext">NumericOperator -&gt; NumericOperator -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679332405"><span id="local-6989586621679332407"><span class="annot"><span class="annottext">NumericOperator -&gt; NumericOperator -&gt; Bool
 (NumericOperator -&gt; NumericOperator -&gt; Bool)
 -&gt; (NumericOperator -&gt; NumericOperator -&gt; Bool)
 -&gt; Eq NumericOperator
@@ -86,7 +86,7 @@ $c/= :: NumericOperator -&gt; NumericOperator -&gt; Bool
 == :: NumericOperator -&gt; NumericOperator -&gt; Bool
 $c== :: NumericOperator -&gt; NumericOperator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679332380"><span id="local-6989586621679332382"><span id="local-6989586621679332384"><span id="local-6989586621679332386"><span id="local-6989586621679332388"><span id="local-6989586621679332390"><span id="local-6989586621679332392"><span class="annot"><span class="annottext">Eq NumericOperator
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679332389"><span id="local-6989586621679332391"><span id="local-6989586621679332393"><span id="local-6989586621679332395"><span id="local-6989586621679332397"><span id="local-6989586621679332399"><span id="local-6989586621679332401"><span class="annot"><span class="annottext">Eq NumericOperator
 Eq NumericOperator
 -&gt; (NumericOperator -&gt; NumericOperator -&gt; Ordering)
 -&gt; (NumericOperator -&gt; NumericOperator -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. NumericOperator -&gt; Rep NumericOperator x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332372"><span id="local-6989586621679332374"><span class="annot"><span class="annottext">Int -&gt; NumericOperator -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332381"><span id="local-6989586621679332383"><span class="annot"><span class="annottext">Int -&gt; NumericOperator -&gt; Int
 NumericOperator -&gt; Int
 (Int -&gt; NumericOperator -&gt; Int)
 -&gt; (NumericOperator -&gt; Int) -&gt; Hashable NumericOperator
@@ -147,50 +147,50 @@ $chash :: NumericOperator -&gt; Int
 hashWithSalt :: Int -&gt; NumericOperator -&gt; Int
 $chashWithSalt :: Int -&gt; NumericOperator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679332369"><span class="annot"><span class="annottext">NumericOperator -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679332378"><span class="annot"><span class="annottext">NumericOperator -&gt; ()
 (NumericOperator -&gt; ()) -&gt; NFData NumericOperator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NumericOperator -&gt; ()
 $crnf :: NumericOperator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679332366"><span class="annot"><span class="annottext">Text -&gt; Either String NumericOperator
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679332375"><span class="annot"><span class="annottext">Text -&gt; Either String NumericOperator
 (Text -&gt; Either String NumericOperator) -&gt; FromText NumericOperator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NumericOperator
 $cfromText :: Text -&gt; Either String NumericOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679332363"><span class="annot"><span class="annottext">NumericOperator -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679332372"><span class="annot"><span class="annottext">NumericOperator -&gt; Text
 (NumericOperator -&gt; Text) -&gt; ToText NumericOperator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NumericOperator -&gt; Text
 $ctoText :: NumericOperator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679332360"><span class="annot"><span class="annottext">NumericOperator -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679332369"><span class="annot"><span class="annottext">NumericOperator -&gt; ByteString
 (NumericOperator -&gt; ByteString) -&gt; ToByteString NumericOperator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NumericOperator -&gt; ByteString
 $ctoBS :: NumericOperator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679332357"><span class="annot"><span class="annottext">NumericOperator -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679332366"><span class="annot"><span class="annottext">NumericOperator -&gt; ByteStringBuilder
 (NumericOperator -&gt; ByteStringBuilder) -&gt; ToLog NumericOperator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NumericOperator -&gt; ByteStringBuilder
 $cbuild :: NumericOperator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679332354"><span class="annot"><span class="annottext">HeaderName -&gt; NumericOperator -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679332363"><span class="annot"><span class="annottext">HeaderName -&gt; NumericOperator -&gt; [Header]
 (HeaderName -&gt; NumericOperator -&gt; [Header])
 -&gt; ToHeader NumericOperator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NumericOperator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NumericOperator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332351"><span class="annot"><span class="annottext">NumericOperator -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332360"><span class="annot"><span class="annottext">NumericOperator -&gt; QueryString
 (NumericOperator -&gt; QueryString) -&gt; ToQuery NumericOperator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NumericOperator -&gt; QueryString
 $ctoQuery :: NumericOperator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332346"><span id="local-6989586621679332348"><span class="annot"><span class="annottext">Value -&gt; Parser [NumericOperator]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332355"><span id="local-6989586621679332357"><span class="annot"><span class="annottext">Value -&gt; Parser [NumericOperator]
 Value -&gt; Parser NumericOperator
 (Value -&gt; Parser NumericOperator)
 -&gt; (Value -&gt; Parser [NumericOperator]) -&gt; FromJSON NumericOperator
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [NumericOperator]
 parseJSON :: Value -&gt; Parser NumericOperator
 $cparseJSON :: Value -&gt; Parser NumericOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332341"><span id="local-6989586621679332343"><span class="annot"><span class="annottext">FromJSONKeyFunction [NumericOperator]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332350"><span id="local-6989586621679332352"><span class="annot"><span class="annottext">FromJSONKeyFunction [NumericOperator]
 FromJSONKeyFunction NumericOperator
 FromJSONKeyFunction NumericOperator
 -&gt; FromJSONKeyFunction [NumericOperator]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NumericOperator]
 fromJSONKey :: FromJSONKeyFunction NumericOperator
 $cfromJSONKey :: FromJSONKeyFunction NumericOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679332332"><span id="local-6989586621679332334"><span id="local-6989586621679332336"><span id="local-6989586621679332338"><span class="annot"><span class="annottext">[NumericOperator] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679332341"><span id="local-6989586621679332343"><span id="local-6989586621679332345"><span id="local-6989586621679332347"><span class="annot"><span class="annottext">[NumericOperator] -&gt; Encoding
 [NumericOperator] -&gt; Value
 NumericOperator -&gt; Encoding
 NumericOperator -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: NumericOperator -&gt; Encoding
 toJSON :: NumericOperator -&gt; Value
 $ctoJSON :: NumericOperator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679332327"><span id="local-6989586621679332329"><span class="annot"><span class="annottext">ToJSONKeyFunction [NumericOperator]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679332336"><span id="local-6989586621679332338"><span class="annot"><span class="annottext">ToJSONKeyFunction [NumericOperator]
 ToJSONKeyFunction NumericOperator
 ToJSONKeyFunction NumericOperator
 -&gt; ToJSONKeyFunction [NumericOperator] -&gt; ToJSONKey NumericOperator
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NumericOperator]
 toJSONKey :: ToJSONKeyFunction NumericOperator
 $ctoJSONKey :: ToJSONKeyFunction NumericOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679332324"><span class="annot"><span class="annottext">[Node] -&gt; Either String NumericOperator
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679332333"><span class="annot"><span class="annottext">[Node] -&gt; Either String NumericOperator
 ([Node] -&gt; Either String NumericOperator)
 -&gt; FromXML NumericOperator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NumericOperator
 $cparseXML :: [Node] -&gt; Either String NumericOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679332321"><span class="annot"><span class="annottext">NumericOperator -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679332330"><span class="annot"><span class="annottext">NumericOperator -&gt; XML
 (NumericOperator -&gt; XML) -&gt; ToXML NumericOperator
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NumericOperator -&gt; XML

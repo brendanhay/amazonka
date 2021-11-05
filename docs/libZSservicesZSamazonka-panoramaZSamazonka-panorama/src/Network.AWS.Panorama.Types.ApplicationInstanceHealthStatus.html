@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier">ApplicationInstanceHealthStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_ERROR"><span class="hs-identifier">ApplicationInstanceHealthStatus_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_NOT_AVAILABLE"><span class="hs-identifier">ApplicationInstanceHealthStatus_NOT_AVAILABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_RUNNING"><span class="hs-identifier">ApplicationInstanceHealthStatus_RUNNING</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679253632"><span id="local-6989586621679253633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApplicationInstanceHealthStatus"><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-var">ApplicationInstanceHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationInstanceHealthStatus%27"><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus%27"><span class="hs-identifier hs-var">ApplicationInstanceHealthStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApplicationInstanceHealthStatus"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus -&gt; Text
+</span><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#fromApplicationInstanceHealthStatus"><span class="hs-identifier hs-var hs-var">fromApplicationInstanceHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253624"><span id="local-6989586621679253626"><span id="local-6989586621679253628"><span class="annot"><span class="annottext">Int -&gt; ApplicationInstanceHealthStatus -&gt; ShowS
+[ApplicationInstanceHealthStatus] -&gt; ShowS
+ApplicationInstanceHealthStatus -&gt; String
+(Int -&gt; ApplicationInstanceHealthStatus -&gt; ShowS)
+-&gt; (ApplicationInstanceHealthStatus -&gt; String)
+-&gt; ([ApplicationInstanceHealthStatus] -&gt; ShowS)
+-&gt; Show ApplicationInstanceHealthStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationInstanceHealthStatus] -&gt; ShowS
+$cshowList :: [ApplicationInstanceHealthStatus] -&gt; ShowS
+show :: ApplicationInstanceHealthStatus -&gt; String
+$cshow :: ApplicationInstanceHealthStatus -&gt; String
+showsPrec :: Int -&gt; ApplicationInstanceHealthStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationInstanceHealthStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679253615"><span id="local-6989586621679253617"><span id="local-6989586621679253619"><span id="local-6989586621679253621"><span class="annot"><span class="annottext">ReadPrec [ApplicationInstanceHealthStatus]
+ReadPrec ApplicationInstanceHealthStatus
+Int -&gt; ReadS ApplicationInstanceHealthStatus
+ReadS [ApplicationInstanceHealthStatus]
+(Int -&gt; ReadS ApplicationInstanceHealthStatus)
+-&gt; ReadS [ApplicationInstanceHealthStatus]
+-&gt; ReadPrec ApplicationInstanceHealthStatus
+-&gt; ReadPrec [ApplicationInstanceHealthStatus]
+-&gt; Read ApplicationInstanceHealthStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationInstanceHealthStatus]
+$creadListPrec :: ReadPrec [ApplicationInstanceHealthStatus]
+readPrec :: ReadPrec ApplicationInstanceHealthStatus
+$creadPrec :: ReadPrec ApplicationInstanceHealthStatus
+readList :: ReadS [ApplicationInstanceHealthStatus]
+$creadList :: ReadS [ApplicationInstanceHealthStatus]
+readsPrec :: Int -&gt; ReadS ApplicationInstanceHealthStatus
+$creadsPrec :: Int -&gt; ReadS ApplicationInstanceHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679253610"><span id="local-6989586621679253612"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+(ApplicationInstanceHealthStatus
+ -&gt; ApplicationInstanceHealthStatus -&gt; Bool)
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus -&gt; Bool)
+-&gt; Eq ApplicationInstanceHealthStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+$c/= :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+== :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+$c== :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679253594"><span id="local-6989586621679253596"><span id="local-6989586621679253598"><span id="local-6989586621679253600"><span id="local-6989586621679253602"><span id="local-6989586621679253604"><span id="local-6989586621679253606"><span class="annot"><span class="annottext">Eq ApplicationInstanceHealthStatus
+Eq ApplicationInstanceHealthStatus
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus -&gt; Ordering)
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus -&gt; Bool)
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus -&gt; Bool)
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus -&gt; Bool)
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus -&gt; Bool)
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus)
+-&gt; (ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus
+    -&gt; ApplicationInstanceHealthStatus)
+-&gt; Ord ApplicationInstanceHealthStatus
+ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Ordering
+ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+$cmin :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+max :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+$cmax :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus
+&gt;= :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+$c&gt;= :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+&gt; :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+$c&gt; :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+&lt;= :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+$c&lt;= :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+&lt; :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+$c&lt; :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Bool
+compare :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Ordering
+$ccompare :: ApplicationInstanceHealthStatus
+-&gt; ApplicationInstanceHealthStatus -&gt; Ordering
+$cp1Ord :: Eq ApplicationInstanceHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ApplicationInstanceHealthStatus
+ -&gt; Rep ApplicationInstanceHealthStatus x)
+-&gt; (forall x.
+    Rep ApplicationInstanceHealthStatus x
+    -&gt; ApplicationInstanceHealthStatus)
+-&gt; Generic ApplicationInstanceHealthStatus
+forall x.
+Rep ApplicationInstanceHealthStatus x
+-&gt; ApplicationInstanceHealthStatus
+forall x.
+ApplicationInstanceHealthStatus
+-&gt; Rep ApplicationInstanceHealthStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ApplicationInstanceHealthStatus x
+-&gt; ApplicationInstanceHealthStatus
+$cfrom :: forall x.
+ApplicationInstanceHealthStatus
+-&gt; Rep ApplicationInstanceHealthStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253586"><span id="local-6989586621679253588"><span class="annot"><span class="annottext">Int -&gt; ApplicationInstanceHealthStatus -&gt; Int
+ApplicationInstanceHealthStatus -&gt; Int
+(Int -&gt; ApplicationInstanceHealthStatus -&gt; Int)
+-&gt; (ApplicationInstanceHealthStatus -&gt; Int)
+-&gt; Hashable ApplicationInstanceHealthStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ApplicationInstanceHealthStatus -&gt; Int
+$chash :: ApplicationInstanceHealthStatus -&gt; Int
+hashWithSalt :: Int -&gt; ApplicationInstanceHealthStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ApplicationInstanceHealthStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679253583"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus -&gt; ()
+(ApplicationInstanceHealthStatus -&gt; ())
+-&gt; NFData ApplicationInstanceHealthStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ApplicationInstanceHealthStatus -&gt; ()
+$crnf :: ApplicationInstanceHealthStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679253580"><span class="annot"><span class="annottext">Text -&gt; Either String ApplicationInstanceHealthStatus
+(Text -&gt; Either String ApplicationInstanceHealthStatus)
+-&gt; FromText ApplicationInstanceHealthStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ApplicationInstanceHealthStatus
+$cfromText :: Text -&gt; Either String ApplicationInstanceHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679253577"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus -&gt; Text
+(ApplicationInstanceHealthStatus -&gt; Text)
+-&gt; ToText ApplicationInstanceHealthStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ApplicationInstanceHealthStatus -&gt; Text
+$ctoText :: ApplicationInstanceHealthStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679253574"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus -&gt; ByteString
+(ApplicationInstanceHealthStatus -&gt; ByteString)
+-&gt; ToByteString ApplicationInstanceHealthStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ApplicationInstanceHealthStatus -&gt; ByteString
+$ctoBS :: ApplicationInstanceHealthStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679253571"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus -&gt; ByteStringBuilder
+(ApplicationInstanceHealthStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ApplicationInstanceHealthStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ApplicationInstanceHealthStatus -&gt; ByteStringBuilder
+$cbuild :: ApplicationInstanceHealthStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679253568"><span class="annot"><span class="annottext">HeaderName -&gt; ApplicationInstanceHealthStatus -&gt; [Header]
+(HeaderName -&gt; ApplicationInstanceHealthStatus -&gt; [Header])
+-&gt; ToHeader ApplicationInstanceHealthStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ApplicationInstanceHealthStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ApplicationInstanceHealthStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679253565"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus -&gt; QueryString
+(ApplicationInstanceHealthStatus -&gt; QueryString)
+-&gt; ToQuery ApplicationInstanceHealthStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ApplicationInstanceHealthStatus -&gt; QueryString
+$ctoQuery :: ApplicationInstanceHealthStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679253560"><span id="local-6989586621679253562"><span class="annot"><span class="annottext">Value -&gt; Parser [ApplicationInstanceHealthStatus]
+Value -&gt; Parser ApplicationInstanceHealthStatus
+(Value -&gt; Parser ApplicationInstanceHealthStatus)
+-&gt; (Value -&gt; Parser [ApplicationInstanceHealthStatus])
+-&gt; FromJSON ApplicationInstanceHealthStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ApplicationInstanceHealthStatus]
+$cparseJSONList :: Value -&gt; Parser [ApplicationInstanceHealthStatus]
+parseJSON :: Value -&gt; Parser ApplicationInstanceHealthStatus
+$cparseJSON :: Value -&gt; Parser ApplicationInstanceHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679253555"><span id="local-6989586621679253557"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApplicationInstanceHealthStatus]
+FromJSONKeyFunction ApplicationInstanceHealthStatus
+FromJSONKeyFunction ApplicationInstanceHealthStatus
+-&gt; FromJSONKeyFunction [ApplicationInstanceHealthStatus]
+-&gt; FromJSONKey ApplicationInstanceHealthStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ApplicationInstanceHealthStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ApplicationInstanceHealthStatus]
+fromJSONKey :: FromJSONKeyFunction ApplicationInstanceHealthStatus
+$cfromJSONKey :: FromJSONKeyFunction ApplicationInstanceHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679253546"><span id="local-6989586621679253548"><span id="local-6989586621679253550"><span id="local-6989586621679253552"><span class="annot"><span class="annottext">[ApplicationInstanceHealthStatus] -&gt; Encoding
+[ApplicationInstanceHealthStatus] -&gt; Value
+ApplicationInstanceHealthStatus -&gt; Encoding
+ApplicationInstanceHealthStatus -&gt; Value
+(ApplicationInstanceHealthStatus -&gt; Value)
+-&gt; (ApplicationInstanceHealthStatus -&gt; Encoding)
+-&gt; ([ApplicationInstanceHealthStatus] -&gt; Value)
+-&gt; ([ApplicationInstanceHealthStatus] -&gt; Encoding)
+-&gt; ToJSON ApplicationInstanceHealthStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ApplicationInstanceHealthStatus] -&gt; Encoding
+$ctoEncodingList :: [ApplicationInstanceHealthStatus] -&gt; Encoding
+toJSONList :: [ApplicationInstanceHealthStatus] -&gt; Value
+$ctoJSONList :: [ApplicationInstanceHealthStatus] -&gt; Value
+toEncoding :: ApplicationInstanceHealthStatus -&gt; Encoding
+$ctoEncoding :: ApplicationInstanceHealthStatus -&gt; Encoding
+toJSON :: ApplicationInstanceHealthStatus -&gt; Value
+$ctoJSON :: ApplicationInstanceHealthStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679253541"><span id="local-6989586621679253543"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApplicationInstanceHealthStatus]
+ToJSONKeyFunction ApplicationInstanceHealthStatus
+ToJSONKeyFunction ApplicationInstanceHealthStatus
+-&gt; ToJSONKeyFunction [ApplicationInstanceHealthStatus]
+-&gt; ToJSONKey ApplicationInstanceHealthStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ApplicationInstanceHealthStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ApplicationInstanceHealthStatus]
+toJSONKey :: ToJSONKeyFunction ApplicationInstanceHealthStatus
+$ctoJSONKey :: ToJSONKeyFunction ApplicationInstanceHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679253538"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApplicationInstanceHealthStatus
+([Node] -&gt; Either String ApplicationInstanceHealthStatus)
+-&gt; FromXML ApplicationInstanceHealthStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ApplicationInstanceHealthStatus
+$cparseXML :: [Node] -&gt; Either String ApplicationInstanceHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679253535"><span class="annot"><span class="annottext">ApplicationInstanceHealthStatus -&gt; XML
+(ApplicationInstanceHealthStatus -&gt; XML)
+-&gt; ToXML ApplicationInstanceHealthStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ApplicationInstanceHealthStatus -&gt; XML
+$ctoXML :: ApplicationInstanceHealthStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_ERROR"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationInstanceHealthStatus_ERROR"><span id="%24mApplicationInstanceHealthStatus_ERROR"><span id="ApplicationInstanceHealthStatus_ERROR"><span class="annot"><span class="annottext">$bApplicationInstanceHealthStatus_ERROR :: ApplicationInstanceHealthStatus
+$mApplicationInstanceHealthStatus_ERROR :: forall r.
+ApplicationInstanceHealthStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#%24bApplicationInstanceHealthStatus_ERROR"><span class="hs-identifier hs-var hs-var hs-var">ApplicationInstanceHealthStatus_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus%27"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_NOT_AVAILABLE"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus_NOT_AVAILABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationInstanceHealthStatus_NOT_AVAILABLE"><span id="%24mApplicationInstanceHealthStatus_NOT_AVAILABLE"><span id="ApplicationInstanceHealthStatus_NOT_AVAILABLE"><span class="annot"><span class="annottext">$bApplicationInstanceHealthStatus_NOT_AVAILABLE :: ApplicationInstanceHealthStatus
+$mApplicationInstanceHealthStatus_NOT_AVAILABLE :: forall r.
+ApplicationInstanceHealthStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#%24bApplicationInstanceHealthStatus_NOT_AVAILABLE"><span class="hs-identifier hs-var hs-var hs-var">ApplicationInstanceHealthStatus_NOT_AVAILABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus%27"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_AVAILABLE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_RUNNING"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bApplicationInstanceHealthStatus_RUNNING"><span id="%24mApplicationInstanceHealthStatus_RUNNING"><span id="ApplicationInstanceHealthStatus_RUNNING"><span class="annot"><span class="annottext">$bApplicationInstanceHealthStatus_RUNNING :: ApplicationInstanceHealthStatus
+$mApplicationInstanceHealthStatus_RUNNING :: forall r.
+ApplicationInstanceHealthStatus
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#%24bApplicationInstanceHealthStatus_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">ApplicationInstanceHealthStatus_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus%27"><span class="hs-identifier hs-type">ApplicationInstanceHealthStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_ERROR"><span class="hs-pragma hs-type">ApplicationInstanceHealthStatus_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_NOT_AVAILABLE"><span class="hs-pragma hs-type">ApplicationInstanceHealthStatus_NOT_AVAILABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus_RUNNING"><span class="hs-pragma hs-type">ApplicationInstanceHealthStatus_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.Types.ApplicationInstanceHealthStatus.html#ApplicationInstanceHealthStatus%27"><span class="hs-pragma hs-type">ApplicationInstanceHealthStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

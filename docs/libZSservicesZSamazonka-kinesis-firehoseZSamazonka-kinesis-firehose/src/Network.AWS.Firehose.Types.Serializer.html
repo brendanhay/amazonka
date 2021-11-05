@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html Parquet SerDe&gt;.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newSerializer' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679278040"><span id="local-6989586621679278041"></span></span><span class="hs-keyword">data</span><span> </span><span id="Serializer"><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-var">Serializer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Serializer%27"><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-var">Serializer'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679278049"><span id="local-6989586621679278050"></span></span><span class="hs-keyword">data</span><span> </span><span id="Serializer"><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-var">Serializer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Serializer%27"><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-var">Serializer'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A serializer to use for converting data to the ORC format before storing</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- it in Amazon S3. For more information, see</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://orc.apache.org/docs/ Apache ORC&gt;.</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AparquetSerDe%3ASerializer%27"><span class="annot"><span class="annottext">Serializer -&gt; Maybe ParquetSerDe
 </span><a href="Network.AWS.Firehose.Types.Serializer.html#%24sel%3AparquetSerDe%3ASerializer%27"><span class="hs-identifier hs-var hs-var">parquetSerDe</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetSerDe.html#ParquetSerDe"><span class="hs-identifier hs-type">ParquetSerDe</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278033"><span id="local-6989586621679278035"><span class="annot"><span class="annottext">Serializer -&gt; Serializer -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278042"><span id="local-6989586621679278044"><span class="annot"><span class="annottext">Serializer -&gt; Serializer -&gt; Bool
 (Serializer -&gt; Serializer -&gt; Bool)
 -&gt; (Serializer -&gt; Serializer -&gt; Bool) -&gt; Eq Serializer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Serializer -&gt; Serializer -&gt; Bool
 == :: Serializer -&gt; Serializer -&gt; Bool
 $c== :: Serializer -&gt; Serializer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278024"><span id="local-6989586621679278026"><span id="local-6989586621679278028"><span id="local-6989586621679278030"><span class="annot"><span class="annottext">ReadPrec [Serializer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278033"><span id="local-6989586621679278035"><span id="local-6989586621679278037"><span id="local-6989586621679278039"><span class="annot"><span class="annottext">ReadPrec [Serializer]
 ReadPrec Serializer
 Int -&gt; ReadS Serializer
 ReadS [Serializer]
@@ -73,7 +73,7 @@ readList :: ReadS [Serializer]
 $creadList :: ReadS [Serializer]
 readsPrec :: Int -&gt; ReadS Serializer
 $creadsPrec :: Int -&gt; ReadS Serializer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278017"><span id="local-6989586621679278019"><span id="local-6989586621679278021"><span class="annot"><span class="annottext">Int -&gt; Serializer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278026"><span id="local-6989586621679278028"><span id="local-6989586621679278030"><span class="annot"><span class="annottext">Int -&gt; Serializer -&gt; ShowS
 [Serializer] -&gt; ShowS
 Serializer -&gt; String
 (Int -&gt; Serializer -&gt; ShowS)
@@ -139,16 +139,16 @@ forall a. Maybe a
 -&gt; (Serializer -&gt; Maybe OrcSerDe -&gt; Serializer)
 -&gt; Lens Serializer Serializer (Maybe OrcSerDe) (Maybe OrcSerDe)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278008"><span class="annot"><span class="annottext">Maybe OrcSerDe
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278017"><span class="annot"><span class="annottext">Maybe OrcSerDe
 orcSerDe :: Maybe OrcSerDe
 $sel:orcSerDe:Serializer' :: Serializer -&gt; Maybe OrcSerDe
-</span><a href="#local-6989586621679278008"><span class="hs-identifier hs-var hs-var">orcSerDe</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrcSerDe
-</span><a href="#local-6989586621679278008"><span class="hs-identifier hs-var">orcSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278007"><span class="annot"><span class="annottext">s :: Serializer
-</span><a href="#local-6989586621679278007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278006"><span class="annot"><span class="annottext">Maybe OrcSerDe
-</span><a href="#local-6989586621679278006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Serializer
-</span><a href="#local-6989586621679278007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orcSerDe:Serializer' :: Maybe OrcSerDe
+</span><a href="#local-6989586621679278017"><span class="hs-identifier hs-var hs-var">orcSerDe</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrcSerDe
+</span><a href="#local-6989586621679278017"><span class="hs-identifier hs-var">orcSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278016"><span class="annot"><span class="annottext">s :: Serializer
+</span><a href="#local-6989586621679278016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278015"><span class="annot"><span class="annottext">Maybe OrcSerDe
+</span><a href="#local-6989586621679278015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Serializer
+</span><a href="#local-6989586621679278016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:orcSerDe:Serializer' :: Maybe OrcSerDe
 </span><a href="Network.AWS.Firehose.Types.Serializer.html#%24sel%3AorcSerDe%3ASerializer%27"><span class="hs-identifier hs-var">orcSerDe</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrcSerDe
-</span><a href="#local-6989586621679278006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | A serializer to use for converting data to the Parquet format before</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- storing it in Amazon S3. For more information, see</span><span>
@@ -161,19 +161,19 @@ $sel:orcSerDe:Serializer' :: Serializer -&gt; Maybe OrcSerDe
 -&gt; Lens
      Serializer Serializer (Maybe ParquetSerDe) (Maybe ParquetSerDe)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278004"><span class="annot"><span class="annottext">Maybe ParquetSerDe
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278013"><span class="annot"><span class="annottext">Maybe ParquetSerDe
 parquetSerDe :: Maybe ParquetSerDe
 $sel:parquetSerDe:Serializer' :: Serializer -&gt; Maybe ParquetSerDe
-</span><a href="#local-6989586621679278004"><span class="hs-identifier hs-var hs-var">parquetSerDe</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetSerDe
-</span><a href="#local-6989586621679278004"><span class="hs-identifier hs-var">parquetSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278003"><span class="annot"><span class="annottext">s :: Serializer
-</span><a href="#local-6989586621679278003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278002"><span class="annot"><span class="annottext">Maybe ParquetSerDe
-</span><a href="#local-6989586621679278002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Serializer
-</span><a href="#local-6989586621679278003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parquetSerDe:Serializer' :: Maybe ParquetSerDe
+</span><a href="#local-6989586621679278013"><span class="hs-identifier hs-var hs-var">parquetSerDe</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetSerDe
+</span><a href="#local-6989586621679278013"><span class="hs-identifier hs-var">parquetSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278012"><span class="annot"><span class="annottext">s :: Serializer
+</span><a href="#local-6989586621679278012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278011"><span class="annot"><span class="annottext">Maybe ParquetSerDe
+</span><a href="#local-6989586621679278011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Serializer
+</span><a href="#local-6989586621679278012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parquetSerDe:Serializer' :: Maybe ParquetSerDe
 </span><a href="Network.AWS.Firehose.Types.Serializer.html#%24sel%3AparquetSerDe%3ASerializer%27"><span class="hs-identifier hs-var">parquetSerDe</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetSerDe
-</span><a href="#local-6989586621679278002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679278011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277999"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679277997"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Serializer
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278008"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679278006"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Serializer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Serializer) -&gt; Value -&gt; Parser Serializer
@@ -181,8 +181,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Serializer&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277994"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277994"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278003"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278003"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe OrcSerDe -&gt; Maybe ParquetSerDe -&gt; Serializer
 </span><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-var">Serializer'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OrcSerDe -&gt; Maybe ParquetSerDe -&gt; Serializer)
@@ -190,7 +190,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ParquetSerDe -&gt; Serializer)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277994"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrcSerDe)
+</span><a href="#local-6989586621679278003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrcSerDe)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrcSerDe&quot;</span></span><span class="hs-special">)</span><span>
@@ -198,25 +198,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe ParquetSerDe) -&gt; Parser Serializer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277994"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetSerDe)
+</span><a href="#local-6989586621679278003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetSerDe)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParquetSerDe&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277988"><span id="local-6989586621679277990"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277997"><span id="local-6989586621679277999"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277985"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277994"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277977"><span id="local-6989586621679277979"><span id="local-6989586621679277981"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679277975"><span class="annot"><span class="annottext">toJSON :: Serializer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277972"><span id="local-6989586621679277973"><span class="annot"><span class="annottext">Maybe OrcSerDe
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277986"><span id="local-6989586621679277988"><span id="local-6989586621679277990"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer"><span class="hs-identifier hs-type">Serializer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679277984"><span class="annot"><span class="annottext">toJSON :: Serializer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Serializer.html#Serializer%27"><span class="hs-identifier hs-type">Serializer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277981"><span id="local-6989586621679277982"><span class="annot"><span class="annottext">Maybe OrcSerDe
 Maybe ParquetSerDe
 parquetSerDe :: Maybe ParquetSerDe
 orcSerDe :: Maybe OrcSerDe
 $sel:parquetSerDe:Serializer' :: Serializer -&gt; Maybe ParquetSerDe
 $sel:orcSerDe:Serializer' :: Serializer -&gt; Maybe OrcSerDe
-</span><a href="#local-6989586621679277972"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679277981"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -228,14 +228,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OrcSerDe -&gt; Pair) -&gt; Maybe OrcSerDe -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrcSerDe
-</span><a href="#local-6989586621679277973"><span class="hs-identifier hs-var">orcSerDe</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277982"><span class="hs-identifier hs-var">orcSerDe</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParquetSerDe&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParquetSerDe -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ParquetSerDe -&gt; Pair) -&gt; Maybe ParquetSerDe -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParquetSerDe
-</span><a href="#local-6989586621679277972"><span class="hs-identifier hs-var">parquetSerDe</span></a></span><span>
+</span><a href="#local-6989586621679277981"><span class="hs-identifier hs-var">parquetSerDe</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

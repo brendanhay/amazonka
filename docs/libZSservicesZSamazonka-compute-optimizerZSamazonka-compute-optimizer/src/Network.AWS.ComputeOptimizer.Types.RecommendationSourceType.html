@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.RecommendationSourceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.RecommendationSourceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType"><span class="hs-identifier">RecommendationSourceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_AutoScalingGroup"><span class="hs-identifier">RecommendationSourceType_AutoScalingGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_EbsVolume"><span class="hs-identifier">RecommendationSourceType_EbsVolume</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_Ec2Instance"><span class="hs-identifier">RecommendationSourceType_Ec2Instance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_LambdaFunction"><span class="hs-identifier">RecommendationSourceType_LambdaFunction</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679241958"><span id="local-6989586621679241959"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecommendationSourceType"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType"><span class="hs-identifier hs-var">RecommendationSourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecommendationSourceType%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType%27"><span class="hs-identifier hs-var">RecommendationSourceType'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecommendationSourceType"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#fromRecommendationSourceType"><span class="hs-identifier hs-var hs-var">fromRecommendationSourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241950"><span id="local-6989586621679241952"><span id="local-6989586621679241954"><span class="annot"><span class="annottext">Int -&gt; RecommendationSourceType -&gt; ShowS
+[RecommendationSourceType] -&gt; ShowS
+RecommendationSourceType -&gt; String
+(Int -&gt; RecommendationSourceType -&gt; ShowS)
+-&gt; (RecommendationSourceType -&gt; String)
+-&gt; ([RecommendationSourceType] -&gt; ShowS)
+-&gt; Show RecommendationSourceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RecommendationSourceType] -&gt; ShowS
+$cshowList :: [RecommendationSourceType] -&gt; ShowS
+show :: RecommendationSourceType -&gt; String
+$cshow :: RecommendationSourceType -&gt; String
+showsPrec :: Int -&gt; RecommendationSourceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RecommendationSourceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679241941"><span id="local-6989586621679241943"><span id="local-6989586621679241945"><span id="local-6989586621679241947"><span class="annot"><span class="annottext">ReadPrec [RecommendationSourceType]
+ReadPrec RecommendationSourceType
+Int -&gt; ReadS RecommendationSourceType
+ReadS [RecommendationSourceType]
+(Int -&gt; ReadS RecommendationSourceType)
+-&gt; ReadS [RecommendationSourceType]
+-&gt; ReadPrec RecommendationSourceType
+-&gt; ReadPrec [RecommendationSourceType]
+-&gt; Read RecommendationSourceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RecommendationSourceType]
+$creadListPrec :: ReadPrec [RecommendationSourceType]
+readPrec :: ReadPrec RecommendationSourceType
+$creadPrec :: ReadPrec RecommendationSourceType
+readList :: ReadS [RecommendationSourceType]
+$creadList :: ReadS [RecommendationSourceType]
+readsPrec :: Int -&gt; ReadS RecommendationSourceType
+$creadsPrec :: Int -&gt; ReadS RecommendationSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679241936"><span id="local-6989586621679241938"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+(RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool)
+-&gt; (RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool)
+-&gt; Eq RecommendationSourceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+$c/= :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+== :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+$c== :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679241920"><span id="local-6989586621679241922"><span id="local-6989586621679241924"><span id="local-6989586621679241926"><span id="local-6989586621679241928"><span id="local-6989586621679241930"><span id="local-6989586621679241932"><span class="annot"><span class="annottext">Eq RecommendationSourceType
+Eq RecommendationSourceType
+-&gt; (RecommendationSourceType
+    -&gt; RecommendationSourceType -&gt; Ordering)
+-&gt; (RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool)
+-&gt; (RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool)
+-&gt; (RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool)
+-&gt; (RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool)
+-&gt; (RecommendationSourceType
+    -&gt; RecommendationSourceType -&gt; RecommendationSourceType)
+-&gt; (RecommendationSourceType
+    -&gt; RecommendationSourceType -&gt; RecommendationSourceType)
+-&gt; Ord RecommendationSourceType
+RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+RecommendationSourceType -&gt; RecommendationSourceType -&gt; Ordering
+RecommendationSourceType
+-&gt; RecommendationSourceType -&gt; RecommendationSourceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RecommendationSourceType
+-&gt; RecommendationSourceType -&gt; RecommendationSourceType
+$cmin :: RecommendationSourceType
+-&gt; RecommendationSourceType -&gt; RecommendationSourceType
+max :: RecommendationSourceType
+-&gt; RecommendationSourceType -&gt; RecommendationSourceType
+$cmax :: RecommendationSourceType
+-&gt; RecommendationSourceType -&gt; RecommendationSourceType
+&gt;= :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+$c&gt;= :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+&gt; :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+$c&gt; :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+&lt;= :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+$c&lt;= :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+&lt; :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+$c&lt; :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Bool
+compare :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Ordering
+$ccompare :: RecommendationSourceType -&gt; RecommendationSourceType -&gt; Ordering
+$cp1Ord :: Eq RecommendationSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ RecommendationSourceType -&gt; Rep RecommendationSourceType x)
+-&gt; (forall x.
+    Rep RecommendationSourceType x -&gt; RecommendationSourceType)
+-&gt; Generic RecommendationSourceType
+forall x.
+Rep RecommendationSourceType x -&gt; RecommendationSourceType
+forall x.
+RecommendationSourceType -&gt; Rep RecommendationSourceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RecommendationSourceType x -&gt; RecommendationSourceType
+$cfrom :: forall x.
+RecommendationSourceType -&gt; Rep RecommendationSourceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679241912"><span id="local-6989586621679241914"><span class="annot"><span class="annottext">Int -&gt; RecommendationSourceType -&gt; Int
+RecommendationSourceType -&gt; Int
+(Int -&gt; RecommendationSourceType -&gt; Int)
+-&gt; (RecommendationSourceType -&gt; Int)
+-&gt; Hashable RecommendationSourceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RecommendationSourceType -&gt; Int
+$chash :: RecommendationSourceType -&gt; Int
+hashWithSalt :: Int -&gt; RecommendationSourceType -&gt; Int
+$chashWithSalt :: Int -&gt; RecommendationSourceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679241909"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; ()
+(RecommendationSourceType -&gt; ()) -&gt; NFData RecommendationSourceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RecommendationSourceType -&gt; ()
+$crnf :: RecommendationSourceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679241906"><span class="annot"><span class="annottext">Text -&gt; Either String RecommendationSourceType
+(Text -&gt; Either String RecommendationSourceType)
+-&gt; FromText RecommendationSourceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RecommendationSourceType
+$cfromText :: Text -&gt; Either String RecommendationSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679241903"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; Text
+(RecommendationSourceType -&gt; Text)
+-&gt; ToText RecommendationSourceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RecommendationSourceType -&gt; Text
+$ctoText :: RecommendationSourceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679241900"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; ByteString
+(RecommendationSourceType -&gt; ByteString)
+-&gt; ToByteString RecommendationSourceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RecommendationSourceType -&gt; ByteString
+$ctoBS :: RecommendationSourceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679241897"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; ByteStringBuilder
+(RecommendationSourceType -&gt; ByteStringBuilder)
+-&gt; ToLog RecommendationSourceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RecommendationSourceType -&gt; ByteStringBuilder
+$cbuild :: RecommendationSourceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679241894"><span class="annot"><span class="annottext">HeaderName -&gt; RecommendationSourceType -&gt; [Header]
+(HeaderName -&gt; RecommendationSourceType -&gt; [Header])
+-&gt; ToHeader RecommendationSourceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RecommendationSourceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RecommendationSourceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679241891"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; QueryString
+(RecommendationSourceType -&gt; QueryString)
+-&gt; ToQuery RecommendationSourceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RecommendationSourceType -&gt; QueryString
+$ctoQuery :: RecommendationSourceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679241886"><span id="local-6989586621679241888"><span class="annot"><span class="annottext">Value -&gt; Parser [RecommendationSourceType]
+Value -&gt; Parser RecommendationSourceType
+(Value -&gt; Parser RecommendationSourceType)
+-&gt; (Value -&gt; Parser [RecommendationSourceType])
+-&gt; FromJSON RecommendationSourceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RecommendationSourceType]
+$cparseJSONList :: Value -&gt; Parser [RecommendationSourceType]
+parseJSON :: Value -&gt; Parser RecommendationSourceType
+$cparseJSON :: Value -&gt; Parser RecommendationSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679241881"><span id="local-6989586621679241883"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecommendationSourceType]
+FromJSONKeyFunction RecommendationSourceType
+FromJSONKeyFunction RecommendationSourceType
+-&gt; FromJSONKeyFunction [RecommendationSourceType]
+-&gt; FromJSONKey RecommendationSourceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RecommendationSourceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RecommendationSourceType]
+fromJSONKey :: FromJSONKeyFunction RecommendationSourceType
+$cfromJSONKey :: FromJSONKeyFunction RecommendationSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679241872"><span id="local-6989586621679241874"><span id="local-6989586621679241876"><span id="local-6989586621679241878"><span class="annot"><span class="annottext">[RecommendationSourceType] -&gt; Encoding
+[RecommendationSourceType] -&gt; Value
+RecommendationSourceType -&gt; Encoding
+RecommendationSourceType -&gt; Value
+(RecommendationSourceType -&gt; Value)
+-&gt; (RecommendationSourceType -&gt; Encoding)
+-&gt; ([RecommendationSourceType] -&gt; Value)
+-&gt; ([RecommendationSourceType] -&gt; Encoding)
+-&gt; ToJSON RecommendationSourceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RecommendationSourceType] -&gt; Encoding
+$ctoEncodingList :: [RecommendationSourceType] -&gt; Encoding
+toJSONList :: [RecommendationSourceType] -&gt; Value
+$ctoJSONList :: [RecommendationSourceType] -&gt; Value
+toEncoding :: RecommendationSourceType -&gt; Encoding
+$ctoEncoding :: RecommendationSourceType -&gt; Encoding
+toJSON :: RecommendationSourceType -&gt; Value
+$ctoJSON :: RecommendationSourceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679241867"><span id="local-6989586621679241869"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecommendationSourceType]
+ToJSONKeyFunction RecommendationSourceType
+ToJSONKeyFunction RecommendationSourceType
+-&gt; ToJSONKeyFunction [RecommendationSourceType]
+-&gt; ToJSONKey RecommendationSourceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RecommendationSourceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RecommendationSourceType]
+toJSONKey :: ToJSONKeyFunction RecommendationSourceType
+$ctoJSONKey :: ToJSONKeyFunction RecommendationSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679241864"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecommendationSourceType
+([Node] -&gt; Either String RecommendationSourceType)
+-&gt; FromXML RecommendationSourceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RecommendationSourceType
+$cparseXML :: [Node] -&gt; Either String RecommendationSourceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679241861"><span class="annot"><span class="annottext">RecommendationSourceType -&gt; XML
+(RecommendationSourceType -&gt; XML) -&gt; ToXML RecommendationSourceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RecommendationSourceType -&gt; XML
+$ctoXML :: RecommendationSourceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_AutoScalingGroup"><span class="hs-identifier hs-type">RecommendationSourceType_AutoScalingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType"><span class="hs-identifier hs-type">RecommendationSourceType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecommendationSourceType_AutoScalingGroup"><span id="%24mRecommendationSourceType_AutoScalingGroup"><span id="RecommendationSourceType_AutoScalingGroup"><span class="annot"><span class="annottext">$bRecommendationSourceType_AutoScalingGroup :: RecommendationSourceType
+$mRecommendationSourceType_AutoScalingGroup :: forall r.
+RecommendationSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#%24bRecommendationSourceType_AutoScalingGroup"><span class="hs-identifier hs-var hs-var hs-var">RecommendationSourceType_AutoScalingGroup</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType%27"><span class="hs-identifier hs-type">RecommendationSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AutoScalingGroup&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_EbsVolume"><span class="hs-identifier hs-type">RecommendationSourceType_EbsVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType"><span class="hs-identifier hs-type">RecommendationSourceType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecommendationSourceType_EbsVolume"><span id="%24mRecommendationSourceType_EbsVolume"><span id="RecommendationSourceType_EbsVolume"><span class="annot"><span class="annottext">$bRecommendationSourceType_EbsVolume :: RecommendationSourceType
+$mRecommendationSourceType_EbsVolume :: forall r.
+RecommendationSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#%24bRecommendationSourceType_EbsVolume"><span class="hs-identifier hs-var hs-var hs-var">RecommendationSourceType_EbsVolume</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType%27"><span class="hs-identifier hs-type">RecommendationSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EbsVolume&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_Ec2Instance"><span class="hs-identifier hs-type">RecommendationSourceType_Ec2Instance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType"><span class="hs-identifier hs-type">RecommendationSourceType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecommendationSourceType_Ec2Instance"><span id="%24mRecommendationSourceType_Ec2Instance"><span id="RecommendationSourceType_Ec2Instance"><span class="annot"><span class="annottext">$bRecommendationSourceType_Ec2Instance :: RecommendationSourceType
+$mRecommendationSourceType_Ec2Instance :: forall r.
+RecommendationSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#%24bRecommendationSourceType_Ec2Instance"><span class="hs-identifier hs-var hs-var hs-var">RecommendationSourceType_Ec2Instance</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType%27"><span class="hs-identifier hs-type">RecommendationSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Ec2Instance&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_LambdaFunction"><span class="hs-identifier hs-type">RecommendationSourceType_LambdaFunction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType"><span class="hs-identifier hs-type">RecommendationSourceType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRecommendationSourceType_LambdaFunction"><span id="%24mRecommendationSourceType_LambdaFunction"><span id="RecommendationSourceType_LambdaFunction"><span class="annot"><span class="annottext">$bRecommendationSourceType_LambdaFunction :: RecommendationSourceType
+$mRecommendationSourceType_LambdaFunction :: forall r.
+RecommendationSourceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#%24bRecommendationSourceType_LambdaFunction"><span class="hs-identifier hs-var hs-var hs-var">RecommendationSourceType_LambdaFunction</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType%27"><span class="hs-identifier hs-type">RecommendationSourceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LambdaFunction&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_AutoScalingGroup"><span class="hs-pragma hs-type">RecommendationSourceType_AutoScalingGroup</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_EbsVolume"><span class="hs-pragma hs-type">RecommendationSourceType_EbsVolume</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_Ec2Instance"><span class="hs-pragma hs-type">RecommendationSourceType_Ec2Instance</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType_LambdaFunction"><span class="hs-pragma hs-type">RecommendationSourceType_LambdaFunction</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.RecommendationSourceType.html#RecommendationSourceType%27"><span class="hs-pragma hs-type">RecommendationSourceType'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | /See:/ 'newDescribeUsageLimits' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679512656"><span id="local-6989586621679512657"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsageLimits"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-var">DescribeUsageLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsageLimits%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-var">DescribeUsageLimits'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679512665"><span id="local-6989586621679512666"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsageLimits"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-var">DescribeUsageLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsageLimits%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-var">DescribeUsageLimits'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching usage</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- limit objects that are associated with the specified tag value or</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- values. For example, suppose that you have parameter groups that are</span><span>
@@ -120,7 +120,7 @@
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeUsageLimits%27"><span class="annot"><span class="annottext">DescribeUsageLimits -&gt; Maybe Int
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AmaxRecords%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679512644"><span id="local-6989586621679512646"><span class="annot"><span class="annottext">DescribeUsageLimits -&gt; DescribeUsageLimits -&gt; Bool
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679512653"><span id="local-6989586621679512655"><span class="annot"><span class="annottext">DescribeUsageLimits -&gt; DescribeUsageLimits -&gt; Bool
 (DescribeUsageLimits -&gt; DescribeUsageLimits -&gt; Bool)
 -&gt; (DescribeUsageLimits -&gt; DescribeUsageLimits -&gt; Bool)
 -&gt; Eq DescribeUsageLimits
@@ -129,7 +129,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUsageLimits -&gt; DescribeUsageLimits -&gt; Bool
 == :: DescribeUsageLimits -&gt; DescribeUsageLimits -&gt; Bool
 $c== :: DescribeUsageLimits -&gt; DescribeUsageLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512635"><span id="local-6989586621679512637"><span id="local-6989586621679512639"><span id="local-6989586621679512641"><span class="annot"><span class="annottext">ReadPrec [DescribeUsageLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512644"><span id="local-6989586621679512646"><span id="local-6989586621679512648"><span id="local-6989586621679512650"><span class="annot"><span class="annottext">ReadPrec [DescribeUsageLimits]
 ReadPrec DescribeUsageLimits
 Int -&gt; ReadS DescribeUsageLimits
 ReadS [DescribeUsageLimits]
@@ -149,7 +149,7 @@ readList :: ReadS [DescribeUsageLimits]
 $creadList :: ReadS [DescribeUsageLimits]
 readsPrec :: Int -&gt; ReadS DescribeUsageLimits
 $creadsPrec :: Int -&gt; ReadS DescribeUsageLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512628"><span id="local-6989586621679512630"><span id="local-6989586621679512632"><span class="annot"><span class="annottext">Int -&gt; DescribeUsageLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512637"><span id="local-6989586621679512639"><span id="local-6989586621679512641"><span class="annot"><span class="annottext">Int -&gt; DescribeUsageLimits -&gt; ShowS
 [DescribeUsageLimits] -&gt; ShowS
 DescribeUsageLimits -&gt; String
 (Int -&gt; DescribeUsageLimits -&gt; ShowS)
@@ -282,16 +282,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512622"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512631"><span class="annot"><span class="annottext">Maybe [Text]
 tagValues :: Maybe [Text]
 $sel:tagValues:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe [Text]
-</span><a href="#local-6989586621679512622"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512622"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512621"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
-</span><a href="#local-6989586621679512621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512620"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeUsageLimits' :: Maybe [Text]
+</span><a href="#local-6989586621679512631"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679512631"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512630"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
+</span><a href="#local-6989586621679512630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512629"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679512629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeUsageLimits' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AtagValues%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679512629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeUsageLimits -&gt; f DescribeUsageLimits)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -317,16 +317,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeUsageLimits DescribeUsageLimits (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512616"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512625"><span class="annot"><span class="annottext">Maybe Text
 usageLimitId :: Maybe Text
 $sel:usageLimitId:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe Text
-</span><a href="#local-6989586621679512616"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512616"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512615"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
-</span><a href="#local-6989586621679512615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512614"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimitId:DescribeUsageLimits' :: Maybe Text
+</span><a href="#local-6989586621679512625"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512625"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512624"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
+</span><a href="#local-6989586621679512624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512623"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimitId:DescribeUsageLimits' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AusageLimitId%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching usage limit</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- objects that are associated with the specified key or keys. For example,</span><span>
@@ -345,16 +345,16 @@ $sel:usageLimitId:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512613"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512622"><span class="annot"><span class="annottext">Maybe [Text]
 tagKeys :: Maybe [Text]
 $sel:tagKeys:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe [Text]
-</span><a href="#local-6989586621679512613"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512613"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512612"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
-</span><a href="#local-6989586621679512612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512611"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeUsageLimits' :: Maybe [Text]
+</span><a href="#local-6989586621679512622"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679512622"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512621"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
+</span><a href="#local-6989586621679512621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512620"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679512620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeUsageLimits' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AtagKeys%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679512620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeUsageLimits -&gt; f DescribeUsageLimits)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -381,16 +381,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeUsageLimits DescribeUsageLimits (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512610"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512619"><span class="annot"><span class="annottext">Maybe Text
 clusterIdentifier :: Maybe Text
 $sel:clusterIdentifier:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe Text
-</span><a href="#local-6989586621679512610"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512610"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512609"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
-</span><a href="#local-6989586621679512609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512608"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribeUsageLimits' :: Maybe Text
+</span><a href="#local-6989586621679512619"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512619"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512618"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
+</span><a href="#local-6989586621679512618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512617"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribeUsageLimits' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AclusterIdentifier%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The feature type for which you want to describe usage limits.</span><span>
 </span><span id="line-206"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#describeUsageLimits_featureType"><span class="hs-identifier hs-type">describeUsageLimits_featureType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitFeatureType.html#UsageLimitFeatureType"><span class="hs-identifier hs-type">UsageLimitFeatureType</span></a></span><span class="hs-special">)</span><span>
@@ -405,16 +405,16 @@ $sel:clusterIdentifier:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe T
      (Maybe UsageLimitFeatureType)
      (Maybe UsageLimitFeatureType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512607"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512616"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
 featureType :: Maybe UsageLimitFeatureType
 $sel:featureType:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679512607"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679512607"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512606"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
-</span><a href="#local-6989586621679512606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512605"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679512605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureType:DescribeUsageLimits' :: Maybe UsageLimitFeatureType
+</span><a href="#local-6989586621679512616"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+</span><a href="#local-6989586621679512616"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512615"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
+</span><a href="#local-6989586621679512615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512614"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+</span><a href="#local-6989586621679512614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureType:DescribeUsageLimits' :: Maybe UsageLimitFeatureType
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AfeatureType%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var">featureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679512605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- of response records. When the results of a DescribeUsageLimits request</span><span>
@@ -430,16 +430,16 @@ $sel:featureType:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe UsageLi
 -&gt; Lens
      DescribeUsageLimits DescribeUsageLimits (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512604"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512613"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe Text
-</span><a href="#local-6989586621679512604"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512604"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512603"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
-</span><a href="#local-6989586621679512603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512602"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsageLimits' :: Maybe Text
+</span><a href="#local-6989586621679512613"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512613"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512612"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
+</span><a href="#local-6989586621679512612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512611"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsageLimits' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3Amarker%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
@@ -458,29 +458,29 @@ $sel:marker:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe Text
 -&gt; Lens
      DescribeUsageLimits DescribeUsageLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512601"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512610"><span class="annot"><span class="annottext">Maybe Int
 maxRecords :: Maybe Int
 $sel:maxRecords:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679512601"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679512601"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512600"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
-</span><a href="#local-6989586621679512600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512599"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679512599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUsageLimits' :: Maybe Int
+</span><a href="#local-6989586621679512610"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679512610"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512609"><span class="annot"><span class="annottext">s :: DescribeUsageLimits
+</span><a href="#local-6989586621679512609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512608"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679512608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeUsageLimits' :: Maybe Int
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AmaxRecords%3ADescribeUsageLimits%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679512599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679512595"><span class="annot"><span class="annottext">page :: DescribeUsageLimits
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679512604"><span class="annot"><span class="annottext">page :: DescribeUsageLimits
 -&gt; AWSResponse DescribeUsageLimits -&gt; Maybe DescribeUsageLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679512593"><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512593"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679512592"><span class="annot"><span class="annottext">AWSResponse DescribeUsageLimits
-</span><a href="#local-6989586621679512592"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679512602"><span class="annot"><span class="annottext">DescribeUsageLimits
+</span><a href="#local-6989586621679512602"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679512601"><span class="annot"><span class="annottext">AWSResponse DescribeUsageLimits
+</span><a href="#local-6989586621679512601"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-233"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsageLimits
 DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512592"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679512601"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
 -&gt; Getting (First Text) DescribeUsageLimitsResponse Text
 -&gt; Maybe Text
@@ -510,7 +510,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-239"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsageLimits
 DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512592"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679512601"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
 -&gt; Getting
      (First [UsageLimit]) DescribeUsageLimitsResponse [UsageLimit]
@@ -550,7 +550,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">DescribeUsageLimits
-</span><a href="#local-6989586621679512593"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679512602"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">DescribeUsageLimits
 -&gt; (DescribeUsageLimits -&gt; DescribeUsageLimits)
 -&gt; DescribeUsageLimits
@@ -566,7 +566,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsageLimits
 DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512592"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679512601"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
 -&gt; Getting (First Text) DescribeUsageLimitsResponse Text
 -&gt; Maybe Text
@@ -592,12 +592,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-253"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-254"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-255"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679512583"><span class="annot"><span class="annottext">request :: DescribeUsageLimits -&gt; Request DescribeUsageLimits
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679512592"><span class="annot"><span class="annottext">request :: DescribeUsageLimits -&gt; Request DescribeUsageLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUsageLimits -&gt; Request DescribeUsageLimits
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679512579"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679512588"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeUsageLimits
 -&gt; ClientResponse ClientBody
@@ -628,10 +628,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeUsageLimitsResult&quot;</span></span><span>
-</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679512576"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679512576"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679512575"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679512575"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679512574"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679512574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679512585"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679512585"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679512584"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679512584"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679512583"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679512583"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UsageLimit]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeUsageLimitsResponse
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var">DescribeUsageLimitsResponse'</span></a></span><span>
@@ -641,7 +641,7 @@ Text
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeUsageLimitsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679512574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679512583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UsageLimits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -668,7 +668,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeUsageLimitsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679512574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679512583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -680,15 +680,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679512576"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512585"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512563"><span id="local-6989586621679512565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span></span></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512572"><span id="local-6989586621679512574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span></span></span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span></span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679512556"><span class="annot"><span class="annottext">toHeaders :: DescribeUsageLimits -&gt; ResponseHeaders
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679512565"><span class="annot"><span class="annottext">toHeaders :: DescribeUsageLimits -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUsageLimits -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -696,15 +696,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-277"></span><span>  </span><span id="local-6989586621679512551"><span class="annot"><span class="annottext">toPath :: DescribeUsageLimits -&gt; ByteString
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679512560"><span class="annot"><span class="annottext">toPath :: DescribeUsageLimits -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeUsageLimits -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits"><span class="hs-identifier hs-type">DescribeUsageLimits</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-280"></span><span>  </span><span id="local-6989586621679512547"><span class="annot"><span class="annottext">toQuery :: DescribeUsageLimits -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512539"><span id="local-6989586621679512540"><span id="local-6989586621679512541"><span id="local-6989586621679512542"><span id="local-6989586621679512543"><span id="local-6989586621679512544"><span id="local-6989586621679512545"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679512556"><span class="annot"><span class="annottext">toQuery :: DescribeUsageLimits -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimits%27"><span class="hs-identifier hs-type">DescribeUsageLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512548"><span id="local-6989586621679512549"><span id="local-6989586621679512550"><span id="local-6989586621679512551"><span id="local-6989586621679512552"><span id="local-6989586621679512553"><span id="local-6989586621679512554"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 Maybe UsageLimitFeatureType
@@ -722,7 +722,7 @@ $sel:clusterIdentifier:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe T
 $sel:tagKeys:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe [Text]
 $sel:usageLimitId:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe Text
 $sel:tagValues:DescribeUsageLimits' :: DescribeUsageLimits -&gt; Maybe [Text]
-</span><a href="#local-6989586621679512539"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679512548"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -753,12 +753,12 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512545"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679512554"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UsageLimitId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512544"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679512553"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
 </span><span id="line-291"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -774,31 +774,31 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679512543"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679512552"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512542"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679512551"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;FeatureType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe UsageLimitFeatureType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679512541"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679512550"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512540"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679512549"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679512539"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><a href="#local-6989586621679512548"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-297"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-comment">-- | /See:/ 'newDescribeUsageLimitsResponse' smart constructor.</span><span>
-</span><span id="line-300"></span><span id="local-6989586621679512535"><span id="local-6989586621679512536"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsageLimitsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-var">DescribeUsageLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsageLimitsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var">DescribeUsageLimitsResponse'</span></a></span></span><span>
+</span><span id="line-300"></span><span id="local-6989586621679512544"><span id="local-6989586621679512545"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsageLimitsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-var">DescribeUsageLimitsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsageLimitsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var">DescribeUsageLimitsResponse'</span></a></span></span><span>
 </span><span id="line-301"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the output from the DescribeUsageLimits action.</span><span>
 </span><span id="line-302"></span><span>    </span><span id="%24sel%3AusageLimits%3ADescribeUsageLimitsResponse%27"><span class="annot"><span class="annottext">DescribeUsageLimitsResponse -&gt; Maybe [UsageLimit]
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AusageLimits%3ADescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var hs-var">usageLimits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -814,7 +814,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-311"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUsageLimitsResponse%27"><span class="annot"><span class="annottext">DescribeUsageLimitsResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AhttpStatus%3ADescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-312"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-313"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679512528"><span id="local-6989586621679512530"><span class="annot"><span class="annottext">DescribeUsageLimitsResponse -&gt; DescribeUsageLimitsResponse -&gt; Bool
+</span><span id="line-313"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679512537"><span id="local-6989586621679512539"><span class="annot"><span class="annottext">DescribeUsageLimitsResponse -&gt; DescribeUsageLimitsResponse -&gt; Bool
 (DescribeUsageLimitsResponse
  -&gt; DescribeUsageLimitsResponse -&gt; Bool)
 -&gt; (DescribeUsageLimitsResponse
@@ -825,7 +825,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUsageLimitsResponse -&gt; DescribeUsageLimitsResponse -&gt; Bool
 == :: DescribeUsageLimitsResponse -&gt; DescribeUsageLimitsResponse -&gt; Bool
 $c== :: DescribeUsageLimitsResponse -&gt; DescribeUsageLimitsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512520"><span id="local-6989586621679512522"><span id="local-6989586621679512524"><span id="local-6989586621679512526"><span class="annot"><span class="annottext">ReadPrec [DescribeUsageLimitsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512529"><span id="local-6989586621679512531"><span id="local-6989586621679512533"><span id="local-6989586621679512535"><span class="annot"><span class="annottext">ReadPrec [DescribeUsageLimitsResponse]
 ReadPrec DescribeUsageLimitsResponse
 Int -&gt; ReadS DescribeUsageLimitsResponse
 ReadS [DescribeUsageLimitsResponse]
@@ -845,7 +845,7 @@ readList :: ReadS [DescribeUsageLimitsResponse]
 $creadList :: ReadS [DescribeUsageLimitsResponse]
 readsPrec :: Int -&gt; ReadS DescribeUsageLimitsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeUsageLimitsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512514"><span id="local-6989586621679512516"><span id="local-6989586621679512518"><span class="annot"><span class="annottext">Int -&gt; DescribeUsageLimitsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679512523"><span id="local-6989586621679512525"><span id="local-6989586621679512527"><span class="annot"><span class="annottext">Int -&gt; DescribeUsageLimitsResponse -&gt; ShowS
 [DescribeUsageLimitsResponse] -&gt; ShowS
 DescribeUsageLimitsResponse -&gt; String
 (Int -&gt; DescribeUsageLimitsResponse -&gt; ShowS)
@@ -900,8 +900,8 @@ DescribeUsageLimitsResponse -&gt; Rep DescribeUsageLimitsResponse x
 </span><span id="line-335"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-336"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span>
 </span><span id="line-337"></span><span id="newDescribeUsageLimitsResponse"><span class="annot"><span class="annottext">newDescribeUsageLimitsResponse :: Int -&gt; DescribeUsageLimitsResponse
-</span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#newDescribeUsageLimitsResponse"><span class="hs-identifier hs-var hs-var">newDescribeUsageLimitsResponse</span></a></span></span><span> </span><span id="local-6989586621679512511"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679512511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#newDescribeUsageLimitsResponse"><span class="hs-identifier hs-var hs-var">newDescribeUsageLimitsResponse</span></a></span></span><span> </span><span id="local-6989586621679512520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679512520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-338"></span><span>  </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse' :: Maybe [UsageLimit]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeUsageLimitsResponse
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span>
@@ -916,7 +916,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-342"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsageLimitsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AhttpStatus%3ADescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679512511"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679512520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-343"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-comment">-- | Contains the output from the DescribeUsageLimits action.</span><span>
@@ -928,16 +928,16 @@ forall a. Maybe a
     -&gt; Maybe [UsageLimit] -&gt; DescribeUsageLimitsResponse)
 -&gt; Lens' DescribeUsageLimitsResponse (Maybe [UsageLimit])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512510"><span class="annot"><span class="annottext">Maybe [UsageLimit]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512519"><span class="annot"><span class="annottext">Maybe [UsageLimit]
 usageLimits :: Maybe [UsageLimit]
 $sel:usageLimits:DescribeUsageLimitsResponse' :: DescribeUsageLimitsResponse -&gt; Maybe [UsageLimit]
-</span><a href="#local-6989586621679512510"><span class="hs-identifier hs-var hs-var">usageLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageLimit]
-</span><a href="#local-6989586621679512510"><span class="hs-identifier hs-var">usageLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512509"><span class="annot"><span class="annottext">s :: DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512508"><span class="annot"><span class="annottext">Maybe [UsageLimit]
-</span><a href="#local-6989586621679512508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimits:DescribeUsageLimitsResponse' :: Maybe [UsageLimit]
+</span><a href="#local-6989586621679512519"><span class="hs-identifier hs-var hs-var">usageLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageLimit]
+</span><a href="#local-6989586621679512519"><span class="hs-identifier hs-var">usageLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512518"><span class="annot"><span class="annottext">s :: DescribeUsageLimitsResponse
+</span><a href="#local-6989586621679512518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512517"><span class="annot"><span class="annottext">Maybe [UsageLimit]
+</span><a href="#local-6989586621679512517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
+</span><a href="#local-6989586621679512518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimits:DescribeUsageLimitsResponse' :: Maybe [UsageLimit]
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AusageLimits%3ADescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var">usageLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UsageLimit]
-</span><a href="#local-6989586621679512508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageLimit] -&gt; f (Maybe [UsageLimit]))
+</span><a href="#local-6989586621679512517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UsageLimit] -&gt; f (Maybe [UsageLimit]))
  -&gt; DescribeUsageLimitsResponse -&gt; f DescribeUsageLimitsResponse)
 -&gt; ((Maybe [UsageLimit] -&gt; f (Maybe [UsageLimit]))
     -&gt; Maybe [UsageLimit] -&gt; f (Maybe [UsageLimit]))
@@ -972,16 +972,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeUsageLimitsResponse)
 -&gt; Lens' DescribeUsageLimitsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512507"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512516"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeUsageLimitsResponse' :: DescribeUsageLimitsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679512507"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512507"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512506"><span class="annot"><span class="annottext">s :: DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512505"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsageLimitsResponse' :: Maybe Text
+</span><a href="#local-6989586621679512516"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512516"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512515"><span class="annot"><span class="annottext">s :: DescribeUsageLimitsResponse
+</span><a href="#local-6989586621679512515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679512514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
+</span><a href="#local-6989586621679512515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsageLimitsResponse' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3Amarker%3ADescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679512505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-357"></span><span>
 </span><span id="line-358"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-359"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#describeUsageLimitsResponse_httpStatus"><span class="hs-identifier hs-type">describeUsageLimitsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -993,16 +993,16 @@ $sel:marker:DescribeUsageLimitsResponse' :: DescribeUsageLimitsResponse -&gt; Ma
 -&gt; Lens
      DescribeUsageLimitsResponse DescribeUsageLimitsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512504"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679512513"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeUsageLimitsResponse' :: DescribeUsageLimitsResponse -&gt; Int
-</span><a href="#local-6989586621679512504"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679512504"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512503"><span class="annot"><span class="annottext">s :: DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512502"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679512502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
-</span><a href="#local-6989586621679512503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsageLimitsResponse' :: Int
+</span><a href="#local-6989586621679512513"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679512513"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679512512"><span class="annot"><span class="annottext">s :: DescribeUsageLimitsResponse
+</span><a href="#local-6989586621679512512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse%27"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679512511"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679512511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsageLimitsResponse
+</span><a href="#local-6989586621679512512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsageLimitsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeUsageLimits.html#%24sel%3AhttpStatus%3ADescribeUsageLimitsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679512502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679512511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-361"></span><span>
-</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679512509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeUsageLimits.html#DescribeUsageLimitsResponse"><span class="hs-identifier hs-type">DescribeUsageLimitsResponse</span></a></span></span><span>
 </span><span id="line-363"></span></pre></body></html>

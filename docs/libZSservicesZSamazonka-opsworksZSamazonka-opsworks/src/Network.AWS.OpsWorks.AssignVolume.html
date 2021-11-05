@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newAssignVolume' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679395422"><span id="local-6989586621679395423"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignVolume"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-var">AssignVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignVolume%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-var">AssignVolume'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679395431"><span id="local-6989586621679395432"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignVolume"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-var">AssignVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignVolume%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-var">AssignVolume'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance ID.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AinstanceId%3AAssignVolume%27"><span class="annot"><span class="annottext">AssignVolume -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#%24sel%3AinstanceId%3AAssignVolume%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AvolumeId%3AAssignVolume%27"><span class="annot"><span class="annottext">AssignVolume -&gt; Text
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#%24sel%3AvolumeId%3AAssignVolume%27"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395415"><span id="local-6989586621679395417"><span class="annot"><span class="annottext">AssignVolume -&gt; AssignVolume -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395424"><span id="local-6989586621679395426"><span class="annot"><span class="annottext">AssignVolume -&gt; AssignVolume -&gt; Bool
 (AssignVolume -&gt; AssignVolume -&gt; Bool)
 -&gt; (AssignVolume -&gt; AssignVolume -&gt; Bool) -&gt; Eq AssignVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssignVolume -&gt; AssignVolume -&gt; Bool
 == :: AssignVolume -&gt; AssignVolume -&gt; Bool
 $c== :: AssignVolume -&gt; AssignVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395406"><span id="local-6989586621679395408"><span id="local-6989586621679395410"><span id="local-6989586621679395412"><span class="annot"><span class="annottext">ReadPrec [AssignVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395415"><span id="local-6989586621679395417"><span id="local-6989586621679395419"><span id="local-6989586621679395421"><span class="annot"><span class="annottext">ReadPrec [AssignVolume]
 ReadPrec AssignVolume
 Int -&gt; ReadS AssignVolume
 ReadS [AssignVolume]
@@ -91,7 +91,7 @@ readList :: ReadS [AssignVolume]
 $creadList :: ReadS [AssignVolume]
 readsPrec :: Int -&gt; ReadS AssignVolume
 $creadsPrec :: Int -&gt; ReadS AssignVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395399"><span id="local-6989586621679395401"><span id="local-6989586621679395403"><span class="annot"><span class="annottext">Int -&gt; AssignVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395408"><span id="local-6989586621679395410"><span id="local-6989586621679395412"><span class="annot"><span class="annottext">Int -&gt; AssignVolume -&gt; ShowS
 [AssignVolume] -&gt; ShowS
 AssignVolume -&gt; String
 (Int -&gt; AssignVolume -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. AssignVolume -&gt; Rep AssignVolume x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span>
 </span><span id="line-81"></span><span id="newAssignVolume"><span class="annot"><span class="annottext">newAssignVolume :: Text -&gt; AssignVolume
-</span><a href="Network.AWS.OpsWorks.AssignVolume.html#newAssignVolume"><span class="hs-identifier hs-var hs-var">newAssignVolume</span></a></span></span><span> </span><span id="local-6989586621679395394"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395394"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.AssignVolume.html#newAssignVolume"><span class="hs-identifier hs-var hs-var">newAssignVolume</span></a></span></span><span> </span><span id="local-6989586621679395403"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395403"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">AssignVolume' :: Maybe Text -&gt; Text -&gt; AssignVolume
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:AssignVolume' :: Maybe Text
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeId:AssignVolume' :: Text
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#%24sel%3AvolumeId%3AAssignVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395394"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
+</span><a href="#local-6989586621679395403"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The instance ID.</span><span>
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; (AssignVolume -&gt; Maybe Text -&gt; AssignVolume)
 -&gt; Lens AssignVolume AssignVolume (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395391"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395400"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:AssignVolume' :: AssignVolume -&gt; Maybe Text
-</span><a href="#local-6989586621679395391"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395391"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395390"><span class="annot"><span class="annottext">s :: AssignVolume
-</span><a href="#local-6989586621679395390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395389"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignVolume
-</span><a href="#local-6989586621679395390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssignVolume' :: Maybe Text
+</span><a href="#local-6989586621679395400"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395400"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395399"><span class="annot"><span class="annottext">s :: AssignVolume
+</span><a href="#local-6989586621679395399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395398"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignVolume
+</span><a href="#local-6989586621679395399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:AssignVolume' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#%24sel%3AinstanceId%3AAssignVolume%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The volume ID.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#assignVolume_volumeId"><span class="hs-identifier hs-type">assignVolume_volumeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -171,25 +171,25 @@ $sel:instanceId:AssignVolume' :: AssignVolume -&gt; Maybe Text
 -&gt; (AssignVolume -&gt; Text -&gt; AssignVolume)
 -&gt; Lens AssignVolume AssignVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395388"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395397"><span class="annot"><span class="annottext">Text
 volumeId :: Text
 $sel:volumeId:AssignVolume' :: AssignVolume -&gt; Text
-</span><a href="#local-6989586621679395388"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395388"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395387"><span class="annot"><span class="annottext">s :: AssignVolume
-</span><a href="#local-6989586621679395387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395386"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignVolume
-</span><a href="#local-6989586621679395387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:AssignVolume' :: Text
+</span><a href="#local-6989586621679395397"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395397"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395396"><span class="annot"><span class="annottext">s :: AssignVolume
+</span><a href="#local-6989586621679395396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssignVolume
+</span><a href="#local-6989586621679395396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:AssignVolume' :: Text
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#%24sel%3AvolumeId%3AAssignVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse"><span class="hs-identifier hs-type">AssignVolumeResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679395382"><span class="annot"><span class="annottext">request :: AssignVolume -&gt; Request AssignVolume
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679395391"><span class="annot"><span class="annottext">request :: AssignVolume -&gt; Request AssignVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssignVolume -&gt; Request AssignVolume
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679395378"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679395387"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssignVolume
 -&gt; ClientResponse ClientBody
@@ -212,12 +212,12 @@ AWSResponse a
 AssignVolumeResponse
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse%27"><span class="hs-identifier hs-var">AssignVolumeResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395371"><span id="local-6989586621679395373"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395380"><span id="local-6989586621679395382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395368"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679395364"><span class="annot"><span class="annottext">toHeaders :: AssignVolume -&gt; [Header]
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679395373"><span class="annot"><span class="annottext">toHeaders :: AssignVolume -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; AssignVolume -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -244,15 +244,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395354"><span id="local-6989586621679395356"><span id="local-6989586621679395358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679395352"><span class="annot"><span class="annottext">toJSON :: AssignVolume -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395349"><span id="local-6989586621679395350"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395363"><span id="local-6989586621679395365"><span id="local-6989586621679395367"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679395361"><span class="annot"><span class="annottext">toJSON :: AssignVolume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume%27"><span class="hs-identifier hs-type">AssignVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395358"><span id="local-6989586621679395359"><span class="annot"><span class="annottext">Maybe Text
 Text
 volumeId :: Text
 instanceId :: Maybe Text
 $sel:volumeId:AssignVolume' :: AssignVolume -&gt; Text
 $sel:instanceId:AssignVolume' :: AssignVolume -&gt; Maybe Text
-</span><a href="#local-6989586621679395349"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679395358"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,26 +264,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395350"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395359"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395349"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395358"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679395342"><span class="annot"><span class="annottext">toPath :: AssignVolume -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679395351"><span class="annot"><span class="annottext">toPath :: AssignVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssignVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolume"><span class="hs-identifier hs-type">AssignVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679395338"><span class="annot"><span class="annottext">toQuery :: AssignVolume -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679395347"><span class="annot"><span class="annottext">toQuery :: AssignVolume -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AssignVolume -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -291,10 +291,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newAssignVolumeResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679395335"><span id="local-6989586621679395336"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignVolumeResponse"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse"><span class="hs-identifier hs-var">AssignVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignVolumeResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse%27"><span class="hs-identifier hs-var">AssignVolumeResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679395344"><span id="local-6989586621679395345"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssignVolumeResponse"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse"><span class="hs-identifier hs-var">AssignVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssignVolumeResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse%27"><span class="hs-identifier hs-var">AssignVolumeResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395331"><span id="local-6989586621679395333"><span class="annot"><span class="annottext">AssignVolumeResponse -&gt; AssignVolumeResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395340"><span id="local-6989586621679395342"><span class="annot"><span class="annottext">AssignVolumeResponse -&gt; AssignVolumeResponse -&gt; Bool
 (AssignVolumeResponse -&gt; AssignVolumeResponse -&gt; Bool)
 -&gt; (AssignVolumeResponse -&gt; AssignVolumeResponse -&gt; Bool)
 -&gt; Eq AssignVolumeResponse
@@ -303,7 +303,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssignVolumeResponse -&gt; AssignVolumeResponse -&gt; Bool
 == :: AssignVolumeResponse -&gt; AssignVolumeResponse -&gt; Bool
 $c== :: AssignVolumeResponse -&gt; AssignVolumeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395323"><span id="local-6989586621679395325"><span id="local-6989586621679395327"><span id="local-6989586621679395329"><span class="annot"><span class="annottext">ReadPrec [AssignVolumeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395332"><span id="local-6989586621679395334"><span id="local-6989586621679395336"><span id="local-6989586621679395338"><span class="annot"><span class="annottext">ReadPrec [AssignVolumeResponse]
 ReadPrec AssignVolumeResponse
 Int -&gt; ReadS AssignVolumeResponse
 ReadS [AssignVolumeResponse]
@@ -323,7 +323,7 @@ readList :: ReadS [AssignVolumeResponse]
 $creadList :: ReadS [AssignVolumeResponse]
 readsPrec :: Int -&gt; ReadS AssignVolumeResponse
 $creadsPrec :: Int -&gt; ReadS AssignVolumeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395317"><span id="local-6989586621679395319"><span id="local-6989586621679395321"><span class="annot"><span class="annottext">Int -&gt; AssignVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395326"><span id="local-6989586621679395328"><span id="local-6989586621679395330"><span class="annot"><span class="annottext">Int -&gt; AssignVolumeResponse -&gt; ShowS
 [AssignVolumeResponse] -&gt; ShowS
 AssignVolumeResponse -&gt; String
 (Int -&gt; AssignVolumeResponse -&gt; ShowS)
@@ -359,5 +359,5 @@ $cfrom :: forall x. AssignVolumeResponse -&gt; Rep AssignVolumeResponse x
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#newAssignVolumeResponse"><span class="hs-identifier hs-var hs-var">newAssignVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssignVolumeResponse
 </span><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse%27"><span class="hs-identifier hs-var">AssignVolumeResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395313"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse"><span class="hs-identifier hs-type">AssignVolumeResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.AssignVolume.html#AssignVolumeResponse"><span class="hs-identifier hs-type">AssignVolumeResponse</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- destination ARN.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAccessLogSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679363754"><span id="local-6989586621679363755"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessLogSettings"><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-var">AccessLogSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLogSettings%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-var">AccessLogSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679363763"><span id="local-6989586621679363764"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessLogSettings"><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-var">AccessLogSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessLogSettings%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-var">AccessLogSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A single line format of the access logs of data, as specified by</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- selected</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables&gt;.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AdestinationArn%3AAccessLogSettings%27"><span class="annot"><span class="annottext">AccessLogSettings -&gt; Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#%24sel%3AdestinationArn%3AAccessLogSettings%27"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363747"><span id="local-6989586621679363749"><span class="annot"><span class="annottext">AccessLogSettings -&gt; AccessLogSettings -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363756"><span id="local-6989586621679363758"><span class="annot"><span class="annottext">AccessLogSettings -&gt; AccessLogSettings -&gt; Bool
 (AccessLogSettings -&gt; AccessLogSettings -&gt; Bool)
 -&gt; (AccessLogSettings -&gt; AccessLogSettings -&gt; Bool)
 -&gt; Eq AccessLogSettings
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessLogSettings -&gt; AccessLogSettings -&gt; Bool
 == :: AccessLogSettings -&gt; AccessLogSettings -&gt; Bool
 $c== :: AccessLogSettings -&gt; AccessLogSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363738"><span id="local-6989586621679363740"><span id="local-6989586621679363742"><span id="local-6989586621679363744"><span class="annot"><span class="annottext">ReadPrec [AccessLogSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363747"><span id="local-6989586621679363749"><span id="local-6989586621679363751"><span id="local-6989586621679363753"><span class="annot"><span class="annottext">ReadPrec [AccessLogSettings]
 ReadPrec AccessLogSettings
 Int -&gt; ReadS AccessLogSettings
 ReadS [AccessLogSettings]
@@ -70,7 +70,7 @@ readList :: ReadS [AccessLogSettings]
 $creadList :: ReadS [AccessLogSettings]
 readsPrec :: Int -&gt; ReadS AccessLogSettings
 $creadsPrec :: Int -&gt; ReadS AccessLogSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363731"><span id="local-6989586621679363733"><span id="local-6989586621679363735"><span class="annot"><span class="annottext">Int -&gt; AccessLogSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363740"><span id="local-6989586621679363742"><span id="local-6989586621679363744"><span class="annot"><span class="annottext">Int -&gt; AccessLogSettings -&gt; ShowS
 [AccessLogSettings] -&gt; ShowS
 AccessLogSettings -&gt; String
 (Int -&gt; AccessLogSettings -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; Lens
      AccessLogSettings AccessLogSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363722"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363731"><span class="annot"><span class="annottext">Maybe Text
 format :: Maybe Text
 $sel:format:AccessLogSettings' :: AccessLogSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679363722"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363722"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363721"><span class="annot"><span class="annottext">s :: AccessLogSettings
-</span><a href="#local-6989586621679363721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363720"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLogSettings
-</span><a href="#local-6989586621679363721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:AccessLogSettings' :: Maybe Text
+</span><a href="#local-6989586621679363731"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363731"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363730"><span class="annot"><span class="annottext">s :: AccessLogSettings
+</span><a href="#local-6989586621679363730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLogSettings
+</span><a href="#local-6989586621679363730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:AccessLogSettings' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#%24sel%3Aformat%3AAccessLogSettings%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- Kinesis Data Firehose delivery stream to receive access logs. If you</span><span>
@@ -164,19 +164,19 @@ $sel:format:AccessLogSettings' :: AccessLogSettings -&gt; Maybe Text
 -&gt; Lens
      AccessLogSettings AccessLogSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363718"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363727"><span class="annot"><span class="annottext">Maybe Text
 destinationArn :: Maybe Text
 $sel:destinationArn:AccessLogSettings' :: AccessLogSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679363718"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363718"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363717"><span class="annot"><span class="annottext">s :: AccessLogSettings
-</span><a href="#local-6989586621679363717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363716"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLogSettings
-</span><a href="#local-6989586621679363717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:AccessLogSettings' :: Maybe Text
+</span><a href="#local-6989586621679363727"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363727"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363726"><span class="annot"><span class="annottext">s :: AccessLogSettings
+</span><a href="#local-6989586621679363726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-type">AccessLogSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363725"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessLogSettings
+</span><a href="#local-6989586621679363726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:AccessLogSettings' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#%24sel%3AdestinationArn%3AAccessLogSettings%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679363716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679363725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363713"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679363711"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessLogSettings
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679363720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessLogSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccessLogSettings)
@@ -186,15 +186,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccessLogSettings&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363708"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; AccessLogSettings
 </span><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings%27"><span class="hs-identifier hs-var">AccessLogSettings'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; AccessLogSettings)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; AccessLogSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679363717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,13 +202,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AccessLogSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679363708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679363717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363702"><span id="local-6989586621679363704"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363711"><span id="local-6989586621679363713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.AccessLogSettings.html#AccessLogSettings"><span class="hs-identifier hs-type">AccessLogSettings</span></a></span></span><span>
 </span><span id="line-96"></span></pre></body></html>

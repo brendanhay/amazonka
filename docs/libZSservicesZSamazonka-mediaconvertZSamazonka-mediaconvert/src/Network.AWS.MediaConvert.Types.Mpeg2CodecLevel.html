@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- | Use Level (Mpeg2CodecLevel) to set the MPEG-2 level for the video</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- output.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679992471"><span id="local-6989586621679992472"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2CodecLevel"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2CodecLevel.html#Mpeg2CodecLevel"><span class="hs-identifier hs-var">Mpeg2CodecLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2CodecLevel%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2CodecLevel.html#Mpeg2CodecLevel%27"><span class="hs-identifier hs-var">Mpeg2CodecLevel'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679992480"><span id="local-6989586621679992481"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2CodecLevel"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2CodecLevel.html#Mpeg2CodecLevel"><span class="hs-identifier hs-var">Mpeg2CodecLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2CodecLevel%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Mpeg2CodecLevel.html#Mpeg2CodecLevel%27"><span class="hs-identifier hs-var">Mpeg2CodecLevel'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2CodecLevel"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Mpeg2CodecLevel.html#fromMpeg2CodecLevel"><span class="hs-identifier hs-var hs-var">fromMpeg2CodecLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679992463"><span id="local-6989586621679992465"><span id="local-6989586621679992467"><span class="annot"><span class="annottext">Int -&gt; Mpeg2CodecLevel -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679992472"><span id="local-6989586621679992474"><span id="local-6989586621679992476"><span class="annot"><span class="annottext">Int -&gt; Mpeg2CodecLevel -&gt; ShowS
 [Mpeg2CodecLevel] -&gt; ShowS
 Mpeg2CodecLevel -&gt; String
 (Int -&gt; Mpeg2CodecLevel -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: Mpeg2CodecLevel -&gt; String
 showsPrec :: Int -&gt; Mpeg2CodecLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2CodecLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679992454"><span id="local-6989586621679992456"><span id="local-6989586621679992458"><span id="local-6989586621679992460"><span class="annot"><span class="annottext">ReadPrec [Mpeg2CodecLevel]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679992463"><span id="local-6989586621679992465"><span id="local-6989586621679992467"><span id="local-6989586621679992469"><span class="annot"><span class="annottext">ReadPrec [Mpeg2CodecLevel]
 ReadPrec Mpeg2CodecLevel
 Int -&gt; ReadS Mpeg2CodecLevel
 ReadS [Mpeg2CodecLevel]
@@ -77,7 +77,7 @@ $creadList :: ReadS [Mpeg2CodecLevel]
 readsPrec :: Int -&gt; ReadS Mpeg2CodecLevel
 $creadsPrec :: Int -&gt; ReadS Mpeg2CodecLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679992449"><span id="local-6989586621679992451"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679992458"><span id="local-6989586621679992460"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool
 (Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool)
 -&gt; (Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool)
 -&gt; Eq Mpeg2CodecLevel
@@ -87,7 +87,7 @@ $c/= :: Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool
 == :: Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool
 $c== :: Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679992433"><span id="local-6989586621679992435"><span id="local-6989586621679992437"><span id="local-6989586621679992439"><span id="local-6989586621679992441"><span id="local-6989586621679992443"><span id="local-6989586621679992445"><span class="annot"><span class="annottext">Eq Mpeg2CodecLevel
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679992442"><span id="local-6989586621679992444"><span id="local-6989586621679992446"><span id="local-6989586621679992448"><span id="local-6989586621679992450"><span id="local-6989586621679992452"><span id="local-6989586621679992454"><span class="annot"><span class="annottext">Eq Mpeg2CodecLevel
 Eq Mpeg2CodecLevel
 -&gt; (Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Ordering)
 -&gt; (Mpeg2CodecLevel -&gt; Mpeg2CodecLevel -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. Mpeg2CodecLevel -&gt; Rep Mpeg2CodecLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679992425"><span id="local-6989586621679992427"><span class="annot"><span class="annottext">Int -&gt; Mpeg2CodecLevel -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679992434"><span id="local-6989586621679992436"><span class="annot"><span class="annottext">Int -&gt; Mpeg2CodecLevel -&gt; Int
 Mpeg2CodecLevel -&gt; Int
 (Int -&gt; Mpeg2CodecLevel -&gt; Int)
 -&gt; (Mpeg2CodecLevel -&gt; Int) -&gt; Hashable Mpeg2CodecLevel
@@ -148,50 +148,50 @@ $chash :: Mpeg2CodecLevel -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2CodecLevel -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2CodecLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679992422"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679992431"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; ()
 (Mpeg2CodecLevel -&gt; ()) -&gt; NFData Mpeg2CodecLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2CodecLevel -&gt; ()
 $crnf :: Mpeg2CodecLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679992419"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2CodecLevel
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679992428"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2CodecLevel
 (Text -&gt; Either String Mpeg2CodecLevel) -&gt; FromText Mpeg2CodecLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2CodecLevel
 $cfromText :: Text -&gt; Either String Mpeg2CodecLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679992416"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679992425"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; Text
 (Mpeg2CodecLevel -&gt; Text) -&gt; ToText Mpeg2CodecLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2CodecLevel -&gt; Text
 $ctoText :: Mpeg2CodecLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679992413"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679992422"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; ByteString
 (Mpeg2CodecLevel -&gt; ByteString) -&gt; ToByteString Mpeg2CodecLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2CodecLevel -&gt; ByteString
 $ctoBS :: Mpeg2CodecLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679992410"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679992419"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; ByteStringBuilder
 (Mpeg2CodecLevel -&gt; ByteStringBuilder) -&gt; ToLog Mpeg2CodecLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2CodecLevel -&gt; ByteStringBuilder
 $cbuild :: Mpeg2CodecLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679992407"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2CodecLevel -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679992416"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2CodecLevel -&gt; [Header]
 (HeaderName -&gt; Mpeg2CodecLevel -&gt; [Header])
 -&gt; ToHeader Mpeg2CodecLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2CodecLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2CodecLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679992404"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679992413"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; QueryString
 (Mpeg2CodecLevel -&gt; QueryString) -&gt; ToQuery Mpeg2CodecLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2CodecLevel -&gt; QueryString
 $ctoQuery :: Mpeg2CodecLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679992399"><span id="local-6989586621679992401"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2CodecLevel]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679992408"><span id="local-6989586621679992410"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2CodecLevel]
 Value -&gt; Parser Mpeg2CodecLevel
 (Value -&gt; Parser Mpeg2CodecLevel)
 -&gt; (Value -&gt; Parser [Mpeg2CodecLevel]) -&gt; FromJSON Mpeg2CodecLevel
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2CodecLevel]
 parseJSON :: Value -&gt; Parser Mpeg2CodecLevel
 $cparseJSON :: Value -&gt; Parser Mpeg2CodecLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679992394"><span id="local-6989586621679992396"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2CodecLevel]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679992403"><span id="local-6989586621679992405"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2CodecLevel]
 FromJSONKeyFunction Mpeg2CodecLevel
 FromJSONKeyFunction Mpeg2CodecLevel
 -&gt; FromJSONKeyFunction [Mpeg2CodecLevel]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2CodecLevel]
 fromJSONKey :: FromJSONKeyFunction Mpeg2CodecLevel
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2CodecLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679992385"><span id="local-6989586621679992387"><span id="local-6989586621679992389"><span id="local-6989586621679992391"><span class="annot"><span class="annottext">[Mpeg2CodecLevel] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679992394"><span id="local-6989586621679992396"><span id="local-6989586621679992398"><span id="local-6989586621679992400"><span class="annot"><span class="annottext">[Mpeg2CodecLevel] -&gt; Encoding
 [Mpeg2CodecLevel] -&gt; Value
 Mpeg2CodecLevel -&gt; Encoding
 Mpeg2CodecLevel -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Mpeg2CodecLevel -&gt; Encoding
 toJSON :: Mpeg2CodecLevel -&gt; Value
 $ctoJSON :: Mpeg2CodecLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679992380"><span id="local-6989586621679992382"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2CodecLevel]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679992389"><span id="local-6989586621679992391"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2CodecLevel]
 ToJSONKeyFunction Mpeg2CodecLevel
 ToJSONKeyFunction Mpeg2CodecLevel
 -&gt; ToJSONKeyFunction [Mpeg2CodecLevel] -&gt; ToJSONKey Mpeg2CodecLevel
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2CodecLevel]
 toJSONKey :: ToJSONKeyFunction Mpeg2CodecLevel
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2CodecLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679992377"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2CodecLevel
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679992386"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2CodecLevel
 ([Node] -&gt; Either String Mpeg2CodecLevel)
 -&gt; FromXML Mpeg2CodecLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2CodecLevel
 $cparseXML :: [Node] -&gt; Either String Mpeg2CodecLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679992374"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679992383"><span class="annot"><span class="annottext">Mpeg2CodecLevel -&gt; XML
 (Mpeg2CodecLevel -&gt; XML) -&gt; ToXML Mpeg2CodecLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mpeg2CodecLevel -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679781802"><span id="local-6989586621679781803"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfidenceLevel"><span class="annot"><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#ConfidenceLevel"><span class="hs-identifier hs-var">ConfidenceLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfidenceLevel%27"><span class="annot"><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#ConfidenceLevel%27"><span class="hs-identifier hs-var">ConfidenceLevel'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679781811"><span id="local-6989586621679781812"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfidenceLevel"><span class="annot"><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#ConfidenceLevel"><span class="hs-identifier hs-var">ConfidenceLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfidenceLevel%27"><span class="annot"><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#ConfidenceLevel%27"><span class="hs-identifier hs-var">ConfidenceLevel'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfidenceLevel"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; Text
 </span><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#fromConfidenceLevel"><span class="hs-identifier hs-var hs-var">fromConfidenceLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679781794"><span id="local-6989586621679781796"><span id="local-6989586621679781798"><span class="annot"><span class="annottext">Int -&gt; ConfidenceLevel -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679781803"><span id="local-6989586621679781805"><span id="local-6989586621679781807"><span class="annot"><span class="annottext">Int -&gt; ConfidenceLevel -&gt; ShowS
 [ConfidenceLevel] -&gt; ShowS
 ConfidenceLevel -&gt; String
 (Int -&gt; ConfidenceLevel -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ConfidenceLevel -&gt; String
 showsPrec :: Int -&gt; ConfidenceLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConfidenceLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679781785"><span id="local-6989586621679781787"><span id="local-6989586621679781789"><span id="local-6989586621679781791"><span class="annot"><span class="annottext">ReadPrec [ConfidenceLevel]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679781794"><span id="local-6989586621679781796"><span id="local-6989586621679781798"><span id="local-6989586621679781800"><span class="annot"><span class="annottext">ReadPrec [ConfidenceLevel]
 ReadPrec ConfidenceLevel
 Int -&gt; ReadS ConfidenceLevel
 ReadS [ConfidenceLevel]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ConfidenceLevel]
 readsPrec :: Int -&gt; ReadS ConfidenceLevel
 $creadsPrec :: Int -&gt; ReadS ConfidenceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679781780"><span id="local-6989586621679781782"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679781789"><span id="local-6989586621679781791"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool
 (ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool)
 -&gt; (ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool)
 -&gt; Eq ConfidenceLevel
@@ -83,7 +83,7 @@ $c/= :: ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool
 == :: ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool
 $c== :: ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679781764"><span id="local-6989586621679781766"><span id="local-6989586621679781768"><span id="local-6989586621679781770"><span id="local-6989586621679781772"><span id="local-6989586621679781774"><span id="local-6989586621679781776"><span class="annot"><span class="annottext">Eq ConfidenceLevel
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679781773"><span id="local-6989586621679781775"><span id="local-6989586621679781777"><span id="local-6989586621679781779"><span id="local-6989586621679781781"><span id="local-6989586621679781783"><span id="local-6989586621679781785"><span class="annot"><span class="annottext">Eq ConfidenceLevel
 Eq ConfidenceLevel
 -&gt; (ConfidenceLevel -&gt; ConfidenceLevel -&gt; Ordering)
 -&gt; (ConfidenceLevel -&gt; ConfidenceLevel -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ConfidenceLevel -&gt; Rep ConfidenceLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679781756"><span id="local-6989586621679781758"><span class="annot"><span class="annottext">Int -&gt; ConfidenceLevel -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679781765"><span id="local-6989586621679781767"><span class="annot"><span class="annottext">Int -&gt; ConfidenceLevel -&gt; Int
 ConfidenceLevel -&gt; Int
 (Int -&gt; ConfidenceLevel -&gt; Int)
 -&gt; (ConfidenceLevel -&gt; Int) -&gt; Hashable ConfidenceLevel
@@ -144,50 +144,50 @@ $chash :: ConfidenceLevel -&gt; Int
 hashWithSalt :: Int -&gt; ConfidenceLevel -&gt; Int
 $chashWithSalt :: Int -&gt; ConfidenceLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679781753"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679781762"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ()
 (ConfidenceLevel -&gt; ()) -&gt; NFData ConfidenceLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConfidenceLevel -&gt; ()
 $crnf :: ConfidenceLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679781750"><span class="annot"><span class="annottext">Text -&gt; Either String ConfidenceLevel
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679781759"><span class="annot"><span class="annottext">Text -&gt; Either String ConfidenceLevel
 (Text -&gt; Either String ConfidenceLevel) -&gt; FromText ConfidenceLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConfidenceLevel
 $cfromText :: Text -&gt; Either String ConfidenceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679781747"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679781756"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; Text
 (ConfidenceLevel -&gt; Text) -&gt; ToText ConfidenceLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConfidenceLevel -&gt; Text
 $ctoText :: ConfidenceLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679781744"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679781753"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ByteString
 (ConfidenceLevel -&gt; ByteString) -&gt; ToByteString ConfidenceLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConfidenceLevel -&gt; ByteString
 $ctoBS :: ConfidenceLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679781741"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679781750"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; ByteStringBuilder
 (ConfidenceLevel -&gt; ByteStringBuilder) -&gt; ToLog ConfidenceLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConfidenceLevel -&gt; ByteStringBuilder
 $cbuild :: ConfidenceLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679781738"><span class="annot"><span class="annottext">HeaderName -&gt; ConfidenceLevel -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679781747"><span class="annot"><span class="annottext">HeaderName -&gt; ConfidenceLevel -&gt; [Header]
 (HeaderName -&gt; ConfidenceLevel -&gt; [Header])
 -&gt; ToHeader ConfidenceLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConfidenceLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConfidenceLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679781735"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679781744"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; QueryString
 (ConfidenceLevel -&gt; QueryString) -&gt; ToQuery ConfidenceLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConfidenceLevel -&gt; QueryString
 $ctoQuery :: ConfidenceLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679781730"><span id="local-6989586621679781732"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfidenceLevel]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679781739"><span id="local-6989586621679781741"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfidenceLevel]
 Value -&gt; Parser ConfidenceLevel
 (Value -&gt; Parser ConfidenceLevel)
 -&gt; (Value -&gt; Parser [ConfidenceLevel]) -&gt; FromJSON ConfidenceLevel
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [ConfidenceLevel]
 parseJSON :: Value -&gt; Parser ConfidenceLevel
 $cparseJSON :: Value -&gt; Parser ConfidenceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679781725"><span id="local-6989586621679781727"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfidenceLevel]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679781734"><span id="local-6989586621679781736"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfidenceLevel]
 FromJSONKeyFunction ConfidenceLevel
 FromJSONKeyFunction ConfidenceLevel
 -&gt; FromJSONKeyFunction [ConfidenceLevel]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConfidenceLevel]
 fromJSONKey :: FromJSONKeyFunction ConfidenceLevel
 $cfromJSONKey :: FromJSONKeyFunction ConfidenceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679781716"><span id="local-6989586621679781718"><span id="local-6989586621679781720"><span id="local-6989586621679781722"><span class="annot"><span class="annottext">[ConfidenceLevel] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679781725"><span id="local-6989586621679781727"><span id="local-6989586621679781729"><span id="local-6989586621679781731"><span class="annot"><span class="annottext">[ConfidenceLevel] -&gt; Encoding
 [ConfidenceLevel] -&gt; Value
 ConfidenceLevel -&gt; Encoding
 ConfidenceLevel -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: ConfidenceLevel -&gt; Encoding
 toJSON :: ConfidenceLevel -&gt; Value
 $ctoJSON :: ConfidenceLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679781711"><span id="local-6989586621679781713"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfidenceLevel]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679781720"><span id="local-6989586621679781722"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfidenceLevel]
 ToJSONKeyFunction ConfidenceLevel
 ToJSONKeyFunction ConfidenceLevel
 -&gt; ToJSONKeyFunction [ConfidenceLevel] -&gt; ToJSONKey ConfidenceLevel
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConfidenceLevel]
 toJSONKey :: ToJSONKeyFunction ConfidenceLevel
 $ctoJSONKey :: ToJSONKeyFunction ConfidenceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679781708"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfidenceLevel
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679781717"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfidenceLevel
 ([Node] -&gt; Either String ConfidenceLevel)
 -&gt; FromXML ConfidenceLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConfidenceLevel
 $cparseXML :: [Node] -&gt; Either String ConfidenceLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679781705"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679781714"><span class="annot"><span class="annottext">ConfidenceLevel -&gt; XML
 (ConfidenceLevel -&gt; XML) -&gt; ToXML ConfidenceLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConfidenceLevel -&gt; XML

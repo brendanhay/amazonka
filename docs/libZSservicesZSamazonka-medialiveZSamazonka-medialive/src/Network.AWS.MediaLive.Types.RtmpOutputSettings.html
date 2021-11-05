@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Rtmp Output Settings</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRtmpOutputSettings' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679915369"><span id="local-6989586621679915370"></span></span><span class="hs-keyword">data</span><span> </span><span id="RtmpOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-var">RtmpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-var">RtmpOutputSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679915378"><span id="local-6989586621679915379"></span></span><span class="hs-keyword">data</span><span> </span><span id="RtmpOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-var">RtmpOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RtmpOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-var">RtmpOutputSettings'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of retry attempts.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AnumRetries%3ARtmpOutputSettings%27"><span class="annot"><span class="annottext">RtmpOutputSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#%24sel%3AnumRetries%3ARtmpOutputSettings%27"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Adestination%3ARtmpOutputSettings%27"><span class="annot"><span class="annottext">RtmpOutputSettings -&gt; OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#%24sel%3Adestination%3ARtmpOutputSettings%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915360"><span id="local-6989586621679915362"><span class="annot"><span class="annottext">RtmpOutputSettings -&gt; RtmpOutputSettings -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679915369"><span id="local-6989586621679915371"><span class="annot"><span class="annottext">RtmpOutputSettings -&gt; RtmpOutputSettings -&gt; Bool
 (RtmpOutputSettings -&gt; RtmpOutputSettings -&gt; Bool)
 -&gt; (RtmpOutputSettings -&gt; RtmpOutputSettings -&gt; Bool)
 -&gt; Eq RtmpOutputSettings
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RtmpOutputSettings -&gt; RtmpOutputSettings -&gt; Bool
 == :: RtmpOutputSettings -&gt; RtmpOutputSettings -&gt; Bool
 $c== :: RtmpOutputSettings -&gt; RtmpOutputSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915351"><span id="local-6989586621679915353"><span id="local-6989586621679915355"><span id="local-6989586621679915357"><span class="annot"><span class="annottext">ReadPrec [RtmpOutputSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915360"><span id="local-6989586621679915362"><span id="local-6989586621679915364"><span id="local-6989586621679915366"><span class="annot"><span class="annottext">ReadPrec [RtmpOutputSettings]
 ReadPrec RtmpOutputSettings
 Int -&gt; ReadS RtmpOutputSettings
 ReadS [RtmpOutputSettings]
@@ -76,7 +76,7 @@ readList :: ReadS [RtmpOutputSettings]
 $creadList :: ReadS [RtmpOutputSettings]
 readsPrec :: Int -&gt; ReadS RtmpOutputSettings
 $creadsPrec :: Int -&gt; ReadS RtmpOutputSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915344"><span id="local-6989586621679915346"><span id="local-6989586621679915348"><span class="annot"><span class="annottext">Int -&gt; RtmpOutputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679915353"><span id="local-6989586621679915355"><span id="local-6989586621679915357"><span class="annot"><span class="annottext">Int -&gt; RtmpOutputSettings -&gt; ShowS
 [RtmpOutputSettings] -&gt; ShowS
 RtmpOutputSettings -&gt; String
 (Int -&gt; RtmpOutputSettings -&gt; ShowS)
@@ -127,8 +127,8 @@ $cfrom :: forall x. RtmpOutputSettings -&gt; Rep RtmpOutputSettings x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span>
 </span><span id="line-72"></span><span id="newRtmpOutputSettings"><span class="annot"><span class="annottext">newRtmpOutputSettings :: OutputLocationRef -&gt; RtmpOutputSettings
-</span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#newRtmpOutputSettings"><span class="hs-identifier hs-var hs-var">newRtmpOutputSettings</span></a></span></span><span> </span><span id="local-6989586621679915338"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679915338"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#newRtmpOutputSettings"><span class="hs-identifier hs-var hs-var">newRtmpOutputSettings</span></a></span></span><span> </span><span id="local-6989586621679915347"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679915347"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">RtmpOutputSettings' :: Maybe Natural
 -&gt; Maybe RtmpOutputCertificateMode
 -&gt; Maybe Natural
@@ -149,7 +149,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:RtmpOutputSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#%24sel%3Adestination%3ARtmpOutputSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679915338"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><a href="#local-6989586621679915347"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Number of retry attempts.</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915334"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915343"><span class="annot"><span class="annottext">Maybe Natural
 numRetries :: Maybe Natural
 $sel:numRetries:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679915334"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915334"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915333"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
-</span><a href="#local-6989586621679915333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915332"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
-</span><a href="#local-6989586621679915333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRetries:RtmpOutputSettings' :: Maybe Natural
+</span><a href="#local-6989586621679915343"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679915343"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915342"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
+</span><a href="#local-6989586621679915342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915341"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679915341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
+</span><a href="#local-6989586621679915342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRetries:RtmpOutputSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#%24sel%3AnumRetries%3ARtmpOutputSettings%27"><span class="hs-identifier hs-var">numRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | If set to verifyAuthenticity, verify the tls certificate chain to a</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- trusted Certificate Authority (CA). This will cause rtmps outputs with</span><span>
@@ -191,16 +191,16 @@ $sel:numRetries:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe Natural
      (Maybe RtmpOutputCertificateMode)
      (Maybe RtmpOutputCertificateMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915330"><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915339"><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
 certificateMode :: Maybe RtmpOutputCertificateMode
 $sel:certificateMode:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe RtmpOutputCertificateMode
-</span><a href="#local-6989586621679915330"><span class="hs-identifier hs-var hs-var">certificateMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
-</span><a href="#local-6989586621679915330"><span class="hs-identifier hs-var">certificateMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915329"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
-</span><a href="#local-6989586621679915329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915328"><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
-</span><a href="#local-6989586621679915328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
-</span><a href="#local-6989586621679915329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateMode:RtmpOutputSettings' :: Maybe RtmpOutputCertificateMode
+</span><a href="#local-6989586621679915339"><span class="hs-identifier hs-var hs-var">certificateMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
+</span><a href="#local-6989586621679915339"><span class="hs-identifier hs-var">certificateMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915338"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
+</span><a href="#local-6989586621679915338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915337"><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
+</span><a href="#local-6989586621679915337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
+</span><a href="#local-6989586621679915338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateMode:RtmpOutputSettings' :: Maybe RtmpOutputCertificateMode
 </span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#%24sel%3AcertificateMode%3ARtmpOutputSettings%27"><span class="hs-identifier hs-var">certificateMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
-</span><a href="#local-6989586621679915328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Number of seconds to wait before retrying a connection to the Flash</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- Media server if the connection is lost.</span><span>
@@ -215,16 +215,16 @@ $sel:certificateMode:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe RtmpO
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915326"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915335"><span class="annot"><span class="annottext">Maybe Natural
 connectionRetryInterval :: Maybe Natural
 $sel:connectionRetryInterval:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679915326"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915326"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915325"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
-</span><a href="#local-6989586621679915325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915324"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
-</span><a href="#local-6989586621679915325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:RtmpOutputSettings' :: Maybe Natural
+</span><a href="#local-6989586621679915335"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679915335"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915334"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
+</span><a href="#local-6989586621679915334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915333"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679915333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
+</span><a href="#local-6989586621679915334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:RtmpOutputSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#%24sel%3AconnectionRetryInterval%3ARtmpOutputSettings%27"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The RTMP endpoint excluding the stream name (eg.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- rtmp:\/\/host\/appname). For connection to Akamai, a username and</span><span>
@@ -240,19 +240,19 @@ $sel:connectionRetryInterval:RtmpOutputSettings' :: RtmpOutputSettings -&gt; May
      OutputLocationRef
      OutputLocationRef
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915322"><span class="annot"><span class="annottext">OutputLocationRef
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915331"><span class="annot"><span class="annottext">OutputLocationRef
 destination :: OutputLocationRef
 $sel:destination:RtmpOutputSettings' :: RtmpOutputSettings -&gt; OutputLocationRef
-</span><a href="#local-6989586621679915322"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679915322"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915321"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
-</span><a href="#local-6989586621679915321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915320"><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679915320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
-</span><a href="#local-6989586621679915321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:RtmpOutputSettings' :: OutputLocationRef
+</span><a href="#local-6989586621679915331"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679915331"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679915330"><span class="annot"><span class="annottext">s :: RtmpOutputSettings
+</span><a href="#local-6989586621679915330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679915329"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679915329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RtmpOutputSettings
+</span><a href="#local-6989586621679915330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:RtmpOutputSettings' :: OutputLocationRef
 </span><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#%24sel%3Adestination%3ARtmpOutputSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679915320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915317"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679915315"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RtmpOutputSettings
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915326"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679915324"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RtmpOutputSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RtmpOutputSettings)
@@ -262,8 +262,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RtmpOutputSettings&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679915312"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679915321"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679915321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe RtmpOutputCertificateMode
 -&gt; Maybe Natural
@@ -281,7 +281,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Natural -&gt; OutputLocationRef -&gt; RtmpOutputSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679915321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numRetries&quot;</span></span><span class="hs-special">)</span><span>
@@ -293,7 +293,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Natural -&gt; OutputLocationRef -&gt; RtmpOutputSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpOutputCertificateMode)
+</span><a href="#local-6989586621679915321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RtmpOutputCertificateMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,7 +302,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (OutputLocationRef -&gt; RtmpOutputSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679915321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span class="hs-special">)</span><span>
@@ -310,19 +310,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser OutputLocationRef -&gt; Parser RtmpOutputSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679915312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
+</span><a href="#local-6989586621679915321"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915305"><span id="local-6989586621679915307"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915314"><span id="local-6989586621679915316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915302"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915294"><span id="local-6989586621679915296"><span id="local-6989586621679915298"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679915292"><span class="annot"><span class="annottext">toJSON :: RtmpOutputSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915287"><span id="local-6989586621679915288"><span id="local-6989586621679915289"><span id="local-6989586621679915290"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679915303"><span id="local-6989586621679915305"><span id="local-6989586621679915307"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings"><span class="hs-identifier hs-type">RtmpOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679915301"><span class="annot"><span class="annottext">toJSON :: RtmpOutputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.RtmpOutputSettings.html#RtmpOutputSettings%27"><span class="hs-identifier hs-type">RtmpOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679915296"><span id="local-6989586621679915297"><span id="local-6989586621679915298"><span id="local-6989586621679915299"><span class="annot"><span class="annottext">Maybe Natural
 Maybe RtmpOutputCertificateMode
 OutputLocationRef
 destination :: OutputLocationRef
@@ -333,7 +333,7 @@ $sel:destination:RtmpOutputSettings' :: RtmpOutputSettings -&gt; OutputLocationR
 $sel:connectionRetryInterval:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe Natural
 $sel:certificateMode:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe RtmpOutputCertificateMode
 $sel:numRetries:RtmpOutputSettings' :: RtmpOutputSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679915287"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679915296"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -345,7 +345,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915290"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679915299"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RtmpOutputCertificateMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -354,7 +354,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RtmpOutputCertificateMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RtmpOutputCertificateMode
-</span><a href="#local-6989586621679915289"><span class="hs-identifier hs-var">certificateMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679915298"><span class="hs-identifier hs-var">certificateMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -362,14 +362,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679915288"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679915297"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputLocationRef -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
-</span><a href="#local-6989586621679915287"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679915296"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span></pre></body></html>

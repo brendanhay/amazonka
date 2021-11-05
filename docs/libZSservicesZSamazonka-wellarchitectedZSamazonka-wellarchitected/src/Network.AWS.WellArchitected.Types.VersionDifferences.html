@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WellArchitected.Types.VersionDifferences</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WellArchitected.Types.VersionDifferences</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.PillarDifference.html"><span class="hs-identifier">Network.AWS.WellArchitected.Types.PillarDifference</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The differences between the base and latest versions of the lens.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVersionDifferences' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679244449"><span id="local-6989586621679244450"></span></span><span class="hs-keyword">data</span><span> </span><span id="VersionDifferences"><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences"><span class="hs-identifier hs-var">VersionDifferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VersionDifferences%27"><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences%27"><span class="hs-identifier hs-var">VersionDifferences'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The differences between the base and latest versions of the lens.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3ApillarDifferences%3AVersionDifferences%27"><span class="annot"><span class="annottext">VersionDifferences -&gt; Maybe [PillarDifference]
+</span><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#%24sel%3ApillarDifferences%3AVersionDifferences%27"><span class="hs-identifier hs-var hs-var">pillarDifferences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WellArchitected.Types.PillarDifference.html#PillarDifference"><span class="hs-identifier hs-type">PillarDifference</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244443"><span id="local-6989586621679244445"><span class="annot"><span class="annottext">VersionDifferences -&gt; VersionDifferences -&gt; Bool
+(VersionDifferences -&gt; VersionDifferences -&gt; Bool)
+-&gt; (VersionDifferences -&gt; VersionDifferences -&gt; Bool)
+-&gt; Eq VersionDifferences
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VersionDifferences -&gt; VersionDifferences -&gt; Bool
+$c/= :: VersionDifferences -&gt; VersionDifferences -&gt; Bool
+== :: VersionDifferences -&gt; VersionDifferences -&gt; Bool
+$c== :: VersionDifferences -&gt; VersionDifferences -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244434"><span id="local-6989586621679244436"><span id="local-6989586621679244438"><span id="local-6989586621679244440"><span class="annot"><span class="annottext">ReadPrec [VersionDifferences]
+ReadPrec VersionDifferences
+Int -&gt; ReadS VersionDifferences
+ReadS [VersionDifferences]
+(Int -&gt; ReadS VersionDifferences)
+-&gt; ReadS [VersionDifferences]
+-&gt; ReadPrec VersionDifferences
+-&gt; ReadPrec [VersionDifferences]
+-&gt; Read VersionDifferences
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VersionDifferences]
+$creadListPrec :: ReadPrec [VersionDifferences]
+readPrec :: ReadPrec VersionDifferences
+$creadPrec :: ReadPrec VersionDifferences
+readList :: ReadS [VersionDifferences]
+$creadList :: ReadS [VersionDifferences]
+readsPrec :: Int -&gt; ReadS VersionDifferences
+$creadsPrec :: Int -&gt; ReadS VersionDifferences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244427"><span id="local-6989586621679244429"><span id="local-6989586621679244431"><span class="annot"><span class="annottext">Int -&gt; VersionDifferences -&gt; ShowS
+[VersionDifferences] -&gt; ShowS
+VersionDifferences -&gt; String
+(Int -&gt; VersionDifferences -&gt; ShowS)
+-&gt; (VersionDifferences -&gt; String)
+-&gt; ([VersionDifferences] -&gt; ShowS)
+-&gt; Show VersionDifferences
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VersionDifferences] -&gt; ShowS
+$cshowList :: [VersionDifferences] -&gt; ShowS
+show :: VersionDifferences -&gt; String
+$cshow :: VersionDifferences -&gt; String
+showsPrec :: Int -&gt; VersionDifferences -&gt; ShowS
+$cshowsPrec :: Int -&gt; VersionDifferences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VersionDifferences -&gt; Rep VersionDifferences x)
+-&gt; (forall x. Rep VersionDifferences x -&gt; VersionDifferences)
+-&gt; Generic VersionDifferences
+forall x. Rep VersionDifferences x -&gt; VersionDifferences
+forall x. VersionDifferences -&gt; Rep VersionDifferences x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VersionDifferences x -&gt; VersionDifferences
+$cfrom :: forall x. VersionDifferences -&gt; Rep VersionDifferences x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'VersionDifferences' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'pillarDifferences', 'versionDifferences_pillarDifferences' - The differences between the base and latest versions of the lens.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#newVersionDifferences"><span class="hs-identifier hs-type">newVersionDifferences</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences"><span class="hs-identifier hs-type">VersionDifferences</span></a></span><span>
+</span><span id="line-47"></span><span id="newVersionDifferences"><span class="annot"><span class="annottext">newVersionDifferences :: VersionDifferences
+</span><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#newVersionDifferences"><span class="hs-identifier hs-var hs-var">newVersionDifferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">VersionDifferences' :: Maybe [PillarDifference] -&gt; VersionDifferences
+</span><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences%27"><span class="hs-identifier hs-type">VersionDifferences'</span></a></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pillarDifferences:VersionDifferences' :: Maybe [PillarDifference]
+</span><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#%24sel%3ApillarDifferences%3AVersionDifferences%27"><span class="hs-identifier hs-var">pillarDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PillarDifference]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | The differences between the base and latest versions of the lens.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#versionDifferences_pillarDifferences"><span class="hs-identifier hs-type">versionDifferences_pillarDifferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences"><span class="hs-identifier hs-type">VersionDifferences</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WellArchitected.Types.PillarDifference.html#PillarDifference"><span class="hs-identifier hs-type">PillarDifference</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="versionDifferences_pillarDifferences"><span class="annot"><span class="annottext">versionDifferences_pillarDifferences :: (Maybe [PillarDifference] -&gt; f (Maybe [PillarDifference]))
+-&gt; VersionDifferences -&gt; f VersionDifferences
+</span><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#versionDifferences_pillarDifferences"><span class="hs-identifier hs-var hs-var">versionDifferences_pillarDifferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VersionDifferences -&gt; Maybe [PillarDifference])
+-&gt; (VersionDifferences
+    -&gt; Maybe [PillarDifference] -&gt; VersionDifferences)
+-&gt; Lens
+     VersionDifferences
+     VersionDifferences
+     (Maybe [PillarDifference])
+     (Maybe [PillarDifference])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences%27"><span class="hs-identifier hs-type">VersionDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244418"><span class="annot"><span class="annottext">Maybe [PillarDifference]
+pillarDifferences :: Maybe [PillarDifference]
+$sel:pillarDifferences:VersionDifferences' :: VersionDifferences -&gt; Maybe [PillarDifference]
+</span><a href="#local-6989586621679244418"><span class="hs-identifier hs-var hs-var">pillarDifferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PillarDifference]
+</span><a href="#local-6989586621679244418"><span class="hs-identifier hs-var">pillarDifferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244417"><span class="annot"><span class="annottext">s :: VersionDifferences
+</span><a href="#local-6989586621679244417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences%27"><span class="hs-identifier hs-type">VersionDifferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244416"><span class="annot"><span class="annottext">Maybe [PillarDifference]
+</span><a href="#local-6989586621679244416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VersionDifferences
+</span><a href="#local-6989586621679244417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pillarDifferences:VersionDifferences' :: Maybe [PillarDifference]
+</span><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#%24sel%3ApillarDifferences%3AVersionDifferences%27"><span class="hs-identifier hs-var">pillarDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PillarDifference]
+</span><a href="#local-6989586621679244416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences"><span class="hs-identifier hs-type">VersionDifferences</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PillarDifference] -&gt; f (Maybe [PillarDifference]))
+ -&gt; VersionDifferences -&gt; f VersionDifferences)
+-&gt; ((Maybe [PillarDifference] -&gt; f (Maybe [PillarDifference]))
+    -&gt; Maybe [PillarDifference] -&gt; f (Maybe [PillarDifference]))
+-&gt; (Maybe [PillarDifference] -&gt; f (Maybe [PillarDifference]))
+-&gt; VersionDifferences
+-&gt; f VersionDifferences
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PillarDifference]
+  [PillarDifference]
+  [PillarDifference]
+  [PillarDifference]
+-&gt; Iso
+     (Maybe [PillarDifference])
+     (Maybe [PillarDifference])
+     (Maybe [PillarDifference])
+     (Maybe [PillarDifference])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PillarDifference]
+  [PillarDifference]
+  [PillarDifference]
+  [PillarDifference]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences"><span class="hs-identifier hs-type">VersionDifferences</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679244408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VersionDifferences
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VersionDifferences)
+-&gt; Value
+-&gt; Parser VersionDifferences
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VersionDifferences&quot;</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244405"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PillarDifference] -&gt; VersionDifferences
+</span><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences%27"><span class="hs-identifier hs-var">VersionDifferences'</span></a></span><span>
+</span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PillarDifference] -&gt; VersionDifferences)
+-&gt; Parser (Maybe [PillarDifference]) -&gt; Parser VersionDifferences
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PillarDifference]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PillarDifferences&quot;</span></span><span>
+</span><span id="line-64"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PillarDifference]))
+-&gt; Maybe [PillarDifference] -&gt; Parser (Maybe [PillarDifference])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PillarDifference]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-65"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244398"><span id="local-6989586621679244400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences"><span class="hs-identifier hs-type">VersionDifferences</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.VersionDifferences.html#VersionDifferences"><span class="hs-identifier hs-type">VersionDifferences</span></a></span></span><span>
+</span><span id="line-71"></span></pre></body></html>

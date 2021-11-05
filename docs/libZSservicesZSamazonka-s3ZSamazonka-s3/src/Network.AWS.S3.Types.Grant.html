@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Container for grant information.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newGrant' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679559372"><span id="local-6989586621679559373"></span></span><span class="hs-keyword">data</span><span> </span><span id="Grant"><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-var">Grant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grant%27"><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-var">Grant'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679559381"><span id="local-6989586621679559382"></span></span><span class="hs-keyword">data</span><span> </span><span id="Grant"><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-var">Grant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grant%27"><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-var">Grant'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the permission given to the grantee.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Apermission%3AGrant%27"><span class="annot"><span class="annottext">Grant -&gt; Maybe Permission
 </span><a href="Network.AWS.S3.Types.Grant.html#%24sel%3Apermission%3AGrant%27"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Permission.html#Permission"><span class="hs-identifier hs-type">Permission</span></a></span><span class="hs-special">,</span><span>
@@ -37,14 +37,14 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Agrantee%3AGrant%27"><span class="annot"><span class="annottext">Grant -&gt; Maybe Grantee
 </span><a href="Network.AWS.S3.Types.Grant.html#%24sel%3Agrantee%3AGrant%27"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559365"><span id="local-6989586621679559367"><span class="annot"><span class="annottext">Grant -&gt; Grant -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559374"><span id="local-6989586621679559376"><span class="annot"><span class="annottext">Grant -&gt; Grant -&gt; Bool
 (Grant -&gt; Grant -&gt; Bool) -&gt; (Grant -&gt; Grant -&gt; Bool) -&gt; Eq Grant
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Grant -&gt; Grant -&gt; Bool
 $c/= :: Grant -&gt; Grant -&gt; Bool
 == :: Grant -&gt; Grant -&gt; Bool
 $c== :: Grant -&gt; Grant -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559356"><span id="local-6989586621679559358"><span id="local-6989586621679559360"><span id="local-6989586621679559362"><span class="annot"><span class="annottext">ReadPrec [Grant]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559365"><span id="local-6989586621679559367"><span id="local-6989586621679559369"><span id="local-6989586621679559371"><span class="annot"><span class="annottext">ReadPrec [Grant]
 ReadPrec Grant
 Int -&gt; ReadS Grant
 ReadS [Grant]
@@ -64,7 +64,7 @@ readList :: ReadS [Grant]
 $creadList :: ReadS [Grant]
 readsPrec :: Int -&gt; ReadS Grant
 $creadsPrec :: Int -&gt; ReadS Grant
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559349"><span id="local-6989586621679559351"><span id="local-6989586621679559353"><span class="annot"><span class="annottext">Int -&gt; Grant -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559358"><span id="local-6989586621679559360"><span id="local-6989586621679559362"><span class="annot"><span class="annottext">Int -&gt; Grant -&gt; ShowS
 [Grant] -&gt; ShowS
 Grant -&gt; String
 (Int -&gt; Grant -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (Grant -&gt; Maybe Permission -&gt; Grant)
 -&gt; Lens Grant Grant (Maybe Permission) (Maybe Permission)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559340"><span class="annot"><span class="annottext">Maybe Permission
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559349"><span class="annot"><span class="annottext">Maybe Permission
 permission :: Maybe Permission
 $sel:permission:Grant' :: Grant -&gt; Maybe Permission
-</span><a href="#local-6989586621679559340"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Permission
-</span><a href="#local-6989586621679559340"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559339"><span class="annot"><span class="annottext">s :: Grant
-</span><a href="#local-6989586621679559339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559338"><span class="annot"><span class="annottext">Maybe Permission
-</span><a href="#local-6989586621679559338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grant
-</span><a href="#local-6989586621679559339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permission:Grant' :: Maybe Permission
+</span><a href="#local-6989586621679559349"><span class="hs-identifier hs-var hs-var">permission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Permission
+</span><a href="#local-6989586621679559349"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559348"><span class="annot"><span class="annottext">s :: Grant
+</span><a href="#local-6989586621679559348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559347"><span class="annot"><span class="annottext">Maybe Permission
+</span><a href="#local-6989586621679559347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grant
+</span><a href="#local-6989586621679559348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permission:Grant' :: Maybe Permission
 </span><a href="Network.AWS.S3.Types.Grant.html#%24sel%3Apermission%3AGrant%27"><span class="hs-identifier hs-var">permission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Permission
-</span><a href="#local-6989586621679559338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The person being granted permissions.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#grant_grantee"><span class="hs-identifier hs-type">grant_grantee</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
@@ -139,21 +139,21 @@ $sel:permission:Grant' :: Grant -&gt; Maybe Permission
 -&gt; (Grant -&gt; Maybe Grantee -&gt; Grant)
 -&gt; Lens Grant Grant (Maybe Grantee) (Maybe Grantee)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559336"><span class="annot"><span class="annottext">Maybe Grantee
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559345"><span class="annot"><span class="annottext">Maybe Grantee
 grantee :: Maybe Grantee
 $sel:grantee:Grant' :: Grant -&gt; Maybe Grantee
-</span><a href="#local-6989586621679559336"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
-</span><a href="#local-6989586621679559336"><span class="hs-identifier hs-var">grantee</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559335"><span class="annot"><span class="annottext">s :: Grant
-</span><a href="#local-6989586621679559335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559334"><span class="annot"><span class="annottext">Maybe Grantee
-</span><a href="#local-6989586621679559334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grant
-</span><a href="#local-6989586621679559335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantee:Grant' :: Maybe Grantee
+</span><a href="#local-6989586621679559345"><span class="hs-identifier hs-var hs-var">grantee</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
+</span><a href="#local-6989586621679559345"><span class="hs-identifier hs-var">grantee</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559344"><span class="annot"><span class="annottext">s :: Grant
+</span><a href="#local-6989586621679559344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559343"><span class="annot"><span class="annottext">Maybe Grantee
+</span><a href="#local-6989586621679559343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grant
+</span><a href="#local-6989586621679559344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantee:Grant' :: Maybe Grantee
 </span><a href="Network.AWS.S3.Types.Grant.html#%24sel%3Agrantee%3AGrant%27"><span class="hs-identifier hs-var">grantee</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
-</span><a href="#local-6989586621679559334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679559331"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Grant
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679559329"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679559329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679559340"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Grant
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679559338"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679559338"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Permission -&gt; Maybe Grantee -&gt; Grant
 </span><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-var">Grant'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Permission -&gt; Maybe Grantee -&gt; Grant)
@@ -161,7 +161,7 @@ $sel:grantee:Grant' :: Grant -&gt; Maybe Grantee
 -&gt; Either String (Maybe Grantee -&gt; Grant)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679559329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Permission)
+</span><a href="#local-6989586621679559338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Permission)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Permission&quot;</span></span><span class="hs-special">)</span><span>
@@ -169,24 +169,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Grantee) -&gt; Either String Grant
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679559329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Grantee)
+</span><a href="#local-6989586621679559338"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Grantee)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Grantee&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559323"><span id="local-6989586621679559325"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559332"><span id="local-6989586621679559334"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559329"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant"><span class="hs-identifier hs-type">Grant</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679559316"><span class="annot"><span class="annottext">toXML :: Grant -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559313"><span id="local-6989586621679559314"><span class="annot"><span class="annottext">Maybe Permission
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679559325"><span class="annot"><span class="annottext">toXML :: Grant -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Grant.html#Grant%27"><span class="hs-identifier hs-type">Grant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559322"><span id="local-6989586621679559323"><span class="annot"><span class="annottext">Maybe Permission
 Maybe Grantee
 grantee :: Maybe Grantee
 permission :: Maybe Permission
 $sel:grantee:Grant' :: Grant -&gt; Maybe Grantee
 $sel:permission:Grant' :: Grant -&gt; Maybe Permission
-</span><a href="#local-6989586621679559313"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679559322"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -194,11 +194,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Permission&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Permission -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Permission
-</span><a href="#local-6989586621679559314"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679559323"><span class="hs-identifier hs-var">permission</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Grantee&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Grantee -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Grantee
-</span><a href="#local-6989586621679559313"><span class="hs-identifier hs-var">grantee</span></a></span><span>
+</span><a href="#local-6989586621679559322"><span class="hs-identifier hs-var">grantee</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span></pre></body></html>

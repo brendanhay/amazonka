@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- can choose to list public or private namespaces.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newNamespaceFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679220756"><span id="local-6989586621679220757"></span></span><span class="hs-keyword">data</span><span> </span><span id="NamespaceFilter"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-var">NamespaceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceFilter%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-var">NamespaceFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679220765"><span id="local-6989586621679220766"></span></span><span class="hs-keyword">data</span><span> </span><span id="NamespaceFilter"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-var">NamespaceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NamespaceFilter%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-var">NamespaceFilter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The operator that you want to use to determine whether @ListNamespaces@</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- returns a namespace. Valid values for @condition@ include:</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Avalues%3ANamespaceFilter%27"><span class="annot"><span class="annottext">NamespaceFilter -&gt; [Text]
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#%24sel%3Avalues%3ANamespaceFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220748"><span id="local-6989586621679220750"><span class="annot"><span class="annottext">NamespaceFilter -&gt; NamespaceFilter -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220757"><span id="local-6989586621679220759"><span class="annot"><span class="annottext">NamespaceFilter -&gt; NamespaceFilter -&gt; Bool
 (NamespaceFilter -&gt; NamespaceFilter -&gt; Bool)
 -&gt; (NamespaceFilter -&gt; NamespaceFilter -&gt; Bool)
 -&gt; Eq NamespaceFilter
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NamespaceFilter -&gt; NamespaceFilter -&gt; Bool
 == :: NamespaceFilter -&gt; NamespaceFilter -&gt; Bool
 $c== :: NamespaceFilter -&gt; NamespaceFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220739"><span id="local-6989586621679220741"><span id="local-6989586621679220743"><span id="local-6989586621679220745"><span class="annot"><span class="annottext">ReadPrec [NamespaceFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220748"><span id="local-6989586621679220750"><span id="local-6989586621679220752"><span id="local-6989586621679220754"><span class="annot"><span class="annottext">ReadPrec [NamespaceFilter]
 ReadPrec NamespaceFilter
 Int -&gt; ReadS NamespaceFilter
 ReadS [NamespaceFilter]
@@ -86,7 +86,7 @@ readList :: ReadS [NamespaceFilter]
 $creadList :: ReadS [NamespaceFilter]
 readsPrec :: Int -&gt; ReadS NamespaceFilter
 $creadsPrec :: Int -&gt; ReadS NamespaceFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220732"><span id="local-6989586621679220734"><span id="local-6989586621679220736"><span class="annot"><span class="annottext">Int -&gt; NamespaceFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220741"><span id="local-6989586621679220743"><span id="local-6989586621679220745"><span class="annot"><span class="annottext">Int -&gt; NamespaceFilter -&gt; ShowS
 [NamespaceFilter] -&gt; ShowS
 NamespaceFilter -&gt; String
 (Int -&gt; NamespaceFilter -&gt; ShowS)
@@ -147,8 +147,8 @@ $cfrom :: forall x. NamespaceFilter -&gt; Rep NamespaceFilter x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilterName.html#NamespaceFilterName"><span class="hs-identifier hs-type">NamespaceFilterName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span>
 </span><span id="line-93"></span><span id="newNamespaceFilter"><span class="annot"><span class="annottext">newNamespaceFilter :: NamespaceFilterName -&gt; NamespaceFilter
-</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#newNamespaceFilter"><span class="hs-identifier hs-var hs-var">newNamespaceFilter</span></a></span></span><span> </span><span id="local-6989586621679220726"><span class="annot"><span class="annottext">NamespaceFilterName
-</span><a href="#local-6989586621679220726"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#newNamespaceFilter"><span class="hs-identifier hs-var hs-var">newNamespaceFilter</span></a></span></span><span> </span><span id="local-6989586621679220735"><span class="annot"><span class="annottext">NamespaceFilterName
+</span><a href="#local-6989586621679220735"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">NamespaceFilter' :: Maybe FilterCondition
 -&gt; NamespaceFilterName -&gt; [Text] -&gt; NamespaceFilter
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span>
@@ -158,7 +158,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:NamespaceFilter' :: NamespaceFilterName
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#%24sel%3Aname%3ANamespaceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NamespaceFilterName
-</span><a href="#local-6989586621679220726"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679220735"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:NamespaceFilter' :: [Text]
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#%24sel%3Avalues%3ANamespaceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -190,16 +190,16 @@ forall a. Monoid a =&gt; a
      (Maybe FilterCondition)
      (Maybe FilterCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220722"><span class="annot"><span class="annottext">Maybe FilterCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220731"><span class="annot"><span class="annottext">Maybe FilterCondition
 condition :: Maybe FilterCondition
 $sel:condition:NamespaceFilter' :: NamespaceFilter -&gt; Maybe FilterCondition
-</span><a href="#local-6989586621679220722"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679220722"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220721"><span class="annot"><span class="annottext">s :: NamespaceFilter
-</span><a href="#local-6989586621679220721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220720"><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679220720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilter
-</span><a href="#local-6989586621679220721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:NamespaceFilter' :: Maybe FilterCondition
+</span><a href="#local-6989586621679220731"><span class="hs-identifier hs-var hs-var">condition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
+</span><a href="#local-6989586621679220731"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220730"><span class="annot"><span class="annottext">s :: NamespaceFilter
+</span><a href="#local-6989586621679220730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220729"><span class="annot"><span class="annottext">Maybe FilterCondition
+</span><a href="#local-6989586621679220729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilter
+</span><a href="#local-6989586621679220730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:condition:NamespaceFilter' :: Maybe FilterCondition
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#%24sel%3Acondition%3ANamespaceFilter%27"><span class="hs-identifier hs-var">condition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679220720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | Specify @TYPE@.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#namespaceFilter_name"><span class="hs-identifier hs-type">namespaceFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilterName.html#NamespaceFilterName"><span class="hs-identifier hs-type">NamespaceFilterName</span></a></span><span>
@@ -213,16 +213,16 @@ $sel:condition:NamespaceFilter' :: NamespaceFilter -&gt; Maybe FilterCondition
      NamespaceFilterName
      NamespaceFilterName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220718"><span class="annot"><span class="annottext">NamespaceFilterName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220727"><span class="annot"><span class="annottext">NamespaceFilterName
 name :: NamespaceFilterName
 $sel:name:NamespaceFilter' :: NamespaceFilter -&gt; NamespaceFilterName
-</span><a href="#local-6989586621679220718"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilterName
-</span><a href="#local-6989586621679220718"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220717"><span class="annot"><span class="annottext">s :: NamespaceFilter
-</span><a href="#local-6989586621679220717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220716"><span class="annot"><span class="annottext">NamespaceFilterName
-</span><a href="#local-6989586621679220716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilter
-</span><a href="#local-6989586621679220717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:NamespaceFilter' :: NamespaceFilterName
+</span><a href="#local-6989586621679220727"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilterName
+</span><a href="#local-6989586621679220727"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220726"><span class="annot"><span class="annottext">s :: NamespaceFilter
+</span><a href="#local-6989586621679220726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220725"><span class="annot"><span class="annottext">NamespaceFilterName
+</span><a href="#local-6989586621679220725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilter
+</span><a href="#local-6989586621679220726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:NamespaceFilter' :: NamespaceFilterName
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#%24sel%3Aname%3ANamespaceFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NamespaceFilterName
-</span><a href="#local-6989586621679220716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | If you specify @EQ@ for @Condition@, specify either @DNS_PUBLIC@ or</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- @DNS_PRIVATE@.</span><span>
@@ -235,16 +235,16 @@ $sel:name:NamespaceFilter' :: NamespaceFilter -&gt; NamespaceFilterName
 -&gt; (NamespaceFilter -&gt; [Text] -&gt; NamespaceFilter)
 -&gt; Lens NamespaceFilter NamespaceFilter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220714"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220723"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:NamespaceFilter' :: NamespaceFilter -&gt; [Text]
-</span><a href="#local-6989586621679220714"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679220714"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220713"><span class="annot"><span class="annottext">s :: NamespaceFilter
-</span><a href="#local-6989586621679220713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220712"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679220712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilter
-</span><a href="#local-6989586621679220713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:NamespaceFilter' :: [Text]
+</span><a href="#local-6989586621679220723"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679220723"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220722"><span class="annot"><span class="annottext">s :: NamespaceFilter
+</span><a href="#local-6989586621679220722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220721"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679220721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NamespaceFilter
+</span><a href="#local-6989586621679220722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:NamespaceFilter' :: [Text]
 </span><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#%24sel%3Avalues%3ANamespaceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679220712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; NamespaceFilter -&gt; f NamespaceFilter)
+</span><a href="#local-6989586621679220721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; NamespaceFilter -&gt; f NamespaceFilter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; NamespaceFilter
@@ -254,13 +254,13 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220706"><span id="local-6989586621679220708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220715"><span id="local-6989586621679220717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220695"><span id="local-6989586621679220697"><span id="local-6989586621679220699"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679220693"><span class="annot"><span class="annottext">toJSON :: NamespaceFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220689"><span id="local-6989586621679220690"><span id="local-6989586621679220691"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220704"><span id="local-6989586621679220706"><span id="local-6989586621679220708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter"><span class="hs-identifier hs-type">NamespaceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679220702"><span class="annot"><span class="annottext">toJSON :: NamespaceFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.NamespaceFilter.html#NamespaceFilter%27"><span class="hs-identifier hs-type">NamespaceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220698"><span id="local-6989586621679220699"><span id="local-6989586621679220700"><span class="annot"><span class="annottext">[Text]
 Maybe FilterCondition
 NamespaceFilterName
 values :: [Text]
@@ -269,7 +269,7 @@ condition :: Maybe FilterCondition
 $sel:values:NamespaceFilter' :: NamespaceFilter -&gt; [Text]
 $sel:name:NamespaceFilter' :: NamespaceFilter -&gt; NamespaceFilterName
 $sel:condition:NamespaceFilter' :: NamespaceFilter -&gt; Maybe FilterCondition
-</span><a href="#local-6989586621679220689"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679220698"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -281,21 +281,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FilterCondition -&gt; Pair) -&gt; Maybe FilterCondition -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterCondition
-</span><a href="#local-6989586621679220691"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679220700"><span class="hs-identifier hs-var">condition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NamespaceFilterName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NamespaceFilterName
-</span><a href="#local-6989586621679220690"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679220699"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679220689"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220698"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFailureDescription' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679270861"><span id="local-6989586621679270862"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailureDescription"><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-var">FailureDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailureDescription%27"><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-var">FailureDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679270870"><span id="local-6989586621679270871"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailureDescription"><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-var">FailureDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailureDescription%27"><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-var">FailureDescription'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of error that caused the failure.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3AFailureDescription%27"><span class="annot"><span class="annottext">FailureDescription -&gt; DeliveryStreamFailureType
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#%24sel%3Atype%27%3AFailureDescription%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.DeliveryStreamFailureType.html#DeliveryStreamFailureType"><span class="hs-identifier hs-type">DeliveryStreamFailureType</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Adetails%3AFailureDescription%27"><span class="annot"><span class="annottext">FailureDescription -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#%24sel%3Adetails%3AFailureDescription%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270854"><span id="local-6989586621679270856"><span class="annot"><span class="annottext">FailureDescription -&gt; FailureDescription -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270863"><span id="local-6989586621679270865"><span class="annot"><span class="annottext">FailureDescription -&gt; FailureDescription -&gt; Bool
 (FailureDescription -&gt; FailureDescription -&gt; Bool)
 -&gt; (FailureDescription -&gt; FailureDescription -&gt; Bool)
 -&gt; Eq FailureDescription
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailureDescription -&gt; FailureDescription -&gt; Bool
 == :: FailureDescription -&gt; FailureDescription -&gt; Bool
 $c== :: FailureDescription -&gt; FailureDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270845"><span id="local-6989586621679270847"><span id="local-6989586621679270849"><span id="local-6989586621679270851"><span class="annot"><span class="annottext">ReadPrec [FailureDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270854"><span id="local-6989586621679270856"><span id="local-6989586621679270858"><span id="local-6989586621679270860"><span class="annot"><span class="annottext">ReadPrec [FailureDescription]
 ReadPrec FailureDescription
 Int -&gt; ReadS FailureDescription
 ReadS [FailureDescription]
@@ -66,7 +66,7 @@ readList :: ReadS [FailureDescription]
 $creadList :: ReadS [FailureDescription]
 readsPrec :: Int -&gt; ReadS FailureDescription
 $creadsPrec :: Int -&gt; ReadS FailureDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270838"><span id="local-6989586621679270840"><span id="local-6989586621679270842"><span class="annot"><span class="annottext">Int -&gt; FailureDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270847"><span id="local-6989586621679270849"><span id="local-6989586621679270851"><span class="annot"><span class="annottext">Int -&gt; FailureDescription -&gt; ShowS
 [FailureDescription] -&gt; ShowS
 FailureDescription -&gt; String
 (Int -&gt; FailureDescription -&gt; ShowS)
@@ -110,17 +110,17 @@ $cfrom :: forall x. FailureDescription -&gt; Rep FailureDescription x
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span><span>
 </span><span id="line-57"></span><span id="newFailureDescription"><span class="annot"><span class="annottext">newFailureDescription :: DeliveryStreamFailureType -&gt; Text -&gt; FailureDescription
-</span><a href="Network.AWS.Firehose.Types.FailureDescription.html#newFailureDescription"><span class="hs-identifier hs-var hs-var">newFailureDescription</span></a></span></span><span> </span><span id="local-6989586621679270832"><span class="annot"><span class="annottext">DeliveryStreamFailureType
-</span><a href="#local-6989586621679270832"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679270831"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270831"><span class="hs-identifier hs-var">pDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.Types.FailureDescription.html#newFailureDescription"><span class="hs-identifier hs-var hs-var">newFailureDescription</span></a></span></span><span> </span><span id="local-6989586621679270841"><span class="annot"><span class="annottext">DeliveryStreamFailureType
+</span><a href="#local-6989586621679270841"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679270840"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270840"><span class="hs-identifier hs-var">pDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">FailureDescription' :: DeliveryStreamFailureType -&gt; Text -&gt; FailureDescription
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':FailureDescription' :: DeliveryStreamFailureType
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#%24sel%3Atype%27%3AFailureDescription%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamFailureType
-</span><a href="#local-6989586621679270832"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270841"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:details:FailureDescription' :: Text
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#%24sel%3Adetails%3AFailureDescription%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270831"><span class="hs-identifier hs-var">pDetails_</span></a></span><span>
+</span><a href="#local-6989586621679270840"><span class="hs-identifier hs-var">pDetails_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The type of error that caused the failure.</span><span>
@@ -136,16 +136,16 @@ $cfrom :: forall x. FailureDescription -&gt; Rep FailureDescription x
      DeliveryStreamFailureType
      DeliveryStreamFailureType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270827"><span class="annot"><span class="annottext">DeliveryStreamFailureType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270836"><span class="annot"><span class="annottext">DeliveryStreamFailureType
 type' :: DeliveryStreamFailureType
 $sel:type':FailureDescription' :: FailureDescription -&gt; DeliveryStreamFailureType
-</span><a href="#local-6989586621679270827"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamFailureType
-</span><a href="#local-6989586621679270827"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270826"><span class="annot"><span class="annottext">s :: FailureDescription
-</span><a href="#local-6989586621679270826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270825"><span class="annot"><span class="annottext">DeliveryStreamFailureType
-</span><a href="#local-6989586621679270825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDescription
-</span><a href="#local-6989586621679270826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':FailureDescription' :: DeliveryStreamFailureType
+</span><a href="#local-6989586621679270836"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamFailureType
+</span><a href="#local-6989586621679270836"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270835"><span class="annot"><span class="annottext">s :: FailureDescription
+</span><a href="#local-6989586621679270835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270834"><span class="annot"><span class="annottext">DeliveryStreamFailureType
+</span><a href="#local-6989586621679270834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDescription
+</span><a href="#local-6989586621679270835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':FailureDescription' :: DeliveryStreamFailureType
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#%24sel%3Atype%27%3AFailureDescription%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeliveryStreamFailureType
-</span><a href="#local-6989586621679270825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | A message providing details about the error that caused the failure.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#failureDescription_details"><span class="hs-identifier hs-type">failureDescription_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -154,19 +154,19 @@ $sel:type':FailureDescription' :: FailureDescription -&gt; DeliveryStreamFailure
 -&gt; (FailureDescription -&gt; Text -&gt; FailureDescription)
 -&gt; Lens FailureDescription FailureDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270823"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270832"><span class="annot"><span class="annottext">Text
 details :: Text
 $sel:details:FailureDescription' :: FailureDescription -&gt; Text
-</span><a href="#local-6989586621679270823"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270823"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270822"><span class="annot"><span class="annottext">s :: FailureDescription
-</span><a href="#local-6989586621679270822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDescription
-</span><a href="#local-6989586621679270822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:FailureDescription' :: Text
+</span><a href="#local-6989586621679270832"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270832"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270831"><span class="annot"><span class="annottext">s :: FailureDescription
+</span><a href="#local-6989586621679270831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-type">FailureDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailureDescription
+</span><a href="#local-6989586621679270831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:FailureDescription' :: Text
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#%24sel%3Adetails%3AFailureDescription%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270818"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679270816"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailureDescription
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270827"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679270825"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailureDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FailureDescription)
@@ -176,8 +176,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FailureDescription&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270813"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270822"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">DeliveryStreamFailureType -&gt; Text -&gt; FailureDescription
 </span><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription%27"><span class="hs-identifier hs-var">FailureDescription'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(DeliveryStreamFailureType -&gt; Text -&gt; FailureDescription)
@@ -185,20 +185,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; FailureDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeliveryStreamFailureType
+</span><a href="#local-6989586621679270822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeliveryStreamFailureType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; FailureDescription)
 -&gt; Parser Text -&gt; Parser FailureDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679270822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270807"><span id="local-6989586621679270809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270816"><span id="local-6989586621679270818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.FailureDescription.html#FailureDescription"><span class="hs-identifier hs-type">FailureDescription</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

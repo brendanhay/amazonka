@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides the details of the @ActivityTaskTimedOut@ event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newActivityTaskTimedOutEventAttributes' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679342597"><span id="local-6989586621679342598"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTaskTimedOutEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-var">ActivityTaskTimedOutEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskTimedOutEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">ActivityTaskTimedOutEventAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679342606"><span id="local-6989586621679342607"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTaskTimedOutEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-var">ActivityTaskTimedOutEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskTimedOutEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">ActivityTaskTimedOutEventAttributes'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the content of the @details@ parameter for the last call made</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- by the activity to @RecordActivityTaskHeartbeat@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adetails%3AActivityTaskTimedOutEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes -&gt; Maybe Text
@@ -47,7 +47,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AstartedEventId%3AActivityTaskTimedOutEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3AstartedEventId%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342588"><span id="local-6989586621679342590"><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342597"><span id="local-6989586621679342599"><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
 -&gt; ActivityTaskTimedOutEventAttributes -&gt; Bool
 (ActivityTaskTimedOutEventAttributes
  -&gt; ActivityTaskTimedOutEventAttributes -&gt; Bool)
@@ -63,7 +63,7 @@ $c/= :: ActivityTaskTimedOutEventAttributes
 -&gt; ActivityTaskTimedOutEventAttributes -&gt; Bool
 $c== :: ActivityTaskTimedOutEventAttributes
 -&gt; ActivityTaskTimedOutEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342579"><span id="local-6989586621679342581"><span id="local-6989586621679342583"><span id="local-6989586621679342585"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskTimedOutEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342588"><span id="local-6989586621679342590"><span id="local-6989586621679342592"><span id="local-6989586621679342594"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskTimedOutEventAttributes]
 ReadPrec ActivityTaskTimedOutEventAttributes
 Int -&gt; ReadS ActivityTaskTimedOutEventAttributes
 ReadS [ActivityTaskTimedOutEventAttributes]
@@ -83,7 +83,7 @@ readList :: ReadS [ActivityTaskTimedOutEventAttributes]
 $creadList :: ReadS [ActivityTaskTimedOutEventAttributes]
 readsPrec :: Int -&gt; ReadS ActivityTaskTimedOutEventAttributes
 $creadsPrec :: Int -&gt; ReadS ActivityTaskTimedOutEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342572"><span id="local-6989586621679342574"><span id="local-6989586621679342576"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskTimedOutEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342581"><span id="local-6989586621679342583"><span id="local-6989586621679342585"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskTimedOutEventAttributes -&gt; ShowS
 [ActivityTaskTimedOutEventAttributes] -&gt; ShowS
 ActivityTaskTimedOutEventAttributes -&gt; String
 (Int -&gt; ActivityTaskTimedOutEventAttributes -&gt; ShowS)
@@ -153,12 +153,12 @@ ActivityTaskTimedOutEventAttributes
 </span><span id="line-77"></span><span id="newActivityTaskTimedOutEventAttributes"><span class="annot"><span class="annottext">newActivityTaskTimedOutEventAttributes :: ActivityTaskTimeoutType
 -&gt; Integer -&gt; Integer -&gt; ActivityTaskTimedOutEventAttributes
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#newActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-var hs-var">newActivityTaskTimedOutEventAttributes</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679342566"><span class="annot"><span class="annottext">ActivityTaskTimeoutType
-</span><a href="#local-6989586621679342566"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679342565"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342565"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679342564"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342564"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679342575"><span class="annot"><span class="annottext">ActivityTaskTimeoutType
+</span><a href="#local-6989586621679342575"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679342574"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342574"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679342573"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342573"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes' :: Maybe Text
 -&gt; ActivityTaskTimeoutType
 -&gt; Integer
@@ -172,13 +172,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:timeoutType:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimeoutType
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3AtimeoutType%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimeoutType
-</span><a href="#local-6989586621679342566"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342575"><span class="hs-identifier hs-var">pTimeoutType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3AscheduledEventId%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342565"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342574"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:ActivityTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3AstartedEventId%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342564"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679342573"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Contains the content of the @details@ parameter for the last call made</span><span>
@@ -196,16 +196,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342560"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342569"><span class="annot"><span class="annottext">Maybe Text
 details :: Maybe Text
 $sel:details:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimedOutEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679342560"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342560"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342559"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342558"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ActivityTaskTimedOutEventAttributes' :: Maybe Text
+</span><a href="#local-6989586621679342569"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342569"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342568"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ActivityTaskTimedOutEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3Adetails%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The type of the timeout that caused this event.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#activityTaskTimedOutEventAttributes_timeoutType"><span class="hs-identifier hs-type">activityTaskTimedOutEventAttributes_timeoutType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimeoutType.html#ActivityTaskTimeoutType"><span class="hs-identifier hs-type">ActivityTaskTimeoutType</span></a></span><span>
@@ -221,16 +221,16 @@ $sel:details:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimedOutEventAt
      ActivityTaskTimeoutType
      ActivityTaskTimeoutType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342556"><span class="annot"><span class="annottext">ActivityTaskTimeoutType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342565"><span class="annot"><span class="annottext">ActivityTaskTimeoutType
 timeoutType :: ActivityTaskTimeoutType
 $sel:timeoutType:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimedOutEventAttributes -&gt; ActivityTaskTimeoutType
-</span><a href="#local-6989586621679342556"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimeoutType
-</span><a href="#local-6989586621679342556"><span class="hs-identifier hs-var">timeoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342555"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342554"><span class="annot"><span class="annottext">ActivityTaskTimeoutType
-</span><a href="#local-6989586621679342554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutType:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimeoutType
+</span><a href="#local-6989586621679342565"><span class="hs-identifier hs-var hs-var">timeoutType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimeoutType
+</span><a href="#local-6989586621679342565"><span class="hs-identifier hs-var">timeoutType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342564"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342563"><span class="annot"><span class="annottext">ActivityTaskTimeoutType
+</span><a href="#local-6989586621679342563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutType:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimeoutType
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3AtimeoutType%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">timeoutType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimeoutType
-</span><a href="#local-6989586621679342554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- activity task was scheduled. This information can be useful for</span><span>
@@ -249,16 +249,16 @@ $sel:timeoutType:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimedOutEve
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342552"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342561"><span class="annot"><span class="annottext">Integer
 scheduledEventId :: Integer
 $sel:scheduledEventId:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimedOutEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679342552"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342552"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342551"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342550"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskTimedOutEventAttributes' :: Integer
+</span><a href="#local-6989586621679342561"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342561"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342560"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342559"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3AscheduledEventId%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The ID of the @ActivityTaskStarted@ event recorded when this activity</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- task was started. This information can be useful for diagnosing problems</span><span>
@@ -276,22 +276,22 @@ $sel:scheduledEventId:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimedO
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342548"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342557"><span class="annot"><span class="annottext">Integer
 startedEventId :: Integer
 $sel:startedEventId:ActivityTaskTimedOutEventAttributes' :: ActivityTaskTimedOutEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679342548"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342548"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342547"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342546"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
-</span><a href="#local-6989586621679342547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:ActivityTaskTimedOutEventAttributes' :: Integer
+</span><a href="#local-6989586621679342557"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342557"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342556"><span class="annot"><span class="annottext">s :: ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342555"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskTimedOutEventAttributes
+</span><a href="#local-6989586621679342556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:ActivityTaskTimedOutEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#%24sel%3AstartedEventId%3AActivityTaskTimedOutEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679342543"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679342552"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679342541"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTaskTimedOutEventAttributes
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679342550"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTaskTimedOutEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActivityTaskTimedOutEventAttributes)
@@ -301,8 +301,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActivityTaskTimedOutEventAttributes&quot;</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342538"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342547"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; ActivityTaskTimeoutType
 -&gt; Integer
@@ -320,7 +320,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Integer -&gt; Integer -&gt; ActivityTaskTimedOutEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679342547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;details&quot;</span></span><span class="hs-special">)</span><span>
@@ -332,7 +332,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Integer -&gt; Integer -&gt; ActivityTaskTimedOutEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActivityTaskTimeoutType
+</span><a href="#local-6989586621679342547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ActivityTaskTimeoutType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeoutType&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,7 +341,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Integer -&gt; ActivityTaskTimedOutEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679342547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
@@ -349,17 +349,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser ActivityTaskTimedOutEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679342547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679342531"><span id="local-6989586621679342533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679342540"><span id="local-6989586621679342542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679342528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679342537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes.html#ActivityTaskTimedOutEventAttributes"><span class="hs-identifier hs-type">ActivityTaskTimedOutEventAttributes</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

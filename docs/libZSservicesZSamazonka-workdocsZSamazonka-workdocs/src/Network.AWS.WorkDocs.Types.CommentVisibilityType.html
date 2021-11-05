@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679259961"><span id="local-6989586621679259962"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommentVisibilityType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentVisibilityType.html#CommentVisibilityType"><span class="hs-identifier hs-var">CommentVisibilityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommentVisibilityType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentVisibilityType.html#CommentVisibilityType%27"><span class="hs-identifier hs-var">CommentVisibilityType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679259970"><span id="local-6989586621679259971"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommentVisibilityType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentVisibilityType.html#CommentVisibilityType"><span class="hs-identifier hs-var">CommentVisibilityType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommentVisibilityType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.CommentVisibilityType.html#CommentVisibilityType%27"><span class="hs-identifier hs-var">CommentVisibilityType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCommentVisibilityType"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.CommentVisibilityType.html#fromCommentVisibilityType"><span class="hs-identifier hs-var hs-var">fromCommentVisibilityType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259953"><span id="local-6989586621679259955"><span id="local-6989586621679259957"><span class="annot"><span class="annottext">Int -&gt; CommentVisibilityType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259962"><span id="local-6989586621679259964"><span id="local-6989586621679259966"><span class="annot"><span class="annottext">Int -&gt; CommentVisibilityType -&gt; ShowS
 [CommentVisibilityType] -&gt; ShowS
 CommentVisibilityType -&gt; String
 (Int -&gt; CommentVisibilityType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CommentVisibilityType -&gt; String
 showsPrec :: Int -&gt; CommentVisibilityType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CommentVisibilityType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679259944"><span id="local-6989586621679259946"><span id="local-6989586621679259948"><span id="local-6989586621679259950"><span class="annot"><span class="annottext">ReadPrec [CommentVisibilityType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679259953"><span id="local-6989586621679259955"><span id="local-6989586621679259957"><span id="local-6989586621679259959"><span class="annot"><span class="annottext">ReadPrec [CommentVisibilityType]
 ReadPrec CommentVisibilityType
 Int -&gt; ReadS CommentVisibilityType
 ReadS [CommentVisibilityType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CommentVisibilityType]
 readsPrec :: Int -&gt; ReadS CommentVisibilityType
 $creadsPrec :: Int -&gt; ReadS CommentVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679259939"><span id="local-6989586621679259941"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679259948"><span id="local-6989586621679259950"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool
 (CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool)
 -&gt; (CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool)
 -&gt; Eq CommentVisibilityType
@@ -82,7 +82,7 @@ $c/= :: CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool
 == :: CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool
 $c== :: CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259923"><span id="local-6989586621679259925"><span id="local-6989586621679259927"><span id="local-6989586621679259929"><span id="local-6989586621679259931"><span id="local-6989586621679259933"><span id="local-6989586621679259935"><span class="annot"><span class="annottext">Eq CommentVisibilityType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679259932"><span id="local-6989586621679259934"><span id="local-6989586621679259936"><span id="local-6989586621679259938"><span id="local-6989586621679259940"><span id="local-6989586621679259942"><span id="local-6989586621679259944"><span class="annot"><span class="annottext">Eq CommentVisibilityType
 Eq CommentVisibilityType
 -&gt; (CommentVisibilityType -&gt; CommentVisibilityType -&gt; Ordering)
 -&gt; (CommentVisibilityType -&gt; CommentVisibilityType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. CommentVisibilityType -&gt; Rep CommentVisibilityType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259915"><span id="local-6989586621679259917"><span class="annot"><span class="annottext">Int -&gt; CommentVisibilityType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679259924"><span id="local-6989586621679259926"><span class="annot"><span class="annottext">Int -&gt; CommentVisibilityType -&gt; Int
 CommentVisibilityType -&gt; Int
 (Int -&gt; CommentVisibilityType -&gt; Int)
 -&gt; (CommentVisibilityType -&gt; Int) -&gt; Hashable CommentVisibilityType
@@ -150,54 +150,54 @@ $chash :: CommentVisibilityType -&gt; Int
 hashWithSalt :: Int -&gt; CommentVisibilityType -&gt; Int
 $chashWithSalt :: Int -&gt; CommentVisibilityType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679259912"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679259921"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; ()
 (CommentVisibilityType -&gt; ()) -&gt; NFData CommentVisibilityType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CommentVisibilityType -&gt; ()
 $crnf :: CommentVisibilityType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259909"><span class="annot"><span class="annottext">Text -&gt; Either String CommentVisibilityType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679259918"><span class="annot"><span class="annottext">Text -&gt; Either String CommentVisibilityType
 (Text -&gt; Either String CommentVisibilityType)
 -&gt; FromText CommentVisibilityType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CommentVisibilityType
 $cfromText :: Text -&gt; Either String CommentVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259906"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679259915"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; Text
 (CommentVisibilityType -&gt; Text) -&gt; ToText CommentVisibilityType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CommentVisibilityType -&gt; Text
 $ctoText :: CommentVisibilityType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259903"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679259912"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; ByteString
 (CommentVisibilityType -&gt; ByteString)
 -&gt; ToByteString CommentVisibilityType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CommentVisibilityType -&gt; ByteString
 $ctoBS :: CommentVisibilityType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259900"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679259909"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; ByteStringBuilder
 (CommentVisibilityType -&gt; ByteStringBuilder)
 -&gt; ToLog CommentVisibilityType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CommentVisibilityType -&gt; ByteStringBuilder
 $cbuild :: CommentVisibilityType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259897"><span class="annot"><span class="annottext">HeaderName -&gt; CommentVisibilityType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679259906"><span class="annot"><span class="annottext">HeaderName -&gt; CommentVisibilityType -&gt; [Header]
 (HeaderName -&gt; CommentVisibilityType -&gt; [Header])
 -&gt; ToHeader CommentVisibilityType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CommentVisibilityType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CommentVisibilityType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259894"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679259903"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; QueryString
 (CommentVisibilityType -&gt; QueryString)
 -&gt; ToQuery CommentVisibilityType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CommentVisibilityType -&gt; QueryString
 $ctoQuery :: CommentVisibilityType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259889"><span id="local-6989586621679259891"><span class="annot"><span class="annottext">Value -&gt; Parser [CommentVisibilityType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679259898"><span id="local-6989586621679259900"><span class="annot"><span class="annottext">Value -&gt; Parser [CommentVisibilityType]
 Value -&gt; Parser CommentVisibilityType
 (Value -&gt; Parser CommentVisibilityType)
 -&gt; (Value -&gt; Parser [CommentVisibilityType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [CommentVisibilityType]
 parseJSON :: Value -&gt; Parser CommentVisibilityType
 $cparseJSON :: Value -&gt; Parser CommentVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259884"><span id="local-6989586621679259886"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommentVisibilityType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679259893"><span id="local-6989586621679259895"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommentVisibilityType]
 FromJSONKeyFunction CommentVisibilityType
 FromJSONKeyFunction CommentVisibilityType
 -&gt; FromJSONKeyFunction [CommentVisibilityType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CommentVisibilityType]
 fromJSONKey :: FromJSONKeyFunction CommentVisibilityType
 $cfromJSONKey :: FromJSONKeyFunction CommentVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259875"><span id="local-6989586621679259877"><span id="local-6989586621679259879"><span id="local-6989586621679259881"><span class="annot"><span class="annottext">[CommentVisibilityType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679259884"><span id="local-6989586621679259886"><span id="local-6989586621679259888"><span id="local-6989586621679259890"><span class="annot"><span class="annottext">[CommentVisibilityType] -&gt; Encoding
 [CommentVisibilityType] -&gt; Value
 CommentVisibilityType -&gt; Encoding
 CommentVisibilityType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: CommentVisibilityType -&gt; Encoding
 toJSON :: CommentVisibilityType -&gt; Value
 $ctoJSON :: CommentVisibilityType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259870"><span id="local-6989586621679259872"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommentVisibilityType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679259879"><span id="local-6989586621679259881"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommentVisibilityType]
 ToJSONKeyFunction CommentVisibilityType
 ToJSONKeyFunction CommentVisibilityType
 -&gt; ToJSONKeyFunction [CommentVisibilityType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CommentVisibilityType]
 toJSONKey :: ToJSONKeyFunction CommentVisibilityType
 $ctoJSONKey :: ToJSONKeyFunction CommentVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259867"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommentVisibilityType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679259876"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommentVisibilityType
 ([Node] -&gt; Either String CommentVisibilityType)
 -&gt; FromXML CommentVisibilityType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CommentVisibilityType
 $cparseXML :: [Node] -&gt; Either String CommentVisibilityType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259864"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679259873"><span class="annot"><span class="annottext">CommentVisibilityType -&gt; XML
 (CommentVisibilityType -&gt; XML) -&gt; ToXML CommentVisibilityType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CommentVisibilityType -&gt; XML

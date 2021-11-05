@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- and Origin headers for the responses to be cached correctly.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newCachedMethods' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679395191"><span id="local-6989586621679395192"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachedMethods"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-var">CachedMethods</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachedMethods%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-var">CachedMethods'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679395200"><span id="local-6989586621679395201"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachedMethods"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-var">CachedMethods</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachedMethods%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-var">CachedMethods'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of HTTP methods for which you want CloudFront to cache</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- responses. Valid values are @2@ (for caching responses to @GET@ and</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @HEAD@ requests) and @3@ (for caching responses to @GET@, @HEAD@, and</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Aitems%3ACachedMethods%27"><span class="annot"><span class="annottext">CachedMethods -&gt; [Method]
 </span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#%24sel%3Aitems%3ACachedMethods%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Method.html#Method"><span class="hs-identifier hs-type">Method</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395184"><span id="local-6989586621679395186"><span class="annot"><span class="annottext">CachedMethods -&gt; CachedMethods -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395193"><span id="local-6989586621679395195"><span class="annot"><span class="annottext">CachedMethods -&gt; CachedMethods -&gt; Bool
 (CachedMethods -&gt; CachedMethods -&gt; Bool)
 -&gt; (CachedMethods -&gt; CachedMethods -&gt; Bool) -&gt; Eq CachedMethods
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CachedMethods -&gt; CachedMethods -&gt; Bool
 == :: CachedMethods -&gt; CachedMethods -&gt; Bool
 $c== :: CachedMethods -&gt; CachedMethods -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395175"><span id="local-6989586621679395177"><span id="local-6989586621679395179"><span id="local-6989586621679395181"><span class="annot"><span class="annottext">ReadPrec [CachedMethods]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395184"><span id="local-6989586621679395186"><span id="local-6989586621679395188"><span id="local-6989586621679395190"><span class="annot"><span class="annottext">ReadPrec [CachedMethods]
 ReadPrec CachedMethods
 Int -&gt; ReadS CachedMethods
 ReadS [CachedMethods]
@@ -77,7 +77,7 @@ readList :: ReadS [CachedMethods]
 $creadList :: ReadS [CachedMethods]
 readsPrec :: Int -&gt; ReadS CachedMethods
 $creadsPrec :: Int -&gt; ReadS CachedMethods
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395168"><span id="local-6989586621679395170"><span id="local-6989586621679395172"><span class="annot"><span class="annottext">Int -&gt; CachedMethods -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395177"><span id="local-6989586621679395179"><span id="local-6989586621679395181"><span class="annot"><span class="annottext">Int -&gt; CachedMethods -&gt; ShowS
 [CachedMethods] -&gt; ShowS
 CachedMethods -&gt; String
 (Int -&gt; CachedMethods -&gt; ShowS)
@@ -123,13 +123,13 @@ $cfrom :: forall x. CachedMethods -&gt; Rep CachedMethods x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span><span>
 </span><span id="line-71"></span><span id="newCachedMethods"><span class="annot"><span class="annottext">newCachedMethods :: Int -&gt; CachedMethods
-</span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#newCachedMethods"><span class="hs-identifier hs-var hs-var">newCachedMethods</span></a></span></span><span> </span><span id="local-6989586621679395162"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395162"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#newCachedMethods"><span class="hs-identifier hs-var hs-var">newCachedMethods</span></a></span></span><span> </span><span id="local-6989586621679395171"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395171"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">CachedMethods' :: Int -&gt; [Method] -&gt; CachedMethods
 </span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quantity:CachedMethods' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#%24sel%3Aquantity%3ACachedMethods%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395162"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395171"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:CachedMethods' :: [Method]
 </span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#%24sel%3Aitems%3ACachedMethods%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Method]
 forall a. Monoid a =&gt; a
@@ -146,16 +146,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CachedMethods -&gt; Int -&gt; CachedMethods)
 -&gt; Lens CachedMethods CachedMethods Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395158"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395167"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:CachedMethods' :: CachedMethods -&gt; Int
-</span><a href="#local-6989586621679395158"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395158"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395157"><span class="annot"><span class="annottext">s :: CachedMethods
-</span><a href="#local-6989586621679395157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395156"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachedMethods
-</span><a href="#local-6989586621679395157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:CachedMethods' :: Int
+</span><a href="#local-6989586621679395167"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395167"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395166"><span class="annot"><span class="annottext">s :: CachedMethods
+</span><a href="#local-6989586621679395166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachedMethods
+</span><a href="#local-6989586621679395166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:CachedMethods' :: Int
 </span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#%24sel%3Aquantity%3ACachedMethods%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | A complex type that contains the HTTP methods that you want CloudFront</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- to cache responses to.</span><span>
@@ -165,16 +165,16 @@ $sel:quantity:CachedMethods' :: CachedMethods -&gt; Int
 -&gt; (CachedMethods -&gt; [Method] -&gt; CachedMethods)
 -&gt; Lens CachedMethods CachedMethods [Method] [Method]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395154"><span class="annot"><span class="annottext">[Method]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395163"><span class="annot"><span class="annottext">[Method]
 items :: [Method]
 $sel:items:CachedMethods' :: CachedMethods -&gt; [Method]
-</span><a href="#local-6989586621679395154"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Method]
-</span><a href="#local-6989586621679395154"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395153"><span class="annot"><span class="annottext">s :: CachedMethods
-</span><a href="#local-6989586621679395153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395152"><span class="annot"><span class="annottext">[Method]
-</span><a href="#local-6989586621679395152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachedMethods
-</span><a href="#local-6989586621679395153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:CachedMethods' :: [Method]
+</span><a href="#local-6989586621679395163"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Method]
+</span><a href="#local-6989586621679395163"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395162"><span class="annot"><span class="annottext">s :: CachedMethods
+</span><a href="#local-6989586621679395162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395161"><span class="annot"><span class="annottext">[Method]
+</span><a href="#local-6989586621679395161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachedMethods
+</span><a href="#local-6989586621679395162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:CachedMethods' :: [Method]
 </span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#%24sel%3Aitems%3ACachedMethods%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Method]
-</span><a href="#local-6989586621679395152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Method] -&gt; f [Method]) -&gt; CachedMethods -&gt; f CachedMethods)
+</span><a href="#local-6989586621679395161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Method] -&gt; f [Method]) -&gt; CachedMethods -&gt; f CachedMethods)
 -&gt; (([Method] -&gt; f [Method]) -&gt; [Method] -&gt; f [Method])
 -&gt; ([Method] -&gt; f [Method])
 -&gt; CachedMethods
@@ -185,16 +185,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679395147"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachedMethods
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679395145"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679395145"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679395156"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachedMethods
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679395154"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679395154"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; [Method] -&gt; CachedMethods
 </span><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-var">CachedMethods'</span></a></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; [Method] -&gt; CachedMethods)
 -&gt; Either String Int -&gt; Either String ([Method] -&gt; CachedMethods)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679395145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679395154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,7 +202,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String [Method] -&gt; Either String CachedMethods
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679395145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679395154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -219,19 +219,19 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;Method&quot;</span></span><span>
 </span><span id="line-95"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395136"><span id="local-6989586621679395138"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395145"><span id="local-6989586621679395147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods"><span class="hs-identifier hs-type">CachedMethods</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679395129"><span class="annot"><span class="annottext">toXML :: CachedMethods -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395126"><span id="local-6989586621679395127"><span class="annot"><span class="annottext">Int
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679395138"><span class="annot"><span class="annottext">toXML :: CachedMethods -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachedMethods.html#CachedMethods%27"><span class="hs-identifier hs-type">CachedMethods'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395135"><span id="local-6989586621679395136"><span class="annot"><span class="annottext">Int
 [Method]
 items :: [Method]
 quantity :: Int
 $sel:items:CachedMethods' :: CachedMethods -&gt; [Method]
 $sel:quantity:CachedMethods' :: CachedMethods -&gt; Int
-</span><a href="#local-6989586621679395126"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679395135"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -239,7 +239,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395127"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395136"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
@@ -247,6 +247,6 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Method&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Method]
-</span><a href="#local-6989586621679395126"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><a href="#local-6989586621679395135"><span class="hs-identifier hs-var">items</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span></pre></body></html>

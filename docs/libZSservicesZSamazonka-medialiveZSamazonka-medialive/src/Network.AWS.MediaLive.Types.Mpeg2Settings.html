@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- | Mpeg2 Settings</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newMpeg2Settings' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679926080"><span id="local-6989586621679926081"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mpeg2Settings"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-var">Mpeg2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2Settings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-var">Mpeg2Settings'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679926089"><span id="local-6989586621679926090"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mpeg2Settings"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-var">Mpeg2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2Settings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-var">Mpeg2Settings'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- first).</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AscanType%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Maybe Mpeg2ScanType
@@ -132,7 +132,7 @@
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Natural
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679926059"><span id="local-6989586621679926061"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679926068"><span id="local-6989586621679926070"><span class="annot"><span class="annottext">Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
 (Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool)
 -&gt; (Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool) -&gt; Eq Mpeg2Settings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -140,7 +140,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
 == :: Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
 $c== :: Mpeg2Settings -&gt; Mpeg2Settings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679926050"><span id="local-6989586621679926052"><span id="local-6989586621679926054"><span id="local-6989586621679926056"><span class="annot"><span class="annottext">ReadPrec [Mpeg2Settings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679926059"><span id="local-6989586621679926061"><span id="local-6989586621679926063"><span id="local-6989586621679926065"><span class="annot"><span class="annottext">ReadPrec [Mpeg2Settings]
 ReadPrec Mpeg2Settings
 Int -&gt; ReadS Mpeg2Settings
 ReadS [Mpeg2Settings]
@@ -160,7 +160,7 @@ readList :: ReadS [Mpeg2Settings]
 $creadList :: ReadS [Mpeg2Settings]
 readsPrec :: Int -&gt; ReadS Mpeg2Settings
 $creadsPrec :: Int -&gt; ReadS Mpeg2Settings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679926043"><span id="local-6989586621679926045"><span id="local-6989586621679926047"><span class="annot"><span class="annottext">Int -&gt; Mpeg2Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679926052"><span id="local-6989586621679926054"><span id="local-6989586621679926056"><span class="annot"><span class="annottext">Int -&gt; Mpeg2Settings -&gt; ShowS
 [Mpeg2Settings] -&gt; ShowS
 Mpeg2Settings -&gt; String
 (Int -&gt; Mpeg2Settings -&gt; ShowS)
@@ -278,10 +278,10 @@ $cfrom :: forall x. Mpeg2Settings -&gt; Rep Mpeg2Settings x
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span>
 </span><span id="line-211"></span><span id="newMpeg2Settings"><span class="annot"><span class="annottext">newMpeg2Settings :: Natural -&gt; Natural -&gt; Mpeg2Settings
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#newMpeg2Settings"><span class="hs-identifier hs-var hs-var">newMpeg2Settings</span></a></span></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679926037"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679926037"><span class="hs-identifier hs-var">pFramerateNumerator_</span></a></span></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679926036"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679926036"><span class="hs-identifier hs-var">pFramerateDenominator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679926046"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679926046"><span class="hs-identifier hs-var">pFramerateNumerator_</span></a></span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679926045"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679926045"><span class="hs-identifier hs-var">pFramerateDenominator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">Mpeg2Settings' :: Maybe Mpeg2ScanType
 -&gt; Maybe Mpeg2TimecodeInsertionBehavior
 -&gt; Maybe AfdSignaling
@@ -358,10 +358,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:framerateNumerator:Mpeg2Settings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateNumerator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679926037"><span class="hs-identifier hs-var">pFramerateNumerator_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679926046"><span class="hs-identifier hs-var">pFramerateNumerator_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:framerateDenominator:Mpeg2Settings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679926036"><span class="hs-identifier hs-var">pFramerateDenominator_</span></a></span><span>
+</span><a href="#local-6989586621679926045"><span class="hs-identifier hs-var">pFramerateDenominator_</span></a></span><span>
 </span><span id="line-231"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | Set the scan type of the output to PROGRESSIVE or INTERLACED (top field</span><span>
@@ -377,16 +377,16 @@ forall a. Maybe a
      (Maybe Mpeg2ScanType)
      (Maybe Mpeg2ScanType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926032"><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926041"><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
 scanType :: Maybe Mpeg2ScanType
 $sel:scanType:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ScanType
-</span><a href="#local-6989586621679926032"><span class="hs-identifier hs-var hs-var">scanType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
-</span><a href="#local-6989586621679926032"><span class="hs-identifier hs-var">scanType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926031"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926030"><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
-</span><a href="#local-6989586621679926030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanType:Mpeg2Settings' :: Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679926041"><span class="hs-identifier hs-var hs-var">scanType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679926041"><span class="hs-identifier hs-var">scanType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926040"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926039"><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
+</span><a href="#local-6989586621679926039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scanType:Mpeg2Settings' :: Maybe Mpeg2ScanType
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AscanType%3AMpeg2Settings%27"><span class="hs-identifier hs-var">scanType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
-</span><a href="#local-6989586621679926030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- | Determines how MediaLive inserts timecodes in the output video. For</span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- detailed information about setting up the input and the output for a</span><span>
@@ -406,16 +406,16 @@ $sel:scanType:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ScanType
      (Maybe Mpeg2TimecodeInsertionBehavior)
      (Maybe Mpeg2TimecodeInsertionBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926028"><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926037"><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
 timecodeInsertion :: Maybe Mpeg2TimecodeInsertionBehavior
 $sel:timecodeInsertion:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2TimecodeInsertionBehavior
-</span><a href="#local-6989586621679926028"><span class="hs-identifier hs-var hs-var">timecodeInsertion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
-</span><a href="#local-6989586621679926028"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926027"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926026"><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
-</span><a href="#local-6989586621679926026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeInsertion:Mpeg2Settings' :: Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679926037"><span class="hs-identifier hs-var hs-var">timecodeInsertion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679926037"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926036"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926035"><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
+</span><a href="#local-6989586621679926035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timecodeInsertion:Mpeg2Settings' :: Maybe Mpeg2TimecodeInsertionBehavior
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AtimecodeInsertion%3AMpeg2Settings%27"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
-</span><a href="#local-6989586621679926026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | Indicates the AFD values that MediaLive will write into the video</span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- encode. If you do not know what AFD signaling is, or if your downstream</span><span>
@@ -433,16 +433,16 @@ $sel:timecodeInsertion:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2Timecode
      (Maybe AfdSignaling)
      (Maybe AfdSignaling)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926024"><span class="annot"><span class="annottext">Maybe AfdSignaling
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926033"><span class="annot"><span class="annottext">Maybe AfdSignaling
 afdSignaling :: Maybe AfdSignaling
 $sel:afdSignaling:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe AfdSignaling
-</span><a href="#local-6989586621679926024"><span class="hs-identifier hs-var hs-var">afdSignaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
-</span><a href="#local-6989586621679926024"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926023"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926022"><span class="annot"><span class="annottext">Maybe AfdSignaling
-</span><a href="#local-6989586621679926022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afdSignaling:Mpeg2Settings' :: Maybe AfdSignaling
+</span><a href="#local-6989586621679926033"><span class="hs-identifier hs-var hs-var">afdSignaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
+</span><a href="#local-6989586621679926033"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926032"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926031"><span class="annot"><span class="annottext">Maybe AfdSignaling
+</span><a href="#local-6989586621679926031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afdSignaling:Mpeg2Settings' :: Maybe AfdSignaling
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AafdSignaling%3AMpeg2Settings%27"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
-</span><a href="#local-6989586621679926022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | Relates to the GOP structure. The GOP size (keyframe interval) in the</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- units specified in gopSizeUnits. If you do not know what GOP is, use the</span><span>
@@ -456,16 +456,16 @@ $sel:afdSignaling:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe AfdSignaling
 -&gt; (Mpeg2Settings -&gt; Maybe Double -&gt; Mpeg2Settings)
 -&gt; Lens Mpeg2Settings Mpeg2Settings (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926020"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926029"><span class="annot"><span class="annottext">Maybe Double
 gopSize :: Maybe Double
 $sel:gopSize:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Double
-</span><a href="#local-6989586621679926020"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679926020"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926019"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926018"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679926018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSize:Mpeg2Settings' :: Maybe Double
+</span><a href="#local-6989586621679926029"><span class="hs-identifier hs-var hs-var">gopSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679926029"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926028"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926027"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679926027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSize:Mpeg2Settings' :: Maybe Double
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSize%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679926018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | Relates to the GOP structure. Specifies whether the gopSize is specified</span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- in frames or seconds. If you do not plan to change the default gopSize,</span><span>
@@ -482,16 +482,16 @@ $sel:gopSize:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Double
      (Maybe Mpeg2GopSizeUnits)
      (Maybe Mpeg2GopSizeUnits)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926016"><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926025"><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
 gopSizeUnits :: Maybe Mpeg2GopSizeUnits
 $sel:gopSizeUnits:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2GopSizeUnits
-</span><a href="#local-6989586621679926016"><span class="hs-identifier hs-var hs-var">gopSizeUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
-</span><a href="#local-6989586621679926016"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926015"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926014"><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
-</span><a href="#local-6989586621679926014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSizeUnits:Mpeg2Settings' :: Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679926025"><span class="hs-identifier hs-var hs-var">gopSizeUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679926025"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926024"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926023"><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
+</span><a href="#local-6989586621679926023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopSizeUnits:Mpeg2Settings' :: Maybe Mpeg2GopSizeUnits
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopSizeUnits%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
-</span><a href="#local-6989586621679926014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | Relates to the GOP structure. If you do not know what GOP is, use the</span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- default. FIXED: Set the number of B-frames in each sub-GOP to the value</span><span>
@@ -508,16 +508,16 @@ $sel:gopSizeUnits:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2GopSizeUnits
      (Maybe Mpeg2SubGopLength)
      (Maybe Mpeg2SubGopLength)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926012"><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926021"><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
 subgopLength :: Maybe Mpeg2SubGopLength
 $sel:subgopLength:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2SubGopLength
-</span><a href="#local-6989586621679926012"><span class="hs-identifier hs-var hs-var">subgopLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
-</span><a href="#local-6989586621679926012"><span class="hs-identifier hs-var">subgopLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926011"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926010"><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
-</span><a href="#local-6989586621679926010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subgopLength:Mpeg2Settings' :: Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679926021"><span class="hs-identifier hs-var hs-var">subgopLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679926021"><span class="hs-identifier hs-var">subgopLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926020"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926019"><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
+</span><a href="#local-6989586621679926019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subgopLength:Mpeg2Settings' :: Maybe Mpeg2SubGopLength
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AsubgopLength%3AMpeg2Settings%27"><span class="hs-identifier hs-var">subgopLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
-</span><a href="#local-6989586621679926010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | Sets the pixel aspect ratio for the encode.</span><span>
 </span><span id="line-277"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_displayAspectRatio"><span class="hs-identifier hs-type">mpeg2Settings_displayAspectRatio</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2DisplayRatio.html#Mpeg2DisplayRatio"><span class="hs-identifier hs-type">Mpeg2DisplayRatio</span></a></span><span class="hs-special">)</span><span>
@@ -531,16 +531,16 @@ $sel:subgopLength:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2SubGopLength
      (Maybe Mpeg2DisplayRatio)
      (Maybe Mpeg2DisplayRatio)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926008"><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926017"><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
 displayAspectRatio :: Maybe Mpeg2DisplayRatio
 $sel:displayAspectRatio:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2DisplayRatio
-</span><a href="#local-6989586621679926008"><span class="hs-identifier hs-var hs-var">displayAspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
-</span><a href="#local-6989586621679926008"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926007"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926006"><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
-</span><a href="#local-6989586621679926006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayAspectRatio:Mpeg2Settings' :: Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679926017"><span class="hs-identifier hs-var hs-var">displayAspectRatio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679926017"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926016"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926015"><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
+</span><a href="#local-6989586621679926015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayAspectRatio:Mpeg2Settings' :: Maybe Mpeg2DisplayRatio
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AdisplayAspectRatio%3AMpeg2Settings%27"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
-</span><a href="#local-6989586621679926006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- | Relates to the GOP structure. The number of B-frames between reference</span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- frames. If you do not know what a B-frame is, use the default.</span><span>
@@ -551,16 +551,16 @@ $sel:displayAspectRatio:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2Display
 -&gt; (Mpeg2Settings -&gt; Maybe Natural -&gt; Mpeg2Settings)
 -&gt; Lens Mpeg2Settings Mpeg2Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926004"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926013"><span class="annot"><span class="annottext">Maybe Natural
 gopNumBFrames :: Maybe Natural
 $sel:gopNumBFrames:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679926004"><span class="hs-identifier hs-var hs-var">gopNumBFrames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679926004"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926003"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679926003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926002"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679926002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679926003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopNumBFrames:Mpeg2Settings' :: Maybe Natural
+</span><a href="#local-6989586621679926013"><span class="hs-identifier hs-var hs-var">gopNumBFrames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679926013"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926012"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926011"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679926011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopNumBFrames:Mpeg2Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopNumBFrames%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679926002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | Complete this field only when afdSignaling is set to FIXED. Enter the</span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- AFD value (4 bits) to write on all frames of the video encode.</span><span>
@@ -572,16 +572,16 @@ $sel:gopNumBFrames:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
 -&gt; Lens
      Mpeg2Settings Mpeg2Settings (Maybe FixedAfd) (Maybe FixedAfd)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926000"><span class="annot"><span class="annottext">Maybe FixedAfd
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926009"><span class="annot"><span class="annottext">Maybe FixedAfd
 fixedAfd :: Maybe FixedAfd
 $sel:fixedAfd:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe FixedAfd
-</span><a href="#local-6989586621679926000"><span class="hs-identifier hs-var hs-var">fixedAfd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
-</span><a href="#local-6989586621679926000"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925999"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925998"><span class="annot"><span class="annottext">Maybe FixedAfd
-</span><a href="#local-6989586621679925998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedAfd:Mpeg2Settings' :: Maybe FixedAfd
+</span><a href="#local-6989586621679926009"><span class="hs-identifier hs-var hs-var">fixedAfd</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
+</span><a href="#local-6989586621679926009"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926008"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926007"><span class="annot"><span class="annottext">Maybe FixedAfd
+</span><a href="#local-6989586621679926007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedAfd:Mpeg2Settings' :: Maybe FixedAfd
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfixedAfd%3AMpeg2Settings%27"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
-</span><a href="#local-6989586621679925998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | Optionally specify a noise reduction filter, which can improve quality</span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- of compressed content. If you do not choose a filter, no filter will be</span><span>
@@ -604,16 +604,16 @@ $sel:fixedAfd:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe FixedAfd
      (Maybe Mpeg2FilterSettings)
      (Maybe Mpeg2FilterSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925996"><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926005"><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
 filterSettings :: Maybe Mpeg2FilterSettings
 $sel:filterSettings:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2FilterSettings
-</span><a href="#local-6989586621679925996"><span class="hs-identifier hs-var hs-var">filterSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
-</span><a href="#local-6989586621679925996"><span class="hs-identifier hs-var">filterSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925995"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925994"><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
-</span><a href="#local-6989586621679925994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterSettings:Mpeg2Settings' :: Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679926005"><span class="hs-identifier hs-var hs-var">filterSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679926005"><span class="hs-identifier hs-var">filterSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926004"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679926003"><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
+</span><a href="#local-6989586621679926003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterSettings:Mpeg2Settings' :: Maybe Mpeg2FilterSettings
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AfilterSettings%3AMpeg2Settings%27"><span class="hs-identifier hs-var">filterSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
-</span><a href="#local-6989586621679925994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679926003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- | Specifies whether to include the color space metadata. The metadata</span><span>
 </span><span id="line-304"></span><span class="hs-comment">-- describes the color space that applies to the video (the colorSpace</span><span>
@@ -629,16 +629,16 @@ $sel:filterSettings:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2FilterSetti
      (Maybe Mpeg2ColorMetadata)
      (Maybe Mpeg2ColorMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925992"><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679926001"><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
 colorMetadata :: Maybe Mpeg2ColorMetadata
 $sel:colorMetadata:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorMetadata
-</span><a href="#local-6989586621679925992"><span class="hs-identifier hs-var hs-var">colorMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
-</span><a href="#local-6989586621679925992"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925991"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925990"><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
-</span><a href="#local-6989586621679925990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorMetadata:Mpeg2Settings' :: Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679926001"><span class="hs-identifier hs-var hs-var">colorMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679926001"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679926000"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679926000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925999"><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
+</span><a href="#local-6989586621679925999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679926000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorMetadata:Mpeg2Settings' :: Maybe Mpeg2ColorMetadata
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorMetadata%3AMpeg2Settings%27"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
-</span><a href="#local-6989586621679925990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | Choose Off to disable adaptive quantization. Or choose another value to</span><span>
 </span><span id="line-310"></span><span class="hs-comment">-- enable the quantizer and set its strength. The strengths are: Auto, Off,</span><span>
@@ -657,16 +657,16 @@ $sel:colorMetadata:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorMetadat
      (Maybe Mpeg2AdaptiveQuantization)
      (Maybe Mpeg2AdaptiveQuantization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925988"><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925997"><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
 adaptiveQuantization :: Maybe Mpeg2AdaptiveQuantization
 $sel:adaptiveQuantization:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2AdaptiveQuantization
-</span><a href="#local-6989586621679925988"><span class="hs-identifier hs-var hs-var">adaptiveQuantization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
-</span><a href="#local-6989586621679925988"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925987"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925986"><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
-</span><a href="#local-6989586621679925986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adaptiveQuantization:Mpeg2Settings' :: Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925997"><span class="hs-identifier hs-var hs-var">adaptiveQuantization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925997"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925996"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925995"><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
+</span><a href="#local-6989586621679925995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adaptiveQuantization:Mpeg2Settings' :: Maybe Mpeg2AdaptiveQuantization
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AadaptiveQuantization%3AMpeg2Settings%27"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
-</span><a href="#local-6989586621679925986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-315"></span><span>
 </span><span id="line-316"></span><span class="hs-comment">-- | MPEG2: default is open GOP.</span><span>
 </span><span id="line-317"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#mpeg2Settings_gopClosedCadence"><span class="hs-identifier hs-type">mpeg2Settings_gopClosedCadence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -676,16 +676,16 @@ $sel:adaptiveQuantization:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2Adapt
 -&gt; (Mpeg2Settings -&gt; Maybe Natural -&gt; Mpeg2Settings)
 -&gt; Lens Mpeg2Settings Mpeg2Settings (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925984"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925993"><span class="annot"><span class="annottext">Maybe Natural
 gopClosedCadence :: Maybe Natural
 $sel:gopClosedCadence:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
-</span><a href="#local-6989586621679925984"><span class="hs-identifier hs-var hs-var">gopClosedCadence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679925984"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925983"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925982"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679925982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopClosedCadence:Mpeg2Settings' :: Maybe Natural
+</span><a href="#local-6989586621679925993"><span class="hs-identifier hs-var hs-var">gopClosedCadence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925993"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925992"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925991"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679925991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gopClosedCadence:Mpeg2Settings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AgopClosedCadence%3AMpeg2Settings%27"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679925982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-319"></span><span>
 </span><span id="line-320"></span><span class="hs-comment">-- | Choose the type of color space conversion to apply to the output. For</span><span>
 </span><span id="line-321"></span><span class="hs-comment">-- detailed information on setting up both the input and the output to</span><span>
@@ -705,16 +705,16 @@ $sel:gopClosedCadence:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Natural
      (Maybe Mpeg2ColorSpace)
      (Maybe Mpeg2ColorSpace)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925980"><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925989"><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
 colorSpace :: Maybe Mpeg2ColorSpace
 $sel:colorSpace:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorSpace
-</span><a href="#local-6989586621679925980"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
-</span><a href="#local-6989586621679925980"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925979"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925978"><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
-</span><a href="#local-6989586621679925978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:Mpeg2Settings' :: Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925989"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925989"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925988"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925987"><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
+</span><a href="#local-6989586621679925987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:Mpeg2Settings' :: Maybe Mpeg2ColorSpace
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AcolorSpace%3AMpeg2Settings%27"><span class="hs-identifier hs-var">colorSpace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
-</span><a href="#local-6989586621679925978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | The framerate numerator. For example, 24000. The framerate is the</span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- numerator divided by the denominator. For example, 24000 \/ 1001 =</span><span>
@@ -725,16 +725,16 @@ $sel:colorSpace:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ColorSpace
 -&gt; (Mpeg2Settings -&gt; Natural -&gt; Mpeg2Settings)
 -&gt; Lens Mpeg2Settings Mpeg2Settings Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925976"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925985"><span class="annot"><span class="annottext">Natural
 framerateNumerator :: Natural
 $sel:framerateNumerator:Mpeg2Settings' :: Mpeg2Settings -&gt; Natural
-</span><a href="#local-6989586621679925976"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925976"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925975"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925974"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Mpeg2Settings' :: Natural
+</span><a href="#local-6989586621679925985"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925985"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925984"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925983"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:Mpeg2Settings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateNumerator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-comment">-- | description\&quot;: \&quot;The framerate denominator. For example, 1001. The</span><span>
 </span><span id="line-337"></span><span class="hs-comment">-- framerate is the numerator divided by the denominator. For example,</span><span>
@@ -745,19 +745,19 @@ $sel:framerateNumerator:Mpeg2Settings' :: Mpeg2Settings -&gt; Natural
 -&gt; (Mpeg2Settings -&gt; Natural -&gt; Mpeg2Settings)
 -&gt; Lens Mpeg2Settings Mpeg2Settings Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925972"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925981"><span class="annot"><span class="annottext">Natural
 framerateDenominator :: Natural
 $sel:framerateDenominator:Mpeg2Settings' :: Mpeg2Settings -&gt; Natural
-</span><a href="#local-6989586621679925972"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925972"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925971"><span class="annot"><span class="annottext">s :: Mpeg2Settings
-</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925970"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
-</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Mpeg2Settings' :: Natural
+</span><a href="#local-6989586621679925981"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925981"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925980"><span class="annot"><span class="annottext">s :: Mpeg2Settings
+</span><a href="#local-6989586621679925980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925979"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679925979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mpeg2Settings
+</span><a href="#local-6989586621679925980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:Mpeg2Settings' :: Natural
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#%24sel%3AframerateDenominator%3AMpeg2Settings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-341"></span><span>
-</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925967"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-343"></span><span>  </span><span id="local-6989586621679925965"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mpeg2Settings
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925976"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-343"></span><span>  </span><span id="local-6989586621679925974"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mpeg2Settings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-344"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Mpeg2Settings)
@@ -767,8 +767,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-345"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Mpeg2Settings&quot;</span></span><span>
-</span><span id="line-346"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679925962"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679925971"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-347"></span><span>          </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
 -&gt; Maybe Mpeg2TimecodeInsertionBehavior
 -&gt; Maybe AfdSignaling
@@ -824,7 +824,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ScanType)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ScanType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scanType&quot;</span></span><span class="hs-special">)</span><span>
@@ -864,7 +864,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2TimecodeInsertionBehavior)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2TimecodeInsertionBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeInsertion&quot;</span></span><span class="hs-special">)</span><span>
@@ -902,7 +902,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AfdSignaling)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AfdSignaling)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;afdSignaling&quot;</span></span><span class="hs-special">)</span><span>
@@ -938,7 +938,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopSize&quot;</span></span><span class="hs-special">)</span><span>
@@ -972,7 +972,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2GopSizeUnits)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2GopSizeUnits)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopSizeUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -1004,7 +1004,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2SubGopLength)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2SubGopLength)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subgopLength&quot;</span></span><span class="hs-special">)</span><span>
@@ -1034,7 +1034,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2DisplayRatio)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2DisplayRatio)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;displayAspectRatio&quot;</span></span><span class="hs-special">)</span><span>
@@ -1062,7 +1062,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopNumBFrames&quot;</span></span><span class="hs-special">)</span><span>
@@ -1088,7 +1088,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FixedAfd)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FixedAfd)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fixedAfd&quot;</span></span><span class="hs-special">)</span><span>
@@ -1112,7 +1112,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2FilterSettings)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2FilterSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -1134,7 +1134,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ColorMetadata)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ColorMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorMetadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -1151,7 +1151,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Mpeg2ColorSpace -&gt; Natural -&gt; Natural -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2AdaptiveQuantization)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2AdaptiveQuantization)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adaptiveQuantization&quot;</span></span><span class="hs-special">)</span><span>
@@ -1163,7 +1163,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Mpeg2ColorSpace -&gt; Natural -&gt; Natural -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopClosedCadence&quot;</span></span><span class="hs-special">)</span><span>
@@ -1173,7 +1173,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; Natural -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ColorSpace)
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mpeg2ColorSpace)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpace&quot;</span></span><span class="hs-special">)</span><span>
@@ -1181,7 +1181,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; Mpeg2Settings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
@@ -1189,19 +1189,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser Mpeg2Settings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679925962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679925971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-364"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-365"></span><span>
-</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925955"><span id="local-6989586621679925957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925964"><span id="local-6989586621679925966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span></span><span>
 </span><span id="line-367"></span><span>
-</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span><span>
 </span><span id="line-369"></span><span>
-</span><span id="line-370"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925944"><span id="local-6989586621679925946"><span id="local-6989586621679925948"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-371"></span><span>  </span><span id="local-6989586621679925942"><span class="annot"><span class="annottext">toJSON :: Mpeg2Settings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925925"><span id="local-6989586621679925926"><span id="local-6989586621679925927"><span id="local-6989586621679925928"><span id="local-6989586621679925929"><span id="local-6989586621679925930"><span id="local-6989586621679925931"><span id="local-6989586621679925932"><span id="local-6989586621679925933"><span id="local-6989586621679925934"><span id="local-6989586621679925935"><span id="local-6989586621679925936"><span id="local-6989586621679925937"><span id="local-6989586621679925938"><span id="local-6989586621679925939"><span id="local-6989586621679925940"><span class="annot"><span class="annottext">Natural
+</span><span id="line-370"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925953"><span id="local-6989586621679925955"><span id="local-6989586621679925957"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings"><span class="hs-identifier hs-type">Mpeg2Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-371"></span><span>  </span><span id="local-6989586621679925951"><span class="annot"><span class="annottext">toJSON :: Mpeg2Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2Settings.html#Mpeg2Settings%27"><span class="hs-identifier hs-type">Mpeg2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925934"><span id="local-6989586621679925935"><span id="local-6989586621679925936"><span id="local-6989586621679925937"><span id="local-6989586621679925938"><span id="local-6989586621679925939"><span id="local-6989586621679925940"><span id="local-6989586621679925941"><span id="local-6989586621679925942"><span id="local-6989586621679925943"><span id="local-6989586621679925944"><span id="local-6989586621679925945"><span id="local-6989586621679925946"><span id="local-6989586621679925947"><span id="local-6989586621679925948"><span id="local-6989586621679925949"><span class="annot"><span class="annottext">Natural
 Maybe Double
 Maybe Natural
 Maybe AfdSignaling
@@ -1247,7 +1247,7 @@ $sel:gopSize:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Double
 $sel:afdSignaling:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe AfdSignaling
 $sel:timecodeInsertion:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2TimecodeInsertionBehavior
 $sel:scanType:Mpeg2Settings' :: Mpeg2Settings -&gt; Maybe Mpeg2ScanType
-</span><a href="#local-6989586621679925925"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679925934"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-372"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-373"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1259,7 +1259,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mpeg2ScanType -&gt; Pair) -&gt; Maybe Mpeg2ScanType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ScanType
-</span><a href="#local-6989586621679925940"><span class="hs-identifier hs-var">scanType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925949"><span class="hs-identifier hs-var">scanType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timecodeInsertion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2TimecodeInsertionBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1268,21 +1268,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Mpeg2TimecodeInsertionBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2TimecodeInsertionBehavior
-</span><a href="#local-6989586621679925939"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925948"><span class="hs-identifier hs-var">timecodeInsertion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;afdSignaling&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AfdSignaling -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AfdSignaling -&gt; Pair) -&gt; Maybe AfdSignaling -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AfdSignaling
-</span><a href="#local-6989586621679925938"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925947"><span class="hs-identifier hs-var">afdSignaling</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-378"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679925937"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925946"><span class="hs-identifier hs-var">gopSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-379"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopSizeUnits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2GopSizeUnits -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1290,7 +1290,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Mpeg2GopSizeUnits -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2GopSizeUnits
-</span><a href="#local-6989586621679925936"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925945"><span class="hs-identifier hs-var">gopSizeUnits</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-380"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subgopLength&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2SubGopLength -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1298,7 +1298,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Mpeg2SubGopLength -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2SubGopLength
-</span><a href="#local-6989586621679925935"><span class="hs-identifier hs-var">subgopLength</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925944"><span class="hs-identifier hs-var">subgopLength</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-381"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;displayAspectRatio&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2DisplayRatio -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1307,21 +1307,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Mpeg2DisplayRatio -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2DisplayRatio
-</span><a href="#local-6989586621679925934"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925943"><span class="hs-identifier hs-var">displayAspectRatio</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-383"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopNumBFrames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679925933"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925942"><span class="hs-identifier hs-var">gopNumBFrames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-384"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fixedAfd&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FixedAfd -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FixedAfd -&gt; Pair) -&gt; Maybe FixedAfd -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FixedAfd
-</span><a href="#local-6989586621679925932"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925941"><span class="hs-identifier hs-var">fixedAfd</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2FilterSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1330,7 +1330,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Mpeg2FilterSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2FilterSettings
-</span><a href="#local-6989586621679925931"><span class="hs-identifier hs-var">filterSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925940"><span class="hs-identifier hs-var">filterSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-387"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2ColorMetadata -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1338,7 +1338,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Mpeg2ColorMetadata -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorMetadata
-</span><a href="#local-6989586621679925930"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925939"><span class="hs-identifier hs-var">colorMetadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-388"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adaptiveQuantization&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2AdaptiveQuantization -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1347,7 +1347,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Mpeg2AdaptiveQuantization -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2AdaptiveQuantization
-</span><a href="#local-6989586621679925929"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925938"><span class="hs-identifier hs-var">adaptiveQuantization</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-390"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;gopClosedCadence&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1355,14 +1355,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-391"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679925928"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925937"><span class="hs-identifier hs-var">gopClosedCadence</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-392"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mpeg2ColorSpace -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mpeg2ColorSpace -&gt; Pair) -&gt; Maybe Mpeg2ColorSpace -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mpeg2ColorSpace
-</span><a href="#local-6989586621679925927"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925936"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-393"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1370,7 +1370,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925926"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925935"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-395"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -1379,7 +1379,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-397"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679925925"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span>
+</span><a href="#local-6989586621679925934"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span>
 </span><span id="line-398"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-399"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-400"></span><span>      </span><span class="hs-special">)</span><span>

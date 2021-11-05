@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679220690"><span id="local-6989586621679220691"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportTaskStatusCode"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode.html#ExportTaskStatusCode"><span class="hs-identifier hs-var">ExportTaskStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTaskStatusCode%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode.html#ExportTaskStatusCode%27"><span class="hs-identifier hs-var">ExportTaskStatusCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679220699"><span id="local-6989586621679220700"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExportTaskStatusCode"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode.html#ExportTaskStatusCode"><span class="hs-identifier hs-var">ExportTaskStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportTaskStatusCode%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode.html#ExportTaskStatusCode%27"><span class="hs-identifier hs-var">ExportTaskStatusCode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExportTaskStatusCode"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode.html#fromExportTaskStatusCode"><span class="hs-identifier hs-var hs-var">fromExportTaskStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220682"><span id="local-6989586621679220684"><span id="local-6989586621679220686"><span class="annot"><span class="annottext">Int -&gt; ExportTaskStatusCode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220691"><span id="local-6989586621679220693"><span id="local-6989586621679220695"><span class="annot"><span class="annottext">Int -&gt; ExportTaskStatusCode -&gt; ShowS
 [ExportTaskStatusCode] -&gt; ShowS
 ExportTaskStatusCode -&gt; String
 (Int -&gt; ExportTaskStatusCode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ExportTaskStatusCode -&gt; String
 showsPrec :: Int -&gt; ExportTaskStatusCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExportTaskStatusCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679220673"><span id="local-6989586621679220675"><span id="local-6989586621679220677"><span id="local-6989586621679220679"><span class="annot"><span class="annottext">ReadPrec [ExportTaskStatusCode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679220682"><span id="local-6989586621679220684"><span id="local-6989586621679220686"><span id="local-6989586621679220688"><span class="annot"><span class="annottext">ReadPrec [ExportTaskStatusCode]
 ReadPrec ExportTaskStatusCode
 Int -&gt; ReadS ExportTaskStatusCode
 ReadS [ExportTaskStatusCode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ExportTaskStatusCode]
 readsPrec :: Int -&gt; ReadS ExportTaskStatusCode
 $creadsPrec :: Int -&gt; ReadS ExportTaskStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679220668"><span id="local-6989586621679220670"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679220677"><span id="local-6989586621679220679"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool
 (ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool)
 -&gt; (ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool)
 -&gt; Eq ExportTaskStatusCode
@@ -86,7 +86,7 @@ $c/= :: ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool
 == :: ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool
 $c== :: ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679220652"><span id="local-6989586621679220654"><span id="local-6989586621679220656"><span id="local-6989586621679220658"><span id="local-6989586621679220660"><span id="local-6989586621679220662"><span id="local-6989586621679220664"><span class="annot"><span class="annottext">Eq ExportTaskStatusCode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679220661"><span id="local-6989586621679220663"><span id="local-6989586621679220665"><span id="local-6989586621679220667"><span id="local-6989586621679220669"><span id="local-6989586621679220671"><span id="local-6989586621679220673"><span class="annot"><span class="annottext">Eq ExportTaskStatusCode
 Eq ExportTaskStatusCode
 -&gt; (ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Ordering)
 -&gt; (ExportTaskStatusCode -&gt; ExportTaskStatusCode -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. ExportTaskStatusCode -&gt; Rep ExportTaskStatusCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220644"><span id="local-6989586621679220646"><span class="annot"><span class="annottext">Int -&gt; ExportTaskStatusCode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679220653"><span id="local-6989586621679220655"><span class="annot"><span class="annottext">Int -&gt; ExportTaskStatusCode -&gt; Int
 ExportTaskStatusCode -&gt; Int
 (Int -&gt; ExportTaskStatusCode -&gt; Int)
 -&gt; (ExportTaskStatusCode -&gt; Int) -&gt; Hashable ExportTaskStatusCode
@@ -154,54 +154,54 @@ $chash :: ExportTaskStatusCode -&gt; Int
 hashWithSalt :: Int -&gt; ExportTaskStatusCode -&gt; Int
 $chashWithSalt :: Int -&gt; ExportTaskStatusCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220641"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679220650"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ()
 (ExportTaskStatusCode -&gt; ()) -&gt; NFData ExportTaskStatusCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExportTaskStatusCode -&gt; ()
 $crnf :: ExportTaskStatusCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220638"><span class="annot"><span class="annottext">Text -&gt; Either String ExportTaskStatusCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679220647"><span class="annot"><span class="annottext">Text -&gt; Either String ExportTaskStatusCode
 (Text -&gt; Either String ExportTaskStatusCode)
 -&gt; FromText ExportTaskStatusCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExportTaskStatusCode
 $cfromText :: Text -&gt; Either String ExportTaskStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220635"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679220644"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; Text
 (ExportTaskStatusCode -&gt; Text) -&gt; ToText ExportTaskStatusCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExportTaskStatusCode -&gt; Text
 $ctoText :: ExportTaskStatusCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220632"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679220641"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ByteString
 (ExportTaskStatusCode -&gt; ByteString)
 -&gt; ToByteString ExportTaskStatusCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExportTaskStatusCode -&gt; ByteString
 $ctoBS :: ExportTaskStatusCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679220629"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679220638"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; ByteStringBuilder
 (ExportTaskStatusCode -&gt; ByteStringBuilder)
 -&gt; ToLog ExportTaskStatusCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExportTaskStatusCode -&gt; ByteStringBuilder
 $cbuild :: ExportTaskStatusCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679220626"><span class="annot"><span class="annottext">HeaderName -&gt; ExportTaskStatusCode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679220635"><span class="annot"><span class="annottext">HeaderName -&gt; ExportTaskStatusCode -&gt; [Header]
 (HeaderName -&gt; ExportTaskStatusCode -&gt; [Header])
 -&gt; ToHeader ExportTaskStatusCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExportTaskStatusCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExportTaskStatusCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679220623"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679220632"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; QueryString
 (ExportTaskStatusCode -&gt; QueryString)
 -&gt; ToQuery ExportTaskStatusCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExportTaskStatusCode -&gt; QueryString
 $ctoQuery :: ExportTaskStatusCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679220618"><span id="local-6989586621679220620"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportTaskStatusCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679220627"><span id="local-6989586621679220629"><span class="annot"><span class="annottext">Value -&gt; Parser [ExportTaskStatusCode]
 Value -&gt; Parser ExportTaskStatusCode
 (Value -&gt; Parser ExportTaskStatusCode)
 -&gt; (Value -&gt; Parser [ExportTaskStatusCode])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [ExportTaskStatusCode]
 parseJSON :: Value -&gt; Parser ExportTaskStatusCode
 $cparseJSON :: Value -&gt; Parser ExportTaskStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679220613"><span id="local-6989586621679220615"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportTaskStatusCode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679220622"><span id="local-6989586621679220624"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExportTaskStatusCode]
 FromJSONKeyFunction ExportTaskStatusCode
 FromJSONKeyFunction ExportTaskStatusCode
 -&gt; FromJSONKeyFunction [ExportTaskStatusCode]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExportTaskStatusCode]
 fromJSONKey :: FromJSONKeyFunction ExportTaskStatusCode
 $cfromJSONKey :: FromJSONKeyFunction ExportTaskStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679220604"><span id="local-6989586621679220606"><span id="local-6989586621679220608"><span id="local-6989586621679220610"><span class="annot"><span class="annottext">[ExportTaskStatusCode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679220613"><span id="local-6989586621679220615"><span id="local-6989586621679220617"><span id="local-6989586621679220619"><span class="annot"><span class="annottext">[ExportTaskStatusCode] -&gt; Encoding
 [ExportTaskStatusCode] -&gt; Value
 ExportTaskStatusCode -&gt; Encoding
 ExportTaskStatusCode -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: ExportTaskStatusCode -&gt; Encoding
 toJSON :: ExportTaskStatusCode -&gt; Value
 $ctoJSON :: ExportTaskStatusCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679220599"><span id="local-6989586621679220601"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportTaskStatusCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679220608"><span id="local-6989586621679220610"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExportTaskStatusCode]
 ToJSONKeyFunction ExportTaskStatusCode
 ToJSONKeyFunction ExportTaskStatusCode
 -&gt; ToJSONKeyFunction [ExportTaskStatusCode]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExportTaskStatusCode]
 toJSONKey :: ToJSONKeyFunction ExportTaskStatusCode
 $ctoJSONKey :: ToJSONKeyFunction ExportTaskStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679220596"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportTaskStatusCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679220605"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExportTaskStatusCode
 ([Node] -&gt; Either String ExportTaskStatusCode)
 -&gt; FromXML ExportTaskStatusCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExportTaskStatusCode
 $cparseXML :: [Node] -&gt; Either String ExportTaskStatusCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679220593"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679220602"><span class="annot"><span class="annottext">ExportTaskStatusCode -&gt; XML
 (ExportTaskStatusCode -&gt; XML) -&gt; ToXML ExportTaskStatusCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExportTaskStatusCode -&gt; XML

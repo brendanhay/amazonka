@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- ScoreMyKnownAnswers\/2011-09-01 Review Policy.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newParameterMapEntry' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679244164"><span id="local-6989586621679244165"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterMapEntry"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-var">ParameterMapEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterMapEntry%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-var">ParameterMapEntry'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679244173"><span id="local-6989586621679244174"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParameterMapEntry"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-var">ParameterMapEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParameterMapEntry%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-var">ParameterMapEntry'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of answers to the question specified in the MapEntry Key</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- element. The Worker must match all values in order for the answer to be</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- scored correctly.</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Akey%3AParameterMapEntry%27"><span class="annot"><span class="annottext">ParameterMapEntry -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#%24sel%3Akey%3AParameterMapEntry%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244157"><span id="local-6989586621679244159"><span class="annot"><span class="annottext">ParameterMapEntry -&gt; ParameterMapEntry -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244166"><span id="local-6989586621679244168"><span class="annot"><span class="annottext">ParameterMapEntry -&gt; ParameterMapEntry -&gt; Bool
 (ParameterMapEntry -&gt; ParameterMapEntry -&gt; Bool)
 -&gt; (ParameterMapEntry -&gt; ParameterMapEntry -&gt; Bool)
 -&gt; Eq ParameterMapEntry
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParameterMapEntry -&gt; ParameterMapEntry -&gt; Bool
 == :: ParameterMapEntry -&gt; ParameterMapEntry -&gt; Bool
 $c== :: ParameterMapEntry -&gt; ParameterMapEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244148"><span id="local-6989586621679244150"><span id="local-6989586621679244152"><span id="local-6989586621679244154"><span class="annot"><span class="annottext">ReadPrec [ParameterMapEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244157"><span id="local-6989586621679244159"><span id="local-6989586621679244161"><span id="local-6989586621679244163"><span class="annot"><span class="annottext">ReadPrec [ParameterMapEntry]
 ReadPrec ParameterMapEntry
 Int -&gt; ReadS ParameterMapEntry
 ReadS [ParameterMapEntry]
@@ -68,7 +68,7 @@ readList :: ReadS [ParameterMapEntry]
 $creadList :: ReadS [ParameterMapEntry]
 readsPrec :: Int -&gt; ReadS ParameterMapEntry
 $creadsPrec :: Int -&gt; ReadS ParameterMapEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244141"><span id="local-6989586621679244143"><span id="local-6989586621679244145"><span class="annot"><span class="annottext">Int -&gt; ParameterMapEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244150"><span id="local-6989586621679244152"><span id="local-6989586621679244154"><span class="annot"><span class="annottext">Int -&gt; ParameterMapEntry -&gt; ShowS
 [ParameterMapEntry] -&gt; ShowS
 ParameterMapEntry -&gt; String
 (Int -&gt; ParameterMapEntry -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
 -&gt; Lens
      ParameterMapEntry ParameterMapEntry (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244132"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244141"><span class="annot"><span class="annottext">Maybe [Text]
 values :: Maybe [Text]
 $sel:values:ParameterMapEntry' :: ParameterMapEntry -&gt; Maybe [Text]
-</span><a href="#local-6989586621679244132"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679244132"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244131"><span class="annot"><span class="annottext">s :: ParameterMapEntry
-</span><a href="#local-6989586621679244131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244130"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679244130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterMapEntry
-</span><a href="#local-6989586621679244131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ParameterMapEntry' :: Maybe [Text]
+</span><a href="#local-6989586621679244141"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244141"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244140"><span class="annot"><span class="annottext">s :: ParameterMapEntry
+</span><a href="#local-6989586621679244140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244139"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679244139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterMapEntry
+</span><a href="#local-6989586621679244140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ParameterMapEntry' :: Maybe [Text]
 </span><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#%24sel%3Avalues%3AParameterMapEntry%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679244130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679244139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ParameterMapEntry -&gt; f ParameterMapEntry)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -173,19 +173,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ParameterMapEntry ParameterMapEntry (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244125"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244134"><span class="annot"><span class="annottext">Maybe Text
 key :: Maybe Text
 $sel:key:ParameterMapEntry' :: ParameterMapEntry -&gt; Maybe Text
-</span><a href="#local-6989586621679244125"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244125"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244124"><span class="annot"><span class="annottext">s :: ParameterMapEntry
-</span><a href="#local-6989586621679244124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244123"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterMapEntry
-</span><a href="#local-6989586621679244124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ParameterMapEntry' :: Maybe Text
+</span><a href="#local-6989586621679244134"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244134"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244133"><span class="annot"><span class="annottext">s :: ParameterMapEntry
+</span><a href="#local-6989586621679244133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParameterMapEntry
+</span><a href="#local-6989586621679244133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ParameterMapEntry' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#%24sel%3Akey%3AParameterMapEntry%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679244132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679244118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterMapEntry
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244129"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679244127"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ParameterMapEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ParameterMapEntry)
@@ -195,8 +195,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ParameterMapEntry&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244115"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244124"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244124"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; ParameterMapEntry
 </span><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-var">ParameterMapEntry'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; ParameterMapEntry)
@@ -204,7 +204,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; ParameterMapEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679244124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -217,25 +217,25 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser ParameterMapEntry
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679244124"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244108"><span id="local-6989586621679244110"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244117"><span id="local-6989586621679244119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244097"><span id="local-6989586621679244099"><span id="local-6989586621679244101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679244095"><span class="annot"><span class="annottext">toJSON :: ParameterMapEntry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244092"><span id="local-6989586621679244093"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244106"><span id="local-6989586621679244108"><span id="local-6989586621679244110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry"><span class="hs-identifier hs-type">ParameterMapEntry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679244104"><span class="annot"><span class="annottext">toJSON :: ParameterMapEntry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.ParameterMapEntry.html#ParameterMapEntry%27"><span class="hs-identifier hs-type">ParameterMapEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244101"><span id="local-6989586621679244102"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 key :: Maybe Text
 values :: Maybe [Text]
 $sel:key:ParameterMapEntry' :: ParameterMapEntry -&gt; Maybe Text
 $sel:values:ParameterMapEntry' :: ParameterMapEntry -&gt; Maybe [Text]
-</span><a href="#local-6989586621679244092"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679244101"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -247,14 +247,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679244093"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679244102"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244092"><span class="hs-identifier hs-var">key</span></a></span><span>
+</span><a href="#local-6989586621679244101"><span class="hs-identifier hs-var">key</span></a></span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

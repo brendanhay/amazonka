@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDisableDirectory' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679344656"><span id="local-6989586621679344657"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableDirectory"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-var">DisableDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableDirectory%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-var">DisableDirectory'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679344665"><span id="local-6989586621679344666"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableDirectory"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-var">DisableDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableDirectory%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-var">DisableDirectory'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the directory to disable.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="annot"><span class="annottext">DisableDirectory -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344650"><span id="local-6989586621679344652"><span class="annot"><span class="annottext">DisableDirectory -&gt; DisableDirectory -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344659"><span id="local-6989586621679344661"><span class="annot"><span class="annottext">DisableDirectory -&gt; DisableDirectory -&gt; Bool
 (DisableDirectory -&gt; DisableDirectory -&gt; Bool)
 -&gt; (DisableDirectory -&gt; DisableDirectory -&gt; Bool)
 -&gt; Eq DisableDirectory
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisableDirectory -&gt; DisableDirectory -&gt; Bool
 == :: DisableDirectory -&gt; DisableDirectory -&gt; Bool
 $c== :: DisableDirectory -&gt; DisableDirectory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344641"><span id="local-6989586621679344643"><span id="local-6989586621679344645"><span id="local-6989586621679344647"><span class="annot"><span class="annottext">ReadPrec [DisableDirectory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344650"><span id="local-6989586621679344652"><span id="local-6989586621679344654"><span id="local-6989586621679344656"><span class="annot"><span class="annottext">ReadPrec [DisableDirectory]
 ReadPrec DisableDirectory
 Int -&gt; ReadS DisableDirectory
 ReadS [DisableDirectory]
@@ -83,7 +83,7 @@ readList :: ReadS [DisableDirectory]
 $creadList :: ReadS [DisableDirectory]
 readsPrec :: Int -&gt; ReadS DisableDirectory
 $creadsPrec :: Int -&gt; ReadS DisableDirectory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344634"><span id="local-6989586621679344636"><span id="local-6989586621679344638"><span class="annot"><span class="annottext">Int -&gt; DisableDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344643"><span id="local-6989586621679344645"><span id="local-6989586621679344647"><span class="annot"><span class="annottext">Int -&gt; DisableDirectory -&gt; ShowS
 [DisableDirectory] -&gt; ShowS
 DisableDirectory -&gt; String
 (Int -&gt; DisableDirectory -&gt; ShowS)
@@ -123,12 +123,12 @@ $cfrom :: forall x. DisableDirectory -&gt; Rep DisableDirectory x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span>
 </span><span id="line-71"></span><span id="newDisableDirectory"><span class="annot"><span class="annottext">newDisableDirectory :: Text -&gt; DisableDirectory
-</span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#newDisableDirectory"><span class="hs-identifier hs-var hs-var">newDisableDirectory</span></a></span></span><span> </span><span id="local-6989586621679344629"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344629"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#newDisableDirectory"><span class="hs-identifier hs-var hs-var">newDisableDirectory</span></a></span></span><span> </span><span id="local-6989586621679344638"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344638"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DisableDirectory' :: Text -&gt; DisableDirectory
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344629"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679344638"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the directory to disable.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#disableDirectory_directoryArn"><span class="hs-identifier hs-type">disableDirectory_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DisableDirectory -&gt; Rep DisableDirectory x
 -&gt; (DisableDirectory -&gt; Text -&gt; DisableDirectory)
 -&gt; Lens DisableDirectory DisableDirectory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344626"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344635"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DisableDirectory' :: DisableDirectory -&gt; Text
-</span><a href="#local-6989586621679344626"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344626"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344625"><span class="annot"><span class="annottext">s :: DisableDirectory
-</span><a href="#local-6989586621679344625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344624"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectory
-</span><a href="#local-6989586621679344625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectory' :: Text
+</span><a href="#local-6989586621679344635"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344635"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344634"><span class="annot"><span class="annottext">s :: DisableDirectory
+</span><a href="#local-6989586621679344634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectory
+</span><a href="#local-6989586621679344634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectory' :: Text
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectory%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679344620"><span class="annot"><span class="annottext">request :: DisableDirectory -&gt; Request DisableDirectory
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679344629"><span class="annot"><span class="annottext">request :: DisableDirectory -&gt; Request DisableDirectory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisableDirectory -&gt; Request DisableDirectory
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679344616"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679344625"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DisableDirectory
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344613"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344613"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344612"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679344612"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344611"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344622"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344622"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344621"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679344621"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344620"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679344620"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; DisableDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-var">DisableDirectoryResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; DisableDirectoryResponse)
@@ -196,27 +196,27 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344613"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344622"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; DisableDirectoryResponse)
 -&gt; Either String Text -&gt; Either String DisableDirectoryResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679344620"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344603"><span id="local-6989586621679344605"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344612"><span id="local-6989586621679344614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344600"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679344596"><span class="annot"><span class="annottext">toHeaders :: DisableDirectory -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344594"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679344605"><span class="annot"><span class="annottext">toHeaders :: DisableDirectory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory%27"><span class="hs-identifier hs-type">DisableDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344603"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DisableDirectory' :: DisableDirectory -&gt; Text
-</span><a href="#local-6989586621679344594"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679344603"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -224,10 +224,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344594"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679344603"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344586"><span id="local-6989586621679344588"><span id="local-6989586621679344590"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679344584"><span class="annot"><span class="annottext">toJSON :: DisableDirectory -&gt; Value
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344595"><span id="local-6989586621679344597"><span id="local-6989586621679344599"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679344593"><span class="annot"><span class="annottext">toJSON :: DisableDirectory -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DisableDirectory -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679344578"><span class="annot"><span class="annottext">toPath :: DisableDirectory -&gt; ByteString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679344587"><span class="annot"><span class="annottext">toPath :: DisableDirectory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; DisableDirectory -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -245,7 +245,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/directory/disable&quot;</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectory"><span class="hs-identifier hs-type">DisableDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679344574"><span class="annot"><span class="annottext">toQuery :: DisableDirectory -&gt; QueryString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679344583"><span class="annot"><span class="annottext">toQuery :: DisableDirectory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DisableDirectory -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -253,7 +253,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDisableDirectoryResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679344571"><span id="local-6989586621679344572"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableDirectoryResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-var">DisableDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableDirectoryResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-var">DisableDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679344580"><span id="local-6989586621679344581"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisableDirectoryResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-var">DisableDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisableDirectoryResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-var">DisableDirectoryResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="annot"><span class="annottext">DisableDirectoryResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -261,7 +261,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="annot"><span class="annottext">DisableDirectoryResponse -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344565"><span id="local-6989586621679344567"><span class="annot"><span class="annottext">DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344574"><span id="local-6989586621679344576"><span class="annot"><span class="annottext">DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
 (DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool)
 -&gt; (DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool)
 -&gt; Eq DisableDirectoryResponse
@@ -270,7 +270,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
 == :: DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
 $c== :: DisableDirectoryResponse -&gt; DisableDirectoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344557"><span id="local-6989586621679344559"><span id="local-6989586621679344561"><span id="local-6989586621679344563"><span class="annot"><span class="annottext">ReadPrec [DisableDirectoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344566"><span id="local-6989586621679344568"><span id="local-6989586621679344570"><span id="local-6989586621679344572"><span class="annot"><span class="annottext">ReadPrec [DisableDirectoryResponse]
 ReadPrec DisableDirectoryResponse
 Int -&gt; ReadS DisableDirectoryResponse
 ReadS [DisableDirectoryResponse]
@@ -290,7 +290,7 @@ readList :: ReadS [DisableDirectoryResponse]
 $creadList :: ReadS [DisableDirectoryResponse]
 readsPrec :: Int -&gt; ReadS DisableDirectoryResponse
 $creadsPrec :: Int -&gt; ReadS DisableDirectoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344551"><span id="local-6989586621679344553"><span id="local-6989586621679344555"><span class="annot"><span class="annottext">Int -&gt; DisableDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344560"><span id="local-6989586621679344562"><span id="local-6989586621679344564"><span class="annot"><span class="annottext">Int -&gt; DisableDirectoryResponse -&gt; ShowS
 [DisableDirectoryResponse] -&gt; ShowS
 DisableDirectoryResponse -&gt; String
 (Int -&gt; DisableDirectoryResponse -&gt; ShowS)
@@ -341,19 +341,19 @@ DisableDirectoryResponse -&gt; Rep DisableDirectoryResponse x
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span>
 </span><span id="line-137"></span><span id="newDisableDirectoryResponse"><span class="annot"><span class="annottext">newDisableDirectoryResponse :: Int -&gt; Text -&gt; DisableDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#newDisableDirectoryResponse"><span class="hs-identifier hs-var hs-var">newDisableDirectoryResponse</span></a></span></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679344548"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679344547"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344547"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679344557"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679344556"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344556"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">DisableDirectoryResponse' :: Int -&gt; Text -&gt; DisableDirectoryResponse
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DisableDirectoryResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344548"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679344557"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344547"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span>
+</span><a href="#local-6989586621679344556"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -364,16 +364,16 @@ DisableDirectoryResponse -&gt; Rep DisableDirectoryResponse x
 -&gt; (DisableDirectoryResponse -&gt; Int -&gt; DisableDirectoryResponse)
 -&gt; Lens DisableDirectoryResponse DisableDirectoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344546"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344555"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DisableDirectoryResponse' :: DisableDirectoryResponse -&gt; Int
-</span><a href="#local-6989586621679344546"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344546"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344545"><span class="annot"><span class="annottext">s :: DisableDirectoryResponse
-</span><a href="#local-6989586621679344545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344544"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectoryResponse
-</span><a href="#local-6989586621679344545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableDirectoryResponse' :: Int
+</span><a href="#local-6989586621679344555"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344555"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344554"><span class="annot"><span class="annottext">s :: DisableDirectoryResponse
+</span><a href="#local-6989586621679344554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344553"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679344553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectoryResponse
+</span><a href="#local-6989586621679344554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisableDirectoryResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AhttpStatus%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The ARN of the directory that has been disabled.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#disableDirectoryResponse_directoryArn"><span class="hs-identifier hs-type">disableDirectoryResponse_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -383,16 +383,16 @@ $sel:httpStatus:DisableDirectoryResponse' :: DisableDirectoryResponse -&gt; Int
 -&gt; (DisableDirectoryResponse -&gt; Text -&gt; DisableDirectoryResponse)
 -&gt; Lens DisableDirectoryResponse DisableDirectoryResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344543"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344552"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DisableDirectoryResponse' :: DisableDirectoryResponse -&gt; Text
-</span><a href="#local-6989586621679344543"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344543"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344542"><span class="annot"><span class="annottext">s :: DisableDirectoryResponse
-</span><a href="#local-6989586621679344542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344541"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectoryResponse
-</span><a href="#local-6989586621679344542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectoryResponse' :: Text
+</span><a href="#local-6989586621679344552"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344552"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344551"><span class="annot"><span class="annottext">s :: DisableDirectoryResponse
+</span><a href="#local-6989586621679344551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse%27"><span class="hs-identifier hs-type">DisableDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679344550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisableDirectoryResponse
+</span><a href="#local-6989586621679344551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DisableDirectoryResponse' :: Text
 </span><a href="Network.AWS.CloudDirectory.DisableDirectory.html#%24sel%3AdirectoryArn%3ADisableDirectoryResponse%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679344550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DisableDirectory.html#DisableDirectoryResponse"><span class="hs-identifier hs-type">DisableDirectoryResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

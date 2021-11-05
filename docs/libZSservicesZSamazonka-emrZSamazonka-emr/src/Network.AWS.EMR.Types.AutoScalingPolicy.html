@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAutoScalingPolicy' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679380072"><span id="local-6989586621679380073"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingPolicy"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-var">AutoScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicy%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-var">AutoScalingPolicy'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679380081"><span id="local-6989586621679380082"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingPolicy"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-var">AutoScalingPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingPolicy%27"><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-var">AutoScalingPolicy'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The upper and lower EC2 instance limits for an automatic scaling policy.</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Automatic scaling activity will not cause an instance group to grow</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- above or below these limits.</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Arules%3AAutoScalingPolicy%27"><span class="annot"><span class="annottext">AutoScalingPolicy -&gt; [ScalingRule]
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#%24sel%3Arules%3AAutoScalingPolicy%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingRule.html#ScalingRule"><span class="hs-identifier hs-type">ScalingRule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380065"><span id="local-6989586621679380067"><span class="annot"><span class="annottext">AutoScalingPolicy -&gt; AutoScalingPolicy -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380074"><span id="local-6989586621679380076"><span class="annot"><span class="annottext">AutoScalingPolicy -&gt; AutoScalingPolicy -&gt; Bool
 (AutoScalingPolicy -&gt; AutoScalingPolicy -&gt; Bool)
 -&gt; (AutoScalingPolicy -&gt; AutoScalingPolicy -&gt; Bool)
 -&gt; Eq AutoScalingPolicy
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoScalingPolicy -&gt; AutoScalingPolicy -&gt; Bool
 == :: AutoScalingPolicy -&gt; AutoScalingPolicy -&gt; Bool
 $c== :: AutoScalingPolicy -&gt; AutoScalingPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380056"><span id="local-6989586621679380058"><span id="local-6989586621679380060"><span id="local-6989586621679380062"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380065"><span id="local-6989586621679380067"><span id="local-6989586621679380069"><span id="local-6989586621679380071"><span class="annot"><span class="annottext">ReadPrec [AutoScalingPolicy]
 ReadPrec AutoScalingPolicy
 Int -&gt; ReadS AutoScalingPolicy
 ReadS [AutoScalingPolicy]
@@ -71,7 +71,7 @@ readList :: ReadS [AutoScalingPolicy]
 $creadList :: ReadS [AutoScalingPolicy]
 readsPrec :: Int -&gt; ReadS AutoScalingPolicy
 $creadsPrec :: Int -&gt; ReadS AutoScalingPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380049"><span id="local-6989586621679380051"><span id="local-6989586621679380053"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380058"><span id="local-6989586621679380060"><span id="local-6989586621679380062"><span class="annot"><span class="annottext">Int -&gt; AutoScalingPolicy -&gt; ShowS
 [AutoScalingPolicy] -&gt; ShowS
 AutoScalingPolicy -&gt; String
 (Int -&gt; AutoScalingPolicy -&gt; ShowS)
@@ -116,13 +116,13 @@ $cfrom :: forall x. AutoScalingPolicy -&gt; Rep AutoScalingPolicy x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.ScalingConstraints.html#ScalingConstraints"><span class="hs-identifier hs-type">ScalingConstraints</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span><span>
 </span><span id="line-63"></span><span id="newAutoScalingPolicy"><span class="annot"><span class="annottext">newAutoScalingPolicy :: ScalingConstraints -&gt; AutoScalingPolicy
-</span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#newAutoScalingPolicy"><span class="hs-identifier hs-var hs-var">newAutoScalingPolicy</span></a></span></span><span> </span><span id="local-6989586621679380043"><span class="annot"><span class="annottext">ScalingConstraints
-</span><a href="#local-6989586621679380043"><span class="hs-identifier hs-var">pConstraints_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#newAutoScalingPolicy"><span class="hs-identifier hs-var hs-var">newAutoScalingPolicy</span></a></span></span><span> </span><span id="local-6989586621679380052"><span class="annot"><span class="annottext">ScalingConstraints
+</span><a href="#local-6989586621679380052"><span class="hs-identifier hs-var">pConstraints_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">AutoScalingPolicy' :: ScalingConstraints -&gt; [ScalingRule] -&gt; AutoScalingPolicy
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:constraints:AutoScalingPolicy' :: ScalingConstraints
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#%24sel%3Aconstraints%3AAutoScalingPolicy%27"><span class="hs-identifier hs-var">constraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingConstraints
-</span><a href="#local-6989586621679380043"><span class="hs-identifier hs-var">pConstraints_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679380052"><span class="hs-identifier hs-var">pConstraints_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:rules:AutoScalingPolicy' :: [ScalingRule]
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#%24sel%3Arules%3AAutoScalingPolicy%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ScalingRule]
 forall a. Monoid a =&gt; a
@@ -143,16 +143,16 @@ forall a. Monoid a =&gt; a
      ScalingConstraints
      ScalingConstraints
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380039"><span class="annot"><span class="annottext">ScalingConstraints
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380048"><span class="annot"><span class="annottext">ScalingConstraints
 constraints :: ScalingConstraints
 $sel:constraints:AutoScalingPolicy' :: AutoScalingPolicy -&gt; ScalingConstraints
-</span><a href="#local-6989586621679380039"><span class="hs-identifier hs-var hs-var">constraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConstraints
-</span><a href="#local-6989586621679380039"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380038"><span class="annot"><span class="annottext">s :: AutoScalingPolicy
-</span><a href="#local-6989586621679380038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380037"><span class="annot"><span class="annottext">ScalingConstraints
-</span><a href="#local-6989586621679380037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicy
-</span><a href="#local-6989586621679380038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraints:AutoScalingPolicy' :: ScalingConstraints
+</span><a href="#local-6989586621679380048"><span class="hs-identifier hs-var hs-var">constraints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalingConstraints
+</span><a href="#local-6989586621679380048"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380047"><span class="annot"><span class="annottext">s :: AutoScalingPolicy
+</span><a href="#local-6989586621679380047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380046"><span class="annot"><span class="annottext">ScalingConstraints
+</span><a href="#local-6989586621679380046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicy
+</span><a href="#local-6989586621679380047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraints:AutoScalingPolicy' :: ScalingConstraints
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#%24sel%3Aconstraints%3AAutoScalingPolicy%27"><span class="hs-identifier hs-var">constraints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalingConstraints
-</span><a href="#local-6989586621679380037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The scale-in and scale-out rules that comprise the automatic scaling</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- policy.</span><span>
@@ -164,16 +164,16 @@ $sel:constraints:AutoScalingPolicy' :: AutoScalingPolicy -&gt; ScalingConstraint
 -&gt; Lens
      AutoScalingPolicy AutoScalingPolicy [ScalingRule] [ScalingRule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380035"><span class="annot"><span class="annottext">[ScalingRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380044"><span class="annot"><span class="annottext">[ScalingRule]
 rules :: [ScalingRule]
 $sel:rules:AutoScalingPolicy' :: AutoScalingPolicy -&gt; [ScalingRule]
-</span><a href="#local-6989586621679380035"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScalingRule]
-</span><a href="#local-6989586621679380035"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380034"><span class="annot"><span class="annottext">s :: AutoScalingPolicy
-</span><a href="#local-6989586621679380034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380033"><span class="annot"><span class="annottext">[ScalingRule]
-</span><a href="#local-6989586621679380033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicy
-</span><a href="#local-6989586621679380034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:AutoScalingPolicy' :: [ScalingRule]
+</span><a href="#local-6989586621679380044"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ScalingRule]
+</span><a href="#local-6989586621679380044"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380043"><span class="annot"><span class="annottext">s :: AutoScalingPolicy
+</span><a href="#local-6989586621679380043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380042"><span class="annot"><span class="annottext">[ScalingRule]
+</span><a href="#local-6989586621679380042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingPolicy
+</span><a href="#local-6989586621679380043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:AutoScalingPolicy' :: [ScalingRule]
 </span><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#%24sel%3Arules%3AAutoScalingPolicy%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ScalingRule]
-</span><a href="#local-6989586621679380033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScalingRule] -&gt; f [ScalingRule])
+</span><a href="#local-6989586621679380042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ScalingRule] -&gt; f [ScalingRule])
  -&gt; AutoScalingPolicy -&gt; f AutoScalingPolicy)
 -&gt; (([ScalingRule] -&gt; f [ScalingRule])
     -&gt; [ScalingRule] -&gt; f [ScalingRule])
@@ -186,19 +186,19 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380027"><span id="local-6989586621679380029"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380036"><span id="local-6989586621679380038"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380024"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380016"><span id="local-6989586621679380018"><span id="local-6989586621679380020"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679380014"><span class="annot"><span class="annottext">toJSON :: AutoScalingPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380011"><span id="local-6989586621679380012"><span class="annot"><span class="annottext">[ScalingRule]
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380025"><span id="local-6989586621679380027"><span id="local-6989586621679380029"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy"><span class="hs-identifier hs-type">AutoScalingPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679380023"><span class="annot"><span class="annottext">toJSON :: AutoScalingPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.AutoScalingPolicy.html#AutoScalingPolicy%27"><span class="hs-identifier hs-type">AutoScalingPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380020"><span id="local-6989586621679380021"><span class="annot"><span class="annottext">[ScalingRule]
 ScalingConstraints
 rules :: [ScalingRule]
 constraints :: ScalingConstraints
 $sel:rules:AutoScalingPolicy' :: AutoScalingPolicy -&gt; [ScalingRule]
 $sel:constraints:AutoScalingPolicy' :: AutoScalingPolicy -&gt; ScalingConstraints
-</span><a href="#local-6989586621679380011"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679380020"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -210,14 +210,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Constraints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalingConstraints -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScalingConstraints
-</span><a href="#local-6989586621679380012"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679380021"><span class="hs-identifier hs-var">constraints</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ScalingRule] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ScalingRule]
-</span><a href="#local-6989586621679380011"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679380020"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

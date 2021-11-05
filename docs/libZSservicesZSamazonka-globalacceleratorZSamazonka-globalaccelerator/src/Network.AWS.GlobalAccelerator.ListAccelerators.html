@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.GlobalAccelerator.ListAccelerators</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List the accelerators for an AWS account.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GlobalAccelerator.ListAccelerators</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier">ListAccelerators</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#newListAccelerators"><span class="hs-identifier">newListAccelerators</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAccelerators_nextToken"><span class="hs-identifier">listAccelerators_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAccelerators_maxResults"><span class="hs-identifier">listAccelerators_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier">ListAcceleratorsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#newListAcceleratorsResponse"><span class="hs-identifier">newListAcceleratorsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_nextToken"><span class="hs-identifier">listAcceleratorsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_accelerators"><span class="hs-identifier">listAcceleratorsResponse_accelerators</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_httpStatus"><span class="hs-identifier">listAcceleratorsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.html"><span class="hs-identifier">Network.AWS.GlobalAccelerator.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListAccelerators' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679243262"><span id="local-6989586621679243263"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccelerators"><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-var">ListAccelerators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccelerators%27"><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators%27"><span class="hs-identifier hs-var">ListAccelerators'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. You receive this token from a</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListAccelerators%27"><span class="annot"><span class="annottext">ListAccelerators -&gt; Maybe Text
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AnextToken%3AListAccelerators%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The number of Global Accelerator objects that you want to return with</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- this call. The default value is 10.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAccelerators%27"><span class="annot"><span class="annottext">ListAccelerators -&gt; Maybe Natural
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AmaxResults%3AListAccelerators%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243255"><span id="local-6989586621679243257"><span class="annot"><span class="annottext">ListAccelerators -&gt; ListAccelerators -&gt; Bool
+(ListAccelerators -&gt; ListAccelerators -&gt; Bool)
+-&gt; (ListAccelerators -&gt; ListAccelerators -&gt; Bool)
+-&gt; Eq ListAccelerators
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccelerators -&gt; ListAccelerators -&gt; Bool
+$c/= :: ListAccelerators -&gt; ListAccelerators -&gt; Bool
+== :: ListAccelerators -&gt; ListAccelerators -&gt; Bool
+$c== :: ListAccelerators -&gt; ListAccelerators -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243246"><span id="local-6989586621679243248"><span id="local-6989586621679243250"><span id="local-6989586621679243252"><span class="annot"><span class="annottext">ReadPrec [ListAccelerators]
+ReadPrec ListAccelerators
+Int -&gt; ReadS ListAccelerators
+ReadS [ListAccelerators]
+(Int -&gt; ReadS ListAccelerators)
+-&gt; ReadS [ListAccelerators]
+-&gt; ReadPrec ListAccelerators
+-&gt; ReadPrec [ListAccelerators]
+-&gt; Read ListAccelerators
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAccelerators]
+$creadListPrec :: ReadPrec [ListAccelerators]
+readPrec :: ReadPrec ListAccelerators
+$creadPrec :: ReadPrec ListAccelerators
+readList :: ReadS [ListAccelerators]
+$creadList :: ReadS [ListAccelerators]
+readsPrec :: Int -&gt; ReadS ListAccelerators
+$creadsPrec :: Int -&gt; ReadS ListAccelerators
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243239"><span id="local-6989586621679243241"><span id="local-6989586621679243243"><span class="annot"><span class="annottext">Int -&gt; ListAccelerators -&gt; ShowS
+[ListAccelerators] -&gt; ShowS
+ListAccelerators -&gt; String
+(Int -&gt; ListAccelerators -&gt; ShowS)
+-&gt; (ListAccelerators -&gt; String)
+-&gt; ([ListAccelerators] -&gt; ShowS)
+-&gt; Show ListAccelerators
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccelerators] -&gt; ShowS
+$cshowList :: [ListAccelerators] -&gt; ShowS
+show :: ListAccelerators -&gt; String
+$cshow :: ListAccelerators -&gt; String
+showsPrec :: Int -&gt; ListAccelerators -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccelerators -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAccelerators -&gt; Rep ListAccelerators x)
+-&gt; (forall x. Rep ListAccelerators x -&gt; ListAccelerators)
+-&gt; Generic ListAccelerators
+forall x. Rep ListAccelerators x -&gt; ListAccelerators
+forall x. ListAccelerators -&gt; Rep ListAccelerators x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAccelerators x -&gt; ListAccelerators
+$cfrom :: forall x. ListAccelerators -&gt; Rep ListAccelerators x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListAccelerators' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listAccelerators_nextToken' - The token for the next set of results. You receive this token from a</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'maxResults', 'listAccelerators_maxResults' - The number of Global Accelerator objects that you want to return with</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- this call. The default value is 10.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#newListAccelerators"><span class="hs-identifier hs-type">newListAccelerators</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span>
+</span><span id="line-79"></span><span id="newListAccelerators"><span class="annot"><span class="annottext">newListAccelerators :: ListAccelerators
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#newListAccelerators"><span class="hs-identifier hs-var hs-var">newListAccelerators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">ListAccelerators' :: Maybe Text -&gt; Maybe Natural -&gt; ListAccelerators
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators%27"><span class="hs-identifier hs-type">ListAccelerators'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAccelerators' :: Maybe Text
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AnextToken%3AListAccelerators%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAccelerators' :: Maybe Natural
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AmaxResults%3AListAccelerators%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The token for the next set of results. You receive this token from a</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAccelerators_nextToken"><span class="hs-identifier hs-type">listAccelerators_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="listAccelerators_nextToken"><span class="annot"><span class="annottext">listAccelerators_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccelerators -&gt; f ListAccelerators
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAccelerators_nextToken"><span class="hs-identifier hs-var hs-var">listAccelerators_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccelerators -&gt; Maybe Text)
+-&gt; (ListAccelerators -&gt; Maybe Text -&gt; ListAccelerators)
+-&gt; Lens ListAccelerators ListAccelerators (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators%27"><span class="hs-identifier hs-type">ListAccelerators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243233"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAccelerators' :: ListAccelerators -&gt; Maybe Text
+</span><a href="#local-6989586621679243233"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243233"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243232"><span class="annot"><span class="annottext">s :: ListAccelerators
+</span><a href="#local-6989586621679243232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators%27"><span class="hs-identifier hs-type">ListAccelerators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243231"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccelerators
+</span><a href="#local-6989586621679243232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAccelerators' :: Maybe Text
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AnextToken%3AListAccelerators%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The number of Global Accelerator objects that you want to return with</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- this call. The default value is 10.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAccelerators_maxResults"><span class="hs-identifier hs-type">listAccelerators_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listAccelerators_maxResults"><span class="annot"><span class="annottext">listAccelerators_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAccelerators -&gt; f ListAccelerators
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAccelerators_maxResults"><span class="hs-identifier hs-var hs-var">listAccelerators_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccelerators -&gt; Maybe Natural)
+-&gt; (ListAccelerators -&gt; Maybe Natural -&gt; ListAccelerators)
+-&gt; Lens
+     ListAccelerators ListAccelerators (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators%27"><span class="hs-identifier hs-type">ListAccelerators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243230"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAccelerators' :: ListAccelerators -&gt; Maybe Natural
+</span><a href="#local-6989586621679243230"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679243230"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243229"><span class="annot"><span class="annottext">s :: ListAccelerators
+</span><a href="#local-6989586621679243229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators%27"><span class="hs-identifier hs-type">ListAccelerators'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243228"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679243228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccelerators
+</span><a href="#local-6989586621679243229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAccelerators' :: Maybe Natural
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AmaxResults%3AListAccelerators%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679243228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679243224"><span class="annot"><span class="annottext">page :: ListAccelerators
+-&gt; AWSResponse ListAccelerators -&gt; Maybe ListAccelerators
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679243222"><span class="annot"><span class="annottext">ListAccelerators
+</span><a href="#local-6989586621679243222"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679243221"><span class="annot"><span class="annottext">AWSResponse ListAccelerators
+</span><a href="#local-6989586621679243221"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccelerators
+ListAcceleratorsResponse
+</span><a href="#local-6989586621679243221"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListAcceleratorsResponse
+-&gt; Getting (First Text) ListAcceleratorsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAcceleratorsResponse
+-&gt; Const (First Text) ListAcceleratorsResponse
+Lens' ListAcceleratorsResponse (Maybe Text)
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_nextToken"><span class="hs-identifier hs-var">listAcceleratorsResponse_nextToken</span></a></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAcceleratorsResponse
+ -&gt; Const (First Text) ListAcceleratorsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAcceleratorsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-101"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccelerators
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Accelerator] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccelerators
+ListAcceleratorsResponse
+</span><a href="#local-6989586621679243221"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListAcceleratorsResponse
+-&gt; Getting
+     (First [Accelerator]) ListAcceleratorsResponse [Accelerator]
+-&gt; Maybe [Accelerator]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Accelerator]
+ -&gt; Const (First [Accelerator]) (Maybe [Accelerator]))
+-&gt; ListAcceleratorsResponse
+-&gt; Const (First [Accelerator]) ListAcceleratorsResponse
+Lens' ListAcceleratorsResponse (Maybe [Accelerator])
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_accelerators"><span class="hs-identifier hs-var">listAcceleratorsResponse_accelerators</span></a></span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Accelerator]
+  -&gt; Const (First [Accelerator]) (Maybe [Accelerator]))
+ -&gt; ListAcceleratorsResponse
+ -&gt; Const (First [Accelerator]) ListAcceleratorsResponse)
+-&gt; (([Accelerator] -&gt; Const (First [Accelerator]) [Accelerator])
+    -&gt; Maybe [Accelerator]
+    -&gt; Const (First [Accelerator]) (Maybe [Accelerator]))
+-&gt; Getting
+     (First [Accelerator]) ListAcceleratorsResponse [Accelerator]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Accelerator] -&gt; Const (First [Accelerator]) [Accelerator])
+-&gt; Maybe [Accelerator]
+-&gt; Const (First [Accelerator]) (Maybe [Accelerator])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccelerators
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">ListAccelerators -&gt; Maybe ListAccelerators
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAccelerators -&gt; Maybe ListAccelerators)
+-&gt; ListAccelerators -&gt; Maybe ListAccelerators
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListAccelerators
+</span><a href="#local-6989586621679243222"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListAccelerators
+-&gt; (ListAccelerators -&gt; ListAccelerators) -&gt; ListAccelerators
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAccelerators -&gt; Identity ListAccelerators
+Lens ListAccelerators ListAccelerators (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAccelerators_nextToken"><span class="hs-identifier hs-var">listAccelerators_nextToken</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAccelerators -&gt; Identity ListAccelerators)
+-&gt; Maybe Text -&gt; ListAccelerators -&gt; ListAccelerators
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccelerators
+ListAcceleratorsResponse
+</span><a href="#local-6989586621679243221"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListAcceleratorsResponse
+-&gt; Getting (First Text) ListAcceleratorsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAcceleratorsResponse
+-&gt; Const (First Text) ListAcceleratorsResponse
+Lens' ListAcceleratorsResponse (Maybe Text)
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_nextToken"><span class="hs-identifier hs-var">listAcceleratorsResponse_nextToken</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAcceleratorsResponse
+ -&gt; Const (First Text) ListAcceleratorsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAcceleratorsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679243211"><span class="annot"><span class="annottext">request :: ListAccelerators -&gt; Request ListAccelerators
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAccelerators -&gt; Request ListAccelerators
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679243207"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAccelerators
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAccelerators)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAccelerators))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAccelerators
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAccelerators)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243204"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243203"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679243203"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243202"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Accelerator] -&gt; Int -&gt; ListAcceleratorsResponse
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-var">ListAcceleratorsResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Accelerator] -&gt; Int -&gt; ListAcceleratorsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Accelerator] -&gt; Int -&gt; ListAcceleratorsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [Accelerator] -&gt; Int -&gt; ListAcceleratorsResponse)
+-&gt; Either String (Maybe [Accelerator])
+-&gt; Either String (Int -&gt; ListAcceleratorsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679243202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Accelerator]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accelerators&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Accelerator]))
+-&gt; Maybe [Accelerator] -&gt; Either String (Maybe [Accelerator])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Accelerator]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAcceleratorsResponse)
+-&gt; Either String Int -&gt; Either String ListAcceleratorsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243204"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243193"><span id="local-6989586621679243195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679243186"><span class="annot"><span class="annottext">toHeaders :: ListAccelerators -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAccelerators -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalAccelerator_V20180706.ListAccelerators&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-145"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-146"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243176"><span id="local-6989586621679243178"><span id="local-6989586621679243180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679243174"><span class="annot"><span class="annottext">toJSON :: ListAccelerators -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators%27"><span class="hs-identifier hs-type">ListAccelerators'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243171"><span id="local-6989586621679243172"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListAccelerators' :: ListAccelerators -&gt; Maybe Natural
+$sel:nextToken:ListAccelerators' :: ListAccelerators -&gt; Maybe Text
+</span><a href="#local-6989586621679243171"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243172"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679243171"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679243165"><span class="annot"><span class="annottext">toPath :: ListAccelerators -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAccelerators -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAccelerators"><span class="hs-identifier hs-type">ListAccelerators</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679243161"><span class="annot"><span class="annottext">toQuery :: ListAccelerators -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAccelerators -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newListAcceleratorsResponse' smart constructor.</span><span>
+</span><span id="line-166"></span><span id="local-6989586621679243158"><span id="local-6989586621679243159"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAcceleratorsResponse"><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-var">ListAcceleratorsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAcceleratorsResponse%27"><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-var">ListAcceleratorsResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. You receive this token from a</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AnextToken%3AListAcceleratorsResponse%27"><span class="annot"><span class="annottext">ListAcceleratorsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AnextToken%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The list of accelerators for a customer account.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Aaccelerators%3AListAcceleratorsResponse%27"><span class="annot"><span class="annottext">ListAcceleratorsResponse -&gt; Maybe [Accelerator]
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3Aaccelerators%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var hs-var">accelerators</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#Accelerator"><span class="hs-identifier hs-type">Accelerator</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAcceleratorsResponse%27"><span class="annot"><span class="annottext">ListAcceleratorsResponse -&gt; Int
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AhttpStatus%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243151"><span id="local-6989586621679243153"><span class="annot"><span class="annottext">ListAcceleratorsResponse -&gt; ListAcceleratorsResponse -&gt; Bool
+(ListAcceleratorsResponse -&gt; ListAcceleratorsResponse -&gt; Bool)
+-&gt; (ListAcceleratorsResponse -&gt; ListAcceleratorsResponse -&gt; Bool)
+-&gt; Eq ListAcceleratorsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAcceleratorsResponse -&gt; ListAcceleratorsResponse -&gt; Bool
+$c/= :: ListAcceleratorsResponse -&gt; ListAcceleratorsResponse -&gt; Bool
+== :: ListAcceleratorsResponse -&gt; ListAcceleratorsResponse -&gt; Bool
+$c== :: ListAcceleratorsResponse -&gt; ListAcceleratorsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243143"><span id="local-6989586621679243145"><span id="local-6989586621679243147"><span id="local-6989586621679243149"><span class="annot"><span class="annottext">ReadPrec [ListAcceleratorsResponse]
+ReadPrec ListAcceleratorsResponse
+Int -&gt; ReadS ListAcceleratorsResponse
+ReadS [ListAcceleratorsResponse]
+(Int -&gt; ReadS ListAcceleratorsResponse)
+-&gt; ReadS [ListAcceleratorsResponse]
+-&gt; ReadPrec ListAcceleratorsResponse
+-&gt; ReadPrec [ListAcceleratorsResponse]
+-&gt; Read ListAcceleratorsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAcceleratorsResponse]
+$creadListPrec :: ReadPrec [ListAcceleratorsResponse]
+readPrec :: ReadPrec ListAcceleratorsResponse
+$creadPrec :: ReadPrec ListAcceleratorsResponse
+readList :: ReadS [ListAcceleratorsResponse]
+$creadList :: ReadS [ListAcceleratorsResponse]
+readsPrec :: Int -&gt; ReadS ListAcceleratorsResponse
+$creadsPrec :: Int -&gt; ReadS ListAcceleratorsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243137"><span id="local-6989586621679243139"><span id="local-6989586621679243141"><span class="annot"><span class="annottext">Int -&gt; ListAcceleratorsResponse -&gt; ShowS
+[ListAcceleratorsResponse] -&gt; ShowS
+ListAcceleratorsResponse -&gt; String
+(Int -&gt; ListAcceleratorsResponse -&gt; ShowS)
+-&gt; (ListAcceleratorsResponse -&gt; String)
+-&gt; ([ListAcceleratorsResponse] -&gt; ShowS)
+-&gt; Show ListAcceleratorsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAcceleratorsResponse] -&gt; ShowS
+$cshowList :: [ListAcceleratorsResponse] -&gt; ShowS
+show :: ListAcceleratorsResponse -&gt; String
+$cshow :: ListAcceleratorsResponse -&gt; String
+showsPrec :: Int -&gt; ListAcceleratorsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAcceleratorsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAcceleratorsResponse -&gt; Rep ListAcceleratorsResponse x)
+-&gt; (forall x.
+    Rep ListAcceleratorsResponse x -&gt; ListAcceleratorsResponse)
+-&gt; Generic ListAcceleratorsResponse
+forall x.
+Rep ListAcceleratorsResponse x -&gt; ListAcceleratorsResponse
+forall x.
+ListAcceleratorsResponse -&gt; Rep ListAcceleratorsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAcceleratorsResponse x -&gt; ListAcceleratorsResponse
+$cfrom :: forall x.
+ListAcceleratorsResponse -&gt; Rep ListAcceleratorsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Create a value of 'ListAcceleratorsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'nextToken', 'listAcceleratorsResponse_nextToken' - The token for the next set of results. You receive this token from a</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'accelerators', 'listAcceleratorsResponse_accelerators' - The list of accelerators for a customer account.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'listAcceleratorsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#newListAcceleratorsResponse"><span class="hs-identifier hs-type">newListAcceleratorsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newListAcceleratorsResponse"><span class="annot"><span class="annottext">newListAcceleratorsResponse :: Int -&gt; ListAcceleratorsResponse
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#newListAcceleratorsResponse"><span class="hs-identifier hs-var hs-var">newListAcceleratorsResponse</span></a></span></span><span> </span><span id="local-6989586621679243134"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243134"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListAcceleratorsResponse' :: Maybe Text
+-&gt; Maybe [Accelerator] -&gt; Int -&gt; ListAcceleratorsResponse
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-type">ListAcceleratorsResponse'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAcceleratorsResponse' :: Maybe Text
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AnextToken%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:accelerators:ListAcceleratorsResponse' :: Maybe [Accelerator]
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3Aaccelerators%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var">accelerators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Accelerator]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAcceleratorsResponse' :: Int
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AhttpStatus%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243134"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The token for the next set of results. You receive this token from a</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- previous call.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_nextToken"><span class="hs-identifier hs-type">listAcceleratorsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="listAcceleratorsResponse_nextToken"><span class="annot"><span class="annottext">listAcceleratorsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAcceleratorsResponse -&gt; f ListAcceleratorsResponse
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAcceleratorsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAcceleratorsResponse -&gt; Maybe Text)
+-&gt; (ListAcceleratorsResponse
+    -&gt; Maybe Text -&gt; ListAcceleratorsResponse)
+-&gt; Lens' ListAcceleratorsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-type">ListAcceleratorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243133"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAcceleratorsResponse' :: ListAcceleratorsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679243133"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243133"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243132"><span class="annot"><span class="annottext">s :: ListAcceleratorsResponse
+</span><a href="#local-6989586621679243132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-type">ListAcceleratorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243131"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAcceleratorsResponse
+</span><a href="#local-6989586621679243132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAcceleratorsResponse' :: Maybe Text
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AnextToken%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679243131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The list of accelerators for a customer account.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_accelerators"><span class="hs-identifier hs-type">listAcceleratorsResponse_accelerators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.Types.Accelerator.html#Accelerator"><span class="hs-identifier hs-type">Accelerator</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listAcceleratorsResponse_accelerators"><span class="annot"><span class="annottext">listAcceleratorsResponse_accelerators :: (Maybe [Accelerator] -&gt; f (Maybe [Accelerator]))
+-&gt; ListAcceleratorsResponse -&gt; f ListAcceleratorsResponse
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_accelerators"><span class="hs-identifier hs-var hs-var">listAcceleratorsResponse_accelerators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAcceleratorsResponse -&gt; Maybe [Accelerator])
+-&gt; (ListAcceleratorsResponse
+    -&gt; Maybe [Accelerator] -&gt; ListAcceleratorsResponse)
+-&gt; Lens' ListAcceleratorsResponse (Maybe [Accelerator])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-type">ListAcceleratorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243130"><span class="annot"><span class="annottext">Maybe [Accelerator]
+accelerators :: Maybe [Accelerator]
+$sel:accelerators:ListAcceleratorsResponse' :: ListAcceleratorsResponse -&gt; Maybe [Accelerator]
+</span><a href="#local-6989586621679243130"><span class="hs-identifier hs-var hs-var">accelerators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Accelerator]
+</span><a href="#local-6989586621679243130"><span class="hs-identifier hs-var">accelerators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243129"><span class="annot"><span class="annottext">s :: ListAcceleratorsResponse
+</span><a href="#local-6989586621679243129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-type">ListAcceleratorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243128"><span class="annot"><span class="annottext">Maybe [Accelerator]
+</span><a href="#local-6989586621679243128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAcceleratorsResponse
+</span><a href="#local-6989586621679243129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accelerators:ListAcceleratorsResponse' :: Maybe [Accelerator]
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3Aaccelerators%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var">accelerators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Accelerator]
+</span><a href="#local-6989586621679243128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Accelerator] -&gt; f (Maybe [Accelerator]))
+ -&gt; ListAcceleratorsResponse -&gt; f ListAcceleratorsResponse)
+-&gt; ((Maybe [Accelerator] -&gt; f (Maybe [Accelerator]))
+    -&gt; Maybe [Accelerator] -&gt; f (Maybe [Accelerator]))
+-&gt; (Maybe [Accelerator] -&gt; f (Maybe [Accelerator]))
+-&gt; ListAcceleratorsResponse
+-&gt; f ListAcceleratorsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Accelerator] [Accelerator] [Accelerator] [Accelerator]
+-&gt; Iso
+     (Maybe [Accelerator])
+     (Maybe [Accelerator])
+     (Maybe [Accelerator])
+     (Maybe [Accelerator])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Accelerator] [Accelerator] [Accelerator] [Accelerator]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_httpStatus"><span class="hs-identifier hs-type">listAcceleratorsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span id="listAcceleratorsResponse_httpStatus"><span class="annot"><span class="annottext">listAcceleratorsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAcceleratorsResponse -&gt; f ListAcceleratorsResponse
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#listAcceleratorsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAcceleratorsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAcceleratorsResponse -&gt; Int)
+-&gt; (ListAcceleratorsResponse -&gt; Int -&gt; ListAcceleratorsResponse)
+-&gt; Lens ListAcceleratorsResponse ListAcceleratorsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-type">ListAcceleratorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243125"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAcceleratorsResponse' :: ListAcceleratorsResponse -&gt; Int
+</span><a href="#local-6989586621679243125"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243125"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243124"><span class="annot"><span class="annottext">s :: ListAcceleratorsResponse
+</span><a href="#local-6989586621679243124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse%27"><span class="hs-identifier hs-type">ListAcceleratorsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243123"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAcceleratorsResponse
+</span><a href="#local-6989586621679243124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAcceleratorsResponse' :: Int
+</span><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#%24sel%3AhttpStatus%3AListAcceleratorsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679243123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GlobalAccelerator.ListAccelerators.html#ListAcceleratorsResponse"><span class="hs-identifier hs-type">ListAcceleratorsResponse</span></a></span></span><span>
+</span><span id="line-217"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newPutAttributes' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679472124"><span id="local-6989586621679472125"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAttributes"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-var">PutAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAttributes%27"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-var">PutAttributes'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679472133"><span id="local-6989586621679472134"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAttributes"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-var">PutAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAttributes%27"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-var">PutAttributes'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The short name or full Amazon Resource Name (ARN) of the cluster that</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- contains the resource to apply attributes. If you do not specify a</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- cluster, the default cluster is assumed.</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Aattributes%3APutAttributes%27"><span class="annot"><span class="annottext">PutAttributes -&gt; [Attribute]
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3Aattributes%3APutAttributes%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679472117"><span id="local-6989586621679472119"><span class="annot"><span class="annottext">PutAttributes -&gt; PutAttributes -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679472126"><span id="local-6989586621679472128"><span class="annot"><span class="annottext">PutAttributes -&gt; PutAttributes -&gt; Bool
 (PutAttributes -&gt; PutAttributes -&gt; Bool)
 -&gt; (PutAttributes -&gt; PutAttributes -&gt; Bool) -&gt; Eq PutAttributes
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutAttributes -&gt; PutAttributes -&gt; Bool
 == :: PutAttributes -&gt; PutAttributes -&gt; Bool
 $c== :: PutAttributes -&gt; PutAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472108"><span id="local-6989586621679472110"><span id="local-6989586621679472112"><span id="local-6989586621679472114"><span class="annot"><span class="annottext">ReadPrec [PutAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472117"><span id="local-6989586621679472119"><span id="local-6989586621679472121"><span id="local-6989586621679472123"><span class="annot"><span class="annottext">ReadPrec [PutAttributes]
 ReadPrec PutAttributes
 Int -&gt; ReadS PutAttributes
 ReadS [PutAttributes]
@@ -93,7 +93,7 @@ readList :: ReadS [PutAttributes]
 $creadList :: ReadS [PutAttributes]
 readsPrec :: Int -&gt; ReadS PutAttributes
 $creadsPrec :: Int -&gt; ReadS PutAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472101"><span id="local-6989586621679472103"><span id="local-6989586621679472105"><span class="annot"><span class="annottext">Int -&gt; PutAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472110"><span id="local-6989586621679472112"><span id="local-6989586621679472114"><span class="annot"><span class="annottext">Int -&gt; PutAttributes -&gt; ShowS
 [PutAttributes] -&gt; ShowS
 PutAttributes -&gt; String
 (Int -&gt; PutAttributes -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Monoid a =&gt; a
 -&gt; (PutAttributes -&gt; Maybe Text -&gt; PutAttributes)
 -&gt; Lens PutAttributes PutAttributes (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472094"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472103"><span class="annot"><span class="annottext">Maybe Text
 cluster :: Maybe Text
 $sel:cluster:PutAttributes' :: PutAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679472094"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679472094"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472093"><span class="annot"><span class="annottext">s :: PutAttributes
-</span><a href="#local-6989586621679472093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472092"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679472092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributes
-</span><a href="#local-6989586621679472093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutAttributes' :: Maybe Text
+</span><a href="#local-6989586621679472103"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679472103"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472102"><span class="annot"><span class="annottext">s :: PutAttributes
+</span><a href="#local-6989586621679472102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679472101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributes
+</span><a href="#local-6989586621679472102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:PutAttributes' :: Maybe Text
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3Acluster%3APutAttributes%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679472092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679472101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The attributes to apply to your resource. You can specify up to 10</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- custom attributes per resource. You can specify up to 10 attributes in a</span><span>
@@ -179,16 +179,16 @@ $sel:cluster:PutAttributes' :: PutAttributes -&gt; Maybe Text
 -&gt; (PutAttributes -&gt; [Attribute] -&gt; PutAttributes)
 -&gt; Lens PutAttributes PutAttributes [Attribute] [Attribute]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472091"><span class="annot"><span class="annottext">[Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472100"><span class="annot"><span class="annottext">[Attribute]
 attributes :: [Attribute]
 $sel:attributes:PutAttributes' :: PutAttributes -&gt; [Attribute]
-</span><a href="#local-6989586621679472091"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679472091"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472090"><span class="annot"><span class="annottext">s :: PutAttributes
-</span><a href="#local-6989586621679472090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472089"><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679472089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributes
-</span><a href="#local-6989586621679472090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:PutAttributes' :: [Attribute]
+</span><a href="#local-6989586621679472100"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679472100"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472099"><span class="annot"><span class="annottext">s :: PutAttributes
+</span><a href="#local-6989586621679472099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472098"><span class="annot"><span class="annottext">[Attribute]
+</span><a href="#local-6989586621679472098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributes
+</span><a href="#local-6989586621679472099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:PutAttributes' :: [Attribute]
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3Aattributes%3APutAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679472089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
+</span><a href="#local-6989586621679472098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Attribute] -&gt; f [Attribute])
  -&gt; PutAttributes -&gt; f PutAttributes)
 -&gt; (([Attribute] -&gt; f [Attribute]) -&gt; [Attribute] -&gt; f [Attribute])
 -&gt; ([Attribute] -&gt; f [Attribute])
@@ -203,12 +203,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679472083"><span class="annot"><span class="annottext">request :: PutAttributes -&gt; Request PutAttributes
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679472092"><span class="annot"><span class="annottext">request :: PutAttributes -&gt; Request PutAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutAttributes -&gt; Request PutAttributes
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679472079"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679472088"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutAttributes
 -&gt; ClientResponse ClientBody
@@ -232,10 +232,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679472076"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679472076"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679472075"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679472075"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679472074"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679472074"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679472085"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679472085"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679472084"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679472084"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679472083"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679472083"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Attribute] -&gt; Int -&gt; PutAttributesResponse
 </span><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-var">PutAttributesResponse'</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Attribute] -&gt; Int -&gt; PutAttributesResponse)
@@ -243,7 +243,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679472074"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Attribute]))
+</span><a href="#local-6989586621679472083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Attribute]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Attribute]))
@@ -260,15 +260,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679472076"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679472085"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679472065"><span id="local-6989586621679472067"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679472074"><span id="local-6989586621679472076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679472062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679472071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679472058"><span class="annot"><span class="annottext">toHeaders :: PutAttributes -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679472067"><span class="annot"><span class="annottext">toHeaders :: PutAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -295,15 +295,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679472048"><span id="local-6989586621679472050"><span id="local-6989586621679472052"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679472046"><span class="annot"><span class="annottext">toJSON :: PutAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472043"><span id="local-6989586621679472044"><span class="annot"><span class="annottext">[Attribute]
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679472057"><span id="local-6989586621679472059"><span id="local-6989586621679472061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679472055"><span class="annot"><span class="annottext">toJSON :: PutAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes%27"><span class="hs-identifier hs-type">PutAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472052"><span id="local-6989586621679472053"><span class="annot"><span class="annottext">[Attribute]
 Maybe Text
 attributes :: [Attribute]
 cluster :: Maybe Text
 $sel:attributes:PutAttributes' :: PutAttributes -&gt; [Attribute]
 $sel:cluster:PutAttributes' :: PutAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679472043"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679472052"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -315,26 +315,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679472044"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679472053"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Attribute]
-</span><a href="#local-6989586621679472043"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679472052"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679472037"><span class="annot"><span class="annottext">toPath :: PutAttributes -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679472046"><span class="annot"><span class="annottext">toPath :: PutAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributes"><span class="hs-identifier hs-type">PutAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679472033"><span class="annot"><span class="annottext">toQuery :: PutAttributes -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679472042"><span class="annot"><span class="annottext">toQuery :: PutAttributes -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutAttributes -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,7 +342,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newPutAttributesResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679472030"><span id="local-6989586621679472031"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAttributesResponse"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-var">PutAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAttributesResponse%27"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-var">PutAttributesResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679472039"><span id="local-6989586621679472040"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAttributesResponse"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-var">PutAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAttributesResponse%27"><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-var">PutAttributesResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attributes applied to your resource.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3Aattributes%3APutAttributesResponse%27"><span class="annot"><span class="annottext">PutAttributesResponse -&gt; Maybe [Attribute]
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3Aattributes%3APutAttributesResponse%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -350,7 +350,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutAttributesResponse%27"><span class="annot"><span class="annottext">PutAttributesResponse -&gt; Int
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3AhttpStatus%3APutAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679472024"><span id="local-6989586621679472026"><span class="annot"><span class="annottext">PutAttributesResponse -&gt; PutAttributesResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679472033"><span id="local-6989586621679472035"><span class="annot"><span class="annottext">PutAttributesResponse -&gt; PutAttributesResponse -&gt; Bool
 (PutAttributesResponse -&gt; PutAttributesResponse -&gt; Bool)
 -&gt; (PutAttributesResponse -&gt; PutAttributesResponse -&gt; Bool)
 -&gt; Eq PutAttributesResponse
@@ -359,7 +359,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutAttributesResponse -&gt; PutAttributesResponse -&gt; Bool
 == :: PutAttributesResponse -&gt; PutAttributesResponse -&gt; Bool
 $c== :: PutAttributesResponse -&gt; PutAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472016"><span id="local-6989586621679472018"><span id="local-6989586621679472020"><span id="local-6989586621679472022"><span class="annot"><span class="annottext">ReadPrec [PutAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472025"><span id="local-6989586621679472027"><span id="local-6989586621679472029"><span id="local-6989586621679472031"><span class="annot"><span class="annottext">ReadPrec [PutAttributesResponse]
 ReadPrec PutAttributesResponse
 Int -&gt; ReadS PutAttributesResponse
 ReadS [PutAttributesResponse]
@@ -379,7 +379,7 @@ readList :: ReadS [PutAttributesResponse]
 $creadList :: ReadS [PutAttributesResponse]
 readsPrec :: Int -&gt; ReadS PutAttributesResponse
 $creadsPrec :: Int -&gt; ReadS PutAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472010"><span id="local-6989586621679472012"><span id="local-6989586621679472014"><span class="annot"><span class="annottext">Int -&gt; PutAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679472019"><span id="local-6989586621679472021"><span id="local-6989586621679472023"><span class="annot"><span class="annottext">Int -&gt; PutAttributesResponse -&gt; ShowS
 [PutAttributesResponse] -&gt; ShowS
 PutAttributesResponse -&gt; String
 (Int -&gt; PutAttributesResponse -&gt; ShowS)
@@ -421,8 +421,8 @@ $cfrom :: forall x. PutAttributesResponse -&gt; Rep PutAttributesResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newPutAttributesResponse"><span class="annot"><span class="annottext">newPutAttributesResponse :: Int -&gt; PutAttributesResponse
-</span><a href="Network.AWS.ECS.PutAttributes.html#newPutAttributesResponse"><span class="hs-identifier hs-var hs-var">newPutAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679472007"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679472007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.PutAttributes.html#newPutAttributesResponse"><span class="hs-identifier hs-var hs-var">newPutAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679472016"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679472016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">PutAttributesResponse' :: Maybe [Attribute] -&gt; Int -&gt; PutAttributesResponse
 </span><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:PutAttributesResponse' :: Maybe [Attribute]
@@ -432,7 +432,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutAttributesResponse' :: Int
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3AhttpStatus%3APutAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679472007"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679472016"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The attributes applied to your resource.</span><span>
@@ -448,16 +448,16 @@ forall a. Maybe a
      (Maybe [Attribute])
      (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472006"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472015"><span class="annot"><span class="annottext">Maybe [Attribute]
 attributes :: Maybe [Attribute]
 $sel:attributes:PutAttributesResponse' :: PutAttributesResponse -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679472006"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679472006"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472005"><span class="annot"><span class="annottext">s :: PutAttributesResponse
-</span><a href="#local-6989586621679472005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472004"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679472004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributesResponse
-</span><a href="#local-6989586621679472005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:PutAttributesResponse' :: Maybe [Attribute]
+</span><a href="#local-6989586621679472015"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679472015"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472014"><span class="annot"><span class="annottext">s :: PutAttributesResponse
+</span><a href="#local-6989586621679472014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472013"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679472013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributesResponse
+</span><a href="#local-6989586621679472014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:PutAttributesResponse' :: Maybe [Attribute]
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3Aattributes%3APutAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679472004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679472013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; PutAttributesResponse -&gt; f PutAttributesResponse)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -485,16 +485,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutAttributesResponse -&gt; Int -&gt; PutAttributesResponse)
 -&gt; Lens PutAttributesResponse PutAttributesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472002"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679472011"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutAttributesResponse' :: PutAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679472002"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679472002"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472001"><span class="annot"><span class="annottext">s :: PutAttributesResponse
-</span><a href="#local-6989586621679472001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472000"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679472000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributesResponse
-</span><a href="#local-6989586621679472001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAttributesResponse' :: Int
+</span><a href="#local-6989586621679472011"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679472011"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679472010"><span class="annot"><span class="annottext">s :: PutAttributesResponse
+</span><a href="#local-6989586621679472010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse%27"><span class="hs-identifier hs-type">PutAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679472009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679472009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAttributesResponse
+</span><a href="#local-6989586621679472010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAttributesResponse' :: Int
 </span><a href="Network.AWS.ECS.PutAttributes.html#%24sel%3AhttpStatus%3APutAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679472000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679472009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679471998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679472007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.PutAttributes.html#PutAttributesResponse"><span class="hs-identifier hs-type">PutAttributesResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

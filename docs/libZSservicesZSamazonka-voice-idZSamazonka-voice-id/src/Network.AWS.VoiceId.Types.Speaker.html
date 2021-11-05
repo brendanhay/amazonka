@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.VoiceId.Types.Speaker</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.VoiceId.Types.Speaker</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerStatus.html"><span class="hs-identifier">Network.AWS.VoiceId.Types.SpeakerStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains all the information about a speaker.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSpeaker' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679204714"><span id="local-6989586621679204715"></span></span><span class="hs-keyword">data</span><span> </span><span id="Speaker"><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-var">Speaker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Speaker%27"><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-var">Speaker'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the speaker.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3ASpeaker%27"><span class="annot"><span class="annottext">Speaker -&gt; Maybe SpeakerStatus
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3Astatus%3ASpeaker%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerStatus.html#SpeakerStatus"><span class="hs-identifier hs-type">SpeakerStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The client-provided identifier for the speaker.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcustomerSpeakerId%3ASpeaker%27"><span class="annot"><span class="annottext">Speaker -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AcustomerSpeakerId%3ASpeaker%27"><span class="hs-identifier hs-var hs-var">customerSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A timestamp showing when the speaker is created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreatedAt%3ASpeaker%27"><span class="annot"><span class="annottext">Speaker -&gt; Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AcreatedAt%3ASpeaker%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The identifier of the domain that contains the speaker.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdomainId%3ASpeaker%27"><span class="annot"><span class="annottext">Speaker -&gt; Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AdomainId%3ASpeaker%27"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A timestamp showing the speaker\'s last update.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AupdatedAt%3ASpeaker%27"><span class="annot"><span class="annottext">Speaker -&gt; Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AupdatedAt%3ASpeaker%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The service-generated identifier for the speaker.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AgeneratedSpeakerId%3ASpeaker%27"><span class="annot"><span class="annottext">Speaker -&gt; Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AgeneratedSpeakerId%3ASpeaker%27"><span class="hs-identifier hs-var hs-var">generatedSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679204703"><span id="local-6989586621679204705"><span class="annot"><span class="annottext">Speaker -&gt; Speaker -&gt; Bool
+(Speaker -&gt; Speaker -&gt; Bool)
+-&gt; (Speaker -&gt; Speaker -&gt; Bool) -&gt; Eq Speaker
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Speaker -&gt; Speaker -&gt; Bool
+$c/= :: Speaker -&gt; Speaker -&gt; Bool
+== :: Speaker -&gt; Speaker -&gt; Bool
+$c== :: Speaker -&gt; Speaker -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679204696"><span id="local-6989586621679204698"><span id="local-6989586621679204700"><span class="annot"><span class="annottext">Int -&gt; Speaker -&gt; ShowS
+[Speaker] -&gt; ShowS
+Speaker -&gt; String
+(Int -&gt; Speaker -&gt; ShowS)
+-&gt; (Speaker -&gt; String) -&gt; ([Speaker] -&gt; ShowS) -&gt; Show Speaker
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Speaker] -&gt; ShowS
+$cshowList :: [Speaker] -&gt; ShowS
+show :: Speaker -&gt; String
+$cshow :: Speaker -&gt; String
+showsPrec :: Int -&gt; Speaker -&gt; ShowS
+$cshowsPrec :: Int -&gt; Speaker -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Speaker -&gt; Rep Speaker x)
+-&gt; (forall x. Rep Speaker x -&gt; Speaker) -&gt; Generic Speaker
+forall x. Rep Speaker x -&gt; Speaker
+forall x. Speaker -&gt; Rep Speaker x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Speaker x -&gt; Speaker
+$cfrom :: forall x. Speaker -&gt; Rep Speaker x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'Speaker' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'status', 'speaker_status' - The current status of the speaker.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'customerSpeakerId', 'speaker_customerSpeakerId' - The client-provided identifier for the speaker.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'createdAt', 'speaker_createdAt' - A timestamp showing when the speaker is created.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'domainId', 'speaker_domainId' - The identifier of the domain that contains the speaker.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'updatedAt', 'speaker_updatedAt' - A timestamp showing the speaker\'s last update.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'generatedSpeakerId', 'speaker_generatedSpeakerId' - The service-generated identifier for the speaker.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#newSpeaker"><span class="hs-identifier hs-type">newSpeaker</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span>
+</span><span id="line-67"></span><span id="newSpeaker"><span class="annot"><span class="annottext">newSpeaker :: Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#newSpeaker"><span class="hs-identifier hs-var hs-var">newSpeaker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Speaker' :: Maybe SpeakerStatus
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Speaker' :: Maybe SpeakerStatus
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3Astatus%3ASpeaker%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpeakerStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerSpeakerId:Speaker' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AcustomerSpeakerId%3ASpeaker%27"><span class="hs-identifier hs-var">customerSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:Speaker' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AcreatedAt%3ASpeaker%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainId:Speaker' :: Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AdomainId%3ASpeaker%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:updatedAt:Speaker' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AupdatedAt%3ASpeaker%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:generatedSpeakerId:Speaker' :: Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AgeneratedSpeakerId%3ASpeaker%27"><span class="hs-identifier hs-var">generatedSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The current status of the speaker.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_status"><span class="hs-identifier hs-type">speaker_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.SpeakerStatus.html#SpeakerStatus"><span class="hs-identifier hs-type">SpeakerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="speaker_status"><span class="annot"><span class="annottext">speaker_status :: (Maybe SpeakerStatus -&gt; f (Maybe SpeakerStatus))
+-&gt; Speaker -&gt; f Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_status"><span class="hs-identifier hs-var hs-var">speaker_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Speaker -&gt; Maybe SpeakerStatus)
+-&gt; (Speaker -&gt; Maybe SpeakerStatus -&gt; Speaker)
+-&gt; Lens Speaker Speaker (Maybe SpeakerStatus) (Maybe SpeakerStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204687"><span class="annot"><span class="annottext">Maybe SpeakerStatus
+status :: Maybe SpeakerStatus
+$sel:status:Speaker' :: Speaker -&gt; Maybe SpeakerStatus
+</span><a href="#local-6989586621679204687"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpeakerStatus
+</span><a href="#local-6989586621679204687"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204686"><span class="annot"><span class="annottext">s :: Speaker
+</span><a href="#local-6989586621679204686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204685"><span class="annot"><span class="annottext">Maybe SpeakerStatus
+</span><a href="#local-6989586621679204685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Speaker
+</span><a href="#local-6989586621679204686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Speaker' :: Maybe SpeakerStatus
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3Astatus%3ASpeaker%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpeakerStatus
+</span><a href="#local-6989586621679204685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The client-provided identifier for the speaker.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_customerSpeakerId"><span class="hs-identifier hs-type">speaker_customerSpeakerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="speaker_customerSpeakerId"><span class="annot"><span class="annottext">speaker_customerSpeakerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Speaker -&gt; f Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_customerSpeakerId"><span class="hs-identifier hs-var hs-var">speaker_customerSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Speaker -&gt; Maybe (Sensitive Text))
+-&gt; (Speaker -&gt; Maybe (Sensitive Text) -&gt; Speaker)
+-&gt; Lens
+     Speaker Speaker (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204683"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+customerSpeakerId :: Maybe (Sensitive Text)
+$sel:customerSpeakerId:Speaker' :: Speaker -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679204683"><span class="hs-identifier hs-var hs-var">customerSpeakerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679204683"><span class="hs-identifier hs-var">customerSpeakerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204682"><span class="annot"><span class="annottext">s :: Speaker
+</span><a href="#local-6989586621679204682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204681"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679204681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Speaker
+</span><a href="#local-6989586621679204682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerSpeakerId:Speaker' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AcustomerSpeakerId%3ASpeaker%27"><span class="hs-identifier hs-var">customerSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679204681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; Speaker -&gt; f Speaker)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; Speaker
+-&gt; f Speaker
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | A timestamp showing when the speaker is created.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_createdAt"><span class="hs-identifier hs-type">speaker_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="speaker_createdAt"><span class="annot"><span class="annottext">speaker_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Speaker -&gt; f Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_createdAt"><span class="hs-identifier hs-var hs-var">speaker_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Speaker -&gt; Maybe POSIX)
+-&gt; (Speaker -&gt; Maybe POSIX -&gt; Speaker)
+-&gt; Lens Speaker Speaker (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204676"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:Speaker' :: Speaker -&gt; Maybe POSIX
+</span><a href="#local-6989586621679204676"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204676"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204675"><span class="annot"><span class="annottext">s :: Speaker
+</span><a href="#local-6989586621679204675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204674"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Speaker
+</span><a href="#local-6989586621679204675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:Speaker' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AcreatedAt%3ASpeaker%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Speaker -&gt; f Speaker)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Speaker
+-&gt; f Speaker
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The identifier of the domain that contains the speaker.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_domainId"><span class="hs-identifier hs-type">speaker_domainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="speaker_domainId"><span class="annot"><span class="annottext">speaker_domainId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Speaker -&gt; f Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_domainId"><span class="hs-identifier hs-var hs-var">speaker_domainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Speaker -&gt; Maybe Text)
+-&gt; (Speaker -&gt; Maybe Text -&gt; Speaker)
+-&gt; Lens Speaker Speaker (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204671"><span class="annot"><span class="annottext">Maybe Text
+domainId :: Maybe Text
+$sel:domainId:Speaker' :: Speaker -&gt; Maybe Text
+</span><a href="#local-6989586621679204671"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204671"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204670"><span class="annot"><span class="annottext">s :: Speaker
+</span><a href="#local-6989586621679204670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204669"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Speaker
+</span><a href="#local-6989586621679204670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainId:Speaker' :: Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AdomainId%3ASpeaker%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A timestamp showing the speaker\'s last update.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_updatedAt"><span class="hs-identifier hs-type">speaker_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="speaker_updatedAt"><span class="annot"><span class="annottext">speaker_updatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Speaker -&gt; f Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_updatedAt"><span class="hs-identifier hs-var hs-var">speaker_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Speaker -&gt; Maybe POSIX)
+-&gt; (Speaker -&gt; Maybe POSIX -&gt; Speaker)
+-&gt; Lens Speaker Speaker (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204667"><span class="annot"><span class="annottext">Maybe POSIX
+updatedAt :: Maybe POSIX
+$sel:updatedAt:Speaker' :: Speaker -&gt; Maybe POSIX
+</span><a href="#local-6989586621679204667"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204667"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204666"><span class="annot"><span class="annottext">s :: Speaker
+</span><a href="#local-6989586621679204666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204665"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Speaker
+</span><a href="#local-6989586621679204666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:Speaker' :: Maybe POSIX
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AupdatedAt%3ASpeaker%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679204665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Speaker -&gt; f Speaker)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Speaker
+-&gt; f Speaker
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The service-generated identifier for the speaker.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_generatedSpeakerId"><span class="hs-identifier hs-type">speaker_generatedSpeakerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="speaker_generatedSpeakerId"><span class="annot"><span class="annottext">speaker_generatedSpeakerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Speaker -&gt; f Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#speaker_generatedSpeakerId"><span class="hs-identifier hs-var hs-var">speaker_generatedSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Speaker -&gt; Maybe Text)
+-&gt; (Speaker -&gt; Maybe Text -&gt; Speaker)
+-&gt; Lens Speaker Speaker (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679204663"><span class="annot"><span class="annottext">Maybe Text
+generatedSpeakerId :: Maybe Text
+$sel:generatedSpeakerId:Speaker' :: Speaker -&gt; Maybe Text
+</span><a href="#local-6989586621679204663"><span class="hs-identifier hs-var hs-var">generatedSpeakerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204663"><span class="hs-identifier hs-var">generatedSpeakerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679204662"><span class="annot"><span class="annottext">s :: Speaker
+</span><a href="#local-6989586621679204662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-type">Speaker'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679204661"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Speaker
+</span><a href="#local-6989586621679204662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generatedSpeakerId:Speaker' :: Maybe Text
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#%24sel%3AgeneratedSpeakerId%3ASpeaker%27"><span class="hs-identifier hs-var">generatedSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679204661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204658"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679204656"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Speaker
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Speaker) -&gt; Value -&gt; Parser Speaker
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Speaker&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679204653"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204653"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe SpeakerStatus
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Speaker
+</span><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker%27"><span class="hs-identifier hs-var">Speaker'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SpeakerStatus
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Speaker)
+-&gt; Parser (Maybe SpeakerStatus)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Speaker)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpeakerStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Speaker)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Speaker)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerSpeakerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Speaker)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Speaker)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Speaker)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Speaker)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Speaker)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; Speaker)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Speaker)
+-&gt; Parser (Maybe Text) -&gt; Parser Speaker
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679204653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GeneratedSpeakerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204647"><span id="local-6989586621679204649"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679204644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.VoiceId.Types.Speaker.html#Speaker"><span class="hs-identifier hs-type">Speaker</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ChimeSDKMessaging.Types.ErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ChimeSDKMessaging.Types.ErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier">ErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_AccessDenied"><span class="hs-identifier">ErrorCode_AccessDenied</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_BadRequest"><span class="hs-identifier">ErrorCode_BadRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Conflict"><span class="hs-identifier">ErrorCode_Conflict</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Forbidden"><span class="hs-identifier">ErrorCode_Forbidden</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_NotFound"><span class="hs-identifier">ErrorCode_NotFound</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_PhoneNumberAssociationsExist"><span class="hs-identifier">ErrorCode_PhoneNumberAssociationsExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_PreconditionFailed"><span class="hs-identifier">ErrorCode_PreconditionFailed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ResourceLimitExceeded"><span class="hs-identifier">ErrorCode_ResourceLimitExceeded</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ServiceFailure"><span class="hs-identifier">ErrorCode_ServiceFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ServiceUnavailable"><span class="hs-identifier">ErrorCode_ServiceUnavailable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Throttled"><span class="hs-identifier">ErrorCode_Throttled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Throttling"><span class="hs-identifier">ErrorCode_Throttling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Unauthorized"><span class="hs-identifier">ErrorCode_Unauthorized</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Unprocessable"><span class="hs-identifier">ErrorCode_Unprocessable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_VoiceConnectorGroupAssociationsExist"><span class="hs-identifier">ErrorCode_VoiceConnectorGroupAssociationsExist</span></a></span><span>
+</span><span id="line-38"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679230676"><span id="local-6989586621679230677"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ErrorCode"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-var">ErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorCode%27"><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-var">ErrorCode'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromErrorCode"><span class="annot"><span class="annottext">ErrorCode -&gt; Text
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#fromErrorCode"><span class="hs-identifier hs-var hs-var">fromErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230668"><span id="local-6989586621679230670"><span id="local-6989586621679230672"><span class="annot"><span class="annottext">Int -&gt; ErrorCode -&gt; ShowS
+[ErrorCode] -&gt; ShowS
+ErrorCode -&gt; String
+(Int -&gt; ErrorCode -&gt; ShowS)
+-&gt; (ErrorCode -&gt; String)
+-&gt; ([ErrorCode] -&gt; ShowS)
+-&gt; Show ErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ErrorCode] -&gt; ShowS
+$cshowList :: [ErrorCode] -&gt; ShowS
+show :: ErrorCode -&gt; String
+$cshow :: ErrorCode -&gt; String
+showsPrec :: Int -&gt; ErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679230659"><span id="local-6989586621679230661"><span id="local-6989586621679230663"><span id="local-6989586621679230665"><span class="annot"><span class="annottext">ReadPrec [ErrorCode]
+ReadPrec ErrorCode
+Int -&gt; ReadS ErrorCode
+ReadS [ErrorCode]
+(Int -&gt; ReadS ErrorCode)
+-&gt; ReadS [ErrorCode]
+-&gt; ReadPrec ErrorCode
+-&gt; ReadPrec [ErrorCode]
+-&gt; Read ErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ErrorCode]
+$creadListPrec :: ReadPrec [ErrorCode]
+readPrec :: ReadPrec ErrorCode
+$creadPrec :: ReadPrec ErrorCode
+readList :: ReadS [ErrorCode]
+$creadList :: ReadS [ErrorCode]
+readsPrec :: Int -&gt; ReadS ErrorCode
+$creadsPrec :: Int -&gt; ReadS ErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679230654"><span id="local-6989586621679230656"><span class="annot"><span class="annottext">ErrorCode -&gt; ErrorCode -&gt; Bool
+(ErrorCode -&gt; ErrorCode -&gt; Bool)
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; Bool) -&gt; Eq ErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ErrorCode -&gt; ErrorCode -&gt; Bool
+$c/= :: ErrorCode -&gt; ErrorCode -&gt; Bool
+== :: ErrorCode -&gt; ErrorCode -&gt; Bool
+$c== :: ErrorCode -&gt; ErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679230638"><span id="local-6989586621679230640"><span id="local-6989586621679230642"><span id="local-6989586621679230644"><span id="local-6989586621679230646"><span id="local-6989586621679230648"><span id="local-6989586621679230650"><span class="annot"><span class="annottext">Eq ErrorCode
+Eq ErrorCode
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; Ordering)
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; Bool)
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; Bool)
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; Bool)
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; Bool)
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; ErrorCode)
+-&gt; (ErrorCode -&gt; ErrorCode -&gt; ErrorCode)
+-&gt; Ord ErrorCode
+ErrorCode -&gt; ErrorCode -&gt; Bool
+ErrorCode -&gt; ErrorCode -&gt; Ordering
+ErrorCode -&gt; ErrorCode -&gt; ErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ErrorCode -&gt; ErrorCode -&gt; ErrorCode
+$cmin :: ErrorCode -&gt; ErrorCode -&gt; ErrorCode
+max :: ErrorCode -&gt; ErrorCode -&gt; ErrorCode
+$cmax :: ErrorCode -&gt; ErrorCode -&gt; ErrorCode
+&gt;= :: ErrorCode -&gt; ErrorCode -&gt; Bool
+$c&gt;= :: ErrorCode -&gt; ErrorCode -&gt; Bool
+&gt; :: ErrorCode -&gt; ErrorCode -&gt; Bool
+$c&gt; :: ErrorCode -&gt; ErrorCode -&gt; Bool
+&lt;= :: ErrorCode -&gt; ErrorCode -&gt; Bool
+$c&lt;= :: ErrorCode -&gt; ErrorCode -&gt; Bool
+&lt; :: ErrorCode -&gt; ErrorCode -&gt; Bool
+$c&lt; :: ErrorCode -&gt; ErrorCode -&gt; Bool
+compare :: ErrorCode -&gt; ErrorCode -&gt; Ordering
+$ccompare :: ErrorCode -&gt; ErrorCode -&gt; Ordering
+$cp1Ord :: Eq ErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ErrorCode -&gt; Rep ErrorCode x)
+-&gt; (forall x. Rep ErrorCode x -&gt; ErrorCode) -&gt; Generic ErrorCode
+forall x. Rep ErrorCode x -&gt; ErrorCode
+forall x. ErrorCode -&gt; Rep ErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ErrorCode x -&gt; ErrorCode
+$cfrom :: forall x. ErrorCode -&gt; Rep ErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230630"><span id="local-6989586621679230632"><span class="annot"><span class="annottext">Int -&gt; ErrorCode -&gt; Int
+ErrorCode -&gt; Int
+(Int -&gt; ErrorCode -&gt; Int)
+-&gt; (ErrorCode -&gt; Int) -&gt; Hashable ErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ErrorCode -&gt; Int
+$chash :: ErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; ErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; ErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679230627"><span class="annot"><span class="annottext">ErrorCode -&gt; ()
+(ErrorCode -&gt; ()) -&gt; NFData ErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ErrorCode -&gt; ()
+$crnf :: ErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679230624"><span class="annot"><span class="annottext">Text -&gt; Either String ErrorCode
+(Text -&gt; Either String ErrorCode) -&gt; FromText ErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ErrorCode
+$cfromText :: Text -&gt; Either String ErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679230621"><span class="annot"><span class="annottext">ErrorCode -&gt; Text
+(ErrorCode -&gt; Text) -&gt; ToText ErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ErrorCode -&gt; Text
+$ctoText :: ErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679230618"><span class="annot"><span class="annottext">ErrorCode -&gt; ByteString
+(ErrorCode -&gt; ByteString) -&gt; ToByteString ErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ErrorCode -&gt; ByteString
+$ctoBS :: ErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679230615"><span class="annot"><span class="annottext">ErrorCode -&gt; ByteStringBuilder
+(ErrorCode -&gt; ByteStringBuilder) -&gt; ToLog ErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ErrorCode -&gt; ByteStringBuilder
+$cbuild :: ErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679230612"><span class="annot"><span class="annottext">HeaderName -&gt; ErrorCode -&gt; [Header]
+(HeaderName -&gt; ErrorCode -&gt; [Header]) -&gt; ToHeader ErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679230609"><span class="annot"><span class="annottext">ErrorCode -&gt; QueryString
+(ErrorCode -&gt; QueryString) -&gt; ToQuery ErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ErrorCode -&gt; QueryString
+$ctoQuery :: ErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679230604"><span id="local-6989586621679230606"><span class="annot"><span class="annottext">Value -&gt; Parser [ErrorCode]
+Value -&gt; Parser ErrorCode
+(Value -&gt; Parser ErrorCode)
+-&gt; (Value -&gt; Parser [ErrorCode]) -&gt; FromJSON ErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ErrorCode]
+$cparseJSONList :: Value -&gt; Parser [ErrorCode]
+parseJSON :: Value -&gt; Parser ErrorCode
+$cparseJSON :: Value -&gt; Parser ErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679230599"><span id="local-6989586621679230601"><span class="annot"><span class="annottext">FromJSONKeyFunction [ErrorCode]
+FromJSONKeyFunction ErrorCode
+FromJSONKeyFunction ErrorCode
+-&gt; FromJSONKeyFunction [ErrorCode] -&gt; FromJSONKey ErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ErrorCode]
+fromJSONKey :: FromJSONKeyFunction ErrorCode
+$cfromJSONKey :: FromJSONKeyFunction ErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679230590"><span id="local-6989586621679230592"><span id="local-6989586621679230594"><span id="local-6989586621679230596"><span class="annot"><span class="annottext">[ErrorCode] -&gt; Encoding
+[ErrorCode] -&gt; Value
+ErrorCode -&gt; Encoding
+ErrorCode -&gt; Value
+(ErrorCode -&gt; Value)
+-&gt; (ErrorCode -&gt; Encoding)
+-&gt; ([ErrorCode] -&gt; Value)
+-&gt; ([ErrorCode] -&gt; Encoding)
+-&gt; ToJSON ErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ErrorCode] -&gt; Encoding
+$ctoEncodingList :: [ErrorCode] -&gt; Encoding
+toJSONList :: [ErrorCode] -&gt; Value
+$ctoJSONList :: [ErrorCode] -&gt; Value
+toEncoding :: ErrorCode -&gt; Encoding
+$ctoEncoding :: ErrorCode -&gt; Encoding
+toJSON :: ErrorCode -&gt; Value
+$ctoJSON :: ErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679230585"><span id="local-6989586621679230587"><span class="annot"><span class="annottext">ToJSONKeyFunction [ErrorCode]
+ToJSONKeyFunction ErrorCode
+ToJSONKeyFunction ErrorCode
+-&gt; ToJSONKeyFunction [ErrorCode] -&gt; ToJSONKey ErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ErrorCode]
+toJSONKey :: ToJSONKeyFunction ErrorCode
+$ctoJSONKey :: ToJSONKeyFunction ErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679230582"><span class="annot"><span class="annottext">[Node] -&gt; Either String ErrorCode
+([Node] -&gt; Either String ErrorCode) -&gt; FromXML ErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ErrorCode
+$cparseXML :: [Node] -&gt; Either String ErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679230579"><span class="annot"><span class="annottext">ErrorCode -&gt; XML
+(ErrorCode -&gt; XML) -&gt; ToXML ErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ErrorCode -&gt; XML
+$ctoXML :: ErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_AccessDenied"><span class="hs-identifier hs-type">ErrorCode_AccessDenied</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_AccessDenied"><span id="%24mErrorCode_AccessDenied"><span id="ErrorCode_AccessDenied"><span class="annot"><span class="annottext">$bErrorCode_AccessDenied :: ErrorCode
+$mErrorCode_AccessDenied :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_AccessDenied"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_AccessDenied</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AccessDenied&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_BadRequest"><span class="hs-identifier hs-type">ErrorCode_BadRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_BadRequest"><span id="%24mErrorCode_BadRequest"><span id="ErrorCode_BadRequest"><span class="annot"><span class="annottext">$bErrorCode_BadRequest :: ErrorCode
+$mErrorCode_BadRequest :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_BadRequest"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_BadRequest</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BadRequest&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Conflict"><span class="hs-identifier hs-type">ErrorCode_Conflict</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_Conflict"><span id="%24mErrorCode_Conflict"><span id="ErrorCode_Conflict"><span class="annot"><span class="annottext">$bErrorCode_Conflict :: ErrorCode
+$mErrorCode_Conflict :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_Conflict"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_Conflict</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Conflict&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Forbidden"><span class="hs-identifier hs-type">ErrorCode_Forbidden</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_Forbidden"><span id="%24mErrorCode_Forbidden"><span id="ErrorCode_Forbidden"><span class="annot"><span class="annottext">$bErrorCode_Forbidden :: ErrorCode
+$mErrorCode_Forbidden :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_Forbidden"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_Forbidden</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Forbidden&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_NotFound"><span class="hs-identifier hs-type">ErrorCode_NotFound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_NotFound"><span id="%24mErrorCode_NotFound"><span id="ErrorCode_NotFound"><span class="annot"><span class="annottext">$bErrorCode_NotFound :: ErrorCode
+$mErrorCode_NotFound :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_NotFound"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_NotFound</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NotFound&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_PhoneNumberAssociationsExist"><span class="hs-identifier hs-type">ErrorCode_PhoneNumberAssociationsExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_PhoneNumberAssociationsExist"><span id="%24mErrorCode_PhoneNumberAssociationsExist"><span id="ErrorCode_PhoneNumberAssociationsExist"><span class="annot"><span class="annottext">$bErrorCode_PhoneNumberAssociationsExist :: ErrorCode
+$mErrorCode_PhoneNumberAssociationsExist :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_PhoneNumberAssociationsExist"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_PhoneNumberAssociationsExist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PhoneNumberAssociationsExist&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_PreconditionFailed"><span class="hs-identifier hs-type">ErrorCode_PreconditionFailed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_PreconditionFailed"><span id="%24mErrorCode_PreconditionFailed"><span id="ErrorCode_PreconditionFailed"><span class="annot"><span class="annottext">$bErrorCode_PreconditionFailed :: ErrorCode
+$mErrorCode_PreconditionFailed :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_PreconditionFailed"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_PreconditionFailed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PreconditionFailed&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ResourceLimitExceeded"><span class="hs-identifier hs-type">ErrorCode_ResourceLimitExceeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_ResourceLimitExceeded"><span id="%24mErrorCode_ResourceLimitExceeded"><span id="ErrorCode_ResourceLimitExceeded"><span class="annot"><span class="annottext">$bErrorCode_ResourceLimitExceeded :: ErrorCode
+$mErrorCode_ResourceLimitExceeded :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_ResourceLimitExceeded"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_ResourceLimitExceeded</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ResourceLimitExceeded&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ServiceFailure"><span class="hs-identifier hs-type">ErrorCode_ServiceFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_ServiceFailure"><span id="%24mErrorCode_ServiceFailure"><span id="ErrorCode_ServiceFailure"><span class="annot"><span class="annottext">$bErrorCode_ServiceFailure :: ErrorCode
+$mErrorCode_ServiceFailure :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_ServiceFailure"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_ServiceFailure</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ServiceFailure&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ServiceUnavailable"><span class="hs-identifier hs-type">ErrorCode_ServiceUnavailable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_ServiceUnavailable"><span id="%24mErrorCode_ServiceUnavailable"><span id="ErrorCode_ServiceUnavailable"><span class="annot"><span class="annottext">$bErrorCode_ServiceUnavailable :: ErrorCode
+$mErrorCode_ServiceUnavailable :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_ServiceUnavailable"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_ServiceUnavailable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ServiceUnavailable&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Throttled"><span class="hs-identifier hs-type">ErrorCode_Throttled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_Throttled"><span id="%24mErrorCode_Throttled"><span id="ErrorCode_Throttled"><span class="annot"><span class="annottext">$bErrorCode_Throttled :: ErrorCode
+$mErrorCode_Throttled :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_Throttled"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_Throttled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Throttled&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Throttling"><span class="hs-identifier hs-type">ErrorCode_Throttling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_Throttling"><span id="%24mErrorCode_Throttling"><span id="ErrorCode_Throttling"><span class="annot"><span class="annottext">$bErrorCode_Throttling :: ErrorCode
+$mErrorCode_Throttling :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_Throttling"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_Throttling</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Unauthorized"><span class="hs-identifier hs-type">ErrorCode_Unauthorized</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_Unauthorized"><span id="%24mErrorCode_Unauthorized"><span id="ErrorCode_Unauthorized"><span class="annot"><span class="annottext">$bErrorCode_Unauthorized :: ErrorCode
+$mErrorCode_Unauthorized :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_Unauthorized"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_Unauthorized</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Unauthorized&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Unprocessable"><span class="hs-identifier hs-type">ErrorCode_Unprocessable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_Unprocessable"><span id="%24mErrorCode_Unprocessable"><span id="ErrorCode_Unprocessable"><span class="annot"><span class="annottext">$bErrorCode_Unprocessable :: ErrorCode
+$mErrorCode_Unprocessable :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_Unprocessable"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_Unprocessable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Unprocessable&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_VoiceConnectorGroupAssociationsExist"><span class="hs-identifier hs-type">ErrorCode_VoiceConnectorGroupAssociationsExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier hs-type">ErrorCode</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bErrorCode_VoiceConnectorGroupAssociationsExist"><span id="%24mErrorCode_VoiceConnectorGroupAssociationsExist"><span id="ErrorCode_VoiceConnectorGroupAssociationsExist"><span class="annot"><span class="annottext">$bErrorCode_VoiceConnectorGroupAssociationsExist :: ErrorCode
+$mErrorCode_VoiceConnectorGroupAssociationsExist :: forall r. ErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#%24bErrorCode_VoiceConnectorGroupAssociationsExist"><span class="hs-identifier hs-var hs-var hs-var">ErrorCode_VoiceConnectorGroupAssociationsExist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-identifier hs-type">ErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VoiceConnectorGroupAssociationsExist&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_AccessDenied"><span class="hs-pragma hs-type">ErrorCode_AccessDenied</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_BadRequest"><span class="hs-pragma hs-type">ErrorCode_BadRequest</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Conflict"><span class="hs-pragma hs-type">ErrorCode_Conflict</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Forbidden"><span class="hs-pragma hs-type">ErrorCode_Forbidden</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_NotFound"><span class="hs-pragma hs-type">ErrorCode_NotFound</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_PhoneNumberAssociationsExist"><span class="hs-pragma hs-type">ErrorCode_PhoneNumberAssociationsExist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_PreconditionFailed"><span class="hs-pragma hs-type">ErrorCode_PreconditionFailed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ResourceLimitExceeded"><span class="hs-pragma hs-type">ErrorCode_ResourceLimitExceeded</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ServiceFailure"><span class="hs-pragma hs-type">ErrorCode_ServiceFailure</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_ServiceUnavailable"><span class="hs-pragma hs-type">ErrorCode_ServiceUnavailable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Throttled"><span class="hs-pragma hs-type">ErrorCode_Throttled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Throttling"><span class="hs-pragma hs-type">ErrorCode_Throttling</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Unauthorized"><span class="hs-pragma hs-type">ErrorCode_Unauthorized</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_Unprocessable"><span class="hs-pragma hs-type">ErrorCode_Unprocessable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode_VoiceConnectorGroupAssociationsExist"><span class="hs-pragma hs-type">ErrorCode_VoiceConnectorGroupAssociationsExist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.ChimeSDKMessaging.Types.ErrorCode.html#ErrorCode%27"><span class="hs-pragma hs-type">ErrorCode'</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-136"></span></pre></body></html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.LookoutMetrics.GetAnomalyGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns details about a group of anomalous metrics.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LookoutMetrics.GetAnomalyGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier">GetAnomalyGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#newGetAnomalyGroup"><span class="hs-identifier">newGetAnomalyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroup_anomalyGroupId"><span class="hs-identifier">getAnomalyGroup_anomalyGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroup_anomalyDetectorArn"><span class="hs-identifier">getAnomalyGroup_anomalyDetectorArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier">GetAnomalyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#newGetAnomalyGroupResponse"><span class="hs-identifier">newGetAnomalyGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroupResponse_anomalyGroup"><span class="hs-identifier">getAnomalyGroupResponse_anomalyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroupResponse_httpStatus"><span class="hs-identifier">getAnomalyGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.html"><span class="hs-identifier">Network.AWS.LookoutMetrics.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetAnomalyGroup' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679229273"><span id="local-6989586621679229274"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAnomalyGroup"><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-var">GetAnomalyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAnomalyGroup%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup%27"><span class="hs-identifier hs-var">GetAnomalyGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the anomaly group.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AanomalyGroupId%3AGetAnomalyGroup%27"><span class="annot"><span class="annottext">GetAnomalyGroup -&gt; Text
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyGroupId%3AGetAnomalyGroup%27"><span class="hs-identifier hs-var hs-var">anomalyGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the anomaly detector.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AanomalyDetectorArn%3AGetAnomalyGroup%27"><span class="annot"><span class="annottext">GetAnomalyGroup -&gt; Text
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyDetectorArn%3AGetAnomalyGroup%27"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229266"><span id="local-6989586621679229268"><span class="annot"><span class="annottext">GetAnomalyGroup -&gt; GetAnomalyGroup -&gt; Bool
+(GetAnomalyGroup -&gt; GetAnomalyGroup -&gt; Bool)
+-&gt; (GetAnomalyGroup -&gt; GetAnomalyGroup -&gt; Bool)
+-&gt; Eq GetAnomalyGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAnomalyGroup -&gt; GetAnomalyGroup -&gt; Bool
+$c/= :: GetAnomalyGroup -&gt; GetAnomalyGroup -&gt; Bool
+== :: GetAnomalyGroup -&gt; GetAnomalyGroup -&gt; Bool
+$c== :: GetAnomalyGroup -&gt; GetAnomalyGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229257"><span id="local-6989586621679229259"><span id="local-6989586621679229261"><span id="local-6989586621679229263"><span class="annot"><span class="annottext">ReadPrec [GetAnomalyGroup]
+ReadPrec GetAnomalyGroup
+Int -&gt; ReadS GetAnomalyGroup
+ReadS [GetAnomalyGroup]
+(Int -&gt; ReadS GetAnomalyGroup)
+-&gt; ReadS [GetAnomalyGroup]
+-&gt; ReadPrec GetAnomalyGroup
+-&gt; ReadPrec [GetAnomalyGroup]
+-&gt; Read GetAnomalyGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAnomalyGroup]
+$creadListPrec :: ReadPrec [GetAnomalyGroup]
+readPrec :: ReadPrec GetAnomalyGroup
+$creadPrec :: ReadPrec GetAnomalyGroup
+readList :: ReadS [GetAnomalyGroup]
+$creadList :: ReadS [GetAnomalyGroup]
+readsPrec :: Int -&gt; ReadS GetAnomalyGroup
+$creadsPrec :: Int -&gt; ReadS GetAnomalyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229250"><span id="local-6989586621679229252"><span id="local-6989586621679229254"><span class="annot"><span class="annottext">Int -&gt; GetAnomalyGroup -&gt; ShowS
+[GetAnomalyGroup] -&gt; ShowS
+GetAnomalyGroup -&gt; String
+(Int -&gt; GetAnomalyGroup -&gt; ShowS)
+-&gt; (GetAnomalyGroup -&gt; String)
+-&gt; ([GetAnomalyGroup] -&gt; ShowS)
+-&gt; Show GetAnomalyGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAnomalyGroup] -&gt; ShowS
+$cshowList :: [GetAnomalyGroup] -&gt; ShowS
+show :: GetAnomalyGroup -&gt; String
+$cshow :: GetAnomalyGroup -&gt; String
+showsPrec :: Int -&gt; GetAnomalyGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAnomalyGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetAnomalyGroup -&gt; Rep GetAnomalyGroup x)
+-&gt; (forall x. Rep GetAnomalyGroup x -&gt; GetAnomalyGroup)
+-&gt; Generic GetAnomalyGroup
+forall x. Rep GetAnomalyGroup x -&gt; GetAnomalyGroup
+forall x. GetAnomalyGroup -&gt; Rep GetAnomalyGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAnomalyGroup x -&gt; GetAnomalyGroup
+$cfrom :: forall x. GetAnomalyGroup -&gt; Rep GetAnomalyGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetAnomalyGroup' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'anomalyGroupId', 'getAnomalyGroup_anomalyGroupId' - The ID of the anomaly group.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'anomalyDetectorArn', 'getAnomalyGroup_anomalyDetectorArn' - The Amazon Resource Name (ARN) of the anomaly detector.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#newGetAnomalyGroup"><span class="hs-identifier hs-type">newGetAnomalyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'anomalyGroupId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'anomalyDetectorArn'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetAnomalyGroup"><span class="annot"><span class="annottext">newGetAnomalyGroup :: Text -&gt; Text -&gt; GetAnomalyGroup
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#newGetAnomalyGroup"><span class="hs-identifier hs-var hs-var">newGetAnomalyGroup</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679229245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229245"><span class="hs-identifier hs-var">pAnomalyGroupId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679229244"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229244"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">GetAnomalyGroup' :: Text -&gt; Text -&gt; GetAnomalyGroup
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup%27"><span class="hs-identifier hs-type">GetAnomalyGroup'</span></a></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:anomalyGroupId:GetAnomalyGroup' :: Text
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyGroupId%3AGetAnomalyGroup%27"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229245"><span class="hs-identifier hs-var">pAnomalyGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:GetAnomalyGroup' :: Text
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyDetectorArn%3AGetAnomalyGroup%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229244"><span class="hs-identifier hs-var">pAnomalyDetectorArn_</span></a></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The ID of the anomaly group.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroup_anomalyGroupId"><span class="hs-identifier hs-type">getAnomalyGroup_anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="getAnomalyGroup_anomalyGroupId"><span class="annot"><span class="annottext">getAnomalyGroup_anomalyGroupId :: (Text -&gt; f Text) -&gt; GetAnomalyGroup -&gt; f GetAnomalyGroup
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroup_anomalyGroupId"><span class="hs-identifier hs-var hs-var">getAnomalyGroup_anomalyGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnomalyGroup -&gt; Text)
+-&gt; (GetAnomalyGroup -&gt; Text -&gt; GetAnomalyGroup)
+-&gt; Lens GetAnomalyGroup GetAnomalyGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup%27"><span class="hs-identifier hs-type">GetAnomalyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229241"><span class="annot"><span class="annottext">Text
+anomalyGroupId :: Text
+$sel:anomalyGroupId:GetAnomalyGroup' :: GetAnomalyGroup -&gt; Text
+</span><a href="#local-6989586621679229241"><span class="hs-identifier hs-var hs-var">anomalyGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229241"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229240"><span class="annot"><span class="annottext">s :: GetAnomalyGroup
+</span><a href="#local-6989586621679229240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup%27"><span class="hs-identifier hs-type">GetAnomalyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnomalyGroup
+</span><a href="#local-6989586621679229240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyGroupId:GetAnomalyGroup' :: Text
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyGroupId%3AGetAnomalyGroup%27"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the anomaly detector.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroup_anomalyDetectorArn"><span class="hs-identifier hs-type">getAnomalyGroup_anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="getAnomalyGroup_anomalyDetectorArn"><span class="annot"><span class="annottext">getAnomalyGroup_anomalyDetectorArn :: (Text -&gt; f Text) -&gt; GetAnomalyGroup -&gt; f GetAnomalyGroup
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroup_anomalyDetectorArn"><span class="hs-identifier hs-var hs-var">getAnomalyGroup_anomalyDetectorArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnomalyGroup -&gt; Text)
+-&gt; (GetAnomalyGroup -&gt; Text -&gt; GetAnomalyGroup)
+-&gt; Lens GetAnomalyGroup GetAnomalyGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup%27"><span class="hs-identifier hs-type">GetAnomalyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229238"><span class="annot"><span class="annottext">Text
+anomalyDetectorArn :: Text
+$sel:anomalyDetectorArn:GetAnomalyGroup' :: GetAnomalyGroup -&gt; Text
+</span><a href="#local-6989586621679229238"><span class="hs-identifier hs-var hs-var">anomalyDetectorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229238"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229237"><span class="annot"><span class="annottext">s :: GetAnomalyGroup
+</span><a href="#local-6989586621679229237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup%27"><span class="hs-identifier hs-type">GetAnomalyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnomalyGroup
+</span><a href="#local-6989586621679229237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyDetectorArn:GetAnomalyGroup' :: Text
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyDetectorArn%3AGetAnomalyGroup%27"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-type">GetAnomalyGroupResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679229232"><span class="annot"><span class="annottext">request :: GetAnomalyGroup -&gt; Request GetAnomalyGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAnomalyGroup -&gt; Request GetAnomalyGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.LookoutMetrics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679229228"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAnomalyGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetAnomalyGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetAnomalyGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAnomalyGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetAnomalyGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229225"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229224"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229224"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229223"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe AnomalyGroup -&gt; Int -&gt; GetAnomalyGroupResponse
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse%27"><span class="hs-identifier hs-var">GetAnomalyGroupResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AnomalyGroup -&gt; Int -&gt; GetAnomalyGroupResponse)
+-&gt; Either String (Maybe AnomalyGroup)
+-&gt; Either String (Int -&gt; GetAnomalyGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AnomalyGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAnomalyGroupResponse)
+-&gt; Either String Int -&gt; Either String GetAnomalyGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229225"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229215"><span id="local-6989586621679229217"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229212"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679229208"><span class="annot"><span class="annottext">toHeaders :: GetAnomalyGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAnomalyGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229198"><span id="local-6989586621679229200"><span id="local-6989586621679229202"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679229196"><span class="annot"><span class="annottext">toJSON :: GetAnomalyGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup%27"><span class="hs-identifier hs-type">GetAnomalyGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229193"><span id="local-6989586621679229194"><span class="annot"><span class="annottext">Text
+anomalyDetectorArn :: Text
+anomalyGroupId :: Text
+$sel:anomalyDetectorArn:GetAnomalyGroup' :: GetAnomalyGroup -&gt; Text
+$sel:anomalyGroupId:GetAnomalyGroup' :: GetAnomalyGroup -&gt; Text
+</span><a href="#local-6989586621679229193"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-124"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229194"><span class="hs-identifier hs-var">anomalyGroupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnomalyDetectorArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229193"><span class="hs-identifier hs-var">anomalyDetectorArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679229187"><span class="annot"><span class="annottext">toPath :: GetAnomalyGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAnomalyGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/GetAnomalyGroup&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroup"><span class="hs-identifier hs-type">GetAnomalyGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679229183"><span class="annot"><span class="annottext">toQuery :: GetAnomalyGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAnomalyGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newGetAnomalyGroupResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679229180"><span id="local-6989586621679229181"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAnomalyGroupResponse"><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-var">GetAnomalyGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAnomalyGroupResponse%27"><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse%27"><span class="hs-identifier hs-var">GetAnomalyGroupResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about the anomaly group.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AanomalyGroup%3AGetAnomalyGroupResponse%27"><span class="annot"><span class="annottext">GetAnomalyGroupResponse -&gt; Maybe AnomalyGroup
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyGroup%3AGetAnomalyGroupResponse%27"><span class="hs-identifier hs-var hs-var">anomalyGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#AnomalyGroup"><span class="hs-identifier hs-type">AnomalyGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAnomalyGroupResponse%27"><span class="annot"><span class="annottext">GetAnomalyGroupResponse -&gt; Int
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AhttpStatus%3AGetAnomalyGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229174"><span id="local-6989586621679229176"><span class="annot"><span class="annottext">GetAnomalyGroupResponse -&gt; GetAnomalyGroupResponse -&gt; Bool
+(GetAnomalyGroupResponse -&gt; GetAnomalyGroupResponse -&gt; Bool)
+-&gt; (GetAnomalyGroupResponse -&gt; GetAnomalyGroupResponse -&gt; Bool)
+-&gt; Eq GetAnomalyGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAnomalyGroupResponse -&gt; GetAnomalyGroupResponse -&gt; Bool
+$c/= :: GetAnomalyGroupResponse -&gt; GetAnomalyGroupResponse -&gt; Bool
+== :: GetAnomalyGroupResponse -&gt; GetAnomalyGroupResponse -&gt; Bool
+$c== :: GetAnomalyGroupResponse -&gt; GetAnomalyGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229166"><span id="local-6989586621679229168"><span id="local-6989586621679229170"><span id="local-6989586621679229172"><span class="annot"><span class="annottext">ReadPrec [GetAnomalyGroupResponse]
+ReadPrec GetAnomalyGroupResponse
+Int -&gt; ReadS GetAnomalyGroupResponse
+ReadS [GetAnomalyGroupResponse]
+(Int -&gt; ReadS GetAnomalyGroupResponse)
+-&gt; ReadS [GetAnomalyGroupResponse]
+-&gt; ReadPrec GetAnomalyGroupResponse
+-&gt; ReadPrec [GetAnomalyGroupResponse]
+-&gt; Read GetAnomalyGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAnomalyGroupResponse]
+$creadListPrec :: ReadPrec [GetAnomalyGroupResponse]
+readPrec :: ReadPrec GetAnomalyGroupResponse
+$creadPrec :: ReadPrec GetAnomalyGroupResponse
+readList :: ReadS [GetAnomalyGroupResponse]
+$creadList :: ReadS [GetAnomalyGroupResponse]
+readsPrec :: Int -&gt; ReadS GetAnomalyGroupResponse
+$creadsPrec :: Int -&gt; ReadS GetAnomalyGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229160"><span id="local-6989586621679229162"><span id="local-6989586621679229164"><span class="annot"><span class="annottext">Int -&gt; GetAnomalyGroupResponse -&gt; ShowS
+[GetAnomalyGroupResponse] -&gt; ShowS
+GetAnomalyGroupResponse -&gt; String
+(Int -&gt; GetAnomalyGroupResponse -&gt; ShowS)
+-&gt; (GetAnomalyGroupResponse -&gt; String)
+-&gt; ([GetAnomalyGroupResponse] -&gt; ShowS)
+-&gt; Show GetAnomalyGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAnomalyGroupResponse] -&gt; ShowS
+$cshowList :: [GetAnomalyGroupResponse] -&gt; ShowS
+show :: GetAnomalyGroupResponse -&gt; String
+$cshow :: GetAnomalyGroupResponse -&gt; String
+showsPrec :: Int -&gt; GetAnomalyGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAnomalyGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAnomalyGroupResponse -&gt; Rep GetAnomalyGroupResponse x)
+-&gt; (forall x.
+    Rep GetAnomalyGroupResponse x -&gt; GetAnomalyGroupResponse)
+-&gt; Generic GetAnomalyGroupResponse
+forall x. Rep GetAnomalyGroupResponse x -&gt; GetAnomalyGroupResponse
+forall x. GetAnomalyGroupResponse -&gt; Rep GetAnomalyGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetAnomalyGroupResponse x -&gt; GetAnomalyGroupResponse
+$cfrom :: forall x. GetAnomalyGroupResponse -&gt; Rep GetAnomalyGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Create a value of 'GetAnomalyGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'anomalyGroup', 'getAnomalyGroupResponse_anomalyGroup' - Details about the anomaly group.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'httpStatus', 'getAnomalyGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#newGetAnomalyGroupResponse"><span class="hs-identifier hs-type">newGetAnomalyGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-type">GetAnomalyGroupResponse</span></a></span><span>
+</span><span id="line-161"></span><span id="newGetAnomalyGroupResponse"><span class="annot"><span class="annottext">newGetAnomalyGroupResponse :: Int -&gt; GetAnomalyGroupResponse
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#newGetAnomalyGroupResponse"><span class="hs-identifier hs-var hs-var">newGetAnomalyGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679229157"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">GetAnomalyGroupResponse' :: Maybe AnomalyGroup -&gt; Int -&gt; GetAnomalyGroupResponse
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse%27"><span class="hs-identifier hs-type">GetAnomalyGroupResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:anomalyGroup:GetAnomalyGroupResponse' :: Maybe AnomalyGroup
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyGroup%3AGetAnomalyGroupResponse%27"><span class="hs-identifier hs-var">anomalyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Maybe AnomalyGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAnomalyGroupResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AhttpStatus%3AGetAnomalyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229157"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Details about the anomaly group.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroupResponse_anomalyGroup"><span class="hs-identifier hs-type">getAnomalyGroupResponse_anomalyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-type">GetAnomalyGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.Types.AnomalyGroup.html#AnomalyGroup"><span class="hs-identifier hs-type">AnomalyGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="getAnomalyGroupResponse_anomalyGroup"><span class="annot"><span class="annottext">getAnomalyGroupResponse_anomalyGroup :: (Maybe AnomalyGroup -&gt; f (Maybe AnomalyGroup))
+-&gt; GetAnomalyGroupResponse -&gt; f GetAnomalyGroupResponse
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroupResponse_anomalyGroup"><span class="hs-identifier hs-var hs-var">getAnomalyGroupResponse_anomalyGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnomalyGroupResponse -&gt; Maybe AnomalyGroup)
+-&gt; (GetAnomalyGroupResponse
+    -&gt; Maybe AnomalyGroup -&gt; GetAnomalyGroupResponse)
+-&gt; Lens
+     GetAnomalyGroupResponse
+     GetAnomalyGroupResponse
+     (Maybe AnomalyGroup)
+     (Maybe AnomalyGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse%27"><span class="hs-identifier hs-type">GetAnomalyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229156"><span class="annot"><span class="annottext">Maybe AnomalyGroup
+anomalyGroup :: Maybe AnomalyGroup
+$sel:anomalyGroup:GetAnomalyGroupResponse' :: GetAnomalyGroupResponse -&gt; Maybe AnomalyGroup
+</span><a href="#local-6989586621679229156"><span class="hs-identifier hs-var hs-var">anomalyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyGroup
+</span><a href="#local-6989586621679229156"><span class="hs-identifier hs-var">anomalyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229155"><span class="annot"><span class="annottext">s :: GetAnomalyGroupResponse
+</span><a href="#local-6989586621679229155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse%27"><span class="hs-identifier hs-type">GetAnomalyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229154"><span class="annot"><span class="annottext">Maybe AnomalyGroup
+</span><a href="#local-6989586621679229154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnomalyGroupResponse
+</span><a href="#local-6989586621679229155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyGroup:GetAnomalyGroupResponse' :: Maybe AnomalyGroup
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AanomalyGroup%3AGetAnomalyGroupResponse%27"><span class="hs-identifier hs-var">anomalyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyGroup
+</span><a href="#local-6989586621679229154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-type">GetAnomalyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroupResponse_httpStatus"><span class="hs-identifier hs-type">getAnomalyGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-type">GetAnomalyGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span id="getAnomalyGroupResponse_httpStatus"><span class="annot"><span class="annottext">getAnomalyGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetAnomalyGroupResponse -&gt; f GetAnomalyGroupResponse
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#getAnomalyGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAnomalyGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAnomalyGroupResponse -&gt; Int)
+-&gt; (GetAnomalyGroupResponse -&gt; Int -&gt; GetAnomalyGroupResponse)
+-&gt; Lens GetAnomalyGroupResponse GetAnomalyGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse%27"><span class="hs-identifier hs-type">GetAnomalyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229153"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAnomalyGroupResponse' :: GetAnomalyGroupResponse -&gt; Int
+</span><a href="#local-6989586621679229153"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229153"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229152"><span class="annot"><span class="annottext">s :: GetAnomalyGroupResponse
+</span><a href="#local-6989586621679229152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse%27"><span class="hs-identifier hs-type">GetAnomalyGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229151"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAnomalyGroupResponse
+</span><a href="#local-6989586621679229152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAnomalyGroupResponse' :: Int
+</span><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#%24sel%3AhttpStatus%3AGetAnomalyGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-type">GetAnomalyGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LookoutMetrics.GetAnomalyGroup.html#GetAnomalyGroupResponse"><span class="hs-identifier hs-type">GetAnomalyGroupResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

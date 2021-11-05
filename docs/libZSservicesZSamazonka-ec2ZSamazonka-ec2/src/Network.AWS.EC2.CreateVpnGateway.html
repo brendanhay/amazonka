@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-comment">-- | Contains the parameters for CreateVpnGateway.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newCreateVpnGateway' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621681284696"><span id="local-6989586621681284697"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpnGateway"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-var">CreateVpnGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpnGateway%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-var">CreateVpnGateway'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621681284705"><span id="local-6989586621681284706"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpnGateway"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-var">CreateVpnGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpnGateway%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-var">CreateVpnGateway'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A private Autonomous System Number (ASN) for the Amazon side of a BGP</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- session. If you\'re using a 16-bit ASN, it must be in the 64512 to 65534</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- range. If you\'re using a 32-bit ASN, it must be in the 4200000000 to</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3Atype%27%3ACreateVpnGateway%27"><span class="annot"><span class="annottext">CreateVpnGateway -&gt; GatewayType
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3Atype%27%3ACreateVpnGateway%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GatewayType.html#GatewayType"><span class="hs-identifier hs-type">GatewayType</span></a></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681284686"><span id="local-6989586621681284688"><span class="annot"><span class="annottext">CreateVpnGateway -&gt; CreateVpnGateway -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681284695"><span id="local-6989586621681284697"><span class="annot"><span class="annottext">CreateVpnGateway -&gt; CreateVpnGateway -&gt; Bool
 (CreateVpnGateway -&gt; CreateVpnGateway -&gt; Bool)
 -&gt; (CreateVpnGateway -&gt; CreateVpnGateway -&gt; Bool)
 -&gt; Eq CreateVpnGateway
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateVpnGateway -&gt; CreateVpnGateway -&gt; Bool
 == :: CreateVpnGateway -&gt; CreateVpnGateway -&gt; Bool
 $c== :: CreateVpnGateway -&gt; CreateVpnGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284677"><span id="local-6989586621681284679"><span id="local-6989586621681284681"><span id="local-6989586621681284683"><span class="annot"><span class="annottext">ReadPrec [CreateVpnGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284686"><span id="local-6989586621681284688"><span id="local-6989586621681284690"><span id="local-6989586621681284692"><span class="annot"><span class="annottext">ReadPrec [CreateVpnGateway]
 ReadPrec CreateVpnGateway
 Int -&gt; ReadS CreateVpnGateway
 ReadS [CreateVpnGateway]
@@ -113,7 +113,7 @@ readList :: ReadS [CreateVpnGateway]
 $creadList :: ReadS [CreateVpnGateway]
 readsPrec :: Int -&gt; ReadS CreateVpnGateway
 $creadsPrec :: Int -&gt; ReadS CreateVpnGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284670"><span id="local-6989586621681284672"><span id="local-6989586621681284674"><span class="annot"><span class="annottext">Int -&gt; CreateVpnGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284679"><span id="local-6989586621681284681"><span id="local-6989586621681284683"><span class="annot"><span class="annottext">Int -&gt; CreateVpnGateway -&gt; ShowS
 [CreateVpnGateway] -&gt; ShowS
 CreateVpnGateway -&gt; String
 (Int -&gt; CreateVpnGateway -&gt; ShowS)
@@ -169,8 +169,8 @@ $cfrom :: forall x. CreateVpnGateway -&gt; Rep CreateVpnGateway x
 </span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.GatewayType.html#GatewayType"><span class="hs-identifier hs-type">GatewayType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span>
 </span><span id="line-113"></span><span id="newCreateVpnGateway"><span class="annot"><span class="annottext">newCreateVpnGateway :: GatewayType -&gt; CreateVpnGateway
-</span><a href="Network.AWS.EC2.CreateVpnGateway.html#newCreateVpnGateway"><span class="hs-identifier hs-var hs-var">newCreateVpnGateway</span></a></span></span><span> </span><span id="local-6989586621681284665"><span class="annot"><span class="annottext">GatewayType
-</span><a href="#local-6989586621681284665"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateVpnGateway.html#newCreateVpnGateway"><span class="hs-identifier hs-var hs-var">newCreateVpnGateway</span></a></span></span><span> </span><span id="local-6989586621681284674"><span class="annot"><span class="annottext">GatewayType
+</span><a href="#local-6989586621681284674"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">CreateVpnGateway' :: Maybe Integer
 -&gt; Maybe [TagSpecification]
 -&gt; Maybe Text
@@ -196,7 +196,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':CreateVpnGateway' :: GatewayType
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3Atype%27%3ACreateVpnGateway%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayType
-</span><a href="#local-6989586621681284665"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621681284674"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | A private Autonomous System Number (ASN) for the Amazon side of a BGP</span><span>
@@ -213,16 +213,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateVpnGateway CreateVpnGateway (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284662"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284671"><span class="annot"><span class="annottext">Maybe Integer
 amazonSideAsn :: Maybe Integer
 $sel:amazonSideAsn:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Integer
-</span><a href="#local-6989586621681284662"><span class="hs-identifier hs-var hs-var">amazonSideAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681284662"><span class="hs-identifier hs-var">amazonSideAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284661"><span class="annot"><span class="annottext">s :: CreateVpnGateway
-</span><a href="#local-6989586621681284661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284660"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681284660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
-</span><a href="#local-6989586621681284661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonSideAsn:CreateVpnGateway' :: Maybe Integer
+</span><a href="#local-6989586621681284671"><span class="hs-identifier hs-var hs-var">amazonSideAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681284671"><span class="hs-identifier hs-var">amazonSideAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284670"><span class="annot"><span class="annottext">s :: CreateVpnGateway
+</span><a href="#local-6989586621681284670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284669"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681284669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
+</span><a href="#local-6989586621681284670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonSideAsn:CreateVpnGateway' :: Maybe Integer
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AamazonSideAsn%3ACreateVpnGateway%27"><span class="hs-identifier hs-var">amazonSideAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681284660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681284669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The tags to apply to the virtual private gateway.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#createVpnGateway_tagSpecifications"><span class="hs-identifier hs-type">createVpnGateway_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -237,16 +237,16 @@ $sel:amazonSideAsn:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Integer
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284659"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284668"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681284659"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681284659"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284658"><span class="annot"><span class="annottext">s :: CreateVpnGateway
-</span><a href="#local-6989586621681284658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284657"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681284657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
-</span><a href="#local-6989586621681284658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateVpnGateway' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681284668"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681284668"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284667"><span class="annot"><span class="annottext">s :: CreateVpnGateway
+</span><a href="#local-6989586621681284667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284666"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681284666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
+</span><a href="#local-6989586621681284667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateVpnGateway' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AtagSpecifications%3ACreateVpnGateway%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681284657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681284666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; CreateVpnGateway -&gt; f CreateVpnGateway)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -283,16 +283,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateVpnGateway -&gt; Maybe Text -&gt; CreateVpnGateway)
 -&gt; Lens CreateVpnGateway CreateVpnGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284653"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284662"><span class="annot"><span class="annottext">Maybe Text
 availabilityZone :: Maybe Text
 $sel:availabilityZone:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681284653"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681284653"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284652"><span class="annot"><span class="annottext">s :: CreateVpnGateway
-</span><a href="#local-6989586621681284652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284651"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681284651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
-</span><a href="#local-6989586621681284652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:CreateVpnGateway' :: Maybe Text
+</span><a href="#local-6989586621681284662"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681284662"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284661"><span class="annot"><span class="annottext">s :: CreateVpnGateway
+</span><a href="#local-6989586621681284661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284660"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681284660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
+</span><a href="#local-6989586621681284661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:CreateVpnGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AavailabilityZone%3ACreateVpnGateway%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681284651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681284660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -305,16 +305,16 @@ $sel:availabilityZone:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Text
 -&gt; (CreateVpnGateway -&gt; Maybe Bool -&gt; CreateVpnGateway)
 -&gt; Lens CreateVpnGateway CreateVpnGateway (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284650"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284659"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Bool
-</span><a href="#local-6989586621681284650"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681284650"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284649"><span class="annot"><span class="annottext">s :: CreateVpnGateway
-</span><a href="#local-6989586621681284649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284648"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681284648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
-</span><a href="#local-6989586621681284649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateVpnGateway' :: Maybe Bool
+</span><a href="#local-6989586621681284659"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681284659"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284658"><span class="annot"><span class="annottext">s :: CreateVpnGateway
+</span><a href="#local-6989586621681284658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284657"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681284657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
+</span><a href="#local-6989586621681284658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateVpnGateway' :: Maybe Bool
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AdryRun%3ACreateVpnGateway%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681284648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681284657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The type of VPN connection this virtual private gateway supports.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#createVpnGateway_type"><span class="hs-identifier hs-type">createVpnGateway_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.GatewayType.html#GatewayType"><span class="hs-identifier hs-type">GatewayType</span></a></span><span>
@@ -324,27 +324,27 @@ $sel:dryRun:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Bool
 -&gt; (CreateVpnGateway -&gt; GatewayType -&gt; CreateVpnGateway)
 -&gt; Lens CreateVpnGateway CreateVpnGateway GatewayType GatewayType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284647"><span class="annot"><span class="annottext">GatewayType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284656"><span class="annot"><span class="annottext">GatewayType
 type' :: GatewayType
 $sel:type':CreateVpnGateway' :: CreateVpnGateway -&gt; GatewayType
-</span><a href="#local-6989586621681284647"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayType
-</span><a href="#local-6989586621681284647"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284646"><span class="annot"><span class="annottext">s :: CreateVpnGateway
-</span><a href="#local-6989586621681284646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284645"><span class="annot"><span class="annottext">GatewayType
-</span><a href="#local-6989586621681284645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
-</span><a href="#local-6989586621681284646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateVpnGateway' :: GatewayType
+</span><a href="#local-6989586621681284656"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayType
+</span><a href="#local-6989586621681284656"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284655"><span class="annot"><span class="annottext">s :: CreateVpnGateway
+</span><a href="#local-6989586621681284655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284654"><span class="annot"><span class="annottext">GatewayType
+</span><a href="#local-6989586621681284654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGateway
+</span><a href="#local-6989586621681284655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CreateVpnGateway' :: GatewayType
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3Atype%27%3ACreateVpnGateway%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayType
-</span><a href="#local-6989586621681284645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681284654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621681284641"><span class="annot"><span class="annottext">request :: CreateVpnGateway -&gt; Request CreateVpnGateway
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681284650"><span class="annot"><span class="annottext">request :: CreateVpnGateway -&gt; Request CreateVpnGateway
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateVpnGateway -&gt; Request CreateVpnGateway
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621681284637"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681284646"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateVpnGateway
 -&gt; ClientResponse ClientBody
@@ -368,10 +368,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681284634"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681284634"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681284633"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681284633"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681284632"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681284632"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681284643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681284643"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681284642"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681284642"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681284641"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681284641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe VpnGateway -&gt; Int -&gt; CreateVpnGatewayResponse
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-var">CreateVpnGatewayResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VpnGateway -&gt; Int -&gt; CreateVpnGatewayResponse)
@@ -379,7 +379,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateVpnGatewayResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681284632"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnGateway)
+</span><a href="#local-6989586621681284641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnGateway)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpnGateway&quot;</span></span><span class="hs-special">)</span><span>
@@ -391,15 +391,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681284634"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681284643"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681284624"><span id="local-6989586621681284626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681284633"><span id="local-6989586621681284635"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span></span></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681284621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681284630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621681284617"><span class="annot"><span class="annottext">toHeaders :: CreateVpnGateway -&gt; ResponseHeaders
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621681284626"><span class="annot"><span class="annottext">toHeaders :: CreateVpnGateway -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateVpnGateway -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -407,15 +407,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621681284612"><span class="annot"><span class="annottext">toPath :: CreateVpnGateway -&gt; ByteString
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621681284621"><span class="annot"><span class="annottext">toPath :: CreateVpnGateway -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateVpnGateway -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway"><span class="hs-identifier hs-type">CreateVpnGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621681284608"><span class="annot"><span class="annottext">toQuery :: CreateVpnGateway -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284602"><span id="local-6989586621681284603"><span id="local-6989586621681284604"><span id="local-6989586621681284605"><span id="local-6989586621681284606"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621681284617"><span class="annot"><span class="annottext">toQuery :: CreateVpnGateway -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGateway%27"><span class="hs-identifier hs-type">CreateVpnGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284611"><span id="local-6989586621681284612"><span id="local-6989586621681284613"><span id="local-6989586621681284614"><span id="local-6989586621681284615"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Integer
 Maybe [TagSpecification]
 Maybe Text
@@ -430,7 +430,7 @@ $sel:dryRun:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Bool
 $sel:availabilityZone:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Text
 $sel:tagSpecifications:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe [TagSpecification]
 $sel:amazonSideAsn:CreateVpnGateway' :: CreateVpnGateway -&gt; Maybe Integer
-</span><a href="#local-6989586621681284602"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681284611"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -450,7 +450,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;AmazonSideAsn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Integer -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681284606"><span class="hs-identifier hs-var">amazonSideAsn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681284615"><span class="hs-identifier hs-var">amazonSideAsn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -464,29 +464,29 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681284605"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681284614"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681284604"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681284613"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681284603"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681284612"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GatewayType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">GatewayType
-</span><a href="#local-6989586621681284602"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621681284611"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | Contains the output of CreateVpnGateway.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- /See:/ 'newCreateVpnGatewayResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621681284598"><span id="local-6989586621681284599"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpnGatewayResponse"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-var">CreateVpnGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpnGatewayResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-var">CreateVpnGatewayResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621681284607"><span id="local-6989586621681284608"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVpnGatewayResponse"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-var">CreateVpnGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVpnGatewayResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-var">CreateVpnGatewayResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the virtual private gateway.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AvpnGateway%3ACreateVpnGatewayResponse%27"><span class="annot"><span class="annottext">CreateVpnGatewayResponse -&gt; Maybe VpnGateway
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AvpnGateway%3ACreateVpnGatewayResponse%27"><span class="hs-identifier hs-var hs-var">vpnGateway</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnGateway.html#VpnGateway"><span class="hs-identifier hs-type">VpnGateway</span></a></span><span class="hs-special">,</span><span>
@@ -494,7 +494,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateVpnGatewayResponse%27"><span class="annot"><span class="annottext">CreateVpnGatewayResponse -&gt; Int
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AhttpStatus%3ACreateVpnGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681284592"><span id="local-6989586621681284594"><span class="annot"><span class="annottext">CreateVpnGatewayResponse -&gt; CreateVpnGatewayResponse -&gt; Bool
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681284601"><span id="local-6989586621681284603"><span class="annot"><span class="annottext">CreateVpnGatewayResponse -&gt; CreateVpnGatewayResponse -&gt; Bool
 (CreateVpnGatewayResponse -&gt; CreateVpnGatewayResponse -&gt; Bool)
 -&gt; (CreateVpnGatewayResponse -&gt; CreateVpnGatewayResponse -&gt; Bool)
 -&gt; Eq CreateVpnGatewayResponse
@@ -503,7 +503,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateVpnGatewayResponse -&gt; CreateVpnGatewayResponse -&gt; Bool
 == :: CreateVpnGatewayResponse -&gt; CreateVpnGatewayResponse -&gt; Bool
 $c== :: CreateVpnGatewayResponse -&gt; CreateVpnGatewayResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284584"><span id="local-6989586621681284586"><span id="local-6989586621681284588"><span id="local-6989586621681284590"><span class="annot"><span class="annottext">ReadPrec [CreateVpnGatewayResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284593"><span id="local-6989586621681284595"><span id="local-6989586621681284597"><span id="local-6989586621681284599"><span class="annot"><span class="annottext">ReadPrec [CreateVpnGatewayResponse]
 ReadPrec CreateVpnGatewayResponse
 Int -&gt; ReadS CreateVpnGatewayResponse
 ReadS [CreateVpnGatewayResponse]
@@ -523,7 +523,7 @@ readList :: ReadS [CreateVpnGatewayResponse]
 $creadList :: ReadS [CreateVpnGatewayResponse]
 readsPrec :: Int -&gt; ReadS CreateVpnGatewayResponse
 $creadsPrec :: Int -&gt; ReadS CreateVpnGatewayResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284578"><span id="local-6989586621681284580"><span id="local-6989586621681284582"><span class="annot"><span class="annottext">Int -&gt; CreateVpnGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681284587"><span id="local-6989586621681284589"><span id="local-6989586621681284591"><span class="annot"><span class="annottext">Int -&gt; CreateVpnGatewayResponse -&gt; ShowS
 [CreateVpnGatewayResponse] -&gt; ShowS
 CreateVpnGatewayResponse -&gt; String
 (Int -&gt; CreateVpnGatewayResponse -&gt; ShowS)
@@ -571,8 +571,8 @@ CreateVpnGatewayResponse -&gt; Rep CreateVpnGatewayResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newCreateVpnGatewayResponse"><span class="annot"><span class="annottext">newCreateVpnGatewayResponse :: Int -&gt; CreateVpnGatewayResponse
-</span><a href="Network.AWS.EC2.CreateVpnGateway.html#newCreateVpnGatewayResponse"><span class="hs-identifier hs-var hs-var">newCreateVpnGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621681284575"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681284575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateVpnGateway.html#newCreateVpnGatewayResponse"><span class="hs-identifier hs-var hs-var">newCreateVpnGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621681284584"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681284584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">CreateVpnGatewayResponse' :: Maybe VpnGateway -&gt; Int -&gt; CreateVpnGatewayResponse
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpnGateway:CreateVpnGatewayResponse' :: Maybe VpnGateway
@@ -582,7 +582,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVpnGatewayResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AhttpStatus%3ACreateVpnGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681284575"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681284584"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | Information about the virtual private gateway.</span><span>
@@ -598,16 +598,16 @@ forall a. Maybe a
      (Maybe VpnGateway)
      (Maybe VpnGateway)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284574"><span class="annot"><span class="annottext">Maybe VpnGateway
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284583"><span class="annot"><span class="annottext">Maybe VpnGateway
 vpnGateway :: Maybe VpnGateway
 $sel:vpnGateway:CreateVpnGatewayResponse' :: CreateVpnGatewayResponse -&gt; Maybe VpnGateway
-</span><a href="#local-6989586621681284574"><span class="hs-identifier hs-var hs-var">vpnGateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnGateway
-</span><a href="#local-6989586621681284574"><span class="hs-identifier hs-var">vpnGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284573"><span class="annot"><span class="annottext">s :: CreateVpnGatewayResponse
-</span><a href="#local-6989586621681284573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284572"><span class="annot"><span class="annottext">Maybe VpnGateway
-</span><a href="#local-6989586621681284572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGatewayResponse
-</span><a href="#local-6989586621681284573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnGateway:CreateVpnGatewayResponse' :: Maybe VpnGateway
+</span><a href="#local-6989586621681284583"><span class="hs-identifier hs-var hs-var">vpnGateway</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnGateway
+</span><a href="#local-6989586621681284583"><span class="hs-identifier hs-var">vpnGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284582"><span class="annot"><span class="annottext">s :: CreateVpnGatewayResponse
+</span><a href="#local-6989586621681284582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284581"><span class="annot"><span class="annottext">Maybe VpnGateway
+</span><a href="#local-6989586621681284581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGatewayResponse
+</span><a href="#local-6989586621681284582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnGateway:CreateVpnGatewayResponse' :: Maybe VpnGateway
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AvpnGateway%3ACreateVpnGatewayResponse%27"><span class="hs-identifier hs-var">vpnGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnGateway
-</span><a href="#local-6989586621681284572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681284581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#createVpnGatewayResponse_httpStatus"><span class="hs-identifier hs-type">createVpnGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -617,16 +617,16 @@ $sel:vpnGateway:CreateVpnGatewayResponse' :: CreateVpnGatewayResponse -&gt; Mayb
 -&gt; (CreateVpnGatewayResponse -&gt; Int -&gt; CreateVpnGatewayResponse)
 -&gt; Lens CreateVpnGatewayResponse CreateVpnGatewayResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284571"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681284580"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateVpnGatewayResponse' :: CreateVpnGatewayResponse -&gt; Int
-</span><a href="#local-6989586621681284571"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681284571"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284570"><span class="annot"><span class="annottext">s :: CreateVpnGatewayResponse
-</span><a href="#local-6989586621681284570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284569"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681284569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGatewayResponse
-</span><a href="#local-6989586621681284570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVpnGatewayResponse' :: Int
+</span><a href="#local-6989586621681284580"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681284580"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681284579"><span class="annot"><span class="annottext">s :: CreateVpnGatewayResponse
+</span><a href="#local-6989586621681284579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse%27"><span class="hs-identifier hs-type">CreateVpnGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681284578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681284578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVpnGatewayResponse
+</span><a href="#local-6989586621681284579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVpnGatewayResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateVpnGateway.html#%24sel%3AhttpStatus%3ACreateVpnGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681284569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681284578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681284567"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681284576"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateVpnGateway.html#CreateVpnGatewayResponse"><span class="hs-identifier hs-type">CreateVpnGatewayResponse</span></a></span></span><span>
 </span><span id="line-232"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- sequence number, a partition key, and a data blob.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRecord' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679197768"><span id="local-6989586621679197769"></span></span><span class="hs-keyword">data</span><span> </span><span id="Record"><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-var">Record</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Record%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-var">Record'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679197777"><span id="local-6989586621679197778"></span></span><span class="hs-keyword">data</span><span> </span><span id="Record"><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-var">Record</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Record%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-var">Record'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption type used on the record. This parameter can be one of the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- following values:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3ApartitionKey%3ARecord%27"><span class="annot"><span class="annottext">Record -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3ApartitionKey%3ARecord%27"><span class="hs-identifier hs-var hs-var">partitionKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197758"><span id="local-6989586621679197760"><span class="annot"><span class="annottext">Record -&gt; Record -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197767"><span id="local-6989586621679197769"><span class="annot"><span class="annottext">Record -&gt; Record -&gt; Bool
 (Record -&gt; Record -&gt; Bool)
 -&gt; (Record -&gt; Record -&gt; Bool) -&gt; Eq Record
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Record -&gt; Record -&gt; Bool
 == :: Record -&gt; Record -&gt; Bool
 $c== :: Record -&gt; Record -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197749"><span id="local-6989586621679197751"><span id="local-6989586621679197753"><span id="local-6989586621679197755"><span class="annot"><span class="annottext">ReadPrec [Record]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197758"><span id="local-6989586621679197760"><span id="local-6989586621679197762"><span id="local-6989586621679197764"><span class="annot"><span class="annottext">ReadPrec [Record]
 ReadPrec Record
 Int -&gt; ReadS Record
 ReadS [Record]
@@ -83,7 +83,7 @@ readList :: ReadS [Record]
 $creadList :: ReadS [Record]
 readsPrec :: Int -&gt; ReadS Record
 $creadsPrec :: Int -&gt; ReadS Record
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197742"><span id="local-6989586621679197744"><span id="local-6989586621679197746"><span class="annot"><span class="annottext">Int -&gt; Record -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197751"><span id="local-6989586621679197753"><span id="local-6989586621679197755"><span class="annot"><span class="annottext">Int -&gt; Record -&gt; ShowS
 [Record] -&gt; ShowS
 Record -&gt; String
 (Int -&gt; Record -&gt; ShowS)
@@ -146,10 +146,10 @@ $cfrom :: forall x. Record -&gt; Rep Record x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span>
 </span><span id="line-94"></span><span id="newRecord"><span class="annot"><span class="annottext">newRecord :: Text -&gt; ByteString -&gt; Text -&gt; Record
-</span><a href="Network.AWS.Kinesis.Types.Record.html#newRecord"><span class="hs-identifier hs-var hs-var">newRecord</span></a></span></span><span> </span><span id="local-6989586621679197736"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197736"><span class="hs-identifier hs-var">pSequenceNumber_</span></a></span></span><span> </span><span id="local-6989586621679197735"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197735"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span id="local-6989586621679197734"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197734"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.Types.Record.html#newRecord"><span class="hs-identifier hs-var hs-var">newRecord</span></a></span></span><span> </span><span id="local-6989586621679197745"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197745"><span class="hs-identifier hs-var">pSequenceNumber_</span></a></span></span><span> </span><span id="local-6989586621679197744"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679197744"><span class="hs-identifier hs-var">pData_</span></a></span></span><span> </span><span id="local-6989586621679197743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197743"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">Record' :: Maybe EncryptionType
 -&gt; Maybe POSIX -&gt; Text -&gt; Base64 -&gt; Text -&gt; Record
 </span><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span>
@@ -163,7 +163,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:sequenceNumber:Record' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3AsequenceNumber%3ARecord%27"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197736"><span class="hs-identifier hs-var">pSequenceNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197745"><span class="hs-identifier hs-var">pSequenceNumber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:data':Record' :: Base64
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3Adata%27%3ARecord%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -173,10 +173,10 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679197735"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679197744"><span class="hs-identifier hs-var">pData_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionKey:Record' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3ApartitionKey%3ARecord%27"><span class="hs-identifier hs-var">partitionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197734"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span><span>
+</span><a href="#local-6989586621679197743"><span class="hs-identifier hs-var">pPartitionKey_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The encryption type used on the record. This parameter can be one of the</span><span>
@@ -193,16 +193,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Record -&gt; Maybe EncryptionType -&gt; Record)
 -&gt; Lens Record Record (Maybe EncryptionType) (Maybe EncryptionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197728"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197737"><span class="annot"><span class="annottext">Maybe EncryptionType
 encryptionType :: Maybe EncryptionType
 $sel:encryptionType:Record' :: Record -&gt; Maybe EncryptionType
-</span><a href="#local-6989586621679197728"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679197728"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197727"><span class="annot"><span class="annottext">s :: Record
-</span><a href="#local-6989586621679197727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197726"><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679197726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679197727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:Record' :: Maybe EncryptionType
+</span><a href="#local-6989586621679197737"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679197737"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197736"><span class="annot"><span class="annottext">s :: Record
+</span><a href="#local-6989586621679197736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197735"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679197735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679197736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:Record' :: Maybe EncryptionType
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3AencryptionType%3ARecord%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679197726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The approximate time that the record was inserted into the stream.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#record_approximateArrivalTimestamp"><span class="hs-identifier hs-type">record_approximateArrivalTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -211,16 +211,16 @@ $sel:encryptionType:Record' :: Record -&gt; Maybe EncryptionType
 -&gt; (Record -&gt; Maybe POSIX -&gt; Record)
 -&gt; Lens Record Record (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197724"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197733"><span class="annot"><span class="annottext">Maybe POSIX
 approximateArrivalTimestamp :: Maybe POSIX
 $sel:approximateArrivalTimestamp:Record' :: Record -&gt; Maybe POSIX
-</span><a href="#local-6989586621679197724"><span class="hs-identifier hs-var hs-var">approximateArrivalTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679197724"><span class="hs-identifier hs-var">approximateArrivalTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197723"><span class="annot"><span class="annottext">s :: Record
-</span><a href="#local-6989586621679197723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197722"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679197722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679197723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approximateArrivalTimestamp:Record' :: Maybe POSIX
+</span><a href="#local-6989586621679197733"><span class="hs-identifier hs-var hs-var">approximateArrivalTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679197733"><span class="hs-identifier hs-var">approximateArrivalTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197732"><span class="annot"><span class="annottext">s :: Record
+</span><a href="#local-6989586621679197732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197731"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679197731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679197732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:approximateArrivalTimestamp:Record' :: Maybe POSIX
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3AapproximateArrivalTimestamp%3ARecord%27"><span class="hs-identifier hs-var">approximateArrivalTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679197722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Record -&gt; f Record)
+</span><a href="#local-6989586621679197731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Record -&gt; f Record)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -242,16 +242,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><a href="Network.AWS.Kinesis.Types.Record.html#record_sequenceNumber"><span class="hs-identifier hs-var hs-var">record_sequenceNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Record -&gt; Text)
 -&gt; (Record -&gt; Text -&gt; Record) -&gt; Lens Record Record Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197717"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197726"><span class="annot"><span class="annottext">Text
 sequenceNumber :: Text
 $sel:sequenceNumber:Record' :: Record -&gt; Text
-</span><a href="#local-6989586621679197717"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197717"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197716"><span class="annot"><span class="annottext">s :: Record
-</span><a href="#local-6989586621679197716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197715"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679197716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:Record' :: Text
+</span><a href="#local-6989586621679197726"><span class="hs-identifier hs-var hs-var">sequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197726"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197725"><span class="annot"><span class="annottext">s :: Record
+</span><a href="#local-6989586621679197725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679197725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sequenceNumber:Record' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3AsequenceNumber%3ARecord%27"><span class="hs-identifier hs-var">sequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The data blob. The data in the blob is both opaque and immutable to</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- Kinesis Data Streams, which does not inspect, interpret, or change the</span><span>
@@ -267,16 +267,16 @@ $sel:sequenceNumber:Record' :: Record -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.Record.html#record_data"><span class="hs-identifier hs-var hs-var">record_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Record -&gt; Base64)
 -&gt; (Record -&gt; Base64 -&gt; Record) -&gt; Lens Record Record Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197713"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197722"><span class="annot"><span class="annottext">Base64
 data' :: Base64
 $sel:data':Record' :: Record -&gt; Base64
-</span><a href="#local-6989586621679197713"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679197713"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197712"><span class="annot"><span class="annottext">s :: Record
-</span><a href="#local-6989586621679197712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197711"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679197711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679197712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Record' :: Base64
+</span><a href="#local-6989586621679197722"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679197722"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197721"><span class="annot"><span class="annottext">s :: Record
+</span><a href="#local-6989586621679197721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197720"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679197720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679197721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Record' :: Base64
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3Adata%27%3ARecord%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679197711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Record -&gt; f Record)
+</span><a href="#local-6989586621679197720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Record -&gt; f Record)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; Record
@@ -292,27 +292,27 @@ Iso' Base64 ByteString
 </span><a href="Network.AWS.Kinesis.Types.Record.html#record_partitionKey"><span class="hs-identifier hs-var hs-var">record_partitionKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Record -&gt; Text)
 -&gt; (Record -&gt; Text -&gt; Record) -&gt; Lens Record Record Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197709"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197718"><span class="annot"><span class="annottext">Text
 partitionKey :: Text
 $sel:partitionKey:Record' :: Record -&gt; Text
-</span><a href="#local-6989586621679197709"><span class="hs-identifier hs-var hs-var">partitionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197709"><span class="hs-identifier hs-var">partitionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197708"><span class="annot"><span class="annottext">s :: Record
-</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197707"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionKey:Record' :: Text
+</span><a href="#local-6989586621679197718"><span class="hs-identifier hs-var hs-var">partitionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197718"><span class="hs-identifier hs-var">partitionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197717"><span class="annot"><span class="annottext">s :: Record
+</span><a href="#local-6989586621679197717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-type">Record'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197716"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679197717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionKey:Record' :: Text
 </span><a href="Network.AWS.Kinesis.Types.Record.html#%24sel%3ApartitionKey%3ARecord%27"><span class="hs-identifier hs-var">partitionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197704"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679197702"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Record
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197713"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679197711"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Record
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Record) -&gt; Value -&gt; Parser Record
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Record&quot;</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197699"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197699"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197708"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionType
 -&gt; Maybe POSIX -&gt; Text -&gt; Base64 -&gt; Text -&gt; Record
 </span><a href="Network.AWS.Kinesis.Types.Record.html#Record%27"><span class="hs-identifier hs-var">Record'</span></a></span><span>
@@ -322,7 +322,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Text -&gt; Base64 -&gt; Text -&gt; Record)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span class="hs-special">)</span><span>
@@ -331,7 +331,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Base64 -&gt; Text -&gt; Record)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApproximateArrivalTimestamp&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,7 +339,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Base64 -&gt; Text -&gt; Record)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SequenceNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,20 +347,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Base64 -&gt; Parser (Text -&gt; Record)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Base64
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Base64
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Data&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Record) -&gt; Parser Text -&gt; Parser Record
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197699"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679197708"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PartitionKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197692"><span id="local-6989586621679197694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197701"><span id="local-6989586621679197703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span></span><span>
 </span><span id="line-153"></span></pre></body></html>

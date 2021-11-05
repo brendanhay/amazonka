@@ -1,0 +1,898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GroundStation.Types.ContactData</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GroundStation.Types.ContactData</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactStatus.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.ContactStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.Elevation.html"><span class="hs-identifier">Network.AWS.GroundStation.Types.Elevation</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Data describing a contact.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContactData' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679213847"><span id="local-6989586621679213848"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContactData"><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-var">ContactData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContactData%27"><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-var">ContactData'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status of a contact.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcontactStatus%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe ContactStatus
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AcontactStatus%3AContactData%27"><span class="hs-identifier hs-var hs-var">contactStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactStatus.html#ContactStatus"><span class="hs-identifier hs-type">ContactStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | ARN of a mission profile.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmissionProfileArn%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AmissionProfileArn%3AContactData%27"><span class="hs-identifier hs-var hs-var">missionProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Start time of a contact.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstartTime%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AstartTime%3AContactData%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | ARN of a satellite.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsatelliteArn%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AsatelliteArn%3AContactData%27"><span class="hs-identifier hs-var hs-var">satelliteArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Maximum elevation angle of a contact.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmaximumElevation%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Elevation
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AmaximumElevation%3AContactData%27"><span class="hs-identifier hs-var hs-var">maximumElevation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.Elevation.html#Elevation"><span class="hs-identifier hs-type">Elevation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Name of a ground station.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AgroundStation%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AgroundStation%3AContactData%27"><span class="hs-identifier hs-var hs-var">groundStation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | End time of a contact.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AendTime%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AendTime%3AContactData%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | UUID of a contact.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcontactId%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AcontactId%3AContactData%27"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Region of a contact.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aregion%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3Aregion%3AContactData%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Amount of time after a contact ends that you&#8217;d like to receive a</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- CloudWatch event indicating the pass has finished.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3ApostPassEndTime%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3ApostPassEndTime%3AContactData%27"><span class="hs-identifier hs-var hs-var">postPassEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Amount of time prior to contact start you&#8217;d like to receive a CloudWatch</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- event indicating an upcoming pass.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AprePassStartTime%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AprePassStartTime%3AContactData%27"><span class="hs-identifier hs-var hs-var">prePassStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Error message of a contact.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AerrorMessage%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AerrorMessage%3AContactData%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Tags assigned to a contact.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3AContactData%27"><span class="annot"><span class="annottext">ContactData -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3Atags%3AContactData%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213829"><span id="local-6989586621679213831"><span class="annot"><span class="annottext">ContactData -&gt; ContactData -&gt; Bool
+(ContactData -&gt; ContactData -&gt; Bool)
+-&gt; (ContactData -&gt; ContactData -&gt; Bool) -&gt; Eq ContactData
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContactData -&gt; ContactData -&gt; Bool
+$c/= :: ContactData -&gt; ContactData -&gt; Bool
+== :: ContactData -&gt; ContactData -&gt; Bool
+$c== :: ContactData -&gt; ContactData -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213820"><span id="local-6989586621679213822"><span id="local-6989586621679213824"><span id="local-6989586621679213826"><span class="annot"><span class="annottext">ReadPrec [ContactData]
+ReadPrec ContactData
+Int -&gt; ReadS ContactData
+ReadS [ContactData]
+(Int -&gt; ReadS ContactData)
+-&gt; ReadS [ContactData]
+-&gt; ReadPrec ContactData
+-&gt; ReadPrec [ContactData]
+-&gt; Read ContactData
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContactData]
+$creadListPrec :: ReadPrec [ContactData]
+readPrec :: ReadPrec ContactData
+$creadPrec :: ReadPrec ContactData
+readList :: ReadS [ContactData]
+$creadList :: ReadS [ContactData]
+readsPrec :: Int -&gt; ReadS ContactData
+$creadsPrec :: Int -&gt; ReadS ContactData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213813"><span id="local-6989586621679213815"><span id="local-6989586621679213817"><span class="annot"><span class="annottext">Int -&gt; ContactData -&gt; ShowS
+[ContactData] -&gt; ShowS
+ContactData -&gt; String
+(Int -&gt; ContactData -&gt; ShowS)
+-&gt; (ContactData -&gt; String)
+-&gt; ([ContactData] -&gt; ShowS)
+-&gt; Show ContactData
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContactData] -&gt; ShowS
+$cshowList :: [ContactData] -&gt; ShowS
+show :: ContactData -&gt; String
+$cshow :: ContactData -&gt; String
+showsPrec :: Int -&gt; ContactData -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContactData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ContactData -&gt; Rep ContactData x)
+-&gt; (forall x. Rep ContactData x -&gt; ContactData)
+-&gt; Generic ContactData
+forall x. Rep ContactData x -&gt; ContactData
+forall x. ContactData -&gt; Rep ContactData x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ContactData x -&gt; ContactData
+$cfrom :: forall x. ContactData -&gt; Rep ContactData x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'ContactData' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'contactStatus', 'contactData_contactStatus' - Status of a contact.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'missionProfileArn', 'contactData_missionProfileArn' - ARN of a mission profile.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'startTime', 'contactData_startTime' - Start time of a contact.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'satelliteArn', 'contactData_satelliteArn' - ARN of a satellite.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maximumElevation', 'contactData_maximumElevation' - Maximum elevation angle of a contact.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'groundStation', 'contactData_groundStation' - Name of a ground station.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'endTime', 'contactData_endTime' - End time of a contact.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'contactId', 'contactData_contactId' - UUID of a contact.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'region', 'contactData_region' - Region of a contact.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'postPassEndTime', 'contactData_postPassEndTime' - Amount of time after a contact ends that you&#8217;d like to receive a</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- CloudWatch event indicating the pass has finished.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'prePassStartTime', 'contactData_prePassStartTime' - Amount of time prior to contact start you&#8217;d like to receive a CloudWatch</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- event indicating an upcoming pass.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'errorMessage', 'contactData_errorMessage' - Error message of a contact.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'tags', 'contactData_tags' - Tags assigned to a contact.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#newContactData"><span class="hs-identifier hs-type">newContactData</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span>
+</span><span id="line-100"></span><span id="newContactData"><span class="annot"><span class="annottext">newContactData :: ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#newContactData"><span class="hs-identifier hs-var hs-var">newContactData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">ContactData' :: Maybe ContactStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Elevation
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contactStatus:ContactData' :: Maybe ContactStatus
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AcontactStatus%3AContactData%27"><span class="hs-identifier hs-var">contactStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:missionProfileArn:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AmissionProfileArn%3AContactData%27"><span class="hs-identifier hs-var">missionProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AstartTime%3AContactData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:satelliteArn:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AsatelliteArn%3AContactData%27"><span class="hs-identifier hs-var">satelliteArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumElevation:ContactData' :: Maybe Elevation
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AmaximumElevation%3AContactData%27"><span class="hs-identifier hs-var">maximumElevation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Elevation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:groundStation:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AgroundStation%3AContactData%27"><span class="hs-identifier hs-var">groundStation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AendTime%3AContactData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactId:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AcontactId%3AContactData%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3Aregion%3AContactData%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:postPassEndTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3ApostPassEndTime%3AContactData%27"><span class="hs-identifier hs-var">postPassEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:prePassStartTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AprePassStartTime%3AContactData%27"><span class="hs-identifier hs-var">prePassStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AerrorMessage%3AContactData%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ContactData' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3Atags%3AContactData%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Status of a contact.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_contactStatus"><span class="hs-identifier hs-type">contactData_contactStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactStatus.html#ContactStatus"><span class="hs-identifier hs-type">ContactStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="contactData_contactStatus"><span class="annot"><span class="annottext">contactData_contactStatus :: (Maybe ContactStatus -&gt; f (Maybe ContactStatus))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_contactStatus"><span class="hs-identifier hs-var hs-var">contactData_contactStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe ContactStatus)
+-&gt; (ContactData -&gt; Maybe ContactStatus -&gt; ContactData)
+-&gt; Lens
+     ContactData ContactData (Maybe ContactStatus) (Maybe ContactStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213804"><span class="annot"><span class="annottext">Maybe ContactStatus
+contactStatus :: Maybe ContactStatus
+$sel:contactStatus:ContactData' :: ContactData -&gt; Maybe ContactStatus
+</span><a href="#local-6989586621679213804"><span class="hs-identifier hs-var hs-var">contactStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactStatus
+</span><a href="#local-6989586621679213804"><span class="hs-identifier hs-var">contactStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213803"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213802"><span class="annot"><span class="annottext">Maybe ContactStatus
+</span><a href="#local-6989586621679213802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactStatus:ContactData' :: Maybe ContactStatus
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AcontactStatus%3AContactData%27"><span class="hs-identifier hs-var">contactStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactStatus
+</span><a href="#local-6989586621679213802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | ARN of a mission profile.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_missionProfileArn"><span class="hs-identifier hs-type">contactData_missionProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="contactData_missionProfileArn"><span class="annot"><span class="annottext">contactData_missionProfileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_missionProfileArn"><span class="hs-identifier hs-var hs-var">contactData_missionProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213800"><span class="annot"><span class="annottext">Maybe Text
+missionProfileArn :: Maybe Text
+$sel:missionProfileArn:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679213800"><span class="hs-identifier hs-var hs-var">missionProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213800"><span class="hs-identifier hs-var">missionProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213799"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213798"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missionProfileArn:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AmissionProfileArn%3AContactData%27"><span class="hs-identifier hs-var">missionProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Start time of a contact.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_startTime"><span class="hs-identifier hs-type">contactData_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="contactData_startTime"><span class="annot"><span class="annottext">contactData_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_startTime"><span class="hs-identifier hs-var hs-var">contactData_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe POSIX)
+-&gt; (ContactData -&gt; Maybe POSIX -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213796"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:ContactData' :: ContactData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679213796"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213796"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213795"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213794"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AstartTime%3AContactData%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | ARN of a satellite.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_satelliteArn"><span class="hs-identifier hs-type">contactData_satelliteArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="contactData_satelliteArn"><span class="annot"><span class="annottext">contactData_satelliteArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_satelliteArn"><span class="hs-identifier hs-var hs-var">contactData_satelliteArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213789"><span class="annot"><span class="annottext">Maybe Text
+satelliteArn :: Maybe Text
+$sel:satelliteArn:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679213789"><span class="hs-identifier hs-var hs-var">satelliteArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213789"><span class="hs-identifier hs-var">satelliteArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213788"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:satelliteArn:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AsatelliteArn%3AContactData%27"><span class="hs-identifier hs-var">satelliteArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | Maximum elevation angle of a contact.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_maximumElevation"><span class="hs-identifier hs-type">contactData_maximumElevation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.Elevation.html#Elevation"><span class="hs-identifier hs-type">Elevation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="contactData_maximumElevation"><span class="annot"><span class="annottext">contactData_maximumElevation :: (Maybe Elevation -&gt; f (Maybe Elevation))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_maximumElevation"><span class="hs-identifier hs-var hs-var">contactData_maximumElevation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Elevation)
+-&gt; (ContactData -&gt; Maybe Elevation -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Elevation) (Maybe Elevation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213785"><span class="annot"><span class="annottext">Maybe Elevation
+maximumElevation :: Maybe Elevation
+$sel:maximumElevation:ContactData' :: ContactData -&gt; Maybe Elevation
+</span><a href="#local-6989586621679213785"><span class="hs-identifier hs-var hs-var">maximumElevation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Elevation
+</span><a href="#local-6989586621679213785"><span class="hs-identifier hs-var">maximumElevation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213784"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213783"><span class="annot"><span class="annottext">Maybe Elevation
+</span><a href="#local-6989586621679213783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumElevation:ContactData' :: Maybe Elevation
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AmaximumElevation%3AContactData%27"><span class="hs-identifier hs-var">maximumElevation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Elevation
+</span><a href="#local-6989586621679213783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | Name of a ground station.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_groundStation"><span class="hs-identifier hs-type">contactData_groundStation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="contactData_groundStation"><span class="annot"><span class="annottext">contactData_groundStation :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_groundStation"><span class="hs-identifier hs-var hs-var">contactData_groundStation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213781"><span class="annot"><span class="annottext">Maybe Text
+groundStation :: Maybe Text
+$sel:groundStation:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679213781"><span class="hs-identifier hs-var hs-var">groundStation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213781"><span class="hs-identifier hs-var">groundStation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213780"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213779"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groundStation:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AgroundStation%3AContactData%27"><span class="hs-identifier hs-var">groundStation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | End time of a contact.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_endTime"><span class="hs-identifier hs-type">contactData_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="contactData_endTime"><span class="annot"><span class="annottext">contactData_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_endTime"><span class="hs-identifier hs-var hs-var">contactData_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe POSIX)
+-&gt; (ContactData -&gt; Maybe POSIX -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213777"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:ContactData' :: ContactData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679213777"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213777"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213776"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213775"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AendTime%3AContactData%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | UUID of a contact.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_contactId"><span class="hs-identifier hs-type">contactData_contactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="contactData_contactId"><span class="annot"><span class="annottext">contactData_contactId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_contactId"><span class="hs-identifier hs-var hs-var">contactData_contactId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213773"><span class="annot"><span class="annottext">Maybe Text
+contactId :: Maybe Text
+$sel:contactId:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679213773"><span class="hs-identifier hs-var hs-var">contactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213773"><span class="hs-identifier hs-var">contactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213772"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactId:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AcontactId%3AContactData%27"><span class="hs-identifier hs-var">contactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Region of a contact.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_region"><span class="hs-identifier hs-type">contactData_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="contactData_region"><span class="annot"><span class="annottext">contactData_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_region"><span class="hs-identifier hs-var hs-var">contactData_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213769"><span class="annot"><span class="annottext">Maybe Text
+region :: Maybe Text
+$sel:region:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679213769"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213769"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213768"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213767"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3Aregion%3AContactData%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Amount of time after a contact ends that you&#8217;d like to receive a</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- CloudWatch event indicating the pass has finished.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_postPassEndTime"><span class="hs-identifier hs-type">contactData_postPassEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="contactData_postPassEndTime"><span class="annot"><span class="annottext">contactData_postPassEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_postPassEndTime"><span class="hs-identifier hs-var hs-var">contactData_postPassEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe POSIX)
+-&gt; (ContactData -&gt; Maybe POSIX -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213765"><span class="annot"><span class="annottext">Maybe POSIX
+postPassEndTime :: Maybe POSIX
+$sel:postPassEndTime:ContactData' :: ContactData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679213765"><span class="hs-identifier hs-var hs-var">postPassEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213765"><span class="hs-identifier hs-var">postPassEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213764"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213763"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:postPassEndTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3ApostPassEndTime%3AContactData%27"><span class="hs-identifier hs-var">postPassEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Amount of time prior to contact start you&#8217;d like to receive a CloudWatch</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- event indicating an upcoming pass.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_prePassStartTime"><span class="hs-identifier hs-type">contactData_prePassStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="contactData_prePassStartTime"><span class="annot"><span class="annottext">contactData_prePassStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_prePassStartTime"><span class="hs-identifier hs-var hs-var">contactData_prePassStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe POSIX)
+-&gt; (ContactData -&gt; Maybe POSIX -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213761"><span class="annot"><span class="annottext">Maybe POSIX
+prePassStartTime :: Maybe POSIX
+$sel:prePassStartTime:ContactData' :: ContactData -&gt; Maybe POSIX
+</span><a href="#local-6989586621679213761"><span class="hs-identifier hs-var hs-var">prePassStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213761"><span class="hs-identifier hs-var">prePassStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213760"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213759"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prePassStartTime:ContactData' :: Maybe POSIX
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AprePassStartTime%3AContactData%27"><span class="hs-identifier hs-var">prePassStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679213759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Error message of a contact.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_errorMessage"><span class="hs-identifier hs-type">contactData_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="contactData_errorMessage"><span class="annot"><span class="annottext">contactData_errorMessage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_errorMessage"><span class="hs-identifier hs-var hs-var">contactData_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe Text)
+-&gt; (ContactData -&gt; Maybe Text -&gt; ContactData)
+-&gt; Lens ContactData ContactData (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213757"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:ContactData' :: ContactData -&gt; Maybe Text
+</span><a href="#local-6989586621679213757"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213757"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213756"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213755"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:ContactData' :: Maybe Text
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3AerrorMessage%3AContactData%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Tags assigned to a contact.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_tags"><span class="hs-identifier hs-type">contactData_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="contactData_tags"><span class="annot"><span class="annottext">contactData_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContactData -&gt; f ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#contactData_tags"><span class="hs-identifier hs-var hs-var">contactData_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContactData -&gt; Maybe (HashMap Text Text))
+-&gt; (ContactData -&gt; Maybe (HashMap Text Text) -&gt; ContactData)
+-&gt; Lens
+     ContactData
+     ContactData
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213753"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:ContactData' :: ContactData -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213753"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213753"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213752"><span class="annot"><span class="annottext">s :: ContactData
+</span><a href="#local-6989586621679213752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-type">ContactData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213751"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContactData
+</span><a href="#local-6989586621679213752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ContactData' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#%24sel%3Atags%3AContactData%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ContactData -&gt; f ContactData)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContactData
+-&gt; f ContactData
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213747"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679213745"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContactData
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ContactData) -&gt; Value -&gt; Parser ContactData
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ContactData&quot;</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213742"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContactStatus
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Elevation
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; ContactData
+</span><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData%27"><span class="hs-identifier hs-var">ContactData'</span></a></span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContactStatus
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Elevation
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; ContactData)
+-&gt; Parser (Maybe ContactStatus)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Elevation
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contactStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Elevation
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Elevation
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;missionProfileArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Elevation
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Elevation
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Elevation
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Elevation
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;satelliteArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Elevation
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe Elevation)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Elevation)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maximumElevation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;groundStation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;endTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;contactId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; ContactData)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;postPassEndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ContactData)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prePassStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; ContactData)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; ContactData)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; ContactData)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser ContactData
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213742"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213735"><span id="local-6989586621679213737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.ContactData.html#ContactData"><span class="hs-identifier hs-type">ContactData</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

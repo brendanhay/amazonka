@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The details of a violation event.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newViolationEventAdditionalInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679806482"><span id="local-6989586621679806483"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViolationEventAdditionalInfo"><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-var">ViolationEventAdditionalInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViolationEventAdditionalInfo%27"><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo%27"><span class="hs-identifier hs-var">ViolationEventAdditionalInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679806491"><span id="local-6989586621679806492"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViolationEventAdditionalInfo"><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-var">ViolationEventAdditionalInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViolationEventAdditionalInfo%27"><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo%27"><span class="hs-identifier hs-var">ViolationEventAdditionalInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sensitivity of anomalous behavior evaluation. Can be @Low@,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @Medium@, or @High@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AconfidenceLevel%3AViolationEventAdditionalInfo%27"><span class="annot"><span class="annottext">ViolationEventAdditionalInfo -&gt; Maybe ConfidenceLevel
 </span><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#%24sel%3AconfidenceLevel%3AViolationEventAdditionalInfo%27"><span class="hs-identifier hs-var hs-var">confidenceLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ConfidenceLevel.html#ConfidenceLevel"><span class="hs-identifier hs-type">ConfidenceLevel</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806476"><span id="local-6989586621679806478"><span class="annot"><span class="annottext">ViolationEventAdditionalInfo
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679806485"><span id="local-6989586621679806487"><span class="annot"><span class="annottext">ViolationEventAdditionalInfo
 -&gt; ViolationEventAdditionalInfo -&gt; Bool
 (ViolationEventAdditionalInfo
  -&gt; ViolationEventAdditionalInfo -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: ViolationEventAdditionalInfo
 -&gt; ViolationEventAdditionalInfo -&gt; Bool
 $c== :: ViolationEventAdditionalInfo
 -&gt; ViolationEventAdditionalInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806467"><span id="local-6989586621679806469"><span id="local-6989586621679806471"><span id="local-6989586621679806473"><span class="annot"><span class="annottext">ReadPrec [ViolationEventAdditionalInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806476"><span id="local-6989586621679806478"><span id="local-6989586621679806480"><span id="local-6989586621679806482"><span class="annot"><span class="annottext">ReadPrec [ViolationEventAdditionalInfo]
 ReadPrec ViolationEventAdditionalInfo
 Int -&gt; ReadS ViolationEventAdditionalInfo
 ReadS [ViolationEventAdditionalInfo]
@@ -69,7 +69,7 @@ readList :: ReadS [ViolationEventAdditionalInfo]
 $creadList :: ReadS [ViolationEventAdditionalInfo]
 readsPrec :: Int -&gt; ReadS ViolationEventAdditionalInfo
 $creadsPrec :: Int -&gt; ReadS ViolationEventAdditionalInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806460"><span id="local-6989586621679806462"><span id="local-6989586621679806464"><span class="annot"><span class="annottext">Int -&gt; ViolationEventAdditionalInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679806469"><span id="local-6989586621679806471"><span id="local-6989586621679806473"><span class="annot"><span class="annottext">Int -&gt; ViolationEventAdditionalInfo -&gt; ShowS
 [ViolationEventAdditionalInfo] -&gt; ShowS
 ViolationEventAdditionalInfo -&gt; String
 (Int -&gt; ViolationEventAdditionalInfo -&gt; ShowS)
@@ -138,19 +138,19 @@ forall a. Maybe a
      (Maybe ConfidenceLevel)
      (Maybe ConfidenceLevel)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo%27"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806451"><span class="annot"><span class="annottext">Maybe ConfidenceLevel
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo%27"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679806460"><span class="annot"><span class="annottext">Maybe ConfidenceLevel
 confidenceLevel :: Maybe ConfidenceLevel
 $sel:confidenceLevel:ViolationEventAdditionalInfo' :: ViolationEventAdditionalInfo -&gt; Maybe ConfidenceLevel
-</span><a href="#local-6989586621679806451"><span class="hs-identifier hs-var hs-var">confidenceLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfidenceLevel
-</span><a href="#local-6989586621679806451"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806450"><span class="annot"><span class="annottext">s :: ViolationEventAdditionalInfo
-</span><a href="#local-6989586621679806450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo%27"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806449"><span class="annot"><span class="annottext">Maybe ConfidenceLevel
-</span><a href="#local-6989586621679806449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationEventAdditionalInfo
-</span><a href="#local-6989586621679806450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidenceLevel:ViolationEventAdditionalInfo' :: Maybe ConfidenceLevel
+</span><a href="#local-6989586621679806460"><span class="hs-identifier hs-var hs-var">confidenceLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfidenceLevel
+</span><a href="#local-6989586621679806460"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679806459"><span class="annot"><span class="annottext">s :: ViolationEventAdditionalInfo
+</span><a href="#local-6989586621679806459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo%27"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679806458"><span class="annot"><span class="annottext">Maybe ConfidenceLevel
+</span><a href="#local-6989586621679806458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationEventAdditionalInfo
+</span><a href="#local-6989586621679806459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidenceLevel:ViolationEventAdditionalInfo' :: Maybe ConfidenceLevel
 </span><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#%24sel%3AconfidenceLevel%3AViolationEventAdditionalInfo%27"><span class="hs-identifier hs-var">confidenceLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfidenceLevel
-</span><a href="#local-6989586621679806449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679806458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806446"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679806444"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ViolationEventAdditionalInfo
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679806453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ViolationEventAdditionalInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ViolationEventAdditionalInfo)
@@ -160,8 +160,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ViolationEventAdditionalInfo&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806441"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679806441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679806450"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679806450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConfidenceLevel -&gt; ViolationEventAdditionalInfo
 </span><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo%27"><span class="hs-identifier hs-var">ViolationEventAdditionalInfo'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConfidenceLevel -&gt; ViolationEventAdditionalInfo)
@@ -169,15 +169,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ViolationEventAdditionalInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679806441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfidenceLevel)
+</span><a href="#local-6989586621679806450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfidenceLevel)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;confidenceLevel&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679806435"><span id="local-6989586621679806437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679806444"><span id="local-6989586621679806446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679806441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ViolationEventAdditionalInfo.html#ViolationEventAdditionalInfo"><span class="hs-identifier hs-type">ViolationEventAdditionalInfo</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

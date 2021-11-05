@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceAssociationOutputUrl' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679814698"><span id="local-6989586621679814699"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceAssociationOutputUrl"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-var">InstanceAssociationOutputUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAssociationOutputUrl%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl%27"><span class="hs-identifier hs-var">InstanceAssociationOutputUrl'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679814707"><span id="local-6989586621679814708"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceAssociationOutputUrl"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-var">InstanceAssociationOutputUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAssociationOutputUrl%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl%27"><span class="hs-identifier hs-var">InstanceAssociationOutputUrl'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of S3 bucket where you want to store the results of this</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3As3OutputUrl%3AInstanceAssociationOutputUrl%27"><span class="annot"><span class="annottext">InstanceAssociationOutputUrl -&gt; Maybe S3OutputUrl
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#%24sel%3As3OutputUrl%3AInstanceAssociationOutputUrl%27"><span class="hs-identifier hs-var hs-var">s3OutputUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.S3OutputUrl.html#S3OutputUrl"><span class="hs-identifier hs-type">S3OutputUrl</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814692"><span id="local-6989586621679814694"><span class="annot"><span class="annottext">InstanceAssociationOutputUrl
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814701"><span id="local-6989586621679814703"><span class="annot"><span class="annottext">InstanceAssociationOutputUrl
 -&gt; InstanceAssociationOutputUrl -&gt; Bool
 (InstanceAssociationOutputUrl
  -&gt; InstanceAssociationOutputUrl -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: InstanceAssociationOutputUrl
 -&gt; InstanceAssociationOutputUrl -&gt; Bool
 $c== :: InstanceAssociationOutputUrl
 -&gt; InstanceAssociationOutputUrl -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814683"><span id="local-6989586621679814685"><span id="local-6989586621679814687"><span id="local-6989586621679814689"><span class="annot"><span class="annottext">ReadPrec [InstanceAssociationOutputUrl]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814692"><span id="local-6989586621679814694"><span id="local-6989586621679814696"><span id="local-6989586621679814698"><span class="annot"><span class="annottext">ReadPrec [InstanceAssociationOutputUrl]
 ReadPrec InstanceAssociationOutputUrl
 Int -&gt; ReadS InstanceAssociationOutputUrl
 ReadS [InstanceAssociationOutputUrl]
@@ -70,7 +70,7 @@ readList :: ReadS [InstanceAssociationOutputUrl]
 $creadList :: ReadS [InstanceAssociationOutputUrl]
 readsPrec :: Int -&gt; ReadS InstanceAssociationOutputUrl
 $creadsPrec :: Int -&gt; ReadS InstanceAssociationOutputUrl
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814676"><span id="local-6989586621679814678"><span id="local-6989586621679814680"><span class="annot"><span class="annottext">Int -&gt; InstanceAssociationOutputUrl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814685"><span id="local-6989586621679814687"><span id="local-6989586621679814689"><span class="annot"><span class="annottext">Int -&gt; InstanceAssociationOutputUrl -&gt; ShowS
 [InstanceAssociationOutputUrl] -&gt; ShowS
 InstanceAssociationOutputUrl -&gt; String
 (Int -&gt; InstanceAssociationOutputUrl -&gt; ShowS)
@@ -139,19 +139,19 @@ forall a. Maybe a
      (Maybe S3OutputUrl)
      (Maybe S3OutputUrl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl%27"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814667"><span class="annot"><span class="annottext">Maybe S3OutputUrl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl%27"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814676"><span class="annot"><span class="annottext">Maybe S3OutputUrl
 s3OutputUrl :: Maybe S3OutputUrl
 $sel:s3OutputUrl:InstanceAssociationOutputUrl' :: InstanceAssociationOutputUrl -&gt; Maybe S3OutputUrl
-</span><a href="#local-6989586621679814667"><span class="hs-identifier hs-var hs-var">s3OutputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3OutputUrl
-</span><a href="#local-6989586621679814667"><span class="hs-identifier hs-var">s3OutputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814666"><span class="annot"><span class="annottext">s :: InstanceAssociationOutputUrl
-</span><a href="#local-6989586621679814666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl%27"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814665"><span class="annot"><span class="annottext">Maybe S3OutputUrl
-</span><a href="#local-6989586621679814665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationOutputUrl
-</span><a href="#local-6989586621679814666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputUrl:InstanceAssociationOutputUrl' :: Maybe S3OutputUrl
+</span><a href="#local-6989586621679814676"><span class="hs-identifier hs-var hs-var">s3OutputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3OutputUrl
+</span><a href="#local-6989586621679814676"><span class="hs-identifier hs-var">s3OutputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814675"><span class="annot"><span class="annottext">s :: InstanceAssociationOutputUrl
+</span><a href="#local-6989586621679814675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl%27"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814674"><span class="annot"><span class="annottext">Maybe S3OutputUrl
+</span><a href="#local-6989586621679814674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationOutputUrl
+</span><a href="#local-6989586621679814675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputUrl:InstanceAssociationOutputUrl' :: Maybe S3OutputUrl
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#%24sel%3As3OutputUrl%3AInstanceAssociationOutputUrl%27"><span class="hs-identifier hs-var">s3OutputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3OutputUrl
-</span><a href="#local-6989586621679814665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814662"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679814660"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceAssociationOutputUrl
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814671"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679814669"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceAssociationOutputUrl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceAssociationOutputUrl)
@@ -161,8 +161,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceAssociationOutputUrl&quot;</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814657"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814666"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814666"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3OutputUrl -&gt; InstanceAssociationOutputUrl
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl%27"><span class="hs-identifier hs-var">InstanceAssociationOutputUrl'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe S3OutputUrl -&gt; InstanceAssociationOutputUrl)
@@ -170,15 +170,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser InstanceAssociationOutputUrl
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3OutputUrl)
+</span><a href="#local-6989586621679814666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3OutputUrl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679814651"><span id="local-6989586621679814653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679814660"><span id="local-6989586621679814662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

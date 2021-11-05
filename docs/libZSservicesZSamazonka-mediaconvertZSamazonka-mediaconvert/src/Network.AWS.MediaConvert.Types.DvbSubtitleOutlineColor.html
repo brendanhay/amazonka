@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- set Style passthrough (StylePassthrough) to enabled to use the font</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- outline color data from your input captions, if present. Within your job</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- settings, all of your DVB-Sub settings must be identical.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679958623"><span id="local-6989586621679958624"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitleOutlineColor"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor.html#DvbSubtitleOutlineColor"><span class="hs-identifier hs-var">DvbSubtitleOutlineColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitleOutlineColor%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor.html#DvbSubtitleOutlineColor%27"><span class="hs-identifier hs-var">DvbSubtitleOutlineColor'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679958632"><span id="local-6989586621679958633"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DvbSubtitleOutlineColor"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor.html#DvbSubtitleOutlineColor"><span class="hs-identifier hs-var">DvbSubtitleOutlineColor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DvbSubtitleOutlineColor%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor.html#DvbSubtitleOutlineColor%27"><span class="hs-identifier hs-var">DvbSubtitleOutlineColor'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDvbSubtitleOutlineColor"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor.html#fromDvbSubtitleOutlineColor"><span class="hs-identifier hs-var hs-var">fromDvbSubtitleOutlineColor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958615"><span id="local-6989586621679958617"><span id="local-6989586621679958619"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleOutlineColor -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958624"><span id="local-6989586621679958626"><span id="local-6989586621679958628"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleOutlineColor -&gt; ShowS
 [DvbSubtitleOutlineColor] -&gt; ShowS
 DvbSubtitleOutlineColor -&gt; String
 (Int -&gt; DvbSubtitleOutlineColor -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: DvbSubtitleOutlineColor -&gt; String
 showsPrec :: Int -&gt; DvbSubtitleOutlineColor -&gt; ShowS
 $cshowsPrec :: Int -&gt; DvbSubtitleOutlineColor -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679958606"><span id="local-6989586621679958608"><span id="local-6989586621679958610"><span id="local-6989586621679958612"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitleOutlineColor]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679958615"><span id="local-6989586621679958617"><span id="local-6989586621679958619"><span id="local-6989586621679958621"><span class="annot"><span class="annottext">ReadPrec [DvbSubtitleOutlineColor]
 ReadPrec DvbSubtitleOutlineColor
 Int -&gt; ReadS DvbSubtitleOutlineColor
 ReadS [DvbSubtitleOutlineColor]
@@ -81,7 +81,7 @@ $creadList :: ReadS [DvbSubtitleOutlineColor]
 readsPrec :: Int -&gt; ReadS DvbSubtitleOutlineColor
 $creadsPrec :: Int -&gt; ReadS DvbSubtitleOutlineColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679958601"><span id="local-6989586621679958603"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679958610"><span id="local-6989586621679958612"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool
 (DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool)
 -&gt; (DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool)
 -&gt; Eq DvbSubtitleOutlineColor
@@ -91,7 +91,7 @@ $c/= :: DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool
 == :: DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool
 $c== :: DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679958585"><span id="local-6989586621679958587"><span id="local-6989586621679958589"><span id="local-6989586621679958591"><span id="local-6989586621679958593"><span id="local-6989586621679958595"><span id="local-6989586621679958597"><span class="annot"><span class="annottext">Eq DvbSubtitleOutlineColor
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679958594"><span id="local-6989586621679958596"><span id="local-6989586621679958598"><span id="local-6989586621679958600"><span id="local-6989586621679958602"><span id="local-6989586621679958604"><span id="local-6989586621679958606"><span class="annot"><span class="annottext">Eq DvbSubtitleOutlineColor
 Eq DvbSubtitleOutlineColor
 -&gt; (DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Ordering)
 -&gt; (DvbSubtitleOutlineColor -&gt; DvbSubtitleOutlineColor -&gt; Bool)
@@ -151,7 +151,7 @@ $cfrom :: forall x. DvbSubtitleOutlineColor -&gt; Rep DvbSubtitleOutlineColor x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958577"><span id="local-6989586621679958579"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleOutlineColor -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679958586"><span id="local-6989586621679958588"><span class="annot"><span class="annottext">Int -&gt; DvbSubtitleOutlineColor -&gt; Int
 DvbSubtitleOutlineColor -&gt; Int
 (Int -&gt; DvbSubtitleOutlineColor -&gt; Int)
 -&gt; (DvbSubtitleOutlineColor -&gt; Int)
@@ -162,54 +162,54 @@ $chash :: DvbSubtitleOutlineColor -&gt; Int
 hashWithSalt :: Int -&gt; DvbSubtitleOutlineColor -&gt; Int
 $chashWithSalt :: Int -&gt; DvbSubtitleOutlineColor -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679958574"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679958583"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; ()
 (DvbSubtitleOutlineColor -&gt; ()) -&gt; NFData DvbSubtitleOutlineColor
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DvbSubtitleOutlineColor -&gt; ()
 $crnf :: DvbSubtitleOutlineColor -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679958571"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitleOutlineColor
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679958580"><span class="annot"><span class="annottext">Text -&gt; Either String DvbSubtitleOutlineColor
 (Text -&gt; Either String DvbSubtitleOutlineColor)
 -&gt; FromText DvbSubtitleOutlineColor
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DvbSubtitleOutlineColor
 $cfromText :: Text -&gt; Either String DvbSubtitleOutlineColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679958568"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679958577"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; Text
 (DvbSubtitleOutlineColor -&gt; Text) -&gt; ToText DvbSubtitleOutlineColor
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DvbSubtitleOutlineColor -&gt; Text
 $ctoText :: DvbSubtitleOutlineColor -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679958565"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679958574"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; ByteString
 (DvbSubtitleOutlineColor -&gt; ByteString)
 -&gt; ToByteString DvbSubtitleOutlineColor
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DvbSubtitleOutlineColor -&gt; ByteString
 $ctoBS :: DvbSubtitleOutlineColor -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679958562"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679958571"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; ByteStringBuilder
 (DvbSubtitleOutlineColor -&gt; ByteStringBuilder)
 -&gt; ToLog DvbSubtitleOutlineColor
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DvbSubtitleOutlineColor -&gt; ByteStringBuilder
 $cbuild :: DvbSubtitleOutlineColor -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679958559"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitleOutlineColor -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679958568"><span class="annot"><span class="annottext">HeaderName -&gt; DvbSubtitleOutlineColor -&gt; [Header]
 (HeaderName -&gt; DvbSubtitleOutlineColor -&gt; [Header])
 -&gt; ToHeader DvbSubtitleOutlineColor
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DvbSubtitleOutlineColor -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DvbSubtitleOutlineColor -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679958556"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679958565"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; QueryString
 (DvbSubtitleOutlineColor -&gt; QueryString)
 -&gt; ToQuery DvbSubtitleOutlineColor
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DvbSubtitleOutlineColor -&gt; QueryString
 $ctoQuery :: DvbSubtitleOutlineColor -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679958551"><span id="local-6989586621679958553"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitleOutlineColor]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679958560"><span id="local-6989586621679958562"><span class="annot"><span class="annottext">Value -&gt; Parser [DvbSubtitleOutlineColor]
 Value -&gt; Parser DvbSubtitleOutlineColor
 (Value -&gt; Parser DvbSubtitleOutlineColor)
 -&gt; (Value -&gt; Parser [DvbSubtitleOutlineColor])
@@ -221,7 +221,7 @@ $cparseJSONList :: Value -&gt; Parser [DvbSubtitleOutlineColor]
 parseJSON :: Value -&gt; Parser DvbSubtitleOutlineColor
 $cparseJSON :: Value -&gt; Parser DvbSubtitleOutlineColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679958546"><span id="local-6989586621679958548"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitleOutlineColor]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679958555"><span id="local-6989586621679958557"><span class="annot"><span class="annottext">FromJSONKeyFunction [DvbSubtitleOutlineColor]
 FromJSONKeyFunction DvbSubtitleOutlineColor
 FromJSONKeyFunction DvbSubtitleOutlineColor
 -&gt; FromJSONKeyFunction [DvbSubtitleOutlineColor]
@@ -233,7 +233,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DvbSubtitleOutlineColor]
 fromJSONKey :: FromJSONKeyFunction DvbSubtitleOutlineColor
 $cfromJSONKey :: FromJSONKeyFunction DvbSubtitleOutlineColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679958537"><span id="local-6989586621679958539"><span id="local-6989586621679958541"><span id="local-6989586621679958543"><span class="annot"><span class="annottext">[DvbSubtitleOutlineColor] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679958546"><span id="local-6989586621679958548"><span id="local-6989586621679958550"><span id="local-6989586621679958552"><span class="annot"><span class="annottext">[DvbSubtitleOutlineColor] -&gt; Encoding
 [DvbSubtitleOutlineColor] -&gt; Value
 DvbSubtitleOutlineColor -&gt; Encoding
 DvbSubtitleOutlineColor -&gt; Value
@@ -257,7 +257,7 @@ $ctoEncoding :: DvbSubtitleOutlineColor -&gt; Encoding
 toJSON :: DvbSubtitleOutlineColor -&gt; Value
 $ctoJSON :: DvbSubtitleOutlineColor -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679958532"><span id="local-6989586621679958534"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitleOutlineColor]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679958541"><span id="local-6989586621679958543"><span class="annot"><span class="annottext">ToJSONKeyFunction [DvbSubtitleOutlineColor]
 ToJSONKeyFunction DvbSubtitleOutlineColor
 ToJSONKeyFunction DvbSubtitleOutlineColor
 -&gt; ToJSONKeyFunction [DvbSubtitleOutlineColor]
@@ -269,14 +269,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DvbSubtitleOutlineColor]
 toJSONKey :: ToJSONKeyFunction DvbSubtitleOutlineColor
 $ctoJSONKey :: ToJSONKeyFunction DvbSubtitleOutlineColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679958529"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitleOutlineColor
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679958538"><span class="annot"><span class="annottext">[Node] -&gt; Either String DvbSubtitleOutlineColor
 ([Node] -&gt; Either String DvbSubtitleOutlineColor)
 -&gt; FromXML DvbSubtitleOutlineColor
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DvbSubtitleOutlineColor
 $cparseXML :: [Node] -&gt; Either String DvbSubtitleOutlineColor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679958526"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679958535"><span class="annot"><span class="annottext">DvbSubtitleOutlineColor -&gt; XML
 (DvbSubtitleOutlineColor -&gt; XML) -&gt; ToXML DvbSubtitleOutlineColor
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DvbSubtitleOutlineColor -&gt; XML

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AmplifyBackend.Types.Mode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AmplifyBackend.Types.Mode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode"><span class="hs-identifier">Mode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_AMAZON_COGNITO_USER_POOLS"><span class="hs-identifier">Mode_AMAZON_COGNITO_USER_POOLS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_API_KEY"><span class="hs-identifier">Mode_API_KEY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_AWS_IAM"><span class="hs-identifier">Mode_AWS_IAM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_OPENID_CONNECT"><span class="hs-identifier">Mode_OPENID_CONNECT</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679231042"><span id="local-6989586621679231043"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mode"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode"><span class="hs-identifier hs-var">Mode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mode%27"><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode%27"><span class="hs-identifier hs-var">Mode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromMode"><span class="annot"><span class="annottext">Mode -&gt; Text
+</span><a href="Network.AWS.AmplifyBackend.Types.Mode.html#fromMode"><span class="hs-identifier hs-var hs-var">fromMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231034"><span id="local-6989586621679231036"><span id="local-6989586621679231038"><span class="annot"><span class="annottext">Int -&gt; Mode -&gt; ShowS
+[Mode] -&gt; ShowS
+Mode -&gt; String
+(Int -&gt; Mode -&gt; ShowS)
+-&gt; (Mode -&gt; String) -&gt; ([Mode] -&gt; ShowS) -&gt; Show Mode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mode] -&gt; ShowS
+$cshowList :: [Mode] -&gt; ShowS
+show :: Mode -&gt; String
+$cshow :: Mode -&gt; String
+showsPrec :: Int -&gt; Mode -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679231025"><span id="local-6989586621679231027"><span id="local-6989586621679231029"><span id="local-6989586621679231031"><span class="annot"><span class="annottext">ReadPrec [Mode]
+ReadPrec Mode
+Int -&gt; ReadS Mode
+ReadS [Mode]
+(Int -&gt; ReadS Mode)
+-&gt; ReadS [Mode] -&gt; ReadPrec Mode -&gt; ReadPrec [Mode] -&gt; Read Mode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mode]
+$creadListPrec :: ReadPrec [Mode]
+readPrec :: ReadPrec Mode
+$creadPrec :: ReadPrec Mode
+readList :: ReadS [Mode]
+$creadList :: ReadS [Mode]
+readsPrec :: Int -&gt; ReadS Mode
+$creadsPrec :: Int -&gt; ReadS Mode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679231020"><span id="local-6989586621679231022"><span class="annot"><span class="annottext">Mode -&gt; Mode -&gt; Bool
+(Mode -&gt; Mode -&gt; Bool) -&gt; (Mode -&gt; Mode -&gt; Bool) -&gt; Eq Mode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mode -&gt; Mode -&gt; Bool
+$c/= :: Mode -&gt; Mode -&gt; Bool
+== :: Mode -&gt; Mode -&gt; Bool
+$c== :: Mode -&gt; Mode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679231004"><span id="local-6989586621679231006"><span id="local-6989586621679231008"><span id="local-6989586621679231010"><span id="local-6989586621679231012"><span id="local-6989586621679231014"><span id="local-6989586621679231016"><span class="annot"><span class="annottext">Eq Mode
+Eq Mode
+-&gt; (Mode -&gt; Mode -&gt; Ordering)
+-&gt; (Mode -&gt; Mode -&gt; Bool)
+-&gt; (Mode -&gt; Mode -&gt; Bool)
+-&gt; (Mode -&gt; Mode -&gt; Bool)
+-&gt; (Mode -&gt; Mode -&gt; Bool)
+-&gt; (Mode -&gt; Mode -&gt; Mode)
+-&gt; (Mode -&gt; Mode -&gt; Mode)
+-&gt; Ord Mode
+Mode -&gt; Mode -&gt; Bool
+Mode -&gt; Mode -&gt; Ordering
+Mode -&gt; Mode -&gt; Mode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Mode -&gt; Mode -&gt; Mode
+$cmin :: Mode -&gt; Mode -&gt; Mode
+max :: Mode -&gt; Mode -&gt; Mode
+$cmax :: Mode -&gt; Mode -&gt; Mode
+&gt;= :: Mode -&gt; Mode -&gt; Bool
+$c&gt;= :: Mode -&gt; Mode -&gt; Bool
+&gt; :: Mode -&gt; Mode -&gt; Bool
+$c&gt; :: Mode -&gt; Mode -&gt; Bool
+&lt;= :: Mode -&gt; Mode -&gt; Bool
+$c&lt;= :: Mode -&gt; Mode -&gt; Bool
+&lt; :: Mode -&gt; Mode -&gt; Bool
+$c&lt; :: Mode -&gt; Mode -&gt; Bool
+compare :: Mode -&gt; Mode -&gt; Ordering
+$ccompare :: Mode -&gt; Mode -&gt; Ordering
+$cp1Ord :: Eq Mode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Mode -&gt; Rep Mode x)
+-&gt; (forall x. Rep Mode x -&gt; Mode) -&gt; Generic Mode
+forall x. Rep Mode x -&gt; Mode
+forall x. Mode -&gt; Rep Mode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Mode x -&gt; Mode
+$cfrom :: forall x. Mode -&gt; Rep Mode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230996"><span id="local-6989586621679230998"><span class="annot"><span class="annottext">Int -&gt; Mode -&gt; Int
+Mode -&gt; Int
+(Int -&gt; Mode -&gt; Int) -&gt; (Mode -&gt; Int) -&gt; Hashable Mode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Mode -&gt; Int
+$chash :: Mode -&gt; Int
+hashWithSalt :: Int -&gt; Mode -&gt; Int
+$chashWithSalt :: Int -&gt; Mode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679230993"><span class="annot"><span class="annottext">Mode -&gt; ()
+(Mode -&gt; ()) -&gt; NFData Mode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Mode -&gt; ()
+$crnf :: Mode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679230990"><span class="annot"><span class="annottext">Text -&gt; Either String Mode
+(Text -&gt; Either String Mode) -&gt; FromText Mode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Mode
+$cfromText :: Text -&gt; Either String Mode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679230987"><span class="annot"><span class="annottext">Mode -&gt; Text
+(Mode -&gt; Text) -&gt; ToText Mode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Mode -&gt; Text
+$ctoText :: Mode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679230984"><span class="annot"><span class="annottext">Mode -&gt; ByteString
+(Mode -&gt; ByteString) -&gt; ToByteString Mode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Mode -&gt; ByteString
+$ctoBS :: Mode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679230981"><span class="annot"><span class="annottext">Mode -&gt; ByteStringBuilder
+(Mode -&gt; ByteStringBuilder) -&gt; ToLog Mode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Mode -&gt; ByteStringBuilder
+$cbuild :: Mode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679230978"><span class="annot"><span class="annottext">HeaderName -&gt; Mode -&gt; [Header]
+(HeaderName -&gt; Mode -&gt; [Header]) -&gt; ToHeader Mode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Mode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Mode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679230975"><span class="annot"><span class="annottext">Mode -&gt; QueryString
+(Mode -&gt; QueryString) -&gt; ToQuery Mode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Mode -&gt; QueryString
+$ctoQuery :: Mode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679230970"><span id="local-6989586621679230972"><span class="annot"><span class="annottext">Value -&gt; Parser [Mode]
+Value -&gt; Parser Mode
+(Value -&gt; Parser Mode) -&gt; (Value -&gt; Parser [Mode]) -&gt; FromJSON Mode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Mode]
+$cparseJSONList :: Value -&gt; Parser [Mode]
+parseJSON :: Value -&gt; Parser Mode
+$cparseJSON :: Value -&gt; Parser Mode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679230965"><span id="local-6989586621679230967"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mode]
+FromJSONKeyFunction Mode
+FromJSONKeyFunction Mode
+-&gt; FromJSONKeyFunction [Mode] -&gt; FromJSONKey Mode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Mode]
+$cfromJSONKeyList :: FromJSONKeyFunction [Mode]
+fromJSONKey :: FromJSONKeyFunction Mode
+$cfromJSONKey :: FromJSONKeyFunction Mode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679230956"><span id="local-6989586621679230958"><span id="local-6989586621679230960"><span id="local-6989586621679230962"><span class="annot"><span class="annottext">[Mode] -&gt; Encoding
+[Mode] -&gt; Value
+Mode -&gt; Encoding
+Mode -&gt; Value
+(Mode -&gt; Value)
+-&gt; (Mode -&gt; Encoding)
+-&gt; ([Mode] -&gt; Value)
+-&gt; ([Mode] -&gt; Encoding)
+-&gt; ToJSON Mode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Mode] -&gt; Encoding
+$ctoEncodingList :: [Mode] -&gt; Encoding
+toJSONList :: [Mode] -&gt; Value
+$ctoJSONList :: [Mode] -&gt; Value
+toEncoding :: Mode -&gt; Encoding
+$ctoEncoding :: Mode -&gt; Encoding
+toJSON :: Mode -&gt; Value
+$ctoJSON :: Mode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679230951"><span id="local-6989586621679230953"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mode]
+ToJSONKeyFunction Mode
+ToJSONKeyFunction Mode
+-&gt; ToJSONKeyFunction [Mode] -&gt; ToJSONKey Mode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Mode]
+$ctoJSONKeyList :: ToJSONKeyFunction [Mode]
+toJSONKey :: ToJSONKeyFunction Mode
+$ctoJSONKey :: ToJSONKeyFunction Mode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679230948"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mode
+([Node] -&gt; Either String Mode) -&gt; FromXML Mode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Mode
+$cparseXML :: [Node] -&gt; Either String Mode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679230945"><span class="annot"><span class="annottext">Mode -&gt; XML
+(Mode -&gt; XML) -&gt; ToXML Mode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Mode -&gt; XML
+$ctoXML :: Mode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_AMAZON_COGNITO_USER_POOLS"><span class="hs-identifier hs-type">Mode_AMAZON_COGNITO_USER_POOLS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMode_AMAZON_COGNITO_USER_POOLS"><span id="%24mMode_AMAZON_COGNITO_USER_POOLS"><span id="Mode_AMAZON_COGNITO_USER_POOLS"><span class="annot"><span class="annottext">$bMode_AMAZON_COGNITO_USER_POOLS :: Mode
+$mMode_AMAZON_COGNITO_USER_POOLS :: forall r. Mode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.Mode.html#%24bMode_AMAZON_COGNITO_USER_POOLS"><span class="hs-identifier hs-var hs-var hs-var">Mode_AMAZON_COGNITO_USER_POOLS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode%27"><span class="hs-identifier hs-type">Mode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AMAZON_COGNITO_USER_POOLS&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_API_KEY"><span class="hs-identifier hs-type">Mode_API_KEY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMode_API_KEY"><span id="%24mMode_API_KEY"><span id="Mode_API_KEY"><span class="annot"><span class="annottext">$bMode_API_KEY :: Mode
+$mMode_API_KEY :: forall r. Mode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.Mode.html#%24bMode_API_KEY"><span class="hs-identifier hs-var hs-var hs-var">Mode_API_KEY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode%27"><span class="hs-identifier hs-type">Mode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;API_KEY&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_AWS_IAM"><span class="hs-identifier hs-type">Mode_AWS_IAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMode_AWS_IAM"><span id="%24mMode_AWS_IAM"><span id="Mode_AWS_IAM"><span class="annot"><span class="annottext">$bMode_AWS_IAM :: Mode
+$mMode_AWS_IAM :: forall r. Mode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.Mode.html#%24bMode_AWS_IAM"><span class="hs-identifier hs-var hs-var hs-var">Mode_AWS_IAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode%27"><span class="hs-identifier hs-type">Mode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AWS_IAM&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_OPENID_CONNECT"><span class="hs-identifier hs-type">Mode_OPENID_CONNECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode"><span class="hs-identifier hs-type">Mode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMode_OPENID_CONNECT"><span id="%24mMode_OPENID_CONNECT"><span id="Mode_OPENID_CONNECT"><span class="annot"><span class="annottext">$bMode_OPENID_CONNECT :: Mode
+$mMode_OPENID_CONNECT :: forall r. Mode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AmplifyBackend.Types.Mode.html#%24bMode_OPENID_CONNECT"><span class="hs-identifier hs-var hs-var hs-var">Mode_OPENID_CONNECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode%27"><span class="hs-identifier hs-type">Mode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OPENID_CONNECT&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_AMAZON_COGNITO_USER_POOLS"><span class="hs-pragma hs-type">Mode_AMAZON_COGNITO_USER_POOLS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_API_KEY"><span class="hs-pragma hs-type">Mode_API_KEY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_AWS_IAM"><span class="hs-pragma hs-type">Mode_AWS_IAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode_OPENID_CONNECT"><span class="hs-pragma hs-type">Mode_OPENID_CONNECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.AmplifyBackend.Types.Mode.html#Mode%27"><span class="hs-pragma hs-type">Mode'</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-78"></span></pre></body></html>

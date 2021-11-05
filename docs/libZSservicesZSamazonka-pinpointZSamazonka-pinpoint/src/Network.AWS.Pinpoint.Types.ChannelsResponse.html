@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- the application.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newChannelsResponse' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679594098"><span id="local-6989586621679594099"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelsResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-var">ChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelsResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse%27"><span class="hs-identifier hs-var">ChannelsResponse'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679594107"><span id="local-6989586621679594108"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelsResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-var">ChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelsResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse%27"><span class="hs-identifier hs-var">ChannelsResponse'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map that contains a multipart response for each channel. For each item</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in this object, the ChannelType is the key and the Channel is the value.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Achannels%3AChannelsResponse%27"><span class="annot"><span class="annottext">ChannelsResponse -&gt; HashMap Text ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#%24sel%3Achannels%3AChannelsResponse%27"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelResponse.html#ChannelResponse"><span class="hs-identifier hs-type">ChannelResponse</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679594092"><span id="local-6989586621679594094"><span class="annot"><span class="annottext">ChannelsResponse -&gt; ChannelsResponse -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679594101"><span id="local-6989586621679594103"><span class="annot"><span class="annottext">ChannelsResponse -&gt; ChannelsResponse -&gt; Bool
 (ChannelsResponse -&gt; ChannelsResponse -&gt; Bool)
 -&gt; (ChannelsResponse -&gt; ChannelsResponse -&gt; Bool)
 -&gt; Eq ChannelsResponse
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChannelsResponse -&gt; ChannelsResponse -&gt; Bool
 == :: ChannelsResponse -&gt; ChannelsResponse -&gt; Bool
 $c== :: ChannelsResponse -&gt; ChannelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594083"><span id="local-6989586621679594085"><span id="local-6989586621679594087"><span id="local-6989586621679594089"><span class="annot"><span class="annottext">ReadPrec [ChannelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594092"><span id="local-6989586621679594094"><span id="local-6989586621679594096"><span id="local-6989586621679594098"><span class="annot"><span class="annottext">ReadPrec [ChannelsResponse]
 ReadPrec ChannelsResponse
 Int -&gt; ReadS ChannelsResponse
 ReadS [ChannelsResponse]
@@ -64,7 +64,7 @@ readList :: ReadS [ChannelsResponse]
 $creadList :: ReadS [ChannelsResponse]
 readsPrec :: Int -&gt; ReadS ChannelsResponse
 $creadsPrec :: Int -&gt; ReadS ChannelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594076"><span id="local-6989586621679594078"><span id="local-6989586621679594080"><span class="annot"><span class="annottext">Int -&gt; ChannelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594085"><span id="local-6989586621679594087"><span id="local-6989586621679594089"><span class="annot"><span class="annottext">Int -&gt; ChannelsResponse -&gt; ShowS
 [ChannelsResponse] -&gt; ShowS
 ChannelsResponse -&gt; String
 (Int -&gt; ChannelsResponse -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Monoid a =&gt; a
      (HashMap Text ChannelResponse)
      (HashMap Text ChannelResponse)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse%27"><span class="hs-identifier hs-type">ChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594067"><span class="annot"><span class="annottext">HashMap Text ChannelResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse%27"><span class="hs-identifier hs-type">ChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594076"><span class="annot"><span class="annottext">HashMap Text ChannelResponse
 channels :: HashMap Text ChannelResponse
 $sel:channels:ChannelsResponse' :: ChannelsResponse -&gt; HashMap Text ChannelResponse
-</span><a href="#local-6989586621679594067"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text ChannelResponse
-</span><a href="#local-6989586621679594067"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679594066"><span class="annot"><span class="annottext">s :: ChannelsResponse
-</span><a href="#local-6989586621679594066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse%27"><span class="hs-identifier hs-type">ChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679594065"><span class="annot"><span class="annottext">HashMap Text ChannelResponse
-</span><a href="#local-6989586621679594065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelsResponse
-</span><a href="#local-6989586621679594066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:ChannelsResponse' :: HashMap Text ChannelResponse
+</span><a href="#local-6989586621679594076"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text ChannelResponse
+</span><a href="#local-6989586621679594076"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679594075"><span class="annot"><span class="annottext">s :: ChannelsResponse
+</span><a href="#local-6989586621679594075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse%27"><span class="hs-identifier hs-type">ChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679594074"><span class="annot"><span class="annottext">HashMap Text ChannelResponse
+</span><a href="#local-6989586621679594074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelsResponse
+</span><a href="#local-6989586621679594075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:ChannelsResponse' :: HashMap Text ChannelResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#%24sel%3Achannels%3AChannelsResponse%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text ChannelResponse
-</span><a href="#local-6989586621679594065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text ChannelResponse -&gt; f (HashMap Text ChannelResponse))
+</span><a href="#local-6989586621679594074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text ChannelResponse -&gt; f (HashMap Text ChannelResponse))
  -&gt; ChannelsResponse -&gt; f ChannelsResponse)
 -&gt; ((HashMap Text ChannelResponse
      -&gt; f (HashMap Text ChannelResponse))
@@ -149,8 +149,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594060"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679594058"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelsResponse
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594069"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679594067"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelsResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ChannelsResponse)
@@ -160,15 +160,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChannelsResponse&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679594055"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679594055"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679594064"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679594064"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">HashMap Text ChannelResponse -&gt; ChannelsResponse
 </span><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse%27"><span class="hs-identifier hs-var">ChannelsResponse'</span></a></span><span>
 </span><span id="line-65"></span><span>            </span><span class="annot"><span class="annottext">(HashMap Text ChannelResponse -&gt; ChannelsResponse)
 -&gt; Parser (HashMap Text ChannelResponse) -&gt; Parser ChannelsResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679594055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text ChannelResponse))
+</span><a href="#local-6989586621679594064"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (HashMap Text ChannelResponse))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Channels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text ChannelResponse))
@@ -180,7 +180,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594048"><span id="local-6989586621679594050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594057"><span id="local-6989586621679594059"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ChannelsResponse.html#ChannelsResponse"><span class="hs-identifier hs-type">ChannelsResponse</span></a></span></span><span>
 </span><span id="line-71"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679371259"><span id="local-6989586621679371260"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode"><span class="hs-identifier hs-var">InstanceStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode%27"><span class="hs-identifier hs-var">InstanceStateChangeReasonCode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679371268"><span id="local-6989586621679371269"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceStateChangeReasonCode"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode"><span class="hs-identifier hs-var">InstanceStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStateChangeReasonCode%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#InstanceStateChangeReasonCode%27"><span class="hs-identifier hs-var">InstanceStateChangeReasonCode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceStateChangeReasonCode"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; Text
 </span><a href="Network.AWS.EMR.Types.InstanceStateChangeReasonCode.html#fromInstanceStateChangeReasonCode"><span class="hs-identifier hs-var hs-var">fromInstanceStateChangeReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371251"><span id="local-6989586621679371253"><span id="local-6989586621679371255"><span class="annot"><span class="annottext">Int -&gt; InstanceStateChangeReasonCode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371260"><span id="local-6989586621679371262"><span id="local-6989586621679371264"><span class="annot"><span class="annottext">Int -&gt; InstanceStateChangeReasonCode -&gt; ShowS
 [InstanceStateChangeReasonCode] -&gt; ShowS
 InstanceStateChangeReasonCode -&gt; String
 (Int -&gt; InstanceStateChangeReasonCode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: InstanceStateChangeReasonCode -&gt; String
 showsPrec :: Int -&gt; InstanceStateChangeReasonCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceStateChangeReasonCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679371242"><span id="local-6989586621679371244"><span id="local-6989586621679371246"><span id="local-6989586621679371248"><span class="annot"><span class="annottext">ReadPrec [InstanceStateChangeReasonCode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679371251"><span id="local-6989586621679371253"><span id="local-6989586621679371255"><span id="local-6989586621679371257"><span class="annot"><span class="annottext">ReadPrec [InstanceStateChangeReasonCode]
 ReadPrec InstanceStateChangeReasonCode
 Int -&gt; ReadS InstanceStateChangeReasonCode
 ReadS [InstanceStateChangeReasonCode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [InstanceStateChangeReasonCode]
 readsPrec :: Int -&gt; ReadS InstanceStateChangeReasonCode
 $creadsPrec :: Int -&gt; ReadS InstanceStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679371237"><span id="local-6989586621679371239"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679371246"><span id="local-6989586621679371248"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode
 -&gt; InstanceStateChangeReasonCode -&gt; Bool
 (InstanceStateChangeReasonCode
  -&gt; InstanceStateChangeReasonCode -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: InstanceStateChangeReasonCode
 $c== :: InstanceStateChangeReasonCode
 -&gt; InstanceStateChangeReasonCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679371221"><span id="local-6989586621679371223"><span id="local-6989586621679371225"><span id="local-6989586621679371227"><span id="local-6989586621679371229"><span id="local-6989586621679371231"><span id="local-6989586621679371233"><span class="annot"><span class="annottext">Eq InstanceStateChangeReasonCode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679371230"><span id="local-6989586621679371232"><span id="local-6989586621679371234"><span id="local-6989586621679371236"><span id="local-6989586621679371238"><span id="local-6989586621679371240"><span id="local-6989586621679371242"><span class="annot"><span class="annottext">Eq InstanceStateChangeReasonCode
 Eq InstanceStateChangeReasonCode
 -&gt; (InstanceStateChangeReasonCode
     -&gt; InstanceStateChangeReasonCode -&gt; Ordering)
@@ -179,7 +179,7 @@ InstanceStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371213"><span id="local-6989586621679371215"><span class="annot"><span class="annottext">Int -&gt; InstanceStateChangeReasonCode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371222"><span id="local-6989586621679371224"><span class="annot"><span class="annottext">Int -&gt; InstanceStateChangeReasonCode -&gt; Int
 InstanceStateChangeReasonCode -&gt; Int
 (Int -&gt; InstanceStateChangeReasonCode -&gt; Int)
 -&gt; (InstanceStateChangeReasonCode -&gt; Int)
@@ -190,56 +190,56 @@ $chash :: InstanceStateChangeReasonCode -&gt; Int
 hashWithSalt :: Int -&gt; InstanceStateChangeReasonCode -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceStateChangeReasonCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371210"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371219"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; ()
 (InstanceStateChangeReasonCode -&gt; ())
 -&gt; NFData InstanceStateChangeReasonCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceStateChangeReasonCode -&gt; ()
 $crnf :: InstanceStateChangeReasonCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371207"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStateChangeReasonCode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371216"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceStateChangeReasonCode
 (Text -&gt; Either String InstanceStateChangeReasonCode)
 -&gt; FromText InstanceStateChangeReasonCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceStateChangeReasonCode
 $cfromText :: Text -&gt; Either String InstanceStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371204"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371213"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; Text
 (InstanceStateChangeReasonCode -&gt; Text)
 -&gt; ToText InstanceStateChangeReasonCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceStateChangeReasonCode -&gt; Text
 $ctoText :: InstanceStateChangeReasonCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371201"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371210"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; ByteString
 (InstanceStateChangeReasonCode -&gt; ByteString)
 -&gt; ToByteString InstanceStateChangeReasonCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceStateChangeReasonCode -&gt; ByteString
 $ctoBS :: InstanceStateChangeReasonCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371198"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371207"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; ByteStringBuilder
 (InstanceStateChangeReasonCode -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceStateChangeReasonCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceStateChangeReasonCode -&gt; ByteStringBuilder
 $cbuild :: InstanceStateChangeReasonCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371195"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStateChangeReasonCode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371204"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceStateChangeReasonCode -&gt; [Header]
 (HeaderName -&gt; InstanceStateChangeReasonCode -&gt; [Header])
 -&gt; ToHeader InstanceStateChangeReasonCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceStateChangeReasonCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceStateChangeReasonCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371192"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371201"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; QueryString
 (InstanceStateChangeReasonCode -&gt; QueryString)
 -&gt; ToQuery InstanceStateChangeReasonCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceStateChangeReasonCode -&gt; QueryString
 $ctoQuery :: InstanceStateChangeReasonCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371187"><span id="local-6989586621679371189"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStateChangeReasonCode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371196"><span id="local-6989586621679371198"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceStateChangeReasonCode]
 Value -&gt; Parser InstanceStateChangeReasonCode
 (Value -&gt; Parser InstanceStateChangeReasonCode)
 -&gt; (Value -&gt; Parser [InstanceStateChangeReasonCode])
@@ -251,7 +251,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceStateChangeReasonCode]
 parseJSON :: Value -&gt; Parser InstanceStateChangeReasonCode
 $cparseJSON :: Value -&gt; Parser InstanceStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371182"><span id="local-6989586621679371184"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStateChangeReasonCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371191"><span id="local-6989586621679371193"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceStateChangeReasonCode]
 FromJSONKeyFunction InstanceStateChangeReasonCode
 FromJSONKeyFunction InstanceStateChangeReasonCode
 -&gt; FromJSONKeyFunction [InstanceStateChangeReasonCode]
@@ -263,7 +263,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceStateChangeReasonCode]
 fromJSONKey :: FromJSONKeyFunction InstanceStateChangeReasonCode
 $cfromJSONKey :: FromJSONKeyFunction InstanceStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371173"><span id="local-6989586621679371175"><span id="local-6989586621679371177"><span id="local-6989586621679371179"><span class="annot"><span class="annottext">[InstanceStateChangeReasonCode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371182"><span id="local-6989586621679371184"><span id="local-6989586621679371186"><span id="local-6989586621679371188"><span class="annot"><span class="annottext">[InstanceStateChangeReasonCode] -&gt; Encoding
 [InstanceStateChangeReasonCode] -&gt; Value
 InstanceStateChangeReasonCode -&gt; Encoding
 InstanceStateChangeReasonCode -&gt; Value
@@ -287,7 +287,7 @@ $ctoEncoding :: InstanceStateChangeReasonCode -&gt; Encoding
 toJSON :: InstanceStateChangeReasonCode -&gt; Value
 $ctoJSON :: InstanceStateChangeReasonCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679371168"><span id="local-6989586621679371170"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStateChangeReasonCode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679371177"><span id="local-6989586621679371179"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceStateChangeReasonCode]
 ToJSONKeyFunction InstanceStateChangeReasonCode
 ToJSONKeyFunction InstanceStateChangeReasonCode
 -&gt; ToJSONKeyFunction [InstanceStateChangeReasonCode]
@@ -299,14 +299,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceStateChangeReasonCode]
 toJSONKey :: ToJSONKeyFunction InstanceStateChangeReasonCode
 $ctoJSONKey :: ToJSONKeyFunction InstanceStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679371165"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStateChangeReasonCode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679371174"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceStateChangeReasonCode
 ([Node] -&gt; Either String InstanceStateChangeReasonCode)
 -&gt; FromXML InstanceStateChangeReasonCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceStateChangeReasonCode
 $cparseXML :: [Node] -&gt; Either String InstanceStateChangeReasonCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679371162"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679371171"><span class="annot"><span class="annottext">InstanceStateChangeReasonCode -&gt; XML
 (InstanceStateChangeReasonCode -&gt; XML)
 -&gt; ToXML InstanceStateChangeReasonCode
 forall a. (a -&gt; XML) -&gt; ToXML a

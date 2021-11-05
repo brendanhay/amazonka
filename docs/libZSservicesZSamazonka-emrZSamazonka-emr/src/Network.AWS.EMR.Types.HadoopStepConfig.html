@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- waits for the job to finish or fail.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newHadoopStepConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679368476"><span id="local-6989586621679368477"></span></span><span class="hs-keyword">data</span><span> </span><span id="HadoopStepConfig"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-var">HadoopStepConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HadoopStepConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-var">HadoopStepConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679368485"><span id="local-6989586621679368486"></span></span><span class="hs-keyword">data</span><span> </span><span id="HadoopStepConfig"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-var">HadoopStepConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HadoopStepConfig%27"><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-var">HadoopStepConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of command line arguments to pass to the JAR file\'s main</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- function for execution.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aargs%3AHadoopStepConfig%27"><span class="annot"><span class="annottext">HadoopStepConfig -&gt; Maybe [Text]
@@ -45,7 +45,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Aproperties%3AHadoopStepConfig%27"><span class="annot"><span class="annottext">HadoopStepConfig -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#%24sel%3Aproperties%3AHadoopStepConfig%27"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368467"><span id="local-6989586621679368469"><span class="annot"><span class="annottext">HadoopStepConfig -&gt; HadoopStepConfig -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368476"><span id="local-6989586621679368478"><span class="annot"><span class="annottext">HadoopStepConfig -&gt; HadoopStepConfig -&gt; Bool
 (HadoopStepConfig -&gt; HadoopStepConfig -&gt; Bool)
 -&gt; (HadoopStepConfig -&gt; HadoopStepConfig -&gt; Bool)
 -&gt; Eq HadoopStepConfig
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HadoopStepConfig -&gt; HadoopStepConfig -&gt; Bool
 == :: HadoopStepConfig -&gt; HadoopStepConfig -&gt; Bool
 $c== :: HadoopStepConfig -&gt; HadoopStepConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368458"><span id="local-6989586621679368460"><span id="local-6989586621679368462"><span id="local-6989586621679368464"><span class="annot"><span class="annottext">ReadPrec [HadoopStepConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368467"><span id="local-6989586621679368469"><span id="local-6989586621679368471"><span id="local-6989586621679368473"><span class="annot"><span class="annottext">ReadPrec [HadoopStepConfig]
 ReadPrec HadoopStepConfig
 Int -&gt; ReadS HadoopStepConfig
 ReadS [HadoopStepConfig]
@@ -74,7 +74,7 @@ readList :: ReadS [HadoopStepConfig]
 $creadList :: ReadS [HadoopStepConfig]
 readsPrec :: Int -&gt; ReadS HadoopStepConfig
 $creadsPrec :: Int -&gt; ReadS HadoopStepConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368451"><span id="local-6989586621679368453"><span id="local-6989586621679368455"><span class="annot"><span class="annottext">Int -&gt; HadoopStepConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368460"><span id="local-6989586621679368462"><span id="local-6989586621679368464"><span class="annot"><span class="annottext">Int -&gt; HadoopStepConfig -&gt; ShowS
 [HadoopStepConfig] -&gt; ShowS
 HadoopStepConfig -&gt; String
 (Int -&gt; HadoopStepConfig -&gt; ShowS)
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; Lens
      HadoopStepConfig HadoopStepConfig (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368442"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368451"><span class="annot"><span class="annottext">Maybe [Text]
 args :: Maybe [Text]
 $sel:args:HadoopStepConfig' :: HadoopStepConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679368442"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679368442"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368441"><span class="annot"><span class="annottext">s :: HadoopStepConfig
-</span><a href="#local-6989586621679368441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368440"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679368440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
-</span><a href="#local-6989586621679368441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:HadoopStepConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679368451"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679368451"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368450"><span class="annot"><span class="annottext">s :: HadoopStepConfig
+</span><a href="#local-6989586621679368450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368449"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679368449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
+</span><a href="#local-6989586621679368450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:HadoopStepConfig' :: Maybe [Text]
 </span><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#%24sel%3Aargs%3AHadoopStepConfig%27"><span class="hs-identifier hs-var">args</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679368440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679368449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; HadoopStepConfig -&gt; f HadoopStepConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -190,16 +190,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (HadoopStepConfig -&gt; Maybe Text -&gt; HadoopStepConfig)
 -&gt; Lens HadoopStepConfig HadoopStepConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368435"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368444"><span class="annot"><span class="annottext">Maybe Text
 jar :: Maybe Text
 $sel:jar:HadoopStepConfig' :: HadoopStepConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679368435"><span class="hs-identifier hs-var hs-var">jar</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368435"><span class="hs-identifier hs-var">jar</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368434"><span class="annot"><span class="annottext">s :: HadoopStepConfig
-</span><a href="#local-6989586621679368434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368433"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
-</span><a href="#local-6989586621679368434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jar:HadoopStepConfig' :: Maybe Text
+</span><a href="#local-6989586621679368444"><span class="hs-identifier hs-var hs-var">jar</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368444"><span class="hs-identifier hs-var">jar</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368443"><span class="annot"><span class="annottext">s :: HadoopStepConfig
+</span><a href="#local-6989586621679368443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
+</span><a href="#local-6989586621679368443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jar:HadoopStepConfig' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#%24sel%3Ajar%3AHadoopStepConfig%27"><span class="hs-identifier hs-var">jar</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name of the main class in the specified Java file. If not specified,</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- the JAR file should specify a main class in its manifest file.</span><span>
@@ -210,16 +210,16 @@ $sel:jar:HadoopStepConfig' :: HadoopStepConfig -&gt; Maybe Text
 -&gt; (HadoopStepConfig -&gt; Maybe Text -&gt; HadoopStepConfig)
 -&gt; Lens HadoopStepConfig HadoopStepConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368431"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368440"><span class="annot"><span class="annottext">Maybe Text
 mainClass :: Maybe Text
 $sel:mainClass:HadoopStepConfig' :: HadoopStepConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679368431"><span class="hs-identifier hs-var hs-var">mainClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368431"><span class="hs-identifier hs-var">mainClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368430"><span class="annot"><span class="annottext">s :: HadoopStepConfig
-</span><a href="#local-6989586621679368430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368429"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
-</span><a href="#local-6989586621679368430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mainClass:HadoopStepConfig' :: Maybe Text
+</span><a href="#local-6989586621679368440"><span class="hs-identifier hs-var hs-var">mainClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368440"><span class="hs-identifier hs-var">mainClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368439"><span class="annot"><span class="annottext">s :: HadoopStepConfig
+</span><a href="#local-6989586621679368439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
+</span><a href="#local-6989586621679368439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mainClass:HadoopStepConfig' :: Maybe Text
 </span><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#%24sel%3AmainClass%3AHadoopStepConfig%27"><span class="hs-identifier hs-var">mainClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The list of Java properties that are set when the step runs. You can use</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- these properties to pass key-value pairs to your main function.</span><span>
@@ -235,16 +235,16 @@ $sel:mainClass:HadoopStepConfig' :: HadoopStepConfig -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368427"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368436"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 properties :: Maybe (HashMap Text Text)
 $sel:properties:HadoopStepConfig' :: HadoopStepConfig -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679368427"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679368427"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368426"><span class="annot"><span class="annottext">s :: HadoopStepConfig
-</span><a href="#local-6989586621679368426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368425"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679368425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
-</span><a href="#local-6989586621679368426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:HadoopStepConfig' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679368436"><span class="hs-identifier hs-var hs-var">properties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679368436"><span class="hs-identifier hs-var">properties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368435"><span class="annot"><span class="annottext">s :: HadoopStepConfig
+</span><a href="#local-6989586621679368435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig%27"><span class="hs-identifier hs-type">HadoopStepConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368434"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679368434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HadoopStepConfig
+</span><a href="#local-6989586621679368435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:properties:HadoopStepConfig' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#%24sel%3Aproperties%3AHadoopStepConfig%27"><span class="hs-identifier hs-var">properties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679368425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679368434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; HadoopStepConfig -&gt; f HadoopStepConfig)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -273,8 +273,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368422"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679368420"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HadoopStepConfig
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679368429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HadoopStepConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HadoopStepConfig)
@@ -284,8 +284,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HadoopStepConfig&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368417"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368417"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -303,7 +303,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; HadoopStepConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679368426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Args&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -320,7 +320,7 @@ forall a. Monoid a =&gt; a
      (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; HadoopStepConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Jar&quot;</span></span><span class="hs-special">)</span><span>
@@ -330,7 +330,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; HadoopStepConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679368426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MainClass&quot;</span></span><span class="hs-special">)</span><span>
@@ -338,7 +338,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser HadoopStepConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368417"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679368426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Properties&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -349,7 +349,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368410"><span id="local-6989586621679368412"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368419"><span id="local-6989586621679368421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span></span><span>
 </span><span id="line-108"></span></pre></body></html>

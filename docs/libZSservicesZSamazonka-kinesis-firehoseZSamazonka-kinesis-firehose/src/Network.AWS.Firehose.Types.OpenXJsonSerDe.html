@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- JsonSerDe.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newOpenXJsonSerDe' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679273143"><span id="local-6989586621679273144"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenXJsonSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-var">OpenXJsonSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenXJsonSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-var">OpenXJsonSerDe'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679273152"><span id="local-6989586621679273153"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpenXJsonSerDe"><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-var">OpenXJsonSerDe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpenXJsonSerDe%27"><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-var">OpenXJsonSerDe'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Maps column names to JSON keys that aren\'t identical to the column</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- names. This is useful when the JSON contains keys that are Hive</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- keywords. For example, @timestamp@ is a Hive keyword. If you have a JSON</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AconvertDotsInJsonKeysToUnderscores%3AOpenXJsonSerDe%27"><span class="annot"><span class="annottext">OpenXJsonSerDe -&gt; Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#%24sel%3AconvertDotsInJsonKeysToUnderscores%3AOpenXJsonSerDe%27"><span class="hs-identifier hs-var hs-var">convertDotsInJsonKeysToUnderscores</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273135"><span id="local-6989586621679273137"><span class="annot"><span class="annottext">OpenXJsonSerDe -&gt; OpenXJsonSerDe -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273144"><span id="local-6989586621679273146"><span class="annot"><span class="annottext">OpenXJsonSerDe -&gt; OpenXJsonSerDe -&gt; Bool
 (OpenXJsonSerDe -&gt; OpenXJsonSerDe -&gt; Bool)
 -&gt; (OpenXJsonSerDe -&gt; OpenXJsonSerDe -&gt; Bool) -&gt; Eq OpenXJsonSerDe
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpenXJsonSerDe -&gt; OpenXJsonSerDe -&gt; Bool
 == :: OpenXJsonSerDe -&gt; OpenXJsonSerDe -&gt; Bool
 $c== :: OpenXJsonSerDe -&gt; OpenXJsonSerDe -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273126"><span id="local-6989586621679273128"><span id="local-6989586621679273130"><span id="local-6989586621679273132"><span class="annot"><span class="annottext">ReadPrec [OpenXJsonSerDe]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273135"><span id="local-6989586621679273137"><span id="local-6989586621679273139"><span id="local-6989586621679273141"><span class="annot"><span class="annottext">ReadPrec [OpenXJsonSerDe]
 ReadPrec OpenXJsonSerDe
 Int -&gt; ReadS OpenXJsonSerDe
 ReadS [OpenXJsonSerDe]
@@ -82,7 +82,7 @@ readList :: ReadS [OpenXJsonSerDe]
 $creadList :: ReadS [OpenXJsonSerDe]
 readsPrec :: Int -&gt; ReadS OpenXJsonSerDe
 $creadsPrec :: Int -&gt; ReadS OpenXJsonSerDe
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273119"><span id="local-6989586621679273121"><span id="local-6989586621679273123"><span class="annot"><span class="annottext">Int -&gt; OpenXJsonSerDe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273128"><span id="local-6989586621679273130"><span id="local-6989586621679273132"><span class="annot"><span class="annottext">Int -&gt; OpenXJsonSerDe -&gt; ShowS
 [OpenXJsonSerDe] -&gt; ShowS
 OpenXJsonSerDe -&gt; String
 (Int -&gt; OpenXJsonSerDe -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273110"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273119"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 columnToJsonKeyMappings :: Maybe (HashMap Text Text)
 $sel:columnToJsonKeyMappings:OpenXJsonSerDe' :: OpenXJsonSerDe -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var hs-var">columnToJsonKeyMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">columnToJsonKeyMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273109"><span class="annot"><span class="annottext">s :: OpenXJsonSerDe
-</span><a href="#local-6989586621679273109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273108"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679273108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenXJsonSerDe
-</span><a href="#local-6989586621679273109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnToJsonKeyMappings:OpenXJsonSerDe' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679273119"><span class="hs-identifier hs-var hs-var">columnToJsonKeyMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679273119"><span class="hs-identifier hs-var">columnToJsonKeyMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273118"><span class="annot"><span class="annottext">s :: OpenXJsonSerDe
+</span><a href="#local-6989586621679273118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273117"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679273117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenXJsonSerDe
+</span><a href="#local-6989586621679273118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:columnToJsonKeyMappings:OpenXJsonSerDe' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#%24sel%3AcolumnToJsonKeyMappings%3AOpenXJsonSerDe%27"><span class="hs-identifier hs-var">columnToJsonKeyMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679273108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679273117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; OpenXJsonSerDe -&gt; f OpenXJsonSerDe)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -218,16 +218,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (OpenXJsonSerDe -&gt; Maybe Bool -&gt; OpenXJsonSerDe)
 -&gt; Lens OpenXJsonSerDe OpenXJsonSerDe (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273103"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273112"><span class="annot"><span class="annottext">Maybe Bool
 caseInsensitive :: Maybe Bool
 $sel:caseInsensitive:OpenXJsonSerDe' :: OpenXJsonSerDe -&gt; Maybe Bool
-</span><a href="#local-6989586621679273103"><span class="hs-identifier hs-var hs-var">caseInsensitive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273103"><span class="hs-identifier hs-var">caseInsensitive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273102"><span class="annot"><span class="annottext">s :: OpenXJsonSerDe
-</span><a href="#local-6989586621679273102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273101"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenXJsonSerDe
-</span><a href="#local-6989586621679273102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseInsensitive:OpenXJsonSerDe' :: Maybe Bool
+</span><a href="#local-6989586621679273112"><span class="hs-identifier hs-var hs-var">caseInsensitive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273112"><span class="hs-identifier hs-var">caseInsensitive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273111"><span class="annot"><span class="annottext">s :: OpenXJsonSerDe
+</span><a href="#local-6989586621679273111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273110"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenXJsonSerDe
+</span><a href="#local-6989586621679273111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseInsensitive:OpenXJsonSerDe' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#%24sel%3AcaseInsensitive%3AOpenXJsonSerDe%27"><span class="hs-identifier hs-var">caseInsensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | When set to @true@, specifies that the names of the keys include dots</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- and that you want Kinesis Data Firehose to replace them with</span><span>
@@ -244,19 +244,19 @@ $sel:caseInsensitive:OpenXJsonSerDe' :: OpenXJsonSerDe -&gt; Maybe Bool
 -&gt; (OpenXJsonSerDe -&gt; Maybe Bool -&gt; OpenXJsonSerDe)
 -&gt; Lens OpenXJsonSerDe OpenXJsonSerDe (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273099"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273108"><span class="annot"><span class="annottext">Maybe Bool
 convertDotsInJsonKeysToUnderscores :: Maybe Bool
 $sel:convertDotsInJsonKeysToUnderscores:OpenXJsonSerDe' :: OpenXJsonSerDe -&gt; Maybe Bool
-</span><a href="#local-6989586621679273099"><span class="hs-identifier hs-var hs-var">convertDotsInJsonKeysToUnderscores</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273099"><span class="hs-identifier hs-var">convertDotsInJsonKeysToUnderscores</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273098"><span class="annot"><span class="annottext">s :: OpenXJsonSerDe
-</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273097"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenXJsonSerDe
-</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:convertDotsInJsonKeysToUnderscores:OpenXJsonSerDe' :: Maybe Bool
+</span><a href="#local-6989586621679273108"><span class="hs-identifier hs-var hs-var">convertDotsInJsonKeysToUnderscores</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273108"><span class="hs-identifier hs-var">convertDotsInJsonKeysToUnderscores</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273107"><span class="annot"><span class="annottext">s :: OpenXJsonSerDe
+</span><a href="#local-6989586621679273107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273106"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpenXJsonSerDe
+</span><a href="#local-6989586621679273107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:convertDotsInJsonKeysToUnderscores:OpenXJsonSerDe' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#%24sel%3AconvertDotsInJsonKeysToUnderscores%3AOpenXJsonSerDe%27"><span class="hs-identifier hs-var">convertDotsInJsonKeysToUnderscores</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679273092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpenXJsonSerDe
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273103"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679273101"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OpenXJsonSerDe
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OpenXJsonSerDe)
@@ -266,8 +266,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OpenXJsonSerDe&quot;</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273089"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679273098"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Maybe Bool -&gt; Maybe Bool -&gt; OpenXJsonSerDe
 </span><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-var">OpenXJsonSerDe'</span></a></span><span>
@@ -277,7 +277,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; Maybe Bool -&gt; OpenXJsonSerDe)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ColumnToJsonKeyMappings&quot;</span></span><span>
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Bool -&gt; OpenXJsonSerDe)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaseInsensitive&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,19 +300,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser OpenXJsonSerDe
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679273089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679273098"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConvertDotsInJsonKeysToUnderscores&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273082"><span id="local-6989586621679273084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273091"><span id="local-6989586621679273093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273071"><span id="local-6989586621679273073"><span id="local-6989586621679273075"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679273069"><span class="annot"><span class="annottext">toJSON :: OpenXJsonSerDe -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273065"><span id="local-6989586621679273066"><span id="local-6989586621679273067"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273080"><span id="local-6989586621679273082"><span id="local-6989586621679273084"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe"><span class="hs-identifier hs-type">OpenXJsonSerDe</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679273078"><span class="annot"><span class="annottext">toJSON :: OpenXJsonSerDe -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.OpenXJsonSerDe.html#OpenXJsonSerDe%27"><span class="hs-identifier hs-type">OpenXJsonSerDe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273074"><span id="local-6989586621679273075"><span id="local-6989586621679273076"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (HashMap Text Text)
 convertDotsInJsonKeysToUnderscores :: Maybe Bool
 caseInsensitive :: Maybe Bool
@@ -320,7 +320,7 @@ columnToJsonKeyMappings :: Maybe (HashMap Text Text)
 $sel:convertDotsInJsonKeysToUnderscores:OpenXJsonSerDe' :: OpenXJsonSerDe -&gt; Maybe Bool
 $sel:caseInsensitive:OpenXJsonSerDe' :: OpenXJsonSerDe -&gt; Maybe Bool
 $sel:columnToJsonKeyMappings:OpenXJsonSerDe' :: OpenXJsonSerDe -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679273065"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679273074"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -334,7 +334,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679273067"><span class="hs-identifier hs-var">columnToJsonKeyMappings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273076"><span class="hs-identifier hs-var">columnToJsonKeyMappings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaseInsensitive&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -342,7 +342,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-139"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273066"><span class="hs-identifier hs-var">caseInsensitive</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273075"><span class="hs-identifier hs-var">caseInsensitive</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConvertDotsInJsonKeysToUnderscores&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -350,7 +350,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679273065"><span class="hs-identifier hs-var">convertDotsInJsonKeysToUnderscores</span></a></span><span>
+</span><a href="#local-6989586621679273074"><span class="hs-identifier hs-var">convertDotsInJsonKeysToUnderscores</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span></pre></body></html>

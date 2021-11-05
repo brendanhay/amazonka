@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newBounceAction' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679270222"><span id="local-6989586621679270223"></span></span><span class="hs-keyword">data</span><span> </span><span id="BounceAction"><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-var">BounceAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BounceAction%27"><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-var">BounceAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679270231"><span id="local-6989586621679270232"></span></span><span class="hs-keyword">data</span><span> </span><span id="BounceAction"><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-var">BounceAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BounceAction%27"><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-var">BounceAction'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the bounce action is taken. An example of an Amazon SNS topic ARN is</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Asender%3ABounceAction%27"><span class="annot"><span class="annottext">BounceAction -&gt; Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3Asender%3ABounceAction%27"><span class="hs-identifier hs-var hs-var">sender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270212"><span id="local-6989586621679270214"><span class="annot"><span class="annottext">BounceAction -&gt; BounceAction -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270221"><span id="local-6989586621679270223"><span class="annot"><span class="annottext">BounceAction -&gt; BounceAction -&gt; Bool
 (BounceAction -&gt; BounceAction -&gt; Bool)
 -&gt; (BounceAction -&gt; BounceAction -&gt; Bool) -&gt; Eq BounceAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BounceAction -&gt; BounceAction -&gt; Bool
 == :: BounceAction -&gt; BounceAction -&gt; Bool
 $c== :: BounceAction -&gt; BounceAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270203"><span id="local-6989586621679270205"><span id="local-6989586621679270207"><span id="local-6989586621679270209"><span class="annot"><span class="annottext">ReadPrec [BounceAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270212"><span id="local-6989586621679270214"><span id="local-6989586621679270216"><span id="local-6989586621679270218"><span class="annot"><span class="annottext">ReadPrec [BounceAction]
 ReadPrec BounceAction
 Int -&gt; ReadS BounceAction
 ReadS [BounceAction]
@@ -84,7 +84,7 @@ readList :: ReadS [BounceAction]
 $creadList :: ReadS [BounceAction]
 readsPrec :: Int -&gt; ReadS BounceAction
 $creadsPrec :: Int -&gt; ReadS BounceAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270196"><span id="local-6989586621679270198"><span id="local-6989586621679270200"><span class="annot"><span class="annottext">Int -&gt; BounceAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270205"><span id="local-6989586621679270207"><span id="local-6989586621679270209"><span class="annot"><span class="annottext">Int -&gt; BounceAction -&gt; ShowS
 [BounceAction] -&gt; ShowS
 BounceAction -&gt; String
 (Int -&gt; BounceAction -&gt; ShowS)
@@ -143,10 +143,10 @@ $cfrom :: forall x. BounceAction -&gt; Rep BounceAction x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span>
 </span><span id="line-88"></span><span id="newBounceAction"><span class="annot"><span class="annottext">newBounceAction :: Text -&gt; Text -&gt; Text -&gt; BounceAction
-</span><a href="Network.AWS.SES.Types.BounceAction.html#newBounceAction"><span class="hs-identifier hs-var hs-var">newBounceAction</span></a></span></span><span> </span><span id="local-6989586621679270190"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270190"><span class="hs-identifier hs-var">pSmtpReplyCode_</span></a></span></span><span> </span><span id="local-6989586621679270189"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270189"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span id="local-6989586621679270188"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270188"><span class="hs-identifier hs-var">pSender_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.BounceAction.html#newBounceAction"><span class="hs-identifier hs-var hs-var">newBounceAction</span></a></span></span><span> </span><span id="local-6989586621679270199"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270199"><span class="hs-identifier hs-var">pSmtpReplyCode_</span></a></span></span><span> </span><span id="local-6989586621679270198"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270198"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span> </span><span id="local-6989586621679270197"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270197"><span class="hs-identifier hs-var">pSender_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">BounceAction' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; BounceAction
 </span><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topicArn:BounceAction' :: Maybe Text
@@ -159,13 +159,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:smtpReplyCode:BounceAction' :: Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3AsmtpReplyCode%3ABounceAction%27"><span class="hs-identifier hs-var">smtpReplyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270190"><span class="hs-identifier hs-var">pSmtpReplyCode_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270199"><span class="hs-identifier hs-var">pSmtpReplyCode_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:BounceAction' :: Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3Amessage%3ABounceAction%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270189"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270198"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:sender:BounceAction' :: Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3Asender%3ABounceAction%27"><span class="hs-identifier hs-var">sender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270188"><span class="hs-identifier hs-var">pSender_</span></a></span><span>
+</span><a href="#local-6989586621679270197"><span class="hs-identifier hs-var">pSender_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
 -&gt; (BounceAction -&gt; Maybe Text -&gt; BounceAction)
 -&gt; Lens BounceAction BounceAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270184"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270193"><span class="annot"><span class="annottext">Maybe Text
 topicArn :: Maybe Text
 $sel:topicArn:BounceAction' :: BounceAction -&gt; Maybe Text
-</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270183"><span class="annot"><span class="annottext">s :: BounceAction
-</span><a href="#local-6989586621679270183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270182"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
-</span><a href="#local-6989586621679270183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:BounceAction' :: Maybe Text
+</span><a href="#local-6989586621679270193"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270193"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270192"><span class="annot"><span class="annottext">s :: BounceAction
+</span><a href="#local-6989586621679270192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
+</span><a href="#local-6989586621679270192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:BounceAction' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3AtopicArn%3ABounceAction%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The SMTP enhanced status code, as defined by</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3463 RFC 3463&gt;.</span><span>
@@ -198,16 +198,16 @@ $sel:topicArn:BounceAction' :: BounceAction -&gt; Maybe Text
 -&gt; (BounceAction -&gt; Maybe Text -&gt; BounceAction)
 -&gt; Lens BounceAction BounceAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270180"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270189"><span class="annot"><span class="annottext">Maybe Text
 statusCode :: Maybe Text
 $sel:statusCode:BounceAction' :: BounceAction -&gt; Maybe Text
-</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270179"><span class="annot"><span class="annottext">s :: BounceAction
-</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
-</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:BounceAction' :: Maybe Text
+</span><a href="#local-6989586621679270189"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270189"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270188"><span class="annot"><span class="annottext">s :: BounceAction
+</span><a href="#local-6989586621679270188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
+</span><a href="#local-6989586621679270188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:BounceAction' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3AstatusCode%3ABounceAction%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The SMTP reply code, as defined by</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc5321 RFC 5321&gt;.</span><span>
@@ -217,16 +217,16 @@ $sel:statusCode:BounceAction' :: BounceAction -&gt; Maybe Text
 -&gt; (BounceAction -&gt; Text -&gt; BounceAction)
 -&gt; Lens BounceAction BounceAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270176"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270185"><span class="annot"><span class="annottext">Text
 smtpReplyCode :: Text
 $sel:smtpReplyCode:BounceAction' :: BounceAction -&gt; Text
-</span><a href="#local-6989586621679270176"><span class="hs-identifier hs-var hs-var">smtpReplyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270176"><span class="hs-identifier hs-var">smtpReplyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270175"><span class="annot"><span class="annottext">s :: BounceAction
-</span><a href="#local-6989586621679270175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270174"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
-</span><a href="#local-6989586621679270175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smtpReplyCode:BounceAction' :: Text
+</span><a href="#local-6989586621679270185"><span class="hs-identifier hs-var hs-var">smtpReplyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270185"><span class="hs-identifier hs-var">smtpReplyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270184"><span class="annot"><span class="annottext">s :: BounceAction
+</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270183"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
+</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smtpReplyCode:BounceAction' :: Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3AsmtpReplyCode%3ABounceAction%27"><span class="hs-identifier hs-var">smtpReplyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | Human-readable text to include in the bounce message.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#bounceAction_message"><span class="hs-identifier hs-type">bounceAction_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -235,16 +235,16 @@ $sel:smtpReplyCode:BounceAction' :: BounceAction -&gt; Text
 -&gt; (BounceAction -&gt; Text -&gt; BounceAction)
 -&gt; Lens BounceAction BounceAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270172"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270181"><span class="annot"><span class="annottext">Text
 message :: Text
 $sel:message:BounceAction' :: BounceAction -&gt; Text
-</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270171"><span class="annot"><span class="annottext">s :: BounceAction
-</span><a href="#local-6989586621679270171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270170"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
-</span><a href="#local-6989586621679270171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:BounceAction' :: Text
+</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270180"><span class="annot"><span class="annottext">s :: BounceAction
+</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
+</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:BounceAction' :: Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3Amessage%3ABounceAction%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The email address of the sender of the bounced email. This is the</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- address from which the bounce message will be sent.</span><span>
@@ -254,21 +254,21 @@ $sel:message:BounceAction' :: BounceAction -&gt; Text
 -&gt; (BounceAction -&gt; Text -&gt; BounceAction)
 -&gt; Lens BounceAction BounceAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270168"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270177"><span class="annot"><span class="annottext">Text
 sender :: Text
 $sel:sender:BounceAction' :: BounceAction -&gt; Text
-</span><a href="#local-6989586621679270168"><span class="hs-identifier hs-var hs-var">sender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270168"><span class="hs-identifier hs-var">sender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270167"><span class="annot"><span class="annottext">s :: BounceAction
-</span><a href="#local-6989586621679270167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
-</span><a href="#local-6989586621679270167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sender:BounceAction' :: Text
+</span><a href="#local-6989586621679270177"><span class="hs-identifier hs-var hs-var">sender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270177"><span class="hs-identifier hs-var">sender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270176"><span class="annot"><span class="annottext">s :: BounceAction
+</span><a href="#local-6989586621679270176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679270175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BounceAction
+</span><a href="#local-6989586621679270176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sender:BounceAction' :: Text
 </span><a href="Network.AWS.SES.Types.BounceAction.html#%24sel%3Asender%3ABounceAction%27"><span class="hs-identifier hs-var">sender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679270163"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BounceAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679270161"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270161"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679270172"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BounceAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679270170"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; BounceAction
 </span><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-var">BounceAction'</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; BounceAction)
@@ -277,7 +277,7 @@ $sel:sender:BounceAction' :: BounceAction -&gt; Text
      String (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; BounceAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,7 +286,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; BounceAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,7 +295,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Text -&gt; BounceAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SmtpReplyCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -303,7 +303,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Text -&gt; BounceAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,18 +311,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String BounceAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679270170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Sender&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270154"><span id="local-6989586621679270156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270163"><span id="local-6989586621679270165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction"><span class="hs-identifier hs-type">BounceAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679270147"><span class="annot"><span class="annottext">toQuery :: BounceAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270141"><span id="local-6989586621679270142"><span id="local-6989586621679270143"><span id="local-6989586621679270144"><span id="local-6989586621679270145"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679270156"><span class="annot"><span class="annottext">toQuery :: BounceAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BounceAction.html#BounceAction%27"><span class="hs-identifier hs-type">BounceAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270150"><span id="local-6989586621679270151"><span id="local-6989586621679270152"><span id="local-6989586621679270153"><span id="local-6989586621679270154"><span class="annot"><span class="annottext">Maybe Text
 Text
 sender :: Text
 message :: Text
@@ -334,7 +334,7 @@ $sel:message:BounceAction' :: BounceAction -&gt; Text
 $sel:smtpReplyCode:BounceAction' :: BounceAction -&gt; Text
 $sel:statusCode:BounceAction' :: BounceAction -&gt; Maybe Text
 $sel:topicArn:BounceAction' :: BounceAction -&gt; Maybe Text
-</span><a href="#local-6989586621679270141"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679270150"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -342,26 +342,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270145"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270154"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StatusCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270144"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270153"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SmtpReplyCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270143"><span class="hs-identifier hs-var">smtpReplyCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270152"><span class="hs-identifier hs-var">smtpReplyCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270142"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679270151"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Sender&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679270141"><span class="hs-identifier hs-var">sender</span></a></span><span>
+</span><a href="#local-6989586621679270150"><span class="hs-identifier hs-var">sender</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span></pre></body></html>

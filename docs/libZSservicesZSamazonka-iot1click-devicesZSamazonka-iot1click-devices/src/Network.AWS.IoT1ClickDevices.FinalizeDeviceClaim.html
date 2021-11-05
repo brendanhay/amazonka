@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Given a device ID, finalizes the claim request for the associated</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- device.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Claiming a device consists of initiating a claim, then publishing a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- device event, and finalizing the claim. For a device of type button, a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- device event can be published by simply clicking the device.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier">FinalizeDeviceClaim</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#newFinalizeDeviceClaim"><span class="hs-identifier">newFinalizeDeviceClaim</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaim_tags"><span class="hs-identifier">finalizeDeviceClaim_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaim_deviceId"><span class="hs-identifier">finalizeDeviceClaim_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier">FinalizeDeviceClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#newFinalizeDeviceClaimResponse"><span class="hs-identifier">newFinalizeDeviceClaimResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaimResponse_state"><span class="hs-identifier">finalizeDeviceClaimResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaimResponse_httpStatus"><span class="hs-identifier">finalizeDeviceClaimResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.html"><span class="hs-identifier">Network.AWS.IoT1ClickDevices.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newFinalizeDeviceClaim' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679155447"><span id="local-6989586621679155448"></span></span><span class="hs-keyword">data</span><span> </span><span id="FinalizeDeviceClaim"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-var">FinalizeDeviceClaim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FinalizeDeviceClaim%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-var">FinalizeDeviceClaim'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A collection of key\/value pairs defining the resource tags. For</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- example, { \&quot;tags\&quot;: {\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;} }. For</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies&gt;.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atags%3AFinalizeDeviceClaim%27"><span class="annot"><span class="annottext">FinalizeDeviceClaim -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3Atags%3AFinalizeDeviceClaim%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AdeviceId%3AFinalizeDeviceClaim%27"><span class="annot"><span class="annottext">FinalizeDeviceClaim -&gt; Text
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3AdeviceId%3AFinalizeDeviceClaim%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155440"><span id="local-6989586621679155442"><span class="annot"><span class="annottext">FinalizeDeviceClaim -&gt; FinalizeDeviceClaim -&gt; Bool
+(FinalizeDeviceClaim -&gt; FinalizeDeviceClaim -&gt; Bool)
+-&gt; (FinalizeDeviceClaim -&gt; FinalizeDeviceClaim -&gt; Bool)
+-&gt; Eq FinalizeDeviceClaim
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FinalizeDeviceClaim -&gt; FinalizeDeviceClaim -&gt; Bool
+$c/= :: FinalizeDeviceClaim -&gt; FinalizeDeviceClaim -&gt; Bool
+== :: FinalizeDeviceClaim -&gt; FinalizeDeviceClaim -&gt; Bool
+$c== :: FinalizeDeviceClaim -&gt; FinalizeDeviceClaim -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155431"><span id="local-6989586621679155433"><span id="local-6989586621679155435"><span id="local-6989586621679155437"><span class="annot"><span class="annottext">ReadPrec [FinalizeDeviceClaim]
+ReadPrec FinalizeDeviceClaim
+Int -&gt; ReadS FinalizeDeviceClaim
+ReadS [FinalizeDeviceClaim]
+(Int -&gt; ReadS FinalizeDeviceClaim)
+-&gt; ReadS [FinalizeDeviceClaim]
+-&gt; ReadPrec FinalizeDeviceClaim
+-&gt; ReadPrec [FinalizeDeviceClaim]
+-&gt; Read FinalizeDeviceClaim
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FinalizeDeviceClaim]
+$creadListPrec :: ReadPrec [FinalizeDeviceClaim]
+readPrec :: ReadPrec FinalizeDeviceClaim
+$creadPrec :: ReadPrec FinalizeDeviceClaim
+readList :: ReadS [FinalizeDeviceClaim]
+$creadList :: ReadS [FinalizeDeviceClaim]
+readsPrec :: Int -&gt; ReadS FinalizeDeviceClaim
+$creadsPrec :: Int -&gt; ReadS FinalizeDeviceClaim
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155424"><span id="local-6989586621679155426"><span id="local-6989586621679155428"><span class="annot"><span class="annottext">Int -&gt; FinalizeDeviceClaim -&gt; ShowS
+[FinalizeDeviceClaim] -&gt; ShowS
+FinalizeDeviceClaim -&gt; String
+(Int -&gt; FinalizeDeviceClaim -&gt; ShowS)
+-&gt; (FinalizeDeviceClaim -&gt; String)
+-&gt; ([FinalizeDeviceClaim] -&gt; ShowS)
+-&gt; Show FinalizeDeviceClaim
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FinalizeDeviceClaim] -&gt; ShowS
+$cshowList :: [FinalizeDeviceClaim] -&gt; ShowS
+show :: FinalizeDeviceClaim -&gt; String
+$cshow :: FinalizeDeviceClaim -&gt; String
+showsPrec :: Int -&gt; FinalizeDeviceClaim -&gt; ShowS
+$cshowsPrec :: Int -&gt; FinalizeDeviceClaim -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FinalizeDeviceClaim -&gt; Rep FinalizeDeviceClaim x)
+-&gt; (forall x. Rep FinalizeDeviceClaim x -&gt; FinalizeDeviceClaim)
+-&gt; Generic FinalizeDeviceClaim
+forall x. Rep FinalizeDeviceClaim x -&gt; FinalizeDeviceClaim
+forall x. FinalizeDeviceClaim -&gt; Rep FinalizeDeviceClaim x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FinalizeDeviceClaim x -&gt; FinalizeDeviceClaim
+$cfrom :: forall x. FinalizeDeviceClaim -&gt; Rep FinalizeDeviceClaim x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'FinalizeDeviceClaim' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'tags', 'finalizeDeviceClaim_tags' - A collection of key\/value pairs defining the resource tags. For</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- example, { \&quot;tags\&quot;: {\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;} }. For</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies&gt;.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'deviceId', 'finalizeDeviceClaim_deviceId' - The unique identifier of the device.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#newFinalizeDeviceClaim"><span class="hs-identifier hs-type">newFinalizeDeviceClaim</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span>
+</span><span id="line-85"></span><span id="newFinalizeDeviceClaim"><span class="annot"><span class="annottext">newFinalizeDeviceClaim :: Text -&gt; FinalizeDeviceClaim
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#newFinalizeDeviceClaim"><span class="hs-identifier hs-var hs-var">newFinalizeDeviceClaim</span></a></span></span><span> </span><span id="local-6989586621679155419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155419"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">FinalizeDeviceClaim' :: Maybe (HashMap Text Text) -&gt; Text -&gt; FinalizeDeviceClaim
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-type">FinalizeDeviceClaim'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:FinalizeDeviceClaim' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3Atags%3AFinalizeDeviceClaim%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceId:FinalizeDeviceClaim' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3AdeviceId%3AFinalizeDeviceClaim%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155419"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A collection of key\/value pairs defining the resource tags. For</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- example, { \&quot;tags\&quot;: {\&quot;key1\&quot;: \&quot;value1\&quot;, \&quot;key2\&quot;: \&quot;value2\&quot;} }. For</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies&gt;.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaim_tags"><span class="hs-identifier hs-type">finalizeDeviceClaim_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="finalizeDeviceClaim_tags"><span class="annot"><span class="annottext">finalizeDeviceClaim_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FinalizeDeviceClaim -&gt; f FinalizeDeviceClaim
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaim_tags"><span class="hs-identifier hs-var hs-var">finalizeDeviceClaim_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FinalizeDeviceClaim -&gt; Maybe (HashMap Text Text))
+-&gt; (FinalizeDeviceClaim
+    -&gt; Maybe (HashMap Text Text) -&gt; FinalizeDeviceClaim)
+-&gt; Lens
+     FinalizeDeviceClaim
+     FinalizeDeviceClaim
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-type">FinalizeDeviceClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155416"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:FinalizeDeviceClaim' :: FinalizeDeviceClaim -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679155416"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679155416"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155415"><span class="annot"><span class="annottext">s :: FinalizeDeviceClaim
+</span><a href="#local-6989586621679155415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-type">FinalizeDeviceClaim'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155414"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679155414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FinalizeDeviceClaim
+</span><a href="#local-6989586621679155415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:FinalizeDeviceClaim' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3Atags%3AFinalizeDeviceClaim%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679155414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; FinalizeDeviceClaim -&gt; f FinalizeDeviceClaim)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; FinalizeDeviceClaim
+-&gt; f FinalizeDeviceClaim
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaim_deviceId"><span class="hs-identifier hs-type">finalizeDeviceClaim_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="finalizeDeviceClaim_deviceId"><span class="annot"><span class="annottext">finalizeDeviceClaim_deviceId :: (Text -&gt; f Text) -&gt; FinalizeDeviceClaim -&gt; f FinalizeDeviceClaim
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaim_deviceId"><span class="hs-identifier hs-var hs-var">finalizeDeviceClaim_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FinalizeDeviceClaim -&gt; Text)
+-&gt; (FinalizeDeviceClaim -&gt; Text -&gt; FinalizeDeviceClaim)
+-&gt; Lens FinalizeDeviceClaim FinalizeDeviceClaim Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-type">FinalizeDeviceClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155410"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:FinalizeDeviceClaim' :: FinalizeDeviceClaim -&gt; Text
+</span><a href="#local-6989586621679155410"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155410"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155409"><span class="annot"><span class="annottext">s :: FinalizeDeviceClaim
+</span><a href="#local-6989586621679155409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-type">FinalizeDeviceClaim'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FinalizeDeviceClaim
+</span><a href="#local-6989586621679155409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:FinalizeDeviceClaim' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3AdeviceId%3AFinalizeDeviceClaim%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679155404"><span class="annot"><span class="annottext">request :: FinalizeDeviceClaim -&gt; Request FinalizeDeviceClaim
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; FinalizeDeviceClaim -&gt; Request FinalizeDeviceClaim
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT1ClickDevices.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679155400"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy FinalizeDeviceClaim
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse FinalizeDeviceClaim)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse FinalizeDeviceClaim))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy FinalizeDeviceClaim
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse FinalizeDeviceClaim)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679155397"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155397"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679155396"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679155396"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679155395"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; FinalizeDeviceClaimResponse
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var">FinalizeDeviceClaimResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; FinalizeDeviceClaimResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; FinalizeDeviceClaimResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679155395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; FinalizeDeviceClaimResponse)
+-&gt; Either String Int -&gt; Either String FinalizeDeviceClaimResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155397"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155387"><span id="local-6989586621679155389"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679155380"><span class="annot"><span class="annottext">toHeaders :: FinalizeDeviceClaim -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; FinalizeDeviceClaim -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155370"><span id="local-6989586621679155372"><span id="local-6989586621679155374"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679155368"><span class="annot"><span class="annottext">toJSON :: FinalizeDeviceClaim -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-type">FinalizeDeviceClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155365"><span id="local-6989586621679155366"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+Text
+deviceId :: Text
+tags :: Maybe (HashMap Text Text)
+$sel:deviceId:FinalizeDeviceClaim' :: FinalizeDeviceClaim -&gt; Text
+$sel:tags:FinalizeDeviceClaim' :: FinalizeDeviceClaim -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679155365"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679155366"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679155359"><span class="annot"><span class="annottext">toPath :: FinalizeDeviceClaim -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim%27"><span class="hs-identifier hs-type">FinalizeDeviceClaim'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155356"><span id="local-6989586621679155357"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+Text
+deviceId :: Text
+tags :: Maybe (HashMap Text Text)
+$sel:deviceId:FinalizeDeviceClaim' :: FinalizeDeviceClaim -&gt; Text
+$sel:tags:FinalizeDeviceClaim' :: FinalizeDeviceClaim -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679155356"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/devices/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155356"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/finalize-claim&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaim"><span class="hs-identifier hs-type">FinalizeDeviceClaim</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679155352"><span class="annot"><span class="annottext">toQuery :: FinalizeDeviceClaim -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; FinalizeDeviceClaim -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newFinalizeDeviceClaimResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679155349"><span id="local-6989586621679155350"></span></span><span class="hs-keyword">data</span><span> </span><span id="FinalizeDeviceClaimResponse"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-var">FinalizeDeviceClaimResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FinalizeDeviceClaimResponse%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var">FinalizeDeviceClaimResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The device\'s final claim state.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3Astate%3AFinalizeDeviceClaimResponse%27"><span class="annot"><span class="annottext">FinalizeDeviceClaimResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3Astate%3AFinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AFinalizeDeviceClaimResponse%27"><span class="annot"><span class="annottext">FinalizeDeviceClaimResponse -&gt; Int
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3AhttpStatus%3AFinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155343"><span id="local-6989586621679155345"><span class="annot"><span class="annottext">FinalizeDeviceClaimResponse -&gt; FinalizeDeviceClaimResponse -&gt; Bool
+(FinalizeDeviceClaimResponse
+ -&gt; FinalizeDeviceClaimResponse -&gt; Bool)
+-&gt; (FinalizeDeviceClaimResponse
+    -&gt; FinalizeDeviceClaimResponse -&gt; Bool)
+-&gt; Eq FinalizeDeviceClaimResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FinalizeDeviceClaimResponse -&gt; FinalizeDeviceClaimResponse -&gt; Bool
+$c/= :: FinalizeDeviceClaimResponse -&gt; FinalizeDeviceClaimResponse -&gt; Bool
+== :: FinalizeDeviceClaimResponse -&gt; FinalizeDeviceClaimResponse -&gt; Bool
+$c== :: FinalizeDeviceClaimResponse -&gt; FinalizeDeviceClaimResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155335"><span id="local-6989586621679155337"><span id="local-6989586621679155339"><span id="local-6989586621679155341"><span class="annot"><span class="annottext">ReadPrec [FinalizeDeviceClaimResponse]
+ReadPrec FinalizeDeviceClaimResponse
+Int -&gt; ReadS FinalizeDeviceClaimResponse
+ReadS [FinalizeDeviceClaimResponse]
+(Int -&gt; ReadS FinalizeDeviceClaimResponse)
+-&gt; ReadS [FinalizeDeviceClaimResponse]
+-&gt; ReadPrec FinalizeDeviceClaimResponse
+-&gt; ReadPrec [FinalizeDeviceClaimResponse]
+-&gt; Read FinalizeDeviceClaimResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FinalizeDeviceClaimResponse]
+$creadListPrec :: ReadPrec [FinalizeDeviceClaimResponse]
+readPrec :: ReadPrec FinalizeDeviceClaimResponse
+$creadPrec :: ReadPrec FinalizeDeviceClaimResponse
+readList :: ReadS [FinalizeDeviceClaimResponse]
+$creadList :: ReadS [FinalizeDeviceClaimResponse]
+readsPrec :: Int -&gt; ReadS FinalizeDeviceClaimResponse
+$creadsPrec :: Int -&gt; ReadS FinalizeDeviceClaimResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155329"><span id="local-6989586621679155331"><span id="local-6989586621679155333"><span class="annot"><span class="annottext">Int -&gt; FinalizeDeviceClaimResponse -&gt; ShowS
+[FinalizeDeviceClaimResponse] -&gt; ShowS
+FinalizeDeviceClaimResponse -&gt; String
+(Int -&gt; FinalizeDeviceClaimResponse -&gt; ShowS)
+-&gt; (FinalizeDeviceClaimResponse -&gt; String)
+-&gt; ([FinalizeDeviceClaimResponse] -&gt; ShowS)
+-&gt; Show FinalizeDeviceClaimResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FinalizeDeviceClaimResponse] -&gt; ShowS
+$cshowList :: [FinalizeDeviceClaimResponse] -&gt; ShowS
+show :: FinalizeDeviceClaimResponse -&gt; String
+$cshow :: FinalizeDeviceClaimResponse -&gt; String
+showsPrec :: Int -&gt; FinalizeDeviceClaimResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; FinalizeDeviceClaimResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ FinalizeDeviceClaimResponse -&gt; Rep FinalizeDeviceClaimResponse x)
+-&gt; (forall x.
+    Rep FinalizeDeviceClaimResponse x -&gt; FinalizeDeviceClaimResponse)
+-&gt; Generic FinalizeDeviceClaimResponse
+forall x.
+Rep FinalizeDeviceClaimResponse x -&gt; FinalizeDeviceClaimResponse
+forall x.
+FinalizeDeviceClaimResponse -&gt; Rep FinalizeDeviceClaimResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FinalizeDeviceClaimResponse x -&gt; FinalizeDeviceClaimResponse
+$cfrom :: forall x.
+FinalizeDeviceClaimResponse -&gt; Rep FinalizeDeviceClaimResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'FinalizeDeviceClaimResponse' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'state', 'finalizeDeviceClaimResponse_state' - The device\'s final claim state.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'finalizeDeviceClaimResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#newFinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">newFinalizeDeviceClaimResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="newFinalizeDeviceClaimResponse"><span class="annot"><span class="annottext">newFinalizeDeviceClaimResponse :: Int -&gt; FinalizeDeviceClaimResponse
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#newFinalizeDeviceClaimResponse"><span class="hs-identifier hs-var hs-var">newFinalizeDeviceClaimResponse</span></a></span></span><span> </span><span id="local-6989586621679155326"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">FinalizeDeviceClaimResponse' :: Maybe Text -&gt; Int -&gt; FinalizeDeviceClaimResponse
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:FinalizeDeviceClaimResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3Astate%3AFinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:FinalizeDeviceClaimResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3AhttpStatus%3AFinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The device\'s final claim state.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaimResponse_state"><span class="hs-identifier hs-type">finalizeDeviceClaimResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="finalizeDeviceClaimResponse_state"><span class="annot"><span class="annottext">finalizeDeviceClaimResponse_state :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FinalizeDeviceClaimResponse -&gt; f FinalizeDeviceClaimResponse
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaimResponse_state"><span class="hs-identifier hs-var hs-var">finalizeDeviceClaimResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FinalizeDeviceClaimResponse -&gt; Maybe Text)
+-&gt; (FinalizeDeviceClaimResponse
+    -&gt; Maybe Text -&gt; FinalizeDeviceClaimResponse)
+-&gt; Lens
+     FinalizeDeviceClaimResponse
+     FinalizeDeviceClaimResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155325"><span class="annot"><span class="annottext">Maybe Text
+state :: Maybe Text
+$sel:state:FinalizeDeviceClaimResponse' :: FinalizeDeviceClaimResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679155325"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155325"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155324"><span class="annot"><span class="annottext">s :: FinalizeDeviceClaimResponse
+</span><a href="#local-6989586621679155324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FinalizeDeviceClaimResponse
+</span><a href="#local-6989586621679155324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:FinalizeDeviceClaimResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3Astate%3AFinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaimResponse_httpStatus"><span class="hs-identifier hs-type">finalizeDeviceClaimResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span id="finalizeDeviceClaimResponse_httpStatus"><span class="annot"><span class="annottext">finalizeDeviceClaimResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; FinalizeDeviceClaimResponse -&gt; f FinalizeDeviceClaimResponse
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#finalizeDeviceClaimResponse_httpStatus"><span class="hs-identifier hs-var hs-var">finalizeDeviceClaimResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FinalizeDeviceClaimResponse -&gt; Int)
+-&gt; (FinalizeDeviceClaimResponse
+    -&gt; Int -&gt; FinalizeDeviceClaimResponse)
+-&gt; Lens
+     FinalizeDeviceClaimResponse FinalizeDeviceClaimResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155322"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:FinalizeDeviceClaimResponse' :: FinalizeDeviceClaimResponse -&gt; Int
+</span><a href="#local-6989586621679155322"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155322"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155321"><span class="annot"><span class="annottext">s :: FinalizeDeviceClaimResponse
+</span><a href="#local-6989586621679155321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155320"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FinalizeDeviceClaimResponse
+</span><a href="#local-6989586621679155321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:FinalizeDeviceClaimResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#%24sel%3AhttpStatus%3AFinalizeDeviceClaimResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.FinalizeDeviceClaim.html#FinalizeDeviceClaimResponse"><span class="hs-identifier hs-type">FinalizeDeviceClaimResponse</span></a></span></span><span>
+</span><span id="line-185"></span></pre></body></html>

@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a @BatchGetDeploymentGroups@ operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newBatchGetDeploymentGroups' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679326682"><span id="local-6989586621679326683"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDeploymentGroups"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-var">BatchGetDeploymentGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDeploymentGroups%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-var">BatchGetDeploymentGroups'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679326691"><span id="local-6989586621679326692"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDeploymentGroups"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-var">BatchGetDeploymentGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDeploymentGroups%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-var">BatchGetDeploymentGroups'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of an AWS CodeDeploy application associated with the applicable</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- IAM user or AWS account.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AapplicationName%3ABatchGetDeploymentGroups%27"><span class="annot"><span class="annottext">BatchGetDeploymentGroups -&gt; Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AdeploymentGroupNames%3ABatchGetDeploymentGroups%27"><span class="annot"><span class="annottext">BatchGetDeploymentGroups -&gt; [Text]
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AdeploymentGroupNames%3ABatchGetDeploymentGroups%27"><span class="hs-identifier hs-var hs-var">deploymentGroupNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326675"><span id="local-6989586621679326677"><span class="annot"><span class="annottext">BatchGetDeploymentGroups -&gt; BatchGetDeploymentGroups -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326684"><span id="local-6989586621679326686"><span class="annot"><span class="annottext">BatchGetDeploymentGroups -&gt; BatchGetDeploymentGroups -&gt; Bool
 (BatchGetDeploymentGroups -&gt; BatchGetDeploymentGroups -&gt; Bool)
 -&gt; (BatchGetDeploymentGroups -&gt; BatchGetDeploymentGroups -&gt; Bool)
 -&gt; Eq BatchGetDeploymentGroups
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetDeploymentGroups -&gt; BatchGetDeploymentGroups -&gt; Bool
 == :: BatchGetDeploymentGroups -&gt; BatchGetDeploymentGroups -&gt; Bool
 $c== :: BatchGetDeploymentGroups -&gt; BatchGetDeploymentGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326666"><span id="local-6989586621679326668"><span id="local-6989586621679326670"><span id="local-6989586621679326672"><span class="annot"><span class="annottext">ReadPrec [BatchGetDeploymentGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326675"><span id="local-6989586621679326677"><span id="local-6989586621679326679"><span id="local-6989586621679326681"><span class="annot"><span class="annottext">ReadPrec [BatchGetDeploymentGroups]
 ReadPrec BatchGetDeploymentGroups
 Int -&gt; ReadS BatchGetDeploymentGroups
 ReadS [BatchGetDeploymentGroups]
@@ -89,7 +89,7 @@ readList :: ReadS [BatchGetDeploymentGroups]
 $creadList :: ReadS [BatchGetDeploymentGroups]
 readsPrec :: Int -&gt; ReadS BatchGetDeploymentGroups
 $creadsPrec :: Int -&gt; ReadS BatchGetDeploymentGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326659"><span id="local-6989586621679326661"><span id="local-6989586621679326663"><span class="annot"><span class="annottext">Int -&gt; BatchGetDeploymentGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326668"><span id="local-6989586621679326670"><span id="local-6989586621679326672"><span class="annot"><span class="annottext">Int -&gt; BatchGetDeploymentGroups -&gt; ShowS
 [BatchGetDeploymentGroups] -&gt; ShowS
 BatchGetDeploymentGroups -&gt; String
 (Int -&gt; BatchGetDeploymentGroups -&gt; ShowS)
@@ -138,14 +138,14 @@ BatchGetDeploymentGroups -&gt; Rep BatchGetDeploymentGroups x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span>
 </span><span id="line-79"></span><span id="newBatchGetDeploymentGroups"><span class="annot"><span class="annottext">newBatchGetDeploymentGroups :: Text -&gt; BatchGetDeploymentGroups
-</span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#newBatchGetDeploymentGroups"><span class="hs-identifier hs-var hs-var">newBatchGetDeploymentGroups</span></a></span></span><span> </span><span id="local-6989586621679326654"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326654"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#newBatchGetDeploymentGroups"><span class="hs-identifier hs-var hs-var">newBatchGetDeploymentGroups</span></a></span></span><span> </span><span id="local-6989586621679326663"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326663"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">BatchGetDeploymentGroups' :: Text -&gt; [Text] -&gt; BatchGetDeploymentGroups
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetDeploymentGroups' :: Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AapplicationName%3ABatchGetDeploymentGroups%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326654"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326663"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentGroupNames:BatchGetDeploymentGroups' :: [Text]
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AdeploymentGroupNames%3ABatchGetDeploymentGroups%27"><span class="hs-identifier hs-var">deploymentGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -161,16 +161,16 @@ forall a. Monoid a =&gt; a
 -&gt; (BatchGetDeploymentGroups -&gt; Text -&gt; BatchGetDeploymentGroups)
 -&gt; Lens BatchGetDeploymentGroups BatchGetDeploymentGroups Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326651"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326660"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:BatchGetDeploymentGroups' :: BatchGetDeploymentGroups -&gt; Text
-</span><a href="#local-6989586621679326651"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326651"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326650"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroups
-</span><a href="#local-6989586621679326650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326649"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroups
-</span><a href="#local-6989586621679326650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetDeploymentGroups' :: Text
+</span><a href="#local-6989586621679326660"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326660"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326659"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroups
+</span><a href="#local-6989586621679326659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679326658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroups
+</span><a href="#local-6989586621679326659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetDeploymentGroups' :: Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AapplicationName%3ABatchGetDeploymentGroups%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The names of the deployment groups.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#batchGetDeploymentGroups_deploymentGroupNames"><span class="hs-identifier hs-type">batchGetDeploymentGroups_deploymentGroupNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -181,16 +181,16 @@ $sel:applicationName:BatchGetDeploymentGroups' :: BatchGetDeploymentGroups -&gt;
 -&gt; Lens
      BatchGetDeploymentGroups BatchGetDeploymentGroups [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326648"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326657"><span class="annot"><span class="annottext">[Text]
 deploymentGroupNames :: [Text]
 $sel:deploymentGroupNames:BatchGetDeploymentGroups' :: BatchGetDeploymentGroups -&gt; [Text]
-</span><a href="#local-6989586621679326648"><span class="hs-identifier hs-var hs-var">deploymentGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679326648"><span class="hs-identifier hs-var">deploymentGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326647"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroups
-</span><a href="#local-6989586621679326647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326646"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679326646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroups
-</span><a href="#local-6989586621679326647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentGroupNames:BatchGetDeploymentGroups' :: [Text]
+</span><a href="#local-6989586621679326657"><span class="hs-identifier hs-var hs-var">deploymentGroupNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679326657"><span class="hs-identifier hs-var">deploymentGroupNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326656"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroups
+</span><a href="#local-6989586621679326656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326655"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679326655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroups
+</span><a href="#local-6989586621679326656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentGroupNames:BatchGetDeploymentGroups' :: [Text]
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AdeploymentGroupNames%3ABatchGetDeploymentGroups%27"><span class="hs-identifier hs-var">deploymentGroupNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679326646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679326655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; BatchGetDeploymentGroups -&gt; f BatchGetDeploymentGroups)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -205,13 +205,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679326640"><span class="annot"><span class="annottext">request :: BatchGetDeploymentGroups -&gt; Request BatchGetDeploymentGroups
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679326649"><span class="annot"><span class="annottext">request :: BatchGetDeploymentGroups -&gt; Request BatchGetDeploymentGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchGetDeploymentGroups -&gt; Request BatchGetDeploymentGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679326636"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679326645"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetDeploymentGroups
 -&gt; ClientResponse ClientBody
@@ -237,10 +237,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326633"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679326632"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679326632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679326631"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326642"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326642"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679326641"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679326641"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679326640"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326640"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
 -&gt; Maybe Text -&gt; Int -&gt; BatchGetDeploymentGroupsResponse
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">BatchGetDeploymentGroupsResponse'</span></a></span><span>
@@ -251,7 +251,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; BatchGetDeploymentGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679326640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [DeploymentGroupInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -270,7 +270,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; BatchGetDeploymentGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679326640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,15 +283,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326633"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326642"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326622"><span id="local-6989586621679326624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326631"><span id="local-6989586621679326633"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326628"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679326615"><span class="annot"><span class="annottext">toHeaders :: BatchGetDeploymentGroups -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679326624"><span class="annot"><span class="annottext">toHeaders :: BatchGetDeploymentGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetDeploymentGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -318,15 +318,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326605"><span id="local-6989586621679326607"><span id="local-6989586621679326609"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679326603"><span class="annot"><span class="annottext">toJSON :: BatchGetDeploymentGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326600"><span id="local-6989586621679326601"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326614"><span id="local-6989586621679326616"><span id="local-6989586621679326618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679326612"><span class="annot"><span class="annottext">toJSON :: BatchGetDeploymentGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326609"><span id="local-6989586621679326610"><span class="annot"><span class="annottext">[Text]
 Text
 deploymentGroupNames :: [Text]
 applicationName :: Text
 $sel:deploymentGroupNames:BatchGetDeploymentGroups' :: BatchGetDeploymentGroups -&gt; [Text]
 $sel:applicationName:BatchGetDeploymentGroups' :: BatchGetDeploymentGroups -&gt; Text
-</span><a href="#local-6989586621679326600"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326609"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,7 +339,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;applicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326601"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679326610"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -348,20 +348,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-138"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679326600"><span class="hs-identifier hs-var">deploymentGroupNames</span></a></span><span>
+</span><a href="#local-6989586621679326609"><span class="hs-identifier hs-var">deploymentGroupNames</span></a></span><span>
 </span><span id="line-139"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679326594"><span class="annot"><span class="annottext">toPath :: BatchGetDeploymentGroups -&gt; ByteString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679326603"><span class="annot"><span class="annottext">toPath :: BatchGetDeploymentGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetDeploymentGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroups"><span class="hs-identifier hs-type">BatchGetDeploymentGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679326590"><span class="annot"><span class="annottext">toQuery :: BatchGetDeploymentGroups -&gt; QueryString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679326599"><span class="annot"><span class="annottext">toQuery :: BatchGetDeploymentGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetDeploymentGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -371,7 +371,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-149"></span><span class="hs-comment">-- | Represents the output of a @BatchGetDeploymentGroups@ operation.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- /See:/ 'newBatchGetDeploymentGroupsResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679326587"><span id="local-6989586621679326588"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDeploymentGroupsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-var">BatchGetDeploymentGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDeploymentGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">BatchGetDeploymentGroupsResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679326596"><span id="local-6989586621679326597"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetDeploymentGroupsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-var">BatchGetDeploymentGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetDeploymentGroupsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">BatchGetDeploymentGroupsResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the deployment groups.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AdeploymentGroupsInfo%3ABatchGetDeploymentGroupsResponse%27"><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse -&gt; Maybe [DeploymentGroupInfo]
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AdeploymentGroupsInfo%3ABatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var hs-var">deploymentGroupsInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentGroupInfo.html#DeploymentGroupInfo"><span class="hs-identifier hs-type">DeploymentGroupInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -382,7 +382,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetDeploymentGroupsResponse%27"><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AhttpStatus%3ABatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326580"><span id="local-6989586621679326582"><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326589"><span id="local-6989586621679326591"><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
 -&gt; BatchGetDeploymentGroupsResponse -&gt; Bool
 (BatchGetDeploymentGroupsResponse
  -&gt; BatchGetDeploymentGroupsResponse -&gt; Bool)
@@ -398,7 +398,7 @@ $c/= :: BatchGetDeploymentGroupsResponse
 -&gt; BatchGetDeploymentGroupsResponse -&gt; Bool
 $c== :: BatchGetDeploymentGroupsResponse
 -&gt; BatchGetDeploymentGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326572"><span id="local-6989586621679326574"><span id="local-6989586621679326576"><span id="local-6989586621679326578"><span class="annot"><span class="annottext">ReadPrec [BatchGetDeploymentGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326581"><span id="local-6989586621679326583"><span id="local-6989586621679326585"><span id="local-6989586621679326587"><span class="annot"><span class="annottext">ReadPrec [BatchGetDeploymentGroupsResponse]
 ReadPrec BatchGetDeploymentGroupsResponse
 Int -&gt; ReadS BatchGetDeploymentGroupsResponse
 ReadS [BatchGetDeploymentGroupsResponse]
@@ -418,7 +418,7 @@ readList :: ReadS [BatchGetDeploymentGroupsResponse]
 $creadList :: ReadS [BatchGetDeploymentGroupsResponse]
 readsPrec :: Int -&gt; ReadS BatchGetDeploymentGroupsResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetDeploymentGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326566"><span id="local-6989586621679326568"><span id="local-6989586621679326570"><span class="annot"><span class="annottext">Int -&gt; BatchGetDeploymentGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326575"><span id="local-6989586621679326577"><span id="local-6989586621679326579"><span class="annot"><span class="annottext">Int -&gt; BatchGetDeploymentGroupsResponse -&gt; ShowS
 [BatchGetDeploymentGroupsResponse] -&gt; ShowS
 BatchGetDeploymentGroupsResponse -&gt; String
 (Int -&gt; BatchGetDeploymentGroupsResponse -&gt; ShowS)
@@ -474,8 +474,8 @@ BatchGetDeploymentGroupsResponse
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newBatchGetDeploymentGroupsResponse"><span class="annot"><span class="annottext">newBatchGetDeploymentGroupsResponse :: Int -&gt; BatchGetDeploymentGroupsResponse
-</span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#newBatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetDeploymentGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679326563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#newBatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetDeploymentGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679326572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse' :: Maybe [DeploymentGroupInfo]
 -&gt; Maybe Text -&gt; Int -&gt; BatchGetDeploymentGroupsResponse
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span>
@@ -490,7 +490,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetDeploymentGroupsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AhttpStatus%3ABatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326563"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679326572"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Information about the deployment groups.</span><span>
@@ -507,16 +507,16 @@ forall a. Maybe a
      (Maybe [DeploymentGroupInfo])
      (Maybe [DeploymentGroupInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326562"><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326571"><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
 deploymentGroupsInfo :: Maybe [DeploymentGroupInfo]
 $sel:deploymentGroupsInfo:BatchGetDeploymentGroupsResponse' :: BatchGetDeploymentGroupsResponse -&gt; Maybe [DeploymentGroupInfo]
-</span><a href="#local-6989586621679326562"><span class="hs-identifier hs-var hs-var">deploymentGroupsInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
-</span><a href="#local-6989586621679326562"><span class="hs-identifier hs-var">deploymentGroupsInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326561"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroupsResponse
-</span><a href="#local-6989586621679326561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326560"><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
-</span><a href="#local-6989586621679326560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
-</span><a href="#local-6989586621679326561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentGroupsInfo:BatchGetDeploymentGroupsResponse' :: Maybe [DeploymentGroupInfo]
+</span><a href="#local-6989586621679326571"><span class="hs-identifier hs-var hs-var">deploymentGroupsInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
+</span><a href="#local-6989586621679326571"><span class="hs-identifier hs-var">deploymentGroupsInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326570"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroupsResponse
+</span><a href="#local-6989586621679326570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326569"><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
+</span><a href="#local-6989586621679326569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
+</span><a href="#local-6989586621679326570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentGroupsInfo:BatchGetDeploymentGroupsResponse' :: Maybe [DeploymentGroupInfo]
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AdeploymentGroupsInfo%3ABatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">deploymentGroupsInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeploymentGroupInfo]
-</span><a href="#local-6989586621679326560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeploymentGroupInfo] -&gt; f (Maybe [DeploymentGroupInfo]))
+</span><a href="#local-6989586621679326569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeploymentGroupInfo] -&gt; f (Maybe [DeploymentGroupInfo]))
  -&gt; BatchGetDeploymentGroupsResponse
  -&gt; f BatchGetDeploymentGroupsResponse)
 -&gt; ((Maybe [DeploymentGroupInfo]
@@ -561,16 +561,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326558"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326567"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:BatchGetDeploymentGroupsResponse' :: BatchGetDeploymentGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679326558"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326558"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326557"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroupsResponse
-</span><a href="#local-6989586621679326557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326556"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
-</span><a href="#local-6989586621679326557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetDeploymentGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679326567"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326567"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326566"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroupsResponse
+</span><a href="#local-6989586621679326566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679326565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
+</span><a href="#local-6989586621679326566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetDeploymentGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AerrorMessage%3ABatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#batchGetDeploymentGroupsResponse_httpStatus"><span class="hs-identifier hs-type">batchGetDeploymentGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -586,18 +586,18 @@ $sel:errorMessage:BatchGetDeploymentGroupsResponse' :: BatchGetDeploymentGroupsR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326555"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326564"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetDeploymentGroupsResponse' :: BatchGetDeploymentGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679326555"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326555"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326554"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroupsResponse
-</span><a href="#local-6989586621679326554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326553"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
-</span><a href="#local-6989586621679326554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetDeploymentGroupsResponse' :: Int
+</span><a href="#local-6989586621679326564"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326564"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326563"><span class="annot"><span class="annottext">s :: BatchGetDeploymentGroupsResponse
+</span><a href="#local-6989586621679326563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326562"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679326562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetDeploymentGroupsResponse
+</span><a href="#local-6989586621679326563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetDeploymentGroupsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#%24sel%3AhttpStatus%3ABatchGetDeploymentGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621679326551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679326560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-201"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetDeploymentGroups.html#BatchGetDeploymentGroupsResponse"><span class="hs-identifier hs-type">BatchGetDeploymentGroupsResponse</span></a></span></span><span>
 </span><span id="line-202"></span></pre></body></html>

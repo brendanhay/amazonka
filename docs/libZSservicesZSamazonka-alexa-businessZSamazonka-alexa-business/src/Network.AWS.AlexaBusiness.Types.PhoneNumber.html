@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- number type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPhoneNumber' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679370360"><span id="local-6989586621679370361"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhoneNumber"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-var">PhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumber%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-var">PhoneNumber'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679370369"><span id="local-6989586621679370370"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhoneNumber"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-var">PhoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumber%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-var">PhoneNumber'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The raw value of the phone number.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Anumber%3APhoneNumber%27"><span class="annot"><span class="annottext">PhoneNumber -&gt; Sensitive Text
 </span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#%24sel%3Anumber%3APhoneNumber%27"><span class="hs-identifier hs-var hs-var">number</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Atype%27%3APhoneNumber%27"><span class="annot"><span class="annottext">PhoneNumber -&gt; Sensitive PhoneNumberType
 </span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#%24sel%3Atype%27%3APhoneNumber%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370353"><span id="local-6989586621679370355"><span class="annot"><span class="annottext">PhoneNumber -&gt; PhoneNumber -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370362"><span id="local-6989586621679370364"><span class="annot"><span class="annottext">PhoneNumber -&gt; PhoneNumber -&gt; Bool
 (PhoneNumber -&gt; PhoneNumber -&gt; Bool)
 -&gt; (PhoneNumber -&gt; PhoneNumber -&gt; Bool) -&gt; Eq PhoneNumber
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PhoneNumber -&gt; PhoneNumber -&gt; Bool
 == :: PhoneNumber -&gt; PhoneNumber -&gt; Bool
 $c== :: PhoneNumber -&gt; PhoneNumber -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370346"><span id="local-6989586621679370348"><span id="local-6989586621679370350"><span class="annot"><span class="annottext">Int -&gt; PhoneNumber -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370355"><span id="local-6989586621679370357"><span id="local-6989586621679370359"><span class="annot"><span class="annottext">Int -&gt; PhoneNumber -&gt; ShowS
 [PhoneNumber] -&gt; ShowS
 PhoneNumber -&gt; String
 (Int -&gt; PhoneNumber -&gt; ShowS)
@@ -88,9 +88,9 @@ $cfrom :: forall x. PhoneNumber -&gt; Rep PhoneNumber x
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumberType.html#PhoneNumberType"><span class="hs-identifier hs-type">PhoneNumberType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span>
 </span><span id="line-56"></span><span id="newPhoneNumber"><span class="annot"><span class="annottext">newPhoneNumber :: Text -&gt; PhoneNumberType -&gt; PhoneNumber
-</span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#newPhoneNumber"><span class="hs-identifier hs-var hs-var">newPhoneNumber</span></a></span></span><span> </span><span id="local-6989586621679370340"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370340"><span class="hs-identifier hs-var">pNumber_</span></a></span></span><span> </span><span id="local-6989586621679370339"><span class="annot"><span class="annottext">PhoneNumberType
-</span><a href="#local-6989586621679370339"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#newPhoneNumber"><span class="hs-identifier hs-var hs-var">newPhoneNumber</span></a></span></span><span> </span><span id="local-6989586621679370349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679370349"><span class="hs-identifier hs-var">pNumber_</span></a></span></span><span> </span><span id="local-6989586621679370348"><span class="annot"><span class="annottext">PhoneNumberType
+</span><a href="#local-6989586621679370348"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">PhoneNumber' :: Sensitive Text -&gt; Sensitive PhoneNumberType -&gt; PhoneNumber
 </span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:number:PhoneNumber' :: Sensitive Text
@@ -103,7 +103,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679370340"><span class="hs-identifier hs-var">pNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370349"><span class="hs-identifier hs-var">pNumber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':PhoneNumber' :: Sensitive PhoneNumberType
 </span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#%24sel%3Atype%27%3APhoneNumber%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged PhoneNumberType (Identity PhoneNumberType)
 -&gt; Tagged
@@ -115,7 +115,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; PhoneNumberType -&gt; Sensitive PhoneNumberType
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">PhoneNumberType
-</span><a href="#local-6989586621679370339"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679370348"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The raw value of the phone number.</span><span>
@@ -125,16 +125,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (PhoneNumber -&gt; Sensitive Text -&gt; PhoneNumber)
 -&gt; Lens PhoneNumber PhoneNumber (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370333"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370342"><span class="annot"><span class="annottext">Sensitive Text
 number :: Sensitive Text
 $sel:number:PhoneNumber' :: PhoneNumber -&gt; Sensitive Text
-</span><a href="#local-6989586621679370333"><span class="hs-identifier hs-var hs-var">number</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679370333"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370332"><span class="annot"><span class="annottext">s :: PhoneNumber
-</span><a href="#local-6989586621679370332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370331"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679370331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumber
-</span><a href="#local-6989586621679370332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:number:PhoneNumber' :: Sensitive Text
+</span><a href="#local-6989586621679370342"><span class="hs-identifier hs-var hs-var">number</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679370342"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370341"><span class="annot"><span class="annottext">s :: PhoneNumber
+</span><a href="#local-6989586621679370341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370340"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679370340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumber
+</span><a href="#local-6989586621679370341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:number:PhoneNumber' :: Sensitive Text
 </span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#%24sel%3Anumber%3APhoneNumber%27"><span class="hs-identifier hs-var">number</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679370331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679370340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; PhoneNumber -&gt; f PhoneNumber)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -157,16 +157,16 @@ forall a. Iso' (Sensitive a) a
      (Sensitive PhoneNumberType)
      (Sensitive PhoneNumberType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370328"><span class="annot"><span class="annottext">Sensitive PhoneNumberType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370337"><span class="annot"><span class="annottext">Sensitive PhoneNumberType
 type' :: Sensitive PhoneNumberType
 $sel:type':PhoneNumber' :: PhoneNumber -&gt; Sensitive PhoneNumberType
-</span><a href="#local-6989586621679370328"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive PhoneNumberType
-</span><a href="#local-6989586621679370328"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370327"><span class="annot"><span class="annottext">s :: PhoneNumber
-</span><a href="#local-6989586621679370327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370326"><span class="annot"><span class="annottext">Sensitive PhoneNumberType
-</span><a href="#local-6989586621679370326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumber
-</span><a href="#local-6989586621679370327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PhoneNumber' :: Sensitive PhoneNumberType
+</span><a href="#local-6989586621679370337"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive PhoneNumberType
+</span><a href="#local-6989586621679370337"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370336"><span class="annot"><span class="annottext">s :: PhoneNumber
+</span><a href="#local-6989586621679370336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370335"><span class="annot"><span class="annottext">Sensitive PhoneNumberType
+</span><a href="#local-6989586621679370335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumber
+</span><a href="#local-6989586621679370336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PhoneNumber' :: Sensitive PhoneNumberType
 </span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#%24sel%3Atype%27%3APhoneNumber%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive PhoneNumberType
-</span><a href="#local-6989586621679370326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive PhoneNumberType -&gt; f (Sensitive PhoneNumberType))
+</span><a href="#local-6989586621679370335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive PhoneNumberType -&gt; f (Sensitive PhoneNumberType))
  -&gt; PhoneNumber -&gt; f PhoneNumber)
 -&gt; ((PhoneNumberType -&gt; f PhoneNumberType)
     -&gt; Sensitive PhoneNumberType -&gt; f (Sensitive PhoneNumberType))
@@ -179,8 +179,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370323"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679370321"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhoneNumber
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370332"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679370330"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhoneNumber
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PhoneNumber) -&gt; Value -&gt; Parser PhoneNumber
@@ -188,8 +188,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370318"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370318"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370327"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Sensitive Text -&gt; Sensitive PhoneNumberType -&gt; PhoneNumber
 </span><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-var">PhoneNumber'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Sensitive PhoneNumberType -&gt; PhoneNumber)
@@ -197,32 +197,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Sensitive PhoneNumberType -&gt; PhoneNumber)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+</span><a href="#local-6989586621679370327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Number&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Sensitive PhoneNumberType -&gt; PhoneNumber)
 -&gt; Parser (Sensitive PhoneNumberType) -&gt; Parser PhoneNumber
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370318"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive PhoneNumberType)
+</span><a href="#local-6989586621679370327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive PhoneNumberType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370312"><span id="local-6989586621679370314"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370321"><span id="local-6989586621679370323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370301"><span id="local-6989586621679370303"><span id="local-6989586621679370305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679370299"><span class="annot"><span class="annottext">toJSON :: PhoneNumber -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370296"><span id="local-6989586621679370297"><span class="annot"><span class="annottext">Sensitive Text
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370310"><span id="local-6989586621679370312"><span id="local-6989586621679370314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679370308"><span class="annot"><span class="annottext">toJSON :: PhoneNumber -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber%27"><span class="hs-identifier hs-type">PhoneNumber'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370305"><span id="local-6989586621679370306"><span class="annot"><span class="annottext">Sensitive Text
 Sensitive PhoneNumberType
 type' :: Sensitive PhoneNumberType
 number :: Sensitive Text
 $sel:type':PhoneNumber' :: PhoneNumber -&gt; Sensitive PhoneNumberType
 $sel:number:PhoneNumber' :: PhoneNumber -&gt; Sensitive Text
-</span><a href="#local-6989586621679370296"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679370305"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -234,14 +234,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Number&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679370297"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370306"><span class="hs-identifier hs-var">number</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive PhoneNumberType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive PhoneNumberType
-</span><a href="#local-6989586621679370296"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370305"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

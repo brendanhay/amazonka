@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- in the //Key Management Service Developer Guide// .</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newGrantConstraints' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679247925"><span id="local-6989586621679247926"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantConstraints"><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-var">GrantConstraints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantConstraints%27"><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-var">GrantConstraints'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679247934"><span id="local-6989586621679247935"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantConstraints"><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-var">GrantConstraints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantConstraints%27"><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-var">GrantConstraints'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of key-value pairs that must match the encryption context in the</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation&gt;</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- request. The grant allows the operation only when the encryption context</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AencryptionContextSubset%3AGrantConstraints%27"><span class="annot"><span class="annottext">GrantConstraints -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.Types.GrantConstraints.html#%24sel%3AencryptionContextSubset%3AGrantConstraints%27"><span class="hs-identifier hs-var hs-var">encryptionContextSubset</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247918"><span id="local-6989586621679247920"><span class="annot"><span class="annottext">GrantConstraints -&gt; GrantConstraints -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247927"><span id="local-6989586621679247929"><span class="annot"><span class="annottext">GrantConstraints -&gt; GrantConstraints -&gt; Bool
 (GrantConstraints -&gt; GrantConstraints -&gt; Bool)
 -&gt; (GrantConstraints -&gt; GrantConstraints -&gt; Bool)
 -&gt; Eq GrantConstraints
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GrantConstraints -&gt; GrantConstraints -&gt; Bool
 == :: GrantConstraints -&gt; GrantConstraints -&gt; Bool
 $c== :: GrantConstraints -&gt; GrantConstraints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247909"><span id="local-6989586621679247911"><span id="local-6989586621679247913"><span id="local-6989586621679247915"><span class="annot"><span class="annottext">ReadPrec [GrantConstraints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247918"><span id="local-6989586621679247920"><span id="local-6989586621679247922"><span id="local-6989586621679247924"><span class="annot"><span class="annottext">ReadPrec [GrantConstraints]
 ReadPrec GrantConstraints
 Int -&gt; ReadS GrantConstraints
 ReadS [GrantConstraints]
@@ -99,7 +99,7 @@ readList :: ReadS [GrantConstraints]
 $creadList :: ReadS [GrantConstraints]
 readsPrec :: Int -&gt; ReadS GrantConstraints
 $creadsPrec :: Int -&gt; ReadS GrantConstraints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247902"><span id="local-6989586621679247904"><span id="local-6989586621679247906"><span class="annot"><span class="annottext">Int -&gt; GrantConstraints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247911"><span id="local-6989586621679247913"><span id="local-6989586621679247915"><span class="annot"><span class="annottext">Int -&gt; GrantConstraints -&gt; ShowS
 [GrantConstraints] -&gt; ShowS
 GrantConstraints -&gt; String
 (Int -&gt; GrantConstraints -&gt; ShowS)
@@ -180,16 +180,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247893"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247902"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 encryptionContextEquals :: Maybe (HashMap Text Text)
 $sel:encryptionContextEquals:GrantConstraints' :: GrantConstraints -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247893"><span class="hs-identifier hs-var hs-var">encryptionContextEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247893"><span class="hs-identifier hs-var">encryptionContextEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247892"><span class="annot"><span class="annottext">s :: GrantConstraints
-</span><a href="#local-6989586621679247892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247891"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantConstraints
-</span><a href="#local-6989586621679247892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContextEquals:GrantConstraints' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679247902"><span class="hs-identifier hs-var hs-var">encryptionContextEquals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679247902"><span class="hs-identifier hs-var">encryptionContextEquals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247901"><span class="annot"><span class="annottext">s :: GrantConstraints
+</span><a href="#local-6989586621679247901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247900"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679247900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantConstraints
+</span><a href="#local-6989586621679247901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContextEquals:GrantConstraints' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.Types.GrantConstraints.html#%24sel%3AencryptionContextEquals%3AGrantConstraints%27"><span class="hs-identifier hs-var">encryptionContextEquals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679247900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GrantConstraints -&gt; f GrantConstraints)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -236,16 +236,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247886"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247895"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 encryptionContextSubset :: Maybe (HashMap Text Text)
 $sel:encryptionContextSubset:GrantConstraints' :: GrantConstraints -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247886"><span class="hs-identifier hs-var hs-var">encryptionContextSubset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247886"><span class="hs-identifier hs-var">encryptionContextSubset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247885"><span class="annot"><span class="annottext">s :: GrantConstraints
-</span><a href="#local-6989586621679247885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247884"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantConstraints
-</span><a href="#local-6989586621679247885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContextSubset:GrantConstraints' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679247895"><span class="hs-identifier hs-var hs-var">encryptionContextSubset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679247895"><span class="hs-identifier hs-var">encryptionContextSubset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247894"><span class="annot"><span class="annottext">s :: GrantConstraints
+</span><a href="#local-6989586621679247894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247893"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679247893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantConstraints
+</span><a href="#local-6989586621679247894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionContextSubset:GrantConstraints' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.KMS.Types.GrantConstraints.html#%24sel%3AencryptionContextSubset%3AGrantConstraints%27"><span class="hs-identifier hs-var">encryptionContextSubset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679247893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GrantConstraints -&gt; f GrantConstraints)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -274,8 +274,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247881"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679247879"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GrantConstraints
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247890"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679247888"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GrantConstraints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GrantConstraints)
@@ -285,8 +285,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GrantConstraints&quot;</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247876"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247885"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Maybe (HashMap Text Text) -&gt; GrantConstraints
 </span><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-var">GrantConstraints'</span></a></span><span>
@@ -296,7 +296,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; GrantConstraints)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679247885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionContextEquals&quot;</span></span><span>
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser GrantConstraints
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679247885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionContextSubset&quot;</span></span><span>
@@ -324,18 +324,18 @@ forall a. Monoid a =&gt; a
 </span><span id="line-130"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247869"><span id="local-6989586621679247871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247878"><span id="local-6989586621679247880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247858"><span id="local-6989586621679247860"><span id="local-6989586621679247862"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679247856"><span class="annot"><span class="annottext">toJSON :: GrantConstraints -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247853"><span id="local-6989586621679247854"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247867"><span id="local-6989586621679247869"><span id="local-6989586621679247871"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints"><span class="hs-identifier hs-type">GrantConstraints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679247865"><span class="annot"><span class="annottext">toJSON :: GrantConstraints -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.GrantConstraints.html#GrantConstraints%27"><span class="hs-identifier hs-type">GrantConstraints'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247862"><span id="local-6989586621679247863"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 encryptionContextSubset :: Maybe (HashMap Text Text)
 encryptionContextEquals :: Maybe (HashMap Text Text)
 $sel:encryptionContextSubset:GrantConstraints' :: GrantConstraints -&gt; Maybe (HashMap Text Text)
 $sel:encryptionContextEquals:GrantConstraints' :: GrantConstraints -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247853"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679247862"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -349,7 +349,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247854"><span class="hs-identifier hs-var">encryptionContextEquals</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679247863"><span class="hs-identifier hs-var">encryptionContextEquals</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionContextSubset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -358,7 +358,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679247853"><span class="hs-identifier hs-var">encryptionContextSubset</span></a></span><span>
+</span><a href="#local-6989586621679247862"><span class="hs-identifier hs-var">encryptionContextSubset</span></a></span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span></pre></body></html>

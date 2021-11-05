@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- @TIMED_OUT@.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTimeoutConfig' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679803682"><span id="local-6989586621679803683"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeoutConfig"><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-var">TimeoutConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeoutConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-var">TimeoutConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679803691"><span id="local-6989586621679803692"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimeoutConfig"><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-var">TimeoutConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimeoutConfig%27"><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-var">TimeoutConfig'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the amount of time, in minutes, this device has to finish</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- execution of this job. The timeout interval can be anywhere between 1</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- minute and 7 days (1 to 10080 minutes). The in progress timer can\'t be</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AinProgressTimeoutInMinutes%3ATimeoutConfig%27"><span class="annot"><span class="annottext">TimeoutConfig -&gt; Maybe Integer
 </span><a href="Network.AWS.IoT.Types.TimeoutConfig.html#%24sel%3AinProgressTimeoutInMinutes%3ATimeoutConfig%27"><span class="hs-identifier hs-var hs-var">inProgressTimeoutInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803676"><span id="local-6989586621679803678"><span class="annot"><span class="annottext">TimeoutConfig -&gt; TimeoutConfig -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679803685"><span id="local-6989586621679803687"><span class="annot"><span class="annottext">TimeoutConfig -&gt; TimeoutConfig -&gt; Bool
 (TimeoutConfig -&gt; TimeoutConfig -&gt; Bool)
 -&gt; (TimeoutConfig -&gt; TimeoutConfig -&gt; Bool) -&gt; Eq TimeoutConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimeoutConfig -&gt; TimeoutConfig -&gt; Bool
 == :: TimeoutConfig -&gt; TimeoutConfig -&gt; Bool
 $c== :: TimeoutConfig -&gt; TimeoutConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803667"><span id="local-6989586621679803669"><span id="local-6989586621679803671"><span id="local-6989586621679803673"><span class="annot"><span class="annottext">ReadPrec [TimeoutConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803676"><span id="local-6989586621679803678"><span id="local-6989586621679803680"><span id="local-6989586621679803682"><span class="annot"><span class="annottext">ReadPrec [TimeoutConfig]
 ReadPrec TimeoutConfig
 Int -&gt; ReadS TimeoutConfig
 ReadS [TimeoutConfig]
@@ -69,7 +69,7 @@ readList :: ReadS [TimeoutConfig]
 $creadList :: ReadS [TimeoutConfig]
 readsPrec :: Int -&gt; ReadS TimeoutConfig
 $creadsPrec :: Int -&gt; ReadS TimeoutConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803660"><span id="local-6989586621679803662"><span id="local-6989586621679803664"><span class="annot"><span class="annottext">Int -&gt; TimeoutConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679803669"><span id="local-6989586621679803671"><span id="local-6989586621679803673"><span class="annot"><span class="annottext">Int -&gt; TimeoutConfig -&gt; ShowS
 [TimeoutConfig] -&gt; ShowS
 TimeoutConfig -&gt; String
 (Int -&gt; TimeoutConfig -&gt; ShowS)
@@ -137,19 +137,19 @@ forall a. Maybe a
 -&gt; (TimeoutConfig -&gt; Maybe Integer -&gt; TimeoutConfig)
 -&gt; Lens TimeoutConfig TimeoutConfig (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-type">TimeoutConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803651"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-type">TimeoutConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803660"><span class="annot"><span class="annottext">Maybe Integer
 inProgressTimeoutInMinutes :: Maybe Integer
 $sel:inProgressTimeoutInMinutes:TimeoutConfig' :: TimeoutConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679803651"><span class="hs-identifier hs-var hs-var">inProgressTimeoutInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679803651"><span class="hs-identifier hs-var">inProgressTimeoutInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803650"><span class="annot"><span class="annottext">s :: TimeoutConfig
-</span><a href="#local-6989586621679803650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-type">TimeoutConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803649"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679803649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeoutConfig
-</span><a href="#local-6989586621679803650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgressTimeoutInMinutes:TimeoutConfig' :: Maybe Integer
+</span><a href="#local-6989586621679803660"><span class="hs-identifier hs-var hs-var">inProgressTimeoutInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679803660"><span class="hs-identifier hs-var">inProgressTimeoutInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679803659"><span class="annot"><span class="annottext">s :: TimeoutConfig
+</span><a href="#local-6989586621679803659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-type">TimeoutConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679803658"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679803658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimeoutConfig
+</span><a href="#local-6989586621679803659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgressTimeoutInMinutes:TimeoutConfig' :: Maybe Integer
 </span><a href="Network.AWS.IoT.Types.TimeoutConfig.html#%24sel%3AinProgressTimeoutInMinutes%3ATimeoutConfig%27"><span class="hs-identifier hs-var">inProgressTimeoutInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679803649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679803658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803646"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679803644"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeoutConfig
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803655"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679803653"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TimeoutConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TimeoutConfig)
@@ -159,30 +159,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TimeoutConfig&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803641"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679803650"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679803650"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; TimeoutConfig
 </span><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-var">TimeoutConfig'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; TimeoutConfig)
 -&gt; Parser (Maybe Integer) -&gt; Parser TimeoutConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679803641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679803650"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;inProgressTimeoutInMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803635"><span id="local-6989586621679803637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803644"><span id="local-6989586621679803646"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803641"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803624"><span id="local-6989586621679803626"><span id="local-6989586621679803628"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679803622"><span class="annot"><span class="annottext">toJSON :: TimeoutConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-type">TimeoutConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803620"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679803633"><span id="local-6989586621679803635"><span id="local-6989586621679803637"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig"><span class="hs-identifier hs-type">TimeoutConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679803631"><span class="annot"><span class="annottext">toJSON :: TimeoutConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.TimeoutConfig.html#TimeoutConfig%27"><span class="hs-identifier hs-type">TimeoutConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679803629"><span class="annot"><span class="annottext">Maybe Integer
 inProgressTimeoutInMinutes :: Maybe Integer
 $sel:inProgressTimeoutInMinutes:TimeoutConfig' :: TimeoutConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679803620"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679803629"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -195,7 +195,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">(Integer -&gt; Pair) -&gt; Maybe Integer -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679803620"><span class="hs-identifier hs-var">inProgressTimeoutInMinutes</span></a></span><span>
+</span><a href="#local-6989586621679803629"><span class="hs-identifier hs-var">inProgressTimeoutInMinutes</span></a></span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

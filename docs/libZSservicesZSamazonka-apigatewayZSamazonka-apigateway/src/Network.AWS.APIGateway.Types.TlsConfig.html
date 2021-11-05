@@ -24,7 +24,7 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | /See:/ 'newTlsConfig' smart constructor.</span><span>
-</span><span id="line-27"></span><span id="local-6989586621679370647"><span id="local-6989586621679370648"></span></span><span class="hs-keyword">data</span><span> </span><span id="TlsConfig"><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-var">TlsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TlsConfig%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-var">TlsConfig'</span></a></span></span><span>
+</span><span id="line-27"></span><span id="local-6989586621679370656"><span id="local-6989586621679370657"></span></span><span class="hs-keyword">data</span><span> </span><span id="TlsConfig"><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-var">TlsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TlsConfig%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-var">TlsConfig'</span></a></span></span><span>
 </span><span id="line-28"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether or not API Gateway skips verification that the</span><span>
 </span><span id="line-29"></span><span>    </span><span class="hs-comment">-- certificate for an integration endpoint is issued by a</span><span>
 </span><span id="line-30"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html supported certificate authority&gt;.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AinsecureSkipVerification%3ATlsConfig%27"><span class="annot"><span class="annottext">TlsConfig -&gt; Maybe Bool
 </span><a href="Network.AWS.APIGateway.Types.TlsConfig.html#%24sel%3AinsecureSkipVerification%3ATlsConfig%27"><span class="hs-identifier hs-var hs-var">insecureSkipVerification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370641"><span id="local-6989586621679370643"><span class="annot"><span class="annottext">TlsConfig -&gt; TlsConfig -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370650"><span id="local-6989586621679370652"><span class="annot"><span class="annottext">TlsConfig -&gt; TlsConfig -&gt; Bool
 (TlsConfig -&gt; TlsConfig -&gt; Bool)
 -&gt; (TlsConfig -&gt; TlsConfig -&gt; Bool) -&gt; Eq TlsConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TlsConfig -&gt; TlsConfig -&gt; Bool
 == :: TlsConfig -&gt; TlsConfig -&gt; Bool
 $c== :: TlsConfig -&gt; TlsConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370632"><span id="local-6989586621679370634"><span id="local-6989586621679370636"><span id="local-6989586621679370638"><span class="annot"><span class="annottext">ReadPrec [TlsConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370641"><span id="local-6989586621679370643"><span id="local-6989586621679370645"><span id="local-6989586621679370647"><span class="annot"><span class="annottext">ReadPrec [TlsConfig]
 ReadPrec TlsConfig
 Int -&gt; ReadS TlsConfig
 ReadS [TlsConfig]
@@ -65,7 +65,7 @@ readList :: ReadS [TlsConfig]
 $creadList :: ReadS [TlsConfig]
 readsPrec :: Int -&gt; ReadS TlsConfig
 $creadsPrec :: Int -&gt; ReadS TlsConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370625"><span id="local-6989586621679370627"><span id="local-6989586621679370629"><span class="annot"><span class="annottext">Int -&gt; TlsConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370634"><span id="local-6989586621679370636"><span id="local-6989586621679370638"><span class="annot"><span class="annottext">Int -&gt; TlsConfig -&gt; ShowS
 [TlsConfig] -&gt; ShowS
 TlsConfig -&gt; String
 (Int -&gt; TlsConfig -&gt; ShowS)
@@ -135,49 +135,49 @@ forall a. Maybe a
 -&gt; (TlsConfig -&gt; Maybe Bool -&gt; TlsConfig)
 -&gt; Lens TlsConfig TlsConfig (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-type">TlsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370616"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-type">TlsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370625"><span class="annot"><span class="annottext">Maybe Bool
 insecureSkipVerification :: Maybe Bool
 $sel:insecureSkipVerification:TlsConfig' :: TlsConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679370616"><span class="hs-identifier hs-var hs-var">insecureSkipVerification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370616"><span class="hs-identifier hs-var">insecureSkipVerification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370615"><span class="annot"><span class="annottext">s :: TlsConfig
-</span><a href="#local-6989586621679370615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-type">TlsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370614"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TlsConfig
-</span><a href="#local-6989586621679370615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insecureSkipVerification:TlsConfig' :: Maybe Bool
+</span><a href="#local-6989586621679370625"><span class="hs-identifier hs-var hs-var">insecureSkipVerification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370625"><span class="hs-identifier hs-var">insecureSkipVerification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370624"><span class="annot"><span class="annottext">s :: TlsConfig
+</span><a href="#local-6989586621679370624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-type">TlsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370623"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TlsConfig
+</span><a href="#local-6989586621679370624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insecureSkipVerification:TlsConfig' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.Types.TlsConfig.html#%24sel%3AinsecureSkipVerification%3ATlsConfig%27"><span class="hs-identifier hs-var">insecureSkipVerification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370611"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679370609"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TlsConfig
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370620"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679370618"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TlsConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser TlsConfig) -&gt; Value -&gt; Parser TlsConfig
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TlsConfig&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370606"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370615"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; TlsConfig
 </span><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-var">TlsConfig'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; TlsConfig)
 -&gt; Parser (Maybe Bool) -&gt; Parser TlsConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679370615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;insecureSkipVerification&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370600"><span id="local-6989586621679370602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370609"><span id="local-6989586621679370611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370589"><span id="local-6989586621679370591"><span id="local-6989586621679370593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679370587"><span class="annot"><span class="annottext">toJSON :: TlsConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-type">TlsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370585"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370598"><span id="local-6989586621679370600"><span id="local-6989586621679370602"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig"><span class="hs-identifier hs-type">TlsConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679370596"><span class="annot"><span class="annottext">toJSON :: TlsConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.TlsConfig.html#TlsConfig%27"><span class="hs-identifier hs-type">TlsConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370594"><span class="annot"><span class="annottext">Maybe Bool
 insecureSkipVerification :: Maybe Bool
 $sel:insecureSkipVerification:TlsConfig' :: TlsConfig -&gt; Maybe Bool
-</span><a href="#local-6989586621679370585"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679370594"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -190,7 +190,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370585"><span class="hs-identifier hs-var">insecureSkipVerification</span></a></span><span>
+</span><a href="#local-6989586621679370594"><span class="hs-identifier hs-var">insecureSkipVerification</span></a></span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span></pre></body></html>

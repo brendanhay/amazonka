@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTWireless.Types.Destinations</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTWireless.Types.Destinations</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ExpressionType.html"><span class="hs-identifier">Network.AWS.IoTWireless.Types.ExpressionType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes a destination.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDestinations' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679274196"><span id="local-6989586621679274197"></span></span><span class="hs-keyword">data</span><span> </span><span id="Destinations"><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-var">Destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Destinations%27"><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-var">Destinations'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of value in @Expression@.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AexpressionType%3ADestinations%27"><span class="annot"><span class="annottext">Destinations -&gt; Maybe ExpressionType
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3AexpressionType%3ADestinations%27"><span class="hs-identifier hs-var hs-var">expressionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aarn%3ADestinations%27"><span class="annot"><span class="annottext">Destinations -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aarn%3ADestinations%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the resource.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3ADestinations%27"><span class="annot"><span class="annottext">Destinations -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aname%3ADestinations%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The rule name or topic rule to send messages to.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aexpression%3ADestinations%27"><span class="annot"><span class="annottext">Destinations -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aexpression%3ADestinations%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The description of the resource.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3ADestinations%27"><span class="annot"><span class="annottext">Destinations -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Adescription%3ADestinations%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM Role that authorizes the destination.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AroleArn%3ADestinations%27"><span class="annot"><span class="annottext">Destinations -&gt; Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3AroleArn%3ADestinations%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274185"><span id="local-6989586621679274187"><span class="annot"><span class="annottext">Destinations -&gt; Destinations -&gt; Bool
+(Destinations -&gt; Destinations -&gt; Bool)
+-&gt; (Destinations -&gt; Destinations -&gt; Bool) -&gt; Eq Destinations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Destinations -&gt; Destinations -&gt; Bool
+$c/= :: Destinations -&gt; Destinations -&gt; Bool
+== :: Destinations -&gt; Destinations -&gt; Bool
+$c== :: Destinations -&gt; Destinations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274176"><span id="local-6989586621679274178"><span id="local-6989586621679274180"><span id="local-6989586621679274182"><span class="annot"><span class="annottext">ReadPrec [Destinations]
+ReadPrec Destinations
+Int -&gt; ReadS Destinations
+ReadS [Destinations]
+(Int -&gt; ReadS Destinations)
+-&gt; ReadS [Destinations]
+-&gt; ReadPrec Destinations
+-&gt; ReadPrec [Destinations]
+-&gt; Read Destinations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Destinations]
+$creadListPrec :: ReadPrec [Destinations]
+readPrec :: ReadPrec Destinations
+$creadPrec :: ReadPrec Destinations
+readList :: ReadS [Destinations]
+$creadList :: ReadS [Destinations]
+readsPrec :: Int -&gt; ReadS Destinations
+$creadsPrec :: Int -&gt; ReadS Destinations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274169"><span id="local-6989586621679274171"><span id="local-6989586621679274173"><span class="annot"><span class="annottext">Int -&gt; Destinations -&gt; ShowS
+[Destinations] -&gt; ShowS
+Destinations -&gt; String
+(Int -&gt; Destinations -&gt; ShowS)
+-&gt; (Destinations -&gt; String)
+-&gt; ([Destinations] -&gt; ShowS)
+-&gt; Show Destinations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Destinations] -&gt; ShowS
+$cshowList :: [Destinations] -&gt; ShowS
+show :: Destinations -&gt; String
+$cshow :: Destinations -&gt; String
+showsPrec :: Int -&gt; Destinations -&gt; ShowS
+$cshowsPrec :: Int -&gt; Destinations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Destinations -&gt; Rep Destinations x)
+-&gt; (forall x. Rep Destinations x -&gt; Destinations)
+-&gt; Generic Destinations
+forall x. Rep Destinations x -&gt; Destinations
+forall x. Destinations -&gt; Rep Destinations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Destinations x -&gt; Destinations
+$cfrom :: forall x. Destinations -&gt; Rep Destinations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'Destinations' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'expressionType', 'destinations_expressionType' - The type of value in @Expression@.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'arn', 'destinations_arn' - The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'name', 'destinations_name' - The name of the resource.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'expression', 'destinations_expression' - The rule name or topic rule to send messages to.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'description', 'destinations_description' - The description of the resource.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'roleArn', 'destinations_roleArn' - The ARN of the IAM Role that authorizes the destination.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#newDestinations"><span class="hs-identifier hs-type">newDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span>
+</span><span id="line-67"></span><span id="newDestinations"><span class="annot"><span class="annottext">newDestinations :: Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#newDestinations"><span class="hs-identifier hs-var hs-var">newDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Destinations' :: Maybe ExpressionType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expressionType:Destinations' :: Maybe ExpressionType
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3AexpressionType%3ADestinations%27"><span class="hs-identifier hs-var">expressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExpressionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aarn%3ADestinations%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aname%3ADestinations%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:expression:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aexpression%3ADestinations%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Adescription%3ADestinations%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3AroleArn%3ADestinations%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The type of value in @Expression@.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_expressionType"><span class="hs-identifier hs-type">destinations_expressionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.ExpressionType.html#ExpressionType"><span class="hs-identifier hs-type">ExpressionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="destinations_expressionType"><span class="annot"><span class="annottext">destinations_expressionType :: (Maybe ExpressionType -&gt; f (Maybe ExpressionType))
+-&gt; Destinations -&gt; f Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_expressionType"><span class="hs-identifier hs-var hs-var">destinations_expressionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destinations -&gt; Maybe ExpressionType)
+-&gt; (Destinations -&gt; Maybe ExpressionType -&gt; Destinations)
+-&gt; Lens
+     Destinations
+     Destinations
+     (Maybe ExpressionType)
+     (Maybe ExpressionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274160"><span class="annot"><span class="annottext">Maybe ExpressionType
+expressionType :: Maybe ExpressionType
+$sel:expressionType:Destinations' :: Destinations -&gt; Maybe ExpressionType
+</span><a href="#local-6989586621679274160"><span class="hs-identifier hs-var hs-var">expressionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExpressionType
+</span><a href="#local-6989586621679274160"><span class="hs-identifier hs-var">expressionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274159"><span class="annot"><span class="annottext">s :: Destinations
+</span><a href="#local-6989586621679274159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274158"><span class="annot"><span class="annottext">Maybe ExpressionType
+</span><a href="#local-6989586621679274158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destinations
+</span><a href="#local-6989586621679274159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionType:Destinations' :: Maybe ExpressionType
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3AexpressionType%3ADestinations%27"><span class="hs-identifier hs-var">expressionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExpressionType
+</span><a href="#local-6989586621679274158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name of the resource.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_arn"><span class="hs-identifier hs-type">destinations_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="destinations_arn"><span class="annot"><span class="annottext">destinations_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Destinations -&gt; f Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_arn"><span class="hs-identifier hs-var hs-var">destinations_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destinations -&gt; Maybe Text)
+-&gt; (Destinations -&gt; Maybe Text -&gt; Destinations)
+-&gt; Lens Destinations Destinations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274156"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Destinations' :: Destinations -&gt; Maybe Text
+</span><a href="#local-6989586621679274156"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274156"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274155"><span class="annot"><span class="annottext">s :: Destinations
+</span><a href="#local-6989586621679274155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destinations
+</span><a href="#local-6989586621679274155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aarn%3ADestinations%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the resource.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_name"><span class="hs-identifier hs-type">destinations_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="destinations_name"><span class="annot"><span class="annottext">destinations_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Destinations -&gt; f Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_name"><span class="hs-identifier hs-var hs-var">destinations_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destinations -&gt; Maybe Text)
+-&gt; (Destinations -&gt; Maybe Text -&gt; Destinations)
+-&gt; Lens Destinations Destinations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274152"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Destinations' :: Destinations -&gt; Maybe Text
+</span><a href="#local-6989586621679274152"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274152"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274151"><span class="annot"><span class="annottext">s :: Destinations
+</span><a href="#local-6989586621679274151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destinations
+</span><a href="#local-6989586621679274151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aname%3ADestinations%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The rule name or topic rule to send messages to.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_expression"><span class="hs-identifier hs-type">destinations_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="destinations_expression"><span class="annot"><span class="annottext">destinations_expression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Destinations -&gt; f Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_expression"><span class="hs-identifier hs-var hs-var">destinations_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destinations -&gt; Maybe Text)
+-&gt; (Destinations -&gt; Maybe Text -&gt; Destinations)
+-&gt; Lens Destinations Destinations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274148"><span class="annot"><span class="annottext">Maybe Text
+expression :: Maybe Text
+$sel:expression:Destinations' :: Destinations -&gt; Maybe Text
+</span><a href="#local-6989586621679274148"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274148"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274147"><span class="annot"><span class="annottext">s :: Destinations
+</span><a href="#local-6989586621679274147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274146"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destinations
+</span><a href="#local-6989586621679274147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Aexpression%3ADestinations%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The description of the resource.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_description"><span class="hs-identifier hs-type">destinations_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="destinations_description"><span class="annot"><span class="annottext">destinations_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Destinations -&gt; f Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_description"><span class="hs-identifier hs-var hs-var">destinations_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destinations -&gt; Maybe Text)
+-&gt; (Destinations -&gt; Maybe Text -&gt; Destinations)
+-&gt; Lens Destinations Destinations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274144"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Destinations' :: Destinations -&gt; Maybe Text
+</span><a href="#local-6989586621679274144"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274144"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274143"><span class="annot"><span class="annottext">s :: Destinations
+</span><a href="#local-6989586621679274143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destinations
+</span><a href="#local-6989586621679274143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3Adescription%3ADestinations%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ARN of the IAM Role that authorizes the destination.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_roleArn"><span class="hs-identifier hs-type">destinations_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="destinations_roleArn"><span class="annot"><span class="annottext">destinations_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Destinations -&gt; f Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#destinations_roleArn"><span class="hs-identifier hs-var hs-var">destinations_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Destinations -&gt; Maybe Text)
+-&gt; (Destinations -&gt; Maybe Text -&gt; Destinations)
+-&gt; Lens Destinations Destinations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274140"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:Destinations' :: Destinations -&gt; Maybe Text
+</span><a href="#local-6989586621679274140"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274140"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274139"><span class="annot"><span class="annottext">s :: Destinations
+</span><a href="#local-6989586621679274139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-type">Destinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274138"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Destinations
+</span><a href="#local-6989586621679274139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Destinations' :: Maybe Text
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#%24sel%3AroleArn%3ADestinations%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274135"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679274133"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Destinations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Destinations) -&gt; Value -&gt; Parser Destinations
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Destinations&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274130"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExpressionType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Destinations
+</span><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations%27"><span class="hs-identifier hs-var">Destinations'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExpressionType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Destinations)
+-&gt; Parser (Maybe ExpressionType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Destinations)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExpressionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpressionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Destinations)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Destinations)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Destinations)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Destinations)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Destinations)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Destinations)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Expression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Destinations)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Destinations)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Destinations)
+-&gt; Parser (Maybe Text) -&gt; Parser Destinations
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274124"><span id="local-6989586621679274126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTWireless.Types.Destinations.html#Destinations"><span class="hs-identifier hs-type">Destinations</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

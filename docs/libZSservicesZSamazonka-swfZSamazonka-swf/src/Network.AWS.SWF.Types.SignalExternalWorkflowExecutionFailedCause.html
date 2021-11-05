@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679349932"><span id="local-6989586621679349933"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SignalExternalWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#SignalExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalExternalWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#SignalExternalWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionFailedCause'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679349941"><span id="local-6989586621679349942"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SignalExternalWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#SignalExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SignalExternalWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#SignalExternalWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">SignalExternalWorkflowExecutionFailedCause'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSignalExternalWorkflowExecutionFailedCause"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.SignalExternalWorkflowExecutionFailedCause.html#fromSignalExternalWorkflowExecutionFailedCause"><span class="hs-identifier hs-var hs-var">fromSignalExternalWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349924"><span id="local-6989586621679349926"><span id="local-6989586621679349928"><span class="annot"><span class="annottext">Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349933"><span id="local-6989586621679349935"><span id="local-6989586621679349937"><span class="annot"><span class="annottext">Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; ShowS
 [SignalExternalWorkflowExecutionFailedCause] -&gt; ShowS
 SignalExternalWorkflowExecutionFailedCause -&gt; String
 (Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SignalExternalWorkflowExecutionFailedCause -&gt; String
 showsPrec :: Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679349915"><span id="local-6989586621679349917"><span id="local-6989586621679349919"><span id="local-6989586621679349921"><span class="annot"><span class="annottext">ReadPrec [SignalExternalWorkflowExecutionFailedCause]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679349924"><span id="local-6989586621679349926"><span id="local-6989586621679349928"><span id="local-6989586621679349930"><span class="annot"><span class="annottext">ReadPrec [SignalExternalWorkflowExecutionFailedCause]
 ReadPrec SignalExternalWorkflowExecutionFailedCause
 Int -&gt; ReadS SignalExternalWorkflowExecutionFailedCause
 ReadS [SignalExternalWorkflowExecutionFailedCause]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SignalExternalWorkflowExecutionFailedCause]
 readsPrec :: Int -&gt; ReadS SignalExternalWorkflowExecutionFailedCause
 $creadsPrec :: Int -&gt; ReadS SignalExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679349910"><span id="local-6989586621679349912"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679349919"><span id="local-6989586621679349921"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause
 -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Bool
 (SignalExternalWorkflowExecutionFailedCause
  -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: SignalExternalWorkflowExecutionFailedCause
 $c== :: SignalExternalWorkflowExecutionFailedCause
 -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679349894"><span id="local-6989586621679349896"><span id="local-6989586621679349898"><span id="local-6989586621679349900"><span id="local-6989586621679349902"><span id="local-6989586621679349904"><span id="local-6989586621679349906"><span class="annot"><span class="annottext">Eq SignalExternalWorkflowExecutionFailedCause
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679349903"><span id="local-6989586621679349905"><span id="local-6989586621679349907"><span id="local-6989586621679349909"><span id="local-6989586621679349911"><span id="local-6989586621679349913"><span id="local-6989586621679349915"><span class="annot"><span class="annottext">Eq SignalExternalWorkflowExecutionFailedCause
 Eq SignalExternalWorkflowExecutionFailedCause
 -&gt; (SignalExternalWorkflowExecutionFailedCause
     -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Ordering)
@@ -184,7 +184,7 @@ SignalExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349886"><span id="local-6989586621679349888"><span class="annot"><span class="annottext">Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349895"><span id="local-6989586621679349897"><span class="annot"><span class="annottext">Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Int
 SignalExternalWorkflowExecutionFailedCause -&gt; Int
 (Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Int)
 -&gt; (SignalExternalWorkflowExecutionFailedCause -&gt; Int)
@@ -195,42 +195,42 @@ $chash :: SignalExternalWorkflowExecutionFailedCause -&gt; Int
 hashWithSalt :: Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Int
 $chashWithSalt :: Int -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679349883"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679349892"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; ()
 (SignalExternalWorkflowExecutionFailedCause -&gt; ())
 -&gt; NFData SignalExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SignalExternalWorkflowExecutionFailedCause -&gt; ()
 $crnf :: SignalExternalWorkflowExecutionFailedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679349880"><span class="annot"><span class="annottext">Text -&gt; Either String SignalExternalWorkflowExecutionFailedCause
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679349889"><span class="annot"><span class="annottext">Text -&gt; Either String SignalExternalWorkflowExecutionFailedCause
 (Text -&gt; Either String SignalExternalWorkflowExecutionFailedCause)
 -&gt; FromText SignalExternalWorkflowExecutionFailedCause
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SignalExternalWorkflowExecutionFailedCause
 $cfromText :: Text -&gt; Either String SignalExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679349877"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679349886"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; Text
 (SignalExternalWorkflowExecutionFailedCause -&gt; Text)
 -&gt; ToText SignalExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SignalExternalWorkflowExecutionFailedCause -&gt; Text
 $ctoText :: SignalExternalWorkflowExecutionFailedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679349874"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679349883"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; ByteString
 (SignalExternalWorkflowExecutionFailedCause -&gt; ByteString)
 -&gt; ToByteString SignalExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SignalExternalWorkflowExecutionFailedCause -&gt; ByteString
 $ctoBS :: SignalExternalWorkflowExecutionFailedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679349871"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679349880"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 (SignalExternalWorkflowExecutionFailedCause -&gt; ByteStringBuilder)
 -&gt; ToLog SignalExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SignalExternalWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 $cbuild :: SignalExternalWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679349868"><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679349877"><span class="annot"><span class="annottext">HeaderName
 -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; [Header]
 (HeaderName
  -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; [Header])
@@ -241,14 +241,14 @@ toHeader :: HeaderName
 $ctoHeader :: HeaderName
 -&gt; SignalExternalWorkflowExecutionFailedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679349865"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679349874"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; QueryString
 (SignalExternalWorkflowExecutionFailedCause -&gt; QueryString)
 -&gt; ToQuery SignalExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SignalExternalWorkflowExecutionFailedCause -&gt; QueryString
 $ctoQuery :: SignalExternalWorkflowExecutionFailedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679349860"><span id="local-6989586621679349862"><span class="annot"><span class="annottext">Value -&gt; Parser [SignalExternalWorkflowExecutionFailedCause]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679349869"><span id="local-6989586621679349871"><span class="annot"><span class="annottext">Value -&gt; Parser [SignalExternalWorkflowExecutionFailedCause]
 Value -&gt; Parser SignalExternalWorkflowExecutionFailedCause
 (Value -&gt; Parser SignalExternalWorkflowExecutionFailedCause)
 -&gt; (Value -&gt; Parser [SignalExternalWorkflowExecutionFailedCause])
@@ -260,7 +260,7 @@ $cparseJSONList :: Value -&gt; Parser [SignalExternalWorkflowExecutionFailedCaus
 parseJSON :: Value -&gt; Parser SignalExternalWorkflowExecutionFailedCause
 $cparseJSON :: Value -&gt; Parser SignalExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679349855"><span id="local-6989586621679349857"><span class="annot"><span class="annottext">FromJSONKeyFunction [SignalExternalWorkflowExecutionFailedCause]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679349864"><span id="local-6989586621679349866"><span class="annot"><span class="annottext">FromJSONKeyFunction [SignalExternalWorkflowExecutionFailedCause]
 FromJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 FromJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 -&gt; FromJSONKeyFunction [SignalExternalWorkflowExecutionFailedCause]
@@ -272,7 +272,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SignalExternalWorkflowExecutionFailedC
 fromJSONKey :: FromJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 $cfromJSONKey :: FromJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679349846"><span id="local-6989586621679349848"><span id="local-6989586621679349850"><span id="local-6989586621679349852"><span class="annot"><span class="annottext">[SignalExternalWorkflowExecutionFailedCause] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679349855"><span id="local-6989586621679349857"><span id="local-6989586621679349859"><span id="local-6989586621679349861"><span class="annot"><span class="annottext">[SignalExternalWorkflowExecutionFailedCause] -&gt; Encoding
 [SignalExternalWorkflowExecutionFailedCause] -&gt; Value
 SignalExternalWorkflowExecutionFailedCause -&gt; Encoding
 SignalExternalWorkflowExecutionFailedCause -&gt; Value
@@ -296,7 +296,7 @@ $ctoEncoding :: SignalExternalWorkflowExecutionFailedCause -&gt; Encoding
 toJSON :: SignalExternalWorkflowExecutionFailedCause -&gt; Value
 $ctoJSON :: SignalExternalWorkflowExecutionFailedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679349841"><span id="local-6989586621679349843"><span class="annot"><span class="annottext">ToJSONKeyFunction [SignalExternalWorkflowExecutionFailedCause]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679349850"><span id="local-6989586621679349852"><span class="annot"><span class="annottext">ToJSONKeyFunction [SignalExternalWorkflowExecutionFailedCause]
 ToJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 ToJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 -&gt; ToJSONKeyFunction [SignalExternalWorkflowExecutionFailedCause]
@@ -308,7 +308,7 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SignalExternalWorkflowExecutionFailedCause
 toJSONKey :: ToJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 $ctoJSONKey :: ToJSONKeyFunction SignalExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679349838"><span class="annot"><span class="annottext">[Node] -&gt; Either String SignalExternalWorkflowExecutionFailedCause
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679349847"><span class="annot"><span class="annottext">[Node] -&gt; Either String SignalExternalWorkflowExecutionFailedCause
 ([Node]
  -&gt; Either String SignalExternalWorkflowExecutionFailedCause)
 -&gt; FromXML SignalExternalWorkflowExecutionFailedCause
@@ -316,7 +316,7 @@ forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SignalExternalWorkflowExecutionFailedCause
 $cparseXML :: [Node] -&gt; Either String SignalExternalWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679349835"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679349844"><span class="annot"><span class="annottext">SignalExternalWorkflowExecutionFailedCause -&gt; XML
 (SignalExternalWorkflowExecutionFailedCause -&gt; XML)
 -&gt; ToXML SignalExternalWorkflowExecutionFailedCause
 forall a. (a -&gt; XML) -&gt; ToXML a

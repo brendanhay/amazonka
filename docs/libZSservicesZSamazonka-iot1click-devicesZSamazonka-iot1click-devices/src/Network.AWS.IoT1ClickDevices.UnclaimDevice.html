@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoT1ClickDevices.UnclaimDevice</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates a device from your AWS account using its device ID.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoT1ClickDevices.UnclaimDevice</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier">UnclaimDevice</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#newUnclaimDevice"><span class="hs-identifier">newUnclaimDevice</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDevice_deviceId"><span class="hs-identifier">unclaimDevice_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier">UnclaimDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#newUnclaimDeviceResponse"><span class="hs-identifier">newUnclaimDeviceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDeviceResponse_state"><span class="hs-identifier">unclaimDeviceResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDeviceResponse_httpStatus"><span class="hs-identifier">unclaimDeviceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.Types.html"><span class="hs-identifier">Network.AWS.IoT1ClickDevices.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUnclaimDevice' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679156071"><span id="local-6989586621679156072"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnclaimDevice"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-var">UnclaimDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnclaimDevice%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice%27"><span class="hs-identifier hs-var">UnclaimDevice'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdeviceId%3AUnclaimDevice%27"><span class="annot"><span class="annottext">UnclaimDevice -&gt; Text
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3AdeviceId%3AUnclaimDevice%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156065"><span id="local-6989586621679156067"><span class="annot"><span class="annottext">UnclaimDevice -&gt; UnclaimDevice -&gt; Bool
+(UnclaimDevice -&gt; UnclaimDevice -&gt; Bool)
+-&gt; (UnclaimDevice -&gt; UnclaimDevice -&gt; Bool) -&gt; Eq UnclaimDevice
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnclaimDevice -&gt; UnclaimDevice -&gt; Bool
+$c/= :: UnclaimDevice -&gt; UnclaimDevice -&gt; Bool
+== :: UnclaimDevice -&gt; UnclaimDevice -&gt; Bool
+$c== :: UnclaimDevice -&gt; UnclaimDevice -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156056"><span id="local-6989586621679156058"><span id="local-6989586621679156060"><span id="local-6989586621679156062"><span class="annot"><span class="annottext">ReadPrec [UnclaimDevice]
+ReadPrec UnclaimDevice
+Int -&gt; ReadS UnclaimDevice
+ReadS [UnclaimDevice]
+(Int -&gt; ReadS UnclaimDevice)
+-&gt; ReadS [UnclaimDevice]
+-&gt; ReadPrec UnclaimDevice
+-&gt; ReadPrec [UnclaimDevice]
+-&gt; Read UnclaimDevice
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnclaimDevice]
+$creadListPrec :: ReadPrec [UnclaimDevice]
+readPrec :: ReadPrec UnclaimDevice
+$creadPrec :: ReadPrec UnclaimDevice
+readList :: ReadS [UnclaimDevice]
+$creadList :: ReadS [UnclaimDevice]
+readsPrec :: Int -&gt; ReadS UnclaimDevice
+$creadsPrec :: Int -&gt; ReadS UnclaimDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156049"><span id="local-6989586621679156051"><span id="local-6989586621679156053"><span class="annot"><span class="annottext">Int -&gt; UnclaimDevice -&gt; ShowS
+[UnclaimDevice] -&gt; ShowS
+UnclaimDevice -&gt; String
+(Int -&gt; UnclaimDevice -&gt; ShowS)
+-&gt; (UnclaimDevice -&gt; String)
+-&gt; ([UnclaimDevice] -&gt; ShowS)
+-&gt; Show UnclaimDevice
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnclaimDevice] -&gt; ShowS
+$cshowList :: [UnclaimDevice] -&gt; ShowS
+show :: UnclaimDevice -&gt; String
+$cshow :: UnclaimDevice -&gt; String
+showsPrec :: Int -&gt; UnclaimDevice -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnclaimDevice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UnclaimDevice -&gt; Rep UnclaimDevice x)
+-&gt; (forall x. Rep UnclaimDevice x -&gt; UnclaimDevice)
+-&gt; Generic UnclaimDevice
+forall x. Rep UnclaimDevice x -&gt; UnclaimDevice
+forall x. UnclaimDevice -&gt; Rep UnclaimDevice x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UnclaimDevice x -&gt; UnclaimDevice
+$cfrom :: forall x. UnclaimDevice -&gt; Rep UnclaimDevice x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'UnclaimDevice' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'deviceId', 'unclaimDevice_deviceId' - The unique identifier of the device.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#newUnclaimDevice"><span class="hs-identifier hs-type">newUnclaimDevice</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span>
+</span><span id="line-69"></span><span id="newUnclaimDevice"><span class="annot"><span class="annottext">newUnclaimDevice :: Text -&gt; UnclaimDevice
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#newUnclaimDevice"><span class="hs-identifier hs-var hs-var">newUnclaimDevice</span></a></span></span><span> </span><span id="local-6989586621679156044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156044"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">UnclaimDevice' :: Text -&gt; UnclaimDevice
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice%27"><span class="hs-identifier hs-type">UnclaimDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:UnclaimDevice' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3AdeviceId%3AUnclaimDevice%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156044"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The unique identifier of the device.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDevice_deviceId"><span class="hs-identifier hs-type">unclaimDevice_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="unclaimDevice_deviceId"><span class="annot"><span class="annottext">unclaimDevice_deviceId :: (Text -&gt; f Text) -&gt; UnclaimDevice -&gt; f UnclaimDevice
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDevice_deviceId"><span class="hs-identifier hs-var hs-var">unclaimDevice_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnclaimDevice -&gt; Text)
+-&gt; (UnclaimDevice -&gt; Text -&gt; UnclaimDevice)
+-&gt; Lens UnclaimDevice UnclaimDevice Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice%27"><span class="hs-identifier hs-type">UnclaimDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156041"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:UnclaimDevice' :: UnclaimDevice -&gt; Text
+</span><a href="#local-6989586621679156041"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156041"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156040"><span class="annot"><span class="annottext">s :: UnclaimDevice
+</span><a href="#local-6989586621679156040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice%27"><span class="hs-identifier hs-type">UnclaimDevice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156039"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnclaimDevice
+</span><a href="#local-6989586621679156040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:UnclaimDevice' :: Text
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3AdeviceId%3AUnclaimDevice%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-type">UnclaimDeviceResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679156035"><span class="annot"><span class="annottext">request :: UnclaimDevice -&gt; Request UnclaimDevice
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UnclaimDevice -&gt; Request UnclaimDevice
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoT1ClickDevices.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679156031"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UnclaimDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UnclaimDevice)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UnclaimDevice))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UnclaimDevice
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UnclaimDevice)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156028"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156028"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679156027"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679156027"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679156026"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UnclaimDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse%27"><span class="hs-identifier hs-var">UnclaimDeviceResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UnclaimDeviceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UnclaimDeviceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UnclaimDeviceResponse)
+-&gt; Either String Int -&gt; Either String UnclaimDeviceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156028"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156018"><span id="local-6989586621679156020"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156015"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679156011"><span class="annot"><span class="annottext">toHeaders :: UnclaimDevice -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UnclaimDevice -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156001"><span id="local-6989586621679156003"><span id="local-6989586621679156005"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679155999"><span class="annot"><span class="annottext">toJSON :: UnclaimDevice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; UnclaimDevice -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679155994"><span class="annot"><span class="annottext">toPath :: UnclaimDevice -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice%27"><span class="hs-identifier hs-type">UnclaimDevice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155992"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:UnclaimDevice' :: UnclaimDevice -&gt; Text
+</span><a href="#local-6989586621679155992"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/devices/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679155992"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/unclaim&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDevice"><span class="hs-identifier hs-type">UnclaimDevice</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679155988"><span class="annot"><span class="annottext">toQuery :: UnclaimDevice -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UnclaimDevice -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newUnclaimDeviceResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679155985"><span id="local-6989586621679155986"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnclaimDeviceResponse"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-var">UnclaimDeviceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnclaimDeviceResponse%27"><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse%27"><span class="hs-identifier hs-var">UnclaimDeviceResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The device\'s final claim state.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Astate%3AUnclaimDeviceResponse%27"><span class="annot"><span class="annottext">UnclaimDeviceResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3Astate%3AUnclaimDeviceResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUnclaimDeviceResponse%27"><span class="annot"><span class="annottext">UnclaimDeviceResponse -&gt; Int
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3AhttpStatus%3AUnclaimDeviceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679155979"><span id="local-6989586621679155981"><span class="annot"><span class="annottext">UnclaimDeviceResponse -&gt; UnclaimDeviceResponse -&gt; Bool
+(UnclaimDeviceResponse -&gt; UnclaimDeviceResponse -&gt; Bool)
+-&gt; (UnclaimDeviceResponse -&gt; UnclaimDeviceResponse -&gt; Bool)
+-&gt; Eq UnclaimDeviceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UnclaimDeviceResponse -&gt; UnclaimDeviceResponse -&gt; Bool
+$c/= :: UnclaimDeviceResponse -&gt; UnclaimDeviceResponse -&gt; Bool
+== :: UnclaimDeviceResponse -&gt; UnclaimDeviceResponse -&gt; Bool
+$c== :: UnclaimDeviceResponse -&gt; UnclaimDeviceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155971"><span id="local-6989586621679155973"><span id="local-6989586621679155975"><span id="local-6989586621679155977"><span class="annot"><span class="annottext">ReadPrec [UnclaimDeviceResponse]
+ReadPrec UnclaimDeviceResponse
+Int -&gt; ReadS UnclaimDeviceResponse
+ReadS [UnclaimDeviceResponse]
+(Int -&gt; ReadS UnclaimDeviceResponse)
+-&gt; ReadS [UnclaimDeviceResponse]
+-&gt; ReadPrec UnclaimDeviceResponse
+-&gt; ReadPrec [UnclaimDeviceResponse]
+-&gt; Read UnclaimDeviceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UnclaimDeviceResponse]
+$creadListPrec :: ReadPrec [UnclaimDeviceResponse]
+readPrec :: ReadPrec UnclaimDeviceResponse
+$creadPrec :: ReadPrec UnclaimDeviceResponse
+readList :: ReadS [UnclaimDeviceResponse]
+$creadList :: ReadS [UnclaimDeviceResponse]
+readsPrec :: Int -&gt; ReadS UnclaimDeviceResponse
+$creadsPrec :: Int -&gt; ReadS UnclaimDeviceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679155965"><span id="local-6989586621679155967"><span id="local-6989586621679155969"><span class="annot"><span class="annottext">Int -&gt; UnclaimDeviceResponse -&gt; ShowS
+[UnclaimDeviceResponse] -&gt; ShowS
+UnclaimDeviceResponse -&gt; String
+(Int -&gt; UnclaimDeviceResponse -&gt; ShowS)
+-&gt; (UnclaimDeviceResponse -&gt; String)
+-&gt; ([UnclaimDeviceResponse] -&gt; ShowS)
+-&gt; Show UnclaimDeviceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UnclaimDeviceResponse] -&gt; ShowS
+$cshowList :: [UnclaimDeviceResponse] -&gt; ShowS
+show :: UnclaimDeviceResponse -&gt; String
+$cshow :: UnclaimDeviceResponse -&gt; String
+showsPrec :: Int -&gt; UnclaimDeviceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UnclaimDeviceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UnclaimDeviceResponse -&gt; Rep UnclaimDeviceResponse x)
+-&gt; (forall x. Rep UnclaimDeviceResponse x -&gt; UnclaimDeviceResponse)
+-&gt; Generic UnclaimDeviceResponse
+forall x. Rep UnclaimDeviceResponse x -&gt; UnclaimDeviceResponse
+forall x. UnclaimDeviceResponse -&gt; Rep UnclaimDeviceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UnclaimDeviceResponse x -&gt; UnclaimDeviceResponse
+$cfrom :: forall x. UnclaimDeviceResponse -&gt; Rep UnclaimDeviceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'UnclaimDeviceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'state', 'unclaimDeviceResponse_state' - The device\'s final claim state.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'unclaimDeviceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#newUnclaimDeviceResponse"><span class="hs-identifier hs-type">newUnclaimDeviceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-type">UnclaimDeviceResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newUnclaimDeviceResponse"><span class="annot"><span class="annottext">newUnclaimDeviceResponse :: Int -&gt; UnclaimDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#newUnclaimDeviceResponse"><span class="hs-identifier hs-var hs-var">newUnclaimDeviceResponse</span></a></span></span><span> </span><span id="local-6989586621679155962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">UnclaimDeviceResponse' :: Maybe Text -&gt; Int -&gt; UnclaimDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse%27"><span class="hs-identifier hs-type">UnclaimDeviceResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:UnclaimDeviceResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3Astate%3AUnclaimDeviceResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UnclaimDeviceResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3AhttpStatus%3AUnclaimDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155962"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The device\'s final claim state.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDeviceResponse_state"><span class="hs-identifier hs-type">unclaimDeviceResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-type">UnclaimDeviceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="unclaimDeviceResponse_state"><span class="annot"><span class="annottext">unclaimDeviceResponse_state :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UnclaimDeviceResponse -&gt; f UnclaimDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDeviceResponse_state"><span class="hs-identifier hs-var hs-var">unclaimDeviceResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnclaimDeviceResponse -&gt; Maybe Text)
+-&gt; (UnclaimDeviceResponse -&gt; Maybe Text -&gt; UnclaimDeviceResponse)
+-&gt; Lens
+     UnclaimDeviceResponse
+     UnclaimDeviceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse%27"><span class="hs-identifier hs-type">UnclaimDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155961"><span class="annot"><span class="annottext">Maybe Text
+state :: Maybe Text
+$sel:state:UnclaimDeviceResponse' :: UnclaimDeviceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679155961"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155961"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155960"><span class="annot"><span class="annottext">s :: UnclaimDeviceResponse
+</span><a href="#local-6989586621679155960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse%27"><span class="hs-identifier hs-type">UnclaimDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnclaimDeviceResponse
+</span><a href="#local-6989586621679155960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:UnclaimDeviceResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3Astate%3AUnclaimDeviceResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679155959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-type">UnclaimDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDeviceResponse_httpStatus"><span class="hs-identifier hs-type">unclaimDeviceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-type">UnclaimDeviceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span id="unclaimDeviceResponse_httpStatus"><span class="annot"><span class="annottext">unclaimDeviceResponse_httpStatus :: (Int -&gt; f Int) -&gt; UnclaimDeviceResponse -&gt; f UnclaimDeviceResponse
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#unclaimDeviceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">unclaimDeviceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnclaimDeviceResponse -&gt; Int)
+-&gt; (UnclaimDeviceResponse -&gt; Int -&gt; UnclaimDeviceResponse)
+-&gt; Lens UnclaimDeviceResponse UnclaimDeviceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse%27"><span class="hs-identifier hs-type">UnclaimDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679155958"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UnclaimDeviceResponse' :: UnclaimDeviceResponse -&gt; Int
+</span><a href="#local-6989586621679155958"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155958"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679155957"><span class="annot"><span class="annottext">s :: UnclaimDeviceResponse
+</span><a href="#local-6989586621679155957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse%27"><span class="hs-identifier hs-type">UnclaimDeviceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679155956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnclaimDeviceResponse
+</span><a href="#local-6989586621679155957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UnclaimDeviceResponse' :: Int
+</span><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#%24sel%3AhttpStatus%3AUnclaimDeviceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679155956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-type">UnclaimDeviceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679155954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT1ClickDevices.UnclaimDevice.html#UnclaimDeviceResponse"><span class="hs-identifier hs-type">UnclaimDeviceResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

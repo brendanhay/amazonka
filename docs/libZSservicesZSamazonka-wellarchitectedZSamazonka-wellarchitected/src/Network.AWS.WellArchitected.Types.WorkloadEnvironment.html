@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.WellArchitected.Types.WorkloadEnvironment</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WellArchitected.Types.WorkloadEnvironment</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment"><span class="hs-identifier">WorkloadEnvironment</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment_PREPRODUCTION"><span class="hs-identifier">WorkloadEnvironment_PREPRODUCTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment_PRODUCTION"><span class="hs-identifier">WorkloadEnvironment_PRODUCTION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The environment for the workload.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679244606"><span id="local-6989586621679244607"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkloadEnvironment"><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment"><span class="hs-identifier hs-var">WorkloadEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkloadEnvironment%27"><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment%27"><span class="hs-identifier hs-var">WorkloadEnvironment'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkloadEnvironment"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; Text
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#fromWorkloadEnvironment"><span class="hs-identifier hs-var hs-var">fromWorkloadEnvironment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244598"><span id="local-6989586621679244600"><span id="local-6989586621679244602"><span class="annot"><span class="annottext">Int -&gt; WorkloadEnvironment -&gt; ShowS
+[WorkloadEnvironment] -&gt; ShowS
+WorkloadEnvironment -&gt; String
+(Int -&gt; WorkloadEnvironment -&gt; ShowS)
+-&gt; (WorkloadEnvironment -&gt; String)
+-&gt; ([WorkloadEnvironment] -&gt; ShowS)
+-&gt; Show WorkloadEnvironment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [WorkloadEnvironment] -&gt; ShowS
+$cshowList :: [WorkloadEnvironment] -&gt; ShowS
+show :: WorkloadEnvironment -&gt; String
+$cshow :: WorkloadEnvironment -&gt; String
+showsPrec :: Int -&gt; WorkloadEnvironment -&gt; ShowS
+$cshowsPrec :: Int -&gt; WorkloadEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679244589"><span id="local-6989586621679244591"><span id="local-6989586621679244593"><span id="local-6989586621679244595"><span class="annot"><span class="annottext">ReadPrec [WorkloadEnvironment]
+ReadPrec WorkloadEnvironment
+Int -&gt; ReadS WorkloadEnvironment
+ReadS [WorkloadEnvironment]
+(Int -&gt; ReadS WorkloadEnvironment)
+-&gt; ReadS [WorkloadEnvironment]
+-&gt; ReadPrec WorkloadEnvironment
+-&gt; ReadPrec [WorkloadEnvironment]
+-&gt; Read WorkloadEnvironment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [WorkloadEnvironment]
+$creadListPrec :: ReadPrec [WorkloadEnvironment]
+readPrec :: ReadPrec WorkloadEnvironment
+$creadPrec :: ReadPrec WorkloadEnvironment
+readList :: ReadS [WorkloadEnvironment]
+$creadList :: ReadS [WorkloadEnvironment]
+readsPrec :: Int -&gt; ReadS WorkloadEnvironment
+$creadsPrec :: Int -&gt; ReadS WorkloadEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679244584"><span id="local-6989586621679244586"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+(WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool)
+-&gt; (WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool)
+-&gt; Eq WorkloadEnvironment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+$c/= :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+== :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+$c== :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679244568"><span id="local-6989586621679244570"><span id="local-6989586621679244572"><span id="local-6989586621679244574"><span id="local-6989586621679244576"><span id="local-6989586621679244578"><span id="local-6989586621679244580"><span class="annot"><span class="annottext">Eq WorkloadEnvironment
+Eq WorkloadEnvironment
+-&gt; (WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Ordering)
+-&gt; (WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool)
+-&gt; (WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool)
+-&gt; (WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool)
+-&gt; (WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool)
+-&gt; (WorkloadEnvironment
+    -&gt; WorkloadEnvironment -&gt; WorkloadEnvironment)
+-&gt; (WorkloadEnvironment
+    -&gt; WorkloadEnvironment -&gt; WorkloadEnvironment)
+-&gt; Ord WorkloadEnvironment
+WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Ordering
+WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; WorkloadEnvironment
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; WorkloadEnvironment
+$cmin :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; WorkloadEnvironment
+max :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; WorkloadEnvironment
+$cmax :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; WorkloadEnvironment
+&gt;= :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+$c&gt;= :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+&gt; :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+$c&gt; :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+&lt;= :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+$c&lt;= :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+&lt; :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+$c&lt; :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Bool
+compare :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Ordering
+$ccompare :: WorkloadEnvironment -&gt; WorkloadEnvironment -&gt; Ordering
+$cp1Ord :: Eq WorkloadEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. WorkloadEnvironment -&gt; Rep WorkloadEnvironment x)
+-&gt; (forall x. Rep WorkloadEnvironment x -&gt; WorkloadEnvironment)
+-&gt; Generic WorkloadEnvironment
+forall x. Rep WorkloadEnvironment x -&gt; WorkloadEnvironment
+forall x. WorkloadEnvironment -&gt; Rep WorkloadEnvironment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep WorkloadEnvironment x -&gt; WorkloadEnvironment
+$cfrom :: forall x. WorkloadEnvironment -&gt; Rep WorkloadEnvironment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244560"><span id="local-6989586621679244562"><span class="annot"><span class="annottext">Int -&gt; WorkloadEnvironment -&gt; Int
+WorkloadEnvironment -&gt; Int
+(Int -&gt; WorkloadEnvironment -&gt; Int)
+-&gt; (WorkloadEnvironment -&gt; Int) -&gt; Hashable WorkloadEnvironment
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: WorkloadEnvironment -&gt; Int
+$chash :: WorkloadEnvironment -&gt; Int
+hashWithSalt :: Int -&gt; WorkloadEnvironment -&gt; Int
+$chashWithSalt :: Int -&gt; WorkloadEnvironment -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679244557"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; ()
+(WorkloadEnvironment -&gt; ()) -&gt; NFData WorkloadEnvironment
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: WorkloadEnvironment -&gt; ()
+$crnf :: WorkloadEnvironment -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244554"><span class="annot"><span class="annottext">Text -&gt; Either String WorkloadEnvironment
+(Text -&gt; Either String WorkloadEnvironment)
+-&gt; FromText WorkloadEnvironment
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String WorkloadEnvironment
+$cfromText :: Text -&gt; Either String WorkloadEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244551"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; Text
+(WorkloadEnvironment -&gt; Text) -&gt; ToText WorkloadEnvironment
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: WorkloadEnvironment -&gt; Text
+$ctoText :: WorkloadEnvironment -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244548"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; ByteString
+(WorkloadEnvironment -&gt; ByteString)
+-&gt; ToByteString WorkloadEnvironment
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: WorkloadEnvironment -&gt; ByteString
+$ctoBS :: WorkloadEnvironment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244545"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; ByteStringBuilder
+(WorkloadEnvironment -&gt; ByteStringBuilder)
+-&gt; ToLog WorkloadEnvironment
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: WorkloadEnvironment -&gt; ByteStringBuilder
+$cbuild :: WorkloadEnvironment -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244542"><span class="annot"><span class="annottext">HeaderName -&gt; WorkloadEnvironment -&gt; [Header]
+(HeaderName -&gt; WorkloadEnvironment -&gt; [Header])
+-&gt; ToHeader WorkloadEnvironment
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; WorkloadEnvironment -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; WorkloadEnvironment -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244539"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; QueryString
+(WorkloadEnvironment -&gt; QueryString) -&gt; ToQuery WorkloadEnvironment
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: WorkloadEnvironment -&gt; QueryString
+$ctoQuery :: WorkloadEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244534"><span id="local-6989586621679244536"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkloadEnvironment]
+Value -&gt; Parser WorkloadEnvironment
+(Value -&gt; Parser WorkloadEnvironment)
+-&gt; (Value -&gt; Parser [WorkloadEnvironment])
+-&gt; FromJSON WorkloadEnvironment
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [WorkloadEnvironment]
+$cparseJSONList :: Value -&gt; Parser [WorkloadEnvironment]
+parseJSON :: Value -&gt; Parser WorkloadEnvironment
+$cparseJSON :: Value -&gt; Parser WorkloadEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244529"><span id="local-6989586621679244531"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkloadEnvironment]
+FromJSONKeyFunction WorkloadEnvironment
+FromJSONKeyFunction WorkloadEnvironment
+-&gt; FromJSONKeyFunction [WorkloadEnvironment]
+-&gt; FromJSONKey WorkloadEnvironment
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [WorkloadEnvironment]
+$cfromJSONKeyList :: FromJSONKeyFunction [WorkloadEnvironment]
+fromJSONKey :: FromJSONKeyFunction WorkloadEnvironment
+$cfromJSONKey :: FromJSONKeyFunction WorkloadEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244520"><span id="local-6989586621679244522"><span id="local-6989586621679244524"><span id="local-6989586621679244526"><span class="annot"><span class="annottext">[WorkloadEnvironment] -&gt; Encoding
+[WorkloadEnvironment] -&gt; Value
+WorkloadEnvironment -&gt; Encoding
+WorkloadEnvironment -&gt; Value
+(WorkloadEnvironment -&gt; Value)
+-&gt; (WorkloadEnvironment -&gt; Encoding)
+-&gt; ([WorkloadEnvironment] -&gt; Value)
+-&gt; ([WorkloadEnvironment] -&gt; Encoding)
+-&gt; ToJSON WorkloadEnvironment
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [WorkloadEnvironment] -&gt; Encoding
+$ctoEncodingList :: [WorkloadEnvironment] -&gt; Encoding
+toJSONList :: [WorkloadEnvironment] -&gt; Value
+$ctoJSONList :: [WorkloadEnvironment] -&gt; Value
+toEncoding :: WorkloadEnvironment -&gt; Encoding
+$ctoEncoding :: WorkloadEnvironment -&gt; Encoding
+toJSON :: WorkloadEnvironment -&gt; Value
+$ctoJSON :: WorkloadEnvironment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244515"><span id="local-6989586621679244517"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkloadEnvironment]
+ToJSONKeyFunction WorkloadEnvironment
+ToJSONKeyFunction WorkloadEnvironment
+-&gt; ToJSONKeyFunction [WorkloadEnvironment]
+-&gt; ToJSONKey WorkloadEnvironment
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [WorkloadEnvironment]
+$ctoJSONKeyList :: ToJSONKeyFunction [WorkloadEnvironment]
+toJSONKey :: ToJSONKeyFunction WorkloadEnvironment
+$ctoJSONKey :: ToJSONKeyFunction WorkloadEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244512"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkloadEnvironment
+([Node] -&gt; Either String WorkloadEnvironment)
+-&gt; FromXML WorkloadEnvironment
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String WorkloadEnvironment
+$cparseXML :: [Node] -&gt; Either String WorkloadEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244509"><span class="annot"><span class="annottext">WorkloadEnvironment -&gt; XML
+(WorkloadEnvironment -&gt; XML) -&gt; ToXML WorkloadEnvironment
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: WorkloadEnvironment -&gt; XML
+$ctoXML :: WorkloadEnvironment -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment_PREPRODUCTION"><span class="hs-identifier hs-type">WorkloadEnvironment_PREPRODUCTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment"><span class="hs-identifier hs-type">WorkloadEnvironment</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkloadEnvironment_PREPRODUCTION"><span id="%24mWorkloadEnvironment_PREPRODUCTION"><span id="WorkloadEnvironment_PREPRODUCTION"><span class="annot"><span class="annottext">$bWorkloadEnvironment_PREPRODUCTION :: WorkloadEnvironment
+$mWorkloadEnvironment_PREPRODUCTION :: forall r. WorkloadEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#%24bWorkloadEnvironment_PREPRODUCTION"><span class="hs-identifier hs-var hs-var hs-var">WorkloadEnvironment_PREPRODUCTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment%27"><span class="hs-identifier hs-type">WorkloadEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PREPRODUCTION&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment_PRODUCTION"><span class="hs-identifier hs-type">WorkloadEnvironment_PRODUCTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment"><span class="hs-identifier hs-type">WorkloadEnvironment</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bWorkloadEnvironment_PRODUCTION"><span id="%24mWorkloadEnvironment_PRODUCTION"><span id="WorkloadEnvironment_PRODUCTION"><span class="annot"><span class="annottext">$bWorkloadEnvironment_PRODUCTION :: WorkloadEnvironment
+$mWorkloadEnvironment_PRODUCTION :: forall r. WorkloadEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#%24bWorkloadEnvironment_PRODUCTION"><span class="hs-identifier hs-var hs-var hs-var">WorkloadEnvironment_PRODUCTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment%27"><span class="hs-identifier hs-type">WorkloadEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRODUCTION&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment_PREPRODUCTION"><span class="hs-pragma hs-type">WorkloadEnvironment_PREPRODUCTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment_PRODUCTION"><span class="hs-pragma hs-type">WorkloadEnvironment_PRODUCTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.WellArchitected.Types.WorkloadEnvironment.html#WorkloadEnvironment%27"><span class="hs-pragma hs-type">WorkloadEnvironment'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

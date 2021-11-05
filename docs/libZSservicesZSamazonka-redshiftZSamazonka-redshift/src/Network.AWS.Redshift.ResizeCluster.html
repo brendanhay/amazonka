@@ -83,7 +83,7 @@
 </span><span id="line-83"></span><span class="hs-comment">-- run the @ResizeCluster@ API operation.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- /See:/ 'newResizeCluster' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679506821"><span id="local-6989586621679506822"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResizeCluster"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-var">ResizeCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResizeCluster%27"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-var">ResizeCluster'</span></a></span></span><span>
+</span><span id="line-86"></span><span id="local-6989586621679506830"><span id="local-6989586621679506831"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResizeCluster"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-var">ResizeCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResizeCluster%27"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-var">ResizeCluster'</span></a></span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new number of nodes for the cluster. If not specified, the</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- cluster\'s current number of nodes is used.</span><span>
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3AnumberOfNodes%3AResizeCluster%27"><span class="annot"><span class="annottext">ResizeCluster -&gt; Maybe Int
@@ -104,7 +104,7 @@
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AResizeCluster%27"><span class="annot"><span class="annottext">ResizeCluster -&gt; Text
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AclusterIdentifier%3AResizeCluster%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679506811"><span id="local-6989586621679506813"><span class="annot"><span class="annottext">ResizeCluster -&gt; ResizeCluster -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679506820"><span id="local-6989586621679506822"><span class="annot"><span class="annottext">ResizeCluster -&gt; ResizeCluster -&gt; Bool
 (ResizeCluster -&gt; ResizeCluster -&gt; Bool)
 -&gt; (ResizeCluster -&gt; ResizeCluster -&gt; Bool) -&gt; Eq ResizeCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -112,7 +112,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResizeCluster -&gt; ResizeCluster -&gt; Bool
 == :: ResizeCluster -&gt; ResizeCluster -&gt; Bool
 $c== :: ResizeCluster -&gt; ResizeCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506802"><span id="local-6989586621679506804"><span id="local-6989586621679506806"><span id="local-6989586621679506808"><span class="annot"><span class="annottext">ReadPrec [ResizeCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506811"><span id="local-6989586621679506813"><span id="local-6989586621679506815"><span id="local-6989586621679506817"><span class="annot"><span class="annottext">ReadPrec [ResizeCluster]
 ReadPrec ResizeCluster
 Int -&gt; ReadS ResizeCluster
 ReadS [ResizeCluster]
@@ -132,7 +132,7 @@ readList :: ReadS [ResizeCluster]
 $creadList :: ReadS [ResizeCluster]
 readsPrec :: Int -&gt; ReadS ResizeCluster
 $creadsPrec :: Int -&gt; ReadS ResizeCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506795"><span id="local-6989586621679506797"><span id="local-6989586621679506799"><span class="annot"><span class="annottext">Int -&gt; ResizeCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506804"><span id="local-6989586621679506806"><span id="local-6989586621679506808"><span class="annot"><span class="annottext">Int -&gt; ResizeCluster -&gt; ShowS
 [ResizeCluster] -&gt; ShowS
 ResizeCluster -&gt; String
 (Int -&gt; ResizeCluster -&gt; ShowS)
@@ -184,8 +184,8 @@ $cfrom :: forall x. ResizeCluster -&gt; Rep ResizeCluster x
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span>
 </span><span id="line-129"></span><span id="newResizeCluster"><span class="annot"><span class="annottext">newResizeCluster :: Text -&gt; ResizeCluster
-</span><a href="Network.AWS.Redshift.ResizeCluster.html#newResizeCluster"><span class="hs-identifier hs-var hs-var">newResizeCluster</span></a></span></span><span> </span><span id="local-6989586621679506790"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506790"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.ResizeCluster.html#newResizeCluster"><span class="hs-identifier hs-var hs-var">newResizeCluster</span></a></span></span><span> </span><span id="local-6989586621679506799"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679506799"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">ResizeCluster' :: Maybe Int
 -&gt; Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ResizeCluster
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span>
@@ -207,7 +207,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ResizeCluster' :: Text
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AclusterIdentifier%3AResizeCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506790"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679506799"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The new number of nodes for the cluster. If not specified, the</span><span>
@@ -218,16 +218,16 @@ forall a. Maybe a
 -&gt; (ResizeCluster -&gt; Maybe Int -&gt; ResizeCluster)
 -&gt; Lens ResizeCluster ResizeCluster (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506787"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506796"><span class="annot"><span class="annottext">Maybe Int
 numberOfNodes :: Maybe Int
 $sel:numberOfNodes:ResizeCluster' :: ResizeCluster -&gt; Maybe Int
-</span><a href="#local-6989586621679506787"><span class="hs-identifier hs-var hs-var">numberOfNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679506787"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506786"><span class="annot"><span class="annottext">s :: ResizeCluster
-</span><a href="#local-6989586621679506786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506785"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679506785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
-</span><a href="#local-6989586621679506786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNodes:ResizeCluster' :: Maybe Int
+</span><a href="#local-6989586621679506796"><span class="hs-identifier hs-var hs-var">numberOfNodes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679506796"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506795"><span class="annot"><span class="annottext">s :: ResizeCluster
+</span><a href="#local-6989586621679506795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506794"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679506794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
+</span><a href="#local-6989586621679506795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNodes:ResizeCluster' :: Maybe Int
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AnumberOfNodes%3AResizeCluster%27"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679506785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | A boolean value indicating whether the resize operation is using the</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- classic resize process. If you don\'t provide this parameter or set the</span><span>
@@ -238,16 +238,16 @@ $sel:numberOfNodes:ResizeCluster' :: ResizeCluster -&gt; Maybe Int
 -&gt; (ResizeCluster -&gt; Maybe Bool -&gt; ResizeCluster)
 -&gt; Lens ResizeCluster ResizeCluster (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506784"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506793"><span class="annot"><span class="annottext">Maybe Bool
 classic :: Maybe Bool
 $sel:classic:ResizeCluster' :: ResizeCluster -&gt; Maybe Bool
-</span><a href="#local-6989586621679506784"><span class="hs-identifier hs-var hs-var">classic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679506784"><span class="hs-identifier hs-var">classic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506783"><span class="annot"><span class="annottext">s :: ResizeCluster
-</span><a href="#local-6989586621679506783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506782"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679506782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
-</span><a href="#local-6989586621679506783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classic:ResizeCluster' :: Maybe Bool
+</span><a href="#local-6989586621679506793"><span class="hs-identifier hs-var hs-var">classic</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679506793"><span class="hs-identifier hs-var">classic</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506792"><span class="annot"><span class="annottext">s :: ResizeCluster
+</span><a href="#local-6989586621679506792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506791"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679506791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
+</span><a href="#local-6989586621679506792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classic:ResizeCluster' :: Maybe Bool
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3Aclassic%3AResizeCluster%27"><span class="hs-identifier hs-var">classic</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679506782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The new cluster type for the specified cluster.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#resizeCluster_clusterType"><span class="hs-identifier hs-type">resizeCluster_clusterType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -256,16 +256,16 @@ $sel:classic:ResizeCluster' :: ResizeCluster -&gt; Maybe Bool
 -&gt; (ResizeCluster -&gt; Maybe Text -&gt; ResizeCluster)
 -&gt; Lens ResizeCluster ResizeCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506781"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506790"><span class="annot"><span class="annottext">Maybe Text
 clusterType :: Maybe Text
 $sel:clusterType:ResizeCluster' :: ResizeCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679506781"><span class="hs-identifier hs-var hs-var">clusterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506781"><span class="hs-identifier hs-var">clusterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506780"><span class="annot"><span class="annottext">s :: ResizeCluster
-</span><a href="#local-6989586621679506780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506779"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
-</span><a href="#local-6989586621679506780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterType:ResizeCluster' :: Maybe Text
+</span><a href="#local-6989586621679506790"><span class="hs-identifier hs-var hs-var">clusterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679506790"><span class="hs-identifier hs-var">clusterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506789"><span class="annot"><span class="annottext">s :: ResizeCluster
+</span><a href="#local-6989586621679506789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679506788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
+</span><a href="#local-6989586621679506789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterType:ResizeCluster' :: Maybe Text
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AclusterType%3AResizeCluster%27"><span class="hs-identifier hs-var">clusterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The new node type for the nodes you are adding. If not specified, the</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- cluster\'s current node type is used.</span><span>
@@ -275,16 +275,16 @@ $sel:clusterType:ResizeCluster' :: ResizeCluster -&gt; Maybe Text
 -&gt; (ResizeCluster -&gt; Maybe Text -&gt; ResizeCluster)
 -&gt; Lens ResizeCluster ResizeCluster (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506778"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506787"><span class="annot"><span class="annottext">Maybe Text
 nodeType :: Maybe Text
 $sel:nodeType:ResizeCluster' :: ResizeCluster -&gt; Maybe Text
-</span><a href="#local-6989586621679506778"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506778"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506777"><span class="annot"><span class="annottext">s :: ResizeCluster
-</span><a href="#local-6989586621679506777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506776"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
-</span><a href="#local-6989586621679506777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:ResizeCluster' :: Maybe Text
+</span><a href="#local-6989586621679506787"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679506787"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506786"><span class="annot"><span class="annottext">s :: ResizeCluster
+</span><a href="#local-6989586621679506786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506785"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679506785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
+</span><a href="#local-6989586621679506786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:ResizeCluster' :: Maybe Text
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AnodeType%3AResizeCluster%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The unique identifier for the cluster to resize.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#resizeCluster_clusterIdentifier"><span class="hs-identifier hs-type">resizeCluster_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -293,27 +293,27 @@ $sel:nodeType:ResizeCluster' :: ResizeCluster -&gt; Maybe Text
 -&gt; (ResizeCluster -&gt; Text -&gt; ResizeCluster)
 -&gt; Lens ResizeCluster ResizeCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506775"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506784"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:ResizeCluster' :: ResizeCluster -&gt; Text
-</span><a href="#local-6989586621679506775"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506775"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506774"><span class="annot"><span class="annottext">s :: ResizeCluster
-</span><a href="#local-6989586621679506774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506773"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
-</span><a href="#local-6989586621679506774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ResizeCluster' :: Text
+</span><a href="#local-6989586621679506784"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679506784"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506783"><span class="annot"><span class="annottext">s :: ResizeCluster
+</span><a href="#local-6989586621679506783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679506782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeCluster
+</span><a href="#local-6989586621679506783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ResizeCluster' :: Text
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AclusterIdentifier%3AResizeCluster%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679506769"><span class="annot"><span class="annottext">request :: ResizeCluster -&gt; Request ResizeCluster
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679506778"><span class="annot"><span class="annottext">request :: ResizeCluster -&gt; Request ResizeCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResizeCluster -&gt; Request ResizeCluster
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679506765"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679506774"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ResizeCluster
 -&gt; ClientResponse ClientBody
@@ -342,10 +342,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResizeClusterResult&quot;</span></span><span>
-</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679506762"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506762"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679506761"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679506761"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679506760"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679506760"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679506771"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679506771"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679506770"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679506770"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679506769"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679506769"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; ResizeClusterResponse
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-var">ResizeClusterResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; ResizeClusterResponse)
@@ -353,7 +353,7 @@ Text
 -&gt; Either String (Int -&gt; ResizeClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679506760"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679506769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -365,15 +365,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506762"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506771"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506752"><span id="local-6989586621679506754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506761"><span id="local-6989586621679506763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679506745"><span class="annot"><span class="annottext">toHeaders :: ResizeCluster -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679506754"><span class="annot"><span class="annottext">toHeaders :: ResizeCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResizeCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -381,15 +381,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679506740"><span class="annot"><span class="annottext">toPath :: ResizeCluster -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679506749"><span class="annot"><span class="annottext">toPath :: ResizeCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResizeCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster"><span class="hs-identifier hs-type">ResizeCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679506736"><span class="annot"><span class="annottext">toQuery :: ResizeCluster -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506730"><span id="local-6989586621679506731"><span id="local-6989586621679506732"><span id="local-6989586621679506733"><span id="local-6989586621679506734"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679506745"><span class="annot"><span class="annottext">toQuery :: ResizeCluster -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeCluster%27"><span class="hs-identifier hs-type">ResizeCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506739"><span id="local-6989586621679506740"><span id="local-6989586621679506741"><span id="local-6989586621679506742"><span id="local-6989586621679506743"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Text
@@ -403,7 +403,7 @@ $sel:nodeType:ResizeCluster' :: ResizeCluster -&gt; Maybe Text
 $sel:clusterType:ResizeCluster' :: ResizeCluster -&gt; Maybe Text
 $sel:classic:ResizeCluster' :: ResizeCluster -&gt; Maybe Bool
 $sel:numberOfNodes:ResizeCluster' :: ResizeCluster -&gt; Maybe Int
-</span><a href="#local-6989586621679506730"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679506739"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -423,38 +423,38 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NumberOfNodes&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679506734"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679506743"><span class="hs-identifier hs-var">numberOfNodes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Classic&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679506733"><span class="hs-identifier hs-var">classic</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679506742"><span class="hs-identifier hs-var">classic</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506732"><span class="hs-identifier hs-var">clusterType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679506741"><span class="hs-identifier hs-var">clusterType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NodeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679506731"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679506740"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679506730"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679506739"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newResizeClusterResponse' smart constructor.</span><span>
-</span><span id="line-201"></span><span id="local-6989586621679506727"><span id="local-6989586621679506728"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResizeClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-var">ResizeClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResizeClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-var">ResizeClusterResponse'</span></a></span></span><span>
+</span><span id="line-201"></span><span id="local-6989586621679506736"><span id="local-6989586621679506737"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResizeClusterResponse"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-var">ResizeClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResizeClusterResponse%27"><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-var">ResizeClusterResponse'</span></a></span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3AResizeClusterResponse%27"><span class="annot"><span class="annottext">ResizeClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3Acluster%3AResizeClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3AhttpStatus%3AResizeClusterResponse%27"><span class="annot"><span class="annottext">ResizeClusterResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AhttpStatus%3AResizeClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-205"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679506721"><span id="local-6989586621679506723"><span class="annot"><span class="annottext">ResizeClusterResponse -&gt; ResizeClusterResponse -&gt; Bool
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679506730"><span id="local-6989586621679506732"><span class="annot"><span class="annottext">ResizeClusterResponse -&gt; ResizeClusterResponse -&gt; Bool
 (ResizeClusterResponse -&gt; ResizeClusterResponse -&gt; Bool)
 -&gt; (ResizeClusterResponse -&gt; ResizeClusterResponse -&gt; Bool)
 -&gt; Eq ResizeClusterResponse
@@ -463,7 +463,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResizeClusterResponse -&gt; ResizeClusterResponse -&gt; Bool
 == :: ResizeClusterResponse -&gt; ResizeClusterResponse -&gt; Bool
 $c== :: ResizeClusterResponse -&gt; ResizeClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506713"><span id="local-6989586621679506715"><span id="local-6989586621679506717"><span id="local-6989586621679506719"><span class="annot"><span class="annottext">ReadPrec [ResizeClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506722"><span id="local-6989586621679506724"><span id="local-6989586621679506726"><span id="local-6989586621679506728"><span class="annot"><span class="annottext">ReadPrec [ResizeClusterResponse]
 ReadPrec ResizeClusterResponse
 Int -&gt; ReadS ResizeClusterResponse
 ReadS [ResizeClusterResponse]
@@ -483,7 +483,7 @@ readList :: ReadS [ResizeClusterResponse]
 $creadList :: ReadS [ResizeClusterResponse]
 readsPrec :: Int -&gt; ReadS ResizeClusterResponse
 $creadsPrec :: Int -&gt; ReadS ResizeClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506707"><span id="local-6989586621679506709"><span id="local-6989586621679506711"><span class="annot"><span class="annottext">Int -&gt; ResizeClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679506716"><span id="local-6989586621679506718"><span id="local-6989586621679506720"><span class="annot"><span class="annottext">Int -&gt; ResizeClusterResponse -&gt; ShowS
 [ResizeClusterResponse] -&gt; ShowS
 ResizeClusterResponse -&gt; String
 (Int -&gt; ResizeClusterResponse -&gt; ShowS)
@@ -525,8 +525,8 @@ $cfrom :: forall x. ResizeClusterResponse -&gt; Rep ResizeClusterResponse x
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span><span>
 </span><span id="line-223"></span><span id="newResizeClusterResponse"><span class="annot"><span class="annottext">newResizeClusterResponse :: Int -&gt; ResizeClusterResponse
-</span><a href="Network.AWS.Redshift.ResizeCluster.html#newResizeClusterResponse"><span class="hs-identifier hs-var hs-var">newResizeClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679506704"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.ResizeCluster.html#newResizeClusterResponse"><span class="hs-identifier hs-var hs-var">newResizeClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679506713"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679506713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">ResizeClusterResponse' :: Maybe Cluster -&gt; Int -&gt; ResizeClusterResponse
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:ResizeClusterResponse' :: Maybe Cluster
@@ -535,7 +535,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ResizeClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AhttpStatus%3AResizeClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679506713"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -551,16 +551,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506703"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506712"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:ResizeClusterResponse' :: ResizeClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679506703"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679506703"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506702"><span class="annot"><span class="annottext">s :: ResizeClusterResponse
-</span><a href="#local-6989586621679506702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506701"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679506701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeClusterResponse
-</span><a href="#local-6989586621679506702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:ResizeClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679506712"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679506712"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506711"><span class="annot"><span class="annottext">s :: ResizeClusterResponse
+</span><a href="#local-6989586621679506711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506710"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679506710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeClusterResponse
+</span><a href="#local-6989586621679506711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:ResizeClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3Acluster%3AResizeClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679506701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#resizeClusterResponse_httpStatus"><span class="hs-identifier hs-type">resizeClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -569,16 +569,16 @@ $sel:cluster:ResizeClusterResponse' :: ResizeClusterResponse -&gt; Maybe Cluster
 -&gt; (ResizeClusterResponse -&gt; Int -&gt; ResizeClusterResponse)
 -&gt; Lens ResizeClusterResponse ResizeClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506700"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679506709"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ResizeClusterResponse' :: ResizeClusterResponse -&gt; Int
-</span><a href="#local-6989586621679506700"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506700"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506699"><span class="annot"><span class="annottext">s :: ResizeClusterResponse
-</span><a href="#local-6989586621679506699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506698"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeClusterResponse
-</span><a href="#local-6989586621679506699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResizeClusterResponse' :: Int
+</span><a href="#local-6989586621679506709"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679506709"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679506708"><span class="annot"><span class="annottext">s :: ResizeClusterResponse
+</span><a href="#local-6989586621679506708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse%27"><span class="hs-identifier hs-type">ResizeClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679506707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679506707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResizeClusterResponse
+</span><a href="#local-6989586621679506708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ResizeClusterResponse' :: Int
 </span><a href="Network.AWS.Redshift.ResizeCluster.html#%24sel%3AhttpStatus%3AResizeClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679506698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679506707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679506705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.ResizeCluster.html#ResizeClusterResponse"><span class="hs-identifier hs-type">ResizeClusterResponse</span></a></span></span><span>
 </span><span id="line-238"></span></pre></body></html>

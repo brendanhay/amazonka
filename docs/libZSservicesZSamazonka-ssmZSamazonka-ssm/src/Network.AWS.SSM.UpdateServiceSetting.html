@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-comment">-- | The request body of the UpdateServiceSetting API operation.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newUpdateServiceSetting' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679859975"><span id="local-6989586621679859976"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServiceSetting"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-var">UpdateServiceSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServiceSetting%27"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-var">UpdateServiceSetting'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679859984"><span id="local-6989586621679859985"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServiceSetting"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-var">UpdateServiceSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServiceSetting%27"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-var">UpdateServiceSetting'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the service setting to reset. For</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- example,</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.</span><span>
@@ -107,7 +107,7 @@
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AsettingValue%3AUpdateServiceSetting%27"><span class="annot"><span class="annottext">UpdateServiceSetting -&gt; Text
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AsettingValue%3AUpdateServiceSetting%27"><span class="hs-identifier hs-var hs-var">settingValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859968"><span id="local-6989586621679859970"><span class="annot"><span class="annottext">UpdateServiceSetting -&gt; UpdateServiceSetting -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859977"><span id="local-6989586621679859979"><span class="annot"><span class="annottext">UpdateServiceSetting -&gt; UpdateServiceSetting -&gt; Bool
 (UpdateServiceSetting -&gt; UpdateServiceSetting -&gt; Bool)
 -&gt; (UpdateServiceSetting -&gt; UpdateServiceSetting -&gt; Bool)
 -&gt; Eq UpdateServiceSetting
@@ -116,7 +116,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateServiceSetting -&gt; UpdateServiceSetting -&gt; Bool
 == :: UpdateServiceSetting -&gt; UpdateServiceSetting -&gt; Bool
 $c== :: UpdateServiceSetting -&gt; UpdateServiceSetting -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859959"><span id="local-6989586621679859961"><span id="local-6989586621679859963"><span id="local-6989586621679859965"><span class="annot"><span class="annottext">ReadPrec [UpdateServiceSetting]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859968"><span id="local-6989586621679859970"><span id="local-6989586621679859972"><span id="local-6989586621679859974"><span class="annot"><span class="annottext">ReadPrec [UpdateServiceSetting]
 ReadPrec UpdateServiceSetting
 Int -&gt; ReadS UpdateServiceSetting
 ReadS [UpdateServiceSetting]
@@ -136,7 +136,7 @@ readList :: ReadS [UpdateServiceSetting]
 $creadList :: ReadS [UpdateServiceSetting]
 readsPrec :: Int -&gt; ReadS UpdateServiceSetting
 $creadsPrec :: Int -&gt; ReadS UpdateServiceSetting
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859952"><span id="local-6989586621679859954"><span id="local-6989586621679859956"><span class="annot"><span class="annottext">Int -&gt; UpdateServiceSetting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859961"><span id="local-6989586621679859963"><span id="local-6989586621679859965"><span class="annot"><span class="annottext">Int -&gt; UpdateServiceSetting -&gt; ShowS
 [UpdateServiceSetting] -&gt; ShowS
 UpdateServiceSetting -&gt; String
 (Int -&gt; UpdateServiceSetting -&gt; ShowS)
@@ -213,17 +213,17 @@ $cfrom :: forall x. UpdateServiceSetting -&gt; Rep UpdateServiceSetting x
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span>
 </span><span id="line-160"></span><span id="newUpdateServiceSetting"><span class="annot"><span class="annottext">newUpdateServiceSetting :: Text -&gt; Text -&gt; UpdateServiceSetting
-</span><a href="Network.AWS.SSM.UpdateServiceSetting.html#newUpdateServiceSetting"><span class="hs-identifier hs-var hs-var">newUpdateServiceSetting</span></a></span></span><span> </span><span id="local-6989586621679859947"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859947"><span class="hs-identifier hs-var">pSettingId_</span></a></span></span><span> </span><span id="local-6989586621679859946"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859946"><span class="hs-identifier hs-var">pSettingValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.UpdateServiceSetting.html#newUpdateServiceSetting"><span class="hs-identifier hs-var hs-var">newUpdateServiceSetting</span></a></span></span><span> </span><span id="local-6989586621679859956"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859956"><span class="hs-identifier hs-var">pSettingId_</span></a></span></span><span> </span><span id="local-6989586621679859955"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859955"><span class="hs-identifier hs-var">pSettingValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">UpdateServiceSetting' :: Text -&gt; Text -&gt; UpdateServiceSetting
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:settingId:UpdateServiceSetting' :: Text
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AsettingId%3AUpdateServiceSetting%27"><span class="hs-identifier hs-var">settingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859947"><span class="hs-identifier hs-var">pSettingId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679859956"><span class="hs-identifier hs-var">pSettingId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:settingValue:UpdateServiceSetting' :: Text
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AsettingValue%3AUpdateServiceSetting%27"><span class="hs-identifier hs-var">settingValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859946"><span class="hs-identifier hs-var">pSettingValue_</span></a></span><span>
+</span><a href="#local-6989586621679859955"><span class="hs-identifier hs-var">pSettingValue_</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the service setting to reset. For</span><span>
@@ -248,16 +248,16 @@ $cfrom :: forall x. UpdateServiceSetting -&gt; Rep UpdateServiceSetting x
 -&gt; (UpdateServiceSetting -&gt; Text -&gt; UpdateServiceSetting)
 -&gt; Lens UpdateServiceSetting UpdateServiceSetting Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859943"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859952"><span class="annot"><span class="annottext">Text
 settingId :: Text
 $sel:settingId:UpdateServiceSetting' :: UpdateServiceSetting -&gt; Text
-</span><a href="#local-6989586621679859943"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859943"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859942"><span class="annot"><span class="annottext">s :: UpdateServiceSetting
-</span><a href="#local-6989586621679859942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859941"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceSetting
-</span><a href="#local-6989586621679859942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingId:UpdateServiceSetting' :: Text
+</span><a href="#local-6989586621679859952"><span class="hs-identifier hs-var hs-var">settingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859952"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859951"><span class="annot"><span class="annottext">s :: UpdateServiceSetting
+</span><a href="#local-6989586621679859951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceSetting
+</span><a href="#local-6989586621679859951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingId:UpdateServiceSetting' :: Text
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AsettingId%3AUpdateServiceSetting%27"><span class="hs-identifier hs-var">settingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The new value to specify for the service setting. The following list</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- specifies the available values for each setting.</span><span>
@@ -284,27 +284,27 @@ $sel:settingId:UpdateServiceSetting' :: UpdateServiceSetting -&gt; Text
 -&gt; (UpdateServiceSetting -&gt; Text -&gt; UpdateServiceSetting)
 -&gt; Lens UpdateServiceSetting UpdateServiceSetting Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859940"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859949"><span class="annot"><span class="annottext">Text
 settingValue :: Text
 $sel:settingValue:UpdateServiceSetting' :: UpdateServiceSetting -&gt; Text
-</span><a href="#local-6989586621679859940"><span class="hs-identifier hs-var hs-var">settingValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859940"><span class="hs-identifier hs-var">settingValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859939"><span class="annot"><span class="annottext">s :: UpdateServiceSetting
-</span><a href="#local-6989586621679859939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859938"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceSetting
-</span><a href="#local-6989586621679859939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingValue:UpdateServiceSetting' :: Text
+</span><a href="#local-6989586621679859949"><span class="hs-identifier hs-var hs-var">settingValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859949"><span class="hs-identifier hs-var">settingValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859948"><span class="annot"><span class="annottext">s :: UpdateServiceSetting
+</span><a href="#local-6989586621679859948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679859947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceSetting
+</span><a href="#local-6989586621679859948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:settingValue:UpdateServiceSetting' :: Text
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AsettingValue%3AUpdateServiceSetting%27"><span class="hs-identifier hs-var">settingValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-208"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-209"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-type">UpdateServiceSettingResponse</span></a></span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679859934"><span class="annot"><span class="annottext">request :: UpdateServiceSetting -&gt; Request UpdateServiceSetting
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679859943"><span class="annot"><span class="annottext">request :: UpdateServiceSetting -&gt; Request UpdateServiceSetting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateServiceSetting -&gt; Request UpdateServiceSetting
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679859930"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679859939"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateServiceSetting
 -&gt; ClientResponse ClientBody
@@ -330,10 +330,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679859927"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679859927"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679859926"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679859926"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679859925"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679859925"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679859936"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859936"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679859935"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679859935"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679859934"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679859934"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateServiceSettingResponse
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-var">UpdateServiceSettingResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateServiceSettingResponse)
@@ -344,15 +344,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679859927"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859936"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859918"><span id="local-6989586621679859920"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859927"><span id="local-6989586621679859929"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span></span></span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859915"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span></span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679859911"><span class="annot"><span class="annottext">toHeaders :: UpdateServiceSetting -&gt; ResponseHeaders
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679859920"><span class="annot"><span class="annottext">toHeaders :: UpdateServiceSetting -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateServiceSetting -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -379,14 +379,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-235"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859901"><span id="local-6989586621679859903"><span id="local-6989586621679859905"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679859899"><span class="annot"><span class="annottext">toJSON :: UpdateServiceSetting -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859896"><span id="local-6989586621679859897"><span class="annot"><span class="annottext">Text
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859910"><span id="local-6989586621679859912"><span id="local-6989586621679859914"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679859908"><span class="annot"><span class="annottext">toJSON :: UpdateServiceSetting -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting%27"><span class="hs-identifier hs-type">UpdateServiceSetting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859905"><span id="local-6989586621679859906"><span class="annot"><span class="annottext">Text
 settingValue :: Text
 settingId :: Text
 $sel:settingValue:UpdateServiceSetting' :: UpdateServiceSetting -&gt; Text
 $sel:settingId:UpdateServiceSetting' :: UpdateServiceSetting -&gt; Text
-</span><a href="#local-6989586621679859896"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679859905"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -398,26 +398,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SettingId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859897"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679859906"><span class="hs-identifier hs-var">settingId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SettingValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679859896"><span class="hs-identifier hs-var">settingValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859905"><span class="hs-identifier hs-var">settingValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621679859890"><span class="annot"><span class="annottext">toPath :: UpdateServiceSetting -&gt; ByteString
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679859899"><span class="annot"><span class="annottext">toPath :: UpdateServiceSetting -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateServiceSetting -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSetting"><span class="hs-identifier hs-type">UpdateServiceSetting</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621679859886"><span class="annot"><span class="annottext">toQuery :: UpdateServiceSetting -&gt; QueryString
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679859895"><span class="annot"><span class="annottext">toQuery :: UpdateServiceSetting -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateServiceSetting -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -427,12 +427,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-253"></span><span class="hs-comment">-- | The result body of the UpdateServiceSetting API operation.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- /See:/ 'newUpdateServiceSettingResponse' smart constructor.</span><span>
-</span><span id="line-256"></span><span id="local-6989586621679859883"><span id="local-6989586621679859884"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServiceSettingResponse"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-var">UpdateServiceSettingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServiceSettingResponse%27"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-var">UpdateServiceSettingResponse'</span></a></span></span><span>
+</span><span id="line-256"></span><span id="local-6989586621679859892"><span id="local-6989586621679859893"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateServiceSettingResponse"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-var">UpdateServiceSettingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateServiceSettingResponse%27"><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-var">UpdateServiceSettingResponse'</span></a></span></span><span>
 </span><span id="line-257"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-258"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateServiceSettingResponse%27"><span class="annot"><span class="annottext">UpdateServiceSettingResponse -&gt; Int
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AhttpStatus%3AUpdateServiceSettingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-259"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859878"><span id="local-6989586621679859880"><span class="annot"><span class="annottext">UpdateServiceSettingResponse
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679859887"><span id="local-6989586621679859889"><span class="annot"><span class="annottext">UpdateServiceSettingResponse
 -&gt; UpdateServiceSettingResponse -&gt; Bool
 (UpdateServiceSettingResponse
  -&gt; UpdateServiceSettingResponse -&gt; Bool)
@@ -448,7 +448,7 @@ $c/= :: UpdateServiceSettingResponse
 -&gt; UpdateServiceSettingResponse -&gt; Bool
 $c== :: UpdateServiceSettingResponse
 -&gt; UpdateServiceSettingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859870"><span id="local-6989586621679859872"><span id="local-6989586621679859874"><span id="local-6989586621679859876"><span class="annot"><span class="annottext">ReadPrec [UpdateServiceSettingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859879"><span id="local-6989586621679859881"><span id="local-6989586621679859883"><span id="local-6989586621679859885"><span class="annot"><span class="annottext">ReadPrec [UpdateServiceSettingResponse]
 ReadPrec UpdateServiceSettingResponse
 Int -&gt; ReadS UpdateServiceSettingResponse
 ReadS [UpdateServiceSettingResponse]
@@ -468,7 +468,7 @@ readList :: ReadS [UpdateServiceSettingResponse]
 $creadList :: ReadS [UpdateServiceSettingResponse]
 readsPrec :: Int -&gt; ReadS UpdateServiceSettingResponse
 $creadsPrec :: Int -&gt; ReadS UpdateServiceSettingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859864"><span id="local-6989586621679859866"><span id="local-6989586621679859868"><span class="annot"><span class="annottext">Int -&gt; UpdateServiceSettingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679859873"><span id="local-6989586621679859875"><span id="local-6989586621679859877"><span class="annot"><span class="annottext">Int -&gt; UpdateServiceSettingResponse -&gt; ShowS
 [UpdateServiceSettingResponse] -&gt; ShowS
 UpdateServiceSettingResponse -&gt; String
 (Int -&gt; UpdateServiceSettingResponse -&gt; ShowS)
@@ -514,14 +514,14 @@ UpdateServiceSettingResponse -&gt; Rep UpdateServiceSettingResponse x
 </span><span id="line-273"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-274"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-type">UpdateServiceSettingResponse</span></a></span><span>
 </span><span id="line-275"></span><span id="newUpdateServiceSettingResponse"><span class="annot"><span class="annottext">newUpdateServiceSettingResponse :: Int -&gt; UpdateServiceSettingResponse
-</span><a href="Network.AWS.SSM.UpdateServiceSetting.html#newUpdateServiceSettingResponse"><span class="hs-identifier hs-var hs-var">newUpdateServiceSettingResponse</span></a></span></span><span> </span><span id="local-6989586621679859861"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679859861"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.UpdateServiceSetting.html#newUpdateServiceSettingResponse"><span class="hs-identifier hs-var hs-var">newUpdateServiceSettingResponse</span></a></span></span><span> </span><span id="local-6989586621679859870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-276"></span><span>  </span><span class="annot"><span class="annottext">UpdateServiceSettingResponse' :: Int -&gt; UpdateServiceSettingResponse
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-type">UpdateServiceSettingResponse'</span></a></span><span>
 </span><span id="line-277"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateServiceSettingResponse' :: Int
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AhttpStatus%3AUpdateServiceSettingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679859861"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679859870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-279"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -534,16 +534,16 @@ UpdateServiceSettingResponse -&gt; Rep UpdateServiceSettingResponse x
 -&gt; Lens
      UpdateServiceSettingResponse UpdateServiceSettingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-type">UpdateServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859860"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-type">UpdateServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679859869"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateServiceSettingResponse' :: UpdateServiceSettingResponse -&gt; Int
-</span><a href="#local-6989586621679859860"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679859860"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859859"><span class="annot"><span class="annottext">s :: UpdateServiceSettingResponse
-</span><a href="#local-6989586621679859859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-type">UpdateServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859858"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679859858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceSettingResponse
-</span><a href="#local-6989586621679859859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateServiceSettingResponse' :: Int
+</span><a href="#local-6989586621679859869"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859869"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679859868"><span class="annot"><span class="annottext">s :: UpdateServiceSettingResponse
+</span><a href="#local-6989586621679859868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse%27"><span class="hs-identifier hs-type">UpdateServiceSettingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679859867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679859867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateServiceSettingResponse
+</span><a href="#local-6989586621679859868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateServiceSettingResponse' :: Int
 </span><a href="Network.AWS.SSM.UpdateServiceSetting.html#%24sel%3AhttpStatus%3AUpdateServiceSettingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679859858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-type">UpdateServiceSettingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679859867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-type">UpdateServiceSettingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-type">UpdateServiceSettingResponse</span></a></span></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679859865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.UpdateServiceSetting.html#UpdateServiceSettingResponse"><span class="hs-identifier hs-type">UpdateServiceSettingResponse</span></a></span></span><span>
 </span><span id="line-286"></span></pre></body></html>

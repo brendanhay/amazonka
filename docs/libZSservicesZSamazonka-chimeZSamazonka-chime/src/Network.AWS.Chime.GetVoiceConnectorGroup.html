@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.GetVoiceConnectorGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves details for the specified Amazon Chime Voice Connector group,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- such as timestamps,name, and associated @VoiceConnectorItems@.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.GetVoiceConnectorGroup</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier">GetVoiceConnectorGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#newGetVoiceConnectorGroup"><span class="hs-identifier">newGetVoiceConnectorGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroup_voiceConnectorGroupId"><span class="hs-identifier">getVoiceConnectorGroup_voiceConnectorGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier">GetVoiceConnectorGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#newGetVoiceConnectorGroupResponse"><span class="hs-identifier">newGetVoiceConnectorGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroupResponse_voiceConnectorGroup"><span class="hs-identifier">getVoiceConnectorGroupResponse_voiceConnectorGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroupResponse_httpStatus"><span class="hs-identifier">getVoiceConnectorGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetVoiceConnectorGroup' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679538777"><span id="local-6989586621679538778"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVoiceConnectorGroup"><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-var">GetVoiceConnectorGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVoiceConnectorGroup%27"><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup%27"><span class="hs-identifier hs-var">GetVoiceConnectorGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AvoiceConnectorGroupId%3AGetVoiceConnectorGroup%27"><span class="annot"><span class="annottext">GetVoiceConnectorGroup -&gt; Text
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroupId%3AGetVoiceConnectorGroup%27"><span class="hs-identifier hs-var hs-var">voiceConnectorGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679538771"><span id="local-6989586621679538773"><span class="annot"><span class="annottext">GetVoiceConnectorGroup -&gt; GetVoiceConnectorGroup -&gt; Bool
+(GetVoiceConnectorGroup -&gt; GetVoiceConnectorGroup -&gt; Bool)
+-&gt; (GetVoiceConnectorGroup -&gt; GetVoiceConnectorGroup -&gt; Bool)
+-&gt; Eq GetVoiceConnectorGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVoiceConnectorGroup -&gt; GetVoiceConnectorGroup -&gt; Bool
+$c/= :: GetVoiceConnectorGroup -&gt; GetVoiceConnectorGroup -&gt; Bool
+== :: GetVoiceConnectorGroup -&gt; GetVoiceConnectorGroup -&gt; Bool
+$c== :: GetVoiceConnectorGroup -&gt; GetVoiceConnectorGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538762"><span id="local-6989586621679538764"><span id="local-6989586621679538766"><span id="local-6989586621679538768"><span class="annot"><span class="annottext">ReadPrec [GetVoiceConnectorGroup]
+ReadPrec GetVoiceConnectorGroup
+Int -&gt; ReadS GetVoiceConnectorGroup
+ReadS [GetVoiceConnectorGroup]
+(Int -&gt; ReadS GetVoiceConnectorGroup)
+-&gt; ReadS [GetVoiceConnectorGroup]
+-&gt; ReadPrec GetVoiceConnectorGroup
+-&gt; ReadPrec [GetVoiceConnectorGroup]
+-&gt; Read GetVoiceConnectorGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVoiceConnectorGroup]
+$creadListPrec :: ReadPrec [GetVoiceConnectorGroup]
+readPrec :: ReadPrec GetVoiceConnectorGroup
+$creadPrec :: ReadPrec GetVoiceConnectorGroup
+readList :: ReadS [GetVoiceConnectorGroup]
+$creadList :: ReadS [GetVoiceConnectorGroup]
+readsPrec :: Int -&gt; ReadS GetVoiceConnectorGroup
+$creadsPrec :: Int -&gt; ReadS GetVoiceConnectorGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538755"><span id="local-6989586621679538757"><span id="local-6989586621679538759"><span class="annot"><span class="annottext">Int -&gt; GetVoiceConnectorGroup -&gt; ShowS
+[GetVoiceConnectorGroup] -&gt; ShowS
+GetVoiceConnectorGroup -&gt; String
+(Int -&gt; GetVoiceConnectorGroup -&gt; ShowS)
+-&gt; (GetVoiceConnectorGroup -&gt; String)
+-&gt; ([GetVoiceConnectorGroup] -&gt; ShowS)
+-&gt; Show GetVoiceConnectorGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVoiceConnectorGroup] -&gt; ShowS
+$cshowList :: [GetVoiceConnectorGroup] -&gt; ShowS
+show :: GetVoiceConnectorGroup -&gt; String
+$cshow :: GetVoiceConnectorGroup -&gt; String
+showsPrec :: Int -&gt; GetVoiceConnectorGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVoiceConnectorGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetVoiceConnectorGroup -&gt; Rep GetVoiceConnectorGroup x)
+-&gt; (forall x.
+    Rep GetVoiceConnectorGroup x -&gt; GetVoiceConnectorGroup)
+-&gt; Generic GetVoiceConnectorGroup
+forall x. Rep GetVoiceConnectorGroup x -&gt; GetVoiceConnectorGroup
+forall x. GetVoiceConnectorGroup -&gt; Rep GetVoiceConnectorGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetVoiceConnectorGroup x -&gt; GetVoiceConnectorGroup
+$cfrom :: forall x. GetVoiceConnectorGroup -&gt; Rep GetVoiceConnectorGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'GetVoiceConnectorGroup' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'voiceConnectorGroupId', 'getVoiceConnectorGroup_voiceConnectorGroupId' - The Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#newGetVoiceConnectorGroup"><span class="hs-identifier hs-type">newGetVoiceConnectorGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'voiceConnectorGroupId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span>
+</span><span id="line-70"></span><span id="newGetVoiceConnectorGroup"><span class="annot"><span class="annottext">newGetVoiceConnectorGroup :: Text -&gt; GetVoiceConnectorGroup
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#newGetVoiceConnectorGroup"><span class="hs-identifier hs-var hs-var">newGetVoiceConnectorGroup</span></a></span></span><span> </span><span id="local-6989586621679538750"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538750"><span class="hs-identifier hs-var">pVoiceConnectorGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GetVoiceConnectorGroup' :: Text -&gt; GetVoiceConnectorGroup
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroup'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:voiceConnectorGroupId:GetVoiceConnectorGroup' :: Text
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroupId%3AGetVoiceConnectorGroup%27"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538750"><span class="hs-identifier hs-var">pVoiceConnectorGroupId_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroup_voiceConnectorGroupId"><span class="hs-identifier hs-type">getVoiceConnectorGroup_voiceConnectorGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="getVoiceConnectorGroup_voiceConnectorGroupId"><span class="annot"><span class="annottext">getVoiceConnectorGroup_voiceConnectorGroupId :: (Text -&gt; f Text)
+-&gt; GetVoiceConnectorGroup -&gt; f GetVoiceConnectorGroup
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroup_voiceConnectorGroupId"><span class="hs-identifier hs-var hs-var">getVoiceConnectorGroup_voiceConnectorGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVoiceConnectorGroup -&gt; Text)
+-&gt; (GetVoiceConnectorGroup -&gt; Text -&gt; GetVoiceConnectorGroup)
+-&gt; Lens GetVoiceConnectorGroup GetVoiceConnectorGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538747"><span class="annot"><span class="annottext">Text
+voiceConnectorGroupId :: Text
+$sel:voiceConnectorGroupId:GetVoiceConnectorGroup' :: GetVoiceConnectorGroup -&gt; Text
+</span><a href="#local-6989586621679538747"><span class="hs-identifier hs-var hs-var">voiceConnectorGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538747"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538746"><span class="annot"><span class="annottext">s :: GetVoiceConnectorGroup
+</span><a href="#local-6989586621679538746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538745"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVoiceConnectorGroup
+</span><a href="#local-6989586621679538746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceConnectorGroupId:GetVoiceConnectorGroup' :: Text
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroupId%3AGetVoiceConnectorGroup%27"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679538741"><span class="annot"><span class="annottext">request :: GetVoiceConnectorGroup -&gt; Request GetVoiceConnectorGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetVoiceConnectorGroup -&gt; Request GetVoiceConnectorGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679538737"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetVoiceConnectorGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetVoiceConnectorGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetVoiceConnectorGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetVoiceConnectorGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetVoiceConnectorGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679538734"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538734"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679538733"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679538733"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679538732"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679538732"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe VoiceConnectorGroup -&gt; Int -&gt; GetVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">GetVoiceConnectorGroupResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VoiceConnectorGroup
+ -&gt; Int -&gt; GetVoiceConnectorGroupResponse)
+-&gt; Either String (Maybe VoiceConnectorGroup)
+-&gt; Either String (Int -&gt; GetVoiceConnectorGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679538732"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VoiceConnectorGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VoiceConnectorGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetVoiceConnectorGroupResponse)
+-&gt; Either String Int
+-&gt; Either String GetVoiceConnectorGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538734"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538724"><span id="local-6989586621679538726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679538721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679538717"><span class="annot"><span class="annottext">toHeaders :: GetVoiceConnectorGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetVoiceConnectorGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679538712"><span class="annot"><span class="annottext">toPath :: GetVoiceConnectorGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538710"><span class="annot"><span class="annottext">Text
+voiceConnectorGroupId :: Text
+$sel:voiceConnectorGroupId:GetVoiceConnectorGroup' :: GetVoiceConnectorGroup -&gt; Text
+</span><a href="#local-6989586621679538710"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/voice-connector-groups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679538710"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroup"><span class="hs-identifier hs-type">GetVoiceConnectorGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679538706"><span class="annot"><span class="annottext">toQuery :: GetVoiceConnectorGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetVoiceConnectorGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | /See:/ 'newGetVoiceConnectorGroupResponse' smart constructor.</span><span>
+</span><span id="line-111"></span><span id="local-6989586621679538703"><span id="local-6989586621679538704"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVoiceConnectorGroupResponse"><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-var">GetVoiceConnectorGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVoiceConnectorGroupResponse%27"><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">GetVoiceConnectorGroupResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime Voice Connector group details.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3AvoiceConnectorGroup%3AGetVoiceConnectorGroupResponse%27"><span class="annot"><span class="annottext">GetVoiceConnectorGroupResponse -&gt; Maybe VoiceConnectorGroup
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroup%3AGetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var hs-var">voiceConnectorGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.VoiceConnectorGroup.html#VoiceConnectorGroup"><span class="hs-identifier hs-type">VoiceConnectorGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetVoiceConnectorGroupResponse%27"><span class="annot"><span class="annottext">GetVoiceConnectorGroupResponse -&gt; Int
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AhttpStatus%3AGetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679538697"><span id="local-6989586621679538699"><span class="annot"><span class="annottext">GetVoiceConnectorGroupResponse
+-&gt; GetVoiceConnectorGroupResponse -&gt; Bool
+(GetVoiceConnectorGroupResponse
+ -&gt; GetVoiceConnectorGroupResponse -&gt; Bool)
+-&gt; (GetVoiceConnectorGroupResponse
+    -&gt; GetVoiceConnectorGroupResponse -&gt; Bool)
+-&gt; Eq GetVoiceConnectorGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetVoiceConnectorGroupResponse
+-&gt; GetVoiceConnectorGroupResponse -&gt; Bool
+$c/= :: GetVoiceConnectorGroupResponse
+-&gt; GetVoiceConnectorGroupResponse -&gt; Bool
+== :: GetVoiceConnectorGroupResponse
+-&gt; GetVoiceConnectorGroupResponse -&gt; Bool
+$c== :: GetVoiceConnectorGroupResponse
+-&gt; GetVoiceConnectorGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538689"><span id="local-6989586621679538691"><span id="local-6989586621679538693"><span id="local-6989586621679538695"><span class="annot"><span class="annottext">ReadPrec [GetVoiceConnectorGroupResponse]
+ReadPrec GetVoiceConnectorGroupResponse
+Int -&gt; ReadS GetVoiceConnectorGroupResponse
+ReadS [GetVoiceConnectorGroupResponse]
+(Int -&gt; ReadS GetVoiceConnectorGroupResponse)
+-&gt; ReadS [GetVoiceConnectorGroupResponse]
+-&gt; ReadPrec GetVoiceConnectorGroupResponse
+-&gt; ReadPrec [GetVoiceConnectorGroupResponse]
+-&gt; Read GetVoiceConnectorGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetVoiceConnectorGroupResponse]
+$creadListPrec :: ReadPrec [GetVoiceConnectorGroupResponse]
+readPrec :: ReadPrec GetVoiceConnectorGroupResponse
+$creadPrec :: ReadPrec GetVoiceConnectorGroupResponse
+readList :: ReadS [GetVoiceConnectorGroupResponse]
+$creadList :: ReadS [GetVoiceConnectorGroupResponse]
+readsPrec :: Int -&gt; ReadS GetVoiceConnectorGroupResponse
+$creadsPrec :: Int -&gt; ReadS GetVoiceConnectorGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679538683"><span id="local-6989586621679538685"><span id="local-6989586621679538687"><span class="annot"><span class="annottext">Int -&gt; GetVoiceConnectorGroupResponse -&gt; ShowS
+[GetVoiceConnectorGroupResponse] -&gt; ShowS
+GetVoiceConnectorGroupResponse -&gt; String
+(Int -&gt; GetVoiceConnectorGroupResponse -&gt; ShowS)
+-&gt; (GetVoiceConnectorGroupResponse -&gt; String)
+-&gt; ([GetVoiceConnectorGroupResponse] -&gt; ShowS)
+-&gt; Show GetVoiceConnectorGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetVoiceConnectorGroupResponse] -&gt; ShowS
+$cshowList :: [GetVoiceConnectorGroupResponse] -&gt; ShowS
+show :: GetVoiceConnectorGroupResponse -&gt; String
+$cshow :: GetVoiceConnectorGroupResponse -&gt; String
+showsPrec :: Int -&gt; GetVoiceConnectorGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetVoiceConnectorGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetVoiceConnectorGroupResponse
+ -&gt; Rep GetVoiceConnectorGroupResponse x)
+-&gt; (forall x.
+    Rep GetVoiceConnectorGroupResponse x
+    -&gt; GetVoiceConnectorGroupResponse)
+-&gt; Generic GetVoiceConnectorGroupResponse
+forall x.
+Rep GetVoiceConnectorGroupResponse x
+-&gt; GetVoiceConnectorGroupResponse
+forall x.
+GetVoiceConnectorGroupResponse
+-&gt; Rep GetVoiceConnectorGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetVoiceConnectorGroupResponse x
+-&gt; GetVoiceConnectorGroupResponse
+$cfrom :: forall x.
+GetVoiceConnectorGroupResponse
+-&gt; Rep GetVoiceConnectorGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'GetVoiceConnectorGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'voiceConnectorGroup', 'getVoiceConnectorGroupResponse_voiceConnectorGroup' - The Amazon Chime Voice Connector group details.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'httpStatus', 'getVoiceConnectorGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#newGetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">newGetVoiceConnectorGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse</span></a></span><span>
+</span><span id="line-134"></span><span id="newGetVoiceConnectorGroupResponse"><span class="annot"><span class="annottext">newGetVoiceConnectorGroupResponse :: Int -&gt; GetVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#newGetVoiceConnectorGroupResponse"><span class="hs-identifier hs-var hs-var">newGetVoiceConnectorGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679538680"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">GetVoiceConnectorGroupResponse' :: Maybe VoiceConnectorGroup -&gt; Int -&gt; GetVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:voiceConnectorGroup:GetVoiceConnectorGroupResponse' :: Maybe VoiceConnectorGroup
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroup%3AGetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">voiceConnectorGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Maybe VoiceConnectorGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetVoiceConnectorGroupResponse' :: Int
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AhttpStatus%3AGetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The Amazon Chime Voice Connector group details.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroupResponse_voiceConnectorGroup"><span class="hs-identifier hs-type">getVoiceConnectorGroupResponse_voiceConnectorGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.VoiceConnectorGroup.html#VoiceConnectorGroup"><span class="hs-identifier hs-type">VoiceConnectorGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="getVoiceConnectorGroupResponse_voiceConnectorGroup"><span class="annot"><span class="annottext">getVoiceConnectorGroupResponse_voiceConnectorGroup :: (Maybe VoiceConnectorGroup -&gt; f (Maybe VoiceConnectorGroup))
+-&gt; GetVoiceConnectorGroupResponse
+-&gt; f GetVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroupResponse_voiceConnectorGroup"><span class="hs-identifier hs-var hs-var">getVoiceConnectorGroupResponse_voiceConnectorGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVoiceConnectorGroupResponse -&gt; Maybe VoiceConnectorGroup)
+-&gt; (GetVoiceConnectorGroupResponse
+    -&gt; Maybe VoiceConnectorGroup -&gt; GetVoiceConnectorGroupResponse)
+-&gt; Lens
+     GetVoiceConnectorGroupResponse
+     GetVoiceConnectorGroupResponse
+     (Maybe VoiceConnectorGroup)
+     (Maybe VoiceConnectorGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538679"><span class="annot"><span class="annottext">Maybe VoiceConnectorGroup
+voiceConnectorGroup :: Maybe VoiceConnectorGroup
+$sel:voiceConnectorGroup:GetVoiceConnectorGroupResponse' :: GetVoiceConnectorGroupResponse -&gt; Maybe VoiceConnectorGroup
+</span><a href="#local-6989586621679538679"><span class="hs-identifier hs-var hs-var">voiceConnectorGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceConnectorGroup
+</span><a href="#local-6989586621679538679"><span class="hs-identifier hs-var">voiceConnectorGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538678"><span class="annot"><span class="annottext">s :: GetVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679538678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538677"><span class="annot"><span class="annottext">Maybe VoiceConnectorGroup
+</span><a href="#local-6989586621679538677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679538678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceConnectorGroup:GetVoiceConnectorGroupResponse' :: Maybe VoiceConnectorGroup
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroup%3AGetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">voiceConnectorGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VoiceConnectorGroup
+</span><a href="#local-6989586621679538677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroupResponse_httpStatus"><span class="hs-identifier hs-type">getVoiceConnectorGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-147"></span><span id="getVoiceConnectorGroupResponse_httpStatus"><span class="annot"><span class="annottext">getVoiceConnectorGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetVoiceConnectorGroupResponse
+-&gt; f GetVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#getVoiceConnectorGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getVoiceConnectorGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVoiceConnectorGroupResponse -&gt; Int)
+-&gt; (GetVoiceConnectorGroupResponse
+    -&gt; Int -&gt; GetVoiceConnectorGroupResponse)
+-&gt; Lens
+     GetVoiceConnectorGroupResponse
+     GetVoiceConnectorGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679538676"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetVoiceConnectorGroupResponse' :: GetVoiceConnectorGroupResponse -&gt; Int
+</span><a href="#local-6989586621679538676"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538676"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679538675"><span class="annot"><span class="annottext">s :: GetVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679538675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679538674"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679538675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetVoiceConnectorGroupResponse' :: Int
+</span><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#%24sel%3AhttpStatus%3AGetVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679538674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679538672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.GetVoiceConnectorGroup.html#GetVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">GetVoiceConnectorGroupResponse</span></a></span></span><span>
+</span><span id="line-152"></span></pre></body></html>

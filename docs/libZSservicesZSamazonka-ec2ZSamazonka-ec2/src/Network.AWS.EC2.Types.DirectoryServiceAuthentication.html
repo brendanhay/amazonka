@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an Active Directory.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDirectoryServiceAuthentication' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681099736"><span id="local-6989586621681099737"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectoryServiceAuthentication"><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-var">DirectoryServiceAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryServiceAuthentication%27"><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication%27"><span class="hs-identifier hs-var">DirectoryServiceAuthentication'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681099745"><span id="local-6989586621681099746"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectoryServiceAuthentication"><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-var">DirectoryServiceAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryServiceAuthentication%27"><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication%27"><span class="hs-identifier hs-var">DirectoryServiceAuthentication'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Active Directory used for authentication.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AdirectoryId%3ADirectoryServiceAuthentication%27"><span class="annot"><span class="annottext">DirectoryServiceAuthentication -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#%24sel%3AdirectoryId%3ADirectoryServiceAuthentication%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681099730"><span id="local-6989586621681099732"><span class="annot"><span class="annottext">DirectoryServiceAuthentication
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681099739"><span id="local-6989586621681099741"><span class="annot"><span class="annottext">DirectoryServiceAuthentication
 -&gt; DirectoryServiceAuthentication -&gt; Bool
 (DirectoryServiceAuthentication
  -&gt; DirectoryServiceAuthentication -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: DirectoryServiceAuthentication
 -&gt; DirectoryServiceAuthentication -&gt; Bool
 $c== :: DirectoryServiceAuthentication
 -&gt; DirectoryServiceAuthentication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681099721"><span id="local-6989586621681099723"><span id="local-6989586621681099725"><span id="local-6989586621681099727"><span class="annot"><span class="annottext">ReadPrec [DirectoryServiceAuthentication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681099730"><span id="local-6989586621681099732"><span id="local-6989586621681099734"><span id="local-6989586621681099736"><span class="annot"><span class="annottext">ReadPrec [DirectoryServiceAuthentication]
 ReadPrec DirectoryServiceAuthentication
 Int -&gt; ReadS DirectoryServiceAuthentication
 ReadS [DirectoryServiceAuthentication]
@@ -68,7 +68,7 @@ readList :: ReadS [DirectoryServiceAuthentication]
 $creadList :: ReadS [DirectoryServiceAuthentication]
 readsPrec :: Int -&gt; ReadS DirectoryServiceAuthentication
 $creadsPrec :: Int -&gt; ReadS DirectoryServiceAuthentication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681099714"><span id="local-6989586621681099716"><span id="local-6989586621681099718"><span class="annot"><span class="annottext">Int -&gt; DirectoryServiceAuthentication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681099723"><span id="local-6989586621681099725"><span id="local-6989586621681099727"><span class="annot"><span class="annottext">Int -&gt; DirectoryServiceAuthentication -&gt; ShowS
 [DirectoryServiceAuthentication] -&gt; ShowS
 DirectoryServiceAuthentication -&gt; String
 (Int -&gt; DirectoryServiceAuthentication -&gt; ShowS)
@@ -142,21 +142,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication%27"><span class="hs-identifier hs-type">DirectoryServiceAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681099705"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication%27"><span class="hs-identifier hs-type">DirectoryServiceAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681099714"><span class="annot"><span class="annottext">Maybe Text
 directoryId :: Maybe Text
 $sel:directoryId:DirectoryServiceAuthentication' :: DirectoryServiceAuthentication -&gt; Maybe Text
-</span><a href="#local-6989586621681099705"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681099705"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681099704"><span class="annot"><span class="annottext">s :: DirectoryServiceAuthentication
-</span><a href="#local-6989586621681099704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication%27"><span class="hs-identifier hs-type">DirectoryServiceAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681099703"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681099703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryServiceAuthentication
-</span><a href="#local-6989586621681099704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DirectoryServiceAuthentication' :: Maybe Text
+</span><a href="#local-6989586621681099714"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681099714"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681099713"><span class="annot"><span class="annottext">s :: DirectoryServiceAuthentication
+</span><a href="#local-6989586621681099713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication%27"><span class="hs-identifier hs-type">DirectoryServiceAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681099712"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681099712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryServiceAuthentication
+</span><a href="#local-6989586621681099713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:DirectoryServiceAuthentication' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#%24sel%3AdirectoryId%3ADirectoryServiceAuthentication%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681099703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681099712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621681099700"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DirectoryServiceAuthentication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681099698"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681099698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621681099709"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DirectoryServiceAuthentication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681099707"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681099707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; DirectoryServiceAuthentication
 </span><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication%27"><span class="hs-identifier hs-var">DirectoryServiceAuthentication'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; DirectoryServiceAuthentication)
@@ -164,16 +164,16 @@ $sel:directoryId:DirectoryServiceAuthentication' :: DirectoryServiceAuthenticati
 -&gt; Either String DirectoryServiceAuthentication
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681099698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681099707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;directoryId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621681099692"><span id="local-6989586621681099694"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621681099701"><span id="local-6989586621681099703"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681099689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681099698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

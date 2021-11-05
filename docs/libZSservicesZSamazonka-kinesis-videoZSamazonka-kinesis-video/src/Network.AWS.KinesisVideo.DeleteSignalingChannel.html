@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteSignalingChannel' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679179976"><span id="local-6989586621679179977"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSignalingChannel"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-var">DeleteSignalingChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSignalingChannel%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-var">DeleteSignalingChannel'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679179985"><span id="local-6989586621679179986"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSignalingChannel"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-var">DeleteSignalingChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSignalingChannel%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-var">DeleteSignalingChannel'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the signaling channel that you want to delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- You can obtain the current version by invoking the</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @DescribeSignalingChannel@ or @ListSignalingChannels@ API operations.</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AchannelARN%3ADeleteSignalingChannel%27"><span class="annot"><span class="annottext">DeleteSignalingChannel -&gt; Text
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#%24sel%3AchannelARN%3ADeleteSignalingChannel%27"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179969"><span id="local-6989586621679179971"><span class="annot"><span class="annottext">DeleteSignalingChannel -&gt; DeleteSignalingChannel -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179978"><span id="local-6989586621679179980"><span class="annot"><span class="annottext">DeleteSignalingChannel -&gt; DeleteSignalingChannel -&gt; Bool
 (DeleteSignalingChannel -&gt; DeleteSignalingChannel -&gt; Bool)
 -&gt; (DeleteSignalingChannel -&gt; DeleteSignalingChannel -&gt; Bool)
 -&gt; Eq DeleteSignalingChannel
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteSignalingChannel -&gt; DeleteSignalingChannel -&gt; Bool
 == :: DeleteSignalingChannel -&gt; DeleteSignalingChannel -&gt; Bool
 $c== :: DeleteSignalingChannel -&gt; DeleteSignalingChannel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179960"><span id="local-6989586621679179962"><span id="local-6989586621679179964"><span id="local-6989586621679179966"><span class="annot"><span class="annottext">ReadPrec [DeleteSignalingChannel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179969"><span id="local-6989586621679179971"><span id="local-6989586621679179973"><span id="local-6989586621679179975"><span class="annot"><span class="annottext">ReadPrec [DeleteSignalingChannel]
 ReadPrec DeleteSignalingChannel
 Int -&gt; ReadS DeleteSignalingChannel
 ReadS [DeleteSignalingChannel]
@@ -89,7 +89,7 @@ readList :: ReadS [DeleteSignalingChannel]
 $creadList :: ReadS [DeleteSignalingChannel]
 readsPrec :: Int -&gt; ReadS DeleteSignalingChannel
 $creadsPrec :: Int -&gt; ReadS DeleteSignalingChannel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179953"><span id="local-6989586621679179955"><span id="local-6989586621679179957"><span class="annot"><span class="annottext">Int -&gt; DeleteSignalingChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179962"><span id="local-6989586621679179964"><span id="local-6989586621679179966"><span class="annot"><span class="annottext">Int -&gt; DeleteSignalingChannel -&gt; ShowS
 [DeleteSignalingChannel] -&gt; ShowS
 DeleteSignalingChannel -&gt; String
 (Int -&gt; DeleteSignalingChannel -&gt; ShowS)
@@ -135,8 +135,8 @@ $cfrom :: forall x. DeleteSignalingChannel -&gt; Rep DeleteSignalingChannel x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span>
 </span><span id="line-81"></span><span id="newDeleteSignalingChannel"><span class="annot"><span class="annottext">newDeleteSignalingChannel :: Text -&gt; DeleteSignalingChannel
-</span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#newDeleteSignalingChannel"><span class="hs-identifier hs-var hs-var">newDeleteSignalingChannel</span></a></span></span><span> </span><span id="local-6989586621679179948"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179948"><span class="hs-identifier hs-var">pChannelARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#newDeleteSignalingChannel"><span class="hs-identifier hs-var hs-var">newDeleteSignalingChannel</span></a></span></span><span> </span><span id="local-6989586621679179957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179957"><span class="hs-identifier hs-var">pChannelARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteSignalingChannel' :: Maybe Text -&gt; Text -&gt; DeleteSignalingChannel
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currentVersion:DeleteSignalingChannel' :: Maybe Text
@@ -146,7 +146,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelARN:DeleteSignalingChannel' :: Text
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#%24sel%3AchannelARN%3ADeleteSignalingChannel%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179948"><span class="hs-identifier hs-var">pChannelARN_</span></a></span><span>
+</span><a href="#local-6989586621679179957"><span class="hs-identifier hs-var">pChannelARN_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The current version of the signaling channel that you want to delete.</span><span>
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179945"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179954"><span class="annot"><span class="annottext">Maybe Text
 currentVersion :: Maybe Text
 $sel:currentVersion:DeleteSignalingChannel' :: DeleteSignalingChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679179945"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179945"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179944"><span class="annot"><span class="annottext">s :: DeleteSignalingChannel
-</span><a href="#local-6989586621679179944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179943"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSignalingChannel
-</span><a href="#local-6989586621679179944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:DeleteSignalingChannel' :: Maybe Text
+</span><a href="#local-6989586621679179954"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179954"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179953"><span class="annot"><span class="annottext">s :: DeleteSignalingChannel
+</span><a href="#local-6989586621679179953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179952"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSignalingChannel
+</span><a href="#local-6989586621679179953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:DeleteSignalingChannel' :: Maybe Text
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#%24sel%3AcurrentVersion%3ADeleteSignalingChannel%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the signaling channel that you want to</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- delete.</span><span>
@@ -183,27 +183,27 @@ $sel:currentVersion:DeleteSignalingChannel' :: DeleteSignalingChannel -&gt; Mayb
 -&gt; (DeleteSignalingChannel -&gt; Text -&gt; DeleteSignalingChannel)
 -&gt; Lens DeleteSignalingChannel DeleteSignalingChannel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179942"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179951"><span class="annot"><span class="annottext">Text
 channelARN :: Text
 $sel:channelARN:DeleteSignalingChannel' :: DeleteSignalingChannel -&gt; Text
-</span><a href="#local-6989586621679179942"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179942"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179941"><span class="annot"><span class="annottext">s :: DeleteSignalingChannel
-</span><a href="#local-6989586621679179941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179940"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSignalingChannel
-</span><a href="#local-6989586621679179941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelARN:DeleteSignalingChannel' :: Text
+</span><a href="#local-6989586621679179951"><span class="hs-identifier hs-var hs-var">channelARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179951"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179950"><span class="annot"><span class="annottext">s :: DeleteSignalingChannel
+</span><a href="#local-6989586621679179950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679179949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSignalingChannel
+</span><a href="#local-6989586621679179950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelARN:DeleteSignalingChannel' :: Text
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#%24sel%3AchannelARN%3ADeleteSignalingChannel%27"><span class="hs-identifier hs-var">channelARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679179936"><span class="annot"><span class="annottext">request :: DeleteSignalingChannel -&gt; Request DeleteSignalingChannel
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679179945"><span class="annot"><span class="annottext">request :: DeleteSignalingChannel -&gt; Request DeleteSignalingChannel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteSignalingChannel -&gt; Request DeleteSignalingChannel
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KinesisVideo.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679179932"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679179941"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteSignalingChannel
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179929"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179929"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179928"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679179928"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179927"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679179927"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179938"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179937"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179937"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179936"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679179936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteSignalingChannelResponse
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-var">DeleteSignalingChannelResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteSignalingChannelResponse)
@@ -244,30 +244,30 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179929"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179938"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179920"><span id="local-6989586621679179922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179929"><span id="local-6989586621679179931"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179926"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679179913"><span class="annot"><span class="annottext">toHeaders :: DeleteSignalingChannel -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679179922"><span class="annot"><span class="annottext">toHeaders :: DeleteSignalingChannel -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteSignalingChannel -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179904"><span id="local-6989586621679179906"><span id="local-6989586621679179908"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679179902"><span class="annot"><span class="annottext">toJSON :: DeleteSignalingChannel -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179899"><span id="local-6989586621679179900"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679179913"><span id="local-6989586621679179915"><span id="local-6989586621679179917"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679179911"><span class="annot"><span class="annottext">toJSON :: DeleteSignalingChannel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel%27"><span class="hs-identifier hs-type">DeleteSignalingChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179908"><span id="local-6989586621679179909"><span class="annot"><span class="annottext">Maybe Text
 Text
 channelARN :: Text
 currentVersion :: Maybe Text
 $sel:channelARN:DeleteSignalingChannel' :: DeleteSignalingChannel -&gt; Text
 $sel:currentVersion:DeleteSignalingChannel' :: DeleteSignalingChannel -&gt; Maybe Text
-</span><a href="#local-6989586621679179899"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679179908"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -280,26 +280,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679179900"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679179909"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChannelARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679179899"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179908"><span class="hs-identifier hs-var">channelARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679179893"><span class="annot"><span class="annottext">toPath :: DeleteSignalingChannel -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679179902"><span class="annot"><span class="annottext">toPath :: DeleteSignalingChannel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteSignalingChannel -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/deleteSignalingChannel&quot;</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannel"><span class="hs-identifier hs-type">DeleteSignalingChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679179889"><span class="annot"><span class="annottext">toQuery :: DeleteSignalingChannel -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679179898"><span class="annot"><span class="annottext">toQuery :: DeleteSignalingChannel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteSignalingChannel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -307,12 +307,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newDeleteSignalingChannelResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679179886"><span id="local-6989586621679179887"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSignalingChannelResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse"><span class="hs-identifier hs-var">DeleteSignalingChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSignalingChannelResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-var">DeleteSignalingChannelResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679179895"><span id="local-6989586621679179896"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteSignalingChannelResponse"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse"><span class="hs-identifier hs-var">DeleteSignalingChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteSignalingChannelResponse%27"><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-var">DeleteSignalingChannelResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteSignalingChannelResponse%27"><span class="annot"><span class="annottext">DeleteSignalingChannelResponse -&gt; Int
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#%24sel%3AhttpStatus%3ADeleteSignalingChannelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179881"><span id="local-6989586621679179883"><span class="annot"><span class="annottext">DeleteSignalingChannelResponse
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179890"><span id="local-6989586621679179892"><span class="annot"><span class="annottext">DeleteSignalingChannelResponse
 -&gt; DeleteSignalingChannelResponse -&gt; Bool
 (DeleteSignalingChannelResponse
  -&gt; DeleteSignalingChannelResponse -&gt; Bool)
@@ -328,7 +328,7 @@ $c/= :: DeleteSignalingChannelResponse
 -&gt; DeleteSignalingChannelResponse -&gt; Bool
 $c== :: DeleteSignalingChannelResponse
 -&gt; DeleteSignalingChannelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179873"><span id="local-6989586621679179875"><span id="local-6989586621679179877"><span id="local-6989586621679179879"><span class="annot"><span class="annottext">ReadPrec [DeleteSignalingChannelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179882"><span id="local-6989586621679179884"><span id="local-6989586621679179886"><span id="local-6989586621679179888"><span class="annot"><span class="annottext">ReadPrec [DeleteSignalingChannelResponse]
 ReadPrec DeleteSignalingChannelResponse
 Int -&gt; ReadS DeleteSignalingChannelResponse
 ReadS [DeleteSignalingChannelResponse]
@@ -348,7 +348,7 @@ readList :: ReadS [DeleteSignalingChannelResponse]
 $creadList :: ReadS [DeleteSignalingChannelResponse]
 readsPrec :: Int -&gt; ReadS DeleteSignalingChannelResponse
 $creadsPrec :: Int -&gt; ReadS DeleteSignalingChannelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179867"><span id="local-6989586621679179869"><span id="local-6989586621679179871"><span class="annot"><span class="annottext">Int -&gt; DeleteSignalingChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179876"><span id="local-6989586621679179878"><span id="local-6989586621679179880"><span class="annot"><span class="annottext">Int -&gt; DeleteSignalingChannelResponse -&gt; ShowS
 [DeleteSignalingChannelResponse] -&gt; ShowS
 DeleteSignalingChannelResponse -&gt; String
 (Int -&gt; DeleteSignalingChannelResponse -&gt; ShowS)
@@ -400,14 +400,14 @@ DeleteSignalingChannelResponse
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newDeleteSignalingChannelResponse"><span class="annot"><span class="annottext">newDeleteSignalingChannelResponse :: Int -&gt; DeleteSignalingChannelResponse
-</span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#newDeleteSignalingChannelResponse"><span class="hs-identifier hs-var hs-var">newDeleteSignalingChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679179864"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#newDeleteSignalingChannelResponse"><span class="hs-identifier hs-var hs-var">newDeleteSignalingChannelResponse</span></a></span></span><span> </span><span id="local-6989586621679179873"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">DeleteSignalingChannelResponse' :: Int -&gt; DeleteSignalingChannelResponse
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSignalingChannelResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#%24sel%3AhttpStatus%3ADeleteSignalingChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179864"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679179873"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -424,18 +424,18 @@ DeleteSignalingChannelResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179863"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179872"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteSignalingChannelResponse' :: DeleteSignalingChannelResponse -&gt; Int
-</span><a href="#local-6989586621679179863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179862"><span class="annot"><span class="annottext">s :: DeleteSignalingChannelResponse
-</span><a href="#local-6989586621679179862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179861"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSignalingChannelResponse
-</span><a href="#local-6989586621679179862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSignalingChannelResponse' :: Int
+</span><a href="#local-6989586621679179872"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179872"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179871"><span class="annot"><span class="annottext">s :: DeleteSignalingChannelResponse
+</span><a href="#local-6989586621679179871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse%27"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteSignalingChannelResponse
+</span><a href="#local-6989586621679179871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteSignalingChannelResponse' :: Int
 </span><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#%24sel%3AhttpStatus%3ADeleteSignalingChannelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679179861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679179870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679179859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679179868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisVideo.DeleteSignalingChannel.html#DeleteSignalingChannelResponse"><span class="hs-identifier hs-type">DeleteSignalingChannelResponse</span></a></span></span><span>
 </span><span id="line-167"></span></pre></body></html>

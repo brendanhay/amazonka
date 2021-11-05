@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateJob' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679860930"><span id="local-6989586621679860931"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJob"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-var">UpdateJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJob%27"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-var">UpdateJob'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679860939"><span id="local-6989586621679860940"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJob"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-var">UpdateJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJob%27"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-var">UpdateJob'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allows you to create a staged rollout of the job.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AjobExecutionsRolloutConfig%3AUpdateJob%27"><span class="annot"><span class="annottext">UpdateJob -&gt; Maybe JobExecutionsRolloutConfig
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AjobExecutionsRolloutConfig%3AUpdateJob%27"><span class="hs-identifier hs-var hs-var">jobExecutionsRolloutConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.JobExecutionsRolloutConfig.html#JobExecutionsRolloutConfig"><span class="hs-identifier hs-type">JobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
@@ -88,7 +88,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AjobId%3AUpdateJob%27"><span class="annot"><span class="annottext">UpdateJob -&gt; Text
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AjobId%3AUpdateJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860918"><span id="local-6989586621679860920"><span class="annot"><span class="annottext">UpdateJob -&gt; UpdateJob -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860927"><span id="local-6989586621679860929"><span class="annot"><span class="annottext">UpdateJob -&gt; UpdateJob -&gt; Bool
 (UpdateJob -&gt; UpdateJob -&gt; Bool)
 -&gt; (UpdateJob -&gt; UpdateJob -&gt; Bool) -&gt; Eq UpdateJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateJob -&gt; UpdateJob -&gt; Bool
 == :: UpdateJob -&gt; UpdateJob -&gt; Bool
 $c== :: UpdateJob -&gt; UpdateJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860909"><span id="local-6989586621679860911"><span id="local-6989586621679860913"><span id="local-6989586621679860915"><span class="annot"><span class="annottext">ReadPrec [UpdateJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860918"><span id="local-6989586621679860920"><span id="local-6989586621679860922"><span id="local-6989586621679860924"><span class="annot"><span class="annottext">ReadPrec [UpdateJob]
 ReadPrec UpdateJob
 Int -&gt; ReadS UpdateJob
 ReadS [UpdateJob]
@@ -116,7 +116,7 @@ readList :: ReadS [UpdateJob]
 $creadList :: ReadS [UpdateJob]
 readsPrec :: Int -&gt; ReadS UpdateJob
 $creadsPrec :: Int -&gt; ReadS UpdateJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860902"><span id="local-6989586621679860904"><span id="local-6989586621679860906"><span class="annot"><span class="annottext">Int -&gt; UpdateJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860911"><span id="local-6989586621679860913"><span id="local-6989586621679860915"><span class="annot"><span class="annottext">Int -&gt; UpdateJob -&gt; ShowS
 [UpdateJob] -&gt; ShowS
 UpdateJob -&gt; String
 (Int -&gt; UpdateJob -&gt; ShowS)
@@ -179,8 +179,8 @@ $cfrom :: forall x. UpdateJob -&gt; Rep UpdateJob x
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span>
 </span><span id="line-123"></span><span id="newUpdateJob"><span class="annot"><span class="annottext">newUpdateJob :: Text -&gt; UpdateJob
-</span><a href="Network.AWS.IoT.UpdateJob.html#newUpdateJob"><span class="hs-identifier hs-var hs-var">newUpdateJob</span></a></span></span><span> </span><span id="local-6989586621679860897"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860897"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateJob.html#newUpdateJob"><span class="hs-identifier hs-var hs-var">newUpdateJob</span></a></span></span><span> </span><span id="local-6989586621679860906"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679860906"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">UpdateJob' :: Maybe JobExecutionsRolloutConfig
 -&gt; Maybe AbortConfig
 -&gt; Maybe Text
@@ -217,7 +217,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:UpdateJob' :: Text
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AjobId%3AUpdateJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860897"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><a href="#local-6989586621679860906"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | Allows you to create a staged rollout of the job.</span><span>
@@ -233,16 +233,16 @@ forall a. Maybe a
      (Maybe JobExecutionsRolloutConfig)
      (Maybe JobExecutionsRolloutConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860894"><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860903"><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
 jobExecutionsRolloutConfig :: Maybe JobExecutionsRolloutConfig
 $sel:jobExecutionsRolloutConfig:UpdateJob' :: UpdateJob -&gt; Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860894"><span class="hs-identifier hs-var hs-var">jobExecutionsRolloutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860894"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860893"><span class="annot"><span class="annottext">s :: UpdateJob
-</span><a href="#local-6989586621679860893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860892"><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
-</span><a href="#local-6989586621679860893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobExecutionsRolloutConfig:UpdateJob' :: Maybe JobExecutionsRolloutConfig
+</span><a href="#local-6989586621679860903"><span class="hs-identifier hs-var hs-var">jobExecutionsRolloutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
+</span><a href="#local-6989586621679860903"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860902"><span class="annot"><span class="annottext">s :: UpdateJob
+</span><a href="#local-6989586621679860902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860901"><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
+</span><a href="#local-6989586621679860901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
+</span><a href="#local-6989586621679860902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobExecutionsRolloutConfig:UpdateJob' :: Maybe JobExecutionsRolloutConfig
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AjobExecutionsRolloutConfig%3AUpdateJob%27"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679860901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Allows you to create criteria to abort a job.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#updateJob_abortConfig"><span class="hs-identifier hs-type">updateJob_abortConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AbortConfig.html#AbortConfig"><span class="hs-identifier hs-type">AbortConfig</span></a></span><span class="hs-special">)</span><span>
@@ -252,16 +252,16 @@ $sel:jobExecutionsRolloutConfig:UpdateJob' :: UpdateJob -&gt; Maybe JobExecution
 -&gt; (UpdateJob -&gt; Maybe AbortConfig -&gt; UpdateJob)
 -&gt; Lens UpdateJob UpdateJob (Maybe AbortConfig) (Maybe AbortConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860891"><span class="annot"><span class="annottext">Maybe AbortConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860900"><span class="annot"><span class="annottext">Maybe AbortConfig
 abortConfig :: Maybe AbortConfig
 $sel:abortConfig:UpdateJob' :: UpdateJob -&gt; Maybe AbortConfig
-</span><a href="#local-6989586621679860891"><span class="hs-identifier hs-var hs-var">abortConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbortConfig
-</span><a href="#local-6989586621679860891"><span class="hs-identifier hs-var">abortConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860890"><span class="annot"><span class="annottext">s :: UpdateJob
-</span><a href="#local-6989586621679860890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860889"><span class="annot"><span class="annottext">Maybe AbortConfig
-</span><a href="#local-6989586621679860889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
-</span><a href="#local-6989586621679860890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortConfig:UpdateJob' :: Maybe AbortConfig
+</span><a href="#local-6989586621679860900"><span class="hs-identifier hs-var hs-var">abortConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AbortConfig
+</span><a href="#local-6989586621679860900"><span class="hs-identifier hs-var">abortConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860899"><span class="annot"><span class="annottext">s :: UpdateJob
+</span><a href="#local-6989586621679860899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860898"><span class="annot"><span class="annottext">Maybe AbortConfig
+</span><a href="#local-6989586621679860898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
+</span><a href="#local-6989586621679860899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:abortConfig:UpdateJob' :: Maybe AbortConfig
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AabortConfig%3AUpdateJob%27"><span class="hs-identifier hs-var">abortConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AbortConfig
-</span><a href="#local-6989586621679860889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679860898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The namespace used to indicate that a job is a customer-managed job.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
@@ -278,16 +278,16 @@ $sel:abortConfig:UpdateJob' :: UpdateJob -&gt; Maybe AbortConfig
 -&gt; (UpdateJob -&gt; Maybe Text -&gt; UpdateJob)
 -&gt; Lens UpdateJob UpdateJob (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860888"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860897"><span class="annot"><span class="annottext">Maybe Text
 namespaceId :: Maybe Text
 $sel:namespaceId:UpdateJob' :: UpdateJob -&gt; Maybe Text
-</span><a href="#local-6989586621679860888"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860888"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860887"><span class="annot"><span class="annottext">s :: UpdateJob
-</span><a href="#local-6989586621679860887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860886"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
-</span><a href="#local-6989586621679860887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceId:UpdateJob' :: Maybe Text
+</span><a href="#local-6989586621679860897"><span class="hs-identifier hs-var hs-var">namespaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679860897"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860896"><span class="annot"><span class="annottext">s :: UpdateJob
+</span><a href="#local-6989586621679860896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679860895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
+</span><a href="#local-6989586621679860896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceId:UpdateJob' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AnamespaceId%3AUpdateJob%27"><span class="hs-identifier hs-var">namespaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679860895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | Configuration information for pre-signed S3 URLs.</span><span>
 </span><span id="line-156"></span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#updateJob_presignedUrlConfig"><span class="hs-identifier hs-type">updateJob_presignedUrlConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.PresignedUrlConfig.html#PresignedUrlConfig"><span class="hs-identifier hs-type">PresignedUrlConfig</span></a></span><span class="hs-special">)</span><span>
@@ -301,16 +301,16 @@ $sel:namespaceId:UpdateJob' :: UpdateJob -&gt; Maybe Text
      (Maybe PresignedUrlConfig)
      (Maybe PresignedUrlConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860885"><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860894"><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
 presignedUrlConfig :: Maybe PresignedUrlConfig
 $sel:presignedUrlConfig:UpdateJob' :: UpdateJob -&gt; Maybe PresignedUrlConfig
-</span><a href="#local-6989586621679860885"><span class="hs-identifier hs-var hs-var">presignedUrlConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
-</span><a href="#local-6989586621679860885"><span class="hs-identifier hs-var">presignedUrlConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860884"><span class="annot"><span class="annottext">s :: UpdateJob
-</span><a href="#local-6989586621679860884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860883"><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
-</span><a href="#local-6989586621679860883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
-</span><a href="#local-6989586621679860884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:presignedUrlConfig:UpdateJob' :: Maybe PresignedUrlConfig
+</span><a href="#local-6989586621679860894"><span class="hs-identifier hs-var hs-var">presignedUrlConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
+</span><a href="#local-6989586621679860894"><span class="hs-identifier hs-var">presignedUrlConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860893"><span class="annot"><span class="annottext">s :: UpdateJob
+</span><a href="#local-6989586621679860893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860892"><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
+</span><a href="#local-6989586621679860892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
+</span><a href="#local-6989586621679860893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:presignedUrlConfig:UpdateJob' :: Maybe PresignedUrlConfig
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3ApresignedUrlConfig%3AUpdateJob%27"><span class="hs-identifier hs-var">presignedUrlConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
-</span><a href="#local-6989586621679860883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679860892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | A short text description of the job.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#updateJob_description"><span class="hs-identifier hs-type">updateJob_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -319,16 +319,16 @@ $sel:presignedUrlConfig:UpdateJob' :: UpdateJob -&gt; Maybe PresignedUrlConfig
 -&gt; (UpdateJob -&gt; Maybe Text -&gt; UpdateJob)
 -&gt; Lens UpdateJob UpdateJob (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860882"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860891"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateJob' :: UpdateJob -&gt; Maybe Text
-</span><a href="#local-6989586621679860882"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860882"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860881"><span class="annot"><span class="annottext">s :: UpdateJob
-</span><a href="#local-6989586621679860881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860880"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
-</span><a href="#local-6989586621679860881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateJob' :: Maybe Text
+</span><a href="#local-6989586621679860891"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679860891"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860890"><span class="annot"><span class="annottext">s :: UpdateJob
+</span><a href="#local-6989586621679860890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679860889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
+</span><a href="#local-6989586621679860890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateJob' :: Maybe Text
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3Adescription%3AUpdateJob%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679860889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | Specifies the amount of time each device has to finish its execution of</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- the job. The timer is started when the job execution status is set to</span><span>
@@ -343,16 +343,16 @@ $sel:description:UpdateJob' :: UpdateJob -&gt; Maybe Text
 -&gt; Lens
      UpdateJob UpdateJob (Maybe TimeoutConfig) (Maybe TimeoutConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860879"><span class="annot"><span class="annottext">Maybe TimeoutConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860888"><span class="annot"><span class="annottext">Maybe TimeoutConfig
 timeoutConfig :: Maybe TimeoutConfig
 $sel:timeoutConfig:UpdateJob' :: UpdateJob -&gt; Maybe TimeoutConfig
-</span><a href="#local-6989586621679860879"><span class="hs-identifier hs-var hs-var">timeoutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeoutConfig
-</span><a href="#local-6989586621679860879"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860878"><span class="annot"><span class="annottext">s :: UpdateJob
-</span><a href="#local-6989586621679860878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860877"><span class="annot"><span class="annottext">Maybe TimeoutConfig
-</span><a href="#local-6989586621679860877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
-</span><a href="#local-6989586621679860878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutConfig:UpdateJob' :: Maybe TimeoutConfig
+</span><a href="#local-6989586621679860888"><span class="hs-identifier hs-var hs-var">timeoutConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimeoutConfig
+</span><a href="#local-6989586621679860888"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860887"><span class="annot"><span class="annottext">s :: UpdateJob
+</span><a href="#local-6989586621679860887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860886"><span class="annot"><span class="annottext">Maybe TimeoutConfig
+</span><a href="#local-6989586621679860886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
+</span><a href="#local-6989586621679860887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutConfig:UpdateJob' :: Maybe TimeoutConfig
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AtimeoutConfig%3AUpdateJob%27"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimeoutConfig
-</span><a href="#local-6989586621679860877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679860886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The ID of the job to be updated.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#updateJob_jobId"><span class="hs-identifier hs-type">updateJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -361,25 +361,25 @@ $sel:timeoutConfig:UpdateJob' :: UpdateJob -&gt; Maybe TimeoutConfig
 -&gt; (UpdateJob -&gt; Text -&gt; UpdateJob)
 -&gt; Lens UpdateJob UpdateJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860876"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860885"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:UpdateJob' :: UpdateJob -&gt; Text
-</span><a href="#local-6989586621679860876"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860876"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860875"><span class="annot"><span class="annottext">s :: UpdateJob
-</span><a href="#local-6989586621679860875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860874"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
-</span><a href="#local-6989586621679860875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:UpdateJob' :: Text
+</span><a href="#local-6989586621679860885"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679860885"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679860884"><span class="annot"><span class="annottext">s :: UpdateJob
+</span><a href="#local-6989586621679860884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679860883"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679860883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJob
+</span><a href="#local-6989586621679860884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:UpdateJob' :: Text
 </span><a href="Network.AWS.IoT.UpdateJob.html#%24sel%3AjobId%3AUpdateJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679860883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse"><span class="hs-identifier hs-type">UpdateJobResponse</span></a></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679860870"><span class="annot"><span class="annottext">request :: UpdateJob -&gt; Request UpdateJob
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679860879"><span class="annot"><span class="annottext">request :: UpdateJob -&gt; Request UpdateJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateJob -&gt; Request UpdateJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679860866"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679860875"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateJob
 -&gt; ClientResponse ClientBody
@@ -402,21 +402,21 @@ AWSResponse a
 UpdateJobResponse
 </span><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse%27"><span class="hs-identifier hs-var">UpdateJobResponse'</span></a></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860859"><span id="local-6989586621679860861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860868"><span id="local-6989586621679860870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679860852"><span class="annot"><span class="annottext">toHeaders :: UpdateJob -&gt; [Header]
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679860861"><span class="annot"><span class="annottext">toHeaders :: UpdateJob -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateJob -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860843"><span id="local-6989586621679860845"><span id="local-6989586621679860847"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679860841"><span class="annot"><span class="annottext">toJSON :: UpdateJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860833"><span id="local-6989586621679860834"><span id="local-6989586621679860835"><span id="local-6989586621679860836"><span id="local-6989586621679860837"><span id="local-6989586621679860838"><span id="local-6989586621679860839"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860852"><span id="local-6989586621679860854"><span id="local-6989586621679860856"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679860850"><span class="annot"><span class="annottext">toJSON :: UpdateJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860842"><span id="local-6989586621679860843"><span id="local-6989586621679860844"><span id="local-6989586621679860845"><span id="local-6989586621679860846"><span id="local-6989586621679860847"><span id="local-6989586621679860848"><span class="annot"><span class="annottext">Maybe Text
 Maybe AbortConfig
 Maybe PresignedUrlConfig
 Maybe JobExecutionsRolloutConfig
@@ -436,7 +436,7 @@ $sel:presignedUrlConfig:UpdateJob' :: UpdateJob -&gt; Maybe PresignedUrlConfig
 $sel:namespaceId:UpdateJob' :: UpdateJob -&gt; Maybe Text
 $sel:abortConfig:UpdateJob' :: UpdateJob -&gt; Maybe AbortConfig
 $sel:jobExecutionsRolloutConfig:UpdateJob' :: UpdateJob -&gt; Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860833"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679860842"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -450,14 +450,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe JobExecutionsRolloutConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860839"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679860848"><span class="hs-identifier hs-var">jobExecutionsRolloutConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;abortConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AbortConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AbortConfig -&gt; Pair) -&gt; Maybe AbortConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AbortConfig
-</span><a href="#local-6989586621679860838"><span class="hs-identifier hs-var">abortConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679860847"><span class="hs-identifier hs-var">abortConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;presignedUrlConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PresignedUrlConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -466,27 +466,27 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PresignedUrlConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PresignedUrlConfig
-</span><a href="#local-6989586621679860836"><span class="hs-identifier hs-var">presignedUrlConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679860845"><span class="hs-identifier hs-var">presignedUrlConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860835"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679860844"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;timeoutConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimeoutConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TimeoutConfig -&gt; Pair) -&gt; Maybe TimeoutConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimeoutConfig
-</span><a href="#local-6989586621679860834"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span>
+</span><a href="#local-6989586621679860843"><span class="hs-identifier hs-var">timeoutConfig</span></a></span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679860826"><span class="annot"><span class="annottext">toPath :: UpdateJob -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860818"><span id="local-6989586621679860819"><span id="local-6989586621679860820"><span id="local-6989586621679860821"><span id="local-6989586621679860822"><span id="local-6989586621679860823"><span id="local-6989586621679860824"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679860835"><span class="annot"><span class="annottext">toPath :: UpdateJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860827"><span id="local-6989586621679860828"><span id="local-6989586621679860829"><span id="local-6989586621679860830"><span id="local-6989586621679860831"><span id="local-6989586621679860832"><span id="local-6989586621679860833"><span class="annot"><span class="annottext">Maybe Text
 Maybe AbortConfig
 Maybe PresignedUrlConfig
 Maybe JobExecutionsRolloutConfig
@@ -506,18 +506,18 @@ $sel:presignedUrlConfig:UpdateJob' :: UpdateJob -&gt; Maybe PresignedUrlConfig
 $sel:namespaceId:UpdateJob' :: UpdateJob -&gt; Maybe Text
 $sel:abortConfig:UpdateJob' :: UpdateJob -&gt; Maybe AbortConfig
 $sel:jobExecutionsRolloutConfig:UpdateJob' :: UpdateJob -&gt; Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679860827"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679860818"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679860827"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob"><span class="hs-identifier hs-type">UpdateJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679860814"><span class="annot"><span class="annottext">toQuery :: UpdateJob -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860806"><span id="local-6989586621679860807"><span id="local-6989586621679860808"><span id="local-6989586621679860809"><span id="local-6989586621679860810"><span id="local-6989586621679860811"><span id="local-6989586621679860812"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679860823"><span class="annot"><span class="annottext">toQuery :: UpdateJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJob%27"><span class="hs-identifier hs-type">UpdateJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679860815"><span id="local-6989586621679860816"><span id="local-6989586621679860817"><span id="local-6989586621679860818"><span id="local-6989586621679860819"><span id="local-6989586621679860820"><span id="local-6989586621679860821"><span class="annot"><span class="annottext">Maybe Text
 Maybe AbortConfig
 Maybe PresignedUrlConfig
 Maybe JobExecutionsRolloutConfig
@@ -537,20 +537,20 @@ $sel:presignedUrlConfig:UpdateJob' :: UpdateJob -&gt; Maybe PresignedUrlConfig
 $sel:namespaceId:UpdateJob' :: UpdateJob -&gt; Maybe Text
 $sel:abortConfig:UpdateJob' :: UpdateJob -&gt; Maybe AbortConfig
 $sel:jobExecutionsRolloutConfig:UpdateJob' :: UpdateJob -&gt; Maybe JobExecutionsRolloutConfig
-</span><a href="#local-6989586621679860806"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679860815"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;namespaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679860810"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679860819"><span class="hs-identifier hs-var">namespaceId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | /See:/ 'newUpdateJobResponse' smart constructor.</span><span>
-</span><span id="line-210"></span><span id="local-6989586621679860803"><span id="local-6989586621679860804"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJobResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse"><span class="hs-identifier hs-var">UpdateJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse%27"><span class="hs-identifier hs-var">UpdateJobResponse'</span></a></span></span><span>
+</span><span id="line-210"></span><span id="local-6989586621679860812"><span id="local-6989586621679860813"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJobResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse"><span class="hs-identifier hs-var">UpdateJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse%27"><span class="hs-identifier hs-var">UpdateJobResponse'</span></a></span></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860799"><span id="local-6989586621679860801"><span class="annot"><span class="annottext">UpdateJobResponse -&gt; UpdateJobResponse -&gt; Bool
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679860808"><span id="local-6989586621679860810"><span class="annot"><span class="annottext">UpdateJobResponse -&gt; UpdateJobResponse -&gt; Bool
 (UpdateJobResponse -&gt; UpdateJobResponse -&gt; Bool)
 -&gt; (UpdateJobResponse -&gt; UpdateJobResponse -&gt; Bool)
 -&gt; Eq UpdateJobResponse
@@ -559,7 +559,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateJobResponse -&gt; UpdateJobResponse -&gt; Bool
 == :: UpdateJobResponse -&gt; UpdateJobResponse -&gt; Bool
 $c== :: UpdateJobResponse -&gt; UpdateJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860791"><span id="local-6989586621679860793"><span id="local-6989586621679860795"><span id="local-6989586621679860797"><span class="annot"><span class="annottext">ReadPrec [UpdateJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860800"><span id="local-6989586621679860802"><span id="local-6989586621679860804"><span id="local-6989586621679860806"><span class="annot"><span class="annottext">ReadPrec [UpdateJobResponse]
 ReadPrec UpdateJobResponse
 Int -&gt; ReadS UpdateJobResponse
 ReadS [UpdateJobResponse]
@@ -579,7 +579,7 @@ readList :: ReadS [UpdateJobResponse]
 $creadList :: ReadS [UpdateJobResponse]
 readsPrec :: Int -&gt; ReadS UpdateJobResponse
 $creadsPrec :: Int -&gt; ReadS UpdateJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860785"><span id="local-6989586621679860787"><span id="local-6989586621679860789"><span class="annot"><span class="annottext">Int -&gt; UpdateJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679860794"><span id="local-6989586621679860796"><span id="local-6989586621679860798"><span class="annot"><span class="annottext">Int -&gt; UpdateJobResponse -&gt; ShowS
 [UpdateJobResponse] -&gt; ShowS
 UpdateJobResponse -&gt; String
 (Int -&gt; UpdateJobResponse -&gt; ShowS)
@@ -615,5 +615,5 @@ $cfrom :: forall x. UpdateJobResponse -&gt; Rep UpdateJobResponse x
 </span><a href="Network.AWS.IoT.UpdateJob.html#newUpdateJobResponse"><span class="hs-identifier hs-var hs-var">newUpdateJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateJobResponse
 </span><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse%27"><span class="hs-identifier hs-var">UpdateJobResponse'</span></a></span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse"><span class="hs-identifier hs-type">UpdateJobResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679860790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateJob.html#UpdateJobResponse"><span class="hs-identifier hs-type">UpdateJobResponse</span></a></span></span><span>
 </span><span id="line-224"></span></pre></body></html>

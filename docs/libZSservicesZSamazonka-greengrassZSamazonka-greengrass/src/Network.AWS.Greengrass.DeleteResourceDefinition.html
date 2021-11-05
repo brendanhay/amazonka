@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourceDefinition' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679361572"><span id="local-6989586621679361573"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourceDefinition"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-var">DeleteResourceDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourceDefinition%27"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-var">DeleteResourceDefinition'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679361581"><span id="local-6989586621679361582"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourceDefinition"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-var">DeleteResourceDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourceDefinition%27"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-var">DeleteResourceDefinition'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the resource definition.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AresourceDefinitionId%3ADeleteResourceDefinition%27"><span class="annot"><span class="annottext">DeleteResourceDefinition -&gt; Text
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#%24sel%3AresourceDefinitionId%3ADeleteResourceDefinition%27"><span class="hs-identifier hs-var hs-var">resourceDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361566"><span id="local-6989586621679361568"><span class="annot"><span class="annottext">DeleteResourceDefinition -&gt; DeleteResourceDefinition -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361575"><span id="local-6989586621679361577"><span class="annot"><span class="annottext">DeleteResourceDefinition -&gt; DeleteResourceDefinition -&gt; Bool
 (DeleteResourceDefinition -&gt; DeleteResourceDefinition -&gt; Bool)
 -&gt; (DeleteResourceDefinition -&gt; DeleteResourceDefinition -&gt; Bool)
 -&gt; Eq DeleteResourceDefinition
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteResourceDefinition -&gt; DeleteResourceDefinition -&gt; Bool
 == :: DeleteResourceDefinition -&gt; DeleteResourceDefinition -&gt; Bool
 $c== :: DeleteResourceDefinition -&gt; DeleteResourceDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361557"><span id="local-6989586621679361559"><span id="local-6989586621679361561"><span id="local-6989586621679361563"><span class="annot"><span class="annottext">ReadPrec [DeleteResourceDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361566"><span id="local-6989586621679361568"><span id="local-6989586621679361570"><span id="local-6989586621679361572"><span class="annot"><span class="annottext">ReadPrec [DeleteResourceDefinition]
 ReadPrec DeleteResourceDefinition
 Int -&gt; ReadS DeleteResourceDefinition
 ReadS [DeleteResourceDefinition]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteResourceDefinition]
 $creadList :: ReadS [DeleteResourceDefinition]
 readsPrec :: Int -&gt; ReadS DeleteResourceDefinition
 $creadsPrec :: Int -&gt; ReadS DeleteResourceDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361550"><span id="local-6989586621679361552"><span id="local-6989586621679361554"><span class="annot"><span class="annottext">Int -&gt; DeleteResourceDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361559"><span id="local-6989586621679361561"><span id="local-6989586621679361563"><span class="annot"><span class="annottext">Int -&gt; DeleteResourceDefinition -&gt; ShowS
 [DeleteResourceDefinition] -&gt; ShowS
 DeleteResourceDefinition -&gt; String
 (Int -&gt; DeleteResourceDefinition -&gt; ShowS)
@@ -126,14 +126,14 @@ DeleteResourceDefinition -&gt; Rep DeleteResourceDefinition x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteResourceDefinition"><span class="annot"><span class="annottext">newDeleteResourceDefinition :: Text -&gt; DeleteResourceDefinition
-</span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#newDeleteResourceDefinition"><span class="hs-identifier hs-var hs-var">newDeleteResourceDefinition</span></a></span></span><span> </span><span id="local-6989586621679361545"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361545"><span class="hs-identifier hs-var">pResourceDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#newDeleteResourceDefinition"><span class="hs-identifier hs-var hs-var">newDeleteResourceDefinition</span></a></span></span><span> </span><span id="local-6989586621679361554"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361554"><span class="hs-identifier hs-var">pResourceDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteResourceDefinition' :: Text -&gt; DeleteResourceDefinition
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-type">DeleteResourceDefinition'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceDefinitionId:DeleteResourceDefinition' :: Text
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#%24sel%3AresourceDefinitionId%3ADeleteResourceDefinition%27"><span class="hs-identifier hs-var">resourceDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361545"><span class="hs-identifier hs-var">pResourceDefinitionId_</span></a></span><span>
+</span><a href="#local-6989586621679361554"><span class="hs-identifier hs-var">pResourceDefinitionId_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ID of the resource definition.</span><span>
@@ -144,28 +144,28 @@ DeleteResourceDefinition -&gt; Rep DeleteResourceDefinition x
 -&gt; (DeleteResourceDefinition -&gt; Text -&gt; DeleteResourceDefinition)
 -&gt; Lens DeleteResourceDefinition DeleteResourceDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-type">DeleteResourceDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361542"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-type">DeleteResourceDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361551"><span class="annot"><span class="annottext">Text
 resourceDefinitionId :: Text
 $sel:resourceDefinitionId:DeleteResourceDefinition' :: DeleteResourceDefinition -&gt; Text
-</span><a href="#local-6989586621679361542"><span class="hs-identifier hs-var hs-var">resourceDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361542"><span class="hs-identifier hs-var">resourceDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361541"><span class="annot"><span class="annottext">s :: DeleteResourceDefinition
-</span><a href="#local-6989586621679361541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-type">DeleteResourceDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361540"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourceDefinition
-</span><a href="#local-6989586621679361541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDefinitionId:DeleteResourceDefinition' :: Text
+</span><a href="#local-6989586621679361551"><span class="hs-identifier hs-var hs-var">resourceDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361551"><span class="hs-identifier hs-var">resourceDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361550"><span class="annot"><span class="annottext">s :: DeleteResourceDefinition
+</span><a href="#local-6989586621679361550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-type">DeleteResourceDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361549"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourceDefinition
+</span><a href="#local-6989586621679361550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDefinitionId:DeleteResourceDefinition' :: Text
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#%24sel%3AresourceDefinitionId%3ADeleteResourceDefinition%27"><span class="hs-identifier hs-var">resourceDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679361536"><span class="annot"><span class="annottext">request :: DeleteResourceDefinition -&gt; Request DeleteResourceDefinition
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679361545"><span class="annot"><span class="annottext">request :: DeleteResourceDefinition -&gt; Request DeleteResourceDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteResourceDefinition -&gt; Request DeleteResourceDefinition
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679361532"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679361541"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteResourceDefinition
 -&gt; ClientResponse ClientBody
@@ -191,10 +191,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361529"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361529"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679361528"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679361528"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679361527"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679361527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361538"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361538"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679361537"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679361537"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679361536"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679361536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteResourceDefinitionResponse
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteResourceDefinitionResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteResourceDefinitionResponse)
@@ -206,15 +206,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361529"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361538"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361520"><span id="local-6989586621679361522"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361529"><span id="local-6989586621679361531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679361513"><span class="annot"><span class="annottext">toHeaders :: DeleteResourceDefinition -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679361522"><span class="annot"><span class="annottext">toHeaders :: DeleteResourceDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteResourceDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -234,11 +234,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679361507"><span class="annot"><span class="annottext">toPath :: DeleteResourceDefinition -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-type">DeleteResourceDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361505"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679361516"><span class="annot"><span class="annottext">toPath :: DeleteResourceDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition%27"><span class="hs-identifier hs-type">DeleteResourceDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361514"><span class="annot"><span class="annottext">Text
 resourceDefinitionId :: Text
 $sel:resourceDefinitionId:DeleteResourceDefinition' :: DeleteResourceDefinition -&gt; Text
-</span><a href="#local-6989586621679361505"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679361514"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -247,11 +247,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361505"><span class="hs-identifier hs-var">resourceDefinitionId</span></a></span><span>
+</span><a href="#local-6989586621679361514"><span class="hs-identifier hs-var">resourceDefinitionId</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinition"><span class="hs-identifier hs-type">DeleteResourceDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679361501"><span class="annot"><span class="annottext">toQuery :: DeleteResourceDefinition -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679361510"><span class="annot"><span class="annottext">toQuery :: DeleteResourceDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteResourceDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -259,12 +259,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteResourceDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679361498"><span id="local-6989586621679361499"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourceDefinitionResponse"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse"><span class="hs-identifier hs-var">DeleteResourceDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourceDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteResourceDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679361507"><span id="local-6989586621679361508"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteResourceDefinitionResponse"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse"><span class="hs-identifier hs-var">DeleteResourceDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteResourceDefinitionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteResourceDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteResourceDefinitionResponse%27"><span class="annot"><span class="annottext">DeleteResourceDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#%24sel%3AhttpStatus%3ADeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361493"><span id="local-6989586621679361495"><span class="annot"><span class="annottext">DeleteResourceDefinitionResponse
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361502"><span id="local-6989586621679361504"><span class="annot"><span class="annottext">DeleteResourceDefinitionResponse
 -&gt; DeleteResourceDefinitionResponse -&gt; Bool
 (DeleteResourceDefinitionResponse
  -&gt; DeleteResourceDefinitionResponse -&gt; Bool)
@@ -280,7 +280,7 @@ $c/= :: DeleteResourceDefinitionResponse
 -&gt; DeleteResourceDefinitionResponse -&gt; Bool
 $c== :: DeleteResourceDefinitionResponse
 -&gt; DeleteResourceDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361485"><span id="local-6989586621679361487"><span id="local-6989586621679361489"><span id="local-6989586621679361491"><span class="annot"><span class="annottext">ReadPrec [DeleteResourceDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361494"><span id="local-6989586621679361496"><span id="local-6989586621679361498"><span id="local-6989586621679361500"><span class="annot"><span class="annottext">ReadPrec [DeleteResourceDefinitionResponse]
 ReadPrec DeleteResourceDefinitionResponse
 Int -&gt; ReadS DeleteResourceDefinitionResponse
 ReadS [DeleteResourceDefinitionResponse]
@@ -300,7 +300,7 @@ readList :: ReadS [DeleteResourceDefinitionResponse]
 $creadList :: ReadS [DeleteResourceDefinitionResponse]
 readsPrec :: Int -&gt; ReadS DeleteResourceDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteResourceDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361479"><span id="local-6989586621679361481"><span id="local-6989586621679361483"><span class="annot"><span class="annottext">Int -&gt; DeleteResourceDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361488"><span id="local-6989586621679361490"><span id="local-6989586621679361492"><span class="annot"><span class="annottext">Int -&gt; DeleteResourceDefinitionResponse -&gt; ShowS
 [DeleteResourceDefinitionResponse] -&gt; ShowS
 DeleteResourceDefinitionResponse -&gt; String
 (Int -&gt; DeleteResourceDefinitionResponse -&gt; ShowS)
@@ -352,14 +352,14 @@ DeleteResourceDefinitionResponse
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse</span></a></span><span>
 </span><span id="line-135"></span><span id="newDeleteResourceDefinitionResponse"><span class="annot"><span class="annottext">newDeleteResourceDefinitionResponse :: Int -&gt; DeleteResourceDefinitionResponse
-</span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#newDeleteResourceDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteResourceDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679361476"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#newDeleteResourceDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteResourceDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679361485"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361485"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeleteResourceDefinitionResponse' :: Int -&gt; DeleteResourceDefinitionResponse
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteResourceDefinitionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#%24sel%3AhttpStatus%3ADeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679361485"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -376,18 +376,18 @@ DeleteResourceDefinitionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361475"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361484"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteResourceDefinitionResponse' :: DeleteResourceDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679361475"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361475"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361474"><span class="annot"><span class="annottext">s :: DeleteResourceDefinitionResponse
-</span><a href="#local-6989586621679361474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361473"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourceDefinitionResponse
-</span><a href="#local-6989586621679361474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteResourceDefinitionResponse' :: Int
+</span><a href="#local-6989586621679361484"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361484"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361483"><span class="annot"><span class="annottext">s :: DeleteResourceDefinitionResponse
+</span><a href="#local-6989586621679361483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361482"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteResourceDefinitionResponse
+</span><a href="#local-6989586621679361483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteResourceDefinitionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#%24sel%3AhttpStatus%3ADeleteResourceDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679361471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679361480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.DeleteResourceDefinition.html#DeleteResourceDefinitionResponse"><span class="hs-identifier hs-type">DeleteResourceDefinitionResponse</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Represents the input of a @ListApplications@ operation.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newListApplications' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679321461"><span id="local-6989586621679321462"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplications"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-var">ListApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplications%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-var">ListApplications'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679321470"><span id="local-6989586621679321471"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplications"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-var">ListApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplications%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-var">ListApplications'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier returned from the previous list applications call. It can</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- be used to return the next set of applications in the list.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListApplications%27"><span class="annot"><span class="annottext">ListApplications -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#%24sel%3AnextToken%3AListApplications%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321455"><span id="local-6989586621679321457"><span class="annot"><span class="annottext">ListApplications -&gt; ListApplications -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321464"><span id="local-6989586621679321466"><span class="annot"><span class="annottext">ListApplications -&gt; ListApplications -&gt; Bool
 (ListApplications -&gt; ListApplications -&gt; Bool)
 -&gt; (ListApplications -&gt; ListApplications -&gt; Bool)
 -&gt; Eq ListApplications
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApplications -&gt; ListApplications -&gt; Bool
 == :: ListApplications -&gt; ListApplications -&gt; Bool
 $c== :: ListApplications -&gt; ListApplications -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321446"><span id="local-6989586621679321448"><span id="local-6989586621679321450"><span id="local-6989586621679321452"><span class="annot"><span class="annottext">ReadPrec [ListApplications]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321455"><span id="local-6989586621679321457"><span id="local-6989586621679321459"><span id="local-6989586621679321461"><span class="annot"><span class="annottext">ReadPrec [ListApplications]
 ReadPrec ListApplications
 Int -&gt; ReadS ListApplications
 ReadS [ListApplications]
@@ -87,7 +87,7 @@ readList :: ReadS [ListApplications]
 $creadList :: ReadS [ListApplications]
 readsPrec :: Int -&gt; ReadS ListApplications
 $creadsPrec :: Int -&gt; ReadS ListApplications
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321439"><span id="local-6989586621679321441"><span id="local-6989586621679321443"><span class="annot"><span class="annottext">Int -&gt; ListApplications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321448"><span id="local-6989586621679321450"><span id="local-6989586621679321452"><span class="annot"><span class="annottext">Int -&gt; ListApplications -&gt; ShowS
 [ListApplications] -&gt; ShowS
 ListApplications -&gt; String
 (Int -&gt; ListApplications -&gt; ShowS)
@@ -142,29 +142,29 @@ forall a. Maybe a
 -&gt; (ListApplications -&gt; Maybe Text -&gt; ListApplications)
 -&gt; Lens ListApplications ListApplications (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321433"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321442"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApplications' :: ListApplications -&gt; Maybe Text
-</span><a href="#local-6989586621679321433"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321433"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321432"><span class="annot"><span class="annottext">s :: ListApplications
-</span><a href="#local-6989586621679321432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321431"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplications
-</span><a href="#local-6989586621679321432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplications' :: Maybe Text
+</span><a href="#local-6989586621679321442"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321442"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321441"><span class="annot"><span class="annottext">s :: ListApplications
+</span><a href="#local-6989586621679321441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321440"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplications
+</span><a href="#local-6989586621679321441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplications' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#%24sel%3AnextToken%3AListApplications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679321427"><span class="annot"><span class="annottext">page :: ListApplications
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679321436"><span class="annot"><span class="annottext">page :: ListApplications
 -&gt; AWSResponse ListApplications -&gt; Maybe ListApplications
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679321425"><span class="annot"><span class="annottext">ListApplications
-</span><a href="#local-6989586621679321425"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679321424"><span class="annot"><span class="annottext">AWSResponse ListApplications
-</span><a href="#local-6989586621679321424"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679321434"><span class="annot"><span class="annottext">ListApplications
+</span><a href="#local-6989586621679321434"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679321433"><span class="annot"><span class="annottext">AWSResponse ListApplications
+</span><a href="#local-6989586621679321433"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-85"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplications
 ListApplicationsResponse
-</span><a href="#local-6989586621679321424"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679321433"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationsResponse
 -&gt; Getting (First Text) ListApplicationsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -193,7 +193,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-91"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplications
 ListApplicationsResponse
-</span><a href="#local-6989586621679321424"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679321433"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">ListApplicationsResponse
 -&gt; Getting (First [Text]) ListApplicationsResponse [Text]
 -&gt; Maybe [Text]
@@ -227,7 +227,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">ListApplications
-</span><a href="#local-6989586621679321425"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679321434"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">ListApplications
 -&gt; (ListApplications -&gt; ListApplications) -&gt; ListApplications
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -241,7 +241,7 @@ Lens ListApplications ListApplications (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListApplications
 ListApplicationsResponse
-</span><a href="#local-6989586621679321424"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679321433"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">ListApplicationsResponse
 -&gt; Getting (First Text) ListApplicationsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -266,12 +266,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-105"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-106"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679321414"><span class="annot"><span class="annottext">request :: ListApplications -&gt; Request ListApplications
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679321423"><span class="annot"><span class="annottext">request :: ListApplications -&gt; Request ListApplications
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListApplications -&gt; Request ListApplications
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679321410"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679321419"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListApplications
 -&gt; ClientResponse ClientBody
@@ -295,10 +295,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321407"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321407"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321406"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679321406"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321405"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679321416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321416"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679321415"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679321415"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679321414"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679321414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListApplicationsResponse
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-var">ListApplicationsResponse'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListApplicationsResponse)
@@ -306,7 +306,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ListApplicationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679321414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,7 +315,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListApplicationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679321405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679321414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;applications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -332,15 +332,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321407"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321416"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321396"><span id="local-6989586621679321398"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321405"><span id="local-6989586621679321407"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679321389"><span class="annot"><span class="annottext">toHeaders :: ListApplications -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679321398"><span class="annot"><span class="annottext">toHeaders :: ListApplications -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListApplications -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -367,12 +367,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321379"><span id="local-6989586621679321381"><span id="local-6989586621679321383"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679321377"><span class="annot"><span class="annottext">toJSON :: ListApplications -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321375"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321388"><span id="local-6989586621679321390"><span id="local-6989586621679321392"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679321386"><span class="annot"><span class="annottext">toJSON :: ListApplications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications%27"><span class="hs-identifier hs-type">ListApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321384"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApplications' :: ListApplications -&gt; Maybe Text
-</span><a href="#local-6989586621679321375"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679321384"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -384,18 +384,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321375"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679321384"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679321369"><span class="annot"><span class="annottext">toPath :: ListApplications -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679321378"><span class="annot"><span class="annottext">toPath :: ListApplications -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListApplications -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplications"><span class="hs-identifier hs-type">ListApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679321365"><span class="annot"><span class="annottext">toQuery :: ListApplications -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679321374"><span class="annot"><span class="annottext">toQuery :: ListApplications -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListApplications -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -405,7 +405,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span class="hs-comment">-- | Represents the output of a ListApplications operation.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- /See:/ 'newListApplicationsResponse' smart constructor.</span><span>
-</span><span id="line-153"></span><span id="local-6989586621679321362"><span id="local-6989586621679321363"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-var">ListApplicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-var">ListApplicationsResponse'</span></a></span></span><span>
+</span><span id="line-153"></span><span id="local-6989586621679321371"><span id="local-6989586621679321372"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListApplicationsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-var">ListApplicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListApplicationsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-var">ListApplicationsResponse'</span></a></span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-comment">-- returned. It can be used in a subsequent list applications call to</span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-comment">-- return the next set of applications in the list.</span><span>
@@ -418,7 +418,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="annot"><span class="annottext">ListApplicationsResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321355"><span id="local-6989586621679321357"><span class="annot"><span class="annottext">ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679321364"><span id="local-6989586621679321366"><span class="annot"><span class="annottext">ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
 (ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool)
 -&gt; (ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool)
 -&gt; Eq ListApplicationsResponse
@@ -427,7 +427,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
 == :: ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
 $c== :: ListApplicationsResponse -&gt; ListApplicationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321347"><span id="local-6989586621679321349"><span id="local-6989586621679321351"><span id="local-6989586621679321353"><span class="annot"><span class="annottext">ReadPrec [ListApplicationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321356"><span id="local-6989586621679321358"><span id="local-6989586621679321360"><span id="local-6989586621679321362"><span class="annot"><span class="annottext">ReadPrec [ListApplicationsResponse]
 ReadPrec ListApplicationsResponse
 Int -&gt; ReadS ListApplicationsResponse
 ReadS [ListApplicationsResponse]
@@ -447,7 +447,7 @@ readList :: ReadS [ListApplicationsResponse]
 $creadList :: ReadS [ListApplicationsResponse]
 readsPrec :: Int -&gt; ReadS ListApplicationsResponse
 $creadsPrec :: Int -&gt; ReadS ListApplicationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321341"><span id="local-6989586621679321343"><span id="local-6989586621679321345"><span class="annot"><span class="annottext">Int -&gt; ListApplicationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679321350"><span id="local-6989586621679321352"><span id="local-6989586621679321354"><span class="annot"><span class="annottext">Int -&gt; ListApplicationsResponse -&gt; ShowS
 [ListApplicationsResponse] -&gt; ShowS
 ListApplicationsResponse -&gt; String
 (Int -&gt; ListApplicationsResponse -&gt; ShowS)
@@ -499,8 +499,8 @@ ListApplicationsResponse -&gt; Rep ListApplicationsResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newListApplicationsResponse"><span class="annot"><span class="annottext">newListApplicationsResponse :: Int -&gt; ListApplicationsResponse
-</span><a href="Network.AWS.CodeDeploy.ListApplications.html#newListApplicationsResponse"><span class="hs-identifier hs-var hs-var">newListApplicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679321338"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321338"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.ListApplications.html#newListApplicationsResponse"><span class="hs-identifier hs-var hs-var">newListApplicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679321347"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ListApplicationsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListApplicationsResponse
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationsResponse' :: Maybe Text
@@ -514,7 +514,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321338"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679321347"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | If a large amount of information is returned, an identifier is also</span><span>
@@ -528,16 +528,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; ListApplicationsResponse)
 -&gt; Lens' ListApplicationsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321337"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321346"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListApplicationsResponse' :: ListApplicationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679321337"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321337"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321336"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
-</span><a href="#local-6989586621679321336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321335"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
-</span><a href="#local-6989586621679321336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679321346"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321346"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321345"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
+</span><a href="#local-6989586621679321345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679321344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
+</span><a href="#local-6989586621679321345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListApplicationsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#%24sel%3AnextToken%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679321335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | A list of application names.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#listApplicationsResponse_applications"><span class="hs-identifier hs-type">listApplicationsResponse_applications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -548,16 +548,16 @@ $sel:nextToken:ListApplicationsResponse' :: ListApplicationsResponse -&gt; Maybe
     -&gt; Maybe [Text] -&gt; ListApplicationsResponse)
 -&gt; Lens' ListApplicationsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321334"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321343"><span class="annot"><span class="annottext">Maybe [Text]
 applications :: Maybe [Text]
 $sel:applications:ListApplicationsResponse' :: ListApplicationsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679321334"><span class="hs-identifier hs-var hs-var">applications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679321334"><span class="hs-identifier hs-var">applications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321333"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
-</span><a href="#local-6989586621679321333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321332"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679321332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
-</span><a href="#local-6989586621679321333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applications:ListApplicationsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679321343"><span class="hs-identifier hs-var hs-var">applications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679321343"><span class="hs-identifier hs-var">applications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321342"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
+</span><a href="#local-6989586621679321342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321341"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679321341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
+</span><a href="#local-6989586621679321342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applications:ListApplicationsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#%24sel%3Aapplications%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">applications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679321332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679321341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListApplicationsResponse -&gt; f ListApplicationsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -582,16 +582,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListApplicationsResponse -&gt; Int -&gt; ListApplicationsResponse)
 -&gt; Lens ListApplicationsResponse ListApplicationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321329"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679321338"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListApplicationsResponse' :: ListApplicationsResponse -&gt; Int
-</span><a href="#local-6989586621679321329"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321329"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321328"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
-</span><a href="#local-6989586621679321328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321327"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
-</span><a href="#local-6989586621679321328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationsResponse' :: Int
+</span><a href="#local-6989586621679321338"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321338"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679321337"><span class="annot"><span class="annottext">s :: ListApplicationsResponse
+</span><a href="#local-6989586621679321337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse%27"><span class="hs-identifier hs-type">ListApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679321336"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679321336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListApplicationsResponse
+</span><a href="#local-6989586621679321337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListApplicationsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.ListApplications.html#%24sel%3AhttpStatus%3AListApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679321327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679321336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679321334"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.ListApplications.html#ListApplicationsResponse"><span class="hs-identifier hs-type">ListApplicationsResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-comment">-- | Input for Subscribe action.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newSubscribe' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679193258"><span id="local-6989586621679193259"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subscribe"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-var">Subscribe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subscribe%27"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-var">Subscribe'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679193267"><span id="local-6989586621679193268"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subscribe"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-var">Subscribe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subscribe%27"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-var">Subscribe'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets whether the response from the @Subscribe@ request includes the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- subscription ARN, even if the subscription is not yet confirmed.</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -172,7 +172,7 @@
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3Aprotocol%3ASubscribe%27"><span class="annot"><span class="annottext">Subscribe -&gt; Text
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aprotocol%3ASubscribe%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193248"><span id="local-6989586621679193250"><span class="annot"><span class="annottext">Subscribe -&gt; Subscribe -&gt; Bool
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193257"><span id="local-6989586621679193259"><span class="annot"><span class="annottext">Subscribe -&gt; Subscribe -&gt; Bool
 (Subscribe -&gt; Subscribe -&gt; Bool)
 -&gt; (Subscribe -&gt; Subscribe -&gt; Bool) -&gt; Eq Subscribe
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -180,7 +180,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Subscribe -&gt; Subscribe -&gt; Bool
 == :: Subscribe -&gt; Subscribe -&gt; Bool
 $c== :: Subscribe -&gt; Subscribe -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193239"><span id="local-6989586621679193241"><span id="local-6989586621679193243"><span id="local-6989586621679193245"><span class="annot"><span class="annottext">ReadPrec [Subscribe]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193248"><span id="local-6989586621679193250"><span id="local-6989586621679193252"><span id="local-6989586621679193254"><span class="annot"><span class="annottext">ReadPrec [Subscribe]
 ReadPrec Subscribe
 Int -&gt; ReadS Subscribe
 ReadS [Subscribe]
@@ -200,7 +200,7 @@ readList :: ReadS [Subscribe]
 $creadList :: ReadS [Subscribe]
 readsPrec :: Int -&gt; ReadS Subscribe
 $creadsPrec :: Int -&gt; ReadS Subscribe
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193232"><span id="local-6989586621679193234"><span id="local-6989586621679193236"><span class="annot"><span class="annottext">Int -&gt; Subscribe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193241"><span id="local-6989586621679193243"><span id="local-6989586621679193245"><span class="annot"><span class="annottext">Int -&gt; Subscribe -&gt; ShowS
 [Subscribe] -&gt; ShowS
 Subscribe -&gt; String
 (Int -&gt; Subscribe -&gt; ShowS)
@@ -343,9 +343,9 @@ $cfrom :: forall x. Subscribe -&gt; Rep Subscribe x
 </span><span id="line-287"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-288"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span>
 </span><span id="line-289"></span><span id="newSubscribe"><span class="annot"><span class="annottext">newSubscribe :: Text -&gt; Text -&gt; Subscribe
-</span><a href="Network.AWS.SNS.Subscribe.html#newSubscribe"><span class="hs-identifier hs-var hs-var">newSubscribe</span></a></span></span><span> </span><span id="local-6989586621679193227"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193227"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679193226"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193226"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.Subscribe.html#newSubscribe"><span class="hs-identifier hs-var hs-var">newSubscribe</span></a></span></span><span> </span><span id="local-6989586621679193236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193236"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span id="local-6989586621679193235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193235"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-290"></span><span>  </span><span class="annot"><span class="annottext">Subscribe' :: Maybe Bool
 -&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
@@ -367,10 +367,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:Subscribe' :: Text
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AtopicArn%3ASubscribe%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193227"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679193236"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Subscribe' :: Text
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aprotocol%3ASubscribe%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193226"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
+</span><a href="#local-6989586621679193235"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
 </span><span id="line-296"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-297"></span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- | Sets whether the response from the @Subscribe@ request includes the</span><span>
@@ -390,16 +390,16 @@ forall a. Maybe a
 -&gt; (Subscribe -&gt; Maybe Bool -&gt; Subscribe)
 -&gt; Lens Subscribe Subscribe (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193223"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193232"><span class="annot"><span class="annottext">Maybe Bool
 returnSubscriptionArn :: Maybe Bool
 $sel:returnSubscriptionArn:Subscribe' :: Subscribe -&gt; Maybe Bool
-</span><a href="#local-6989586621679193223"><span class="hs-identifier hs-var hs-var">returnSubscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679193223"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193222"><span class="annot"><span class="annottext">s :: Subscribe
-</span><a href="#local-6989586621679193222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193221"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
-</span><a href="#local-6989586621679193222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnSubscriptionArn:Subscribe' :: Maybe Bool
+</span><a href="#local-6989586621679193232"><span class="hs-identifier hs-var hs-var">returnSubscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679193232"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193231"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193230"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679193230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnSubscriptionArn:Subscribe' :: Maybe Bool
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AreturnSubscriptionArn%3ASubscribe%27"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | A map of attributes with their corresponding values.</span><span>
 </span><span id="line-313"></span><span class="hs-comment">--</span><span>
@@ -451,16 +451,16 @@ $sel:returnSubscriptionArn:Subscribe' :: Subscribe -&gt; Maybe Bool
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193220"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193229"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:Subscribe' :: Subscribe -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193219"><span class="annot"><span class="annottext">s :: Subscribe
-</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193218"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679193218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
-</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Subscribe' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193229"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193229"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193228"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193227"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679193227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Subscribe' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aattributes%3ASubscribe%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679193218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679193227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Subscribe -&gt; f Subscribe)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -522,16 +522,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (Subscribe -&gt; Maybe Text -&gt; Subscribe)
 -&gt; Lens Subscribe Subscribe (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193214"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193223"><span class="annot"><span class="annottext">Maybe Text
 endpoint :: Maybe Text
 $sel:endpoint:Subscribe' :: Subscribe -&gt; Maybe Text
-</span><a href="#local-6989586621679193214"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193214"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193213"><span class="annot"><span class="annottext">s :: Subscribe
-</span><a href="#local-6989586621679193213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193212"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
-</span><a href="#local-6989586621679193213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Subscribe' :: Maybe Text
+</span><a href="#local-6989586621679193223"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193223"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193222"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193221"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Subscribe' :: Maybe Text
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aendpoint%3ASubscribe%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-383"></span><span>
 </span><span id="line-384"></span><span class="hs-comment">-- | The ARN of the topic you want to subscribe to.</span><span>
 </span><span id="line-385"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribe_topicArn"><span class="hs-identifier hs-type">subscribe_topicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -540,16 +540,16 @@ $sel:endpoint:Subscribe' :: Subscribe -&gt; Maybe Text
 -&gt; (Subscribe -&gt; Text -&gt; Subscribe)
 -&gt; Lens Subscribe Subscribe Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193211"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193220"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:Subscribe' :: Subscribe -&gt; Text
-</span><a href="#local-6989586621679193211"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193211"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193210"><span class="annot"><span class="annottext">s :: Subscribe
-</span><a href="#local-6989586621679193210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193209"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
-</span><a href="#local-6989586621679193210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:Subscribe' :: Text
+</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193220"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193219"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:Subscribe' :: Text
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AtopicArn%3ASubscribe%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-387"></span><span>
 </span><span id="line-388"></span><span class="hs-comment">-- | The protocol that you want to use. Supported protocols include:</span><span>
 </span><span id="line-389"></span><span class="hs-comment">--</span><span>
@@ -578,25 +578,25 @@ $sel:topicArn:Subscribe' :: Subscribe -&gt; Text
 -&gt; (Subscribe -&gt; Text -&gt; Subscribe)
 -&gt; Lens Subscribe Subscribe Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193208"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193217"><span class="annot"><span class="annottext">Text
 protocol :: Text
 $sel:protocol:Subscribe' :: Subscribe -&gt; Text
-</span><a href="#local-6989586621679193208"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193208"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193207"><span class="annot"><span class="annottext">s :: Subscribe
-</span><a href="#local-6989586621679193207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193206"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
-</span><a href="#local-6989586621679193207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Subscribe' :: Text
+</span><a href="#local-6989586621679193217"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193217"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193216"><span class="annot"><span class="annottext">s :: Subscribe
+</span><a href="#local-6989586621679193216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193215"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679193215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subscribe
+</span><a href="#local-6989586621679193216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Subscribe' :: Text
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3Aprotocol%3ASubscribe%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-411"></span><span>
 </span><span id="line-412"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-413"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span>
-</span><span id="line-414"></span><span>  </span><span id="local-6989586621679193202"><span class="annot"><span class="annottext">request :: Subscribe -&gt; Request Subscribe
+</span><span id="line-414"></span><span>  </span><span id="local-6989586621679193211"><span class="annot"><span class="annottext">request :: Subscribe -&gt; Request Subscribe
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Subscribe -&gt; Request Subscribe
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-415"></span><span>  </span><span id="local-6989586621679193198"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-415"></span><span>  </span><span id="local-6989586621679193207"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Subscribe
 -&gt; ClientResponse ClientBody
@@ -625,10 +625,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-417"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscribeResult&quot;</span></span><span>
-</span><span id="line-418"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679193195"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193195"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679193194"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679193194"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679193193"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679193193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-418"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679193204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193204"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679193203"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679193203"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679193202"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679193202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-419"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; SubscribeResponse
 </span><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-var">SubscribeResponse'</span></a></span><span>
 </span><span id="line-420"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; SubscribeResponse)
@@ -636,7 +636,7 @@ Text
 -&gt; Either String (Int -&gt; SubscribeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679193193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679193202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -648,15 +648,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193195"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193204"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-422"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-423"></span><span>
-</span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193185"><span id="local-6989586621679193187"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span></span></span><span>
+</span><span id="line-424"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193194"><span id="local-6989586621679193196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span></span></span><span>
 </span><span id="line-425"></span><span>
-</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193182"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span></span><span>
+</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span></span><span>
 </span><span id="line-427"></span><span>
 </span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-429"></span><span>  </span><span id="local-6989586621679193178"><span class="annot"><span class="annottext">toHeaders :: Subscribe -&gt; ResponseHeaders
+</span><span id="line-429"></span><span>  </span><span id="local-6989586621679193187"><span class="annot"><span class="annottext">toHeaders :: Subscribe -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Subscribe -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -664,15 +664,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-430"></span><span>
 </span><span id="line-431"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-432"></span><span>  </span><span id="local-6989586621679193173"><span class="annot"><span class="annottext">toPath :: Subscribe -&gt; ByteString
+</span><span id="line-432"></span><span>  </span><span id="local-6989586621679193182"><span class="annot"><span class="annottext">toPath :: Subscribe -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Subscribe -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-433"></span><span>
 </span><span id="line-434"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe"><span class="hs-identifier hs-type">Subscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-435"></span><span>  </span><span id="local-6989586621679193169"><span class="annot"><span class="annottext">toQuery :: Subscribe -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193163"><span id="local-6989586621679193164"><span id="local-6989586621679193165"><span id="local-6989586621679193166"><span id="local-6989586621679193167"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-435"></span><span>  </span><span id="local-6989586621679193178"><span class="annot"><span class="annottext">toQuery :: Subscribe -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#Subscribe%27"><span class="hs-identifier hs-type">Subscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193172"><span id="local-6989586621679193173"><span id="local-6989586621679193174"><span id="local-6989586621679193175"><span id="local-6989586621679193176"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe (HashMap Text Text)
 Text
@@ -686,7 +686,7 @@ $sel:topicArn:Subscribe' :: Subscribe -&gt; Text
 $sel:endpoint:Subscribe' :: Subscribe -&gt; Maybe Text
 $sel:attributes:Subscribe' :: Subscribe -&gt; Maybe (HashMap Text Text)
 $sel:returnSubscriptionArn:Subscribe' :: Subscribe -&gt; Maybe Bool
-</span><a href="#local-6989586621679193163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679193172"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-436"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -707,7 +707,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-442"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679193167"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679193176"><span class="hs-identifier hs-var">returnSubscriptionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-443"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span>
 </span><span id="line-444"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -729,29 +729,29 @@ ByteString
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679193166"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679193175"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-447"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-448"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Endpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193165"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679193174"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-449"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193164"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679193173"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-450"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679193163"><span class="hs-identifier hs-var">protocol</span></a></span><span>
+</span><a href="#local-6989586621679193172"><span class="hs-identifier hs-var">protocol</span></a></span><span>
 </span><span id="line-451"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-452"></span><span>
 </span><span id="line-453"></span><span class="hs-comment">-- | Response for Subscribe action.</span><span>
 </span><span id="line-454"></span><span class="hs-comment">--</span><span>
 </span><span id="line-455"></span><span class="hs-comment">-- /See:/ 'newSubscribeResponse' smart constructor.</span><span>
-</span><span id="line-456"></span><span id="local-6989586621679193159"><span id="local-6989586621679193160"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeResponse"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-var">SubscribeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeResponse%27"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-var">SubscribeResponse'</span></a></span></span><span>
+</span><span id="line-456"></span><span id="local-6989586621679193168"><span id="local-6989586621679193169"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeResponse"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-var">SubscribeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeResponse%27"><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-var">SubscribeResponse'</span></a></span></span><span>
 </span><span id="line-457"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the subscription if it is confirmed, or the string \&quot;pending</span><span>
 </span><span id="line-458"></span><span>    </span><span class="hs-comment">-- confirmation\&quot; if the subscription requires confirmation. However, if</span><span>
 </span><span id="line-459"></span><span>    </span><span class="hs-comment">-- the API request parameter @ReturnSubscriptionArn@ is true, then the</span><span>
@@ -763,7 +763,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-464"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="annot"><span class="annottext">SubscribeResponse -&gt; Int
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-465"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-466"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193153"><span id="local-6989586621679193155"><span class="annot"><span class="annottext">SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
+</span><span id="line-466"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679193162"><span id="local-6989586621679193164"><span class="annot"><span class="annottext">SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
 (SubscribeResponse -&gt; SubscribeResponse -&gt; Bool)
 -&gt; (SubscribeResponse -&gt; SubscribeResponse -&gt; Bool)
 -&gt; Eq SubscribeResponse
@@ -772,7 +772,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
 == :: SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
 $c== :: SubscribeResponse -&gt; SubscribeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193145"><span id="local-6989586621679193147"><span id="local-6989586621679193149"><span id="local-6989586621679193151"><span class="annot"><span class="annottext">ReadPrec [SubscribeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193154"><span id="local-6989586621679193156"><span id="local-6989586621679193158"><span id="local-6989586621679193160"><span class="annot"><span class="annottext">ReadPrec [SubscribeResponse]
 ReadPrec SubscribeResponse
 Int -&gt; ReadS SubscribeResponse
 ReadS [SubscribeResponse]
@@ -792,7 +792,7 @@ readList :: ReadS [SubscribeResponse]
 $creadList :: ReadS [SubscribeResponse]
 readsPrec :: Int -&gt; ReadS SubscribeResponse
 $creadsPrec :: Int -&gt; ReadS SubscribeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193139"><span id="local-6989586621679193141"><span id="local-6989586621679193143"><span class="annot"><span class="annottext">Int -&gt; SubscribeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679193148"><span id="local-6989586621679193150"><span id="local-6989586621679193152"><span class="annot"><span class="annottext">Int -&gt; SubscribeResponse -&gt; ShowS
 [SubscribeResponse] -&gt; ShowS
 SubscribeResponse -&gt; String
 (Int -&gt; SubscribeResponse -&gt; ShowS)
@@ -838,8 +838,8 @@ $cfrom :: forall x. SubscribeResponse -&gt; Rep SubscribeResponse x
 </span><span id="line-485"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-486"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span>
 </span><span id="line-487"></span><span id="newSubscribeResponse"><span class="annot"><span class="annottext">newSubscribeResponse :: Int -&gt; SubscribeResponse
-</span><a href="Network.AWS.SNS.Subscribe.html#newSubscribeResponse"><span class="hs-identifier hs-var hs-var">newSubscribeResponse</span></a></span></span><span> </span><span id="local-6989586621679193136"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.Subscribe.html#newSubscribeResponse"><span class="hs-identifier hs-var hs-var">newSubscribeResponse</span></a></span></span><span> </span><span id="local-6989586621679193145"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-488"></span><span>  </span><span class="annot"><span class="annottext">SubscribeResponse' :: Maybe Text -&gt; Int -&gt; SubscribeResponse
 </span><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span>
 </span><span id="line-489"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionArn:SubscribeResponse' :: Maybe Text
@@ -849,7 +849,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-491"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeResponse' :: Int
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193136"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679193145"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-492"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-493"></span><span>
 </span><span id="line-494"></span><span class="hs-comment">-- | The ARN of the subscription if it is confirmed, or the string \&quot;pending</span><span>
@@ -865,16 +865,16 @@ forall a. Maybe a
 -&gt; Lens
      SubscribeResponse SubscribeResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193135"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193144"><span class="annot"><span class="annottext">Maybe Text
 subscriptionArn :: Maybe Text
 $sel:subscriptionArn:SubscribeResponse' :: SubscribeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679193135"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193135"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193134"><span class="annot"><span class="annottext">s :: SubscribeResponse
-</span><a href="#local-6989586621679193134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193133"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeResponse
-</span><a href="#local-6989586621679193134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:SubscribeResponse' :: Maybe Text
+</span><a href="#local-6989586621679193144"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193144"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193143"><span class="annot"><span class="annottext">s :: SubscribeResponse
+</span><a href="#local-6989586621679193143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679193142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeResponse
+</span><a href="#local-6989586621679193143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:SubscribeResponse' :: Maybe Text
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AsubscriptionArn%3ASubscribeResponse%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679193133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-501"></span><span>
 </span><span id="line-502"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-503"></span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#subscribeResponse_httpStatus"><span class="hs-identifier hs-type">subscribeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -883,16 +883,16 @@ $sel:subscriptionArn:SubscribeResponse' :: SubscribeResponse -&gt; Maybe Text
 -&gt; (SubscribeResponse -&gt; Int -&gt; SubscribeResponse)
 -&gt; Lens SubscribeResponse SubscribeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193132"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679193141"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SubscribeResponse' :: SubscribeResponse -&gt; Int
-</span><a href="#local-6989586621679193132"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193132"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193131"><span class="annot"><span class="annottext">s :: SubscribeResponse
-</span><a href="#local-6989586621679193131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193130"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeResponse
-</span><a href="#local-6989586621679193131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeResponse' :: Int
+</span><a href="#local-6989586621679193141"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193141"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679193140"><span class="annot"><span class="annottext">s :: SubscribeResponse
+</span><a href="#local-6989586621679193140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse%27"><span class="hs-identifier hs-type">SubscribeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679193139"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679193139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeResponse
+</span><a href="#local-6989586621679193140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SubscribeResponse' :: Int
 </span><a href="Network.AWS.SNS.Subscribe.html#%24sel%3AhttpStatus%3ASubscribeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679193130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679193139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-505"></span><span>
-</span><span id="line-506"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span></span><span>
+</span><span id="line-506"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679193137"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Subscribe.html#SubscribeResponse"><span class="hs-identifier hs-type">SubscribeResponse</span></a></span></span><span>
 </span><span id="line-507"></span></pre></body></html>

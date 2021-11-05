@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateElasticIp' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679396628"><span id="local-6989586621679396629"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateElasticIp"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-var">UpdateElasticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateElasticIp%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-var">UpdateElasticIp'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679396637"><span id="local-6989586621679396638"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateElasticIp"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-var">UpdateElasticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateElasticIp%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-var">UpdateElasticIp'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new name.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aname%3AUpdateElasticIp%27"><span class="annot"><span class="annottext">UpdateElasticIp -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#%24sel%3Aname%3AUpdateElasticIp%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AelasticIp%3AUpdateElasticIp%27"><span class="annot"><span class="annottext">UpdateElasticIp -&gt; Text
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#%24sel%3AelasticIp%3AUpdateElasticIp%27"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396621"><span id="local-6989586621679396623"><span class="annot"><span class="annottext">UpdateElasticIp -&gt; UpdateElasticIp -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396630"><span id="local-6989586621679396632"><span class="annot"><span class="annottext">UpdateElasticIp -&gt; UpdateElasticIp -&gt; Bool
 (UpdateElasticIp -&gt; UpdateElasticIp -&gt; Bool)
 -&gt; (UpdateElasticIp -&gt; UpdateElasticIp -&gt; Bool)
 -&gt; Eq UpdateElasticIp
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateElasticIp -&gt; UpdateElasticIp -&gt; Bool
 == :: UpdateElasticIp -&gt; UpdateElasticIp -&gt; Bool
 $c== :: UpdateElasticIp -&gt; UpdateElasticIp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396612"><span id="local-6989586621679396614"><span id="local-6989586621679396616"><span id="local-6989586621679396618"><span class="annot"><span class="annottext">ReadPrec [UpdateElasticIp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396621"><span id="local-6989586621679396623"><span id="local-6989586621679396625"><span id="local-6989586621679396627"><span class="annot"><span class="annottext">ReadPrec [UpdateElasticIp]
 ReadPrec UpdateElasticIp
 Int -&gt; ReadS UpdateElasticIp
 ReadS [UpdateElasticIp]
@@ -89,7 +89,7 @@ readList :: ReadS [UpdateElasticIp]
 $creadList :: ReadS [UpdateElasticIp]
 readsPrec :: Int -&gt; ReadS UpdateElasticIp
 $creadsPrec :: Int -&gt; ReadS UpdateElasticIp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396605"><span id="local-6989586621679396607"><span id="local-6989586621679396609"><span class="annot"><span class="annottext">Int -&gt; UpdateElasticIp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396614"><span id="local-6989586621679396616"><span id="local-6989586621679396618"><span class="annot"><span class="annottext">Int -&gt; UpdateElasticIp -&gt; ShowS
 [UpdateElasticIp] -&gt; ShowS
 UpdateElasticIp -&gt; String
 (Int -&gt; UpdateElasticIp -&gt; ShowS)
@@ -131,8 +131,8 @@ $cfrom :: forall x. UpdateElasticIp -&gt; Rep UpdateElasticIp x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span>
 </span><span id="line-78"></span><span id="newUpdateElasticIp"><span class="annot"><span class="annottext">newUpdateElasticIp :: Text -&gt; UpdateElasticIp
-</span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#newUpdateElasticIp"><span class="hs-identifier hs-var hs-var">newUpdateElasticIp</span></a></span></span><span> </span><span id="local-6989586621679396600"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396600"><span class="hs-identifier hs-var">pElasticIp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#newUpdateElasticIp"><span class="hs-identifier hs-var hs-var">newUpdateElasticIp</span></a></span></span><span> </span><span id="local-6989586621679396609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396609"><span class="hs-identifier hs-var">pElasticIp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">UpdateElasticIp' :: Maybe Text -&gt; Text -&gt; UpdateElasticIp
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UpdateElasticIp' :: Maybe Text
@@ -141,7 +141,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:elasticIp:UpdateElasticIp' :: Text
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#%24sel%3AelasticIp%3AUpdateElasticIp%27"><span class="hs-identifier hs-var">elasticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396600"><span class="hs-identifier hs-var">pElasticIp_</span></a></span><span>
+</span><a href="#local-6989586621679396609"><span class="hs-identifier hs-var">pElasticIp_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The new name.</span><span>
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (UpdateElasticIp -&gt; Maybe Text -&gt; UpdateElasticIp)
 -&gt; Lens UpdateElasticIp UpdateElasticIp (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396597"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396606"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:UpdateElasticIp' :: UpdateElasticIp -&gt; Maybe Text
-</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396597"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396596"><span class="annot"><span class="annottext">s :: UpdateElasticIp
-</span><a href="#local-6989586621679396596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396595"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateElasticIp
-</span><a href="#local-6989586621679396596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateElasticIp' :: Maybe Text
+</span><a href="#local-6989586621679396606"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396606"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396605"><span class="annot"><span class="annottext">s :: UpdateElasticIp
+</span><a href="#local-6989586621679396605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396604"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateElasticIp
+</span><a href="#local-6989586621679396605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateElasticIp' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#%24sel%3Aname%3AUpdateElasticIp%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The IP address for which you want to update the name.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#updateElasticIp_elasticIp"><span class="hs-identifier hs-type">updateElasticIp_elasticIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -170,27 +170,27 @@ $sel:name:UpdateElasticIp' :: UpdateElasticIp -&gt; Maybe Text
 -&gt; (UpdateElasticIp -&gt; Text -&gt; UpdateElasticIp)
 -&gt; Lens UpdateElasticIp UpdateElasticIp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396594"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396603"><span class="annot"><span class="annottext">Text
 elasticIp :: Text
 $sel:elasticIp:UpdateElasticIp' :: UpdateElasticIp -&gt; Text
-</span><a href="#local-6989586621679396594"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396594"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396593"><span class="annot"><span class="annottext">s :: UpdateElasticIp
-</span><a href="#local-6989586621679396593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396592"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateElasticIp
-</span><a href="#local-6989586621679396593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticIp:UpdateElasticIp' :: Text
+</span><a href="#local-6989586621679396603"><span class="hs-identifier hs-var hs-var">elasticIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396603"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396602"><span class="annot"><span class="annottext">s :: UpdateElasticIp
+</span><a href="#local-6989586621679396602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396601"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateElasticIp
+</span><a href="#local-6989586621679396602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticIp:UpdateElasticIp' :: Text
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#%24sel%3AelasticIp%3AUpdateElasticIp%27"><span class="hs-identifier hs-var">elasticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse"><span class="hs-identifier hs-type">UpdateElasticIpResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679396588"><span class="annot"><span class="annottext">request :: UpdateElasticIp -&gt; Request UpdateElasticIp
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679396597"><span class="annot"><span class="annottext">request :: UpdateElasticIp -&gt; Request UpdateElasticIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateElasticIp -&gt; Request UpdateElasticIp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679396584"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679396593"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateElasticIp
 -&gt; ClientResponse ClientBody
@@ -214,12 +214,12 @@ AWSResponse a
 UpdateElasticIpResponse
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse%27"><span class="hs-identifier hs-var">UpdateElasticIpResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396577"><span id="local-6989586621679396579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396586"><span id="local-6989586621679396588"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396583"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679396570"><span class="annot"><span class="annottext">toHeaders :: UpdateElasticIp -&gt; [Header]
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679396579"><span class="annot"><span class="annottext">toHeaders :: UpdateElasticIp -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateElasticIp -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -246,15 +246,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396560"><span id="local-6989586621679396562"><span id="local-6989586621679396564"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679396558"><span class="annot"><span class="annottext">toJSON :: UpdateElasticIp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396555"><span id="local-6989586621679396556"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396569"><span id="local-6989586621679396571"><span id="local-6989586621679396573"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679396567"><span class="annot"><span class="annottext">toJSON :: UpdateElasticIp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp%27"><span class="hs-identifier hs-type">UpdateElasticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396564"><span id="local-6989586621679396565"><span class="annot"><span class="annottext">Maybe Text
 Text
 elasticIp :: Text
 name :: Maybe Text
 $sel:elasticIp:UpdateElasticIp' :: UpdateElasticIp -&gt; Text
 $sel:name:UpdateElasticIp' :: UpdateElasticIp -&gt; Maybe Text
-</span><a href="#local-6989586621679396555"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396564"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -266,26 +266,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396556"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396565"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ElasticIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679396555"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396564"><span class="hs-identifier hs-var">elasticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679396548"><span class="annot"><span class="annottext">toPath :: UpdateElasticIp -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679396557"><span class="annot"><span class="annottext">toPath :: UpdateElasticIp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateElasticIp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIp"><span class="hs-identifier hs-type">UpdateElasticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679396544"><span class="annot"><span class="annottext">toQuery :: UpdateElasticIp -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679396553"><span class="annot"><span class="annottext">toQuery :: UpdateElasticIp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateElasticIp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -293,10 +293,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newUpdateElasticIpResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679396541"><span id="local-6989586621679396542"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateElasticIpResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse"><span class="hs-identifier hs-var">UpdateElasticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateElasticIpResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse%27"><span class="hs-identifier hs-var">UpdateElasticIpResponse'</span></a></span></span><span>
+</span><span id="line-135"></span><span id="local-6989586621679396550"><span id="local-6989586621679396551"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateElasticIpResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse"><span class="hs-identifier hs-var">UpdateElasticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateElasticIpResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse%27"><span class="hs-identifier hs-var">UpdateElasticIpResponse'</span></a></span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396537"><span id="local-6989586621679396539"><span class="annot"><span class="annottext">UpdateElasticIpResponse -&gt; UpdateElasticIpResponse -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396546"><span id="local-6989586621679396548"><span class="annot"><span class="annottext">UpdateElasticIpResponse -&gt; UpdateElasticIpResponse -&gt; Bool
 (UpdateElasticIpResponse -&gt; UpdateElasticIpResponse -&gt; Bool)
 -&gt; (UpdateElasticIpResponse -&gt; UpdateElasticIpResponse -&gt; Bool)
 -&gt; Eq UpdateElasticIpResponse
@@ -305,7 +305,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateElasticIpResponse -&gt; UpdateElasticIpResponse -&gt; Bool
 == :: UpdateElasticIpResponse -&gt; UpdateElasticIpResponse -&gt; Bool
 $c== :: UpdateElasticIpResponse -&gt; UpdateElasticIpResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396529"><span id="local-6989586621679396531"><span id="local-6989586621679396533"><span id="local-6989586621679396535"><span class="annot"><span class="annottext">ReadPrec [UpdateElasticIpResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396538"><span id="local-6989586621679396540"><span id="local-6989586621679396542"><span id="local-6989586621679396544"><span class="annot"><span class="annottext">ReadPrec [UpdateElasticIpResponse]
 ReadPrec UpdateElasticIpResponse
 Int -&gt; ReadS UpdateElasticIpResponse
 ReadS [UpdateElasticIpResponse]
@@ -325,7 +325,7 @@ readList :: ReadS [UpdateElasticIpResponse]
 $creadList :: ReadS [UpdateElasticIpResponse]
 readsPrec :: Int -&gt; ReadS UpdateElasticIpResponse
 $creadsPrec :: Int -&gt; ReadS UpdateElasticIpResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396523"><span id="local-6989586621679396525"><span id="local-6989586621679396527"><span class="annot"><span class="annottext">Int -&gt; UpdateElasticIpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396532"><span id="local-6989586621679396534"><span id="local-6989586621679396536"><span class="annot"><span class="annottext">Int -&gt; UpdateElasticIpResponse -&gt; ShowS
 [UpdateElasticIpResponse] -&gt; ShowS
 UpdateElasticIpResponse -&gt; String
 (Int -&gt; UpdateElasticIpResponse -&gt; ShowS)
@@ -363,5 +363,5 @@ $cfrom :: forall x. UpdateElasticIpResponse -&gt; Rep UpdateElasticIpResponse x
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#newUpdateElasticIpResponse"><span class="hs-identifier hs-var hs-var">newUpdateElasticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateElasticIpResponse
 </span><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse%27"><span class="hs-identifier hs-var">UpdateElasticIpResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse"><span class="hs-identifier hs-type">UpdateElasticIpResponse</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateElasticIp.html#UpdateElasticIpResponse"><span class="hs-identifier hs-type">UpdateElasticIpResponse</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

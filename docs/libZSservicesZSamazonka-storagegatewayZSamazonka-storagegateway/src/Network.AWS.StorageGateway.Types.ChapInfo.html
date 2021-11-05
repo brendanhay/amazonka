@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- that supports authentication between your gateway and iSCSI initiators.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newChapInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679371274"><span id="local-6989586621679371275"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChapInfo"><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-var">ChapInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChapInfo%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-var">ChapInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371283"><span id="local-6989586621679371284"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChapInfo"><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-var">ChapInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChapInfo%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-var">ChapInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the volume.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AsecretToAuthenticateTarget%3AChapInfo%27"><span class="annot"><span class="annottext">ChapInfo -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#%24sel%3AsecretToAuthenticateTarget%3AChapInfo%27"><span class="hs-identifier hs-var hs-var">secretToAuthenticateTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371265"><span id="local-6989586621679371267"><span class="annot"><span class="annottext">ChapInfo -&gt; ChapInfo -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371274"><span id="local-6989586621679371276"><span class="annot"><span class="annottext">ChapInfo -&gt; ChapInfo -&gt; Bool
 (ChapInfo -&gt; ChapInfo -&gt; Bool)
 -&gt; (ChapInfo -&gt; ChapInfo -&gt; Bool) -&gt; Eq ChapInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChapInfo -&gt; ChapInfo -&gt; Bool
 == :: ChapInfo -&gt; ChapInfo -&gt; Bool
 $c== :: ChapInfo -&gt; ChapInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371258"><span id="local-6989586621679371260"><span id="local-6989586621679371262"><span class="annot"><span class="annottext">Int -&gt; ChapInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371267"><span id="local-6989586621679371269"><span id="local-6989586621679371271"><span class="annot"><span class="annottext">Int -&gt; ChapInfo -&gt; ShowS
 [ChapInfo] -&gt; ShowS
 ChapInfo -&gt; String
 (Int -&gt; ChapInfo -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (ChapInfo -&gt; Maybe Text -&gt; ChapInfo)
 -&gt; Lens ChapInfo ChapInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371249"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371258"><span class="annot"><span class="annottext">Maybe Text
 targetARN :: Maybe Text
 $sel:targetARN:ChapInfo' :: ChapInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679371249"><span class="hs-identifier hs-var hs-var">targetARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371249"><span class="hs-identifier hs-var">targetARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371248"><span class="annot"><span class="annottext">s :: ChapInfo
-</span><a href="#local-6989586621679371248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371247"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
-</span><a href="#local-6989586621679371248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetARN:ChapInfo' :: Maybe Text
+</span><a href="#local-6989586621679371258"><span class="hs-identifier hs-var hs-var">targetARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371258"><span class="hs-identifier hs-var">targetARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371257"><span class="annot"><span class="annottext">s :: ChapInfo
+</span><a href="#local-6989586621679371257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371256"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
+</span><a href="#local-6989586621679371257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetARN:ChapInfo' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#%24sel%3AtargetARN%3AChapInfo%27"><span class="hs-identifier hs-var">targetARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The secret key that the initiator (for example, the Windows client) must</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- provide to participate in mutual CHAP with the target.</span><span>
@@ -155,16 +155,16 @@ $sel:targetARN:ChapInfo' :: ChapInfo -&gt; Maybe Text
 -&gt; Lens
      ChapInfo ChapInfo (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371245"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371254"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 secretToAuthenticateInitiator :: Maybe (Sensitive Text)
 $sel:secretToAuthenticateInitiator:ChapInfo' :: ChapInfo -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371245"><span class="hs-identifier hs-var hs-var">secretToAuthenticateInitiator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371245"><span class="hs-identifier hs-var">secretToAuthenticateInitiator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371244"><span class="annot"><span class="annottext">s :: ChapInfo
-</span><a href="#local-6989586621679371244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371243"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
-</span><a href="#local-6989586621679371244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretToAuthenticateInitiator:ChapInfo' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371254"><span class="hs-identifier hs-var hs-var">secretToAuthenticateInitiator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371254"><span class="hs-identifier hs-var">secretToAuthenticateInitiator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371253"><span class="annot"><span class="annottext">s :: ChapInfo
+</span><a href="#local-6989586621679371253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371252"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
+</span><a href="#local-6989586621679371253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretToAuthenticateInitiator:ChapInfo' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#%24sel%3AsecretToAuthenticateInitiator%3AChapInfo%27"><span class="hs-identifier hs-var">secretToAuthenticateInitiator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679371252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ChapInfo -&gt; f ChapInfo)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -192,16 +192,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (ChapInfo -&gt; Maybe Text -&gt; ChapInfo)
 -&gt; Lens ChapInfo ChapInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371238"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371247"><span class="annot"><span class="annottext">Maybe Text
 initiatorName :: Maybe Text
 $sel:initiatorName:ChapInfo' :: ChapInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679371238"><span class="hs-identifier hs-var hs-var">initiatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371238"><span class="hs-identifier hs-var">initiatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371237"><span class="annot"><span class="annottext">s :: ChapInfo
-</span><a href="#local-6989586621679371237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371236"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
-</span><a href="#local-6989586621679371237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatorName:ChapInfo' :: Maybe Text
+</span><a href="#local-6989586621679371247"><span class="hs-identifier hs-var hs-var">initiatorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371247"><span class="hs-identifier hs-var">initiatorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371246"><span class="annot"><span class="annottext">s :: ChapInfo
+</span><a href="#local-6989586621679371246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
+</span><a href="#local-6989586621679371246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initiatorName:ChapInfo' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#%24sel%3AinitiatorName%3AChapInfo%27"><span class="hs-identifier hs-var">initiatorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679371236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The secret key that the target must provide to participate in mutual</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- CHAP with the initiator (e.g., Windows client).</span><span>
@@ -212,16 +212,16 @@ $sel:initiatorName:ChapInfo' :: ChapInfo -&gt; Maybe Text
 -&gt; Lens
      ChapInfo ChapInfo (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371234"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371243"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 secretToAuthenticateTarget :: Maybe (Sensitive Text)
 $sel:secretToAuthenticateTarget:ChapInfo' :: ChapInfo -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371234"><span class="hs-identifier hs-var hs-var">secretToAuthenticateTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371234"><span class="hs-identifier hs-var">secretToAuthenticateTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371233"><span class="annot"><span class="annottext">s :: ChapInfo
-</span><a href="#local-6989586621679371233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371232"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
-</span><a href="#local-6989586621679371233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretToAuthenticateTarget:ChapInfo' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371243"><span class="hs-identifier hs-var hs-var">secretToAuthenticateTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371243"><span class="hs-identifier hs-var">secretToAuthenticateTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371242"><span class="annot"><span class="annottext">s :: ChapInfo
+</span><a href="#local-6989586621679371242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo%27"><span class="hs-identifier hs-type">ChapInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371241"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679371241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChapInfo
+</span><a href="#local-6989586621679371242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretToAuthenticateTarget:ChapInfo' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#%24sel%3AsecretToAuthenticateTarget%3AChapInfo%27"><span class="hs-identifier hs-var">secretToAuthenticateTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679371232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679371241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ChapInfo -&gt; f ChapInfo)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -242,16 +242,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371229"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679371227"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChapInfo
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371238"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679371236"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChapInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser ChapInfo) -&gt; Value -&gt; Parser ChapInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ChapInfo&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371224"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371233"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371233"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe (Sensitive Text)
 -&gt; Maybe Text
@@ -269,7 +269,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe (Sensitive Text) -&gt; ChapInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,7 +280,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe (Sensitive Text) -&gt; ChapInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679371233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretToAuthenticateInitiator&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,7 +289,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (Sensitive Text) -&gt; ChapInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679371233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InitiatorName&quot;</span></span><span class="hs-special">)</span><span>
@@ -297,13 +297,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser ChapInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679371224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679371233"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretToAuthenticateTarget&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371218"><span id="local-6989586621679371220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371227"><span id="local-6989586621679371229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.ChapInfo.html#ChapInfo"><span class="hs-identifier hs-type">ChapInfo</span></a></span></span><span>
 </span><span id="line-113"></span></pre></body></html>

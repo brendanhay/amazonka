@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MwAA.GetEnvironment</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the details of an Amazon Managed Workflows for Apache Airflow</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (MWAA) environment.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MwAA.GetEnvironment</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier">GetEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#newGetEnvironment"><span class="hs-identifier">newGetEnvironment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironment_name"><span class="hs-identifier">getEnvironment_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier">GetEnvironmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#newGetEnvironmentResponse"><span class="hs-identifier">newGetEnvironmentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironmentResponse_environment"><span class="hs-identifier">getEnvironmentResponse_environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironmentResponse_httpStatus"><span class="hs-identifier">getEnvironmentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.html"><span class="hs-identifier">Network.AWS.MwAA.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetEnvironment' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679184005"><span id="local-6989586621679184006"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEnvironment"><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-var">GetEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEnvironment%27"><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment%27"><span class="hs-identifier hs-var">GetEnvironment'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon MWAA environment. For example,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @MyMWAAEnvironment@.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3AGetEnvironment%27"><span class="annot"><span class="annottext">GetEnvironment -&gt; Text
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3Aname%3AGetEnvironment%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183999"><span id="local-6989586621679184001"><span class="annot"><span class="annottext">GetEnvironment -&gt; GetEnvironment -&gt; Bool
+(GetEnvironment -&gt; GetEnvironment -&gt; Bool)
+-&gt; (GetEnvironment -&gt; GetEnvironment -&gt; Bool) -&gt; Eq GetEnvironment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEnvironment -&gt; GetEnvironment -&gt; Bool
+$c/= :: GetEnvironment -&gt; GetEnvironment -&gt; Bool
+== :: GetEnvironment -&gt; GetEnvironment -&gt; Bool
+$c== :: GetEnvironment -&gt; GetEnvironment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183990"><span id="local-6989586621679183992"><span id="local-6989586621679183994"><span id="local-6989586621679183996"><span class="annot"><span class="annottext">ReadPrec [GetEnvironment]
+ReadPrec GetEnvironment
+Int -&gt; ReadS GetEnvironment
+ReadS [GetEnvironment]
+(Int -&gt; ReadS GetEnvironment)
+-&gt; ReadS [GetEnvironment]
+-&gt; ReadPrec GetEnvironment
+-&gt; ReadPrec [GetEnvironment]
+-&gt; Read GetEnvironment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEnvironment]
+$creadListPrec :: ReadPrec [GetEnvironment]
+readPrec :: ReadPrec GetEnvironment
+$creadPrec :: ReadPrec GetEnvironment
+readList :: ReadS [GetEnvironment]
+$creadList :: ReadS [GetEnvironment]
+readsPrec :: Int -&gt; ReadS GetEnvironment
+$creadsPrec :: Int -&gt; ReadS GetEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183983"><span id="local-6989586621679183985"><span id="local-6989586621679183987"><span class="annot"><span class="annottext">Int -&gt; GetEnvironment -&gt; ShowS
+[GetEnvironment] -&gt; ShowS
+GetEnvironment -&gt; String
+(Int -&gt; GetEnvironment -&gt; ShowS)
+-&gt; (GetEnvironment -&gt; String)
+-&gt; ([GetEnvironment] -&gt; ShowS)
+-&gt; Show GetEnvironment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEnvironment] -&gt; ShowS
+$cshowList :: [GetEnvironment] -&gt; ShowS
+show :: GetEnvironment -&gt; String
+$cshow :: GetEnvironment -&gt; String
+showsPrec :: Int -&gt; GetEnvironment -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEnvironment -&gt; Rep GetEnvironment x)
+-&gt; (forall x. Rep GetEnvironment x -&gt; GetEnvironment)
+-&gt; Generic GetEnvironment
+forall x. Rep GetEnvironment x -&gt; GetEnvironment
+forall x. GetEnvironment -&gt; Rep GetEnvironment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEnvironment x -&gt; GetEnvironment
+$cfrom :: forall x. GetEnvironment -&gt; Rep GetEnvironment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetEnvironment' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'name', 'getEnvironment_name' - The name of the Amazon MWAA environment. For example,</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- @MyMWAAEnvironment@.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#newGetEnvironment"><span class="hs-identifier hs-type">newGetEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span>
+</span><span id="line-72"></span><span id="newGetEnvironment"><span class="annot"><span class="annottext">newGetEnvironment :: Text -&gt; GetEnvironment
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#newGetEnvironment"><span class="hs-identifier hs-var hs-var">newGetEnvironment</span></a></span></span><span> </span><span id="local-6989586621679183978"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183978"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">GetEnvironment' :: Text -&gt; GetEnvironment
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment%27"><span class="hs-identifier hs-type">GetEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetEnvironment' :: Text
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3Aname%3AGetEnvironment%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183978"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The name of the Amazon MWAA environment. For example,</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @MyMWAAEnvironment@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironment_name"><span class="hs-identifier hs-type">getEnvironment_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="getEnvironment_name"><span class="annot"><span class="annottext">getEnvironment_name :: (Text -&gt; f Text) -&gt; GetEnvironment -&gt; f GetEnvironment
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironment_name"><span class="hs-identifier hs-var hs-var">getEnvironment_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnvironment -&gt; Text)
+-&gt; (GetEnvironment -&gt; Text -&gt; GetEnvironment)
+-&gt; Lens GetEnvironment GetEnvironment Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment%27"><span class="hs-identifier hs-type">GetEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183975"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetEnvironment' :: GetEnvironment -&gt; Text
+</span><a href="#local-6989586621679183975"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183975"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183974"><span class="annot"><span class="annottext">s :: GetEnvironment
+</span><a href="#local-6989586621679183974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment%27"><span class="hs-identifier hs-type">GetEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnvironment
+</span><a href="#local-6989586621679183974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetEnvironment' :: Text
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3Aname%3AGetEnvironment%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-type">GetEnvironmentResponse</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679183969"><span class="annot"><span class="annottext">request :: GetEnvironment -&gt; Request GetEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetEnvironment -&gt; Request GetEnvironment
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MwAA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679183965"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetEnvironment)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetEnvironment))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetEnvironment
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetEnvironment)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183962"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183962"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679183961"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679183961"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679183960"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Environment -&gt; Int -&gt; GetEnvironmentResponse
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse%27"><span class="hs-identifier hs-var">GetEnvironmentResponse'</span></a></span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Environment -&gt; Int -&gt; GetEnvironmentResponse)
+-&gt; Either String (Maybe Environment)
+-&gt; Either String (Int -&gt; GetEnvironmentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Environment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Environment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetEnvironmentResponse)
+-&gt; Either String Int -&gt; Either String GetEnvironmentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183962"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183952"><span id="local-6989586621679183954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679183945"><span class="annot"><span class="annottext">toHeaders :: GetEnvironment -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetEnvironment -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679183939"><span class="annot"><span class="annottext">toPath :: GetEnvironment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment%27"><span class="hs-identifier hs-type">GetEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183937"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:GetEnvironment' :: GetEnvironment -&gt; Text
+</span><a href="#local-6989586621679183937"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/environments/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679183937"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironment"><span class="hs-identifier hs-type">GetEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679183933"><span class="annot"><span class="annottext">toQuery :: GetEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetEnvironment -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newGetEnvironmentResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679183930"><span id="local-6989586621679183931"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetEnvironmentResponse"><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-var">GetEnvironmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetEnvironmentResponse%27"><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse%27"><span class="hs-identifier hs-var">GetEnvironmentResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object containing all available details about the environment.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Aenvironment%3AGetEnvironmentResponse%27"><span class="annot"><span class="annottext">GetEnvironmentResponse -&gt; Maybe Environment
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3Aenvironment%3AGetEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetEnvironmentResponse%27"><span class="annot"><span class="annottext">GetEnvironmentResponse -&gt; Int
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3AhttpStatus%3AGetEnvironmentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183924"><span id="local-6989586621679183926"><span class="annot"><span class="annottext">GetEnvironmentResponse -&gt; GetEnvironmentResponse -&gt; Bool
+(GetEnvironmentResponse -&gt; GetEnvironmentResponse -&gt; Bool)
+-&gt; (GetEnvironmentResponse -&gt; GetEnvironmentResponse -&gt; Bool)
+-&gt; Eq GetEnvironmentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetEnvironmentResponse -&gt; GetEnvironmentResponse -&gt; Bool
+$c/= :: GetEnvironmentResponse -&gt; GetEnvironmentResponse -&gt; Bool
+== :: GetEnvironmentResponse -&gt; GetEnvironmentResponse -&gt; Bool
+$c== :: GetEnvironmentResponse -&gt; GetEnvironmentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183916"><span id="local-6989586621679183918"><span id="local-6989586621679183920"><span id="local-6989586621679183922"><span class="annot"><span class="annottext">ReadPrec [GetEnvironmentResponse]
+ReadPrec GetEnvironmentResponse
+Int -&gt; ReadS GetEnvironmentResponse
+ReadS [GetEnvironmentResponse]
+(Int -&gt; ReadS GetEnvironmentResponse)
+-&gt; ReadS [GetEnvironmentResponse]
+-&gt; ReadPrec GetEnvironmentResponse
+-&gt; ReadPrec [GetEnvironmentResponse]
+-&gt; Read GetEnvironmentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetEnvironmentResponse]
+$creadListPrec :: ReadPrec [GetEnvironmentResponse]
+readPrec :: ReadPrec GetEnvironmentResponse
+$creadPrec :: ReadPrec GetEnvironmentResponse
+readList :: ReadS [GetEnvironmentResponse]
+$creadList :: ReadS [GetEnvironmentResponse]
+readsPrec :: Int -&gt; ReadS GetEnvironmentResponse
+$creadsPrec :: Int -&gt; ReadS GetEnvironmentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183910"><span id="local-6989586621679183912"><span id="local-6989586621679183914"><span class="annot"><span class="annottext">Int -&gt; GetEnvironmentResponse -&gt; ShowS
+[GetEnvironmentResponse] -&gt; ShowS
+GetEnvironmentResponse -&gt; String
+(Int -&gt; GetEnvironmentResponse -&gt; ShowS)
+-&gt; (GetEnvironmentResponse -&gt; String)
+-&gt; ([GetEnvironmentResponse] -&gt; ShowS)
+-&gt; Show GetEnvironmentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetEnvironmentResponse] -&gt; ShowS
+$cshowList :: [GetEnvironmentResponse] -&gt; ShowS
+show :: GetEnvironmentResponse -&gt; String
+$cshow :: GetEnvironmentResponse -&gt; String
+showsPrec :: Int -&gt; GetEnvironmentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetEnvironmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetEnvironmentResponse -&gt; Rep GetEnvironmentResponse x)
+-&gt; (forall x.
+    Rep GetEnvironmentResponse x -&gt; GetEnvironmentResponse)
+-&gt; Generic GetEnvironmentResponse
+forall x. Rep GetEnvironmentResponse x -&gt; GetEnvironmentResponse
+forall x. GetEnvironmentResponse -&gt; Rep GetEnvironmentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetEnvironmentResponse x -&gt; GetEnvironmentResponse
+$cfrom :: forall x. GetEnvironmentResponse -&gt; Rep GetEnvironmentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Create a value of 'GetEnvironmentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'environment', 'getEnvironmentResponse_environment' - An object containing all available details about the environment.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'getEnvironmentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#newGetEnvironmentResponse"><span class="hs-identifier hs-type">newGetEnvironmentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-type">GetEnvironmentResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newGetEnvironmentResponse"><span class="annot"><span class="annottext">newGetEnvironmentResponse :: Int -&gt; GetEnvironmentResponse
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#newGetEnvironmentResponse"><span class="hs-identifier hs-var hs-var">newGetEnvironmentResponse</span></a></span></span><span> </span><span id="local-6989586621679183907"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183907"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">GetEnvironmentResponse' :: Maybe Environment -&gt; Int -&gt; GetEnvironmentResponse
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse%27"><span class="hs-identifier hs-type">GetEnvironmentResponse'</span></a></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environment:GetEnvironmentResponse' :: Maybe Environment
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3Aenvironment%3AGetEnvironmentResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Maybe Environment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetEnvironmentResponse' :: Int
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3AhttpStatus%3AGetEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183907"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | An object containing all available details about the environment.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironmentResponse_environment"><span class="hs-identifier hs-type">getEnvironmentResponse_environment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-type">GetEnvironmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.Types.Environment.html#Environment"><span class="hs-identifier hs-type">Environment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="getEnvironmentResponse_environment"><span class="annot"><span class="annottext">getEnvironmentResponse_environment :: (Maybe Environment -&gt; f (Maybe Environment))
+-&gt; GetEnvironmentResponse -&gt; f GetEnvironmentResponse
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironmentResponse_environment"><span class="hs-identifier hs-var hs-var">getEnvironmentResponse_environment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnvironmentResponse -&gt; Maybe Environment)
+-&gt; (GetEnvironmentResponse
+    -&gt; Maybe Environment -&gt; GetEnvironmentResponse)
+-&gt; Lens
+     GetEnvironmentResponse
+     GetEnvironmentResponse
+     (Maybe Environment)
+     (Maybe Environment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse%27"><span class="hs-identifier hs-type">GetEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183906"><span class="annot"><span class="annottext">Maybe Environment
+environment :: Maybe Environment
+$sel:environment:GetEnvironmentResponse' :: GetEnvironmentResponse -&gt; Maybe Environment
+</span><a href="#local-6989586621679183906"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679183906"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183905"><span class="annot"><span class="annottext">s :: GetEnvironmentResponse
+</span><a href="#local-6989586621679183905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse%27"><span class="hs-identifier hs-type">GetEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183904"><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679183904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnvironmentResponse
+</span><a href="#local-6989586621679183905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:GetEnvironmentResponse' :: Maybe Environment
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3Aenvironment%3AGetEnvironmentResponse%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Environment
+</span><a href="#local-6989586621679183904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-type">GetEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironmentResponse_httpStatus"><span class="hs-identifier hs-type">getEnvironmentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-type">GetEnvironmentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-152"></span><span id="getEnvironmentResponse_httpStatus"><span class="annot"><span class="annottext">getEnvironmentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetEnvironmentResponse -&gt; f GetEnvironmentResponse
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#getEnvironmentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getEnvironmentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetEnvironmentResponse -&gt; Int)
+-&gt; (GetEnvironmentResponse -&gt; Int -&gt; GetEnvironmentResponse)
+-&gt; Lens GetEnvironmentResponse GetEnvironmentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse%27"><span class="hs-identifier hs-type">GetEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183903"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetEnvironmentResponse' :: GetEnvironmentResponse -&gt; Int
+</span><a href="#local-6989586621679183903"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183903"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183902"><span class="annot"><span class="annottext">s :: GetEnvironmentResponse
+</span><a href="#local-6989586621679183902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse%27"><span class="hs-identifier hs-type">GetEnvironmentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetEnvironmentResponse
+</span><a href="#local-6989586621679183902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetEnvironmentResponse' :: Int
+</span><a href="Network.AWS.MwAA.GetEnvironment.html#%24sel%3AhttpStatus%3AGetEnvironmentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679183901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-type">GetEnvironmentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MwAA.GetEnvironment.html#GetEnvironmentResponse"><span class="hs-identifier hs-type">GetEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides information about an entity.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEntity' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679342991"><span id="local-6989586621679342992"></span></span><span class="hs-keyword">data</span><span> </span><span id="Entity"><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-var">Entity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Entity%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-var">Entity'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679343000"><span id="local-6989586621679343001"></span></span><span class="hs-keyword">data</span><span> </span><span id="Entity"><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-var">Entity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Entity%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-var">Entity'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A character offset in the input text that shows where the entity begins</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- (the first character is at position 0). The offset returns the position</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- of each UTF-8 code point in the string. A /code point/ is the abstract</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Atype%27%3AEntity%27"><span class="annot"><span class="annottext">Entity -&gt; Maybe EntityType
 </span><a href="Network.AWS.Comprehend.Types.Entity.html#%24sel%3Atype%27%3AEntity%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342981"><span id="local-6989586621679342983"><span class="annot"><span class="annottext">Entity -&gt; Entity -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342990"><span id="local-6989586621679342992"><span class="annot"><span class="annottext">Entity -&gt; Entity -&gt; Bool
 (Entity -&gt; Entity -&gt; Bool)
 -&gt; (Entity -&gt; Entity -&gt; Bool) -&gt; Eq Entity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Entity -&gt; Entity -&gt; Bool
 == :: Entity -&gt; Entity -&gt; Bool
 $c== :: Entity -&gt; Entity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342972"><span id="local-6989586621679342974"><span id="local-6989586621679342976"><span id="local-6989586621679342978"><span class="annot"><span class="annottext">ReadPrec [Entity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342981"><span id="local-6989586621679342983"><span id="local-6989586621679342985"><span id="local-6989586621679342987"><span class="annot"><span class="annottext">ReadPrec [Entity]
 ReadPrec Entity
 Int -&gt; ReadS Entity
 ReadS [Entity]
@@ -81,7 +81,7 @@ readList :: ReadS [Entity]
 $creadList :: ReadS [Entity]
 readsPrec :: Int -&gt; ReadS Entity
 $creadsPrec :: Int -&gt; ReadS Entity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342965"><span id="local-6989586621679342967"><span id="local-6989586621679342969"><span class="annot"><span class="annottext">Int -&gt; Entity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342974"><span id="local-6989586621679342976"><span id="local-6989586621679342978"><span class="annot"><span class="annottext">Int -&gt; Entity -&gt; ShowS
 [Entity] -&gt; ShowS
 Entity -&gt; String
 (Int -&gt; Entity -&gt; ShowS)
@@ -174,16 +174,16 @@ forall a. Maybe a
 -&gt; (Entity -&gt; Maybe Int -&gt; Entity)
 -&gt; Lens Entity Entity (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342956"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342965"><span class="annot"><span class="annottext">Maybe Int
 beginOffset :: Maybe Int
 $sel:beginOffset:Entity' :: Entity -&gt; Maybe Int
-</span><a href="#local-6989586621679342956"><span class="hs-identifier hs-var hs-var">beginOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342956"><span class="hs-identifier hs-var">beginOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342955"><span class="annot"><span class="annottext">s :: Entity
-</span><a href="#local-6989586621679342955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342954"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
-</span><a href="#local-6989586621679342955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginOffset:Entity' :: Maybe Int
+</span><a href="#local-6989586621679342965"><span class="hs-identifier hs-var hs-var">beginOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679342965"><span class="hs-identifier hs-var">beginOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342964"><span class="annot"><span class="annottext">s :: Entity
+</span><a href="#local-6989586621679342964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342963"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679342963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
+</span><a href="#local-6989586621679342964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginOffset:Entity' :: Maybe Int
 </span><a href="Network.AWS.Comprehend.Types.Entity.html#%24sel%3AbeginOffset%3AEntity%27"><span class="hs-identifier hs-var">beginOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The text of the entity.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#entity_text"><span class="hs-identifier hs-type">entity_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -192,16 +192,16 @@ $sel:beginOffset:Entity' :: Entity -&gt; Maybe Int
 -&gt; (Entity -&gt; Maybe Text -&gt; Entity)
 -&gt; Lens Entity Entity (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342952"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342961"><span class="annot"><span class="annottext">Maybe Text
 text :: Maybe Text
 $sel:text:Entity' :: Entity -&gt; Maybe Text
-</span><a href="#local-6989586621679342952"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342952"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342951"><span class="annot"><span class="annottext">s :: Entity
-</span><a href="#local-6989586621679342951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342950"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
-</span><a href="#local-6989586621679342951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Entity' :: Maybe Text
+</span><a href="#local-6989586621679342961"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342961"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342960"><span class="annot"><span class="annottext">s :: Entity
+</span><a href="#local-6989586621679342960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342959"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
+</span><a href="#local-6989586621679342960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:Entity' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.Entity.html#%24sel%3Atext%3AEntity%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The level of confidence that Amazon Comprehend has in the accuracy of</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- the detection.</span><span>
@@ -211,16 +211,16 @@ $sel:text:Entity' :: Entity -&gt; Maybe Text
 -&gt; (Entity -&gt; Maybe Double -&gt; Entity)
 -&gt; Lens Entity Entity (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342948"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342957"><span class="annot"><span class="annottext">Maybe Double
 score :: Maybe Double
 $sel:score:Entity' :: Entity -&gt; Maybe Double
-</span><a href="#local-6989586621679342948"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679342948"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342947"><span class="annot"><span class="annottext">s :: Entity
-</span><a href="#local-6989586621679342947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342946"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679342946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
-</span><a href="#local-6989586621679342947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:Entity' :: Maybe Double
+</span><a href="#local-6989586621679342957"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679342957"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342956"><span class="annot"><span class="annottext">s :: Entity
+</span><a href="#local-6989586621679342956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342955"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679342955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
+</span><a href="#local-6989586621679342956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:Entity' :: Maybe Double
 </span><a href="Network.AWS.Comprehend.Types.Entity.html#%24sel%3Ascore%3AEntity%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679342946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | A character offset in the input text that shows where the entity ends.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- The offset returns the position of each UTF-8 code point in the string.</span><span>
@@ -233,16 +233,16 @@ $sel:score:Entity' :: Entity -&gt; Maybe Double
 -&gt; (Entity -&gt; Maybe Int -&gt; Entity)
 -&gt; Lens Entity Entity (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342944"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342953"><span class="annot"><span class="annottext">Maybe Int
 endOffset :: Maybe Int
 $sel:endOffset:Entity' :: Entity -&gt; Maybe Int
-</span><a href="#local-6989586621679342944"><span class="hs-identifier hs-var hs-var">endOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342944"><span class="hs-identifier hs-var">endOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342943"><span class="annot"><span class="annottext">s :: Entity
-</span><a href="#local-6989586621679342943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342942"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
-</span><a href="#local-6989586621679342943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOffset:Entity' :: Maybe Int
+</span><a href="#local-6989586621679342953"><span class="hs-identifier hs-var hs-var">endOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679342953"><span class="hs-identifier hs-var">endOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342952"><span class="annot"><span class="annottext">s :: Entity
+</span><a href="#local-6989586621679342952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342951"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679342951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
+</span><a href="#local-6989586621679342952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endOffset:Entity' :: Maybe Int
 </span><a href="Network.AWS.Comprehend.Types.Entity.html#%24sel%3AendOffset%3AEntity%27"><span class="hs-identifier hs-var">endOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The entity\'s type.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#entity_type"><span class="hs-identifier hs-type">entity_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.EntityType.html#EntityType"><span class="hs-identifier hs-type">EntityType</span></a></span><span class="hs-special">)</span><span>
@@ -251,27 +251,27 @@ $sel:endOffset:Entity' :: Entity -&gt; Maybe Int
 -&gt; (Entity -&gt; Maybe EntityType -&gt; Entity)
 -&gt; Lens Entity Entity (Maybe EntityType) (Maybe EntityType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342940"><span class="annot"><span class="annottext">Maybe EntityType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342949"><span class="annot"><span class="annottext">Maybe EntityType
 type' :: Maybe EntityType
 $sel:type':Entity' :: Entity -&gt; Maybe EntityType
-</span><a href="#local-6989586621679342940"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
-</span><a href="#local-6989586621679342940"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342939"><span class="annot"><span class="annottext">s :: Entity
-</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342938"><span class="annot"><span class="annottext">Maybe EntityType
-</span><a href="#local-6989586621679342938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
-</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Entity' :: Maybe EntityType
+</span><a href="#local-6989586621679342949"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679342949"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342948"><span class="annot"><span class="annottext">s :: Entity
+</span><a href="#local-6989586621679342948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity%27"><span class="hs-identifier hs-type">Entity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342947"><span class="annot"><span class="annottext">Maybe EntityType
+</span><a href="#local-6989586621679342947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Entity
+</span><a href="#local-6989586621679342948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Entity' :: Maybe EntityType
 </span><a href="Network.AWS.Comprehend.Types.Entity.html#%24sel%3Atype%27%3AEntity%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EntityType
-</span><a href="#local-6989586621679342938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342935"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679342933"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Entity
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342944"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679342942"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Entity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Entity) -&gt; Value -&gt; Parser Entity
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Entity&quot;</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342930"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342939"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe Double
@@ -291,7 +291,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Double -&gt; Maybe Int -&gt; Maybe EntityType -&gt; Entity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BeginOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,7 +302,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double -&gt; Maybe Int -&gt; Maybe EntityType -&gt; Entity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Text&quot;</span></span><span class="hs-special">)</span><span>
@@ -311,7 +311,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int -&gt; Maybe EntityType -&gt; Entity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,7 +319,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe EntityType -&gt; Entity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,13 +327,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe EntityType) -&gt; Parser Entity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityType)
+</span><a href="#local-6989586621679342939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EntityType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342924"><span id="local-6989586621679342926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342933"><span id="local-6989586621679342935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.Entity.html#Entity"><span class="hs-identifier hs-type">Entity</span></a></span></span><span>
 </span><span id="line-135"></span></pre></body></html>

@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetClassifiers' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679731622"><span id="local-6989586621679731623"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetClassifiers"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-var">GetClassifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetClassifiers%27"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-var">GetClassifiers'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679731631"><span id="local-6989586621679731632"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetClassifiers"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-var">GetClassifiers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetClassifiers%27"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-var">GetClassifiers'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional continuation token.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AGetClassifiers%27"><span class="annot"><span class="annottext">GetClassifiers -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AnextToken%3AGetClassifiers%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetClassifiers%27"><span class="annot"><span class="annottext">GetClassifiers -&gt; Maybe Natural
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AmaxResults%3AGetClassifiers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731615"><span id="local-6989586621679731617"><span class="annot"><span class="annottext">GetClassifiers -&gt; GetClassifiers -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731624"><span id="local-6989586621679731626"><span class="annot"><span class="annottext">GetClassifiers -&gt; GetClassifiers -&gt; Bool
 (GetClassifiers -&gt; GetClassifiers -&gt; Bool)
 -&gt; (GetClassifiers -&gt; GetClassifiers -&gt; Bool) -&gt; Eq GetClassifiers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetClassifiers -&gt; GetClassifiers -&gt; Bool
 == :: GetClassifiers -&gt; GetClassifiers -&gt; Bool
 $c== :: GetClassifiers -&gt; GetClassifiers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731606"><span id="local-6989586621679731608"><span id="local-6989586621679731610"><span id="local-6989586621679731612"><span class="annot"><span class="annottext">ReadPrec [GetClassifiers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731615"><span id="local-6989586621679731617"><span id="local-6989586621679731619"><span id="local-6989586621679731621"><span class="annot"><span class="annottext">ReadPrec [GetClassifiers]
 ReadPrec GetClassifiers
 Int -&gt; ReadS GetClassifiers
 ReadS [GetClassifiers]
@@ -87,7 +87,7 @@ readList :: ReadS [GetClassifiers]
 $creadList :: ReadS [GetClassifiers]
 readsPrec :: Int -&gt; ReadS GetClassifiers
 $creadsPrec :: Int -&gt; ReadS GetClassifiers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731599"><span id="local-6989586621679731601"><span id="local-6989586621679731603"><span class="annot"><span class="annottext">Int -&gt; GetClassifiers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731608"><span id="local-6989586621679731610"><span id="local-6989586621679731612"><span class="annot"><span class="annottext">Int -&gt; GetClassifiers -&gt; ShowS
 [GetClassifiers] -&gt; ShowS
 GetClassifiers -&gt; String
 (Int -&gt; GetClassifiers -&gt; ShowS)
@@ -148,16 +148,16 @@ forall a. Maybe a
 -&gt; (GetClassifiers -&gt; Maybe Text -&gt; GetClassifiers)
 -&gt; Lens GetClassifiers GetClassifiers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731593"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731602"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetClassifiers' :: GetClassifiers -&gt; Maybe Text
-</span><a href="#local-6989586621679731593"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731593"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731592"><span class="annot"><span class="annottext">s :: GetClassifiers
-</span><a href="#local-6989586621679731592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731591"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiers
-</span><a href="#local-6989586621679731592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetClassifiers' :: Maybe Text
+</span><a href="#local-6989586621679731602"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679731602"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731601"><span class="annot"><span class="annottext">s :: GetClassifiers
+</span><a href="#local-6989586621679731601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731600"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679731600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiers
+</span><a href="#local-6989586621679731601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetClassifiers' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AnextToken%3AGetClassifiers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The size of the list to return (optional).</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#getClassifiers_maxResults"><span class="hs-identifier hs-type">getClassifiers_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -168,29 +168,29 @@ $sel:nextToken:GetClassifiers' :: GetClassifiers -&gt; Maybe Text
 -&gt; Lens
      GetClassifiers GetClassifiers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731590"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731599"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetClassifiers' :: GetClassifiers -&gt; Maybe Natural
-</span><a href="#local-6989586621679731590"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679731590"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731589"><span class="annot"><span class="annottext">s :: GetClassifiers
-</span><a href="#local-6989586621679731589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731588"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679731588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiers
-</span><a href="#local-6989586621679731589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetClassifiers' :: Maybe Natural
+</span><a href="#local-6989586621679731599"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679731599"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731598"><span class="annot"><span class="annottext">s :: GetClassifiers
+</span><a href="#local-6989586621679731598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731597"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679731597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiers
+</span><a href="#local-6989586621679731598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetClassifiers' :: Maybe Natural
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AmaxResults%3AGetClassifiers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679731588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679731584"><span class="annot"><span class="annottext">page :: GetClassifiers
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679731593"><span class="annot"><span class="annottext">page :: GetClassifiers
 -&gt; AWSResponse GetClassifiers -&gt; Maybe GetClassifiers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679731582"><span class="annot"><span class="annottext">GetClassifiers
-</span><a href="#local-6989586621679731582"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679731581"><span class="annot"><span class="annottext">AWSResponse GetClassifiers
-</span><a href="#local-6989586621679731581"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679731591"><span class="annot"><span class="annottext">GetClassifiers
+</span><a href="#local-6989586621679731591"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679731590"><span class="annot"><span class="annottext">AWSResponse GetClassifiers
+</span><a href="#local-6989586621679731590"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-92"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetClassifiers
 GetClassifiersResponse
-</span><a href="#local-6989586621679731581"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679731590"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">GetClassifiersResponse
 -&gt; Getting (First Text) GetClassifiersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -219,7 +219,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetClassifiers
 GetClassifiersResponse
-</span><a href="#local-6989586621679731581"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679731590"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">GetClassifiersResponse
 -&gt; Getting (First [Classifier]) GetClassifiersResponse [Classifier]
 -&gt; Maybe [Classifier]
@@ -257,7 +257,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">GetClassifiers
-</span><a href="#local-6989586621679731582"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679731591"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">GetClassifiers
 -&gt; (GetClassifiers -&gt; GetClassifiers) -&gt; GetClassifiers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -271,7 +271,7 @@ Lens GetClassifiers GetClassifiers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetClassifiers
 GetClassifiersResponse
-</span><a href="#local-6989586621679731581"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679731590"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">GetClassifiersResponse
 -&gt; Getting (First Text) GetClassifiersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -295,12 +295,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679731571"><span class="annot"><span class="annottext">request :: GetClassifiers -&gt; Request GetClassifiers
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679731580"><span class="annot"><span class="annottext">request :: GetClassifiers -&gt; Request GetClassifiers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetClassifiers -&gt; Request GetClassifiers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679731567"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679731576"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetClassifiers
 -&gt; ClientResponse ClientBody
@@ -324,10 +324,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679731564"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731564"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679731563"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679731563"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679731562"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679731562"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679731573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679731572"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679731572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679731571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679731571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Classifier] -&gt; Int -&gt; GetClassifiersResponse
 </span><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-var">GetClassifiersResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Classifier] -&gt; Int -&gt; GetClassifiersResponse)
@@ -336,7 +336,7 @@ MonadResource m =&gt;
      String (Maybe [Classifier] -&gt; Int -&gt; GetClassifiersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679731562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679731571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,7 +345,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetClassifiersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679731562"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Classifier]))
+</span><a href="#local-6989586621679731571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Classifier]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Classifiers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Classifier]))
@@ -362,15 +362,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731564"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731553"><span id="local-6989586621679731555"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731562"><span id="local-6989586621679731564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679731546"><span class="annot"><span class="annottext">toHeaders :: GetClassifiers -&gt; ResponseHeaders
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679731555"><span class="annot"><span class="annottext">toHeaders :: GetClassifiers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetClassifiers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -395,15 +395,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731536"><span id="local-6989586621679731538"><span id="local-6989586621679731540"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679731534"><span class="annot"><span class="annottext">toJSON :: GetClassifiers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731531"><span id="local-6989586621679731532"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731545"><span id="local-6989586621679731547"><span id="local-6989586621679731549"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679731543"><span class="annot"><span class="annottext">toJSON :: GetClassifiers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers%27"><span class="hs-identifier hs-type">GetClassifiers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731540"><span id="local-6989586621679731541"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:GetClassifiers' :: GetClassifiers -&gt; Maybe Natural
 $sel:nextToken:GetClassifiers' :: GetClassifiers -&gt; Maybe Text
-</span><a href="#local-6989586621679731531"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679731540"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -415,26 +415,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731532"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679731541"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679731531"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679731540"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679731525"><span class="annot"><span class="annottext">toPath :: GetClassifiers -&gt; ByteString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679731534"><span class="annot"><span class="annottext">toPath :: GetClassifiers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetClassifiers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiers"><span class="hs-identifier hs-type">GetClassifiers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679731521"><span class="annot"><span class="annottext">toQuery :: GetClassifiers -&gt; QueryString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679731530"><span class="annot"><span class="annottext">toQuery :: GetClassifiers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetClassifiers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -442,7 +442,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | /See:/ 'newGetClassifiersResponse' smart constructor.</span><span>
-</span><span id="line-157"></span><span id="local-6989586621679731518"><span id="local-6989586621679731519"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetClassifiersResponse"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-var">GetClassifiersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetClassifiersResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-var">GetClassifiersResponse'</span></a></span></span><span>
+</span><span id="line-157"></span><span id="local-6989586621679731527"><span id="local-6989586621679731528"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetClassifiersResponse"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-var">GetClassifiersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetClassifiersResponse%27"><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-var">GetClassifiersResponse'</span></a></span></span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token.</span><span>
 </span><span id="line-159"></span><span>    </span><span id="%24sel%3AnextToken%3AGetClassifiersResponse%27"><span class="annot"><span class="annottext">GetClassifiersResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AnextToken%3AGetClassifiersResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -453,7 +453,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetClassifiersResponse%27"><span class="annot"><span class="annottext">GetClassifiersResponse -&gt; Int
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AhttpStatus%3AGetClassifiersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731511"><span id="local-6989586621679731513"><span class="annot"><span class="annottext">GetClassifiersResponse -&gt; GetClassifiersResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731520"><span id="local-6989586621679731522"><span class="annot"><span class="annottext">GetClassifiersResponse -&gt; GetClassifiersResponse -&gt; Bool
 (GetClassifiersResponse -&gt; GetClassifiersResponse -&gt; Bool)
 -&gt; (GetClassifiersResponse -&gt; GetClassifiersResponse -&gt; Bool)
 -&gt; Eq GetClassifiersResponse
@@ -462,7 +462,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetClassifiersResponse -&gt; GetClassifiersResponse -&gt; Bool
 == :: GetClassifiersResponse -&gt; GetClassifiersResponse -&gt; Bool
 $c== :: GetClassifiersResponse -&gt; GetClassifiersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731503"><span id="local-6989586621679731505"><span id="local-6989586621679731507"><span id="local-6989586621679731509"><span class="annot"><span class="annottext">ReadPrec [GetClassifiersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731512"><span id="local-6989586621679731514"><span id="local-6989586621679731516"><span id="local-6989586621679731518"><span class="annot"><span class="annottext">ReadPrec [GetClassifiersResponse]
 ReadPrec GetClassifiersResponse
 Int -&gt; ReadS GetClassifiersResponse
 ReadS [GetClassifiersResponse]
@@ -482,7 +482,7 @@ readList :: ReadS [GetClassifiersResponse]
 $creadList :: ReadS [GetClassifiersResponse]
 readsPrec :: Int -&gt; ReadS GetClassifiersResponse
 $creadsPrec :: Int -&gt; ReadS GetClassifiersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731497"><span id="local-6989586621679731499"><span id="local-6989586621679731501"><span class="annot"><span class="annottext">Int -&gt; GetClassifiersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731506"><span id="local-6989586621679731508"><span id="local-6989586621679731510"><span class="annot"><span class="annottext">Int -&gt; GetClassifiersResponse -&gt; ShowS
 [GetClassifiersResponse] -&gt; ShowS
 GetClassifiersResponse -&gt; String
 (Int -&gt; GetClassifiersResponse -&gt; ShowS)
@@ -527,8 +527,8 @@ $cfrom :: forall x. GetClassifiersResponse -&gt; Rep GetClassifiersResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newGetClassifiersResponse"><span class="annot"><span class="annottext">newGetClassifiersResponse :: Int -&gt; GetClassifiersResponse
-</span><a href="Network.AWS.Glue.GetClassifiers.html#newGetClassifiersResponse"><span class="hs-identifier hs-var hs-var">newGetClassifiersResponse</span></a></span></span><span> </span><span id="local-6989586621679731494"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.GetClassifiers.html#newGetClassifiersResponse"><span class="hs-identifier hs-var hs-var">newGetClassifiersResponse</span></a></span></span><span> </span><span id="local-6989586621679731503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">GetClassifiersResponse' :: Maybe Text -&gt; Maybe [Classifier] -&gt; Int -&gt; GetClassifiersResponse
 </span><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetClassifiersResponse' :: Maybe Text
@@ -542,7 +542,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetClassifiersResponse' :: Int
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AhttpStatus%3AGetClassifiersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731494"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679731503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | A continuation token.</span><span>
@@ -553,16 +553,16 @@ forall a. Maybe a
 -&gt; (GetClassifiersResponse -&gt; Maybe Text -&gt; GetClassifiersResponse)
 -&gt; Lens' GetClassifiersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731493"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731502"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetClassifiersResponse' :: GetClassifiersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679731493"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731493"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731492"><span class="annot"><span class="annottext">s :: GetClassifiersResponse
-</span><a href="#local-6989586621679731492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731491"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiersResponse
-</span><a href="#local-6989586621679731492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetClassifiersResponse' :: Maybe Text
+</span><a href="#local-6989586621679731502"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679731502"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731501"><span class="annot"><span class="annottext">s :: GetClassifiersResponse
+</span><a href="#local-6989586621679731501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731500"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679731500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiersResponse
+</span><a href="#local-6989586621679731501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetClassifiersResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AnextToken%3AGetClassifiersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The requested list of classifier objects.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#getClassifiersResponse_classifiers"><span class="hs-identifier hs-type">getClassifiersResponse_classifiers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.Classifier.html#Classifier"><span class="hs-identifier hs-type">Classifier</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -573,16 +573,16 @@ $sel:nextToken:GetClassifiersResponse' :: GetClassifiersResponse -&gt; Maybe Tex
     -&gt; Maybe [Classifier] -&gt; GetClassifiersResponse)
 -&gt; Lens' GetClassifiersResponse (Maybe [Classifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731490"><span class="annot"><span class="annottext">Maybe [Classifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731499"><span class="annot"><span class="annottext">Maybe [Classifier]
 classifiers :: Maybe [Classifier]
 $sel:classifiers:GetClassifiersResponse' :: GetClassifiersResponse -&gt; Maybe [Classifier]
-</span><a href="#local-6989586621679731490"><span class="hs-identifier hs-var hs-var">classifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Classifier]
-</span><a href="#local-6989586621679731490"><span class="hs-identifier hs-var">classifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731489"><span class="annot"><span class="annottext">s :: GetClassifiersResponse
-</span><a href="#local-6989586621679731489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731488"><span class="annot"><span class="annottext">Maybe [Classifier]
-</span><a href="#local-6989586621679731488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiersResponse
-</span><a href="#local-6989586621679731489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classifiers:GetClassifiersResponse' :: Maybe [Classifier]
+</span><a href="#local-6989586621679731499"><span class="hs-identifier hs-var hs-var">classifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Classifier]
+</span><a href="#local-6989586621679731499"><span class="hs-identifier hs-var">classifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731498"><span class="annot"><span class="annottext">s :: GetClassifiersResponse
+</span><a href="#local-6989586621679731498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731497"><span class="annot"><span class="annottext">Maybe [Classifier]
+</span><a href="#local-6989586621679731497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiersResponse
+</span><a href="#local-6989586621679731498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classifiers:GetClassifiersResponse' :: Maybe [Classifier]
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3Aclassifiers%3AGetClassifiersResponse%27"><span class="hs-identifier hs-var">classifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Classifier]
-</span><a href="#local-6989586621679731488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Classifier] -&gt; f (Maybe [Classifier]))
+</span><a href="#local-6989586621679731497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Classifier] -&gt; f (Maybe [Classifier]))
  -&gt; GetClassifiersResponse -&gt; f GetClassifiersResponse)
 -&gt; ((Maybe [Classifier] -&gt; f (Maybe [Classifier]))
     -&gt; Maybe [Classifier] -&gt; f (Maybe [Classifier]))
@@ -611,16 +611,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (GetClassifiersResponse -&gt; Int -&gt; GetClassifiersResponse)
 -&gt; Lens GetClassifiersResponse GetClassifiersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731485"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731494"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetClassifiersResponse' :: GetClassifiersResponse -&gt; Int
-</span><a href="#local-6989586621679731485"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731485"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731484"><span class="annot"><span class="annottext">s :: GetClassifiersResponse
-</span><a href="#local-6989586621679731484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731483"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiersResponse
-</span><a href="#local-6989586621679731484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetClassifiersResponse' :: Int
+</span><a href="#local-6989586621679731494"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731494"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731493"><span class="annot"><span class="annottext">s :: GetClassifiersResponse
+</span><a href="#local-6989586621679731493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse%27"><span class="hs-identifier hs-type">GetClassifiersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731492"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679731492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetClassifiersResponse
+</span><a href="#local-6989586621679731493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetClassifiersResponse' :: Int
 </span><a href="Network.AWS.Glue.GetClassifiers.html#%24sel%3AhttpStatus%3AGetClassifiersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679731492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.GetClassifiers.html#GetClassifiersResponse"><span class="hs-identifier hs-type">GetClassifiersResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

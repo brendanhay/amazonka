@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStreamJournalToKinesis' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679184436"><span id="local-6989586621679184437"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamJournalToKinesis"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-var">StreamJournalToKinesis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamJournalToKinesis%27"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-var">StreamJournalToKinesis'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679184445"><span id="local-6989586621679184446"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamJournalToKinesis"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-var">StreamJournalToKinesis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamJournalToKinesis%27"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-var">StreamJournalToKinesis'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The exclusive date and time that specifies when the stream ends. If you</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- don\'t define this parameter, the stream runs indefinitely until you</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- cancel it.</span><span>
@@ -106,7 +106,7 @@
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AstreamName%3AStreamJournalToKinesis%27"><span class="annot"><span class="annottext">StreamJournalToKinesis -&gt; Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AstreamName%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184424"><span id="local-6989586621679184426"><span class="annot"><span class="annottext">StreamJournalToKinesis -&gt; StreamJournalToKinesis -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184433"><span id="local-6989586621679184435"><span class="annot"><span class="annottext">StreamJournalToKinesis -&gt; StreamJournalToKinesis -&gt; Bool
 (StreamJournalToKinesis -&gt; StreamJournalToKinesis -&gt; Bool)
 -&gt; (StreamJournalToKinesis -&gt; StreamJournalToKinesis -&gt; Bool)
 -&gt; Eq StreamJournalToKinesis
@@ -115,7 +115,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StreamJournalToKinesis -&gt; StreamJournalToKinesis -&gt; Bool
 == :: StreamJournalToKinesis -&gt; StreamJournalToKinesis -&gt; Bool
 $c== :: StreamJournalToKinesis -&gt; StreamJournalToKinesis -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184415"><span id="local-6989586621679184417"><span id="local-6989586621679184419"><span id="local-6989586621679184421"><span class="annot"><span class="annottext">ReadPrec [StreamJournalToKinesis]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184424"><span id="local-6989586621679184426"><span id="local-6989586621679184428"><span id="local-6989586621679184430"><span class="annot"><span class="annottext">ReadPrec [StreamJournalToKinesis]
 ReadPrec StreamJournalToKinesis
 Int -&gt; ReadS StreamJournalToKinesis
 ReadS [StreamJournalToKinesis]
@@ -135,7 +135,7 @@ readList :: ReadS [StreamJournalToKinesis]
 $creadList :: ReadS [StreamJournalToKinesis]
 readsPrec :: Int -&gt; ReadS StreamJournalToKinesis
 $creadsPrec :: Int -&gt; ReadS StreamJournalToKinesis
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184408"><span id="local-6989586621679184410"><span id="local-6989586621679184412"><span class="annot"><span class="annottext">Int -&gt; StreamJournalToKinesis -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184417"><span id="local-6989586621679184419"><span id="local-6989586621679184421"><span class="annot"><span class="annottext">Int -&gt; StreamJournalToKinesis -&gt; ShowS
 [StreamJournalToKinesis] -&gt; ShowS
 StreamJournalToKinesis -&gt; String
 (Int -&gt; StreamJournalToKinesis -&gt; ShowS)
@@ -229,16 +229,16 @@ $cfrom :: forall x. StreamJournalToKinesis -&gt; Rep StreamJournalToKinesis x
 -&gt; Text
 -&gt; StreamJournalToKinesis
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#newStreamJournalToKinesis"><span class="hs-identifier hs-var hs-var">newStreamJournalToKinesis</span></a></span></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679184403"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184403"><span class="hs-identifier hs-var">pLedgerName_</span></a></span></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679184402"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184402"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679184401"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679184401"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679184400"><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679184400"><span class="hs-identifier hs-var">pKinesisConfiguration_</span></a></span></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679184399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184399"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679184412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184412"><span class="hs-identifier hs-var">pLedgerName_</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679184411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184411"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679184410"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679184410"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679184409"><span class="annot"><span class="annottext">KinesisConfiguration
+</span><a href="#local-6989586621679184409"><span class="hs-identifier hs-var">pKinesisConfiguration_</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679184408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184408"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">StreamJournalToKinesis' :: Maybe POSIX
 -&gt; Maybe (HashMap Text Text)
 -&gt; Text
@@ -259,10 +259,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:ledgerName:StreamJournalToKinesis' :: Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AledgerName%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">ledgerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184403"><span class="hs-identifier hs-var">pLedgerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184412"><span class="hs-identifier hs-var">pLedgerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:StreamJournalToKinesis' :: Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AroleArn%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184402"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184411"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:inclusiveStartTime:StreamJournalToKinesis' :: POSIX
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AinclusiveStartTime%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -272,13 +272,13 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679184401"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184410"><span class="hs-identifier hs-var">pInclusiveStartTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">$sel:kinesisConfiguration:StreamJournalToKinesis' :: KinesisConfiguration
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AkinesisConfiguration%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">kinesisConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679184400"><span class="hs-identifier hs-var">pKinesisConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184409"><span class="hs-identifier hs-var">pKinesisConfiguration_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamName:StreamJournalToKinesis' :: Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AstreamName%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184399"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span>
+</span><a href="#local-6989586621679184408"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The exclusive date and time that specifies when the stream ends. If you</span><span>
@@ -299,16 +299,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184394"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184403"><span class="annot"><span class="annottext">Maybe POSIX
 exclusiveEndTime :: Maybe POSIX
 $sel:exclusiveEndTime:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Maybe POSIX
-</span><a href="#local-6989586621679184394"><span class="hs-identifier hs-var hs-var">exclusiveEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679184394"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184393"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
-</span><a href="#local-6989586621679184393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184392"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679184392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
-</span><a href="#local-6989586621679184393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveEndTime:StreamJournalToKinesis' :: Maybe POSIX
+</span><a href="#local-6989586621679184403"><span class="hs-identifier hs-var hs-var">exclusiveEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184403"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184402"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
+</span><a href="#local-6989586621679184402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184401"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679184401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
+</span><a href="#local-6989586621679184402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveEndTime:StreamJournalToKinesis' :: Maybe POSIX
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AexclusiveEndTime%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679184392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679184401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StreamJournalToKinesis -&gt; f StreamJournalToKinesis)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -340,16 +340,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184389"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184398"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184389"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184389"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184388"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
-</span><a href="#local-6989586621679184388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184387"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
-</span><a href="#local-6989586621679184388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:StreamJournalToKinesis' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184398"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184398"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184397"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
+</span><a href="#local-6989586621679184397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184396"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679184396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
+</span><a href="#local-6989586621679184397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:StreamJournalToKinesis' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3Atags%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679184396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; StreamJournalToKinesis -&gt; f StreamJournalToKinesis)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -386,16 +386,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (StreamJournalToKinesis -&gt; Text -&gt; StreamJournalToKinesis)
 -&gt; Lens StreamJournalToKinesis StreamJournalToKinesis Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184385"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184394"><span class="annot"><span class="annottext">Text
 ledgerName :: Text
 $sel:ledgerName:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
-</span><a href="#local-6989586621679184385"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184385"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184384"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
-</span><a href="#local-6989586621679184384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
-</span><a href="#local-6989586621679184384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgerName:StreamJournalToKinesis' :: Text
+</span><a href="#local-6989586621679184394"><span class="hs-identifier hs-var hs-var">ledgerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184394"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184393"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
+</span><a href="#local-6989586621679184393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184392"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
+</span><a href="#local-6989586621679184393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ledgerName:StreamJournalToKinesis' :: Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AledgerName%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">ledgerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- permissions for a journal stream to write data records to a Kinesis Data</span><span>
@@ -407,16 +407,16 @@ $sel:ledgerName:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
 -&gt; (StreamJournalToKinesis -&gt; Text -&gt; StreamJournalToKinesis)
 -&gt; Lens StreamJournalToKinesis StreamJournalToKinesis Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184382"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184391"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
-</span><a href="#local-6989586621679184382"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184382"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184381"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
-</span><a href="#local-6989586621679184381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184380"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
-</span><a href="#local-6989586621679184381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:StreamJournalToKinesis' :: Text
+</span><a href="#local-6989586621679184391"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184391"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184390"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
+</span><a href="#local-6989586621679184390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184389"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
+</span><a href="#local-6989586621679184390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:StreamJournalToKinesis' :: Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AroleArn%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The inclusive start date and time from which to start streaming journal</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- data. This parameter must be in @ISO 8601@ date and time format and in</span><span>
@@ -435,16 +435,16 @@ $sel:roleArn:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
 -&gt; (StreamJournalToKinesis -&gt; POSIX -&gt; StreamJournalToKinesis)
 -&gt; Lens StreamJournalToKinesis StreamJournalToKinesis POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184379"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184388"><span class="annot"><span class="annottext">POSIX
 inclusiveStartTime :: POSIX
 $sel:inclusiveStartTime:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; POSIX
-</span><a href="#local-6989586621679184379"><span class="hs-identifier hs-var hs-var">inclusiveStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679184379"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184378"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
-</span><a href="#local-6989586621679184378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184377"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679184377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
-</span><a href="#local-6989586621679184378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inclusiveStartTime:StreamJournalToKinesis' :: POSIX
+</span><a href="#local-6989586621679184388"><span class="hs-identifier hs-var hs-var">inclusiveStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679184388"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184387"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
+</span><a href="#local-6989586621679184387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184386"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679184386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
+</span><a href="#local-6989586621679184387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inclusiveStartTime:StreamJournalToKinesis' :: POSIX
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AinclusiveStartTime%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679184377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679184386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; StreamJournalToKinesis -&gt; f StreamJournalToKinesis)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -469,16 +469,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      KinesisConfiguration
      KinesisConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184376"><span class="annot"><span class="annottext">KinesisConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184385"><span class="annot"><span class="annottext">KinesisConfiguration
 kinesisConfiguration :: KinesisConfiguration
 $sel:kinesisConfiguration:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; KinesisConfiguration
-</span><a href="#local-6989586621679184376"><span class="hs-identifier hs-var hs-var">kinesisConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679184376"><span class="hs-identifier hs-var">kinesisConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184375"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
-</span><a href="#local-6989586621679184375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184374"><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679184374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
-</span><a href="#local-6989586621679184375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisConfiguration:StreamJournalToKinesis' :: KinesisConfiguration
+</span><a href="#local-6989586621679184385"><span class="hs-identifier hs-var hs-var">kinesisConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
+</span><a href="#local-6989586621679184385"><span class="hs-identifier hs-var">kinesisConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184384"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
+</span><a href="#local-6989586621679184384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184383"><span class="annot"><span class="annottext">KinesisConfiguration
+</span><a href="#local-6989586621679184383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
+</span><a href="#local-6989586621679184384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisConfiguration:StreamJournalToKinesis' :: KinesisConfiguration
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AkinesisConfiguration%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">kinesisConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679184374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The name that you want to assign to the QLDB journal stream.</span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- User-defined names can help identify and indicate the purpose of a</span><span>
@@ -496,27 +496,27 @@ $sel:kinesisConfiguration:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt
 -&gt; (StreamJournalToKinesis -&gt; Text -&gt; StreamJournalToKinesis)
 -&gt; Lens StreamJournalToKinesis StreamJournalToKinesis Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184373"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184382"><span class="annot"><span class="annottext">Text
 streamName :: Text
 $sel:streamName:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
-</span><a href="#local-6989586621679184373"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184373"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184372"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
-</span><a href="#local-6989586621679184372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184371"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
-</span><a href="#local-6989586621679184372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:StreamJournalToKinesis' :: Text
+</span><a href="#local-6989586621679184382"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184382"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184381"><span class="annot"><span class="annottext">s :: StreamJournalToKinesis
+</span><a href="#local-6989586621679184381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184380"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesis
+</span><a href="#local-6989586621679184381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:StreamJournalToKinesis' :: Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AstreamName%3AStreamJournalToKinesis%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-238"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-239"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>      </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679184367"><span class="annot"><span class="annottext">request :: StreamJournalToKinesis -&gt; Request StreamJournalToKinesis
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679184376"><span class="annot"><span class="annottext">request :: StreamJournalToKinesis -&gt; Request StreamJournalToKinesis
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StreamJournalToKinesis -&gt; Request StreamJournalToKinesis
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679184363"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679184372"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StreamJournalToKinesis
 -&gt; ClientResponse ClientBody
@@ -542,10 +542,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184360"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184360"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184359"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679184359"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184358"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679184358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184369"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184368"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679184368"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184367"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184367"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-245"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StreamJournalToKinesisResponse
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-var">StreamJournalToKinesisResponse'</span></a></span><span>
 </span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StreamJournalToKinesisResponse)
@@ -553,7 +553,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StreamJournalToKinesisResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679184358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679184367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamId&quot;</span></span><span class="hs-special">)</span><span>
@@ -566,15 +566,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184360"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184369"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184350"><span id="local-6989586621679184352"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span></span></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184359"><span id="local-6989586621679184361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span></span></span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184347"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679184343"><span class="annot"><span class="annottext">toHeaders :: StreamJournalToKinesis -&gt; ResponseHeaders
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679184352"><span class="annot"><span class="annottext">toHeaders :: StreamJournalToKinesis -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-256"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StreamJournalToKinesis -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -593,9 +593,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-262"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-263"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184333"><span id="local-6989586621679184335"><span id="local-6989586621679184337"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679184331"><span class="annot"><span class="annottext">toJSON :: StreamJournalToKinesis -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184323"><span id="local-6989586621679184324"><span id="local-6989586621679184325"><span id="local-6989586621679184326"><span id="local-6989586621679184327"><span id="local-6989586621679184328"><span id="local-6989586621679184329"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184342"><span id="local-6989586621679184344"><span id="local-6989586621679184346"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679184340"><span class="annot"><span class="annottext">toJSON :: StreamJournalToKinesis -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184332"><span id="local-6989586621679184333"><span id="local-6989586621679184334"><span id="local-6989586621679184335"><span id="local-6989586621679184336"><span id="local-6989586621679184337"><span id="local-6989586621679184338"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Maybe POSIX
 Text
 POSIX
@@ -614,7 +614,7 @@ $sel:roleArn:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
 $sel:ledgerName:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
 $sel:tags:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Maybe (HashMap Text Text)
 $sel:exclusiveEndTime:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Maybe POSIX
-</span><a href="#local-6989586621679184323"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679184332"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-268"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -627,7 +627,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-270"></span><span>              </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679184329"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184338"><span class="hs-identifier hs-var">exclusiveEndTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -635,14 +635,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679184328"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184337"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184326"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184335"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -650,7 +650,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InclusiveStartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679184325"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184334"><span class="hs-identifier hs-var">inclusiveStartTime</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -659,7 +659,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-277"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; KinesisConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">KinesisConfiguration
-</span><a href="#local-6989586621679184324"><span class="hs-identifier hs-var">kinesisConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679184333"><span class="hs-identifier hs-var">kinesisConfiguration</span></a></span><span>
 </span><span id="line-278"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -667,13 +667,13 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184323"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184332"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-281"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679184317"><span class="annot"><span class="annottext">toPath :: StreamJournalToKinesis -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184309"><span id="local-6989586621679184310"><span id="local-6989586621679184311"><span id="local-6989586621679184312"><span id="local-6989586621679184313"><span id="local-6989586621679184314"><span id="local-6989586621679184315"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679184326"><span class="annot"><span class="annottext">toPath :: StreamJournalToKinesis -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis%27"><span class="hs-identifier hs-type">StreamJournalToKinesis'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184318"><span id="local-6989586621679184319"><span id="local-6989586621679184320"><span id="local-6989586621679184321"><span id="local-6989586621679184322"><span id="local-6989586621679184323"><span id="local-6989586621679184324"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 Maybe POSIX
 Text
 POSIX
@@ -692,7 +692,7 @@ $sel:roleArn:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
 $sel:ledgerName:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Text
 $sel:tags:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Maybe (HashMap Text Text)
 $sel:exclusiveEndTime:StreamJournalToKinesis' :: StreamJournalToKinesis -&gt; Maybe POSIX
-</span><a href="#local-6989586621679184309"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679184318"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-285"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -701,13 +701,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-287"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679184313"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679184322"><span class="hs-identifier hs-var">ledgerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/journal-kinesis-streams&quot;</span></span><span>
 </span><span id="line-289"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesis"><span class="hs-identifier hs-type">StreamJournalToKinesis</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621679184305"><span class="annot"><span class="annottext">toQuery :: StreamJournalToKinesis -&gt; QueryString
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679184314"><span class="annot"><span class="annottext">toQuery :: StreamJournalToKinesis -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StreamJournalToKinesis -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -715,7 +715,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-293"></span><span>
 </span><span id="line-294"></span><span class="hs-comment">-- | /See:/ 'newStreamJournalToKinesisResponse' smart constructor.</span><span>
-</span><span id="line-295"></span><span id="local-6989586621679184302"><span id="local-6989586621679184303"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamJournalToKinesisResponse"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-var">StreamJournalToKinesisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamJournalToKinesisResponse%27"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-var">StreamJournalToKinesisResponse'</span></a></span></span><span>
+</span><span id="line-295"></span><span id="local-6989586621679184311"><span id="local-6989586621679184312"></span></span><span class="hs-keyword">data</span><span> </span><span id="StreamJournalToKinesisResponse"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-var">StreamJournalToKinesisResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamJournalToKinesisResponse%27"><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-var">StreamJournalToKinesisResponse'</span></a></span></span><span>
 </span><span id="line-296"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The UUID (represented in Base62-encoded text) that QLDB assigns to each</span><span>
 </span><span id="line-297"></span><span>    </span><span class="hs-comment">-- QLDB journal stream.</span><span>
 </span><span id="line-298"></span><span>    </span><span id="%24sel%3AstreamId%3AStreamJournalToKinesisResponse%27"><span class="annot"><span class="annottext">StreamJournalToKinesisResponse -&gt; Maybe Text
@@ -724,7 +724,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-300"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStreamJournalToKinesisResponse%27"><span class="annot"><span class="annottext">StreamJournalToKinesisResponse -&gt; Int
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AhttpStatus%3AStreamJournalToKinesisResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-301"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-302"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184296"><span id="local-6989586621679184298"><span class="annot"><span class="annottext">StreamJournalToKinesisResponse
+</span><span id="line-302"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184305"><span id="local-6989586621679184307"><span class="annot"><span class="annottext">StreamJournalToKinesisResponse
 -&gt; StreamJournalToKinesisResponse -&gt; Bool
 (StreamJournalToKinesisResponse
  -&gt; StreamJournalToKinesisResponse -&gt; Bool)
@@ -740,7 +740,7 @@ $c/= :: StreamJournalToKinesisResponse
 -&gt; StreamJournalToKinesisResponse -&gt; Bool
 $c== :: StreamJournalToKinesisResponse
 -&gt; StreamJournalToKinesisResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184288"><span id="local-6989586621679184290"><span id="local-6989586621679184292"><span id="local-6989586621679184294"><span class="annot"><span class="annottext">ReadPrec [StreamJournalToKinesisResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184297"><span id="local-6989586621679184299"><span id="local-6989586621679184301"><span id="local-6989586621679184303"><span class="annot"><span class="annottext">ReadPrec [StreamJournalToKinesisResponse]
 ReadPrec StreamJournalToKinesisResponse
 Int -&gt; ReadS StreamJournalToKinesisResponse
 ReadS [StreamJournalToKinesisResponse]
@@ -760,7 +760,7 @@ readList :: ReadS [StreamJournalToKinesisResponse]
 $creadList :: ReadS [StreamJournalToKinesisResponse]
 readsPrec :: Int -&gt; ReadS StreamJournalToKinesisResponse
 $creadsPrec :: Int -&gt; ReadS StreamJournalToKinesisResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184282"><span id="local-6989586621679184284"><span id="local-6989586621679184286"><span class="annot"><span class="annottext">Int -&gt; StreamJournalToKinesisResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184291"><span id="local-6989586621679184293"><span id="local-6989586621679184295"><span class="annot"><span class="annottext">Int -&gt; StreamJournalToKinesisResponse -&gt; ShowS
 [StreamJournalToKinesisResponse] -&gt; ShowS
 StreamJournalToKinesisResponse -&gt; String
 (Int -&gt; StreamJournalToKinesisResponse -&gt; ShowS)
@@ -815,8 +815,8 @@ StreamJournalToKinesisResponse
 </span><span id="line-318"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-319"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span><span>
 </span><span id="line-320"></span><span id="newStreamJournalToKinesisResponse"><span class="annot"><span class="annottext">newStreamJournalToKinesisResponse :: Int -&gt; StreamJournalToKinesisResponse
-</span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#newStreamJournalToKinesisResponse"><span class="hs-identifier hs-var hs-var">newStreamJournalToKinesisResponse</span></a></span></span><span> </span><span id="local-6989586621679184279"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184279"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#newStreamJournalToKinesisResponse"><span class="hs-identifier hs-var hs-var">newStreamJournalToKinesisResponse</span></a></span></span><span> </span><span id="local-6989586621679184288"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184288"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>  </span><span class="annot"><span class="annottext">StreamJournalToKinesisResponse' :: Maybe Text -&gt; Int -&gt; StreamJournalToKinesisResponse
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span>
 </span><span id="line-322"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamId:StreamJournalToKinesisResponse' :: Maybe Text
@@ -826,7 +826,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StreamJournalToKinesisResponse' :: Int
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AhttpStatus%3AStreamJournalToKinesisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184279"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679184288"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-325"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-326"></span><span>
 </span><span id="line-327"></span><span class="hs-comment">-- | The UUID (represented in Base62-encoded text) that QLDB assigns to each</span><span>
@@ -844,16 +844,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184278"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184287"><span class="annot"><span class="annottext">Maybe Text
 streamId :: Maybe Text
 $sel:streamId:StreamJournalToKinesisResponse' :: StreamJournalToKinesisResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679184278"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184278"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184277"><span class="annot"><span class="annottext">s :: StreamJournalToKinesisResponse
-</span><a href="#local-6989586621679184277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184276"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesisResponse
-</span><a href="#local-6989586621679184277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:StreamJournalToKinesisResponse' :: Maybe Text
+</span><a href="#local-6989586621679184287"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184287"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184286"><span class="annot"><span class="annottext">s :: StreamJournalToKinesisResponse
+</span><a href="#local-6989586621679184286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesisResponse
+</span><a href="#local-6989586621679184286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:StreamJournalToKinesisResponse' :: Maybe Text
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AstreamId%3AStreamJournalToKinesisResponse%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679184276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-331"></span><span>
 </span><span id="line-332"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-333"></span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#streamJournalToKinesisResponse_httpStatus"><span class="hs-identifier hs-type">streamJournalToKinesisResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -869,18 +869,18 @@ $sel:streamId:StreamJournalToKinesisResponse' :: StreamJournalToKinesisResponse 
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184275"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184284"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StreamJournalToKinesisResponse' :: StreamJournalToKinesisResponse -&gt; Int
-</span><a href="#local-6989586621679184275"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184275"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184274"><span class="annot"><span class="annottext">s :: StreamJournalToKinesisResponse
-</span><a href="#local-6989586621679184274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184273"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesisResponse
-</span><a href="#local-6989586621679184274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StreamJournalToKinesisResponse' :: Int
+</span><a href="#local-6989586621679184284"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184284"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184283"><span class="annot"><span class="annottext">s :: StreamJournalToKinesisResponse
+</span><a href="#local-6989586621679184283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse%27"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184282"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamJournalToKinesisResponse
+</span><a href="#local-6989586621679184283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StreamJournalToKinesisResponse' :: Int
 </span><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#%24sel%3AhttpStatus%3AStreamJournalToKinesisResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679184273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679184282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-335"></span><span>
 </span><span id="line-336"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-337"></span><span>  </span><span id="local-6989586621679184271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621679184280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-338"></span><span>    </span><span class="annot"><a href="Network.AWS.QLDB.StreamJournalToKinesis.html#StreamJournalToKinesisResponse"><span class="hs-identifier hs-type">StreamJournalToKinesisResponse</span></a></span></span><span>
 </span><span id="line-339"></span></pre></body></html>

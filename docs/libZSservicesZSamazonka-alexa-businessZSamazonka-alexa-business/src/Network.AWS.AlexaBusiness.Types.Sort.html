@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing a sort criteria.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSort' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679373255"><span id="local-6989586621679373256"></span></span><span class="hs-keyword">data</span><span> </span><span id="Sort"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-var">Sort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Sort%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-var">Sort'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679373264"><span id="local-6989586621679373265"></span></span><span class="hs-keyword">data</span><span> </span><span id="Sort"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-var">Sort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Sort%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-var">Sort'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sort key of a sort object.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3ASort%27"><span class="annot"><span class="annottext">Sort -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#%24sel%3Akey%3ASort%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,14 +35,14 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3ASort%27"><span class="annot"><span class="annottext">Sort -&gt; SortValue
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#%24sel%3Avalue%3ASort%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SortValue.html#SortValue"><span class="hs-identifier hs-type">SortValue</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373248"><span id="local-6989586621679373250"><span class="annot"><span class="annottext">Sort -&gt; Sort -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373257"><span id="local-6989586621679373259"><span class="annot"><span class="annottext">Sort -&gt; Sort -&gt; Bool
 (Sort -&gt; Sort -&gt; Bool) -&gt; (Sort -&gt; Sort -&gt; Bool) -&gt; Eq Sort
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Sort -&gt; Sort -&gt; Bool
 $c/= :: Sort -&gt; Sort -&gt; Bool
 == :: Sort -&gt; Sort -&gt; Bool
 $c== :: Sort -&gt; Sort -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373239"><span id="local-6989586621679373241"><span id="local-6989586621679373243"><span id="local-6989586621679373245"><span class="annot"><span class="annottext">ReadPrec [Sort]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373248"><span id="local-6989586621679373250"><span id="local-6989586621679373252"><span id="local-6989586621679373254"><span class="annot"><span class="annottext">ReadPrec [Sort]
 ReadPrec Sort
 Int -&gt; ReadS Sort
 ReadS [Sort]
@@ -59,7 +59,7 @@ readList :: ReadS [Sort]
 $creadList :: ReadS [Sort]
 readsPrec :: Int -&gt; ReadS Sort
 $creadsPrec :: Int -&gt; ReadS Sort
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373232"><span id="local-6989586621679373234"><span id="local-6989586621679373236"><span class="annot"><span class="annottext">Int -&gt; Sort -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373241"><span id="local-6989586621679373243"><span id="local-6989586621679373245"><span class="annot"><span class="annottext">Int -&gt; Sort -&gt; ShowS
 [Sort] -&gt; ShowS
 Sort -&gt; String
 (Int -&gt; Sort -&gt; ShowS)
@@ -100,15 +100,15 @@ $cfrom :: forall x. Sort -&gt; Rep Sort x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SortValue.html#SortValue"><span class="hs-identifier hs-type">SortValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span>
 </span><span id="line-55"></span><span id="newSort"><span class="annot"><span class="annottext">newSort :: Text -&gt; SortValue -&gt; Sort
-</span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#newSort"><span class="hs-identifier hs-var hs-var">newSort</span></a></span></span><span> </span><span id="local-6989586621679373226"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373226"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679373225"><span class="annot"><span class="annottext">SortValue
-</span><a href="#local-6989586621679373225"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#newSort"><span class="hs-identifier hs-var hs-var">newSort</span></a></span></span><span> </span><span id="local-6989586621679373235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373235"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679373234"><span class="annot"><span class="annottext">SortValue
+</span><a href="#local-6989586621679373234"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Sort' :: Text -&gt; SortValue -&gt; Sort
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Sort' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#%24sel%3Akey%3ASort%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373226"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Sort' :: SortValue
+</span><a href="#local-6989586621679373235"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:Sort' :: SortValue
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#%24sel%3Avalue%3ASort%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SortValue
-</span><a href="#local-6989586621679373225"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679373234"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | The sort key of a sort object.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#sort_key"><span class="hs-identifier hs-type">sort_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -116,16 +116,16 @@ $cfrom :: forall x. Sort -&gt; Rep Sort x
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#sort_key"><span class="hs-identifier hs-var hs-var">sort_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Sort -&gt; Text)
 -&gt; (Sort -&gt; Text -&gt; Sort) -&gt; Lens Sort Sort Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373221"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373230"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:Sort' :: Sort -&gt; Text
-</span><a href="#local-6989586621679373221"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373221"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373220"><span class="annot"><span class="annottext">s :: Sort
-</span><a href="#local-6989586621679373220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373219"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sort
-</span><a href="#local-6989586621679373220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Sort' :: Text
+</span><a href="#local-6989586621679373230"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373230"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373229"><span class="annot"><span class="annottext">s :: Sort
+</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sort
+</span><a href="#local-6989586621679373229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Sort' :: Text
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#%24sel%3Akey%3ASort%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The sort value of a sort object.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#sort_value"><span class="hs-identifier hs-type">sort_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SortValue.html#SortValue"><span class="hs-identifier hs-type">SortValue</span></a></span><span>
@@ -134,30 +134,30 @@ $sel:key:Sort' :: Sort -&gt; Text
 -&gt; (Sort -&gt; SortValue -&gt; Sort)
 -&gt; Lens Sort Sort SortValue SortValue
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373217"><span class="annot"><span class="annottext">SortValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373226"><span class="annot"><span class="annottext">SortValue
 value :: SortValue
 $sel:value:Sort' :: Sort -&gt; SortValue
-</span><a href="#local-6989586621679373217"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortValue
-</span><a href="#local-6989586621679373217"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373216"><span class="annot"><span class="annottext">s :: Sort
-</span><a href="#local-6989586621679373216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373215"><span class="annot"><span class="annottext">SortValue
-</span><a href="#local-6989586621679373215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sort
-</span><a href="#local-6989586621679373216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Sort' :: SortValue
+</span><a href="#local-6989586621679373226"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SortValue
+</span><a href="#local-6989586621679373226"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373225"><span class="annot"><span class="annottext">s :: Sort
+</span><a href="#local-6989586621679373225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373224"><span class="annot"><span class="annottext">SortValue
+</span><a href="#local-6989586621679373224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sort
+</span><a href="#local-6989586621679373225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Sort' :: SortValue
 </span><a href="Network.AWS.AlexaBusiness.Types.Sort.html#%24sel%3Avalue%3ASort%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SortValue
-</span><a href="#local-6989586621679373215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373211"><span id="local-6989586621679373213"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373220"><span id="local-6989586621679373222"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373208"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373217"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373200"><span id="local-6989586621679373202"><span id="local-6989586621679373204"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679373198"><span class="annot"><span class="annottext">toJSON :: Sort -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373195"><span id="local-6989586621679373196"><span class="annot"><span class="annottext">Text
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373209"><span id="local-6989586621679373211"><span id="local-6989586621679373213"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort"><span class="hs-identifier hs-type">Sort</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679373207"><span class="annot"><span class="annottext">toJSON :: Sort -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.Sort.html#Sort%27"><span class="hs-identifier hs-type">Sort'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373204"><span id="local-6989586621679373205"><span class="annot"><span class="annottext">Text
 SortValue
 value :: SortValue
 key :: Text
 $sel:value:Sort' :: Sort -&gt; SortValue
 $sel:key:Sort' :: Sort -&gt; Text
-</span><a href="#local-6989586621679373195"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679373204"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -169,14 +169,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679373196"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679373205"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SortValue
-</span><a href="#local-6989586621679373195"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679373204"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

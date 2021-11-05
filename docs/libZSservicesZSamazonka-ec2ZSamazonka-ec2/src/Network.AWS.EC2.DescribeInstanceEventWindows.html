@@ -68,7 +68,7 @@
 </span><span id="line-68"></span><span class="hs-comment">-- | Describe instance event windows by InstanceEventWindow.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newDescribeInstanceEventWindows' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621681261235"><span id="local-6989586621681261236"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceEventWindows"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-var">DescribeInstanceEventWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceEventWindows%27"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-var">DescribeInstanceEventWindows'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621681261244"><span id="local-6989586621681261245"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceEventWindows"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-var">DescribeInstanceEventWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceEventWindows%27"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-var">DescribeInstanceEventWindows'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the event windows.</span><span>
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AinstanceEventWindowIds%3ADescribeInstanceEventWindows%27"><span class="annot"><span class="annottext">DescribeInstanceEventWindows -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AinstanceEventWindowIds%3ADescribeInstanceEventWindows%27"><span class="hs-identifier hs-var hs-var">instanceEventWindowIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -123,7 +123,7 @@
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeInstanceEventWindows%27"><span class="annot"><span class="annottext">DescribeInstanceEventWindows -&gt; Maybe Natural
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AmaxResults%3ADescribeInstanceEventWindows%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681261225"><span id="local-6989586621681261227"><span class="annot"><span class="annottext">DescribeInstanceEventWindows
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681261234"><span id="local-6989586621681261236"><span class="annot"><span class="annottext">DescribeInstanceEventWindows
 -&gt; DescribeInstanceEventWindows -&gt; Bool
 (DescribeInstanceEventWindows
  -&gt; DescribeInstanceEventWindows -&gt; Bool)
@@ -139,7 +139,7 @@ $c/= :: DescribeInstanceEventWindows
 -&gt; DescribeInstanceEventWindows -&gt; Bool
 $c== :: DescribeInstanceEventWindows
 -&gt; DescribeInstanceEventWindows -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261216"><span id="local-6989586621681261218"><span id="local-6989586621681261220"><span id="local-6989586621681261222"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceEventWindows]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261225"><span id="local-6989586621681261227"><span id="local-6989586621681261229"><span id="local-6989586621681261231"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceEventWindows]
 ReadPrec DescribeInstanceEventWindows
 Int -&gt; ReadS DescribeInstanceEventWindows
 ReadS [DescribeInstanceEventWindows]
@@ -159,7 +159,7 @@ readList :: ReadS [DescribeInstanceEventWindows]
 $creadList :: ReadS [DescribeInstanceEventWindows]
 readsPrec :: Int -&gt; ReadS DescribeInstanceEventWindows
 $creadsPrec :: Int -&gt; ReadS DescribeInstanceEventWindows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261209"><span id="local-6989586621681261211"><span id="local-6989586621681261213"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceEventWindows -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261218"><span id="local-6989586621681261220"><span id="local-6989586621681261222"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceEventWindows -&gt; ShowS
 [DescribeInstanceEventWindows] -&gt; ShowS
 DescribeInstanceEventWindows -&gt; String
 (Int -&gt; DescribeInstanceEventWindows -&gt; ShowS)
@@ -293,16 +293,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261203"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261212"><span class="annot"><span class="annottext">Maybe [Text]
 instanceEventWindowIds :: Maybe [Text]
 $sel:instanceEventWindowIds:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe [Text]
-</span><a href="#local-6989586621681261203"><span class="hs-identifier hs-var hs-var">instanceEventWindowIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681261203"><span class="hs-identifier hs-var">instanceEventWindowIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261202"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261201"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681261201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventWindowIds:DescribeInstanceEventWindows' :: Maybe [Text]
+</span><a href="#local-6989586621681261212"><span class="hs-identifier hs-var hs-var">instanceEventWindowIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681261212"><span class="hs-identifier hs-var">instanceEventWindowIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261211"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261210"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681261210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventWindowIds:DescribeInstanceEventWindows' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AinstanceEventWindowIds%3ADescribeInstanceEventWindows%27"><span class="hs-identifier hs-var">instanceEventWindowIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681261201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681261210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeInstanceEventWindows -&gt; f DescribeInstanceEventWindows)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -364,16 +364,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261197"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261206"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681261197"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681261197"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261196"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261195"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681261195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeInstanceEventWindows' :: Maybe [Filter]
+</span><a href="#local-6989586621681261206"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681261206"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261205"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261204"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681261204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeInstanceEventWindows' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3Afilters%3ADescribeInstanceEventWindows%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681261195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681261204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeInstanceEventWindows -&gt; f DescribeInstanceEventWindows)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -404,16 +404,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261194"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261203"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe Text
-</span><a href="#local-6989586621681261194"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681261194"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261193"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261192"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681261192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceEventWindows' :: Maybe Text
+</span><a href="#local-6989586621681261203"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261203"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261202"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceEventWindows' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AnextToken%3ADescribeInstanceEventWindows%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681261192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681261201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -431,16 +431,16 @@ $sel:nextToken:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&g
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261191"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261200"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe Bool
-</span><a href="#local-6989586621681261191"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681261191"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261190"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261189"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681261189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeInstanceEventWindows' :: Maybe Bool
+</span><a href="#local-6989586621681261200"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681261200"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261199"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261198"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681261198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeInstanceEventWindows' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AdryRun%3ADescribeInstanceEventWindows%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681261189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681261198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. To retrieve</span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- the remaining results, make another call with the returned @NextToken@</span><span>
@@ -458,30 +458,30 @@ $sel:dryRun:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; 
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261188"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261197"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe Natural
-</span><a href="#local-6989586621681261188"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681261188"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261187"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261186"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681261186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceEventWindows' :: Maybe Natural
+</span><a href="#local-6989586621681261197"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681261197"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261196"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261195"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681261195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeInstanceEventWindows' :: Maybe Natural
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AmaxResults%3ADescribeInstanceEventWindows%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681261186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681261195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621681261182"><span class="annot"><span class="annottext">page :: DescribeInstanceEventWindows
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621681261191"><span class="annot"><span class="annottext">page :: DescribeInstanceEventWindows
 -&gt; AWSResponse DescribeInstanceEventWindows
 -&gt; Maybe DescribeInstanceEventWindows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681261180"><span class="annot"><span class="annottext">DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261180"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681261179"><span class="annot"><span class="annottext">AWSResponse DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261179"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681261189"><span class="annot"><span class="annottext">DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261189"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681261188"><span class="annot"><span class="annottext">AWSResponse DescribeInstanceEventWindows
+</span><a href="#local-6989586621681261188"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-250"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-251"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceEventWindows
 DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261179"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681261188"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
 -&gt; Getting (First Text) DescribeInstanceEventWindowsResponse Text
 -&gt; Maybe Text
@@ -511,7 +511,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-257"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceEventWindows
 DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261179"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681261188"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
 -&gt; Getting
      (First [InstanceEventWindow])
@@ -566,7 +566,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
-</span><a href="#local-6989586621681261180"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681261189"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceEventWindows
 -&gt; (DescribeInstanceEventWindows -&gt; DescribeInstanceEventWindows)
 -&gt; DescribeInstanceEventWindows
@@ -589,7 +589,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeInstanceEventWindows
 DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261179"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681261188"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-267"></span><span>          </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
 -&gt; Getting (First Text) DescribeInstanceEventWindowsResponse Text
 -&gt; Maybe Text
@@ -615,7 +615,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-271"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-272"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621681261170"><span class="annot"><span class="annottext">request :: DescribeInstanceEventWindows
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621681261179"><span class="annot"><span class="annottext">request :: DescribeInstanceEventWindows
 -&gt; Request DescribeInstanceEventWindows
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeInstanceEventWindows
@@ -623,7 +623,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-275"></span><span>  </span><span id="local-6989586621681261166"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621681261175"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeInstanceEventWindows
 -&gt; ClientResponse ClientBody
@@ -649,10 +649,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-277"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681261163"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681261163"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681261162"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681261162"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681261161"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681261161"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681261172"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261172"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681261171"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681261171"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681261170"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681261170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-278"></span><span>          </span><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceEventWindowsResponse
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var">DescribeInstanceEventWindowsResponse'</span></a></span><span>
@@ -663,7 +663,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DescribeInstanceEventWindowsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681261161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681261170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceEventWindowSet&quot;</span></span><span>
@@ -692,7 +692,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeInstanceEventWindowsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681261161"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681261170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -705,17 +705,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681261163"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681261172"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-288"></span><span>  </span><span id="local-6989586621681261150"><span id="local-6989586621681261152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621681261159"><span id="local-6989586621681261161"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-289"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span></span></span><span>
 </span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681261147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681261156"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span></span><span>
 </span><span id="line-292"></span><span>
 </span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-294"></span><span>  </span><span id="local-6989586621681261143"><span class="annot"><span class="annottext">toHeaders :: DescribeInstanceEventWindows -&gt; ResponseHeaders
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621681261152"><span class="annot"><span class="annottext">toHeaders :: DescribeInstanceEventWindows -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInstanceEventWindows -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -723,15 +723,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-295"></span><span>
 </span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-297"></span><span>  </span><span id="local-6989586621681261138"><span class="annot"><span class="annottext">toPath :: DescribeInstanceEventWindows -&gt; ByteString
+</span><span id="line-297"></span><span>  </span><span id="local-6989586621681261147"><span class="annot"><span class="annottext">toPath :: DescribeInstanceEventWindows -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInstanceEventWindows -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-298"></span><span>
 </span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows"><span class="hs-identifier hs-type">DescribeInstanceEventWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-300"></span><span>  </span><span id="local-6989586621681261134"><span class="annot"><span class="annottext">toQuery :: DescribeInstanceEventWindows -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261128"><span id="local-6989586621681261129"><span id="local-6989586621681261130"><span id="local-6989586621681261131"><span id="local-6989586621681261132"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-300"></span><span>  </span><span id="local-6989586621681261143"><span class="annot"><span class="annottext">toQuery :: DescribeInstanceEventWindows -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindows%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261137"><span id="local-6989586621681261138"><span id="local-6989586621681261139"><span id="local-6989586621681261140"><span id="local-6989586621681261141"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe [Filter]
@@ -746,7 +746,7 @@ $sel:dryRun:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; 
 $sel:nextToken:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe Text
 $sel:filters:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe [Filter]
 $sel:instanceEventWindowIds:DescribeInstanceEventWindows' :: DescribeInstanceEventWindows -&gt; Maybe [Text]
-</span><a href="#local-6989586621681261128"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681261137"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-301"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -776,7 +776,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-310"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681261132"><span class="hs-identifier hs-var">instanceEventWindowIds</span></a></span><span>
+</span><a href="#local-6989586621681261141"><span class="hs-identifier hs-var">instanceEventWindowIds</span></a></span><span>
 </span><span id="line-311"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-312"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
@@ -789,26 +789,26 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681261131"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681261140"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-314"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681261130"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681261139"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681261129"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681261138"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-316"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681261128"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621681261137"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-317"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-318"></span><span>
 </span><span id="line-319"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceEventWindowsResponse' smart constructor.</span><span>
-</span><span id="line-320"></span><span id="local-6989586621681261124"><span id="local-6989586621681261125"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceEventWindowsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-var">DescribeInstanceEventWindowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceEventWindowsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var">DescribeInstanceEventWindowsResponse'</span></a></span></span><span>
+</span><span id="line-320"></span><span id="local-6989586621681261133"><span id="local-6989586621681261134"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceEventWindowsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-var">DescribeInstanceEventWindowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceEventWindowsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var">DescribeInstanceEventWindowsResponse'</span></a></span></span><span>
 </span><span id="line-321"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the event windows.</span><span>
 </span><span id="line-322"></span><span>    </span><span id="%24sel%3AinstanceEventWindows%3ADescribeInstanceEventWindowsResponse%27"><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse -&gt; Maybe [InstanceEventWindow]
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AinstanceEventWindows%3ADescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var hs-var">instanceEventWindows</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceEventWindow.html#InstanceEventWindow"><span class="hs-identifier hs-type">InstanceEventWindow</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -820,7 +820,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-327"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstanceEventWindowsResponse%27"><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AhttpStatus%3ADescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-328"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-329"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681261117"><span id="local-6989586621681261119"><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
+</span><span id="line-329"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681261126"><span id="local-6989586621681261128"><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
 -&gt; DescribeInstanceEventWindowsResponse -&gt; Bool
 (DescribeInstanceEventWindowsResponse
  -&gt; DescribeInstanceEventWindowsResponse -&gt; Bool)
@@ -836,7 +836,7 @@ $c/= :: DescribeInstanceEventWindowsResponse
 -&gt; DescribeInstanceEventWindowsResponse -&gt; Bool
 $c== :: DescribeInstanceEventWindowsResponse
 -&gt; DescribeInstanceEventWindowsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261109"><span id="local-6989586621681261111"><span id="local-6989586621681261113"><span id="local-6989586621681261115"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceEventWindowsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261118"><span id="local-6989586621681261120"><span id="local-6989586621681261122"><span id="local-6989586621681261124"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceEventWindowsResponse]
 ReadPrec DescribeInstanceEventWindowsResponse
 Int -&gt; ReadS DescribeInstanceEventWindowsResponse
 ReadS [DescribeInstanceEventWindowsResponse]
@@ -856,7 +856,7 @@ readList :: ReadS [DescribeInstanceEventWindowsResponse]
 $creadList :: ReadS [DescribeInstanceEventWindowsResponse]
 readsPrec :: Int -&gt; ReadS DescribeInstanceEventWindowsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeInstanceEventWindowsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261103"><span id="local-6989586621681261105"><span id="local-6989586621681261107"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceEventWindowsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681261112"><span id="local-6989586621681261114"><span id="local-6989586621681261116"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceEventWindowsResponse -&gt; ShowS
 [DescribeInstanceEventWindowsResponse] -&gt; ShowS
 DescribeInstanceEventWindowsResponse -&gt; String
 (Int -&gt; DescribeInstanceEventWindowsResponse -&gt; ShowS)
@@ -913,8 +913,8 @@ DescribeInstanceEventWindowsResponse
 </span><span id="line-347"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-348"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span>
 </span><span id="line-349"></span><span id="newDescribeInstanceEventWindowsResponse"><span class="annot"><span class="annottext">newDescribeInstanceEventWindowsResponse :: Int -&gt; DescribeInstanceEventWindowsResponse
-</span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#newDescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstanceEventWindowsResponse</span></a></span></span><span> </span><span id="local-6989586621681261100"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681261100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#newDescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstanceEventWindowsResponse</span></a></span></span><span> </span><span id="local-6989586621681261109"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261109"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-350"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse' :: Maybe [InstanceEventWindow]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeInstanceEventWindowsResponse
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span>
@@ -929,7 +929,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-354"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceEventWindowsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AhttpStatus%3ADescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681261100"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681261109"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-355"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | Information about the event windows.</span><span>
@@ -945,16 +945,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeInstanceEventWindowsResponse (Maybe [InstanceEventWindow])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261099"><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261108"><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
 instanceEventWindows :: Maybe [InstanceEventWindow]
 $sel:instanceEventWindows:DescribeInstanceEventWindowsResponse' :: DescribeInstanceEventWindowsResponse -&gt; Maybe [InstanceEventWindow]
-</span><a href="#local-6989586621681261099"><span class="hs-identifier hs-var hs-var">instanceEventWindows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
-</span><a href="#local-6989586621681261099"><span class="hs-identifier hs-var">instanceEventWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261098"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261097"><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
-</span><a href="#local-6989586621681261097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventWindows:DescribeInstanceEventWindowsResponse' :: Maybe [InstanceEventWindow]
+</span><a href="#local-6989586621681261108"><span class="hs-identifier hs-var hs-var">instanceEventWindows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
+</span><a href="#local-6989586621681261108"><span class="hs-identifier hs-var">instanceEventWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261107"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindowsResponse
+</span><a href="#local-6989586621681261107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261106"><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
+</span><a href="#local-6989586621681261106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
+</span><a href="#local-6989586621681261107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceEventWindows:DescribeInstanceEventWindowsResponse' :: Maybe [InstanceEventWindow]
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AinstanceEventWindows%3ADescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var">instanceEventWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceEventWindow]
-</span><a href="#local-6989586621681261097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceEventWindow] -&gt; f (Maybe [InstanceEventWindow]))
+</span><a href="#local-6989586621681261106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceEventWindow] -&gt; f (Maybe [InstanceEventWindow]))
  -&gt; DescribeInstanceEventWindowsResponse
  -&gt; f DescribeInstanceEventWindowsResponse)
 -&gt; ((Maybe [InstanceEventWindow]
@@ -996,16 +996,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; DescribeInstanceEventWindowsResponse)
 -&gt; Lens' DescribeInstanceEventWindowsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261096"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261105"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstanceEventWindowsResponse' :: DescribeInstanceEventWindowsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681261096"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681261096"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261095"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261094"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681261094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceEventWindowsResponse' :: Maybe Text
+</span><a href="#local-6989586621681261105"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261105"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261104"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindowsResponse
+</span><a href="#local-6989586621681261104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681261103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
+</span><a href="#local-6989586621681261104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceEventWindowsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AnextToken%3ADescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681261094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681261103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-365"></span><span>
 </span><span id="line-366"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-367"></span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#describeInstanceEventWindowsResponse_httpStatus"><span class="hs-identifier hs-type">describeInstanceEventWindowsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1021,18 +1021,18 @@ $sel:nextToken:DescribeInstanceEventWindowsResponse' :: DescribeInstanceEventWin
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261093"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681261102"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeInstanceEventWindowsResponse' :: DescribeInstanceEventWindowsResponse -&gt; Int
-</span><a href="#local-6989586621681261093"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681261093"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261092"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261091"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681261091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
-</span><a href="#local-6989586621681261092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceEventWindowsResponse' :: Int
+</span><a href="#local-6989586621681261102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681261101"><span class="annot"><span class="annottext">s :: DescribeInstanceEventWindowsResponse
+</span><a href="#local-6989586621681261101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681261100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681261100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceEventWindowsResponse
+</span><a href="#local-6989586621681261101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceEventWindowsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#%24sel%3AhttpStatus%3ADescribeInstanceEventWindowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681261091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681261100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-369"></span><span>
 </span><span id="line-370"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-371"></span><span>  </span><span id="local-6989586621681261089"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-371"></span><span>  </span><span id="local-6989586621681261098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-372"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeInstanceEventWindows.html#DescribeInstanceEventWindowsResponse"><span class="hs-identifier hs-type">DescribeInstanceEventWindowsResponse</span></a></span></span><span>
 </span><span id="line-373"></span></pre></body></html>

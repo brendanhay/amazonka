@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- in the Amazon Elastic Container Service Service Developer Guide.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPlacementStrategy' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679304126"><span id="local-6989586621679304127"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementStrategy"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-var">PlacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementStrategy%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-var">PlacementStrategy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679304135"><span id="local-6989586621679304136"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementStrategy"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-var">PlacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementStrategy%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-var">PlacementStrategy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The field to apply the placement strategy against. For the spread</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- placement strategy, valid values are instanceId (or host, which has the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- same effect), or any platform or custom attribute that is applied to a</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3Atype%27%3APlacementStrategy%27"><span class="annot"><span class="annottext">PlacementStrategy -&gt; Maybe PlacementStrategyType
 </span><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#%24sel%3Atype%27%3APlacementStrategy%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategyType.html#PlacementStrategyType"><span class="hs-identifier hs-type">PlacementStrategyType</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304119"><span id="local-6989586621679304121"><span class="annot"><span class="annottext">PlacementStrategy -&gt; PlacementStrategy -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304128"><span id="local-6989586621679304130"><span class="annot"><span class="annottext">PlacementStrategy -&gt; PlacementStrategy -&gt; Bool
 (PlacementStrategy -&gt; PlacementStrategy -&gt; Bool)
 -&gt; (PlacementStrategy -&gt; PlacementStrategy -&gt; Bool)
 -&gt; Eq PlacementStrategy
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PlacementStrategy -&gt; PlacementStrategy -&gt; Bool
 == :: PlacementStrategy -&gt; PlacementStrategy -&gt; Bool
 $c== :: PlacementStrategy -&gt; PlacementStrategy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304110"><span id="local-6989586621679304112"><span id="local-6989586621679304114"><span id="local-6989586621679304116"><span class="annot"><span class="annottext">ReadPrec [PlacementStrategy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304119"><span id="local-6989586621679304121"><span id="local-6989586621679304123"><span id="local-6989586621679304125"><span class="annot"><span class="annottext">ReadPrec [PlacementStrategy]
 ReadPrec PlacementStrategy
 Int -&gt; ReadS PlacementStrategy
 ReadS [PlacementStrategy]
@@ -78,7 +78,7 @@ readList :: ReadS [PlacementStrategy]
 $creadList :: ReadS [PlacementStrategy]
 readsPrec :: Int -&gt; ReadS PlacementStrategy
 $creadsPrec :: Int -&gt; ReadS PlacementStrategy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304103"><span id="local-6989586621679304105"><span id="local-6989586621679304107"><span class="annot"><span class="annottext">Int -&gt; PlacementStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304112"><span id="local-6989586621679304114"><span id="local-6989586621679304116"><span class="annot"><span class="annottext">Int -&gt; PlacementStrategy -&gt; ShowS
 [PlacementStrategy] -&gt; ShowS
 PlacementStrategy -&gt; String
 (Int -&gt; PlacementStrategy -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; Lens
      PlacementStrategy PlacementStrategy (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304094"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304103"><span class="annot"><span class="annottext">Maybe Text
 field :: Maybe Text
 $sel:field:PlacementStrategy' :: PlacementStrategy -&gt; Maybe Text
-</span><a href="#local-6989586621679304094"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304094"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304093"><span class="annot"><span class="annottext">s :: PlacementStrategy
-</span><a href="#local-6989586621679304093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304092"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStrategy
-</span><a href="#local-6989586621679304093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:PlacementStrategy' :: Maybe Text
+</span><a href="#local-6989586621679304103"><span class="hs-identifier hs-var hs-var">field</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304103"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304102"><span class="annot"><span class="annottext">s :: PlacementStrategy
+</span><a href="#local-6989586621679304102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStrategy
+</span><a href="#local-6989586621679304102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:field:PlacementStrategy' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#%24sel%3Afield%3APlacementStrategy%27"><span class="hs-identifier hs-var">field</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The type of placement strategy. The random placement strategy randomly</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- places tasks on available candidates. The spread placement strategy</span><span>
@@ -188,19 +188,19 @@ $sel:field:PlacementStrategy' :: PlacementStrategy -&gt; Maybe Text
      (Maybe PlacementStrategyType)
      (Maybe PlacementStrategyType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304090"><span class="annot"><span class="annottext">Maybe PlacementStrategyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304099"><span class="annot"><span class="annottext">Maybe PlacementStrategyType
 type' :: Maybe PlacementStrategyType
 $sel:type':PlacementStrategy' :: PlacementStrategy -&gt; Maybe PlacementStrategyType
-</span><a href="#local-6989586621679304090"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategyType
-</span><a href="#local-6989586621679304090"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304089"><span class="annot"><span class="annottext">s :: PlacementStrategy
-</span><a href="#local-6989586621679304089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304088"><span class="annot"><span class="annottext">Maybe PlacementStrategyType
-</span><a href="#local-6989586621679304088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStrategy
-</span><a href="#local-6989586621679304089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PlacementStrategy' :: Maybe PlacementStrategyType
+</span><a href="#local-6989586621679304099"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategyType
+</span><a href="#local-6989586621679304099"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304098"><span class="annot"><span class="annottext">s :: PlacementStrategy
+</span><a href="#local-6989586621679304098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304097"><span class="annot"><span class="annottext">Maybe PlacementStrategyType
+</span><a href="#local-6989586621679304097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementStrategy
+</span><a href="#local-6989586621679304098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':PlacementStrategy' :: Maybe PlacementStrategyType
 </span><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#%24sel%3Atype%27%3APlacementStrategy%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategyType
-</span><a href="#local-6989586621679304088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304085"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679304083"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlacementStrategy
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679304092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PlacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PlacementStrategy)
@@ -210,8 +210,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PlacementStrategy&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304080"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304080"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304089"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe PlacementStrategyType -&gt; PlacementStrategy
 </span><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-var">PlacementStrategy'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe PlacementStrategyType -&gt; PlacementStrategy)
@@ -219,32 +219,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe PlacementStrategyType -&gt; PlacementStrategy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679304089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;field&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe PlacementStrategyType -&gt; PlacementStrategy)
 -&gt; Parser (Maybe PlacementStrategyType) -&gt; Parser PlacementStrategy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PlacementStrategyType)
+</span><a href="#local-6989586621679304089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PlacementStrategyType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304074"><span id="local-6989586621679304076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304083"><span id="local-6989586621679304085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304063"><span id="local-6989586621679304065"><span id="local-6989586621679304067"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679304061"><span class="annot"><span class="annottext">toJSON :: PlacementStrategy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304058"><span id="local-6989586621679304059"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304072"><span id="local-6989586621679304074"><span id="local-6989586621679304076"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy"><span class="hs-identifier hs-type">PlacementStrategy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679304070"><span class="annot"><span class="annottext">toJSON :: PlacementStrategy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.PlacementStrategy.html#PlacementStrategy%27"><span class="hs-identifier hs-type">PlacementStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304067"><span id="local-6989586621679304068"><span class="annot"><span class="annottext">Maybe Text
 Maybe PlacementStrategyType
 type' :: Maybe PlacementStrategyType
 field :: Maybe Text
 $sel:type':PlacementStrategy' :: PlacementStrategy -&gt; Maybe PlacementStrategyType
 $sel:field:PlacementStrategy' :: PlacementStrategy -&gt; Maybe Text
-</span><a href="#local-6989586621679304058"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304067"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -256,7 +256,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679304059"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304068"><span class="hs-identifier hs-var">field</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PlacementStrategyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -264,7 +264,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PlacementStrategyType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PlacementStrategyType
-</span><a href="#local-6989586621679304058"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679304067"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span></pre></body></html>

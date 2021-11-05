@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the status of a @DeleteEventsByEventType@ action.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier">GetDeleteEventsByEventTypeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#newGetDeleteEventsByEventTypeStatus"><span class="hs-identifier">newGetDeleteEventsByEventTypeStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatus_eventTypeName"><span class="hs-identifier">getDeleteEventsByEventTypeStatus_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#newGetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier">newGetDeleteEventsByEventTypeStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_eventTypeName"><span class="hs-identifier">getDeleteEventsByEventTypeStatusResponse_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus"><span class="hs-identifier">getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_httpStatus"><span class="hs-identifier">getDeleteEventsByEventTypeStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetDeleteEventsByEventTypeStatus' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679315873"><span id="local-6989586621679315874"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeleteEventsByEventTypeStatus"><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-var">GetDeleteEventsByEventTypeStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeleteEventsByEventTypeStatus%27"><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-var">GetDeleteEventsByEventTypeStatus'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of event type for which to get the deletion status.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatus%27"><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatus -&gt; Text
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315867"><span id="local-6989586621679315869"><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatus
+-&gt; GetDeleteEventsByEventTypeStatus -&gt; Bool
+(GetDeleteEventsByEventTypeStatus
+ -&gt; GetDeleteEventsByEventTypeStatus -&gt; Bool)
+-&gt; (GetDeleteEventsByEventTypeStatus
+    -&gt; GetDeleteEventsByEventTypeStatus -&gt; Bool)
+-&gt; Eq GetDeleteEventsByEventTypeStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDeleteEventsByEventTypeStatus
+-&gt; GetDeleteEventsByEventTypeStatus -&gt; Bool
+$c/= :: GetDeleteEventsByEventTypeStatus
+-&gt; GetDeleteEventsByEventTypeStatus -&gt; Bool
+== :: GetDeleteEventsByEventTypeStatus
+-&gt; GetDeleteEventsByEventTypeStatus -&gt; Bool
+$c== :: GetDeleteEventsByEventTypeStatus
+-&gt; GetDeleteEventsByEventTypeStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315858"><span id="local-6989586621679315860"><span id="local-6989586621679315862"><span id="local-6989586621679315864"><span class="annot"><span class="annottext">ReadPrec [GetDeleteEventsByEventTypeStatus]
+ReadPrec GetDeleteEventsByEventTypeStatus
+Int -&gt; ReadS GetDeleteEventsByEventTypeStatus
+ReadS [GetDeleteEventsByEventTypeStatus]
+(Int -&gt; ReadS GetDeleteEventsByEventTypeStatus)
+-&gt; ReadS [GetDeleteEventsByEventTypeStatus]
+-&gt; ReadPrec GetDeleteEventsByEventTypeStatus
+-&gt; ReadPrec [GetDeleteEventsByEventTypeStatus]
+-&gt; Read GetDeleteEventsByEventTypeStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDeleteEventsByEventTypeStatus]
+$creadListPrec :: ReadPrec [GetDeleteEventsByEventTypeStatus]
+readPrec :: ReadPrec GetDeleteEventsByEventTypeStatus
+$creadPrec :: ReadPrec GetDeleteEventsByEventTypeStatus
+readList :: ReadS [GetDeleteEventsByEventTypeStatus]
+$creadList :: ReadS [GetDeleteEventsByEventTypeStatus]
+readsPrec :: Int -&gt; ReadS GetDeleteEventsByEventTypeStatus
+$creadsPrec :: Int -&gt; ReadS GetDeleteEventsByEventTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315851"><span id="local-6989586621679315853"><span id="local-6989586621679315855"><span class="annot"><span class="annottext">Int -&gt; GetDeleteEventsByEventTypeStatus -&gt; ShowS
+[GetDeleteEventsByEventTypeStatus] -&gt; ShowS
+GetDeleteEventsByEventTypeStatus -&gt; String
+(Int -&gt; GetDeleteEventsByEventTypeStatus -&gt; ShowS)
+-&gt; (GetDeleteEventsByEventTypeStatus -&gt; String)
+-&gt; ([GetDeleteEventsByEventTypeStatus] -&gt; ShowS)
+-&gt; Show GetDeleteEventsByEventTypeStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDeleteEventsByEventTypeStatus] -&gt; ShowS
+$cshowList :: [GetDeleteEventsByEventTypeStatus] -&gt; ShowS
+show :: GetDeleteEventsByEventTypeStatus -&gt; String
+$cshow :: GetDeleteEventsByEventTypeStatus -&gt; String
+showsPrec :: Int -&gt; GetDeleteEventsByEventTypeStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDeleteEventsByEventTypeStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDeleteEventsByEventTypeStatus
+ -&gt; Rep GetDeleteEventsByEventTypeStatus x)
+-&gt; (forall x.
+    Rep GetDeleteEventsByEventTypeStatus x
+    -&gt; GetDeleteEventsByEventTypeStatus)
+-&gt; Generic GetDeleteEventsByEventTypeStatus
+forall x.
+Rep GetDeleteEventsByEventTypeStatus x
+-&gt; GetDeleteEventsByEventTypeStatus
+forall x.
+GetDeleteEventsByEventTypeStatus
+-&gt; Rep GetDeleteEventsByEventTypeStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDeleteEventsByEventTypeStatus x
+-&gt; GetDeleteEventsByEventTypeStatus
+$cfrom :: forall x.
+GetDeleteEventsByEventTypeStatus
+-&gt; Rep GetDeleteEventsByEventTypeStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'GetDeleteEventsByEventTypeStatus' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'eventTypeName', 'getDeleteEventsByEventTypeStatus_eventTypeName' - Name of event type for which to get the deletion status.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#newGetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">newGetDeleteEventsByEventTypeStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'eventTypeName'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span>
+</span><span id="line-70"></span><span id="newGetDeleteEventsByEventTypeStatus"><span class="annot"><span class="annottext">newGetDeleteEventsByEventTypeStatus :: Text -&gt; GetDeleteEventsByEventTypeStatus
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#newGetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-var hs-var">newGetDeleteEventsByEventTypeStatus</span></a></span></span><span> </span><span id="local-6989586621679315846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315846"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatus' :: Text -&gt; GetDeleteEventsByEventTypeStatus
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventTypeName:GetDeleteEventsByEventTypeStatus' :: Text
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315846"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Name of event type for which to get the deletion status.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatus_eventTypeName"><span class="hs-identifier hs-type">getDeleteEventsByEventTypeStatus_eventTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="getDeleteEventsByEventTypeStatus_eventTypeName"><span class="annot"><span class="annottext">getDeleteEventsByEventTypeStatus_eventTypeName :: (Text -&gt; f Text)
+-&gt; GetDeleteEventsByEventTypeStatus
+-&gt; f GetDeleteEventsByEventTypeStatus
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatus_eventTypeName"><span class="hs-identifier hs-var hs-var">getDeleteEventsByEventTypeStatus_eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeleteEventsByEventTypeStatus -&gt; Text)
+-&gt; (GetDeleteEventsByEventTypeStatus
+    -&gt; Text -&gt; GetDeleteEventsByEventTypeStatus)
+-&gt; Lens
+     GetDeleteEventsByEventTypeStatus
+     GetDeleteEventsByEventTypeStatus
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315843"><span class="annot"><span class="annottext">Text
+eventTypeName :: Text
+$sel:eventTypeName:GetDeleteEventsByEventTypeStatus' :: GetDeleteEventsByEventTypeStatus -&gt; Text
+</span><a href="#local-6989586621679315843"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315843"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315842"><span class="annot"><span class="annottext">s :: GetDeleteEventsByEventTypeStatus
+</span><a href="#local-6989586621679315842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatus
+</span><a href="#local-6989586621679315842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeName:GetDeleteEventsByEventTypeStatus' :: Text
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679315837"><span class="annot"><span class="annottext">request :: GetDeleteEventsByEventTypeStatus
+-&gt; Request GetDeleteEventsByEventTypeStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetDeleteEventsByEventTypeStatus
+-&gt; Request GetDeleteEventsByEventTypeStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679315833"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDeleteEventsByEventTypeStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetDeleteEventsByEventTypeStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDeleteEventsByEventTypeStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDeleteEventsByEventTypeStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetDeleteEventsByEventTypeStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315830"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315829"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679315829"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315828"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315828"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe AsyncJobStatus
+-&gt; Int
+-&gt; GetDeleteEventsByEventTypeStatusResponse
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe AsyncJobStatus
+ -&gt; Int
+ -&gt; GetDeleteEventsByEventTypeStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe AsyncJobStatus
+      -&gt; Int -&gt; GetDeleteEventsByEventTypeStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AsyncJobStatus
+   -&gt; Int -&gt; GetDeleteEventsByEventTypeStatusResponse)
+-&gt; Either String (Maybe AsyncJobStatus)
+-&gt; Either String (Int -&gt; GetDeleteEventsByEventTypeStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AsyncJobStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventsDeletionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDeleteEventsByEventTypeStatusResponse)
+-&gt; Either String Int
+-&gt; Either String GetDeleteEventsByEventTypeStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315830"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679315820"><span id="local-6989586621679315822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679315817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679315813"><span class="annot"><span class="annottext">toHeaders :: GetDeleteEventsByEventTypeStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetDeleteEventsByEventTypeStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-119"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315803"><span id="local-6989586621679315805"><span id="local-6989586621679315807"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679315801"><span class="annot"><span class="annottext">toJSON :: GetDeleteEventsByEventTypeStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315799"><span class="annot"><span class="annottext">Text
+eventTypeName :: Text
+$sel:eventTypeName:GetDeleteEventsByEventTypeStatus' :: GetDeleteEventsByEventTypeStatus -&gt; Text
+</span><a href="#local-6989586621679315799"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315799"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679315793"><span class="annot"><span class="annottext">toPath :: GetDeleteEventsByEventTypeStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDeleteEventsByEventTypeStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatus"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatus</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679315789"><span class="annot"><span class="annottext">toQuery :: GetDeleteEventsByEventTypeStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDeleteEventsByEventTypeStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | /See:/ 'newGetDeleteEventsByEventTypeStatusResponse' smart constructor.</span><span>
+</span><span id="line-142"></span><span id="local-6989586621679315786"><span id="local-6989586621679315787"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeleteEventsByEventTypeStatusResponse"><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-var">GetDeleteEventsByEventTypeStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeleteEventsByEventTypeStatusResponse%27"><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">GetDeleteEventsByEventTypeStatusResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event type name.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The deletion status.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3AeventsDeletionStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse -&gt; Maybe AsyncJobStatus
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventsDeletionStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var hs-var">eventsDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.AsyncJobStatus.html#AsyncJobStatus"><span class="hs-identifier hs-type">AsyncJobStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse -&gt; Int
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AhttpStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315779"><span id="local-6989586621679315781"><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse
+-&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; Bool
+(GetDeleteEventsByEventTypeStatusResponse
+ -&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; Bool)
+-&gt; (GetDeleteEventsByEventTypeStatusResponse
+    -&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; Bool)
+-&gt; Eq GetDeleteEventsByEventTypeStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDeleteEventsByEventTypeStatusResponse
+-&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; Bool
+$c/= :: GetDeleteEventsByEventTypeStatusResponse
+-&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; Bool
+== :: GetDeleteEventsByEventTypeStatusResponse
+-&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; Bool
+$c== :: GetDeleteEventsByEventTypeStatusResponse
+-&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315771"><span id="local-6989586621679315773"><span id="local-6989586621679315775"><span id="local-6989586621679315777"><span class="annot"><span class="annottext">ReadPrec [GetDeleteEventsByEventTypeStatusResponse]
+ReadPrec GetDeleteEventsByEventTypeStatusResponse
+Int -&gt; ReadS GetDeleteEventsByEventTypeStatusResponse
+ReadS [GetDeleteEventsByEventTypeStatusResponse]
+(Int -&gt; ReadS GetDeleteEventsByEventTypeStatusResponse)
+-&gt; ReadS [GetDeleteEventsByEventTypeStatusResponse]
+-&gt; ReadPrec GetDeleteEventsByEventTypeStatusResponse
+-&gt; ReadPrec [GetDeleteEventsByEventTypeStatusResponse]
+-&gt; Read GetDeleteEventsByEventTypeStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDeleteEventsByEventTypeStatusResponse]
+$creadListPrec :: ReadPrec [GetDeleteEventsByEventTypeStatusResponse]
+readPrec :: ReadPrec GetDeleteEventsByEventTypeStatusResponse
+$creadPrec :: ReadPrec GetDeleteEventsByEventTypeStatusResponse
+readList :: ReadS [GetDeleteEventsByEventTypeStatusResponse]
+$creadList :: ReadS [GetDeleteEventsByEventTypeStatusResponse]
+readsPrec :: Int -&gt; ReadS GetDeleteEventsByEventTypeStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetDeleteEventsByEventTypeStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315765"><span id="local-6989586621679315767"><span id="local-6989586621679315769"><span class="annot"><span class="annottext">Int -&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; ShowS
+[GetDeleteEventsByEventTypeStatusResponse] -&gt; ShowS
+GetDeleteEventsByEventTypeStatusResponse -&gt; String
+(Int -&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; ShowS)
+-&gt; (GetDeleteEventsByEventTypeStatusResponse -&gt; String)
+-&gt; ([GetDeleteEventsByEventTypeStatusResponse] -&gt; ShowS)
+-&gt; Show GetDeleteEventsByEventTypeStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDeleteEventsByEventTypeStatusResponse] -&gt; ShowS
+$cshowList :: [GetDeleteEventsByEventTypeStatusResponse] -&gt; ShowS
+show :: GetDeleteEventsByEventTypeStatusResponse -&gt; String
+$cshow :: GetDeleteEventsByEventTypeStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDeleteEventsByEventTypeStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDeleteEventsByEventTypeStatusResponse
+ -&gt; Rep GetDeleteEventsByEventTypeStatusResponse x)
+-&gt; (forall x.
+    Rep GetDeleteEventsByEventTypeStatusResponse x
+    -&gt; GetDeleteEventsByEventTypeStatusResponse)
+-&gt; Generic GetDeleteEventsByEventTypeStatusResponse
+forall x.
+Rep GetDeleteEventsByEventTypeStatusResponse x
+-&gt; GetDeleteEventsByEventTypeStatusResponse
+forall x.
+GetDeleteEventsByEventTypeStatusResponse
+-&gt; Rep GetDeleteEventsByEventTypeStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDeleteEventsByEventTypeStatusResponse x
+-&gt; GetDeleteEventsByEventTypeStatusResponse
+$cfrom :: forall x.
+GetDeleteEventsByEventTypeStatusResponse
+-&gt; Rep GetDeleteEventsByEventTypeStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- Create a value of 'GetDeleteEventsByEventTypeStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'eventTypeName', 'getDeleteEventsByEventTypeStatusResponse_eventTypeName' - The event type name.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'eventsDeletionStatus', 'getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus' - The deletion status.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'httpStatus', 'getDeleteEventsByEventTypeStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#newGetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">newGetDeleteEventsByEventTypeStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span>
+</span><span id="line-169"></span><span id="newGetDeleteEventsByEventTypeStatusResponse"><span class="annot"><span class="annottext">newGetDeleteEventsByEventTypeStatusResponse :: Int -&gt; GetDeleteEventsByEventTypeStatusResponse
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#newGetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-var hs-var">newGetDeleteEventsByEventTypeStatusResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679315762"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse' :: Maybe Text
+-&gt; Maybe AsyncJobStatus
+-&gt; Int
+-&gt; GetDeleteEventsByEventTypeStatusResponse
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventTypeName:GetDeleteEventsByEventTypeStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventsDeletionStatus:GetDeleteEventsByEventTypeStatusResponse' :: Maybe AsyncJobStatus
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventsDeletionStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">eventsDeletionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe AsyncJobStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeleteEventsByEventTypeStatusResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AhttpStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315762"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The event type name.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_eventTypeName"><span class="hs-identifier hs-type">getDeleteEventsByEventTypeStatusResponse_eventTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="getDeleteEventsByEventTypeStatusResponse_eventTypeName"><span class="annot"><span class="annottext">getDeleteEventsByEventTypeStatusResponse_eventTypeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDeleteEventsByEventTypeStatusResponse
+-&gt; f GetDeleteEventsByEventTypeStatusResponse
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_eventTypeName"><span class="hs-identifier hs-var hs-var">getDeleteEventsByEventTypeStatusResponse_eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeleteEventsByEventTypeStatusResponse -&gt; Maybe Text)
+-&gt; (GetDeleteEventsByEventTypeStatusResponse
+    -&gt; Maybe Text -&gt; GetDeleteEventsByEventTypeStatusResponse)
+-&gt; Lens
+     GetDeleteEventsByEventTypeStatusResponse
+     GetDeleteEventsByEventTypeStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315761"><span class="annot"><span class="annottext">Maybe Text
+eventTypeName :: Maybe Text
+$sel:eventTypeName:GetDeleteEventsByEventTypeStatusResponse' :: GetDeleteEventsByEventTypeStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679315761"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315761"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315760"><span class="annot"><span class="annottext">s :: GetDeleteEventsByEventTypeStatusResponse
+</span><a href="#local-6989586621679315760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315759"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse
+</span><a href="#local-6989586621679315760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeName:GetDeleteEventsByEventTypeStatusResponse' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventTypeName%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679315759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The deletion status.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus"><span class="hs-identifier hs-type">getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.AsyncJobStatus.html#AsyncJobStatus"><span class="hs-identifier hs-type">AsyncJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus"><span class="annot"><span class="annottext">getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus :: (Maybe AsyncJobStatus -&gt; f (Maybe AsyncJobStatus))
+-&gt; GetDeleteEventsByEventTypeStatusResponse
+-&gt; f GetDeleteEventsByEventTypeStatusResponse
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus"><span class="hs-identifier hs-var hs-var">getDeleteEventsByEventTypeStatusResponse_eventsDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeleteEventsByEventTypeStatusResponse -&gt; Maybe AsyncJobStatus)
+-&gt; (GetDeleteEventsByEventTypeStatusResponse
+    -&gt; Maybe AsyncJobStatus
+    -&gt; GetDeleteEventsByEventTypeStatusResponse)
+-&gt; Lens
+     GetDeleteEventsByEventTypeStatusResponse
+     GetDeleteEventsByEventTypeStatusResponse
+     (Maybe AsyncJobStatus)
+     (Maybe AsyncJobStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315758"><span class="annot"><span class="annottext">Maybe AsyncJobStatus
+eventsDeletionStatus :: Maybe AsyncJobStatus
+$sel:eventsDeletionStatus:GetDeleteEventsByEventTypeStatusResponse' :: GetDeleteEventsByEventTypeStatusResponse -&gt; Maybe AsyncJobStatus
+</span><a href="#local-6989586621679315758"><span class="hs-identifier hs-var hs-var">eventsDeletionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AsyncJobStatus
+</span><a href="#local-6989586621679315758"><span class="hs-identifier hs-var">eventsDeletionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315757"><span class="annot"><span class="annottext">s :: GetDeleteEventsByEventTypeStatusResponse
+</span><a href="#local-6989586621679315757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315756"><span class="annot"><span class="annottext">Maybe AsyncJobStatus
+</span><a href="#local-6989586621679315756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse
+</span><a href="#local-6989586621679315757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventsDeletionStatus:GetDeleteEventsByEventTypeStatusResponse' :: Maybe AsyncJobStatus
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AeventsDeletionStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">eventsDeletionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AsyncJobStatus
+</span><a href="#local-6989586621679315756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_httpStatus"><span class="hs-identifier hs-type">getDeleteEventsByEventTypeStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-189"></span><span id="getDeleteEventsByEventTypeStatusResponse_httpStatus"><span class="annot"><span class="annottext">getDeleteEventsByEventTypeStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDeleteEventsByEventTypeStatusResponse
+-&gt; f GetDeleteEventsByEventTypeStatusResponse
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#getDeleteEventsByEventTypeStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDeleteEventsByEventTypeStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDeleteEventsByEventTypeStatusResponse -&gt; Int)
+-&gt; (GetDeleteEventsByEventTypeStatusResponse
+    -&gt; Int -&gt; GetDeleteEventsByEventTypeStatusResponse)
+-&gt; Lens
+     GetDeleteEventsByEventTypeStatusResponse
+     GetDeleteEventsByEventTypeStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315755"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDeleteEventsByEventTypeStatusResponse' :: GetDeleteEventsByEventTypeStatusResponse -&gt; Int
+</span><a href="#local-6989586621679315755"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315755"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315754"><span class="annot"><span class="annottext">s :: GetDeleteEventsByEventTypeStatusResponse
+</span><a href="#local-6989586621679315754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315753"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeleteEventsByEventTypeStatusResponse
+</span><a href="#local-6989586621679315754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDeleteEventsByEventTypeStatusResponse' :: Int
+</span><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#%24sel%3AhttpStatus%3AGetDeleteEventsByEventTypeStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679315751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.FraudDetector.GetDeleteEventsByEventTypeStatus.html#GetDeleteEventsByEventTypeStatusResponse"><span class="hs-identifier hs-type">GetDeleteEventsByEventTypeStatusResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

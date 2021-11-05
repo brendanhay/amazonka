@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Metadata for a transform job step.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTransformJobStepMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680351534"><span id="local-6989586621680351535"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformJobStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-var">TransformJobStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformJobStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata%27"><span class="hs-identifier hs-var">TransformJobStepMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680351543"><span id="local-6989586621680351544"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformJobStepMetadata"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-var">TransformJobStepMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformJobStepMetadata%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata%27"><span class="hs-identifier hs-var">TransformJobStepMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transform job that was run by this</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- step execution.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3ATransformJobStepMetadata%27"><span class="annot"><span class="annottext">TransformJobStepMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#%24sel%3Aarn%3ATransformJobStepMetadata%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680351528"><span id="local-6989586621680351530"><span class="annot"><span class="annottext">TransformJobStepMetadata -&gt; TransformJobStepMetadata -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680351537"><span id="local-6989586621680351539"><span class="annot"><span class="annottext">TransformJobStepMetadata -&gt; TransformJobStepMetadata -&gt; Bool
 (TransformJobStepMetadata -&gt; TransformJobStepMetadata -&gt; Bool)
 -&gt; (TransformJobStepMetadata -&gt; TransformJobStepMetadata -&gt; Bool)
 -&gt; Eq TransformJobStepMetadata
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransformJobStepMetadata -&gt; TransformJobStepMetadata -&gt; Bool
 == :: TransformJobStepMetadata -&gt; TransformJobStepMetadata -&gt; Bool
 $c== :: TransformJobStepMetadata -&gt; TransformJobStepMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351519"><span id="local-6989586621680351521"><span id="local-6989586621680351523"><span id="local-6989586621680351525"><span class="annot"><span class="annottext">ReadPrec [TransformJobStepMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351528"><span id="local-6989586621680351530"><span id="local-6989586621680351532"><span id="local-6989586621680351534"><span class="annot"><span class="annottext">ReadPrec [TransformJobStepMetadata]
 ReadPrec TransformJobStepMetadata
 Int -&gt; ReadS TransformJobStepMetadata
 ReadS [TransformJobStepMetadata]
@@ -61,7 +61,7 @@ readList :: ReadS [TransformJobStepMetadata]
 $creadList :: ReadS [TransformJobStepMetadata]
 readsPrec :: Int -&gt; ReadS TransformJobStepMetadata
 $creadsPrec :: Int -&gt; ReadS TransformJobStepMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351512"><span id="local-6989586621680351514"><span id="local-6989586621680351516"><span class="annot"><span class="annottext">Int -&gt; TransformJobStepMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351521"><span id="local-6989586621680351523"><span id="local-6989586621680351525"><span class="annot"><span class="annottext">Int -&gt; TransformJobStepMetadata -&gt; ShowS
 [TransformJobStepMetadata] -&gt; ShowS
 TransformJobStepMetadata -&gt; String
 (Int -&gt; TransformJobStepMetadata -&gt; ShowS)
@@ -127,19 +127,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata%27"><span class="hs-identifier hs-type">TransformJobStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351503"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata%27"><span class="hs-identifier hs-type">TransformJobStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351512"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:TransformJobStepMetadata' :: TransformJobStepMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621680351503"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680351503"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351502"><span class="annot"><span class="annottext">s :: TransformJobStepMetadata
-</span><a href="#local-6989586621680351502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata%27"><span class="hs-identifier hs-type">TransformJobStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351501"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680351501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformJobStepMetadata
-</span><a href="#local-6989586621680351502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TransformJobStepMetadata' :: Maybe Text
+</span><a href="#local-6989586621680351512"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351512"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351511"><span class="annot"><span class="annottext">s :: TransformJobStepMetadata
+</span><a href="#local-6989586621680351511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata%27"><span class="hs-identifier hs-type">TransformJobStepMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformJobStepMetadata
+</span><a href="#local-6989586621680351511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TransformJobStepMetadata' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#%24sel%3Aarn%3ATransformJobStepMetadata%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680351501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680351510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351498"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621680351496"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformJobStepMetadata
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351507"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621680351505"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformJobStepMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TransformJobStepMetadata)
@@ -149,21 +149,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TransformJobStepMetadata&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680351493"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680351502"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351502"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; TransformJobStepMetadata
 </span><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata%27"><span class="hs-identifier hs-var">TransformJobStepMetadata'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; TransformJobStepMetadata)
 -&gt; Parser (Maybe Text) -&gt; Parser TransformJobStepMetadata
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680351493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680351502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351487"><span id="local-6989586621680351489"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351496"><span id="local-6989586621680351498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformJobStepMetadata.html#TransformJobStepMetadata"><span class="hs-identifier hs-type">TransformJobStepMetadata</span></a></span></span><span>
 </span><span id="line-68"></span></pre></body></html>

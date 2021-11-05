@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.Types.ObjectStorageServerProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.Types.ObjectStorageServerProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol"><span class="hs-identifier">ObjectStorageServerProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol_HTTP"><span class="hs-identifier">ObjectStorageServerProtocol_HTTP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol_HTTPS"><span class="hs-identifier">ObjectStorageServerProtocol_HTTPS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679249177"><span id="local-6989586621679249178"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectStorageServerProtocol"><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol"><span class="hs-identifier hs-var">ObjectStorageServerProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectStorageServerProtocol%27"><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol%27"><span class="hs-identifier hs-var">ObjectStorageServerProtocol'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectStorageServerProtocol"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; Text
+</span><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#fromObjectStorageServerProtocol"><span class="hs-identifier hs-var hs-var">fromObjectStorageServerProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249169"><span id="local-6989586621679249171"><span id="local-6989586621679249173"><span class="annot"><span class="annottext">Int -&gt; ObjectStorageServerProtocol -&gt; ShowS
+[ObjectStorageServerProtocol] -&gt; ShowS
+ObjectStorageServerProtocol -&gt; String
+(Int -&gt; ObjectStorageServerProtocol -&gt; ShowS)
+-&gt; (ObjectStorageServerProtocol -&gt; String)
+-&gt; ([ObjectStorageServerProtocol] -&gt; ShowS)
+-&gt; Show ObjectStorageServerProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ObjectStorageServerProtocol] -&gt; ShowS
+$cshowList :: [ObjectStorageServerProtocol] -&gt; ShowS
+show :: ObjectStorageServerProtocol -&gt; String
+$cshow :: ObjectStorageServerProtocol -&gt; String
+showsPrec :: Int -&gt; ObjectStorageServerProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; ObjectStorageServerProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679249160"><span id="local-6989586621679249162"><span id="local-6989586621679249164"><span id="local-6989586621679249166"><span class="annot"><span class="annottext">ReadPrec [ObjectStorageServerProtocol]
+ReadPrec ObjectStorageServerProtocol
+Int -&gt; ReadS ObjectStorageServerProtocol
+ReadS [ObjectStorageServerProtocol]
+(Int -&gt; ReadS ObjectStorageServerProtocol)
+-&gt; ReadS [ObjectStorageServerProtocol]
+-&gt; ReadPrec ObjectStorageServerProtocol
+-&gt; ReadPrec [ObjectStorageServerProtocol]
+-&gt; Read ObjectStorageServerProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ObjectStorageServerProtocol]
+$creadListPrec :: ReadPrec [ObjectStorageServerProtocol]
+readPrec :: ReadPrec ObjectStorageServerProtocol
+$creadPrec :: ReadPrec ObjectStorageServerProtocol
+readList :: ReadS [ObjectStorageServerProtocol]
+$creadList :: ReadS [ObjectStorageServerProtocol]
+readsPrec :: Int -&gt; ReadS ObjectStorageServerProtocol
+$creadsPrec :: Int -&gt; ReadS ObjectStorageServerProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679249155"><span id="local-6989586621679249157"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+(ObjectStorageServerProtocol
+ -&gt; ObjectStorageServerProtocol -&gt; Bool)
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; Bool)
+-&gt; Eq ObjectStorageServerProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+$c/= :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+== :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+$c== :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679249139"><span id="local-6989586621679249141"><span id="local-6989586621679249143"><span id="local-6989586621679249145"><span id="local-6989586621679249147"><span id="local-6989586621679249149"><span id="local-6989586621679249151"><span class="annot"><span class="annottext">Eq ObjectStorageServerProtocol
+Eq ObjectStorageServerProtocol
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; Ordering)
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; Bool)
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; Bool)
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; Bool)
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; Bool)
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol)
+-&gt; (ObjectStorageServerProtocol
+    -&gt; ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol)
+-&gt; Ord ObjectStorageServerProtocol
+ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; Ordering
+ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol
+$cmin :: ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol
+max :: ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol
+$cmax :: ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol
+&gt;= :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+$c&gt;= :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+&gt; :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+$c&gt; :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+&lt;= :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+$c&lt;= :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+&lt; :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+$c&lt; :: ObjectStorageServerProtocol -&gt; ObjectStorageServerProtocol -&gt; Bool
+compare :: ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; Ordering
+$ccompare :: ObjectStorageServerProtocol
+-&gt; ObjectStorageServerProtocol -&gt; Ordering
+$cp1Ord :: Eq ObjectStorageServerProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ObjectStorageServerProtocol -&gt; Rep ObjectStorageServerProtocol x)
+-&gt; (forall x.
+    Rep ObjectStorageServerProtocol x -&gt; ObjectStorageServerProtocol)
+-&gt; Generic ObjectStorageServerProtocol
+forall x.
+Rep ObjectStorageServerProtocol x -&gt; ObjectStorageServerProtocol
+forall x.
+ObjectStorageServerProtocol -&gt; Rep ObjectStorageServerProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ObjectStorageServerProtocol x -&gt; ObjectStorageServerProtocol
+$cfrom :: forall x.
+ObjectStorageServerProtocol -&gt; Rep ObjectStorageServerProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679249131"><span id="local-6989586621679249133"><span class="annot"><span class="annottext">Int -&gt; ObjectStorageServerProtocol -&gt; Int
+ObjectStorageServerProtocol -&gt; Int
+(Int -&gt; ObjectStorageServerProtocol -&gt; Int)
+-&gt; (ObjectStorageServerProtocol -&gt; Int)
+-&gt; Hashable ObjectStorageServerProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ObjectStorageServerProtocol -&gt; Int
+$chash :: ObjectStorageServerProtocol -&gt; Int
+hashWithSalt :: Int -&gt; ObjectStorageServerProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; ObjectStorageServerProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679249128"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; ()
+(ObjectStorageServerProtocol -&gt; ())
+-&gt; NFData ObjectStorageServerProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ObjectStorageServerProtocol -&gt; ()
+$crnf :: ObjectStorageServerProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679249125"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectStorageServerProtocol
+(Text -&gt; Either String ObjectStorageServerProtocol)
+-&gt; FromText ObjectStorageServerProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ObjectStorageServerProtocol
+$cfromText :: Text -&gt; Either String ObjectStorageServerProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679249122"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; Text
+(ObjectStorageServerProtocol -&gt; Text)
+-&gt; ToText ObjectStorageServerProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ObjectStorageServerProtocol -&gt; Text
+$ctoText :: ObjectStorageServerProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679249119"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; ByteString
+(ObjectStorageServerProtocol -&gt; ByteString)
+-&gt; ToByteString ObjectStorageServerProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ObjectStorageServerProtocol -&gt; ByteString
+$ctoBS :: ObjectStorageServerProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679249116"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; ByteStringBuilder
+(ObjectStorageServerProtocol -&gt; ByteStringBuilder)
+-&gt; ToLog ObjectStorageServerProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ObjectStorageServerProtocol -&gt; ByteStringBuilder
+$cbuild :: ObjectStorageServerProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679249113"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectStorageServerProtocol -&gt; [Header]
+(HeaderName -&gt; ObjectStorageServerProtocol -&gt; [Header])
+-&gt; ToHeader ObjectStorageServerProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ObjectStorageServerProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ObjectStorageServerProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679249110"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; QueryString
+(ObjectStorageServerProtocol -&gt; QueryString)
+-&gt; ToQuery ObjectStorageServerProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ObjectStorageServerProtocol -&gt; QueryString
+$ctoQuery :: ObjectStorageServerProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679249105"><span id="local-6989586621679249107"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectStorageServerProtocol]
+Value -&gt; Parser ObjectStorageServerProtocol
+(Value -&gt; Parser ObjectStorageServerProtocol)
+-&gt; (Value -&gt; Parser [ObjectStorageServerProtocol])
+-&gt; FromJSON ObjectStorageServerProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ObjectStorageServerProtocol]
+$cparseJSONList :: Value -&gt; Parser [ObjectStorageServerProtocol]
+parseJSON :: Value -&gt; Parser ObjectStorageServerProtocol
+$cparseJSON :: Value -&gt; Parser ObjectStorageServerProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679249100"><span id="local-6989586621679249102"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectStorageServerProtocol]
+FromJSONKeyFunction ObjectStorageServerProtocol
+FromJSONKeyFunction ObjectStorageServerProtocol
+-&gt; FromJSONKeyFunction [ObjectStorageServerProtocol]
+-&gt; FromJSONKey ObjectStorageServerProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ObjectStorageServerProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [ObjectStorageServerProtocol]
+fromJSONKey :: FromJSONKeyFunction ObjectStorageServerProtocol
+$cfromJSONKey :: FromJSONKeyFunction ObjectStorageServerProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679249091"><span id="local-6989586621679249093"><span id="local-6989586621679249095"><span id="local-6989586621679249097"><span class="annot"><span class="annottext">[ObjectStorageServerProtocol] -&gt; Encoding
+[ObjectStorageServerProtocol] -&gt; Value
+ObjectStorageServerProtocol -&gt; Encoding
+ObjectStorageServerProtocol -&gt; Value
+(ObjectStorageServerProtocol -&gt; Value)
+-&gt; (ObjectStorageServerProtocol -&gt; Encoding)
+-&gt; ([ObjectStorageServerProtocol] -&gt; Value)
+-&gt; ([ObjectStorageServerProtocol] -&gt; Encoding)
+-&gt; ToJSON ObjectStorageServerProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ObjectStorageServerProtocol] -&gt; Encoding
+$ctoEncodingList :: [ObjectStorageServerProtocol] -&gt; Encoding
+toJSONList :: [ObjectStorageServerProtocol] -&gt; Value
+$ctoJSONList :: [ObjectStorageServerProtocol] -&gt; Value
+toEncoding :: ObjectStorageServerProtocol -&gt; Encoding
+$ctoEncoding :: ObjectStorageServerProtocol -&gt; Encoding
+toJSON :: ObjectStorageServerProtocol -&gt; Value
+$ctoJSON :: ObjectStorageServerProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679249086"><span id="local-6989586621679249088"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectStorageServerProtocol]
+ToJSONKeyFunction ObjectStorageServerProtocol
+ToJSONKeyFunction ObjectStorageServerProtocol
+-&gt; ToJSONKeyFunction [ObjectStorageServerProtocol]
+-&gt; ToJSONKey ObjectStorageServerProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ObjectStorageServerProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [ObjectStorageServerProtocol]
+toJSONKey :: ToJSONKeyFunction ObjectStorageServerProtocol
+$ctoJSONKey :: ToJSONKeyFunction ObjectStorageServerProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679249083"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectStorageServerProtocol
+([Node] -&gt; Either String ObjectStorageServerProtocol)
+-&gt; FromXML ObjectStorageServerProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ObjectStorageServerProtocol
+$cparseXML :: [Node] -&gt; Either String ObjectStorageServerProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679249080"><span class="annot"><span class="annottext">ObjectStorageServerProtocol -&gt; XML
+(ObjectStorageServerProtocol -&gt; XML)
+-&gt; ToXML ObjectStorageServerProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ObjectStorageServerProtocol -&gt; XML
+$ctoXML :: ObjectStorageServerProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol_HTTP"><span class="hs-identifier hs-type">ObjectStorageServerProtocol_HTTP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol"><span class="hs-identifier hs-type">ObjectStorageServerProtocol</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectStorageServerProtocol_HTTP"><span id="%24mObjectStorageServerProtocol_HTTP"><span id="ObjectStorageServerProtocol_HTTP"><span class="annot"><span class="annottext">$bObjectStorageServerProtocol_HTTP :: ObjectStorageServerProtocol
+$mObjectStorageServerProtocol_HTTP :: forall r.
+ObjectStorageServerProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#%24bObjectStorageServerProtocol_HTTP"><span class="hs-identifier hs-var hs-var hs-var">ObjectStorageServerProtocol_HTTP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol%27"><span class="hs-identifier hs-type">ObjectStorageServerProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol_HTTPS"><span class="hs-identifier hs-type">ObjectStorageServerProtocol_HTTPS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol"><span class="hs-identifier hs-type">ObjectStorageServerProtocol</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bObjectStorageServerProtocol_HTTPS"><span id="%24mObjectStorageServerProtocol_HTTPS"><span id="ObjectStorageServerProtocol_HTTPS"><span class="annot"><span class="annottext">$bObjectStorageServerProtocol_HTTPS :: ObjectStorageServerProtocol
+$mObjectStorageServerProtocol_HTTPS :: forall r.
+ObjectStorageServerProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#%24bObjectStorageServerProtocol_HTTPS"><span class="hs-identifier hs-var hs-var hs-var">ObjectStorageServerProtocol_HTTPS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol%27"><span class="hs-identifier hs-type">ObjectStorageServerProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTPS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol_HTTP"><span class="hs-pragma hs-type">ObjectStorageServerProtocol_HTTP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol_HTTPS"><span class="hs-pragma hs-type">ObjectStorageServerProtocol_HTTPS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.Types.ObjectStorageServerProtocol.html#ObjectStorageServerProtocol%27"><span class="hs-pragma hs-type">ObjectStorageServerProtocol'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

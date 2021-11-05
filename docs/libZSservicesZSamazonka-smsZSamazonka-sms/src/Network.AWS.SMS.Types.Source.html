@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains the location of a validation script.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679247916"><span id="local-6989586621679247917"></span></span><span class="hs-keyword">data</span><span> </span><span id="Source"><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-var">Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Source%27"><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679247925"><span id="local-6989586621679247926"></span></span><span class="hs-keyword">data</span><span> </span><span id="Source"><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-var">Source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Source%27"><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3As3Location%3ASource%27"><span class="annot"><span class="annottext">Source -&gt; Maybe S3Location
 </span><a href="Network.AWS.SMS.Types.Source.html#%24sel%3As3Location%3ASource%27"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247910"><span id="local-6989586621679247912"><span class="annot"><span class="annottext">Source -&gt; Source -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247919"><span id="local-6989586621679247921"><span class="annot"><span class="annottext">Source -&gt; Source -&gt; Bool
 (Source -&gt; Source -&gt; Bool)
 -&gt; (Source -&gt; Source -&gt; Bool) -&gt; Eq Source
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Source -&gt; Source -&gt; Bool
 == :: Source -&gt; Source -&gt; Bool
 $c== :: Source -&gt; Source -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247901"><span id="local-6989586621679247903"><span id="local-6989586621679247905"><span id="local-6989586621679247907"><span class="annot"><span class="annottext">ReadPrec [Source]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247910"><span id="local-6989586621679247912"><span id="local-6989586621679247914"><span id="local-6989586621679247916"><span class="annot"><span class="annottext">ReadPrec [Source]
 ReadPrec Source
 Int -&gt; ReadS Source
 ReadS [Source]
@@ -59,7 +59,7 @@ readList :: ReadS [Source]
 $creadList :: ReadS [Source]
 readsPrec :: Int -&gt; ReadS Source
 $creadsPrec :: Int -&gt; ReadS Source
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247894"><span id="local-6989586621679247896"><span id="local-6989586621679247898"><span class="annot"><span class="annottext">Int -&gt; Source -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247903"><span id="local-6989586621679247905"><span id="local-6989586621679247907"><span class="annot"><span class="annottext">Int -&gt; Source -&gt; ShowS
 [Source] -&gt; ShowS
 Source -&gt; String
 (Int -&gt; Source -&gt; ShowS)
@@ -107,48 +107,48 @@ forall a. Maybe a
 -&gt; (Source -&gt; Maybe S3Location -&gt; Source)
 -&gt; Lens Source Source (Maybe S3Location) (Maybe S3Location)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247885"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247894"><span class="annot"><span class="annottext">Maybe S3Location
 s3Location :: Maybe S3Location
 $sel:s3Location:Source' :: Source -&gt; Maybe S3Location
-</span><a href="#local-6989586621679247885"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679247885"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247884"><span class="annot"><span class="annottext">s :: Source
-</span><a href="#local-6989586621679247884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247883"><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679247883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
-</span><a href="#local-6989586621679247884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:Source' :: Maybe S3Location
+</span><a href="#local-6989586621679247894"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679247894"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247893"><span class="annot"><span class="annottext">s :: Source
+</span><a href="#local-6989586621679247893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247892"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679247892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Source
+</span><a href="#local-6989586621679247893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:Source' :: Maybe S3Location
 </span><a href="Network.AWS.SMS.Types.Source.html#%24sel%3As3Location%3ASource%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679247883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247880"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679247878"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Source
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247889"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679247887"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Source
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Source) -&gt; Value -&gt; Parser Source
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Source&quot;</span></span><span>
-</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247875"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247875"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247884"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>          </span><span class="annot"><span class="annottext">Maybe S3Location -&gt; Source
 </span><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-var">Source'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe S3Location -&gt; Source)
 -&gt; Parser (Maybe S3Location) -&gt; Parser Source
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
+</span><a href="#local-6989586621679247884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Location&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247869"><span id="local-6989586621679247871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247878"><span id="local-6989586621679247880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247858"><span id="local-6989586621679247860"><span id="local-6989586621679247862"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679247856"><span class="annot"><span class="annottext">toJSON :: Source -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247854"><span class="annot"><span class="annottext">Maybe S3Location
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247867"><span id="local-6989586621679247869"><span id="local-6989586621679247871"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source"><span class="hs-identifier hs-type">Source</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679247865"><span class="annot"><span class="annottext">toJSON :: Source -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.Source.html#Source%27"><span class="hs-identifier hs-type">Source'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247863"><span class="annot"><span class="annottext">Maybe S3Location
 s3Location :: Maybe S3Location
 $sel:s3Location:Source' :: Source -&gt; Maybe S3Location
-</span><a href="#local-6989586621679247854"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679247863"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -160,6 +160,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Location -&gt; Pair) -&gt; Maybe S3Location -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
-</span><a href="#local-6989586621679247854"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679247863"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span></pre></body></html>

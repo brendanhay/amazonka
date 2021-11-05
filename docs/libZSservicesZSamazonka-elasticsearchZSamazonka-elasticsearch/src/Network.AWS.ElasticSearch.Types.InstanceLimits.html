@@ -28,11 +28,11 @@
 </span><span id="line-28"></span><span class="hs-comment">-- are available for given InstanceType.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceLimits' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679296642"><span id="local-6989586621679296643"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceLimits"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-var">InstanceLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceLimits%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-var">InstanceLimits'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679296651"><span id="local-6989586621679296652"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceLimits"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-var">InstanceLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceLimits%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-var">InstanceLimits'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AinstanceCountLimits%3AInstanceLimits%27"><span class="annot"><span class="annottext">InstanceLimits -&gt; Maybe InstanceCountLimits
 </span><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#%24sel%3AinstanceCountLimits%3AInstanceLimits%27"><span class="hs-identifier hs-var hs-var">instanceCountLimits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceCountLimits.html#InstanceCountLimits"><span class="hs-identifier hs-type">InstanceCountLimits</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296636"><span id="local-6989586621679296638"><span class="annot"><span class="annottext">InstanceLimits -&gt; InstanceLimits -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296645"><span id="local-6989586621679296647"><span class="annot"><span class="annottext">InstanceLimits -&gt; InstanceLimits -&gt; Bool
 (InstanceLimits -&gt; InstanceLimits -&gt; Bool)
 -&gt; (InstanceLimits -&gt; InstanceLimits -&gt; Bool) -&gt; Eq InstanceLimits
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceLimits -&gt; InstanceLimits -&gt; Bool
 == :: InstanceLimits -&gt; InstanceLimits -&gt; Bool
 $c== :: InstanceLimits -&gt; InstanceLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296627"><span id="local-6989586621679296629"><span id="local-6989586621679296631"><span id="local-6989586621679296633"><span class="annot"><span class="annottext">ReadPrec [InstanceLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296636"><span id="local-6989586621679296638"><span id="local-6989586621679296640"><span id="local-6989586621679296642"><span class="annot"><span class="annottext">ReadPrec [InstanceLimits]
 ReadPrec InstanceLimits
 Int -&gt; ReadS InstanceLimits
 ReadS [InstanceLimits]
@@ -60,7 +60,7 @@ readList :: ReadS [InstanceLimits]
 $creadList :: ReadS [InstanceLimits]
 readsPrec :: Int -&gt; ReadS InstanceLimits
 $creadsPrec :: Int -&gt; ReadS InstanceLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296620"><span id="local-6989586621679296622"><span id="local-6989586621679296624"><span class="annot"><span class="annottext">Int -&gt; InstanceLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296629"><span id="local-6989586621679296631"><span id="local-6989586621679296633"><span class="annot"><span class="annottext">Int -&gt; InstanceLimits -&gt; ShowS
 [InstanceLimits] -&gt; ShowS
 InstanceLimits -&gt; String
 (Int -&gt; InstanceLimits -&gt; ShowS)
@@ -120,19 +120,19 @@ forall a. Maybe a
      (Maybe InstanceCountLimits)
      (Maybe InstanceCountLimits)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-type">InstanceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296611"><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-type">InstanceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296620"><span class="annot"><span class="annottext">Maybe InstanceCountLimits
 instanceCountLimits :: Maybe InstanceCountLimits
 $sel:instanceCountLimits:InstanceLimits' :: InstanceLimits -&gt; Maybe InstanceCountLimits
-</span><a href="#local-6989586621679296611"><span class="hs-identifier hs-var hs-var">instanceCountLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits
-</span><a href="#local-6989586621679296611"><span class="hs-identifier hs-var">instanceCountLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296610"><span class="annot"><span class="annottext">s :: InstanceLimits
-</span><a href="#local-6989586621679296610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-type">InstanceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296609"><span class="annot"><span class="annottext">Maybe InstanceCountLimits
-</span><a href="#local-6989586621679296609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceLimits
-</span><a href="#local-6989586621679296610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCountLimits:InstanceLimits' :: Maybe InstanceCountLimits
+</span><a href="#local-6989586621679296620"><span class="hs-identifier hs-var hs-var">instanceCountLimits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+</span><a href="#local-6989586621679296620"><span class="hs-identifier hs-var">instanceCountLimits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296619"><span class="annot"><span class="annottext">s :: InstanceLimits
+</span><a href="#local-6989586621679296619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-type">InstanceLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296618"><span class="annot"><span class="annottext">Maybe InstanceCountLimits
+</span><a href="#local-6989586621679296618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceLimits
+</span><a href="#local-6989586621679296619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCountLimits:InstanceLimits' :: Maybe InstanceCountLimits
 </span><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#%24sel%3AinstanceCountLimits%3AInstanceLimits%27"><span class="hs-identifier hs-var">instanceCountLimits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits
-</span><a href="#local-6989586621679296609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679296618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296606"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679296604"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceLimits
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679296613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceLimits)
@@ -142,21 +142,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceLimits&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296601"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679296601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceCountLimits -&gt; InstanceLimits
 </span><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits%27"><span class="hs-identifier hs-var">InstanceLimits'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceCountLimits -&gt; InstanceLimits)
 -&gt; Parser (Maybe InstanceCountLimits) -&gt; Parser InstanceLimits
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679296601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceCountLimits)
+</span><a href="#local-6989586621679296610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceCountLimits)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceCountLimits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296595"><span id="local-6989586621679296597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296604"><span id="local-6989586621679296606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.InstanceLimits.html#InstanceLimits"><span class="hs-identifier hs-type">InstanceLimits</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

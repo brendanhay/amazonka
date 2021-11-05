@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Defines column statistics supported for fixed-point number data columns.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDecimalColumnStatisticsData' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679684901"><span id="local-6989586621679684902"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecimalColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-var">DecimalColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecimalColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">DecimalColumnStatisticsData'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679684910"><span id="local-6989586621679684911"></span></span><span class="hs-keyword">data</span><span> </span><span id="DecimalColumnStatisticsData"><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-var">DecimalColumnStatisticsData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DecimalColumnStatisticsData%27"><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">DecimalColumnStatisticsData'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The highest value in the column.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AmaximumValue%3ADecimalColumnStatisticsData%27"><span class="annot"><span class="annottext">DecimalColumnStatisticsData -&gt; Maybe DecimalNumber
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AmaximumValue%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalNumber.html#DecimalNumber"><span class="hs-identifier hs-type">DecimalNumber</span></a></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AnumberOfDistinctValues%3ADecimalColumnStatisticsData%27"><span class="annot"><span class="annottext">DecimalColumnStatisticsData -&gt; Natural
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684892"><span id="local-6989586621679684894"><span class="annot"><span class="annottext">DecimalColumnStatisticsData -&gt; DecimalColumnStatisticsData -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684901"><span id="local-6989586621679684903"><span class="annot"><span class="annottext">DecimalColumnStatisticsData -&gt; DecimalColumnStatisticsData -&gt; Bool
 (DecimalColumnStatisticsData
  -&gt; DecimalColumnStatisticsData -&gt; Bool)
 -&gt; (DecimalColumnStatisticsData
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DecimalColumnStatisticsData -&gt; DecimalColumnStatisticsData -&gt; Bool
 == :: DecimalColumnStatisticsData -&gt; DecimalColumnStatisticsData -&gt; Bool
 $c== :: DecimalColumnStatisticsData -&gt; DecimalColumnStatisticsData -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684883"><span id="local-6989586621679684885"><span id="local-6989586621679684887"><span id="local-6989586621679684889"><span class="annot"><span class="annottext">ReadPrec [DecimalColumnStatisticsData]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684892"><span id="local-6989586621679684894"><span id="local-6989586621679684896"><span id="local-6989586621679684898"><span class="annot"><span class="annottext">ReadPrec [DecimalColumnStatisticsData]
 ReadPrec DecimalColumnStatisticsData
 Int -&gt; ReadS DecimalColumnStatisticsData
 ReadS [DecimalColumnStatisticsData]
@@ -72,7 +72,7 @@ readList :: ReadS [DecimalColumnStatisticsData]
 $creadList :: ReadS [DecimalColumnStatisticsData]
 readsPrec :: Int -&gt; ReadS DecimalColumnStatisticsData
 $creadsPrec :: Int -&gt; ReadS DecimalColumnStatisticsData
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684876"><span id="local-6989586621679684878"><span id="local-6989586621679684880"><span class="annot"><span class="annottext">Int -&gt; DecimalColumnStatisticsData -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684885"><span id="local-6989586621679684887"><span id="local-6989586621679684889"><span class="annot"><span class="annottext">Int -&gt; DecimalColumnStatisticsData -&gt; ShowS
 [DecimalColumnStatisticsData] -&gt; ShowS
 DecimalColumnStatisticsData -&gt; String
 (Int -&gt; DecimalColumnStatisticsData -&gt; ShowS)
@@ -127,10 +127,10 @@ DecimalColumnStatisticsData -&gt; Rep DecimalColumnStatisticsData x
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span>
 </span><span id="line-63"></span><span id="newDecimalColumnStatisticsData"><span class="annot"><span class="annottext">newDecimalColumnStatisticsData :: Natural -&gt; Natural -&gt; DecimalColumnStatisticsData
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#newDecimalColumnStatisticsData"><span class="hs-identifier hs-var hs-var">newDecimalColumnStatisticsData</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679684870"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684870"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679684869"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684869"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679684879"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684879"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679684878"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684878"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData' :: Maybe DecimalNumber
 -&gt; Maybe DecimalNumber
 -&gt; Natural
@@ -148,11 +148,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfNulls:DecimalColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684870"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684879"><span class="hs-identifier hs-var">pNumberOfNulls_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:DecimalColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684869"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span><span>
+</span><a href="#local-6989586621679684878"><span class="hs-identifier hs-var">pNumberOfDistinctValues_</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The highest value in the column.</span><span>
@@ -168,16 +168,16 @@ forall a. Maybe a
      (Maybe DecimalNumber)
      (Maybe DecimalNumber)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684865"><span class="annot"><span class="annottext">Maybe DecimalNumber
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684874"><span class="annot"><span class="annottext">Maybe DecimalNumber
 maximumValue :: Maybe DecimalNumber
 $sel:maximumValue:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&gt; Maybe DecimalNumber
-</span><a href="#local-6989586621679684865"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684865"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684864"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684863"><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumValue:DecimalColumnStatisticsData' :: Maybe DecimalNumber
+</span><a href="#local-6989586621679684874"><span class="hs-identifier hs-var hs-var">maximumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
+</span><a href="#local-6989586621679684874"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684873"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684872"><span class="annot"><span class="annottext">Maybe DecimalNumber
+</span><a href="#local-6989586621679684872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumValue:DecimalColumnStatisticsData' :: Maybe DecimalNumber
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AmaximumValue%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">maximumValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679684872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The lowest value in the column.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#decimalColumnStatisticsData_minimumValue"><span class="hs-identifier hs-type">decimalColumnStatisticsData_minimumValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalNumber.html#DecimalNumber"><span class="hs-identifier hs-type">DecimalNumber</span></a></span><span class="hs-special">)</span><span>
@@ -192,16 +192,16 @@ $sel:maximumValue:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&
      (Maybe DecimalNumber)
      (Maybe DecimalNumber)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684861"><span class="annot"><span class="annottext">Maybe DecimalNumber
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684870"><span class="annot"><span class="annottext">Maybe DecimalNumber
 minimumValue :: Maybe DecimalNumber
 $sel:minimumValue:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&gt; Maybe DecimalNumber
-</span><a href="#local-6989586621679684861"><span class="hs-identifier hs-var hs-var">minimumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684861"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684860"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684859"><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumValue:DecimalColumnStatisticsData' :: Maybe DecimalNumber
+</span><a href="#local-6989586621679684870"><span class="hs-identifier hs-var hs-var">minimumValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
+</span><a href="#local-6989586621679684870"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684869"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684868"><span class="annot"><span class="annottext">Maybe DecimalNumber
+</span><a href="#local-6989586621679684868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumValue:DecimalColumnStatisticsData' :: Maybe DecimalNumber
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AminimumValue%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">minimumValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679684868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The number of null values in the column.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#decimalColumnStatisticsData_numberOfNulls"><span class="hs-identifier hs-type">decimalColumnStatisticsData_numberOfNulls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -216,16 +216,16 @@ $sel:minimumValue:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684857"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684866"><span class="annot"><span class="annottext">Natural
 numberOfNulls :: Natural
 $sel:numberOfNulls:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679684857"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684857"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684856"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684855"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:DecimalColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679684866"><span class="hs-identifier hs-var hs-var">numberOfNulls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684866"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684865"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684864"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfNulls:DecimalColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AnumberOfNulls%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679684864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The number of distinct values in a column.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#decimalColumnStatisticsData_numberOfDistinctValues"><span class="hs-identifier hs-type">decimalColumnStatisticsData_numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -240,19 +240,19 @@ $sel:numberOfNulls:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684853"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684862"><span class="annot"><span class="annottext">Natural
 numberOfDistinctValues :: Natural
 $sel:numberOfDistinctValues:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&gt; Natural
-</span><a href="#local-6989586621679684853"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684853"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684852"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684851"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
-</span><a href="#local-6989586621679684852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:DecimalColumnStatisticsData' :: Natural
+</span><a href="#local-6989586621679684862"><span class="hs-identifier hs-var hs-var">numberOfDistinctValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684862"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684861"><span class="annot"><span class="annottext">s :: DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684860"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679684860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DecimalColumnStatisticsData
+</span><a href="#local-6989586621679684861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDistinctValues:DecimalColumnStatisticsData' :: Natural
 </span><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#%24sel%3AnumberOfDistinctValues%3ADecimalColumnStatisticsData%27"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679684860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684848"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679684846"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DecimalColumnStatisticsData
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684857"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679684855"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DecimalColumnStatisticsData
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DecimalColumnStatisticsData)
@@ -262,8 +262,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DecimalColumnStatisticsData&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684843"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684843"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679684852"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679684852"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe DecimalNumber
 -&gt; Maybe DecimalNumber
 -&gt; Natural
@@ -281,7 +281,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Natural -&gt; Natural -&gt; DecimalColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DecimalNumber)
+</span><a href="#local-6989586621679684852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DecimalNumber)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,7 +292,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; Natural -&gt; DecimalColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DecimalNumber)
+</span><a href="#local-6989586621679684852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DecimalNumber)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,7 +301,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; DecimalColumnStatisticsData)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679684852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span class="hs-special">)</span><span>
@@ -309,19 +309,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser DecimalColumnStatisticsData
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679684843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679684852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfDistinctValues&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684836"><span id="local-6989586621679684838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684845"><span id="local-6989586621679684847"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684825"><span id="local-6989586621679684827"><span id="local-6989586621679684829"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679684823"><span class="annot"><span class="annottext">toJSON :: DecimalColumnStatisticsData -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684818"><span id="local-6989586621679684819"><span id="local-6989586621679684820"><span id="local-6989586621679684821"><span class="annot"><span class="annottext">Natural
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684834"><span id="local-6989586621679684836"><span id="local-6989586621679684838"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData"><span class="hs-identifier hs-type">DecimalColumnStatisticsData</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679684832"><span class="annot"><span class="annottext">toJSON :: DecimalColumnStatisticsData -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.DecimalColumnStatisticsData.html#DecimalColumnStatisticsData%27"><span class="hs-identifier hs-type">DecimalColumnStatisticsData'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684827"><span id="local-6989586621679684828"><span id="local-6989586621679684829"><span id="local-6989586621679684830"><span class="annot"><span class="annottext">Natural
 Maybe DecimalNumber
 numberOfDistinctValues :: Natural
 numberOfNulls :: Natural
@@ -331,7 +331,7 @@ $sel:numberOfDistinctValues:DecimalColumnStatisticsData' :: DecimalColumnStatist
 $sel:numberOfNulls:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&gt; Natural
 $sel:minimumValue:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&gt; Maybe DecimalNumber
 $sel:maximumValue:DecimalColumnStatisticsData' :: DecimalColumnStatisticsData -&gt; Maybe DecimalNumber
-</span><a href="#local-6989586621679684818"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679684827"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -343,21 +343,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DecimalNumber -&gt; Pair) -&gt; Maybe DecimalNumber -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684821"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684830"><span class="hs-identifier hs-var">maximumValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DecimalNumber -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DecimalNumber -&gt; Pair) -&gt; Maybe DecimalNumber -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DecimalNumber
-</span><a href="#local-6989586621679684820"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684829"><span class="hs-identifier hs-var">minimumValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfNulls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684819"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679684828"><span class="hs-identifier hs-var">numberOfNulls</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -366,7 +366,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-116"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679684818"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span>
+</span><a href="#local-6989586621679684827"><span class="hs-identifier hs-var">numberOfDistinctValues</span></a></span><span>
 </span><span id="line-117"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>

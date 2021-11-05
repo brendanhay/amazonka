@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- job specification, choose SPECIFIED. When you choose SPECIFIED for this</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- setting, you must also specify values for the parNumerator and</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- parDenominator settings.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621680014434"><span id="local-6989586621680014435"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8ParControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8ParControl.html#Vp8ParControl"><span class="hs-identifier hs-var">Vp8ParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8ParControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8ParControl.html#Vp8ParControl%27"><span class="hs-identifier hs-var">Vp8ParControl'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621680014443"><span id="local-6989586621680014444"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Vp8ParControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8ParControl.html#Vp8ParControl"><span class="hs-identifier hs-var">Vp8ParControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Vp8ParControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Vp8ParControl.html#Vp8ParControl%27"><span class="hs-identifier hs-var">Vp8ParControl'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVp8ParControl"><span class="annot"><span class="annottext">Vp8ParControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Vp8ParControl.html#fromVp8ParControl"><span class="hs-identifier hs-var hs-var">fromVp8ParControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014426"><span id="local-6989586621680014428"><span id="local-6989586621680014430"><span class="annot"><span class="annottext">Int -&gt; Vp8ParControl -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014435"><span id="local-6989586621680014437"><span id="local-6989586621680014439"><span class="annot"><span class="annottext">Int -&gt; Vp8ParControl -&gt; ShowS
 [Vp8ParControl] -&gt; ShowS
 Vp8ParControl -&gt; String
 (Int -&gt; Vp8ParControl -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: Vp8ParControl -&gt; String
 showsPrec :: Int -&gt; Vp8ParControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Vp8ParControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680014417"><span id="local-6989586621680014419"><span id="local-6989586621680014421"><span id="local-6989586621680014423"><span class="annot"><span class="annottext">ReadPrec [Vp8ParControl]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680014426"><span id="local-6989586621680014428"><span id="local-6989586621680014430"><span id="local-6989586621680014432"><span class="annot"><span class="annottext">ReadPrec [Vp8ParControl]
 ReadPrec Vp8ParControl
 Int -&gt; ReadS Vp8ParControl
 ReadS [Vp8ParControl]
@@ -80,7 +80,7 @@ $creadList :: ReadS [Vp8ParControl]
 readsPrec :: Int -&gt; ReadS Vp8ParControl
 $creadsPrec :: Int -&gt; ReadS Vp8ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680014412"><span id="local-6989586621680014414"><span class="annot"><span class="annottext">Vp8ParControl -&gt; Vp8ParControl -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680014421"><span id="local-6989586621680014423"><span class="annot"><span class="annottext">Vp8ParControl -&gt; Vp8ParControl -&gt; Bool
 (Vp8ParControl -&gt; Vp8ParControl -&gt; Bool)
 -&gt; (Vp8ParControl -&gt; Vp8ParControl -&gt; Bool) -&gt; Eq Vp8ParControl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -89,7 +89,7 @@ $c/= :: Vp8ParControl -&gt; Vp8ParControl -&gt; Bool
 == :: Vp8ParControl -&gt; Vp8ParControl -&gt; Bool
 $c== :: Vp8ParControl -&gt; Vp8ParControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680014396"><span id="local-6989586621680014398"><span id="local-6989586621680014400"><span id="local-6989586621680014402"><span id="local-6989586621680014404"><span id="local-6989586621680014406"><span id="local-6989586621680014408"><span class="annot"><span class="annottext">Eq Vp8ParControl
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680014405"><span id="local-6989586621680014407"><span id="local-6989586621680014409"><span id="local-6989586621680014411"><span id="local-6989586621680014413"><span id="local-6989586621680014415"><span id="local-6989586621680014417"><span class="annot"><span class="annottext">Eq Vp8ParControl
 Eq Vp8ParControl
 -&gt; (Vp8ParControl -&gt; Vp8ParControl -&gt; Ordering)
 -&gt; (Vp8ParControl -&gt; Vp8ParControl -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. Vp8ParControl -&gt; Rep Vp8ParControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014388"><span id="local-6989586621680014390"><span class="annot"><span class="annottext">Int -&gt; Vp8ParControl -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680014397"><span id="local-6989586621680014399"><span class="annot"><span class="annottext">Int -&gt; Vp8ParControl -&gt; Int
 Vp8ParControl -&gt; Int
 (Int -&gt; Vp8ParControl -&gt; Int)
 -&gt; (Vp8ParControl -&gt; Int) -&gt; Hashable Vp8ParControl
@@ -150,49 +150,49 @@ $chash :: Vp8ParControl -&gt; Int
 hashWithSalt :: Int -&gt; Vp8ParControl -&gt; Int
 $chashWithSalt :: Int -&gt; Vp8ParControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680014385"><span class="annot"><span class="annottext">Vp8ParControl -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680014394"><span class="annot"><span class="annottext">Vp8ParControl -&gt; ()
 (Vp8ParControl -&gt; ()) -&gt; NFData Vp8ParControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Vp8ParControl -&gt; ()
 $crnf :: Vp8ParControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680014382"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8ParControl
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680014391"><span class="annot"><span class="annottext">Text -&gt; Either String Vp8ParControl
 (Text -&gt; Either String Vp8ParControl) -&gt; FromText Vp8ParControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Vp8ParControl
 $cfromText :: Text -&gt; Either String Vp8ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680014379"><span class="annot"><span class="annottext">Vp8ParControl -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680014388"><span class="annot"><span class="annottext">Vp8ParControl -&gt; Text
 (Vp8ParControl -&gt; Text) -&gt; ToText Vp8ParControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Vp8ParControl -&gt; Text
 $ctoText :: Vp8ParControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680014376"><span class="annot"><span class="annottext">Vp8ParControl -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680014385"><span class="annot"><span class="annottext">Vp8ParControl -&gt; ByteString
 (Vp8ParControl -&gt; ByteString) -&gt; ToByteString Vp8ParControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Vp8ParControl -&gt; ByteString
 $ctoBS :: Vp8ParControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680014373"><span class="annot"><span class="annottext">Vp8ParControl -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680014382"><span class="annot"><span class="annottext">Vp8ParControl -&gt; ByteStringBuilder
 (Vp8ParControl -&gt; ByteStringBuilder) -&gt; ToLog Vp8ParControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Vp8ParControl -&gt; ByteStringBuilder
 $cbuild :: Vp8ParControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680014370"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8ParControl -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680014379"><span class="annot"><span class="annottext">HeaderName -&gt; Vp8ParControl -&gt; [Header]
 (HeaderName -&gt; Vp8ParControl -&gt; [Header]) -&gt; ToHeader Vp8ParControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Vp8ParControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Vp8ParControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680014367"><span class="annot"><span class="annottext">Vp8ParControl -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680014376"><span class="annot"><span class="annottext">Vp8ParControl -&gt; QueryString
 (Vp8ParControl -&gt; QueryString) -&gt; ToQuery Vp8ParControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Vp8ParControl -&gt; QueryString
 $ctoQuery :: Vp8ParControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680014362"><span id="local-6989586621680014364"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8ParControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680014371"><span id="local-6989586621680014373"><span class="annot"><span class="annottext">Value -&gt; Parser [Vp8ParControl]
 Value -&gt; Parser Vp8ParControl
 (Value -&gt; Parser Vp8ParControl)
 -&gt; (Value -&gt; Parser [Vp8ParControl]) -&gt; FromJSON Vp8ParControl
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [Vp8ParControl]
 parseJSON :: Value -&gt; Parser Vp8ParControl
 $cparseJSON :: Value -&gt; Parser Vp8ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680014357"><span id="local-6989586621680014359"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8ParControl]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680014366"><span id="local-6989586621680014368"><span class="annot"><span class="annottext">FromJSONKeyFunction [Vp8ParControl]
 FromJSONKeyFunction Vp8ParControl
 FromJSONKeyFunction Vp8ParControl
 -&gt; FromJSONKeyFunction [Vp8ParControl] -&gt; FromJSONKey Vp8ParControl
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Vp8ParControl]
 fromJSONKey :: FromJSONKeyFunction Vp8ParControl
 $cfromJSONKey :: FromJSONKeyFunction Vp8ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680014348"><span id="local-6989586621680014350"><span id="local-6989586621680014352"><span id="local-6989586621680014354"><span class="annot"><span class="annottext">[Vp8ParControl] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680014357"><span id="local-6989586621680014359"><span id="local-6989586621680014361"><span id="local-6989586621680014363"><span class="annot"><span class="annottext">[Vp8ParControl] -&gt; Encoding
 [Vp8ParControl] -&gt; Value
 Vp8ParControl -&gt; Encoding
 Vp8ParControl -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: Vp8ParControl -&gt; Encoding
 toJSON :: Vp8ParControl -&gt; Value
 $ctoJSON :: Vp8ParControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680014343"><span id="local-6989586621680014345"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8ParControl]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680014352"><span id="local-6989586621680014354"><span class="annot"><span class="annottext">ToJSONKeyFunction [Vp8ParControl]
 ToJSONKeyFunction Vp8ParControl
 ToJSONKeyFunction Vp8ParControl
 -&gt; ToJSONKeyFunction [Vp8ParControl] -&gt; ToJSONKey Vp8ParControl
@@ -249,13 +249,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Vp8ParControl]
 toJSONKey :: ToJSONKeyFunction Vp8ParControl
 $ctoJSONKey :: ToJSONKeyFunction Vp8ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680014340"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8ParControl
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680014349"><span class="annot"><span class="annottext">[Node] -&gt; Either String Vp8ParControl
 ([Node] -&gt; Either String Vp8ParControl) -&gt; FromXML Vp8ParControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Vp8ParControl
 $cparseXML :: [Node] -&gt; Either String Vp8ParControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680014337"><span class="annot"><span class="annottext">Vp8ParControl -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680014346"><span class="annot"><span class="annottext">Vp8ParControl -&gt; XML
 (Vp8ParControl -&gt; XML) -&gt; ToXML Vp8ParControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Vp8ParControl -&gt; XML

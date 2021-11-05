@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about a trigger for a repository.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRepositoryTrigger' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679354508"><span id="local-6989586621679354509"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepositoryTrigger"><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-var">RepositoryTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepositoryTrigger%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-var">RepositoryTrigger'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679354517"><span id="local-6989586621679354518"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepositoryTrigger"><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-var">RepositoryTrigger</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepositoryTrigger%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-var">RepositoryTrigger'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The branches to be included in the trigger configuration. If you specify</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- an empty array, the trigger applies to all branches.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aevents%3ARepositoryTrigger%27"><span class="annot"><span class="annottext">RepositoryTrigger -&gt; [RepositoryTriggerEventEnum]
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3Aevents%3ARepositoryTrigger%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum.html#RepositoryTriggerEventEnum"><span class="hs-identifier hs-type">RepositoryTriggerEventEnum</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354498"><span id="local-6989586621679354500"><span class="annot"><span class="annottext">RepositoryTrigger -&gt; RepositoryTrigger -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354507"><span id="local-6989586621679354509"><span class="annot"><span class="annottext">RepositoryTrigger -&gt; RepositoryTrigger -&gt; Bool
 (RepositoryTrigger -&gt; RepositoryTrigger -&gt; Bool)
 -&gt; (RepositoryTrigger -&gt; RepositoryTrigger -&gt; Bool)
 -&gt; Eq RepositoryTrigger
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RepositoryTrigger -&gt; RepositoryTrigger -&gt; Bool
 == :: RepositoryTrigger -&gt; RepositoryTrigger -&gt; Bool
 $c== :: RepositoryTrigger -&gt; RepositoryTrigger -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354489"><span id="local-6989586621679354491"><span id="local-6989586621679354493"><span id="local-6989586621679354495"><span class="annot"><span class="annottext">ReadPrec [RepositoryTrigger]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354498"><span id="local-6989586621679354500"><span id="local-6989586621679354502"><span id="local-6989586621679354504"><span class="annot"><span class="annottext">ReadPrec [RepositoryTrigger]
 ReadPrec RepositoryTrigger
 Int -&gt; ReadS RepositoryTrigger
 ReadS [RepositoryTrigger]
@@ -82,7 +82,7 @@ readList :: ReadS [RepositoryTrigger]
 $creadList :: ReadS [RepositoryTrigger]
 readsPrec :: Int -&gt; ReadS RepositoryTrigger
 $creadsPrec :: Int -&gt; ReadS RepositoryTrigger
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354482"><span id="local-6989586621679354484"><span id="local-6989586621679354486"><span class="annot"><span class="annottext">Int -&gt; RepositoryTrigger -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354491"><span id="local-6989586621679354493"><span id="local-6989586621679354495"><span class="annot"><span class="annottext">Int -&gt; RepositoryTrigger -&gt; ShowS
 [RepositoryTrigger] -&gt; ShowS
 RepositoryTrigger -&gt; String
 (Int -&gt; RepositoryTrigger -&gt; ShowS)
@@ -141,9 +141,9 @@ $cfrom :: forall x. RepositoryTrigger -&gt; Rep RepositoryTrigger x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span>
 </span><span id="line-85"></span><span id="newRepositoryTrigger"><span class="annot"><span class="annottext">newRepositoryTrigger :: Text -&gt; Text -&gt; RepositoryTrigger
-</span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#newRepositoryTrigger"><span class="hs-identifier hs-var hs-var">newRepositoryTrigger</span></a></span></span><span> </span><span id="local-6989586621679354476"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354476"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679354475"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354475"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#newRepositoryTrigger"><span class="hs-identifier hs-var hs-var">newRepositoryTrigger</span></a></span></span><span> </span><span id="local-6989586621679354485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354485"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679354484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354484"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">RepositoryTrigger' :: Maybe [Text]
 -&gt; Maybe Text
 -&gt; Text
@@ -161,10 +161,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:RepositoryTrigger' :: Text
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3Aname%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354476"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354485"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationArn:RepositoryTrigger' :: Text
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3AdestinationArn%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354475"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354484"><span class="hs-identifier hs-var">pDestinationArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:events:RepositoryTrigger' :: [RepositoryTriggerEventEnum]
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3Aevents%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
 forall a. Monoid a =&gt; a
@@ -184,16 +184,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      RepositoryTrigger RepositoryTrigger (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354471"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354480"><span class="annot"><span class="annottext">Maybe [Text]
 branches :: Maybe [Text]
 $sel:branches:RepositoryTrigger' :: RepositoryTrigger -&gt; Maybe [Text]
-</span><a href="#local-6989586621679354471"><span class="hs-identifier hs-var hs-var">branches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679354471"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354470"><span class="annot"><span class="annottext">s :: RepositoryTrigger
-</span><a href="#local-6989586621679354470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354469"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679354469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
-</span><a href="#local-6989586621679354470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branches:RepositoryTrigger' :: Maybe [Text]
+</span><a href="#local-6989586621679354480"><span class="hs-identifier hs-var hs-var">branches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679354480"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354479"><span class="annot"><span class="annottext">s :: RepositoryTrigger
+</span><a href="#local-6989586621679354479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354478"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679354478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
+</span><a href="#local-6989586621679354479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branches:RepositoryTrigger' :: Maybe [Text]
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3Abranches%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">branches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679354469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679354478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RepositoryTrigger -&gt; f RepositoryTrigger)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -220,16 +220,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      RepositoryTrigger RepositoryTrigger (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354464"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354473"><span class="annot"><span class="annottext">Maybe Text
 customData :: Maybe Text
 $sel:customData:RepositoryTrigger' :: RepositoryTrigger -&gt; Maybe Text
-</span><a href="#local-6989586621679354464"><span class="hs-identifier hs-var hs-var">customData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354464"><span class="hs-identifier hs-var">customData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354463"><span class="annot"><span class="annottext">s :: RepositoryTrigger
-</span><a href="#local-6989586621679354463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354462"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
-</span><a href="#local-6989586621679354463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customData:RepositoryTrigger' :: Maybe Text
+</span><a href="#local-6989586621679354473"><span class="hs-identifier hs-var hs-var">customData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354473"><span class="hs-identifier hs-var">customData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354472"><span class="annot"><span class="annottext">s :: RepositoryTrigger
+</span><a href="#local-6989586621679354472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354471"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
+</span><a href="#local-6989586621679354472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customData:RepositoryTrigger' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3AcustomData%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">customData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The name of the trigger.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#repositoryTrigger_name"><span class="hs-identifier hs-type">repositoryTrigger_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -238,16 +238,16 @@ $sel:customData:RepositoryTrigger' :: RepositoryTrigger -&gt; Maybe Text
 -&gt; (RepositoryTrigger -&gt; Text -&gt; RepositoryTrigger)
 -&gt; Lens RepositoryTrigger RepositoryTrigger Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354460"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354469"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:RepositoryTrigger' :: RepositoryTrigger -&gt; Text
-</span><a href="#local-6989586621679354460"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354460"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354459"><span class="annot"><span class="annottext">s :: RepositoryTrigger
-</span><a href="#local-6989586621679354459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354458"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
-</span><a href="#local-6989586621679354459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RepositoryTrigger' :: Text
+</span><a href="#local-6989586621679354469"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354469"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354468"><span class="annot"><span class="annottext">s :: RepositoryTrigger
+</span><a href="#local-6989586621679354468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
+</span><a href="#local-6989586621679354468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:RepositoryTrigger' :: Text
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3Aname%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The ARN of the resource that is the target for a trigger (for example,</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- the ARN of a topic in Amazon SNS).</span><span>
@@ -257,16 +257,16 @@ $sel:name:RepositoryTrigger' :: RepositoryTrigger -&gt; Text
 -&gt; (RepositoryTrigger -&gt; Text -&gt; RepositoryTrigger)
 -&gt; Lens RepositoryTrigger RepositoryTrigger Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354456"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354465"><span class="annot"><span class="annottext">Text
 destinationArn :: Text
 $sel:destinationArn:RepositoryTrigger' :: RepositoryTrigger -&gt; Text
-</span><a href="#local-6989586621679354456"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354456"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354455"><span class="annot"><span class="annottext">s :: RepositoryTrigger
-</span><a href="#local-6989586621679354455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354454"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
-</span><a href="#local-6989586621679354455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:RepositoryTrigger' :: Text
+</span><a href="#local-6989586621679354465"><span class="hs-identifier hs-var hs-var">destinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354465"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354464"><span class="annot"><span class="annottext">s :: RepositoryTrigger
+</span><a href="#local-6989586621679354464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354463"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
+</span><a href="#local-6989586621679354464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationArn:RepositoryTrigger' :: Text
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3AdestinationArn%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">destinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The repository events that cause the trigger to run actions in another</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- service, such as sending a notification through Amazon SNS.</span><span>
@@ -284,16 +284,16 @@ $sel:destinationArn:RepositoryTrigger' :: RepositoryTrigger -&gt; Text
      [RepositoryTriggerEventEnum]
      [RepositoryTriggerEventEnum]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354452"><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354461"><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
 events :: [RepositoryTriggerEventEnum]
 $sel:events:RepositoryTrigger' :: RepositoryTrigger -&gt; [RepositoryTriggerEventEnum]
-</span><a href="#local-6989586621679354452"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
-</span><a href="#local-6989586621679354452"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354451"><span class="annot"><span class="annottext">s :: RepositoryTrigger
-</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354450"><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
-</span><a href="#local-6989586621679354450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
-</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:RepositoryTrigger' :: [RepositoryTriggerEventEnum]
+</span><a href="#local-6989586621679354461"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
+</span><a href="#local-6989586621679354461"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354460"><span class="annot"><span class="annottext">s :: RepositoryTrigger
+</span><a href="#local-6989586621679354460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354459"><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
+</span><a href="#local-6989586621679354459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryTrigger
+</span><a href="#local-6989586621679354460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:RepositoryTrigger' :: [RepositoryTriggerEventEnum]
 </span><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#%24sel%3Aevents%3ARepositoryTrigger%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
-</span><a href="#local-6989586621679354450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RepositoryTriggerEventEnum] -&gt; f [RepositoryTriggerEventEnum])
+</span><a href="#local-6989586621679354459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RepositoryTriggerEventEnum] -&gt; f [RepositoryTriggerEventEnum])
  -&gt; RepositoryTrigger -&gt; f RepositoryTrigger)
 -&gt; (([RepositoryTriggerEventEnum]
      -&gt; f [RepositoryTriggerEventEnum])
@@ -307,8 +307,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354447"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679354445"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RepositoryTrigger
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679354454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RepositoryTrigger
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RepositoryTrigger)
@@ -318,8 +318,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RepositoryTrigger&quot;</span></span><span>
-</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354442"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text
 -&gt; Text
@@ -342,7 +342,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; RepositoryTrigger)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;branches&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -362,7 +362,7 @@ forall a. Monoid a =&gt; a
      (Text -&gt; Text -&gt; [RepositoryTriggerEventEnum] -&gt; RepositoryTrigger)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customData&quot;</span></span><span class="hs-special">)</span><span>
@@ -373,7 +373,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Text -&gt; [RepositoryTriggerEventEnum] -&gt; RepositoryTrigger)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,7 +382,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ([RepositoryTriggerEventEnum] -&gt; RepositoryTrigger)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -390,7 +390,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [RepositoryTriggerEventEnum] -&gt; Parser RepositoryTrigger
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [RepositoryTriggerEventEnum])
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [RepositoryTriggerEventEnum])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [RepositoryTriggerEventEnum])
@@ -402,13 +402,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354434"><span id="local-6989586621679354436"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354443"><span id="local-6989586621679354445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354423"><span id="local-6989586621679354425"><span id="local-6989586621679354427"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679354421"><span class="annot"><span class="annottext">toJSON :: RepositoryTrigger -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354415"><span id="local-6989586621679354416"><span id="local-6989586621679354417"><span id="local-6989586621679354418"><span id="local-6989586621679354419"><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679354432"><span id="local-6989586621679354434"><span id="local-6989586621679354436"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger"><span class="hs-identifier hs-type">RepositoryTrigger</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679354430"><span class="annot"><span class="annottext">toJSON :: RepositoryTrigger -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.RepositoryTrigger.html#RepositoryTrigger%27"><span class="hs-identifier hs-type">RepositoryTrigger'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354424"><span id="local-6989586621679354425"><span id="local-6989586621679354426"><span id="local-6989586621679354427"><span id="local-6989586621679354428"><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
 Maybe [Text]
 Maybe Text
 Text
@@ -422,7 +422,7 @@ $sel:destinationArn:RepositoryTrigger' :: RepositoryTrigger -&gt; Text
 $sel:name:RepositoryTrigger' :: RepositoryTrigger -&gt; Text
 $sel:customData:RepositoryTrigger' :: RepositoryTrigger -&gt; Maybe Text
 $sel:branches:RepositoryTrigger' :: RepositoryTrigger -&gt; Maybe [Text]
-</span><a href="#local-6989586621679354415"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679354424"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -434,21 +434,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679354419"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354428"><span class="hs-identifier hs-var">branches</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;customData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354418"><span class="hs-identifier hs-var">customData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354427"><span class="hs-identifier hs-var">customData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354417"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354426"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -456,14 +456,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;destinationArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354416"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354425"><span class="hs-identifier hs-var">destinationArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RepositoryTriggerEventEnum] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[RepositoryTriggerEventEnum]
-</span><a href="#local-6989586621679354415"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354424"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span></pre></body></html>

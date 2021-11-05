@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-comment">-- @MOCK@ for testing without actually invoking the backend; @HTTP_PROXY@</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- for integrating with the HTTP proxy integration; @AWS_PROXY@ for</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- integrating with the Lambda proxy integration.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679367469"><span id="local-6989586621679367470"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IntegrationType"><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-var">IntegrationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntegrationType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-var">IntegrationType'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679367478"><span id="local-6989586621679367479"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="IntegrationType"><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationType.html#IntegrationType"><span class="hs-identifier hs-var">IntegrationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntegrationType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.IntegrationType.html#IntegrationType%27"><span class="hs-identifier hs-var">IntegrationType'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIntegrationType"><span class="annot"><span class="annottext">IntegrationType -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.IntegrationType.html#fromIntegrationType"><span class="hs-identifier hs-var hs-var">fromIntegrationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367461"><span id="local-6989586621679367463"><span id="local-6989586621679367465"><span class="annot"><span class="annottext">Int -&gt; IntegrationType -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367470"><span id="local-6989586621679367472"><span id="local-6989586621679367474"><span class="annot"><span class="annottext">Int -&gt; IntegrationType -&gt; ShowS
 [IntegrationType] -&gt; ShowS
 IntegrationType -&gt; String
 (Int -&gt; IntegrationType -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: IntegrationType -&gt; String
 showsPrec :: Int -&gt; IntegrationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; IntegrationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679367452"><span id="local-6989586621679367454"><span id="local-6989586621679367456"><span id="local-6989586621679367458"><span class="annot"><span class="annottext">ReadPrec [IntegrationType]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679367461"><span id="local-6989586621679367463"><span id="local-6989586621679367465"><span id="local-6989586621679367467"><span class="annot"><span class="annottext">ReadPrec [IntegrationType]
 ReadPrec IntegrationType
 Int -&gt; ReadS IntegrationType
 ReadS [IntegrationType]
@@ -80,7 +80,7 @@ $creadList :: ReadS [IntegrationType]
 readsPrec :: Int -&gt; ReadS IntegrationType
 $creadsPrec :: Int -&gt; ReadS IntegrationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679367447"><span id="local-6989586621679367449"><span class="annot"><span class="annottext">IntegrationType -&gt; IntegrationType -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679367456"><span id="local-6989586621679367458"><span class="annot"><span class="annottext">IntegrationType -&gt; IntegrationType -&gt; Bool
 (IntegrationType -&gt; IntegrationType -&gt; Bool)
 -&gt; (IntegrationType -&gt; IntegrationType -&gt; Bool)
 -&gt; Eq IntegrationType
@@ -90,7 +90,7 @@ $c/= :: IntegrationType -&gt; IntegrationType -&gt; Bool
 == :: IntegrationType -&gt; IntegrationType -&gt; Bool
 $c== :: IntegrationType -&gt; IntegrationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679367431"><span id="local-6989586621679367433"><span id="local-6989586621679367435"><span id="local-6989586621679367437"><span id="local-6989586621679367439"><span id="local-6989586621679367441"><span id="local-6989586621679367443"><span class="annot"><span class="annottext">Eq IntegrationType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679367440"><span id="local-6989586621679367442"><span id="local-6989586621679367444"><span id="local-6989586621679367446"><span id="local-6989586621679367448"><span id="local-6989586621679367450"><span id="local-6989586621679367452"><span class="annot"><span class="annottext">Eq IntegrationType
 Eq IntegrationType
 -&gt; (IntegrationType -&gt; IntegrationType -&gt; Ordering)
 -&gt; (IntegrationType -&gt; IntegrationType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. IntegrationType -&gt; Rep IntegrationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367423"><span id="local-6989586621679367425"><span class="annot"><span class="annottext">Int -&gt; IntegrationType -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367432"><span id="local-6989586621679367434"><span class="annot"><span class="annottext">Int -&gt; IntegrationType -&gt; Int
 IntegrationType -&gt; Int
 (Int -&gt; IntegrationType -&gt; Int)
 -&gt; (IntegrationType -&gt; Int) -&gt; Hashable IntegrationType
@@ -151,50 +151,50 @@ $chash :: IntegrationType -&gt; Int
 hashWithSalt :: Int -&gt; IntegrationType -&gt; Int
 $chashWithSalt :: Int -&gt; IntegrationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367420"><span class="annot"><span class="annottext">IntegrationType -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367429"><span class="annot"><span class="annottext">IntegrationType -&gt; ()
 (IntegrationType -&gt; ()) -&gt; NFData IntegrationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: IntegrationType -&gt; ()
 $crnf :: IntegrationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367417"><span class="annot"><span class="annottext">Text -&gt; Either String IntegrationType
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367426"><span class="annot"><span class="annottext">Text -&gt; Either String IntegrationType
 (Text -&gt; Either String IntegrationType) -&gt; FromText IntegrationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String IntegrationType
 $cfromText :: Text -&gt; Either String IntegrationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367414"><span class="annot"><span class="annottext">IntegrationType -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367423"><span class="annot"><span class="annottext">IntegrationType -&gt; Text
 (IntegrationType -&gt; Text) -&gt; ToText IntegrationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: IntegrationType -&gt; Text
 $ctoText :: IntegrationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367411"><span class="annot"><span class="annottext">IntegrationType -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367420"><span class="annot"><span class="annottext">IntegrationType -&gt; ByteString
 (IntegrationType -&gt; ByteString) -&gt; ToByteString IntegrationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: IntegrationType -&gt; ByteString
 $ctoBS :: IntegrationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367408"><span class="annot"><span class="annottext">IntegrationType -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367417"><span class="annot"><span class="annottext">IntegrationType -&gt; ByteStringBuilder
 (IntegrationType -&gt; ByteStringBuilder) -&gt; ToLog IntegrationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: IntegrationType -&gt; ByteStringBuilder
 $cbuild :: IntegrationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367405"><span class="annot"><span class="annottext">HeaderName -&gt; IntegrationType -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367414"><span class="annot"><span class="annottext">HeaderName -&gt; IntegrationType -&gt; [Header]
 (HeaderName -&gt; IntegrationType -&gt; [Header])
 -&gt; ToHeader IntegrationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; IntegrationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; IntegrationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679367402"><span class="annot"><span class="annottext">IntegrationType -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679367411"><span class="annot"><span class="annottext">IntegrationType -&gt; QueryString
 (IntegrationType -&gt; QueryString) -&gt; ToQuery IntegrationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: IntegrationType -&gt; QueryString
 $ctoQuery :: IntegrationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367397"><span id="local-6989586621679367399"><span class="annot"><span class="annottext">Value -&gt; Parser [IntegrationType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679367406"><span id="local-6989586621679367408"><span class="annot"><span class="annottext">Value -&gt; Parser [IntegrationType]
 Value -&gt; Parser IntegrationType
 (Value -&gt; Parser IntegrationType)
 -&gt; (Value -&gt; Parser [IntegrationType]) -&gt; FromJSON IntegrationType
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [IntegrationType]
 parseJSON :: Value -&gt; Parser IntegrationType
 $cparseJSON :: Value -&gt; Parser IntegrationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679367392"><span id="local-6989586621679367394"><span class="annot"><span class="annottext">FromJSONKeyFunction [IntegrationType]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679367401"><span id="local-6989586621679367403"><span class="annot"><span class="annottext">FromJSONKeyFunction [IntegrationType]
 FromJSONKeyFunction IntegrationType
 FromJSONKeyFunction IntegrationType
 -&gt; FromJSONKeyFunction [IntegrationType]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [IntegrationType]
 fromJSONKey :: FromJSONKeyFunction IntegrationType
 $cfromJSONKey :: FromJSONKeyFunction IntegrationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679367383"><span id="local-6989586621679367385"><span id="local-6989586621679367387"><span id="local-6989586621679367389"><span class="annot"><span class="annottext">[IntegrationType] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679367392"><span id="local-6989586621679367394"><span id="local-6989586621679367396"><span id="local-6989586621679367398"><span class="annot"><span class="annottext">[IntegrationType] -&gt; Encoding
 [IntegrationType] -&gt; Value
 IntegrationType -&gt; Encoding
 IntegrationType -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: IntegrationType -&gt; Encoding
 toJSON :: IntegrationType -&gt; Value
 $ctoJSON :: IntegrationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679367378"><span id="local-6989586621679367380"><span class="annot"><span class="annottext">ToJSONKeyFunction [IntegrationType]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679367387"><span id="local-6989586621679367389"><span class="annot"><span class="annottext">ToJSONKeyFunction [IntegrationType]
 ToJSONKeyFunction IntegrationType
 ToJSONKeyFunction IntegrationType
 -&gt; ToJSONKeyFunction [IntegrationType] -&gt; ToJSONKey IntegrationType
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [IntegrationType]
 toJSONKey :: ToJSONKeyFunction IntegrationType
 $ctoJSONKey :: ToJSONKeyFunction IntegrationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679367375"><span class="annot"><span class="annottext">[Node] -&gt; Either String IntegrationType
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679367384"><span class="annot"><span class="annottext">[Node] -&gt; Either String IntegrationType
 ([Node] -&gt; Either String IntegrationType)
 -&gt; FromXML IntegrationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String IntegrationType
 $cparseXML :: [Node] -&gt; Either String IntegrationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679367372"><span class="annot"><span class="annottext">IntegrationType -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679367381"><span class="annot"><span class="annottext">IntegrationType -&gt; XML
 (IntegrationType -&gt; XML) -&gt; ToXML IntegrationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: IntegrationType -&gt; XML

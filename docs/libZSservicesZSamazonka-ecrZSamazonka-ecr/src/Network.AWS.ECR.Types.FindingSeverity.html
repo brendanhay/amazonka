@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679231689"><span id="local-6989586621679231690"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingSeverity"><span class="annot"><a href="Network.AWS.ECR.Types.FindingSeverity.html#FindingSeverity"><span class="hs-identifier hs-var">FindingSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingSeverity%27"><span class="annot"><a href="Network.AWS.ECR.Types.FindingSeverity.html#FindingSeverity%27"><span class="hs-identifier hs-var">FindingSeverity'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679231698"><span id="local-6989586621679231699"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FindingSeverity"><span class="annot"><a href="Network.AWS.ECR.Types.FindingSeverity.html#FindingSeverity"><span class="hs-identifier hs-var">FindingSeverity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingSeverity%27"><span class="annot"><a href="Network.AWS.ECR.Types.FindingSeverity.html#FindingSeverity%27"><span class="hs-identifier hs-var">FindingSeverity'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFindingSeverity"><span class="annot"><span class="annottext">FindingSeverity -&gt; Text
 </span><a href="Network.AWS.ECR.Types.FindingSeverity.html#fromFindingSeverity"><span class="hs-identifier hs-var hs-var">fromFindingSeverity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231681"><span id="local-6989586621679231683"><span id="local-6989586621679231685"><span class="annot"><span class="annottext">Int -&gt; FindingSeverity -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231690"><span id="local-6989586621679231692"><span id="local-6989586621679231694"><span class="annot"><span class="annottext">Int -&gt; FindingSeverity -&gt; ShowS
 [FindingSeverity] -&gt; ShowS
 FindingSeverity -&gt; String
 (Int -&gt; FindingSeverity -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: FindingSeverity -&gt; String
 showsPrec :: Int -&gt; FindingSeverity -&gt; ShowS
 $cshowsPrec :: Int -&gt; FindingSeverity -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679231672"><span id="local-6989586621679231674"><span id="local-6989586621679231676"><span id="local-6989586621679231678"><span class="annot"><span class="annottext">ReadPrec [FindingSeverity]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679231681"><span id="local-6989586621679231683"><span id="local-6989586621679231685"><span id="local-6989586621679231687"><span class="annot"><span class="annottext">ReadPrec [FindingSeverity]
 ReadPrec FindingSeverity
 Int -&gt; ReadS FindingSeverity
 ReadS [FindingSeverity]
@@ -76,7 +76,7 @@ $creadList :: ReadS [FindingSeverity]
 readsPrec :: Int -&gt; ReadS FindingSeverity
 $creadsPrec :: Int -&gt; ReadS FindingSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679231667"><span id="local-6989586621679231669"><span class="annot"><span class="annottext">FindingSeverity -&gt; FindingSeverity -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679231676"><span id="local-6989586621679231678"><span class="annot"><span class="annottext">FindingSeverity -&gt; FindingSeverity -&gt; Bool
 (FindingSeverity -&gt; FindingSeverity -&gt; Bool)
 -&gt; (FindingSeverity -&gt; FindingSeverity -&gt; Bool)
 -&gt; Eq FindingSeverity
@@ -86,7 +86,7 @@ $c/= :: FindingSeverity -&gt; FindingSeverity -&gt; Bool
 == :: FindingSeverity -&gt; FindingSeverity -&gt; Bool
 $c== :: FindingSeverity -&gt; FindingSeverity -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679231651"><span id="local-6989586621679231653"><span id="local-6989586621679231655"><span id="local-6989586621679231657"><span id="local-6989586621679231659"><span id="local-6989586621679231661"><span id="local-6989586621679231663"><span class="annot"><span class="annottext">Eq FindingSeverity
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679231660"><span id="local-6989586621679231662"><span id="local-6989586621679231664"><span id="local-6989586621679231666"><span id="local-6989586621679231668"><span id="local-6989586621679231670"><span id="local-6989586621679231672"><span class="annot"><span class="annottext">Eq FindingSeverity
 Eq FindingSeverity
 -&gt; (FindingSeverity -&gt; FindingSeverity -&gt; Ordering)
 -&gt; (FindingSeverity -&gt; FindingSeverity -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. FindingSeverity -&gt; Rep FindingSeverity x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231643"><span id="local-6989586621679231645"><span class="annot"><span class="annottext">Int -&gt; FindingSeverity -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679231652"><span id="local-6989586621679231654"><span class="annot"><span class="annottext">Int -&gt; FindingSeverity -&gt; Int
 FindingSeverity -&gt; Int
 (Int -&gt; FindingSeverity -&gt; Int)
 -&gt; (FindingSeverity -&gt; Int) -&gt; Hashable FindingSeverity
@@ -147,50 +147,50 @@ $chash :: FindingSeverity -&gt; Int
 hashWithSalt :: Int -&gt; FindingSeverity -&gt; Int
 $chashWithSalt :: Int -&gt; FindingSeverity -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679231640"><span class="annot"><span class="annottext">FindingSeverity -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679231649"><span class="annot"><span class="annottext">FindingSeverity -&gt; ()
 (FindingSeverity -&gt; ()) -&gt; NFData FindingSeverity
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FindingSeverity -&gt; ()
 $crnf :: FindingSeverity -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679231637"><span class="annot"><span class="annottext">Text -&gt; Either String FindingSeverity
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679231646"><span class="annot"><span class="annottext">Text -&gt; Either String FindingSeverity
 (Text -&gt; Either String FindingSeverity) -&gt; FromText FindingSeverity
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FindingSeverity
 $cfromText :: Text -&gt; Either String FindingSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679231634"><span class="annot"><span class="annottext">FindingSeverity -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679231643"><span class="annot"><span class="annottext">FindingSeverity -&gt; Text
 (FindingSeverity -&gt; Text) -&gt; ToText FindingSeverity
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FindingSeverity -&gt; Text
 $ctoText :: FindingSeverity -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679231631"><span class="annot"><span class="annottext">FindingSeverity -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679231640"><span class="annot"><span class="annottext">FindingSeverity -&gt; ByteString
 (FindingSeverity -&gt; ByteString) -&gt; ToByteString FindingSeverity
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FindingSeverity -&gt; ByteString
 $ctoBS :: FindingSeverity -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679231628"><span class="annot"><span class="annottext">FindingSeverity -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679231637"><span class="annot"><span class="annottext">FindingSeverity -&gt; ByteStringBuilder
 (FindingSeverity -&gt; ByteStringBuilder) -&gt; ToLog FindingSeverity
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FindingSeverity -&gt; ByteStringBuilder
 $cbuild :: FindingSeverity -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679231625"><span class="annot"><span class="annottext">HeaderName -&gt; FindingSeverity -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679231634"><span class="annot"><span class="annottext">HeaderName -&gt; FindingSeverity -&gt; [Header]
 (HeaderName -&gt; FindingSeverity -&gt; [Header])
 -&gt; ToHeader FindingSeverity
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FindingSeverity -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FindingSeverity -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679231622"><span class="annot"><span class="annottext">FindingSeverity -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679231631"><span class="annot"><span class="annottext">FindingSeverity -&gt; QueryString
 (FindingSeverity -&gt; QueryString) -&gt; ToQuery FindingSeverity
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FindingSeverity -&gt; QueryString
 $ctoQuery :: FindingSeverity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679231617"><span id="local-6989586621679231619"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingSeverity]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679231626"><span id="local-6989586621679231628"><span class="annot"><span class="annottext">Value -&gt; Parser [FindingSeverity]
 Value -&gt; Parser FindingSeverity
 (Value -&gt; Parser FindingSeverity)
 -&gt; (Value -&gt; Parser [FindingSeverity]) -&gt; FromJSON FindingSeverity
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [FindingSeverity]
 parseJSON :: Value -&gt; Parser FindingSeverity
 $cparseJSON :: Value -&gt; Parser FindingSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679231612"><span id="local-6989586621679231614"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingSeverity]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679231621"><span id="local-6989586621679231623"><span class="annot"><span class="annottext">FromJSONKeyFunction [FindingSeverity]
 FromJSONKeyFunction FindingSeverity
 FromJSONKeyFunction FindingSeverity
 -&gt; FromJSONKeyFunction [FindingSeverity]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FindingSeverity]
 fromJSONKey :: FromJSONKeyFunction FindingSeverity
 $cfromJSONKey :: FromJSONKeyFunction FindingSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679231603"><span id="local-6989586621679231605"><span id="local-6989586621679231607"><span id="local-6989586621679231609"><span class="annot"><span class="annottext">[FindingSeverity] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679231612"><span id="local-6989586621679231614"><span id="local-6989586621679231616"><span id="local-6989586621679231618"><span class="annot"><span class="annottext">[FindingSeverity] -&gt; Encoding
 [FindingSeverity] -&gt; Value
 FindingSeverity -&gt; Encoding
 FindingSeverity -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: FindingSeverity -&gt; Encoding
 toJSON :: FindingSeverity -&gt; Value
 $ctoJSON :: FindingSeverity -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679231598"><span id="local-6989586621679231600"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingSeverity]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679231607"><span id="local-6989586621679231609"><span class="annot"><span class="annottext">ToJSONKeyFunction [FindingSeverity]
 ToJSONKeyFunction FindingSeverity
 ToJSONKeyFunction FindingSeverity
 -&gt; ToJSONKeyFunction [FindingSeverity] -&gt; ToJSONKey FindingSeverity
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FindingSeverity]
 toJSONKey :: ToJSONKeyFunction FindingSeverity
 $ctoJSONKey :: ToJSONKeyFunction FindingSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679231595"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingSeverity
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679231604"><span class="annot"><span class="annottext">[Node] -&gt; Either String FindingSeverity
 ([Node] -&gt; Either String FindingSeverity)
 -&gt; FromXML FindingSeverity
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FindingSeverity
 $cparseXML :: [Node] -&gt; Either String FindingSeverity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679231592"><span class="annot"><span class="annottext">FindingSeverity -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679231601"><span class="annot"><span class="annottext">FindingSeverity -&gt; XML
 (FindingSeverity -&gt; XML) -&gt; ToXML FindingSeverity
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FindingSeverity -&gt; XML

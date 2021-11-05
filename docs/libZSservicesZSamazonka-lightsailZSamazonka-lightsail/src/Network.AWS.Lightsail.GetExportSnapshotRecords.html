@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetExportSnapshotRecords' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679642457"><span id="local-6989586621679642458"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetExportSnapshotRecords"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-var">GetExportSnapshotRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetExportSnapshotRecords%27"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-var">GetExportSnapshotRecords'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679642466"><span id="local-6989586621679642467"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetExportSnapshotRecords"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-var">GetExportSnapshotRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetExportSnapshotRecords%27"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-var">GetExportSnapshotRecords'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- To get a page token, perform an initial @GetExportSnapshotRecords@</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3ApageToken%3AGetExportSnapshotRecords%27"><span class="annot"><span class="annottext">GetExportSnapshotRecords -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#%24sel%3ApageToken%3AGetExportSnapshotRecords%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642451"><span id="local-6989586621679642453"><span class="annot"><span class="annottext">GetExportSnapshotRecords -&gt; GetExportSnapshotRecords -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642460"><span id="local-6989586621679642462"><span class="annot"><span class="annottext">GetExportSnapshotRecords -&gt; GetExportSnapshotRecords -&gt; Bool
 (GetExportSnapshotRecords -&gt; GetExportSnapshotRecords -&gt; Bool)
 -&gt; (GetExportSnapshotRecords -&gt; GetExportSnapshotRecords -&gt; Bool)
 -&gt; Eq GetExportSnapshotRecords
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetExportSnapshotRecords -&gt; GetExportSnapshotRecords -&gt; Bool
 == :: GetExportSnapshotRecords -&gt; GetExportSnapshotRecords -&gt; Bool
 $c== :: GetExportSnapshotRecords -&gt; GetExportSnapshotRecords -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642442"><span id="local-6989586621679642444"><span id="local-6989586621679642446"><span id="local-6989586621679642448"><span class="annot"><span class="annottext">ReadPrec [GetExportSnapshotRecords]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642451"><span id="local-6989586621679642453"><span id="local-6989586621679642455"><span id="local-6989586621679642457"><span class="annot"><span class="annottext">ReadPrec [GetExportSnapshotRecords]
 ReadPrec GetExportSnapshotRecords
 Int -&gt; ReadS GetExportSnapshotRecords
 ReadS [GetExportSnapshotRecords]
@@ -94,7 +94,7 @@ readList :: ReadS [GetExportSnapshotRecords]
 $creadList :: ReadS [GetExportSnapshotRecords]
 readsPrec :: Int -&gt; ReadS GetExportSnapshotRecords
 $creadsPrec :: Int -&gt; ReadS GetExportSnapshotRecords
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642435"><span id="local-6989586621679642437"><span id="local-6989586621679642439"><span class="annot"><span class="annottext">Int -&gt; GetExportSnapshotRecords -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642444"><span id="local-6989586621679642446"><span id="local-6989586621679642448"><span class="annot"><span class="annottext">Int -&gt; GetExportSnapshotRecords -&gt; ShowS
 [GetExportSnapshotRecords] -&gt; ShowS
 GetExportSnapshotRecords -&gt; String
 (Int -&gt; GetExportSnapshotRecords -&gt; ShowS)
@@ -171,30 +171,30 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-type">GetExportSnapshotRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642429"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-type">GetExportSnapshotRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642438"><span class="annot"><span class="annottext">Maybe Text
 pageToken :: Maybe Text
 $sel:pageToken:GetExportSnapshotRecords' :: GetExportSnapshotRecords -&gt; Maybe Text
-</span><a href="#local-6989586621679642429"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679642429"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642428"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecords
-</span><a href="#local-6989586621679642428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-type">GetExportSnapshotRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642427"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679642427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecords
-</span><a href="#local-6989586621679642428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetExportSnapshotRecords' :: Maybe Text
+</span><a href="#local-6989586621679642438"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642438"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642437"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecords
+</span><a href="#local-6989586621679642437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-type">GetExportSnapshotRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642436"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecords
+</span><a href="#local-6989586621679642437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetExportSnapshotRecords' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#%24sel%3ApageToken%3AGetExportSnapshotRecords%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679642427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679642423"><span class="annot"><span class="annottext">page :: GetExportSnapshotRecords
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679642432"><span class="annot"><span class="annottext">page :: GetExportSnapshotRecords
 -&gt; AWSResponse GetExportSnapshotRecords
 -&gt; Maybe GetExportSnapshotRecords
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679642421"><span class="annot"><span class="annottext">GetExportSnapshotRecords
-</span><a href="#local-6989586621679642421"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679642420"><span class="annot"><span class="annottext">AWSResponse GetExportSnapshotRecords
-</span><a href="#local-6989586621679642420"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679642430"><span class="annot"><span class="annottext">GetExportSnapshotRecords
+</span><a href="#local-6989586621679642430"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679642429"><span class="annot"><span class="annottext">AWSResponse GetExportSnapshotRecords
+</span><a href="#local-6989586621679642429"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetExportSnapshotRecords
 GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642420"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679642429"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
 -&gt; Getting (First Text) GetExportSnapshotRecordsResponse Text
 -&gt; Maybe Text
@@ -224,7 +224,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-109"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetExportSnapshotRecords
 GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642420"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679642429"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
 -&gt; Getting
      (First [ExportSnapshotRecord])
@@ -277,7 +277,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">GetExportSnapshotRecords
-</span><a href="#local-6989586621679642421"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679642430"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">GetExportSnapshotRecords
 -&gt; (GetExportSnapshotRecords -&gt; GetExportSnapshotRecords)
 -&gt; GetExportSnapshotRecords
@@ -298,7 +298,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetExportSnapshotRecords
 GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642420"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679642429"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
 -&gt; Getting (First Text) GetExportSnapshotRecordsResponse Text
 -&gt; Maybe Text
@@ -324,13 +324,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679642410"><span class="annot"><span class="annottext">request :: GetExportSnapshotRecords -&gt; Request GetExportSnapshotRecords
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679642419"><span class="annot"><span class="annottext">request :: GetExportSnapshotRecords -&gt; Request GetExportSnapshotRecords
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetExportSnapshotRecords -&gt; Request GetExportSnapshotRecords
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679642406"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679642415"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetExportSnapshotRecords
 -&gt; ClientResponse ClientBody
@@ -356,10 +356,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679642403"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642403"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679642402"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679642402"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679642401"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679642401"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679642412"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642412"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679642411"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679642411"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679642410"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642410"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ExportSnapshotRecord]
 -&gt; Int
@@ -376,7 +376,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; GetExportSnapshotRecordsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679642401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679642410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -388,7 +388,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetExportSnapshotRecordsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679642401"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642410"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ExportSnapshotRecord]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -410,15 +410,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642403"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642412"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642392"><span id="local-6989586621679642394"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642401"><span id="local-6989586621679642403"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642398"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679642385"><span class="annot"><span class="annottext">toHeaders :: GetExportSnapshotRecords -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679642394"><span class="annot"><span class="annottext">toHeaders :: GetExportSnapshotRecords -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetExportSnapshotRecords -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -445,12 +445,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642375"><span id="local-6989586621679642377"><span id="local-6989586621679642379"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679642373"><span class="annot"><span class="annottext">toJSON :: GetExportSnapshotRecords -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-type">GetExportSnapshotRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642371"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642384"><span id="local-6989586621679642386"><span id="local-6989586621679642388"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679642382"><span class="annot"><span class="annottext">toJSON :: GetExportSnapshotRecords -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords%27"><span class="hs-identifier hs-type">GetExportSnapshotRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642380"><span class="annot"><span class="annottext">Maybe Text
 pageToken :: Maybe Text
 $sel:pageToken:GetExportSnapshotRecords' :: GetExportSnapshotRecords -&gt; Maybe Text
-</span><a href="#local-6989586621679642371"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679642380"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -462,18 +462,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679642371"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679642380"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679642365"><span class="annot"><span class="annottext">toPath :: GetExportSnapshotRecords -&gt; ByteString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679642374"><span class="annot"><span class="annottext">toPath :: GetExportSnapshotRecords -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetExportSnapshotRecords -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecords"><span class="hs-identifier hs-type">GetExportSnapshotRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679642361"><span class="annot"><span class="annottext">toQuery :: GetExportSnapshotRecords -&gt; QueryString
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679642370"><span class="annot"><span class="annottext">toQuery :: GetExportSnapshotRecords -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetExportSnapshotRecords -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -481,7 +481,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newGetExportSnapshotRecordsResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679642358"><span id="local-6989586621679642359"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetExportSnapshotRecordsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-var">GetExportSnapshotRecordsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetExportSnapshotRecordsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-var">GetExportSnapshotRecordsResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span id="local-6989586621679642367"><span id="local-6989586621679642368"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetExportSnapshotRecordsResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-var">GetExportSnapshotRecordsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetExportSnapshotRecordsResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-var">GetExportSnapshotRecordsResponse'</span></a></span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
@@ -499,7 +499,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetExportSnapshotRecordsResponse%27"><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#%24sel%3AhttpStatus%3AGetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642351"><span id="local-6989586621679642353"><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642360"><span id="local-6989586621679642362"><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
 -&gt; GetExportSnapshotRecordsResponse -&gt; Bool
 (GetExportSnapshotRecordsResponse
  -&gt; GetExportSnapshotRecordsResponse -&gt; Bool)
@@ -515,7 +515,7 @@ $c/= :: GetExportSnapshotRecordsResponse
 -&gt; GetExportSnapshotRecordsResponse -&gt; Bool
 $c== :: GetExportSnapshotRecordsResponse
 -&gt; GetExportSnapshotRecordsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642343"><span id="local-6989586621679642345"><span id="local-6989586621679642347"><span id="local-6989586621679642349"><span class="annot"><span class="annottext">ReadPrec [GetExportSnapshotRecordsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642352"><span id="local-6989586621679642354"><span id="local-6989586621679642356"><span id="local-6989586621679642358"><span class="annot"><span class="annottext">ReadPrec [GetExportSnapshotRecordsResponse]
 ReadPrec GetExportSnapshotRecordsResponse
 Int -&gt; ReadS GetExportSnapshotRecordsResponse
 ReadS [GetExportSnapshotRecordsResponse]
@@ -535,7 +535,7 @@ readList :: ReadS [GetExportSnapshotRecordsResponse]
 $creadList :: ReadS [GetExportSnapshotRecordsResponse]
 readsPrec :: Int -&gt; ReadS GetExportSnapshotRecordsResponse
 $creadsPrec :: Int -&gt; ReadS GetExportSnapshotRecordsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642337"><span id="local-6989586621679642339"><span id="local-6989586621679642341"><span class="annot"><span class="annottext">Int -&gt; GetExportSnapshotRecordsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642346"><span id="local-6989586621679642348"><span id="local-6989586621679642350"><span class="annot"><span class="annottext">Int -&gt; GetExportSnapshotRecordsResponse -&gt; ShowS
 [GetExportSnapshotRecordsResponse] -&gt; ShowS
 GetExportSnapshotRecordsResponse -&gt; String
 (Int -&gt; GetExportSnapshotRecordsResponse -&gt; ShowS)
@@ -598,8 +598,8 @@ GetExportSnapshotRecordsResponse
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newGetExportSnapshotRecordsResponse"><span class="annot"><span class="annottext">newGetExportSnapshotRecordsResponse :: Int -&gt; GetExportSnapshotRecordsResponse
-</span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#newGetExportSnapshotRecordsResponse"><span class="hs-identifier hs-var hs-var">newGetExportSnapshotRecordsResponse</span></a></span></span><span> </span><span id="local-6989586621679642334"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#newGetExportSnapshotRecordsResponse"><span class="hs-identifier hs-var hs-var">newGetExportSnapshotRecordsResponse</span></a></span></span><span> </span><span id="local-6989586621679642343"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse' :: Maybe Text
 -&gt; Maybe [ExportSnapshotRecord]
 -&gt; Int
@@ -616,7 +616,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetExportSnapshotRecordsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#%24sel%3AhttpStatus%3AGetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642334"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679642343"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
@@ -636,16 +636,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; GetExportSnapshotRecordsResponse)
 -&gt; Lens' GetExportSnapshotRecordsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642333"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642342"><span class="annot"><span class="annottext">Maybe Text
 nextPageToken :: Maybe Text
 $sel:nextPageToken:GetExportSnapshotRecordsResponse' :: GetExportSnapshotRecordsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679642333"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679642333"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642332"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642331"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679642331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetExportSnapshotRecordsResponse' :: Maybe Text
+</span><a href="#local-6989586621679642342"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642342"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642341"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecordsResponse
+</span><a href="#local-6989586621679642341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642340"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
+</span><a href="#local-6989586621679642341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetExportSnapshotRecordsResponse' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#%24sel%3AnextPageToken%3AGetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679642331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | A list of objects describing the export snapshot records.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#getExportSnapshotRecordsResponse_exportSnapshotRecords"><span class="hs-identifier hs-type">getExportSnapshotRecordsResponse_exportSnapshotRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ExportSnapshotRecord.html#ExportSnapshotRecord"><span class="hs-identifier hs-type">ExportSnapshotRecord</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -659,16 +659,16 @@ $sel:nextPageToken:GetExportSnapshotRecordsResponse' :: GetExportSnapshotRecords
 -&gt; Lens'
      GetExportSnapshotRecordsResponse (Maybe [ExportSnapshotRecord])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642330"><span class="annot"><span class="annottext">Maybe [ExportSnapshotRecord]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642339"><span class="annot"><span class="annottext">Maybe [ExportSnapshotRecord]
 exportSnapshotRecords :: Maybe [ExportSnapshotRecord]
 $sel:exportSnapshotRecords:GetExportSnapshotRecordsResponse' :: GetExportSnapshotRecordsResponse -&gt; Maybe [ExportSnapshotRecord]
-</span><a href="#local-6989586621679642330"><span class="hs-identifier hs-var hs-var">exportSnapshotRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportSnapshotRecord]
-</span><a href="#local-6989586621679642330"><span class="hs-identifier hs-var">exportSnapshotRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642329"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642328"><span class="annot"><span class="annottext">Maybe [ExportSnapshotRecord]
-</span><a href="#local-6989586621679642328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportSnapshotRecords:GetExportSnapshotRecordsResponse' :: Maybe [ExportSnapshotRecord]
+</span><a href="#local-6989586621679642339"><span class="hs-identifier hs-var hs-var">exportSnapshotRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportSnapshotRecord]
+</span><a href="#local-6989586621679642339"><span class="hs-identifier hs-var">exportSnapshotRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642338"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecordsResponse
+</span><a href="#local-6989586621679642338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642337"><span class="annot"><span class="annottext">Maybe [ExportSnapshotRecord]
+</span><a href="#local-6989586621679642337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
+</span><a href="#local-6989586621679642338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportSnapshotRecords:GetExportSnapshotRecordsResponse' :: Maybe [ExportSnapshotRecord]
 </span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#%24sel%3AexportSnapshotRecords%3AGetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-var">exportSnapshotRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportSnapshotRecord]
-</span><a href="#local-6989586621679642328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExportSnapshotRecord] -&gt; f (Maybe [ExportSnapshotRecord]))
+</span><a href="#local-6989586621679642337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExportSnapshotRecord] -&gt; f (Maybe [ExportSnapshotRecord]))
  -&gt; GetExportSnapshotRecordsResponse
  -&gt; f GetExportSnapshotRecordsResponse)
 -&gt; ((Maybe [ExportSnapshotRecord]
@@ -715,18 +715,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642325"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642334"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetExportSnapshotRecordsResponse' :: GetExportSnapshotRecordsResponse -&gt; Int
-</span><a href="#local-6989586621679642325"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642325"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642324"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642323"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
-</span><a href="#local-6989586621679642324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetExportSnapshotRecordsResponse' :: Int
+</span><a href="#local-6989586621679642334"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642334"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642333"><span class="annot"><span class="annottext">s :: GetExportSnapshotRecordsResponse
+</span><a href="#local-6989586621679642333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetExportSnapshotRecordsResponse
+</span><a href="#local-6989586621679642333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetExportSnapshotRecordsResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#%24sel%3AhttpStatus%3AGetExportSnapshotRecordsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679642323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679642332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679642321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679642330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetExportSnapshotRecords.html#GetExportSnapshotRecordsResponse"><span class="hs-identifier hs-type">GetExportSnapshotRecordsResponse</span></a></span></span><span>
 </span><span id="line-242"></span></pre></body></html>

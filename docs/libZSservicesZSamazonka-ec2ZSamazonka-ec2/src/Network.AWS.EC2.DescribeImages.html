@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newDescribeImages' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621681262877"><span id="local-6989586621681262878"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImages"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-var">DescribeImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImages%27"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-var">DescribeImages'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621681262886"><span id="local-6989586621681262887"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImages"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-var">DescribeImages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImages%27"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-var">DescribeImages'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Scopes the results to images with the specified owners. You can specify</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- a combination of Amazon Web Services account IDs, @self@, @amazon@, and</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @aws-marketplace@. If you omit this parameter, the results include all</span><span>
@@ -190,7 +190,7 @@
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeImages%27"><span class="annot"><span class="annottext">DescribeImages -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AdryRun%3ADescribeImages%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681262866"><span id="local-6989586621681262868"><span class="annot"><span class="annottext">DescribeImages -&gt; DescribeImages -&gt; Bool
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681262875"><span id="local-6989586621681262877"><span class="annot"><span class="annottext">DescribeImages -&gt; DescribeImages -&gt; Bool
 (DescribeImages -&gt; DescribeImages -&gt; Bool)
 -&gt; (DescribeImages -&gt; DescribeImages -&gt; Bool) -&gt; Eq DescribeImages
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -198,7 +198,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeImages -&gt; DescribeImages -&gt; Bool
 == :: DescribeImages -&gt; DescribeImages -&gt; Bool
 $c== :: DescribeImages -&gt; DescribeImages -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262857"><span id="local-6989586621681262859"><span id="local-6989586621681262861"><span id="local-6989586621681262863"><span class="annot"><span class="annottext">ReadPrec [DescribeImages]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262866"><span id="local-6989586621681262868"><span id="local-6989586621681262870"><span id="local-6989586621681262872"><span class="annot"><span class="annottext">ReadPrec [DescribeImages]
 ReadPrec DescribeImages
 Int -&gt; ReadS DescribeImages
 ReadS [DescribeImages]
@@ -218,7 +218,7 @@ readList :: ReadS [DescribeImages]
 $creadList :: ReadS [DescribeImages]
 readsPrec :: Int -&gt; ReadS DescribeImages
 $creadsPrec :: Int -&gt; ReadS DescribeImages
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262850"><span id="local-6989586621681262852"><span id="local-6989586621681262854"><span class="annot"><span class="annottext">Int -&gt; DescribeImages -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262859"><span id="local-6989586621681262861"><span id="local-6989586621681262863"><span class="annot"><span class="annottext">Int -&gt; DescribeImages -&gt; ShowS
 [DescribeImages] -&gt; ShowS
 DescribeImages -&gt; String
 (Int -&gt; DescribeImages -&gt; ShowS)
@@ -419,16 +419,16 @@ forall a. Maybe a
 -&gt; (DescribeImages -&gt; Maybe [Text] -&gt; DescribeImages)
 -&gt; Lens DescribeImages DescribeImages (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262843"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262852"><span class="annot"><span class="annottext">Maybe [Text]
 owners :: Maybe [Text]
 $sel:owners:DescribeImages' :: DescribeImages -&gt; Maybe [Text]
-</span><a href="#local-6989586621681262843"><span class="hs-identifier hs-var hs-var">owners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262843"><span class="hs-identifier hs-var">owners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262842"><span class="annot"><span class="annottext">s :: DescribeImages
-</span><a href="#local-6989586621681262842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262841"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
-</span><a href="#local-6989586621681262842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owners:DescribeImages' :: Maybe [Text]
+</span><a href="#local-6989586621681262852"><span class="hs-identifier hs-var hs-var">owners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681262852"><span class="hs-identifier hs-var">owners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262851"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621681262851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262850"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681262850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621681262851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owners:DescribeImages' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3Aowners%3ADescribeImages%27"><span class="hs-identifier hs-var">owners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681262850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeImages -&gt; f DescribeImages)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -455,16 +455,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeImages -&gt; Maybe [Text] -&gt; DescribeImages)
 -&gt; Lens DescribeImages DescribeImages (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262837"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262846"><span class="annot"><span class="annottext">Maybe [Text]
 executableUsers :: Maybe [Text]
 $sel:executableUsers:DescribeImages' :: DescribeImages -&gt; Maybe [Text]
-</span><a href="#local-6989586621681262837"><span class="hs-identifier hs-var hs-var">executableUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262837"><span class="hs-identifier hs-var">executableUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262836"><span class="annot"><span class="annottext">s :: DescribeImages
-</span><a href="#local-6989586621681262836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262835"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
-</span><a href="#local-6989586621681262836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executableUsers:DescribeImages' :: Maybe [Text]
+</span><a href="#local-6989586621681262846"><span class="hs-identifier hs-var hs-var">executableUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681262846"><span class="hs-identifier hs-var">executableUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262845"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621681262845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262844"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681262844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621681262845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executableUsers:DescribeImages' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AexecutableUsers%3ADescribeImages%27"><span class="hs-identifier hs-var">executableUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681262844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeImages -&gt; f DescribeImages)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -581,16 +581,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      DescribeImages DescribeImages (Maybe [Filter]) (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262834"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262843"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeImages' :: DescribeImages -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681262834"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681262834"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262833"><span class="annot"><span class="annottext">s :: DescribeImages
-</span><a href="#local-6989586621681262833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262832"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681262832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
-</span><a href="#local-6989586621681262833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeImages' :: Maybe [Filter]
+</span><a href="#local-6989586621681262843"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681262843"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262842"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621681262842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262841"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681262841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621681262842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeImages' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3Afilters%3ADescribeImages%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681262832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681262841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeImages -&gt; f DescribeImages)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -618,16 +618,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeImages -&gt; Maybe [Text] -&gt; DescribeImages)
 -&gt; Lens DescribeImages DescribeImages (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262831"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262840"><span class="annot"><span class="annottext">Maybe [Text]
 imageIds :: Maybe [Text]
 $sel:imageIds:DescribeImages' :: DescribeImages -&gt; Maybe [Text]
-</span><a href="#local-6989586621681262831"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262831"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262830"><span class="annot"><span class="annottext">s :: DescribeImages
-</span><a href="#local-6989586621681262830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262829"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
-</span><a href="#local-6989586621681262830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:DescribeImages' :: Maybe [Text]
+</span><a href="#local-6989586621681262840"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681262840"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262839"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621681262839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262838"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681262838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621681262839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:DescribeImages' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AimageIds%3ADescribeImages%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681262838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeImages -&gt; f DescribeImages)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -658,16 +658,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeImages -&gt; Maybe Bool -&gt; DescribeImages)
 -&gt; Lens DescribeImages DescribeImages (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262828"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262837"><span class="annot"><span class="annottext">Maybe Bool
 includeDeprecated :: Maybe Bool
 $sel:includeDeprecated:DescribeImages' :: DescribeImages -&gt; Maybe Bool
-</span><a href="#local-6989586621681262828"><span class="hs-identifier hs-var hs-var">includeDeprecated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262828"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262827"><span class="annot"><span class="annottext">s :: DescribeImages
-</span><a href="#local-6989586621681262827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262826"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
-</span><a href="#local-6989586621681262827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDeprecated:DescribeImages' :: Maybe Bool
+</span><a href="#local-6989586621681262837"><span class="hs-identifier hs-var hs-var">includeDeprecated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681262837"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262836"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621681262836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262835"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681262835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621681262836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includeDeprecated:DescribeImages' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AincludeDeprecated%3ADescribeImages%27"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681262835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-450"></span><span>
 </span><span id="line-451"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-452"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
@@ -680,27 +680,27 @@ $sel:includeDeprecated:DescribeImages' :: DescribeImages -&gt; Maybe Bool
 -&gt; (DescribeImages -&gt; Maybe Bool -&gt; DescribeImages)
 -&gt; Lens DescribeImages DescribeImages (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262825"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262834"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DescribeImages' :: DescribeImages -&gt; Maybe Bool
-</span><a href="#local-6989586621681262825"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262825"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262824"><span class="annot"><span class="annottext">s :: DescribeImages
-</span><a href="#local-6989586621681262824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262823"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
-</span><a href="#local-6989586621681262824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeImages' :: Maybe Bool
+</span><a href="#local-6989586621681262834"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681262834"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262833"><span class="annot"><span class="annottext">s :: DescribeImages
+</span><a href="#local-6989586621681262833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262832"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681262832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImages
+</span><a href="#local-6989586621681262833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeImages' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AdryRun%3ADescribeImages%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681262832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-457"></span><span>
 </span><span id="line-458"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-459"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-460"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-461"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span>
-</span><span id="line-462"></span><span>  </span><span id="local-6989586621681262819"><span class="annot"><span class="annottext">request :: DescribeImages -&gt; Request DescribeImages
+</span><span id="line-462"></span><span>  </span><span id="local-6989586621681262828"><span class="annot"><span class="annottext">request :: DescribeImages -&gt; Request DescribeImages
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeImages -&gt; Request DescribeImages
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-463"></span><span>  </span><span id="local-6989586621681262815"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-463"></span><span>  </span><span id="local-6989586621681262824"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeImages
 -&gt; ClientResponse ClientBody
@@ -724,10 +724,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-465"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681262812"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262812"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681262811"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681262811"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681262810"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681262810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-465"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681262821"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681262821"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681262820"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681262820"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681262819"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681262819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-466"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Image] -&gt; Int -&gt; DescribeImagesResponse
 </span><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-var">DescribeImagesResponse'</span></a></span><span>
 </span><span id="line-467"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Image] -&gt; Int -&gt; DescribeImagesResponse)
@@ -735,7 +735,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeImagesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681262810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681262819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imagesSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -765,15 +765,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262812"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681262821"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-471"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-472"></span><span>
-</span><span id="line-473"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262799"><span id="local-6989586621681262801"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span></span></span><span>
+</span><span id="line-473"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262808"><span id="local-6989586621681262810"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span></span></span><span>
 </span><span id="line-474"></span><span>
-</span><span id="line-475"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span></span><span>
+</span><span id="line-475"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262805"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span></span><span>
 </span><span id="line-476"></span><span>
 </span><span id="line-477"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-478"></span><span>  </span><span id="local-6989586621681262792"><span class="annot"><span class="annottext">toHeaders :: DescribeImages -&gt; ResponseHeaders
+</span><span id="line-478"></span><span>  </span><span id="local-6989586621681262801"><span class="annot"><span class="annottext">toHeaders :: DescribeImages -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeImages -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -781,15 +781,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-479"></span><span>
 </span><span id="line-480"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-481"></span><span>  </span><span id="local-6989586621681262787"><span class="annot"><span class="annottext">toPath :: DescribeImages -&gt; ByteString
+</span><span id="line-481"></span><span>  </span><span id="local-6989586621681262796"><span class="annot"><span class="annottext">toPath :: DescribeImages -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeImages -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-482"></span><span>
 </span><span id="line-483"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages"><span class="hs-identifier hs-type">DescribeImages</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-484"></span><span>  </span><span id="local-6989586621681262783"><span class="annot"><span class="annottext">toQuery :: DescribeImages -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262776"><span id="local-6989586621681262777"><span id="local-6989586621681262778"><span id="local-6989586621681262779"><span id="local-6989586621681262780"><span id="local-6989586621681262781"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-484"></span><span>  </span><span id="local-6989586621681262792"><span class="annot"><span class="annottext">toQuery :: DescribeImages -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImages%27"><span class="hs-identifier hs-type">DescribeImages'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262785"><span id="local-6989586621681262786"><span id="local-6989586621681262787"><span id="local-6989586621681262788"><span id="local-6989586621681262789"><span id="local-6989586621681262790"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe [Filter]
 dryRun :: Maybe Bool
@@ -804,7 +804,7 @@ $sel:imageIds:DescribeImages' :: DescribeImages -&gt; Maybe [Text]
 $sel:filters:DescribeImages' :: DescribeImages -&gt; Maybe [Filter]
 $sel:executableUsers:DescribeImages' :: DescribeImages -&gt; Maybe [Text]
 $sel:owners:DescribeImages' :: DescribeImages -&gt; Maybe [Text]
-</span><a href="#local-6989586621681262776"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681262785"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-485"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -831,7 +831,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262781"><span class="hs-identifier hs-var">owners</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681262790"><span class="hs-identifier hs-var">owners</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-492"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -844,7 +844,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-494"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262780"><span class="hs-identifier hs-var">executableUsers</span></a></span><span>
+</span><a href="#local-6989586621681262789"><span class="hs-identifier hs-var">executableUsers</span></a></span><span>
 </span><span id="line-495"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-496"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
@@ -857,7 +857,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681262779"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681262788"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-498"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -869,21 +869,21 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ImageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681262778"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681262787"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-500"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;IncludeDeprecated&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262777"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681262786"><span class="hs-identifier hs-var">includeDeprecated</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-501"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681262776"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
+</span><a href="#local-6989586621681262785"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-502"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-503"></span><span>
 </span><span id="line-504"></span><span class="hs-comment">-- | /See:/ 'newDescribeImagesResponse' smart constructor.</span><span>
-</span><span id="line-505"></span><span id="local-6989586621681262772"><span id="local-6989586621681262773"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImagesResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-var">DescribeImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImagesResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-var">DescribeImagesResponse'</span></a></span></span><span>
+</span><span id="line-505"></span><span id="local-6989586621681262781"><span id="local-6989586621681262782"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImagesResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-var">DescribeImagesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImagesResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-var">DescribeImagesResponse'</span></a></span></span><span>
 </span><span id="line-506"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the images.</span><span>
 </span><span id="line-507"></span><span>    </span><span id="%24sel%3Aimages%3ADescribeImagesResponse%27"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; Maybe [Image]
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3Aimages%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -891,7 +891,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-509"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-510"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-511"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681262766"><span id="local-6989586621681262768"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
+</span><span id="line-511"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681262775"><span id="local-6989586621681262777"><span class="annot"><span class="annottext">DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
 (DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool)
 -&gt; (DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool)
 -&gt; Eq DescribeImagesResponse
@@ -900,7 +900,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
 == :: DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
 $c== :: DescribeImagesResponse -&gt; DescribeImagesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262758"><span id="local-6989586621681262760"><span id="local-6989586621681262762"><span id="local-6989586621681262764"><span class="annot"><span class="annottext">ReadPrec [DescribeImagesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262767"><span id="local-6989586621681262769"><span id="local-6989586621681262771"><span id="local-6989586621681262773"><span class="annot"><span class="annottext">ReadPrec [DescribeImagesResponse]
 ReadPrec DescribeImagesResponse
 Int -&gt; ReadS DescribeImagesResponse
 ReadS [DescribeImagesResponse]
@@ -920,7 +920,7 @@ readList :: ReadS [DescribeImagesResponse]
 $creadList :: ReadS [DescribeImagesResponse]
 readsPrec :: Int -&gt; ReadS DescribeImagesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeImagesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262752"><span id="local-6989586621681262754"><span id="local-6989586621681262756"><span class="annot"><span class="annottext">Int -&gt; DescribeImagesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681262761"><span id="local-6989586621681262763"><span id="local-6989586621681262765"><span class="annot"><span class="annottext">Int -&gt; DescribeImagesResponse -&gt; ShowS
 [DescribeImagesResponse] -&gt; ShowS
 DescribeImagesResponse -&gt; String
 (Int -&gt; DescribeImagesResponse -&gt; ShowS)
@@ -963,8 +963,8 @@ $cfrom :: forall x. DescribeImagesResponse -&gt; Rep DescribeImagesResponse x
 </span><span id="line-526"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-527"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span>
 </span><span id="line-528"></span><span id="newDescribeImagesResponse"><span class="annot"><span class="annottext">newDescribeImagesResponse :: Int -&gt; DescribeImagesResponse
-</span><a href="Network.AWS.EC2.DescribeImages.html#newDescribeImagesResponse"><span class="hs-identifier hs-var hs-var">newDescribeImagesResponse</span></a></span></span><span> </span><span id="local-6989586621681262749"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeImages.html#newDescribeImagesResponse"><span class="hs-identifier hs-var hs-var">newDescribeImagesResponse</span></a></span></span><span> </span><span id="local-6989586621681262758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681262758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-529"></span><span>  </span><span class="annot"><span class="annottext">DescribeImagesResponse' :: Maybe [Image] -&gt; Int -&gt; DescribeImagesResponse
 </span><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span>
 </span><span id="line-530"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:images:DescribeImagesResponse' :: Maybe [Image]
@@ -973,7 +973,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-531"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImagesResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681262758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-532"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-533"></span><span>
 </span><span id="line-534"></span><span class="hs-comment">-- | Information about the images.</span><span>
@@ -989,16 +989,16 @@ forall a. Maybe a
      (Maybe [Image])
      (Maybe [Image])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262748"><span class="annot"><span class="annottext">Maybe [Image]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262757"><span class="annot"><span class="annottext">Maybe [Image]
 images :: Maybe [Image]
 $sel:images:DescribeImagesResponse' :: DescribeImagesResponse -&gt; Maybe [Image]
-</span><a href="#local-6989586621681262748"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
-</span><a href="#local-6989586621681262748"><span class="hs-identifier hs-var">images</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262747"><span class="annot"><span class="annottext">s :: DescribeImagesResponse
-</span><a href="#local-6989586621681262747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262746"><span class="annot"><span class="annottext">Maybe [Image]
-</span><a href="#local-6989586621681262746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesResponse
-</span><a href="#local-6989586621681262747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:images:DescribeImagesResponse' :: Maybe [Image]
+</span><a href="#local-6989586621681262757"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
+</span><a href="#local-6989586621681262757"><span class="hs-identifier hs-var">images</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262756"><span class="annot"><span class="annottext">s :: DescribeImagesResponse
+</span><a href="#local-6989586621681262756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262755"><span class="annot"><span class="annottext">Maybe [Image]
+</span><a href="#local-6989586621681262755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesResponse
+</span><a href="#local-6989586621681262756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:images:DescribeImagesResponse' :: Maybe [Image]
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3Aimages%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">images</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
-</span><a href="#local-6989586621681262746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Image] -&gt; f (Maybe [Image]))
+</span><a href="#local-6989586621681262755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Image] -&gt; f (Maybe [Image]))
  -&gt; DescribeImagesResponse -&gt; f DescribeImagesResponse)
 -&gt; ((Maybe [Image] -&gt; f (Maybe [Image]))
     -&gt; Maybe [Image] -&gt; f (Maybe [Image]))
@@ -1024,16 +1024,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DescribeImagesResponse -&gt; Int -&gt; DescribeImagesResponse)
 -&gt; Lens DescribeImagesResponse DescribeImagesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262745"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681262754"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeImagesResponse' :: DescribeImagesResponse -&gt; Int
-</span><a href="#local-6989586621681262745"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262745"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262744"><span class="annot"><span class="annottext">s :: DescribeImagesResponse
-</span><a href="#local-6989586621681262744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262743"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesResponse
-</span><a href="#local-6989586621681262744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImagesResponse' :: Int
+</span><a href="#local-6989586621681262754"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681262754"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681262753"><span class="annot"><span class="annottext">s :: DescribeImagesResponse
+</span><a href="#local-6989586621681262753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse%27"><span class="hs-identifier hs-type">DescribeImagesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681262752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681262752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImagesResponse
+</span><a href="#local-6989586621681262753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImagesResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeImages.html#%24sel%3AhttpStatus%3ADescribeImagesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681262743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681262752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-541"></span><span>
-</span><span id="line-542"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span></span><span>
+</span><span id="line-542"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681262750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeImages.html#DescribeImagesResponse"><span class="hs-identifier hs-type">DescribeImagesResponse</span></a></span></span><span>
 </span><span id="line-543"></span></pre></body></html>

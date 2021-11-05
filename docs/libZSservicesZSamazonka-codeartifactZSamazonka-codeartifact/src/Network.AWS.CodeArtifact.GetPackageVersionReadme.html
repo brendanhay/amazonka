@@ -1,0 +1,1078 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.CodeArtifact.GetPackageVersionReadme</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the readme file or descriptive text for a package version. For</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- packages that do not contain a readme file, CodeArtifact extracts a</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- description from a metadata file. For example, from the @\&lt;description&gt;@</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- element in the @pom.xml@ file of a Maven package.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- The returned text might contain formatting. For example, it might</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- contain formatting for Markdown or reStructuredText.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.CodeArtifact.GetPackageVersionReadme</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#newGetPackageVersionReadme"><span class="hs-identifier">newGetPackageVersionReadme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_namespace"><span class="hs-identifier">getPackageVersionReadme_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_domainOwner"><span class="hs-identifier">getPackageVersionReadme_domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_domain"><span class="hs-identifier">getPackageVersionReadme_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_repository"><span class="hs-identifier">getPackageVersionReadme_repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_format"><span class="hs-identifier">getPackageVersionReadme_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_package"><span class="hs-identifier">getPackageVersionReadme_package</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_packageVersion"><span class="hs-identifier">getPackageVersionReadme_packageVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#newGetPackageVersionReadmeResponse"><span class="hs-identifier">newGetPackageVersionReadmeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_readme"><span class="hs-identifier">getPackageVersionReadmeResponse_readme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_format"><span class="hs-identifier">getPackageVersionReadmeResponse_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_namespace"><span class="hs-identifier">getPackageVersionReadmeResponse_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_versionRevision"><span class="hs-identifier">getPackageVersionReadmeResponse_versionRevision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_version"><span class="hs-identifier">getPackageVersionReadmeResponse_version</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_package"><span class="hs-identifier">getPackageVersionReadmeResponse_package</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_httpStatus"><span class="hs-identifier">getPackageVersionReadmeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.html"><span class="hs-identifier">Network.AWS.CodeArtifact.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newGetPackageVersionReadme' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679236641"><span id="local-6989586621679236642"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionReadme"><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-var">GetPackageVersionReadme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionReadme%27"><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-var">GetPackageVersionReadme'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Anamespace%3AGetPackageVersionReadme%27"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Anamespace%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AdomainOwner%3AGetPackageVersionReadme%27"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AdomainOwner%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The name of the domain that contains the repository that contains the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- package version with the requested readme file.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adomain%3AGetPackageVersionReadme%27"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Adomain%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The repository that contains the package with the requested readme file.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Arepository%3AGetPackageVersionReadme%27"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Arepository%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A format that specifies the type of the package version with the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- requested readme file. The valid values are:</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Aformat%3AGetPackageVersionReadme%27"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; PackageFormat
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aformat%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The name of the package version that contains the requested readme file.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Apackage%3AGetPackageVersionReadme%27"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Apackage%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3ApackageVersion%3AGetPackageVersionReadme%27"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3ApackageVersion%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236629"><span id="local-6989586621679236631"><span class="annot"><span class="annottext">GetPackageVersionReadme -&gt; GetPackageVersionReadme -&gt; Bool
+(GetPackageVersionReadme -&gt; GetPackageVersionReadme -&gt; Bool)
+-&gt; (GetPackageVersionReadme -&gt; GetPackageVersionReadme -&gt; Bool)
+-&gt; Eq GetPackageVersionReadme
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPackageVersionReadme -&gt; GetPackageVersionReadme -&gt; Bool
+$c/= :: GetPackageVersionReadme -&gt; GetPackageVersionReadme -&gt; Bool
+== :: GetPackageVersionReadme -&gt; GetPackageVersionReadme -&gt; Bool
+$c== :: GetPackageVersionReadme -&gt; GetPackageVersionReadme -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236620"><span id="local-6989586621679236622"><span id="local-6989586621679236624"><span id="local-6989586621679236626"><span class="annot"><span class="annottext">ReadPrec [GetPackageVersionReadme]
+ReadPrec GetPackageVersionReadme
+Int -&gt; ReadS GetPackageVersionReadme
+ReadS [GetPackageVersionReadme]
+(Int -&gt; ReadS GetPackageVersionReadme)
+-&gt; ReadS [GetPackageVersionReadme]
+-&gt; ReadPrec GetPackageVersionReadme
+-&gt; ReadPrec [GetPackageVersionReadme]
+-&gt; Read GetPackageVersionReadme
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPackageVersionReadme]
+$creadListPrec :: ReadPrec [GetPackageVersionReadme]
+readPrec :: ReadPrec GetPackageVersionReadme
+$creadPrec :: ReadPrec GetPackageVersionReadme
+readList :: ReadS [GetPackageVersionReadme]
+$creadList :: ReadS [GetPackageVersionReadme]
+readsPrec :: Int -&gt; ReadS GetPackageVersionReadme
+$creadsPrec :: Int -&gt; ReadS GetPackageVersionReadme
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236613"><span id="local-6989586621679236615"><span id="local-6989586621679236617"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionReadme -&gt; ShowS
+[GetPackageVersionReadme] -&gt; ShowS
+GetPackageVersionReadme -&gt; String
+(Int -&gt; GetPackageVersionReadme -&gt; ShowS)
+-&gt; (GetPackageVersionReadme -&gt; String)
+-&gt; ([GetPackageVersionReadme] -&gt; ShowS)
+-&gt; Show GetPackageVersionReadme
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPackageVersionReadme] -&gt; ShowS
+$cshowList :: [GetPackageVersionReadme] -&gt; ShowS
+show :: GetPackageVersionReadme -&gt; String
+$cshow :: GetPackageVersionReadme -&gt; String
+showsPrec :: Int -&gt; GetPackageVersionReadme -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPackageVersionReadme -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetPackageVersionReadme -&gt; Rep GetPackageVersionReadme x)
+-&gt; (forall x.
+    Rep GetPackageVersionReadme x -&gt; GetPackageVersionReadme)
+-&gt; Generic GetPackageVersionReadme
+forall x. Rep GetPackageVersionReadme x -&gt; GetPackageVersionReadme
+forall x. GetPackageVersionReadme -&gt; Rep GetPackageVersionReadme x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetPackageVersionReadme x -&gt; GetPackageVersionReadme
+$cfrom :: forall x. GetPackageVersionReadme -&gt; Rep GetPackageVersionReadme x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'GetPackageVersionReadme' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'namespace', 'getPackageVersionReadme_namespace' - The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'domainOwner', 'getPackageVersionReadme_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'domain', 'getPackageVersionReadme_domain' - The name of the domain that contains the repository that contains the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- package version with the requested readme file.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'repository', 'getPackageVersionReadme_repository' - The repository that contains the package with the requested readme file.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'format', 'getPackageVersionReadme_format' - A format that specifies the type of the package version with the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- requested readme file. The valid values are:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'package', 'getPackageVersionReadme_package' - The name of the package version that contains the requested readme file.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'packageVersion', 'getPackageVersionReadme_packageVersion' - A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#newGetPackageVersionReadme"><span class="hs-identifier hs-type">newGetPackageVersionReadme</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'repository'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-comment">-- | 'format'</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'package'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'packageVersion'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span>
+</span><span id="line-152"></span><span id="newGetPackageVersionReadme"><span class="annot"><span class="annottext">newGetPackageVersionReadme :: Text
+-&gt; Text -&gt; PackageFormat -&gt; Text -&gt; Text -&gt; GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#newGetPackageVersionReadme"><span class="hs-identifier hs-var hs-var">newGetPackageVersionReadme</span></a></span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679236608"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236608"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679236607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236607"><span class="hs-identifier hs-var">pRepository_</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679236606"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236606"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679236605"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236605"><span class="hs-identifier hs-var">pPackage_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679236604"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236604"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">GetPackageVersionReadme' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; PackageFormat
+-&gt; Text
+-&gt; Text
+-&gt; GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namespace:GetPackageVersionReadme' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Anamespace%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainOwner:GetPackageVersionReadme' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AdomainOwner%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:domain:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Adomain%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236608"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:repository:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Arepository%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236607"><span class="hs-identifier hs-var">pRepository_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:GetPackageVersionReadme' :: PackageFormat
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aformat%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236606"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:package:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Apackage%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236605"><span class="hs-identifier hs-var">pPackage_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:packageVersion:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3ApackageVersion%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236604"><span class="hs-identifier hs-var">pPackageVersion_</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_namespace"><span class="hs-identifier hs-type">getPackageVersionReadme_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="getPackageVersionReadme_namespace"><span class="annot"><span class="annottext">getPackageVersionReadme_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionReadme -&gt; f GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_namespace"><span class="hs-identifier hs-var hs-var">getPackageVersionReadme_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadme -&gt; Maybe Text)
+-&gt; (GetPackageVersionReadme
+    -&gt; Maybe Text -&gt; GetPackageVersionReadme)
+-&gt; Lens
+     GetPackageVersionReadme
+     GetPackageVersionReadme
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236601"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Maybe Text
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236601"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236600"><span class="annot"><span class="annottext">s :: GetPackageVersionReadme
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236599"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadme
+</span><a href="#local-6989586621679236600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:GetPackageVersionReadme' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Anamespace%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_domainOwner"><span class="hs-identifier hs-type">getPackageVersionReadme_domainOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="getPackageVersionReadme_domainOwner"><span class="annot"><span class="annottext">getPackageVersionReadme_domainOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionReadme -&gt; f GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_domainOwner"><span class="hs-identifier hs-var hs-var">getPackageVersionReadme_domainOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadme -&gt; Maybe Text)
+-&gt; (GetPackageVersionReadme
+    -&gt; Maybe Text -&gt; GetPackageVersionReadme)
+-&gt; Lens
+     GetPackageVersionReadme
+     GetPackageVersionReadme
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236598"><span class="annot"><span class="annottext">Maybe Text
+domainOwner :: Maybe Text
+$sel:domainOwner:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Maybe Text
+</span><a href="#local-6989586621679236598"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236598"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236597"><span class="annot"><span class="annottext">s :: GetPackageVersionReadme
+</span><a href="#local-6989586621679236597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236596"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadme
+</span><a href="#local-6989586621679236597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainOwner:GetPackageVersionReadme' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AdomainOwner%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The name of the domain that contains the repository that contains the</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- package version with the requested readme file.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_domain"><span class="hs-identifier hs-type">getPackageVersionReadme_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-189"></span><span id="getPackageVersionReadme_domain"><span class="annot"><span class="annottext">getPackageVersionReadme_domain :: (Text -&gt; f Text)
+-&gt; GetPackageVersionReadme -&gt; f GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_domain"><span class="hs-identifier hs-var hs-var">getPackageVersionReadme_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadme -&gt; Text)
+-&gt; (GetPackageVersionReadme -&gt; Text -&gt; GetPackageVersionReadme)
+-&gt; Lens GetPackageVersionReadme GetPackageVersionReadme Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236595"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+</span><a href="#local-6989586621679236595"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236595"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236594"><span class="annot"><span class="annottext">s :: GetPackageVersionReadme
+</span><a href="#local-6989586621679236594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadme
+</span><a href="#local-6989586621679236594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Adomain%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The repository that contains the package with the requested readme file.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_repository"><span class="hs-identifier hs-type">getPackageVersionReadme_repository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-193"></span><span id="getPackageVersionReadme_repository"><span class="annot"><span class="annottext">getPackageVersionReadme_repository :: (Text -&gt; f Text)
+-&gt; GetPackageVersionReadme -&gt; f GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_repository"><span class="hs-identifier hs-var hs-var">getPackageVersionReadme_repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadme -&gt; Text)
+-&gt; (GetPackageVersionReadme -&gt; Text -&gt; GetPackageVersionReadme)
+-&gt; Lens GetPackageVersionReadme GetPackageVersionReadme Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236592"><span class="annot"><span class="annottext">Text
+repository :: Text
+$sel:repository:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+</span><a href="#local-6989586621679236592"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236592"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236591"><span class="annot"><span class="annottext">s :: GetPackageVersionReadme
+</span><a href="#local-6989586621679236591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadme
+</span><a href="#local-6989586621679236591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Arepository%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | A format that specifies the type of the package version with the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- requested readme file. The valid values are:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_format"><span class="hs-identifier hs-type">getPackageVersionReadme_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span>
+</span><span id="line-204"></span><span id="getPackageVersionReadme_format"><span class="annot"><span class="annottext">getPackageVersionReadme_format :: (PackageFormat -&gt; f PackageFormat)
+-&gt; GetPackageVersionReadme -&gt; f GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_format"><span class="hs-identifier hs-var hs-var">getPackageVersionReadme_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadme -&gt; PackageFormat)
+-&gt; (GetPackageVersionReadme
+    -&gt; PackageFormat -&gt; GetPackageVersionReadme)
+-&gt; Lens
+     GetPackageVersionReadme
+     GetPackageVersionReadme
+     PackageFormat
+     PackageFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236589"><span class="annot"><span class="annottext">PackageFormat
+format :: PackageFormat
+$sel:format:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; PackageFormat
+</span><a href="#local-6989586621679236589"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236589"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236588"><span class="annot"><span class="annottext">s :: GetPackageVersionReadme
+</span><a href="#local-6989586621679236588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236587"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadme
+</span><a href="#local-6989586621679236588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:GetPackageVersionReadme' :: PackageFormat
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aformat%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The name of the package version that contains the requested readme file.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_package"><span class="hs-identifier hs-type">getPackageVersionReadme_package</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-208"></span><span id="getPackageVersionReadme_package"><span class="annot"><span class="annottext">getPackageVersionReadme_package :: (Text -&gt; f Text)
+-&gt; GetPackageVersionReadme -&gt; f GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_package"><span class="hs-identifier hs-var hs-var">getPackageVersionReadme_package</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadme -&gt; Text)
+-&gt; (GetPackageVersionReadme -&gt; Text -&gt; GetPackageVersionReadme)
+-&gt; Lens GetPackageVersionReadme GetPackageVersionReadme Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236586"><span class="annot"><span class="annottext">Text
+package :: Text
+$sel:package:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+</span><a href="#local-6989586621679236586"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236586"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236585"><span class="annot"><span class="annottext">s :: GetPackageVersionReadme
+</span><a href="#local-6989586621679236585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadme
+</span><a href="#local-6989586621679236585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:package:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Apackage%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | A string that contains the package version (for example, @3.5.2@).</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_packageVersion"><span class="hs-identifier hs-type">getPackageVersionReadme_packageVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-212"></span><span id="getPackageVersionReadme_packageVersion"><span class="annot"><span class="annottext">getPackageVersionReadme_packageVersion :: (Text -&gt; f Text)
+-&gt; GetPackageVersionReadme -&gt; f GetPackageVersionReadme
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadme_packageVersion"><span class="hs-identifier hs-var hs-var">getPackageVersionReadme_packageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadme -&gt; Text)
+-&gt; (GetPackageVersionReadme -&gt; Text -&gt; GetPackageVersionReadme)
+-&gt; Lens GetPackageVersionReadme GetPackageVersionReadme Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236583"><span class="annot"><span class="annottext">Text
+packageVersion :: Text
+$sel:packageVersion:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+</span><a href="#local-6989586621679236583"><span class="hs-identifier hs-var hs-var">packageVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236583"><span class="hs-identifier hs-var">packageVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236582"><span class="annot"><span class="annottext">s :: GetPackageVersionReadme
+</span><a href="#local-6989586621679236582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236581"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadme
+</span><a href="#local-6989586621679236582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packageVersion:GetPackageVersionReadme' :: Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3ApackageVersion%3AGetPackageVersionReadme%27"><span class="hs-identifier hs-var">packageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-216"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679236577"><span class="annot"><span class="annottext">request :: GetPackageVersionReadme -&gt; Request GetPackageVersionReadme
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetPackageVersionReadme -&gt; Request GetPackageVersionReadme
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.CodeArtifact.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679236573"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetPackageVersionReadme
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPackageVersionReadme)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetPackageVersionReadme))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetPackageVersionReadme
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetPackageVersionReadme)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236570"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679236569"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679236569"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679236568"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe PackageFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">GetPackageVersionReadmeResponse'</span></a></span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe PackageFormat
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetPackageVersionReadmeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe PackageFormat
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetPackageVersionReadmeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;readme&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PackageFormat
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetPackageVersionReadmeResponse)
+-&gt; Either String (Maybe PackageFormat)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetPackageVersionReadmeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PackageFormat)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetPackageVersionReadmeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetPackageVersionReadmeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetPackageVersionReadmeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; GetPackageVersionReadmeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versionRevision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; GetPackageVersionReadmeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetPackageVersionReadmeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetPackageVersionReadmeResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetPackageVersionReadmeResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;package&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetPackageVersionReadmeResponse)
+-&gt; Either String Int
+-&gt; Either String GetPackageVersionReadmeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236570"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236560"><span id="local-6989586621679236562"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236557"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679236553"><span class="annot"><span class="annottext">toHeaders :: GetPackageVersionReadme -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetPackageVersionReadme -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-241"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-243"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679236547"><span class="annot"><span class="annottext">toPath :: GetPackageVersionReadme -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetPackageVersionReadme -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/package/version/readme&quot;</span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme"><span class="hs-identifier hs-type">GetPackageVersionReadme</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679236543"><span class="annot"><span class="annottext">toQuery :: GetPackageVersionReadme -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadme%27"><span class="hs-identifier hs-type">GetPackageVersionReadme'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236535"><span id="local-6989586621679236536"><span id="local-6989586621679236537"><span id="local-6989586621679236538"><span id="local-6989586621679236539"><span id="local-6989586621679236540"><span id="local-6989586621679236541"><span class="annot"><span class="annottext">Maybe Text
+Text
+PackageFormat
+packageVersion :: Text
+package :: Text
+format :: PackageFormat
+repository :: Text
+domain :: Text
+domainOwner :: Maybe Text
+namespace :: Maybe Text
+$sel:packageVersion:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+$sel:package:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+$sel:format:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; PackageFormat
+$sel:repository:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+$sel:domain:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Text
+$sel:domainOwner:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Maybe Text
+$sel:namespace:GetPackageVersionReadme' :: GetPackageVersionReadme -&gt; Maybe Text
+</span><a href="#local-6989586621679236535"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-253"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236541"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain-owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236540"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236539"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236538"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PackageFormat -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679236537"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;package&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236536"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;version&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679236535"><span class="hs-identifier hs-var">packageVersion</span></a></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | /See:/ 'newGetPackageVersionReadmeResponse' smart constructor.</span><span>
+</span><span id="line-263"></span><span id="local-6989586621679236532"><span id="local-6989586621679236533"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetPackageVersionReadmeResponse"><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-var">GetPackageVersionReadmeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetPackageVersionReadmeResponse%27"><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">GetPackageVersionReadmeResponse'</span></a></span></span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The text of the returned readme file.</span><span>
+</span><span id="line-265"></span><span>    </span><span id="%24sel%3Areadme%3AGetPackageVersionReadmeResponse%27"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Areadme%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var hs-var">readme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- | The format of the package with the requested readme file. Valid format</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- types are:</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-274"></span><span>    </span><span id="%24sel%3Aformat%3AGetPackageVersionReadmeResponse%27"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse -&gt; Maybe PackageFormat
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aformat%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-281"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-284"></span><span>    </span><span id="%24sel%3Anamespace%3AGetPackageVersionReadmeResponse%27"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Anamespace%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="hs-comment">-- | The current revision associated with the package version.</span><span>
+</span><span id="line-286"></span><span>    </span><span id="%24sel%3AversionRevision%3AGetPackageVersionReadmeResponse%27"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AversionRevision%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var hs-var">versionRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-comment">-- | The version of the package with the requested readme file.</span><span>
+</span><span id="line-288"></span><span>    </span><span id="%24sel%3Aversion%3AGetPackageVersionReadmeResponse%27"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aversion%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-comment">-- | The name of the package that contains the returned readme file.</span><span>
+</span><span id="line-290"></span><span>    </span><span id="%24sel%3Apackage%3AGetPackageVersionReadmeResponse%27"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Apackage%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-292"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetPackageVersionReadmeResponse%27"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse -&gt; Int
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AhttpStatus%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-294"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236521"><span id="local-6989586621679236523"><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+-&gt; GetPackageVersionReadmeResponse -&gt; Bool
+(GetPackageVersionReadmeResponse
+ -&gt; GetPackageVersionReadmeResponse -&gt; Bool)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; GetPackageVersionReadmeResponse -&gt; Bool)
+-&gt; Eq GetPackageVersionReadmeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetPackageVersionReadmeResponse
+-&gt; GetPackageVersionReadmeResponse -&gt; Bool
+$c/= :: GetPackageVersionReadmeResponse
+-&gt; GetPackageVersionReadmeResponse -&gt; Bool
+== :: GetPackageVersionReadmeResponse
+-&gt; GetPackageVersionReadmeResponse -&gt; Bool
+$c== :: GetPackageVersionReadmeResponse
+-&gt; GetPackageVersionReadmeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236513"><span id="local-6989586621679236515"><span id="local-6989586621679236517"><span id="local-6989586621679236519"><span class="annot"><span class="annottext">ReadPrec [GetPackageVersionReadmeResponse]
+ReadPrec GetPackageVersionReadmeResponse
+Int -&gt; ReadS GetPackageVersionReadmeResponse
+ReadS [GetPackageVersionReadmeResponse]
+(Int -&gt; ReadS GetPackageVersionReadmeResponse)
+-&gt; ReadS [GetPackageVersionReadmeResponse]
+-&gt; ReadPrec GetPackageVersionReadmeResponse
+-&gt; ReadPrec [GetPackageVersionReadmeResponse]
+-&gt; Read GetPackageVersionReadmeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetPackageVersionReadmeResponse]
+$creadListPrec :: ReadPrec [GetPackageVersionReadmeResponse]
+readPrec :: ReadPrec GetPackageVersionReadmeResponse
+$creadPrec :: ReadPrec GetPackageVersionReadmeResponse
+readList :: ReadS [GetPackageVersionReadmeResponse]
+$creadList :: ReadS [GetPackageVersionReadmeResponse]
+readsPrec :: Int -&gt; ReadS GetPackageVersionReadmeResponse
+$creadsPrec :: Int -&gt; ReadS GetPackageVersionReadmeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236507"><span id="local-6989586621679236509"><span id="local-6989586621679236511"><span class="annot"><span class="annottext">Int -&gt; GetPackageVersionReadmeResponse -&gt; ShowS
+[GetPackageVersionReadmeResponse] -&gt; ShowS
+GetPackageVersionReadmeResponse -&gt; String
+(Int -&gt; GetPackageVersionReadmeResponse -&gt; ShowS)
+-&gt; (GetPackageVersionReadmeResponse -&gt; String)
+-&gt; ([GetPackageVersionReadmeResponse] -&gt; ShowS)
+-&gt; Show GetPackageVersionReadmeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetPackageVersionReadmeResponse] -&gt; ShowS
+$cshowList :: [GetPackageVersionReadmeResponse] -&gt; ShowS
+show :: GetPackageVersionReadmeResponse -&gt; String
+$cshow :: GetPackageVersionReadmeResponse -&gt; String
+showsPrec :: Int -&gt; GetPackageVersionReadmeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetPackageVersionReadmeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetPackageVersionReadmeResponse
+ -&gt; Rep GetPackageVersionReadmeResponse x)
+-&gt; (forall x.
+    Rep GetPackageVersionReadmeResponse x
+    -&gt; GetPackageVersionReadmeResponse)
+-&gt; Generic GetPackageVersionReadmeResponse
+forall x.
+Rep GetPackageVersionReadmeResponse x
+-&gt; GetPackageVersionReadmeResponse
+forall x.
+GetPackageVersionReadmeResponse
+-&gt; Rep GetPackageVersionReadmeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetPackageVersionReadmeResponse x
+-&gt; GetPackageVersionReadmeResponse
+$cfrom :: forall x.
+GetPackageVersionReadmeResponse
+-&gt; Rep GetPackageVersionReadmeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- Create a value of 'GetPackageVersionReadmeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- 'readme', 'getPackageVersionReadmeResponse_readme' - The text of the returned readme file.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- 'format', 'getPackageVersionReadmeResponse_format' - The format of the package with the requested readme file. Valid format</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- types are:</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- 'namespace', 'getPackageVersionReadmeResponse_namespace' - The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-323"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- 'versionRevision', 'getPackageVersionReadmeResponse_versionRevision' - The current revision associated with the package version.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">--</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- 'version', 'getPackageVersionReadmeResponse_version' - The version of the package with the requested readme file.</span><span>
+</span><span id="line-328"></span><span class="hs-comment">--</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- 'package', 'getPackageVersionReadmeResponse_package' - The name of the package that contains the returned readme file.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- 'httpStatus', 'getPackageVersionReadmeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#newGetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">newGetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-333"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-334"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-335"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span>
+</span><span id="line-336"></span><span id="newGetPackageVersionReadmeResponse"><span class="annot"><span class="annottext">newGetPackageVersionReadmeResponse :: Int -&gt; GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#newGetPackageVersionReadmeResponse"><span class="hs-identifier hs-var hs-var">newGetPackageVersionReadmeResponse</span></a></span></span><span> </span><span id="local-6989586621679236504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236504"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-337"></span><span>  </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse' :: Maybe Text
+-&gt; Maybe PackageFormat
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span>
+</span><span id="line-338"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:readme:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Areadme%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">readme</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-339"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:GetPackageVersionReadmeResponse' :: Maybe PackageFormat
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aformat%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Anamespace%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionRevision:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AversionRevision%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">versionRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aversion%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>      </span><span class="annot"><span class="annottext">$sel:package:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Apackage%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetPackageVersionReadmeResponse' :: Int
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AhttpStatus%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236504"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-346"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | The text of the returned readme file.</span><span>
+</span><span id="line-349"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_readme"><span class="hs-identifier hs-type">getPackageVersionReadmeResponse_readme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span id="getPackageVersionReadmeResponse_readme"><span class="annot"><span class="annottext">getPackageVersionReadmeResponse_readme :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionReadmeResponse
+-&gt; f GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_readme"><span class="hs-identifier hs-var hs-var">getPackageVersionReadmeResponse_readme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadmeResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionReadmeResponse)
+-&gt; Lens
+     GetPackageVersionReadmeResponse
+     GetPackageVersionReadmeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236503"><span class="annot"><span class="annottext">Maybe Text
+readme :: Maybe Text
+$sel:readme:GetPackageVersionReadmeResponse' :: GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236503"><span class="hs-identifier hs-var hs-var">readme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236503"><span class="hs-identifier hs-var">readme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236502"><span class="annot"><span class="annottext">s :: GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readme:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Areadme%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">readme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- | The format of the package with the requested readme file. Valid format</span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- types are:</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-360"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_format"><span class="hs-identifier hs-type">getPackageVersionReadmeResponse_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span id="getPackageVersionReadmeResponse_format"><span class="annot"><span class="annottext">getPackageVersionReadmeResponse_format :: (Maybe PackageFormat -&gt; f (Maybe PackageFormat))
+-&gt; GetPackageVersionReadmeResponse
+-&gt; f GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_format"><span class="hs-identifier hs-var hs-var">getPackageVersionReadmeResponse_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadmeResponse -&gt; Maybe PackageFormat)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; Maybe PackageFormat -&gt; GetPackageVersionReadmeResponse)
+-&gt; Lens
+     GetPackageVersionReadmeResponse
+     GetPackageVersionReadmeResponse
+     (Maybe PackageFormat)
+     (Maybe PackageFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236500"><span class="annot"><span class="annottext">Maybe PackageFormat
+format :: Maybe PackageFormat
+$sel:format:GetPackageVersionReadmeResponse' :: GetPackageVersionReadmeResponse -&gt; Maybe PackageFormat
+</span><a href="#local-6989586621679236500"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PackageFormat
+</span><a href="#local-6989586621679236500"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236499"><span class="annot"><span class="annottext">s :: GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236498"><span class="annot"><span class="annottext">Maybe PackageFormat
+</span><a href="#local-6989586621679236498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:GetPackageVersionReadmeResponse' :: Maybe PackageFormat
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aformat%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageFormat
+</span><a href="#local-6989586621679236498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-372"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_namespace"><span class="hs-identifier hs-type">getPackageVersionReadmeResponse_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-373"></span><span id="getPackageVersionReadmeResponse_namespace"><span class="annot"><span class="annottext">getPackageVersionReadmeResponse_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionReadmeResponse
+-&gt; f GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_namespace"><span class="hs-identifier hs-var hs-var">getPackageVersionReadmeResponse_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadmeResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionReadmeResponse)
+-&gt; Lens
+     GetPackageVersionReadmeResponse
+     GetPackageVersionReadmeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236497"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:GetPackageVersionReadmeResponse' :: GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236497"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236497"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236496"><span class="annot"><span class="annottext">s :: GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Anamespace%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- | The current revision associated with the package version.</span><span>
+</span><span id="line-376"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_versionRevision"><span class="hs-identifier hs-type">getPackageVersionReadmeResponse_versionRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-377"></span><span id="getPackageVersionReadmeResponse_versionRevision"><span class="annot"><span class="annottext">getPackageVersionReadmeResponse_versionRevision :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionReadmeResponse
+-&gt; f GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_versionRevision"><span class="hs-identifier hs-var hs-var">getPackageVersionReadmeResponse_versionRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadmeResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionReadmeResponse)
+-&gt; Lens
+     GetPackageVersionReadmeResponse
+     GetPackageVersionReadmeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236494"><span class="annot"><span class="annottext">Maybe Text
+versionRevision :: Maybe Text
+$sel:versionRevision:GetPackageVersionReadmeResponse' :: GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236494"><span class="hs-identifier hs-var hs-var">versionRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236494"><span class="hs-identifier hs-var">versionRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236493"><span class="annot"><span class="annottext">s :: GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236492"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionRevision:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AversionRevision%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">versionRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- | The version of the package with the requested readme file.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_version"><span class="hs-identifier hs-type">getPackageVersionReadmeResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span id="getPackageVersionReadmeResponse_version"><span class="annot"><span class="annottext">getPackageVersionReadmeResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionReadmeResponse
+-&gt; f GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_version"><span class="hs-identifier hs-var hs-var">getPackageVersionReadmeResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadmeResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionReadmeResponse)
+-&gt; Lens
+     GetPackageVersionReadmeResponse
+     GetPackageVersionReadmeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236491"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:GetPackageVersionReadmeResponse' :: GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236491"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236491"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236490"><span class="annot"><span class="annottext">s :: GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236489"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Aversion%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- | The name of the package that contains the returned readme file.</span><span>
+</span><span id="line-384"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_package"><span class="hs-identifier hs-type">getPackageVersionReadmeResponse_package</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span id="getPackageVersionReadmeResponse_package"><span class="annot"><span class="annottext">getPackageVersionReadmeResponse_package :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetPackageVersionReadmeResponse
+-&gt; f GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_package"><span class="hs-identifier hs-var hs-var">getPackageVersionReadmeResponse_package</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadmeResponse -&gt; Maybe Text)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; Maybe Text -&gt; GetPackageVersionReadmeResponse)
+-&gt; Lens
+     GetPackageVersionReadmeResponse
+     GetPackageVersionReadmeResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236488"><span class="annot"><span class="annottext">Maybe Text
+package :: Maybe Text
+$sel:package:GetPackageVersionReadmeResponse' :: GetPackageVersionReadmeResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679236488"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236488"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236487"><span class="annot"><span class="annottext">s :: GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:package:GetPackageVersionReadmeResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3Apackage%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-388"></span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_httpStatus"><span class="hs-identifier hs-type">getPackageVersionReadmeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-389"></span><span id="getPackageVersionReadmeResponse_httpStatus"><span class="annot"><span class="annottext">getPackageVersionReadmeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetPackageVersionReadmeResponse
+-&gt; f GetPackageVersionReadmeResponse
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#getPackageVersionReadmeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getPackageVersionReadmeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetPackageVersionReadmeResponse -&gt; Int)
+-&gt; (GetPackageVersionReadmeResponse
+    -&gt; Int -&gt; GetPackageVersionReadmeResponse)
+-&gt; Lens
+     GetPackageVersionReadmeResponse
+     GetPackageVersionReadmeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236485"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetPackageVersionReadmeResponse' :: GetPackageVersionReadmeResponse -&gt; Int
+</span><a href="#local-6989586621679236485"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236485"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236484"><span class="annot"><span class="annottext">s :: GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236483"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetPackageVersionReadmeResponse
+</span><a href="#local-6989586621679236484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetPackageVersionReadmeResponse' :: Int
+</span><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#%24sel%3AhttpStatus%3AGetPackageVersionReadmeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679236483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-392"></span><span>  </span><span id="local-6989586621679236481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-393"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeArtifact.GetPackageVersionReadme.html#GetPackageVersionReadmeResponse"><span class="hs-identifier hs-type">GetPackageVersionReadmeResponse</span></a></span></span><span>
+</span><span id="line-394"></span></pre></body></html>

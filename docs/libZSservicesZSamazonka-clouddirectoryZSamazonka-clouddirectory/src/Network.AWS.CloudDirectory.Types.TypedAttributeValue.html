@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Attributes have a single value.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTypedAttributeValue' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679328940"><span id="local-6989586621679328941"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypedAttributeValue"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-var">TypedAttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypedAttributeValue%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-var">TypedAttributeValue'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679328949"><span id="local-6989586621679328950"></span></span><span class="hs-keyword">data</span><span> </span><span id="TypedAttributeValue"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-var">TypedAttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TypedAttributeValue%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-var">TypedAttributeValue'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A binary data value.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AbinaryValue%3ATypedAttributeValue%27"><span class="annot"><span class="annottext">TypedAttributeValue -&gt; Maybe Base64
 </span><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#%24sel%3AbinaryValue%3ATypedAttributeValue%27"><span class="hs-identifier hs-var hs-var">binaryValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AbooleanValue%3ATypedAttributeValue%27"><span class="annot"><span class="annottext">TypedAttributeValue -&gt; Maybe Bool
 </span><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#%24sel%3AbooleanValue%3ATypedAttributeValue%27"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328930"><span id="local-6989586621679328932"><span class="annot"><span class="annottext">TypedAttributeValue -&gt; TypedAttributeValue -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328939"><span id="local-6989586621679328941"><span class="annot"><span class="annottext">TypedAttributeValue -&gt; TypedAttributeValue -&gt; Bool
 (TypedAttributeValue -&gt; TypedAttributeValue -&gt; Bool)
 -&gt; (TypedAttributeValue -&gt; TypedAttributeValue -&gt; Bool)
 -&gt; Eq TypedAttributeValue
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TypedAttributeValue -&gt; TypedAttributeValue -&gt; Bool
 == :: TypedAttributeValue -&gt; TypedAttributeValue -&gt; Bool
 $c== :: TypedAttributeValue -&gt; TypedAttributeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328921"><span id="local-6989586621679328923"><span id="local-6989586621679328925"><span id="local-6989586621679328927"><span class="annot"><span class="annottext">ReadPrec [TypedAttributeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328930"><span id="local-6989586621679328932"><span id="local-6989586621679328934"><span id="local-6989586621679328936"><span class="annot"><span class="annottext">ReadPrec [TypedAttributeValue]
 ReadPrec TypedAttributeValue
 Int -&gt; ReadS TypedAttributeValue
 ReadS [TypedAttributeValue]
@@ -74,7 +74,7 @@ readList :: ReadS [TypedAttributeValue]
 $creadList :: ReadS [TypedAttributeValue]
 readsPrec :: Int -&gt; ReadS TypedAttributeValue
 $creadsPrec :: Int -&gt; ReadS TypedAttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328914"><span id="local-6989586621679328916"><span id="local-6989586621679328918"><span class="annot"><span class="annottext">Int -&gt; TypedAttributeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328923"><span id="local-6989586621679328925"><span id="local-6989586621679328927"><span class="annot"><span class="annottext">Int -&gt; TypedAttributeValue -&gt; ShowS
 [TypedAttributeValue] -&gt; ShowS
 TypedAttributeValue -&gt; String
 (Int -&gt; TypedAttributeValue -&gt; ShowS)
@@ -170,16 +170,16 @@ forall a. Maybe a
      (Maybe Base64)
      (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328905"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328914"><span class="annot"><span class="annottext">Maybe Base64
 binaryValue :: Maybe Base64
 $sel:binaryValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Base64
-</span><a href="#local-6989586621679328905"><span class="hs-identifier hs-var hs-var">binaryValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679328905"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328904"><span class="annot"><span class="annottext">s :: TypedAttributeValue
-</span><a href="#local-6989586621679328904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328903"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679328903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
-</span><a href="#local-6989586621679328904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryValue:TypedAttributeValue' :: Maybe Base64
+</span><a href="#local-6989586621679328914"><span class="hs-identifier hs-var hs-var">binaryValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679328914"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328913"><span class="annot"><span class="annottext">s :: TypedAttributeValue
+</span><a href="#local-6989586621679328913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328912"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679328912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
+</span><a href="#local-6989586621679328913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryValue:TypedAttributeValue' :: Maybe Base64
 </span><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#%24sel%3AbinaryValue%3ATypedAttributeValue%27"><span class="hs-identifier hs-var">binaryValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679328903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679328912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; TypedAttributeValue -&gt; f TypedAttributeValue)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -206,16 +206,16 @@ Iso' Base64 ByteString
 -&gt; Lens
      TypedAttributeValue TypedAttributeValue (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328898"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328907"><span class="annot"><span class="annottext">Maybe POSIX
 datetimeValue :: Maybe POSIX
 $sel:datetimeValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe POSIX
-</span><a href="#local-6989586621679328898"><span class="hs-identifier hs-var hs-var">datetimeValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328898"><span class="hs-identifier hs-var">datetimeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328897"><span class="annot"><span class="annottext">s :: TypedAttributeValue
-</span><a href="#local-6989586621679328897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328896"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
-</span><a href="#local-6989586621679328897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datetimeValue:TypedAttributeValue' :: Maybe POSIX
+</span><a href="#local-6989586621679328907"><span class="hs-identifier hs-var hs-var">datetimeValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679328907"><span class="hs-identifier hs-var">datetimeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328906"><span class="annot"><span class="annottext">s :: TypedAttributeValue
+</span><a href="#local-6989586621679328906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328905"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679328905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
+</span><a href="#local-6989586621679328906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datetimeValue:TypedAttributeValue' :: Maybe POSIX
 </span><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#%24sel%3AdatetimeValue%3ATypedAttributeValue%27"><span class="hs-identifier hs-var">datetimeValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679328905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TypedAttributeValue -&gt; f TypedAttributeValue)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -241,16 +241,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      TypedAttributeValue TypedAttributeValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328893"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328902"><span class="annot"><span class="annottext">Maybe Text
 numberValue :: Maybe Text
 $sel:numberValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621679328893"><span class="hs-identifier hs-var hs-var">numberValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328893"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328892"><span class="annot"><span class="annottext">s :: TypedAttributeValue
-</span><a href="#local-6989586621679328892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328891"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
-</span><a href="#local-6989586621679328892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberValue:TypedAttributeValue' :: Maybe Text
+</span><a href="#local-6989586621679328902"><span class="hs-identifier hs-var hs-var">numberValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328902"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328901"><span class="annot"><span class="annottext">s :: TypedAttributeValue
+</span><a href="#local-6989586621679328901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328900"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
+</span><a href="#local-6989586621679328901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberValue:TypedAttributeValue' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#%24sel%3AnumberValue%3ATypedAttributeValue%27"><span class="hs-identifier hs-var">numberValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | A string data value.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#typedAttributeValue_stringValue"><span class="hs-identifier hs-type">typedAttributeValue_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -261,16 +261,16 @@ $sel:numberValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Text
 -&gt; Lens
      TypedAttributeValue TypedAttributeValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328889"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328898"><span class="annot"><span class="annottext">Maybe Text
 stringValue :: Maybe Text
 $sel:stringValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621679328889"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328889"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328888"><span class="annot"><span class="annottext">s :: TypedAttributeValue
-</span><a href="#local-6989586621679328888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328887"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
-</span><a href="#local-6989586621679328888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:TypedAttributeValue' :: Maybe Text
+</span><a href="#local-6989586621679328898"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328898"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328897"><span class="annot"><span class="annottext">s :: TypedAttributeValue
+</span><a href="#local-6989586621679328897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328896"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679328896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
+</span><a href="#local-6989586621679328897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:TypedAttributeValue' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#%24sel%3AstringValue%3ATypedAttributeValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A Boolean data value.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#typedAttributeValue_booleanValue"><span class="hs-identifier hs-type">typedAttributeValue_booleanValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -281,19 +281,19 @@ $sel:stringValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Text
 -&gt; Lens
      TypedAttributeValue TypedAttributeValue (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328885"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328894"><span class="annot"><span class="annottext">Maybe Bool
 booleanValue :: Maybe Bool
 $sel:booleanValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Bool
-</span><a href="#local-6989586621679328885"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328885"><span class="hs-identifier hs-var">booleanValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328884"><span class="annot"><span class="annottext">s :: TypedAttributeValue
-</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328883"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
-</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:booleanValue:TypedAttributeValue' :: Maybe Bool
+</span><a href="#local-6989586621679328894"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679328894"><span class="hs-identifier hs-var">booleanValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328893"><span class="annot"><span class="annottext">s :: TypedAttributeValue
+</span><a href="#local-6989586621679328893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328892"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679328892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TypedAttributeValue
+</span><a href="#local-6989586621679328893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:booleanValue:TypedAttributeValue' :: Maybe Bool
 </span><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#%24sel%3AbooleanValue%3ATypedAttributeValue%27"><span class="hs-identifier hs-var">booleanValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328880"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679328878"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TypedAttributeValue
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328889"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679328887"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TypedAttributeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TypedAttributeValue)
@@ -303,8 +303,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TypedAttributeValue&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328875"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328884"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Base64
 -&gt; Maybe POSIX
 -&gt; Maybe Text
@@ -324,7 +324,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; TypedAttributeValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
+</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BinaryValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -336,7 +336,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; TypedAttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatetimeValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -346,7 +346,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; TypedAttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -355,7 +355,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; TypedAttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StringValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -363,19 +363,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser TypedAttributeValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328875"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679328884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BooleanValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328869"><span id="local-6989586621679328871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328878"><span id="local-6989586621679328880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328858"><span id="local-6989586621679328860"><span id="local-6989586621679328862"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679328856"><span class="annot"><span class="annottext">toJSON :: TypedAttributeValue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328850"><span id="local-6989586621679328851"><span id="local-6989586621679328852"><span id="local-6989586621679328853"><span id="local-6989586621679328854"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328867"><span id="local-6989586621679328869"><span id="local-6989586621679328871"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679328865"><span class="annot"><span class="annottext">toJSON :: TypedAttributeValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue%27"><span class="hs-identifier hs-type">TypedAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328859"><span id="local-6989586621679328860"><span id="local-6989586621679328861"><span id="local-6989586621679328862"><span id="local-6989586621679328863"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe Base64
 Maybe POSIX
@@ -389,7 +389,7 @@ $sel:stringValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Text
 $sel:numberValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Text
 $sel:datetimeValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe POSIX
 $sel:binaryValue:TypedAttributeValue' :: TypedAttributeValue -&gt; Maybe Base64
-</span><a href="#local-6989586621679328850"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679328859"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -401,35 +401,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Base64 -&gt; Pair) -&gt; Maybe Base64 -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679328854"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328863"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatetimeValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679328853"><span class="hs-identifier hs-var">datetimeValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328862"><span class="hs-identifier hs-var">datetimeValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328852"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328861"><span class="hs-identifier hs-var">numberValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679328851"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328860"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BooleanValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679328850"><span class="hs-identifier hs-var">booleanValue</span></a></span><span>
+</span><a href="#local-6989586621679328859"><span class="hs-identifier hs-var">booleanValue</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span></pre></body></html>

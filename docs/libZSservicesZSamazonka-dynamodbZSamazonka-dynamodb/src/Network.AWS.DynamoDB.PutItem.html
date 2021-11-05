@@ -111,7 +111,7 @@
 </span><span id="line-111"></span><span class="hs-comment">-- | Represents the input of a @PutItem@ operation.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- /See:/ 'newPutItem' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679388127"><span id="local-6989586621679388128"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItem"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-var">PutItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-var">PutItem'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679388136"><span id="local-6989586621679388137"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItem"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-var">PutItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItem%27"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-var">PutItem'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-comment">-- The following are some use cases for using @ExpressionAttributeNames@:</span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -255,7 +255,7 @@
 </span><span id="line-246"></span><span>    </span><span id="%24sel%3Aitem%3APutItem%27"><span class="annot"><span class="annottext">PutItem -&gt; HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3Aitem%3APutItem%27"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span>
 </span><span id="line-247"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-248"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388112"><span id="local-6989586621679388114"><span class="annot"><span class="annottext">PutItem -&gt; PutItem -&gt; Bool
+</span><span id="line-248"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388121"><span id="local-6989586621679388123"><span class="annot"><span class="annottext">PutItem -&gt; PutItem -&gt; Bool
 (PutItem -&gt; PutItem -&gt; Bool)
 -&gt; (PutItem -&gt; PutItem -&gt; Bool) -&gt; Eq PutItem
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -263,7 +263,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutItem -&gt; PutItem -&gt; Bool
 == :: PutItem -&gt; PutItem -&gt; Bool
 $c== :: PutItem -&gt; PutItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388103"><span id="local-6989586621679388105"><span id="local-6989586621679388107"><span id="local-6989586621679388109"><span class="annot"><span class="annottext">ReadPrec [PutItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388112"><span id="local-6989586621679388114"><span id="local-6989586621679388116"><span id="local-6989586621679388118"><span class="annot"><span class="annottext">ReadPrec [PutItem]
 ReadPrec PutItem
 Int -&gt; ReadS PutItem
 ReadS [PutItem]
@@ -283,7 +283,7 @@ readList :: ReadS [PutItem]
 $creadList :: ReadS [PutItem]
 readsPrec :: Int -&gt; ReadS PutItem
 $creadsPrec :: Int -&gt; ReadS PutItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388096"><span id="local-6989586621679388098"><span id="local-6989586621679388100"><span class="annot"><span class="annottext">Int -&gt; PutItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388105"><span id="local-6989586621679388107"><span id="local-6989586621679388109"><span class="annot"><span class="annottext">Int -&gt; PutItem -&gt; ShowS
 [PutItem] -&gt; ShowS
 PutItem -&gt; String
 (Int -&gt; PutItem -&gt; ShowS)
@@ -451,8 +451,8 @@ $cfrom :: forall x. PutItem -&gt; Rep PutItem x
 </span><span id="line-392"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-393"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span>
 </span><span id="line-394"></span><span id="newPutItem"><span class="annot"><span class="annottext">newPutItem :: Text -&gt; PutItem
-</span><a href="Network.AWS.DynamoDB.PutItem.html#newPutItem"><span class="hs-identifier hs-var hs-var">newPutItem</span></a></span></span><span> </span><span id="local-6989586621679388091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388091"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.PutItem.html#newPutItem"><span class="hs-identifier hs-var hs-var">newPutItem</span></a></span></span><span> </span><span id="local-6989586621679388100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388100"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-395"></span><span>  </span><span class="annot"><span class="annottext">PutItem' :: Maybe (HashMap Text Text)
 -&gt; Maybe ReturnValue
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -500,7 +500,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:PutItem' :: Text
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AtableName%3APutItem%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388091"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388100"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-406"></span><span>      </span><span class="annot"><span class="annottext">$sel:item:PutItem' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3Aitem%3APutItem%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
 forall a. Monoid a =&gt; a
@@ -555,16 +555,16 @@ forall a. Monoid a =&gt; a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388088"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388097"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 expressionAttributeNames :: Maybe (HashMap Text Text)
 $sel:expressionAttributeNames:PutItem' :: PutItem -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679388088"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679388088"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388087"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388086"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679388086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:PutItem' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679388097"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679388097"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388096"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388095"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679388095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:PutItem' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AexpressionAttributeNames%3APutItem%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679388086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679388095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; PutItem -&gt; f PutItem)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -614,16 +614,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutItem -&gt; Maybe ReturnValue -&gt; PutItem)
 -&gt; Lens PutItem PutItem (Maybe ReturnValue) (Maybe ReturnValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388082"><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388091"><span class="annot"><span class="annottext">Maybe ReturnValue
 returnValues :: Maybe ReturnValue
 $sel:returnValues:PutItem' :: PutItem -&gt; Maybe ReturnValue
-</span><a href="#local-6989586621679388082"><span class="hs-identifier hs-var hs-var">returnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679388082"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388081"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388080"><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679388080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValues:PutItem' :: Maybe ReturnValue
+</span><a href="#local-6989586621679388091"><span class="hs-identifier hs-var hs-var">returnValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><a href="#local-6989586621679388091"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388090"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388089"><span class="annot"><span class="annottext">Maybe ReturnValue
+</span><a href="#local-6989586621679388089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValues:PutItem' :: Maybe ReturnValue
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AreturnValues%3APutItem%27"><span class="hs-identifier hs-var">returnValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679388080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-465"></span><span>
 </span><span id="line-466"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
 </span><span id="line-467"></span><span class="hs-comment">--</span><span>
@@ -656,16 +656,16 @@ $sel:returnValues:PutItem' :: PutItem -&gt; Maybe ReturnValue
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388079"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388088"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
 $sel:expressionAttributeValues:PutItem' :: PutItem -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679388079"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679388079"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388078"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388077"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679388077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:PutItem' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679388088"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679388088"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388087"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388086"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679388086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:PutItem' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AexpressionAttributeValues%3APutItem%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679388077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679388086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; PutItem -&gt; f PutItem)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -710,16 +710,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ReturnConsumedCapacity)
      (Maybe ReturnConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388076"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388085"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
 returnConsumedCapacity :: Maybe ReturnConsumedCapacity
 $sel:returnConsumedCapacity:PutItem' :: PutItem -&gt; Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679388076"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679388076"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388075"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388074"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679388074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:PutItem' :: Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679388085"><span class="hs-identifier hs-var hs-var">returnConsumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679388085"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388084"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388083"><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
+</span><a href="#local-6989586621679388083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnConsumedCapacity:PutItem' :: Maybe ReturnConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AreturnConsumedCapacity%3APutItem%27"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679388074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-491"></span><span>
 </span><span id="line-492"></span><span class="hs-comment">-- | Determines whether item collection metrics are returned. If set to</span><span>
 </span><span id="line-493"></span><span class="hs-comment">-- @SIZE@, the response includes statistics about item collections, if any,</span><span>
@@ -737,16 +737,16 @@ $sel:returnConsumedCapacity:PutItem' :: PutItem -&gt; Maybe ReturnConsumedCapaci
      (Maybe ReturnItemCollectionMetrics)
      (Maybe ReturnItemCollectionMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388073"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388082"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
 returnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
 $sel:returnItemCollectionMetrics:PutItem' :: PutItem -&gt; Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679388073"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679388073"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388072"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388071"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679388071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:PutItem' :: Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679388082"><span class="hs-identifier hs-var hs-var">returnItemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679388082"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388081"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388080"><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
+</span><a href="#local-6989586621679388080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnItemCollectionMetrics:PutItem' :: Maybe ReturnItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AreturnItemCollectionMetrics%3APutItem%27"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679388071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-498"></span><span>
 </span><span id="line-499"></span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional @PutItem@</span><span>
 </span><span id="line-500"></span><span class="hs-comment">-- operation to succeed.</span><span>
@@ -771,16 +771,16 @@ $sel:returnItemCollectionMetrics:PutItem' :: PutItem -&gt; Maybe ReturnItemColle
 -&gt; (PutItem -&gt; Maybe Text -&gt; PutItem)
 -&gt; Lens PutItem PutItem (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388070"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388079"><span class="annot"><span class="annottext">Maybe Text
 conditionExpression :: Maybe Text
 $sel:conditionExpression:PutItem' :: PutItem -&gt; Maybe Text
-</span><a href="#local-6989586621679388070"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388070"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388069"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388068"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:PutItem' :: Maybe Text
+</span><a href="#local-6989586621679388079"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388079"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388078"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388077"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:PutItem' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AconditionExpression%3APutItem%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-518"></span><span>
 </span><span id="line-519"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more</span><span>
 </span><span id="line-520"></span><span class="hs-comment">-- information, see</span><span>
@@ -797,16 +797,16 @@ $sel:conditionExpression:PutItem' :: PutItem -&gt; Maybe Text
      (Maybe ConditionalOperator)
      (Maybe ConditionalOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388067"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388076"><span class="annot"><span class="annottext">Maybe ConditionalOperator
 conditionalOperator :: Maybe ConditionalOperator
 $sel:conditionalOperator:PutItem' :: PutItem -&gt; Maybe ConditionalOperator
-</span><a href="#local-6989586621679388067"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679388067"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388066"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388065"><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679388065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:PutItem' :: Maybe ConditionalOperator
+</span><a href="#local-6989586621679388076"><span class="hs-identifier hs-var hs-var">conditionalOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679388076"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388075"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388074"><span class="annot"><span class="annottext">Maybe ConditionalOperator
+</span><a href="#local-6989586621679388074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalOperator:PutItem' :: Maybe ConditionalOperator
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AconditionalOperator%3APutItem%27"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679388065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-525"></span><span>
 </span><span id="line-526"></span><span class="hs-comment">-- | This is a legacy parameter. Use @ConditionExpression@ instead. For more</span><span>
 </span><span id="line-527"></span><span class="hs-comment">-- information, see</span><span>
@@ -825,16 +825,16 @@ $sel:conditionalOperator:PutItem' :: PutItem -&gt; Maybe ConditionalOperator
      (Maybe (HashMap Text ExpectedAttributeValue))
      (Maybe (HashMap Text ExpectedAttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388064"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388073"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
 expected :: Maybe (HashMap Text ExpectedAttributeValue)
 $sel:expected:PutItem' :: PutItem -&gt; Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679388064"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679388064"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388063"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388062"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679388062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:PutItem' :: Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679388073"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679388073"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388072"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388071"><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679388071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:PutItem' :: Maybe (HashMap Text ExpectedAttributeValue)
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3Aexpected%3APutItem%27"><span class="hs-identifier hs-var">expected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679388062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ExpectedAttributeValue)
+</span><a href="#local-6989586621679388071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text ExpectedAttributeValue)
   -&gt; f (Maybe (HashMap Text ExpectedAttributeValue)))
  -&gt; PutItem -&gt; f PutItem)
 -&gt; ((Maybe (HashMap Text ExpectedAttributeValue)
@@ -873,16 +873,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><a href="Network.AWS.DynamoDB.PutItem.html#putItem_tableName"><span class="hs-identifier hs-var hs-var">putItem_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutItem -&gt; Text)
 -&gt; (PutItem -&gt; Text -&gt; PutItem) -&gt; Lens PutItem PutItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388061"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388070"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:PutItem' :: PutItem -&gt; Text
-</span><a href="#local-6989586621679388061"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388061"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388060"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388059"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:PutItem' :: Text
+</span><a href="#local-6989586621679388070"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388070"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388069"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388068"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:PutItem' :: Text
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AtableName%3APutItem%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-536"></span><span>
 </span><span id="line-537"></span><span class="hs-comment">-- | A map of attribute name\/value pairs, one for each attribute. Only the</span><span>
 </span><span id="line-538"></span><span class="hs-comment">-- primary key attributes are required; you can optionally provide other</span><span>
@@ -917,16 +917,16 @@ $sel:tableName:PutItem' :: PutItem -&gt; Text
      (HashMap Text AttributeValue)
      (HashMap Text AttributeValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388058"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388067"><span class="annot"><span class="annottext">HashMap Text AttributeValue
 item :: HashMap Text AttributeValue
 $sel:item:PutItem' :: PutItem -&gt; HashMap Text AttributeValue
-</span><a href="#local-6989586621679388058"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679388058"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388057"><span class="annot"><span class="annottext">s :: PutItem
-</span><a href="#local-6989586621679388057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388056"><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679388056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
-</span><a href="#local-6989586621679388057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:PutItem' :: HashMap Text AttributeValue
+</span><a href="#local-6989586621679388067"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679388067"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388066"><span class="annot"><span class="annottext">s :: PutItem
+</span><a href="#local-6989586621679388066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388065"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679388065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItem
+</span><a href="#local-6989586621679388066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:PutItem' :: HashMap Text AttributeValue
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3Aitem%3APutItem%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679388056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+</span><a href="#local-6989586621679388065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
  -&gt; PutItem -&gt; f PutItem)
 -&gt; ((HashMap Text AttributeValue
      -&gt; f (HashMap Text AttributeValue))
@@ -942,12 +942,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-561"></span><span>
 </span><span id="line-562"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-563"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span>
-</span><span id="line-564"></span><span>  </span><span id="local-6989586621679388052"><span class="annot"><span class="annottext">request :: PutItem -&gt; Request PutItem
+</span><span id="line-564"></span><span>  </span><span id="local-6989586621679388061"><span class="annot"><span class="annottext">request :: PutItem -&gt; Request PutItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutItem -&gt; Request PutItem
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-565"></span><span>  </span><span id="local-6989586621679388048"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-565"></span><span>  </span><span id="local-6989586621679388057"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutItem
 -&gt; ClientResponse ClientBody
@@ -971,10 +971,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-567"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388045"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388045"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388044"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388044"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388043"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-567"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388054"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388054"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388053"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388053"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388052"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-568"></span><span>          </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
 -&gt; Maybe ConsumedCapacity
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -993,7 +993,7 @@ MonadResource m =&gt;
       -&gt; Maybe (HashMap Text AttributeValue) -&gt; Int -&gt; PutItemResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ItemCollectionMetrics)
+</span><a href="#local-6989586621679388052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ItemCollectionMetrics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ItemCollectionMetrics&quot;</span></span><span class="hs-special">)</span><span>
@@ -1007,7 +1007,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe (HashMap Text AttributeValue) -&gt; Int -&gt; PutItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
+</span><a href="#local-6989586621679388052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ConsumedCapacity)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumedCapacity&quot;</span></span><span class="hs-special">)</span><span>
@@ -1018,7 +1018,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; PutItemResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -1038,15 +1038,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388045"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388054"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-573"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-574"></span><span>
-</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388034"><span id="local-6989586621679388036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span></span></span><span>
+</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388043"><span id="local-6989586621679388045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span></span></span><span>
 </span><span id="line-576"></span><span>
-</span><span id="line-577"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span></span><span>
+</span><span id="line-577"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span></span><span>
 </span><span id="line-578"></span><span>
 </span><span id="line-579"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-580"></span><span>  </span><span id="local-6989586621679388027"><span class="annot"><span class="annottext">toHeaders :: PutItem -&gt; ResponseHeaders
+</span><span id="line-580"></span><span>  </span><span id="local-6989586621679388036"><span class="annot"><span class="annottext">toHeaders :: PutItem -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-581"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutItem -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -1071,9 +1071,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-589"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-590"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-591"></span><span>
-</span><span id="line-592"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388017"><span id="local-6989586621679388019"><span id="local-6989586621679388021"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-593"></span><span>  </span><span id="local-6989586621679388015"><span class="annot"><span class="annottext">toJSON :: PutItem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388004"><span id="local-6989586621679388005"><span id="local-6989586621679388006"><span id="local-6989586621679388007"><span id="local-6989586621679388008"><span id="local-6989586621679388009"><span id="local-6989586621679388010"><span id="local-6989586621679388011"><span id="local-6989586621679388012"><span id="local-6989586621679388013"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-592"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388026"><span id="local-6989586621679388028"><span id="local-6989586621679388030"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-593"></span><span>  </span><span id="local-6989586621679388024"><span class="annot"><span class="annottext">toJSON :: PutItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem%27"><span class="hs-identifier hs-type">PutItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388013"><span id="local-6989586621679388014"><span id="local-6989586621679388015"><span id="local-6989586621679388016"><span id="local-6989586621679388017"><span id="local-6989586621679388018"><span id="local-6989586621679388019"><span id="local-6989586621679388020"><span id="local-6989586621679388021"><span id="local-6989586621679388022"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Maybe (HashMap Text AttributeValue)
 Maybe (HashMap Text ExpectedAttributeValue)
@@ -1103,7 +1103,7 @@ $sel:returnConsumedCapacity:PutItem' :: PutItem -&gt; Maybe ReturnConsumedCapaci
 $sel:expressionAttributeValues:PutItem' :: PutItem -&gt; Maybe (HashMap Text AttributeValue)
 $sel:returnValues:PutItem' :: PutItem -&gt; Maybe ReturnValue
 $sel:expressionAttributeNames:PutItem' :: PutItem -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679388004"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388013"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-594"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-595"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -1117,14 +1117,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679388013"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388022"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-598"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ReturnValue -&gt; Pair) -&gt; Maybe ReturnValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValue
-</span><a href="#local-6989586621679388012"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388021"><span class="hs-identifier hs-var">returnValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-599"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1133,7 +1133,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679388011"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388020"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-601"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnConsumedCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnConsumedCapacity -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1142,7 +1142,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnConsumedCapacity -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnConsumedCapacity
-</span><a href="#local-6989586621679388010"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388019"><span class="hs-identifier hs-var">returnConsumedCapacity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-603"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReturnItemCollectionMetrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnItemCollectionMetrics -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1151,7 +1151,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ReturnItemCollectionMetrics -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnItemCollectionMetrics
-</span><a href="#local-6989586621679388009"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388018"><span class="hs-identifier hs-var">returnItemCollectionMetrics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-605"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1159,7 +1159,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-606"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388008"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388017"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-607"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConditionalOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ConditionalOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1168,7 +1168,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ConditionalOperator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ConditionalOperator
-</span><a href="#local-6989586621679388007"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388016"><span class="hs-identifier hs-var">conditionalOperator</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-609"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Expected&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text ExpectedAttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -1176,33 +1176,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text ExpectedAttributeValue) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text ExpectedAttributeValue)
-</span><a href="#local-6989586621679388006"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388015"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-610"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388005"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388014"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-611"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Item&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
-</span><a href="#local-6989586621679388004"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388013"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-612"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-613"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-614"></span><span>
 </span><span id="line-615"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-616"></span><span>  </span><span id="local-6989586621679387998"><span class="annot"><span class="annottext">toPath :: PutItem -&gt; ByteString
+</span><span id="line-616"></span><span>  </span><span id="local-6989586621679388007"><span class="annot"><span class="annottext">toPath :: PutItem -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutItem -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-617"></span><span>
 </span><span id="line-618"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItem"><span class="hs-identifier hs-type">PutItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-619"></span><span>  </span><span id="local-6989586621679387994"><span class="annot"><span class="annottext">toQuery :: PutItem -&gt; QueryString
+</span><span id="line-619"></span><span>  </span><span id="local-6989586621679388003"><span class="annot"><span class="annottext">toQuery :: PutItem -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutItem -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1212,7 +1212,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-621"></span><span class="hs-comment">-- | Represents the output of a @PutItem@ operation.</span><span>
 </span><span id="line-622"></span><span class="hs-comment">--</span><span>
 </span><span id="line-623"></span><span class="hs-comment">-- /See:/ 'newPutItemResponse' smart constructor.</span><span>
-</span><span id="line-624"></span><span id="local-6989586621679387991"><span id="local-6989586621679387992"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-var">PutItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-var">PutItemResponse'</span></a></span></span><span>
+</span><span id="line-624"></span><span id="local-6989586621679388000"><span id="local-6989586621679388001"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItemResponse"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-var">PutItemResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItemResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-var">PutItemResponse'</span></a></span></span><span>
 </span><span id="line-625"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about item collections, if any, that were affected by the</span><span>
 </span><span id="line-626"></span><span>    </span><span class="hs-comment">-- @PutItem@ operation. @ItemCollectionMetrics@ is only returned if the</span><span>
 </span><span id="line-627"></span><span>    </span><span class="hs-comment">-- @ReturnItemCollectionMetrics@ parameter was specified. If the table does</span><span>
@@ -1255,7 +1255,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-661"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutItemResponse%27"><span class="annot"><span class="annottext">PutItemResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AhttpStatus%3APutItemResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-662"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-663"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387983"><span id="local-6989586621679387985"><span class="annot"><span class="annottext">PutItemResponse -&gt; PutItemResponse -&gt; Bool
+</span><span id="line-663"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387992"><span id="local-6989586621679387994"><span class="annot"><span class="annottext">PutItemResponse -&gt; PutItemResponse -&gt; Bool
 (PutItemResponse -&gt; PutItemResponse -&gt; Bool)
 -&gt; (PutItemResponse -&gt; PutItemResponse -&gt; Bool)
 -&gt; Eq PutItemResponse
@@ -1264,7 +1264,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutItemResponse -&gt; PutItemResponse -&gt; Bool
 == :: PutItemResponse -&gt; PutItemResponse -&gt; Bool
 $c== :: PutItemResponse -&gt; PutItemResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387975"><span id="local-6989586621679387977"><span id="local-6989586621679387979"><span id="local-6989586621679387981"><span class="annot"><span class="annottext">ReadPrec [PutItemResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387984"><span id="local-6989586621679387986"><span id="local-6989586621679387988"><span id="local-6989586621679387990"><span class="annot"><span class="annottext">ReadPrec [PutItemResponse]
 ReadPrec PutItemResponse
 Int -&gt; ReadS PutItemResponse
 ReadS [PutItemResponse]
@@ -1284,7 +1284,7 @@ readList :: ReadS [PutItemResponse]
 $creadList :: ReadS [PutItemResponse]
 readsPrec :: Int -&gt; ReadS PutItemResponse
 $creadsPrec :: Int -&gt; ReadS PutItemResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387969"><span id="local-6989586621679387971"><span id="local-6989586621679387973"><span class="annot"><span class="annottext">Int -&gt; PutItemResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387978"><span id="local-6989586621679387980"><span id="local-6989586621679387982"><span class="annot"><span class="annottext">Int -&gt; PutItemResponse -&gt; ShowS
 [PutItemResponse] -&gt; ShowS
 PutItemResponse -&gt; String
 (Int -&gt; PutItemResponse -&gt; ShowS)
@@ -1359,8 +1359,8 @@ $cfrom :: forall x. PutItemResponse -&gt; Rep PutItemResponse x
 </span><span id="line-711"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-712"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span>
 </span><span id="line-713"></span><span id="newPutItemResponse"><span class="annot"><span class="annottext">newPutItemResponse :: Int -&gt; PutItemResponse
-</span><a href="Network.AWS.DynamoDB.PutItem.html#newPutItemResponse"><span class="hs-identifier hs-var hs-var">newPutItemResponse</span></a></span></span><span> </span><span id="local-6989586621679387966"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.PutItem.html#newPutItemResponse"><span class="hs-identifier hs-var hs-var">newPutItemResponse</span></a></span></span><span> </span><span id="local-6989586621679387975"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-714"></span><span>  </span><span class="annot"><span class="annottext">PutItemResponse' :: Maybe ItemCollectionMetrics
 -&gt; Maybe ConsumedCapacity
 -&gt; Maybe (HashMap Text AttributeValue)
@@ -1382,7 +1382,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-719"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AhttpStatus%3APutItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679387975"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-720"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-721"></span><span>
 </span><span id="line-722"></span><span class="hs-comment">-- | Information about item collections, if any, that were affected by the</span><span>
@@ -1419,16 +1419,16 @@ forall a. Maybe a
      (Maybe ItemCollectionMetrics)
      (Maybe ItemCollectionMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387965"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387974"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
 itemCollectionMetrics :: Maybe ItemCollectionMetrics
 $sel:itemCollectionMetrics:PutItemResponse' :: PutItemResponse -&gt; Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679387965"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679387965"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387964"><span class="annot"><span class="annottext">s :: PutItemResponse
-</span><a href="#local-6989586621679387964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387963"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679387963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
-</span><a href="#local-6989586621679387964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:PutItemResponse' :: Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679387974"><span class="hs-identifier hs-var hs-var">itemCollectionMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679387974"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387973"><span class="annot"><span class="annottext">s :: PutItemResponse
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387972"><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
+</span><a href="#local-6989586621679387972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
+</span><a href="#local-6989586621679387973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemCollectionMetrics:PutItemResponse' :: Maybe ItemCollectionMetrics
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AitemCollectionMetrics%3APutItemResponse%27"><span class="hs-identifier hs-var">itemCollectionMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ItemCollectionMetrics
-</span><a href="#local-6989586621679387963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-746"></span><span>
 </span><span id="line-747"></span><span class="hs-comment">-- | The capacity units consumed by the @PutItem@ operation. The data</span><span>
 </span><span id="line-748"></span><span class="hs-comment">-- returned includes the total provisioned throughput consumed, along with</span><span>
@@ -1448,16 +1448,16 @@ $sel:itemCollectionMetrics:PutItemResponse' :: PutItemResponse -&gt; Maybe ItemC
      (Maybe ConsumedCapacity)
      (Maybe ConsumedCapacity)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387962"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387971"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
 consumedCapacity :: Maybe ConsumedCapacity
 $sel:consumedCapacity:PutItemResponse' :: PutItemResponse -&gt; Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387962"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387962"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387961"><span class="annot"><span class="annottext">s :: PutItemResponse
-</span><a href="#local-6989586621679387961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387960"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
-</span><a href="#local-6989586621679387961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:PutItemResponse' :: Maybe ConsumedCapacity
+</span><a href="#local-6989586621679387971"><span class="hs-identifier hs-var hs-var">consumedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679387971"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387970"><span class="annot"><span class="annottext">s :: PutItemResponse
+</span><a href="#local-6989586621679387970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387969"><span class="annot"><span class="annottext">Maybe ConsumedCapacity
+</span><a href="#local-6989586621679387969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
+</span><a href="#local-6989586621679387970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumedCapacity:PutItemResponse' :: Maybe ConsumedCapacity
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AconsumedCapacity%3APutItemResponse%27"><span class="hs-identifier hs-var">consumedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConsumedCapacity
-</span><a href="#local-6989586621679387960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-756"></span><span>
 </span><span id="line-757"></span><span class="hs-comment">-- | The attribute values as they appeared before the @PutItem@ operation,</span><span>
 </span><span id="line-758"></span><span class="hs-comment">-- but only if @ReturnValues@ is specified as @ALL_OLD@ in the request.</span><span>
@@ -1475,16 +1475,16 @@ $sel:consumedCapacity:PutItemResponse' :: PutItemResponse -&gt; Maybe ConsumedCa
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387959"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387968"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 attributes :: Maybe (HashMap Text AttributeValue)
 $sel:attributes:PutItemResponse' :: PutItemResponse -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387959"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387959"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387958"><span class="annot"><span class="annottext">s :: PutItemResponse
-</span><a href="#local-6989586621679387958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387957"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
-</span><a href="#local-6989586621679387958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:PutItemResponse' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387968"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387968"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387967"><span class="annot"><span class="annottext">s :: PutItemResponse
+</span><a href="#local-6989586621679387967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387966"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
+</span><a href="#local-6989586621679387967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:PutItemResponse' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3Aattributes%3APutItemResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679387957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679387966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; PutItemResponse -&gt; f PutItemResponse)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -1524,16 +1524,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (PutItemResponse -&gt; Int -&gt; PutItemResponse)
 -&gt; Lens PutItemResponse PutItemResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387956"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387965"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutItemResponse' :: PutItemResponse -&gt; Int
-</span><a href="#local-6989586621679387956"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387956"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387955"><span class="annot"><span class="annottext">s :: PutItemResponse
-</span><a href="#local-6989586621679387955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387954"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
-</span><a href="#local-6989586621679387955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutItemResponse' :: Int
+</span><a href="#local-6989586621679387965"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387965"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387964"><span class="annot"><span class="annottext">s :: PutItemResponse
+</span><a href="#local-6989586621679387964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse%27"><span class="hs-identifier hs-type">PutItemResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387963"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItemResponse
+</span><a href="#local-6989586621679387964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutItemResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.PutItem.html#%24sel%3AhttpStatus%3APutItemResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-766"></span><span>
-</span><span id="line-767"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span></span><span>
+</span><span id="line-767"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.PutItem.html#PutItemResponse"><span class="hs-identifier hs-type">PutItemResponse</span></a></span></span><span>
 </span><span id="line-768"></span></pre></body></html>

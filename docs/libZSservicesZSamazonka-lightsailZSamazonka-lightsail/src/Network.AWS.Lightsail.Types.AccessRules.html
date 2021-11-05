@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- /Amazon Lightsail Developer Guide/.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newAccessRules' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679603643"><span id="local-6989586621679603644"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessRules"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-var">AccessRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessRules%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-var">AccessRules'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679603652"><span id="local-6989586621679603653"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessRules"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-var">AccessRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessRules%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-var">AccessRules'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the anonymous access to all objects in a bucket.</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- The following options can be specified:</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="annot"><span class="annottext">AccessRules -&gt; Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="hs-identifier hs-var hs-var">allowPublicOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603636"><span id="local-6989586621679603638"><span class="annot"><span class="annottext">AccessRules -&gt; AccessRules -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679603645"><span id="local-6989586621679603647"><span class="annot"><span class="annottext">AccessRules -&gt; AccessRules -&gt; Bool
 (AccessRules -&gt; AccessRules -&gt; Bool)
 -&gt; (AccessRules -&gt; AccessRules -&gt; Bool) -&gt; Eq AccessRules
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccessRules -&gt; AccessRules -&gt; Bool
 == :: AccessRules -&gt; AccessRules -&gt; Bool
 $c== :: AccessRules -&gt; AccessRules -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603627"><span id="local-6989586621679603629"><span id="local-6989586621679603631"><span id="local-6989586621679603633"><span class="annot"><span class="annottext">ReadPrec [AccessRules]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603636"><span id="local-6989586621679603638"><span id="local-6989586621679603640"><span id="local-6989586621679603642"><span class="annot"><span class="annottext">ReadPrec [AccessRules]
 ReadPrec AccessRules
 Int -&gt; ReadS AccessRules
 ReadS [AccessRules]
@@ -95,7 +95,7 @@ readList :: ReadS [AccessRules]
 $creadList :: ReadS [AccessRules]
 readsPrec :: Int -&gt; ReadS AccessRules
 $creadsPrec :: Int -&gt; ReadS AccessRules
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603620"><span id="local-6989586621679603622"><span id="local-6989586621679603624"><span class="annot"><span class="annottext">Int -&gt; AccessRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679603629"><span id="local-6989586621679603631"><span id="local-6989586621679603633"><span class="annot"><span class="annottext">Int -&gt; AccessRules -&gt; ShowS
 [AccessRules] -&gt; ShowS
 AccessRules -&gt; String
 (Int -&gt; AccessRules -&gt; ShowS)
@@ -200,16 +200,16 @@ forall a. Maybe a
 -&gt; Lens
      AccessRules AccessRules (Maybe AccessType) (Maybe AccessType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603611"><span class="annot"><span class="annottext">Maybe AccessType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603620"><span class="annot"><span class="annottext">Maybe AccessType
 getObject :: Maybe AccessType
 $sel:getObject:AccessRules' :: AccessRules -&gt; Maybe AccessType
-</span><a href="#local-6989586621679603611"><span class="hs-identifier hs-var hs-var">getObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679603611"><span class="hs-identifier hs-var">getObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603610"><span class="annot"><span class="annottext">s :: AccessRules
-</span><a href="#local-6989586621679603610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603609"><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679603609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
-</span><a href="#local-6989586621679603610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:getObject:AccessRules' :: Maybe AccessType
+</span><a href="#local-6989586621679603620"><span class="hs-identifier hs-var hs-var">getObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
+</span><a href="#local-6989586621679603620"><span class="hs-identifier hs-var">getObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603619"><span class="annot"><span class="annottext">s :: AccessRules
+</span><a href="#local-6989586621679603619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603618"><span class="annot"><span class="annottext">Maybe AccessType
+</span><a href="#local-6989586621679603618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
+</span><a href="#local-6989586621679603619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:getObject:AccessRules' :: Maybe AccessType
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AgetObject%3AAccessRules%27"><span class="hs-identifier hs-var">getObject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679603609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | A Boolean value that indicates whether the access control list (ACL)</span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- permissions that are applied to individual objects override the</span><span>
@@ -225,19 +225,19 @@ $sel:getObject:AccessRules' :: AccessRules -&gt; Maybe AccessType
 -&gt; (AccessRules -&gt; Maybe Bool -&gt; AccessRules)
 -&gt; Lens AccessRules AccessRules (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603607"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603616"><span class="annot"><span class="annottext">Maybe Bool
 allowPublicOverrides :: Maybe Bool
 $sel:allowPublicOverrides:AccessRules' :: AccessRules -&gt; Maybe Bool
-</span><a href="#local-6989586621679603607"><span class="hs-identifier hs-var hs-var">allowPublicOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679603607"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603606"><span class="annot"><span class="annottext">s :: AccessRules
-</span><a href="#local-6989586621679603606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603605"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679603605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
-</span><a href="#local-6989586621679603606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowPublicOverrides:AccessRules' :: Maybe Bool
+</span><a href="#local-6989586621679603616"><span class="hs-identifier hs-var hs-var">allowPublicOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679603616"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679603615"><span class="annot"><span class="annottext">s :: AccessRules
+</span><a href="#local-6989586621679603615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679603614"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679603614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessRules
+</span><a href="#local-6989586621679603615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowPublicOverrides:AccessRules' :: Maybe Bool
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#%24sel%3AallowPublicOverrides%3AAccessRules%27"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679603605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679603614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603602"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679603600"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessRules
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603611"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679603609"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessRules
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccessRules) -&gt; Value -&gt; Parser AccessRules
@@ -245,15 +245,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccessRules&quot;</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603597"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603597"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679603606"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679603606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccessType -&gt; Maybe Bool -&gt; AccessRules
 </span><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-var">AccessRules'</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccessType -&gt; Maybe Bool -&gt; AccessRules)
 -&gt; Parser (Maybe AccessType) -&gt; Parser (Maybe Bool -&gt; AccessRules)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessType)
+</span><a href="#local-6989586621679603606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;getObject&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,25 +261,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser AccessRules
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679603597"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679603606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowPublicOverrides&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603591"><span id="local-6989586621679603593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603600"><span id="local-6989586621679603602"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603597"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603580"><span id="local-6989586621679603582"><span id="local-6989586621679603584"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679603578"><span class="annot"><span class="annottext">toJSON :: AccessRules -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603575"><span id="local-6989586621679603576"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679603589"><span id="local-6989586621679603591"><span id="local-6989586621679603593"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules"><span class="hs-identifier hs-type">AccessRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679603587"><span class="annot"><span class="annottext">toJSON :: AccessRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.AccessRules.html#AccessRules%27"><span class="hs-identifier hs-type">AccessRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679603584"><span id="local-6989586621679603585"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AccessType
 allowPublicOverrides :: Maybe Bool
 getObject :: Maybe AccessType
 $sel:allowPublicOverrides:AccessRules' :: AccessRules -&gt; Maybe Bool
 $sel:getObject:AccessRules' :: AccessRules -&gt; Maybe AccessType
-</span><a href="#local-6989586621679603575"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679603584"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,7 +291,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AccessType -&gt; Pair) -&gt; Maybe AccessType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AccessType
-</span><a href="#local-6989586621679603576"><span class="hs-identifier hs-var">getObject</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679603585"><span class="hs-identifier hs-var">getObject</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowPublicOverrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -299,7 +299,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679603575"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span>
+</span><a href="#local-6989586621679603584"><span class="hs-identifier hs-var">allowPublicOverrides</span></a></span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span></pre></body></html>

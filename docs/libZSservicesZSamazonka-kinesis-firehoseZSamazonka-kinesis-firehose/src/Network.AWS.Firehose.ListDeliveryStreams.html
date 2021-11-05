@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListDeliveryStreams' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679283739"><span id="local-6989586621679283740"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeliveryStreams"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-var">ListDeliveryStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeliveryStreams%27"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-var">ListDeliveryStreams'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679283748"><span id="local-6989586621679283749"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeliveryStreams"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-var">ListDeliveryStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeliveryStreams%27"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-var">ListDeliveryStreams'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of delivery streams to list. The default value is 10.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3Alimit%3AListDeliveryStreams%27"><span class="annot"><span class="annottext">ListDeliveryStreams -&gt; Maybe Natural
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3Alimit%3AListDeliveryStreams%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AexclusiveStartDeliveryStreamName%3AListDeliveryStreams%27"><span class="annot"><span class="annottext">ListDeliveryStreams -&gt; Maybe Text
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AexclusiveStartDeliveryStreamName%3AListDeliveryStreams%27"><span class="hs-identifier hs-var hs-var">exclusiveStartDeliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283731"><span id="local-6989586621679283733"><span class="annot"><span class="annottext">ListDeliveryStreams -&gt; ListDeliveryStreams -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283740"><span id="local-6989586621679283742"><span class="annot"><span class="annottext">ListDeliveryStreams -&gt; ListDeliveryStreams -&gt; Bool
 (ListDeliveryStreams -&gt; ListDeliveryStreams -&gt; Bool)
 -&gt; (ListDeliveryStreams -&gt; ListDeliveryStreams -&gt; Bool)
 -&gt; Eq ListDeliveryStreams
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDeliveryStreams -&gt; ListDeliveryStreams -&gt; Bool
 == :: ListDeliveryStreams -&gt; ListDeliveryStreams -&gt; Bool
 $c== :: ListDeliveryStreams -&gt; ListDeliveryStreams -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283722"><span id="local-6989586621679283724"><span id="local-6989586621679283726"><span id="local-6989586621679283728"><span class="annot"><span class="annottext">ReadPrec [ListDeliveryStreams]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283731"><span id="local-6989586621679283733"><span id="local-6989586621679283735"><span id="local-6989586621679283737"><span class="annot"><span class="annottext">ReadPrec [ListDeliveryStreams]
 ReadPrec ListDeliveryStreams
 Int -&gt; ReadS ListDeliveryStreams
 ReadS [ListDeliveryStreams]
@@ -111,7 +111,7 @@ readList :: ReadS [ListDeliveryStreams]
 $creadList :: ReadS [ListDeliveryStreams]
 readsPrec :: Int -&gt; ReadS ListDeliveryStreams
 $creadsPrec :: Int -&gt; ReadS ListDeliveryStreams
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283715"><span id="local-6989586621679283717"><span id="local-6989586621679283719"><span class="annot"><span class="annottext">Int -&gt; ListDeliveryStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283724"><span id="local-6989586621679283726"><span id="local-6989586621679283728"><span class="annot"><span class="annottext">Int -&gt; ListDeliveryStreams -&gt; ShowS
 [ListDeliveryStreams] -&gt; ShowS
 ListDeliveryStreams -&gt; String
 (Int -&gt; ListDeliveryStreams -&gt; ShowS)
@@ -195,16 +195,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283708"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283717"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe Natural
-</span><a href="#local-6989586621679283708"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679283708"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283707"><span class="annot"><span class="annottext">s :: ListDeliveryStreams
-</span><a href="#local-6989586621679283707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283706"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679283706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreams
-</span><a href="#local-6989586621679283707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListDeliveryStreams' :: Maybe Natural
+</span><a href="#local-6989586621679283717"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679283717"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283716"><span class="annot"><span class="annottext">s :: ListDeliveryStreams
+</span><a href="#local-6989586621679283716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283715"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679283715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreams
+</span><a href="#local-6989586621679283716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListDeliveryStreams' :: Maybe Natural
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3Alimit%3AListDeliveryStreams%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679283706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The delivery stream type. This can be one of the following values:</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
@@ -228,16 +228,16 @@ $sel:limit:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe Natural
      (Maybe DeliveryStreamType)
      (Maybe DeliveryStreamType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283705"><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283714"><span class="annot"><span class="annottext">Maybe DeliveryStreamType
 deliveryStreamType :: Maybe DeliveryStreamType
 $sel:deliveryStreamType:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe DeliveryStreamType
-</span><a href="#local-6989586621679283705"><span class="hs-identifier hs-var hs-var">deliveryStreamType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
-</span><a href="#local-6989586621679283705"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283704"><span class="annot"><span class="annottext">s :: ListDeliveryStreams
-</span><a href="#local-6989586621679283704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283703"><span class="annot"><span class="annottext">Maybe DeliveryStreamType
-</span><a href="#local-6989586621679283703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreams
-</span><a href="#local-6989586621679283704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamType:ListDeliveryStreams' :: Maybe DeliveryStreamType
+</span><a href="#local-6989586621679283714"><span class="hs-identifier hs-var hs-var">deliveryStreamType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+</span><a href="#local-6989586621679283714"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283713"><span class="annot"><span class="annottext">s :: ListDeliveryStreams
+</span><a href="#local-6989586621679283713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283712"><span class="annot"><span class="annottext">Maybe DeliveryStreamType
+</span><a href="#local-6989586621679283712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreams
+</span><a href="#local-6989586621679283713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamType:ListDeliveryStreams' :: Maybe DeliveryStreamType
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AdeliveryStreamType%3AListDeliveryStreams%27"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
-</span><a href="#local-6989586621679283703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The list of delivery streams returned by this call to</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- @ListDeliveryStreams@ will start with the delivery stream whose name</span><span>
@@ -251,27 +251,27 @@ $sel:deliveryStreamType:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe 
 -&gt; Lens
      ListDeliveryStreams ListDeliveryStreams (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283702"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283711"><span class="annot"><span class="annottext">Maybe Text
 exclusiveStartDeliveryStreamName :: Maybe Text
 $sel:exclusiveStartDeliveryStreamName:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe Text
-</span><a href="#local-6989586621679283702"><span class="hs-identifier hs-var hs-var">exclusiveStartDeliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283702"><span class="hs-identifier hs-var">exclusiveStartDeliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283701"><span class="annot"><span class="annottext">s :: ListDeliveryStreams
-</span><a href="#local-6989586621679283701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283700"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreams
-</span><a href="#local-6989586621679283701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartDeliveryStreamName:ListDeliveryStreams' :: Maybe Text
+</span><a href="#local-6989586621679283711"><span class="hs-identifier hs-var hs-var">exclusiveStartDeliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283711"><span class="hs-identifier hs-var">exclusiveStartDeliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283710"><span class="annot"><span class="annottext">s :: ListDeliveryStreams
+</span><a href="#local-6989586621679283710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreams
+</span><a href="#local-6989586621679283710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusiveStartDeliveryStreamName:ListDeliveryStreams' :: Maybe Text
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AexclusiveStartDeliveryStreamName%3AListDeliveryStreams%27"><span class="hs-identifier hs-var">exclusiveStartDeliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679283696"><span class="annot"><span class="annottext">request :: ListDeliveryStreams -&gt; Request ListDeliveryStreams
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679283705"><span class="annot"><span class="annottext">request :: ListDeliveryStreams -&gt; Request ListDeliveryStreams
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDeliveryStreams -&gt; Request ListDeliveryStreams
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679283692"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679283701"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDeliveryStreams
 -&gt; ClientResponse ClientBody
@@ -297,10 +297,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283689"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283688"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679283688"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283687"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283687"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283698"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283697"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283697"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [Text] -&gt; Bool -&gt; ListDeliveryStreamsResponse
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">ListDeliveryStreamsResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [Text] -&gt; Bool -&gt; ListDeliveryStreamsResponse)
@@ -312,13 +312,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283689"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283698"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; Bool -&gt; ListDeliveryStreamsResponse)
 -&gt; Either String [Text]
 -&gt; Either String (Bool -&gt; ListDeliveryStreamsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
+</span><a href="#local-6989586621679283696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeliveryStreamNames&quot;</span></span><span>
@@ -332,18 +332,18 @@ forall a. Monoid a =&gt; a
 -&gt; Either String Bool -&gt; Either String ListDeliveryStreamsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283687"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679283696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Bool
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HasMoreDeliveryStreams&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283677"><span id="local-6989586621679283679"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283686"><span id="local-6989586621679283688"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283674"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679283670"><span class="annot"><span class="annottext">toHeaders :: ListDeliveryStreams -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679283679"><span class="annot"><span class="annottext">toHeaders :: ListDeliveryStreams -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDeliveryStreams -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -370,9 +370,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283660"><span id="local-6989586621679283662"><span id="local-6989586621679283664"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679283658"><span class="annot"><span class="annottext">toJSON :: ListDeliveryStreams -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283654"><span id="local-6989586621679283655"><span id="local-6989586621679283656"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283669"><span id="local-6989586621679283671"><span id="local-6989586621679283673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679283667"><span class="annot"><span class="annottext">toJSON :: ListDeliveryStreams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams%27"><span class="hs-identifier hs-type">ListDeliveryStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283663"><span id="local-6989586621679283664"><span id="local-6989586621679283665"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe DeliveryStreamType
 exclusiveStartDeliveryStreamName :: Maybe Text
@@ -381,7 +381,7 @@ limit :: Maybe Natural
 $sel:exclusiveStartDeliveryStreamName:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe Text
 $sel:deliveryStreamType:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe DeliveryStreamType
 $sel:limit:ListDeliveryStreams' :: ListDeliveryStreams -&gt; Maybe Natural
-</span><a href="#local-6989586621679283654"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679283663"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -393,7 +393,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679283656"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283665"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeliveryStreamType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeliveryStreamType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -402,7 +402,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DeliveryStreamType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryStreamType
-</span><a href="#local-6989586621679283655"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283664"><span class="hs-identifier hs-var">deliveryStreamType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExclusiveStartDeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -410,19 +410,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283654"><span class="hs-identifier hs-var">exclusiveStartDeliveryStreamName</span></a></span><span>
+</span><a href="#local-6989586621679283663"><span class="hs-identifier hs-var">exclusiveStartDeliveryStreamName</span></a></span><span>
 </span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679283648"><span class="annot"><span class="annottext">toPath :: ListDeliveryStreams -&gt; ByteString
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679283657"><span class="annot"><span class="annottext">toPath :: ListDeliveryStreams -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDeliveryStreams -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreams"><span class="hs-identifier hs-type">ListDeliveryStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679283644"><span class="annot"><span class="annottext">toQuery :: ListDeliveryStreams -&gt; QueryString
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679283653"><span class="annot"><span class="annottext">toQuery :: ListDeliveryStreams -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListDeliveryStreams -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -430,7 +430,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | /See:/ 'newListDeliveryStreamsResponse' smart constructor.</span><span>
-</span><span id="line-196"></span><span id="local-6989586621679283641"><span id="local-6989586621679283642"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeliveryStreamsResponse"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-var">ListDeliveryStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeliveryStreamsResponse%27"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">ListDeliveryStreamsResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span id="local-6989586621679283650"><span id="local-6989586621679283651"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDeliveryStreamsResponse"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-var">ListDeliveryStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDeliveryStreamsResponse%27"><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">ListDeliveryStreamsResponse'</span></a></span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDeliveryStreamsResponse%27"><span class="annot"><span class="annottext">ListDeliveryStreamsResponse -&gt; Int
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AhttpStatus%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -441,7 +441,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-202"></span><span>    </span><span id="%24sel%3AhasMoreDeliveryStreams%3AListDeliveryStreamsResponse%27"><span class="annot"><span class="annottext">ListDeliveryStreamsResponse -&gt; Bool
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AhasMoreDeliveryStreams%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var hs-var">hasMoreDeliveryStreams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-203"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283634"><span id="local-6989586621679283636"><span class="annot"><span class="annottext">ListDeliveryStreamsResponse -&gt; ListDeliveryStreamsResponse -&gt; Bool
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283643"><span id="local-6989586621679283645"><span class="annot"><span class="annottext">ListDeliveryStreamsResponse -&gt; ListDeliveryStreamsResponse -&gt; Bool
 (ListDeliveryStreamsResponse
  -&gt; ListDeliveryStreamsResponse -&gt; Bool)
 -&gt; (ListDeliveryStreamsResponse
@@ -452,7 +452,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDeliveryStreamsResponse -&gt; ListDeliveryStreamsResponse -&gt; Bool
 == :: ListDeliveryStreamsResponse -&gt; ListDeliveryStreamsResponse -&gt; Bool
 $c== :: ListDeliveryStreamsResponse -&gt; ListDeliveryStreamsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283626"><span id="local-6989586621679283628"><span id="local-6989586621679283630"><span id="local-6989586621679283632"><span class="annot"><span class="annottext">ReadPrec [ListDeliveryStreamsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283635"><span id="local-6989586621679283637"><span id="local-6989586621679283639"><span id="local-6989586621679283641"><span class="annot"><span class="annottext">ReadPrec [ListDeliveryStreamsResponse]
 ReadPrec ListDeliveryStreamsResponse
 Int -&gt; ReadS ListDeliveryStreamsResponse
 ReadS [ListDeliveryStreamsResponse]
@@ -472,7 +472,7 @@ readList :: ReadS [ListDeliveryStreamsResponse]
 $creadList :: ReadS [ListDeliveryStreamsResponse]
 readsPrec :: Int -&gt; ReadS ListDeliveryStreamsResponse
 $creadsPrec :: Int -&gt; ReadS ListDeliveryStreamsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283620"><span id="local-6989586621679283622"><span id="local-6989586621679283624"><span class="annot"><span class="annottext">Int -&gt; ListDeliveryStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283629"><span id="local-6989586621679283631"><span id="local-6989586621679283633"><span class="annot"><span class="annottext">Int -&gt; ListDeliveryStreamsResponse -&gt; ShowS
 [ListDeliveryStreamsResponse] -&gt; ShowS
 ListDeliveryStreamsResponse -&gt; String
 (Int -&gt; ListDeliveryStreamsResponse -&gt; ShowS)
@@ -525,16 +525,16 @@ ListDeliveryStreamsResponse -&gt; Rep ListDeliveryStreamsResponse x
 </span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span>
 </span><span id="line-225"></span><span id="newListDeliveryStreamsResponse"><span class="annot"><span class="annottext">newListDeliveryStreamsResponse :: Int -&gt; Bool -&gt; ListDeliveryStreamsResponse
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#newListDeliveryStreamsResponse"><span class="hs-identifier hs-var hs-var">newListDeliveryStreamsResponse</span></a></span></span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679283617"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283617"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679283616"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679283616"><span class="hs-identifier hs-var">pHasMoreDeliveryStreams_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679283626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283626"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679283625"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679283625"><span class="hs-identifier hs-var">pHasMoreDeliveryStreams_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">ListDeliveryStreamsResponse' :: Int -&gt; [Text] -&gt; Bool -&gt; ListDeliveryStreamsResponse
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span>
 </span><span id="line-229"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeliveryStreamsResponse' :: Int
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AhttpStatus%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283617"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283626"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryStreamNames:ListDeliveryStreamsResponse' :: [Text]
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AdeliveryStreamNames%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">deliveryStreamNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -542,7 +542,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:hasMoreDeliveryStreams:ListDeliveryStreamsResponse' :: Bool
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AhasMoreDeliveryStreams%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">hasMoreDeliveryStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679283616"><span class="hs-identifier hs-var">pHasMoreDeliveryStreams_</span></a></span><span>
+</span><a href="#local-6989586621679283625"><span class="hs-identifier hs-var">pHasMoreDeliveryStreams_</span></a></span><span>
 </span><span id="line-234"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-235"></span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -555,16 +555,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      ListDeliveryStreamsResponse ListDeliveryStreamsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283615"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283624"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDeliveryStreamsResponse' :: ListDeliveryStreamsResponse -&gt; Int
-</span><a href="#local-6989586621679283615"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283615"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283614"><span class="annot"><span class="annottext">s :: ListDeliveryStreamsResponse
-</span><a href="#local-6989586621679283614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283613"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreamsResponse
-</span><a href="#local-6989586621679283614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeliveryStreamsResponse' :: Int
+</span><a href="#local-6989586621679283624"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283624"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283623"><span class="annot"><span class="annottext">s :: ListDeliveryStreamsResponse
+</span><a href="#local-6989586621679283623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283622"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreamsResponse
+</span><a href="#local-6989586621679283623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDeliveryStreamsResponse' :: Int
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AhttpStatus%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The names of the delivery streams.</span><span>
 </span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#listDeliveryStreamsResponse_deliveryStreamNames"><span class="hs-identifier hs-type">listDeliveryStreamsResponse_deliveryStreamNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -579,16 +579,16 @@ $sel:httpStatus:ListDeliveryStreamsResponse' :: ListDeliveryStreamsResponse -&gt
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283612"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283621"><span class="annot"><span class="annottext">[Text]
 deliveryStreamNames :: [Text]
 $sel:deliveryStreamNames:ListDeliveryStreamsResponse' :: ListDeliveryStreamsResponse -&gt; [Text]
-</span><a href="#local-6989586621679283612"><span class="hs-identifier hs-var hs-var">deliveryStreamNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679283612"><span class="hs-identifier hs-var">deliveryStreamNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283611"><span class="annot"><span class="annottext">s :: ListDeliveryStreamsResponse
-</span><a href="#local-6989586621679283611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283610"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679283610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreamsResponse
-</span><a href="#local-6989586621679283611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamNames:ListDeliveryStreamsResponse' :: [Text]
+</span><a href="#local-6989586621679283621"><span class="hs-identifier hs-var hs-var">deliveryStreamNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679283621"><span class="hs-identifier hs-var">deliveryStreamNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283620"><span class="annot"><span class="annottext">s :: ListDeliveryStreamsResponse
+</span><a href="#local-6989586621679283620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283619"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679283619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreamsResponse
+</span><a href="#local-6989586621679283620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamNames:ListDeliveryStreamsResponse' :: [Text]
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AdeliveryStreamNames%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">deliveryStreamNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679283610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679283619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; ListDeliveryStreamsResponse -&gt; f ListDeliveryStreamsResponse)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -609,16 +609,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      ListDeliveryStreamsResponse ListDeliveryStreamsResponse Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283607"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283616"><span class="annot"><span class="annottext">Bool
 hasMoreDeliveryStreams :: Bool
 $sel:hasMoreDeliveryStreams:ListDeliveryStreamsResponse' :: ListDeliveryStreamsResponse -&gt; Bool
-</span><a href="#local-6989586621679283607"><span class="hs-identifier hs-var hs-var">hasMoreDeliveryStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679283607"><span class="hs-identifier hs-var">hasMoreDeliveryStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283606"><span class="annot"><span class="annottext">s :: ListDeliveryStreamsResponse
-</span><a href="#local-6989586621679283606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283605"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679283605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreamsResponse
-</span><a href="#local-6989586621679283606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasMoreDeliveryStreams:ListDeliveryStreamsResponse' :: Bool
+</span><a href="#local-6989586621679283616"><span class="hs-identifier hs-var hs-var">hasMoreDeliveryStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679283616"><span class="hs-identifier hs-var">hasMoreDeliveryStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283615"><span class="annot"><span class="annottext">s :: ListDeliveryStreamsResponse
+</span><a href="#local-6989586621679283615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse%27"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283614"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679283614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDeliveryStreamsResponse
+</span><a href="#local-6989586621679283615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hasMoreDeliveryStreams:ListDeliveryStreamsResponse' :: Bool
 </span><a href="Network.AWS.Firehose.ListDeliveryStreams.html#%24sel%3AhasMoreDeliveryStreams%3AListDeliveryStreamsResponse%27"><span class="hs-identifier hs-var">hasMoreDeliveryStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679283605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283603"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span></span><span>
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.ListDeliveryStreams.html#ListDeliveryStreamsResponse"><span class="hs-identifier hs-type">ListDeliveryStreamsResponse</span></a></span></span><span>
 </span><span id="line-249"></span></pre></body></html>

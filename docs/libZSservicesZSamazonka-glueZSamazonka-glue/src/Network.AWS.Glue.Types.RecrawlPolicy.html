@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the developer guide.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRecrawlPolicy' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679694934"><span id="local-6989586621679694935"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecrawlPolicy"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-var">RecrawlPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecrawlPolicy%27"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-var">RecrawlPolicy'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679694943"><span id="local-6989586621679694944"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecrawlPolicy"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-var">RecrawlPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecrawlPolicy%27"><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-var">RecrawlPolicy'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether to crawl the entire dataset again or to crawl only</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- folders that were added since the last crawler run.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3ArecrawlBehavior%3ARecrawlPolicy%27"><span class="annot"><span class="annottext">RecrawlPolicy -&gt; Maybe RecrawlBehavior
 </span><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#%24sel%3ArecrawlBehavior%3ARecrawlPolicy%27"><span class="hs-identifier hs-var hs-var">recrawlBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlBehavior.html#RecrawlBehavior"><span class="hs-identifier hs-type">RecrawlBehavior</span></a></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694928"><span id="local-6989586621679694930"><span class="annot"><span class="annottext">RecrawlPolicy -&gt; RecrawlPolicy -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694937"><span id="local-6989586621679694939"><span class="annot"><span class="annottext">RecrawlPolicy -&gt; RecrawlPolicy -&gt; Bool
 (RecrawlPolicy -&gt; RecrawlPolicy -&gt; Bool)
 -&gt; (RecrawlPolicy -&gt; RecrawlPolicy -&gt; Bool) -&gt; Eq RecrawlPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RecrawlPolicy -&gt; RecrawlPolicy -&gt; Bool
 == :: RecrawlPolicy -&gt; RecrawlPolicy -&gt; Bool
 $c== :: RecrawlPolicy -&gt; RecrawlPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694919"><span id="local-6989586621679694921"><span id="local-6989586621679694923"><span id="local-6989586621679694925"><span class="annot"><span class="annottext">ReadPrec [RecrawlPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694928"><span id="local-6989586621679694930"><span id="local-6989586621679694932"><span id="local-6989586621679694934"><span class="annot"><span class="annottext">ReadPrec [RecrawlPolicy]
 ReadPrec RecrawlPolicy
 Int -&gt; ReadS RecrawlPolicy
 ReadS [RecrawlPolicy]
@@ -75,7 +75,7 @@ readList :: ReadS [RecrawlPolicy]
 $creadList :: ReadS [RecrawlPolicy]
 readsPrec :: Int -&gt; ReadS RecrawlPolicy
 $creadsPrec :: Int -&gt; ReadS RecrawlPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694912"><span id="local-6989586621679694914"><span id="local-6989586621679694916"><span class="annot"><span class="annottext">Int -&gt; RecrawlPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694921"><span id="local-6989586621679694923"><span id="local-6989586621679694925"><span class="annot"><span class="annottext">Int -&gt; RecrawlPolicy -&gt; ShowS
 [RecrawlPolicy] -&gt; ShowS
 RecrawlPolicy -&gt; String
 (Int -&gt; RecrawlPolicy -&gt; ShowS)
@@ -152,19 +152,19 @@ forall a. Maybe a
      (Maybe RecrawlBehavior)
      (Maybe RecrawlBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-type">RecrawlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694903"><span class="annot"><span class="annottext">Maybe RecrawlBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-type">RecrawlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694912"><span class="annot"><span class="annottext">Maybe RecrawlBehavior
 recrawlBehavior :: Maybe RecrawlBehavior
 $sel:recrawlBehavior:RecrawlPolicy' :: RecrawlPolicy -&gt; Maybe RecrawlBehavior
-</span><a href="#local-6989586621679694903"><span class="hs-identifier hs-var hs-var">recrawlBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecrawlBehavior
-</span><a href="#local-6989586621679694903"><span class="hs-identifier hs-var">recrawlBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694902"><span class="annot"><span class="annottext">s :: RecrawlPolicy
-</span><a href="#local-6989586621679694902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-type">RecrawlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694901"><span class="annot"><span class="annottext">Maybe RecrawlBehavior
-</span><a href="#local-6989586621679694901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecrawlPolicy
-</span><a href="#local-6989586621679694902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recrawlBehavior:RecrawlPolicy' :: Maybe RecrawlBehavior
+</span><a href="#local-6989586621679694912"><span class="hs-identifier hs-var hs-var">recrawlBehavior</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecrawlBehavior
+</span><a href="#local-6989586621679694912"><span class="hs-identifier hs-var">recrawlBehavior</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694911"><span class="annot"><span class="annottext">s :: RecrawlPolicy
+</span><a href="#local-6989586621679694911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-type">RecrawlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694910"><span class="annot"><span class="annottext">Maybe RecrawlBehavior
+</span><a href="#local-6989586621679694910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecrawlPolicy
+</span><a href="#local-6989586621679694911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recrawlBehavior:RecrawlPolicy' :: Maybe RecrawlBehavior
 </span><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#%24sel%3ArecrawlBehavior%3ARecrawlPolicy%27"><span class="hs-identifier hs-var">recrawlBehavior</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecrawlBehavior
-</span><a href="#local-6989586621679694901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694898"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679694896"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecrawlPolicy
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694907"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679694905"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecrawlPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RecrawlPolicy)
@@ -174,30 +174,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RecrawlPolicy&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679694893"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694893"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679694902"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679694902"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe RecrawlBehavior -&gt; RecrawlPolicy
 </span><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-var">RecrawlPolicy'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RecrawlBehavior -&gt; RecrawlPolicy)
 -&gt; Parser (Maybe RecrawlBehavior) -&gt; Parser RecrawlPolicy
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694893"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecrawlBehavior)
+</span><a href="#local-6989586621679694902"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecrawlBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecrawlBehavior&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694887"><span id="local-6989586621679694889"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694896"><span id="local-6989586621679694898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694884"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694876"><span id="local-6989586621679694878"><span id="local-6989586621679694880"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679694874"><span class="annot"><span class="annottext">toJSON :: RecrawlPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-type">RecrawlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694872"><span class="annot"><span class="annottext">Maybe RecrawlBehavior
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694885"><span id="local-6989586621679694887"><span id="local-6989586621679694889"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy"><span class="hs-identifier hs-type">RecrawlPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679694883"><span class="annot"><span class="annottext">toJSON :: RecrawlPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RecrawlPolicy.html#RecrawlPolicy%27"><span class="hs-identifier hs-type">RecrawlPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694881"><span class="annot"><span class="annottext">Maybe RecrawlBehavior
 recrawlBehavior :: Maybe RecrawlBehavior
 $sel:recrawlBehavior:RecrawlPolicy' :: RecrawlPolicy -&gt; Maybe RecrawlBehavior
-</span><a href="#local-6989586621679694872"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679694881"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -210,7 +210,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(RecrawlBehavior -&gt; Pair) -&gt; Maybe RecrawlBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RecrawlBehavior
-</span><a href="#local-6989586621679694872"><span class="hs-identifier hs-var">recrawlBehavior</span></a></span><span>
+</span><a href="#local-6989586621679694881"><span class="hs-identifier hs-var">recrawlBehavior</span></a></span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

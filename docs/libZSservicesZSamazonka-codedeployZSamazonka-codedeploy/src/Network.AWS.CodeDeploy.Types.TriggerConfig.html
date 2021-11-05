@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about notification triggers for the deployment group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTriggerConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679316596"><span id="local-6989586621679316597"></span></span><span class="hs-keyword">data</span><span> </span><span id="TriggerConfig"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-var">TriggerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TriggerConfig%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-var">TriggerConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679316605"><span id="local-6989586621679316606"></span></span><span class="hs-keyword">data</span><span> </span><span id="TriggerConfig"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-var">TriggerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TriggerConfig%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-var">TriggerConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the notification trigger.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtriggerName%3ATriggerConfig%27"><span class="annot"><span class="annottext">TriggerConfig -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#%24sel%3AtriggerName%3ATriggerConfig%27"><span class="hs-identifier hs-var hs-var">triggerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AtriggerTargetArn%3ATriggerConfig%27"><span class="annot"><span class="annottext">TriggerConfig -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#%24sel%3AtriggerTargetArn%3ATriggerConfig%27"><span class="hs-identifier hs-var hs-var">triggerTargetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316588"><span id="local-6989586621679316590"><span class="annot"><span class="annottext">TriggerConfig -&gt; TriggerConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316597"><span id="local-6989586621679316599"><span class="annot"><span class="annottext">TriggerConfig -&gt; TriggerConfig -&gt; Bool
 (TriggerConfig -&gt; TriggerConfig -&gt; Bool)
 -&gt; (TriggerConfig -&gt; TriggerConfig -&gt; Bool) -&gt; Eq TriggerConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TriggerConfig -&gt; TriggerConfig -&gt; Bool
 == :: TriggerConfig -&gt; TriggerConfig -&gt; Bool
 $c== :: TriggerConfig -&gt; TriggerConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316579"><span id="local-6989586621679316581"><span id="local-6989586621679316583"><span id="local-6989586621679316585"><span class="annot"><span class="annottext">ReadPrec [TriggerConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316588"><span id="local-6989586621679316590"><span id="local-6989586621679316592"><span id="local-6989586621679316594"><span class="annot"><span class="annottext">ReadPrec [TriggerConfig]
 ReadPrec TriggerConfig
 Int -&gt; ReadS TriggerConfig
 ReadS [TriggerConfig]
@@ -68,7 +68,7 @@ readList :: ReadS [TriggerConfig]
 $creadList :: ReadS [TriggerConfig]
 readsPrec :: Int -&gt; ReadS TriggerConfig
 $creadsPrec :: Int -&gt; ReadS TriggerConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316572"><span id="local-6989586621679316574"><span id="local-6989586621679316576"><span class="annot"><span class="annottext">Int -&gt; TriggerConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316581"><span id="local-6989586621679316583"><span id="local-6989586621679316585"><span class="annot"><span class="annottext">Int -&gt; TriggerConfig -&gt; ShowS
 [TriggerConfig] -&gt; ShowS
 TriggerConfig -&gt; String
 (Int -&gt; TriggerConfig -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
 -&gt; (TriggerConfig -&gt; Maybe Text -&gt; TriggerConfig)
 -&gt; Lens TriggerConfig TriggerConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316563"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316572"><span class="annot"><span class="annottext">Maybe Text
 triggerName :: Maybe Text
 $sel:triggerName:TriggerConfig' :: TriggerConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679316563"><span class="hs-identifier hs-var hs-var">triggerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316563"><span class="hs-identifier hs-var">triggerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316562"><span class="annot"><span class="annottext">s :: TriggerConfig
-</span><a href="#local-6989586621679316562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316561"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerConfig
-</span><a href="#local-6989586621679316562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerName:TriggerConfig' :: Maybe Text
+</span><a href="#local-6989586621679316572"><span class="hs-identifier hs-var hs-var">triggerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316572"><span class="hs-identifier hs-var">triggerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316571"><span class="annot"><span class="annottext">s :: TriggerConfig
+</span><a href="#local-6989586621679316571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerConfig
+</span><a href="#local-6989586621679316571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerName:TriggerConfig' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#%24sel%3AtriggerName%3ATriggerConfig%27"><span class="hs-identifier hs-var">triggerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The event type or types for which notifications are triggered.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#triggerConfig_triggerEvents"><span class="hs-identifier hs-type">triggerConfig_triggerEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerEventType.html#TriggerEventType"><span class="hs-identifier hs-type">TriggerEventType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ $sel:triggerName:TriggerConfig' :: TriggerConfig -&gt; Maybe Text
      (Maybe [TriggerEventType])
      (Maybe [TriggerEventType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316559"><span class="annot"><span class="annottext">Maybe [TriggerEventType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316568"><span class="annot"><span class="annottext">Maybe [TriggerEventType]
 triggerEvents :: Maybe [TriggerEventType]
 $sel:triggerEvents:TriggerConfig' :: TriggerConfig -&gt; Maybe [TriggerEventType]
-</span><a href="#local-6989586621679316559"><span class="hs-identifier hs-var hs-var">triggerEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerEventType]
-</span><a href="#local-6989586621679316559"><span class="hs-identifier hs-var">triggerEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316558"><span class="annot"><span class="annottext">s :: TriggerConfig
-</span><a href="#local-6989586621679316558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316557"><span class="annot"><span class="annottext">Maybe [TriggerEventType]
-</span><a href="#local-6989586621679316557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerConfig
-</span><a href="#local-6989586621679316558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerEvents:TriggerConfig' :: Maybe [TriggerEventType]
+</span><a href="#local-6989586621679316568"><span class="hs-identifier hs-var hs-var">triggerEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerEventType]
+</span><a href="#local-6989586621679316568"><span class="hs-identifier hs-var">triggerEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316567"><span class="annot"><span class="annottext">s :: TriggerConfig
+</span><a href="#local-6989586621679316567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316566"><span class="annot"><span class="annottext">Maybe [TriggerEventType]
+</span><a href="#local-6989586621679316566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerConfig
+</span><a href="#local-6989586621679316567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerEvents:TriggerConfig' :: Maybe [TriggerEventType]
 </span><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#%24sel%3AtriggerEvents%3ATriggerConfig%27"><span class="hs-identifier hs-var">triggerEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerEventType]
-</span><a href="#local-6989586621679316557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TriggerEventType] -&gt; f (Maybe [TriggerEventType]))
+</span><a href="#local-6989586621679316566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TriggerEventType] -&gt; f (Maybe [TriggerEventType]))
  -&gt; TriggerConfig -&gt; f TriggerConfig)
 -&gt; ((Maybe [TriggerEventType] -&gt; f (Maybe [TriggerEventType]))
     -&gt; Maybe [TriggerEventType] -&gt; f (Maybe [TriggerEventType]))
@@ -207,19 +207,19 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TriggerConfig -&gt; Maybe Text -&gt; TriggerConfig)
 -&gt; Lens TriggerConfig TriggerConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316552"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316561"><span class="annot"><span class="annottext">Maybe Text
 triggerTargetArn :: Maybe Text
 $sel:triggerTargetArn:TriggerConfig' :: TriggerConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679316552"><span class="hs-identifier hs-var hs-var">triggerTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316552"><span class="hs-identifier hs-var">triggerTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316551"><span class="annot"><span class="annottext">s :: TriggerConfig
-</span><a href="#local-6989586621679316551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316550"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerConfig
-</span><a href="#local-6989586621679316551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerTargetArn:TriggerConfig' :: Maybe Text
+</span><a href="#local-6989586621679316561"><span class="hs-identifier hs-var hs-var">triggerTargetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316561"><span class="hs-identifier hs-var">triggerTargetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316560"><span class="annot"><span class="annottext">s :: TriggerConfig
+</span><a href="#local-6989586621679316560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316559"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679316559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TriggerConfig
+</span><a href="#local-6989586621679316560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggerTargetArn:TriggerConfig' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#%24sel%3AtriggerTargetArn%3ATriggerConfig%27"><span class="hs-identifier hs-var">triggerTargetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316547"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679316545"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TriggerConfig
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316556"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679316554"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TriggerConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TriggerConfig)
@@ -229,8 +229,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TriggerConfig&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316542"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316551"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [TriggerEventType] -&gt; Maybe Text -&gt; TriggerConfig
 </span><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-var">TriggerConfig'</span></a></span><span>
@@ -240,7 +240,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [TriggerEventType] -&gt; Maybe Text -&gt; TriggerConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679316551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,7 +249,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; TriggerConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TriggerEventType]))
+</span><a href="#local-6989586621679316551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [TriggerEventType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggerEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [TriggerEventType]))
@@ -262,19 +262,19 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text) -&gt; Parser TriggerConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679316551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggerTargetArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316535"><span id="local-6989586621679316537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316544"><span id="local-6989586621679316546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316524"><span id="local-6989586621679316526"><span id="local-6989586621679316528"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679316522"><span class="annot"><span class="annottext">toJSON :: TriggerConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316518"><span id="local-6989586621679316519"><span id="local-6989586621679316520"><span class="annot"><span class="annottext">Maybe [TriggerEventType]
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316533"><span id="local-6989586621679316535"><span id="local-6989586621679316537"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig"><span class="hs-identifier hs-type">TriggerConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679316531"><span class="annot"><span class="annottext">toJSON :: TriggerConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.TriggerConfig.html#TriggerConfig%27"><span class="hs-identifier hs-type">TriggerConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316527"><span id="local-6989586621679316528"><span id="local-6989586621679316529"><span class="annot"><span class="annottext">Maybe [TriggerEventType]
 Maybe Text
 triggerTargetArn :: Maybe Text
 triggerEvents :: Maybe [TriggerEventType]
@@ -282,7 +282,7 @@ triggerName :: Maybe Text
 $sel:triggerTargetArn:TriggerConfig' :: TriggerConfig -&gt; Maybe Text
 $sel:triggerEvents:TriggerConfig' :: TriggerConfig -&gt; Maybe [TriggerEventType]
 $sel:triggerName:TriggerConfig' :: TriggerConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679316518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316527"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,7 +294,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316520"><span class="hs-identifier hs-var">triggerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316529"><span class="hs-identifier hs-var">triggerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggerEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TriggerEventType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -302,7 +302,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [TriggerEventType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TriggerEventType]
-</span><a href="#local-6989586621679316519"><span class="hs-identifier hs-var">triggerEvents</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679316528"><span class="hs-identifier hs-var">triggerEvents</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;triggerTargetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -310,7 +310,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316518"><span class="hs-identifier hs-var">triggerTargetArn</span></a></span><span>
+</span><a href="#local-6989586621679316527"><span class="hs-identifier hs-var">triggerTargetArn</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

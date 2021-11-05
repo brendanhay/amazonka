@@ -51,14 +51,14 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | The request that specifies the name of a trail to delete.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newDeleteTrail' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679200976"><span id="local-6989586621679200977"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTrail"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-var">DeleteTrail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTrail%27"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-var">DeleteTrail'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679200985"><span id="local-6989586621679200986"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTrail"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-var">DeleteTrail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTrail%27"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-var">DeleteTrail'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- following is the format of a trail ARN.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3ADeleteTrail%27"><span class="annot"><span class="annottext">DeleteTrail -&gt; Text
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#%24sel%3Aname%3ADeleteTrail%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200970"><span id="local-6989586621679200972"><span class="annot"><span class="annottext">DeleteTrail -&gt; DeleteTrail -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200979"><span id="local-6989586621679200981"><span class="annot"><span class="annottext">DeleteTrail -&gt; DeleteTrail -&gt; Bool
 (DeleteTrail -&gt; DeleteTrail -&gt; Bool)
 -&gt; (DeleteTrail -&gt; DeleteTrail -&gt; Bool) -&gt; Eq DeleteTrail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTrail -&gt; DeleteTrail -&gt; Bool
 == :: DeleteTrail -&gt; DeleteTrail -&gt; Bool
 $c== :: DeleteTrail -&gt; DeleteTrail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200961"><span id="local-6989586621679200963"><span id="local-6989586621679200965"><span id="local-6989586621679200967"><span class="annot"><span class="annottext">ReadPrec [DeleteTrail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200970"><span id="local-6989586621679200972"><span id="local-6989586621679200974"><span id="local-6989586621679200976"><span class="annot"><span class="annottext">ReadPrec [DeleteTrail]
 ReadPrec DeleteTrail
 Int -&gt; ReadS DeleteTrail
 ReadS [DeleteTrail]
@@ -86,7 +86,7 @@ readList :: ReadS [DeleteTrail]
 $creadList :: ReadS [DeleteTrail]
 readsPrec :: Int -&gt; ReadS DeleteTrail
 $creadsPrec :: Int -&gt; ReadS DeleteTrail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200954"><span id="local-6989586621679200956"><span id="local-6989586621679200958"><span class="annot"><span class="annottext">Int -&gt; DeleteTrail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200963"><span id="local-6989586621679200965"><span id="local-6989586621679200967"><span class="annot"><span class="annottext">Int -&gt; DeleteTrail -&gt; ShowS
 [DeleteTrail] -&gt; ShowS
 DeleteTrail -&gt; String
 (Int -&gt; DeleteTrail -&gt; ShowS)
@@ -128,11 +128,11 @@ $cfrom :: forall x. DeleteTrail -&gt; Rep DeleteTrail x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span>
 </span><span id="line-77"></span><span id="newDeleteTrail"><span class="annot"><span class="annottext">newDeleteTrail :: Text -&gt; DeleteTrail
-</span><a href="Network.AWS.CloudTrail.DeleteTrail.html#newDeleteTrail"><span class="hs-identifier hs-var hs-var">newDeleteTrail</span></a></span></span><span> </span><span id="local-6989586621679200949"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200949"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteTrail' :: Text -&gt; DeleteTrail
+</span><a href="Network.AWS.CloudTrail.DeleteTrail.html#newDeleteTrail"><span class="hs-identifier hs-var hs-var">newDeleteTrail</span></a></span></span><span> </span><span id="local-6989586621679200958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200958"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteTrail' :: Text -&gt; DeleteTrail
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-type">DeleteTrail'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteTrail' :: Text
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#%24sel%3Aname%3ADeleteTrail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200949"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679200958"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- following is the format of a trail ARN.</span><span>
@@ -143,25 +143,25 @@ $cfrom :: forall x. DeleteTrail -&gt; Rep DeleteTrail x
 -&gt; (DeleteTrail -&gt; Text -&gt; DeleteTrail)
 -&gt; Lens DeleteTrail DeleteTrail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-type">DeleteTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200946"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-type">DeleteTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200955"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteTrail' :: DeleteTrail -&gt; Text
-</span><a href="#local-6989586621679200946"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200946"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200945"><span class="annot"><span class="annottext">s :: DeleteTrail
-</span><a href="#local-6989586621679200945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-type">DeleteTrail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200944"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTrail
-</span><a href="#local-6989586621679200945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteTrail' :: Text
+</span><a href="#local-6989586621679200955"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200955"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200954"><span class="annot"><span class="annottext">s :: DeleteTrail
+</span><a href="#local-6989586621679200954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-type">DeleteTrail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200953"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTrail
+</span><a href="#local-6989586621679200954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteTrail' :: Text
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#%24sel%3Aname%3ADeleteTrail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-type">DeleteTrailResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679200940"><span class="annot"><span class="annottext">request :: DeleteTrail -&gt; Request DeleteTrail
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679200949"><span class="annot"><span class="annottext">request :: DeleteTrail -&gt; Request DeleteTrail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTrail -&gt; Request DeleteTrail
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudTrail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679200936"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679200945"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTrail
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200933"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200932"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200932"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200931"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679200931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200942"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200942"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200941"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200941"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200940"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679200940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteTrailResponse
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-var">DeleteTrailResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteTrailResponse)
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200933"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200942"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200924"><span id="local-6989586621679200926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200933"><span id="local-6989586621679200935"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679200917"><span class="annot"><span class="annottext">toHeaders :: DeleteTrail -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679200926"><span class="annot"><span class="annottext">toHeaders :: DeleteTrail -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTrail -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -234,12 +234,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200907"><span id="local-6989586621679200909"><span id="local-6989586621679200911"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679200905"><span class="annot"><span class="annottext">toJSON :: DeleteTrail -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-type">DeleteTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200903"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200916"><span id="local-6989586621679200918"><span id="local-6989586621679200920"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679200914"><span class="annot"><span class="annottext">toJSON :: DeleteTrail -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail%27"><span class="hs-identifier hs-type">DeleteTrail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200912"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteTrail' :: DeleteTrail -&gt; Text
-</span><a href="#local-6989586621679200903"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200912"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,18 +251,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200903"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679200912"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679200897"><span class="annot"><span class="annottext">toPath :: DeleteTrail -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679200906"><span class="annot"><span class="annottext">toPath :: DeleteTrail -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTrail -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrail"><span class="hs-identifier hs-type">DeleteTrail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679200893"><span class="annot"><span class="annottext">toQuery :: DeleteTrail -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679200902"><span class="annot"><span class="annottext">toQuery :: DeleteTrail -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTrail -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -273,12 +273,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-128"></span><span class="hs-comment">-- returns an error.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- /See:/ 'newDeleteTrailResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679200890"><span id="local-6989586621679200891"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTrailResponse"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-var">DeleteTrailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTrailResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-var">DeleteTrailResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679200899"><span id="local-6989586621679200900"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTrailResponse"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-var">DeleteTrailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTrailResponse%27"><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-var">DeleteTrailResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTrailResponse%27"><span class="annot"><span class="annottext">DeleteTrailResponse -&gt; Int
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#%24sel%3AhttpStatus%3ADeleteTrailResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200885"><span id="local-6989586621679200887"><span class="annot"><span class="annottext">DeleteTrailResponse -&gt; DeleteTrailResponse -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200894"><span id="local-6989586621679200896"><span class="annot"><span class="annottext">DeleteTrailResponse -&gt; DeleteTrailResponse -&gt; Bool
 (DeleteTrailResponse -&gt; DeleteTrailResponse -&gt; Bool)
 -&gt; (DeleteTrailResponse -&gt; DeleteTrailResponse -&gt; Bool)
 -&gt; Eq DeleteTrailResponse
@@ -287,7 +287,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTrailResponse -&gt; DeleteTrailResponse -&gt; Bool
 == :: DeleteTrailResponse -&gt; DeleteTrailResponse -&gt; Bool
 $c== :: DeleteTrailResponse -&gt; DeleteTrailResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200877"><span id="local-6989586621679200879"><span id="local-6989586621679200881"><span id="local-6989586621679200883"><span class="annot"><span class="annottext">ReadPrec [DeleteTrailResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200886"><span id="local-6989586621679200888"><span id="local-6989586621679200890"><span id="local-6989586621679200892"><span class="annot"><span class="annottext">ReadPrec [DeleteTrailResponse]
 ReadPrec DeleteTrailResponse
 Int -&gt; ReadS DeleteTrailResponse
 ReadS [DeleteTrailResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [DeleteTrailResponse]
 $creadList :: ReadS [DeleteTrailResponse]
 readsPrec :: Int -&gt; ReadS DeleteTrailResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTrailResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200871"><span id="local-6989586621679200873"><span id="local-6989586621679200875"><span class="annot"><span class="annottext">Int -&gt; DeleteTrailResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200880"><span id="local-6989586621679200882"><span id="local-6989586621679200884"><span class="annot"><span class="annottext">Int -&gt; DeleteTrailResponse -&gt; ShowS
 [DeleteTrailResponse] -&gt; ShowS
 DeleteTrailResponse -&gt; String
 (Int -&gt; DeleteTrailResponse -&gt; ShowS)
@@ -347,12 +347,12 @@ $cfrom :: forall x. DeleteTrailResponse -&gt; Rep DeleteTrailResponse x
 </span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-type">DeleteTrailResponse</span></a></span><span>
 </span><span id="line-150"></span><span id="newDeleteTrailResponse"><span class="annot"><span class="annottext">newDeleteTrailResponse :: Int -&gt; DeleteTrailResponse
-</span><a href="Network.AWS.CloudTrail.DeleteTrail.html#newDeleteTrailResponse"><span class="hs-identifier hs-var hs-var">newDeleteTrailResponse</span></a></span></span><span> </span><span id="local-6989586621679200868"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudTrail.DeleteTrail.html#newDeleteTrailResponse"><span class="hs-identifier hs-var hs-var">newDeleteTrailResponse</span></a></span></span><span> </span><span id="local-6989586621679200877"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200877"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">DeleteTrailResponse' :: Int -&gt; DeleteTrailResponse
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-type">DeleteTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTrailResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#%24sel%3AhttpStatus%3ADeleteTrailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679200877"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#deleteTrailResponse_httpStatus"><span class="hs-identifier hs-type">deleteTrailResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-type">DeleteTrailResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -361,16 +361,16 @@ $cfrom :: forall x. DeleteTrailResponse -&gt; Rep DeleteTrailResponse x
 -&gt; (DeleteTrailResponse -&gt; Int -&gt; DeleteTrailResponse)
 -&gt; Lens DeleteTrailResponse DeleteTrailResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-type">DeleteTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200867"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-type">DeleteTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200876"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteTrailResponse' :: DeleteTrailResponse -&gt; Int
-</span><a href="#local-6989586621679200867"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200867"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200866"><span class="annot"><span class="annottext">s :: DeleteTrailResponse
-</span><a href="#local-6989586621679200866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-type">DeleteTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200865"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTrailResponse
-</span><a href="#local-6989586621679200866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTrailResponse' :: Int
+</span><a href="#local-6989586621679200876"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200876"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200875"><span class="annot"><span class="annottext">s :: DeleteTrailResponse
+</span><a href="#local-6989586621679200875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse%27"><span class="hs-identifier hs-type">DeleteTrailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200874"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTrailResponse
+</span><a href="#local-6989586621679200875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTrailResponse' :: Int
 </span><a href="Network.AWS.CloudTrail.DeleteTrail.html#%24sel%3AhttpStatus%3ADeleteTrailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-type">DeleteTrailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-type">DeleteTrailResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-type">DeleteTrailResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.DeleteTrail.html#DeleteTrailResponse"><span class="hs-identifier hs-type">DeleteTrailResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

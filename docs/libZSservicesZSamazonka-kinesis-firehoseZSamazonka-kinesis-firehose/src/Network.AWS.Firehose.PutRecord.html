@@ -89,7 +89,7 @@
 </span><span id="line-89"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | /See:/ 'newPutRecord' smart constructor.</span><span>
-</span><span id="line-92"></span><span id="local-6989586621679283264"><span id="local-6989586621679283265"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecord"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-var">PutRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecord%27"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-var">PutRecord'</span></a></span></span><span>
+</span><span id="line-92"></span><span id="local-6989586621679283273"><span id="local-6989586621679283274"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecord"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-var">PutRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecord%27"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-var">PutRecord'</span></a></span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the delivery stream.</span><span>
 </span><span id="line-94"></span><span>    </span><span id="%24sel%3AdeliveryStreamName%3APutRecord%27"><span class="annot"><span class="annottext">PutRecord -&gt; Text
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3AdeliveryStreamName%3APutRecord%27"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -97,7 +97,7 @@
 </span><span id="line-96"></span><span>    </span><span id="%24sel%3Arecord%3APutRecord%27"><span class="annot"><span class="annottext">PutRecord -&gt; Record
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3Arecord%3APutRecord%27"><span class="hs-identifier hs-var hs-var">record</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283257"><span id="local-6989586621679283259"><span class="annot"><span class="annottext">PutRecord -&gt; PutRecord -&gt; Bool
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283266"><span id="local-6989586621679283268"><span class="annot"><span class="annottext">PutRecord -&gt; PutRecord -&gt; Bool
 (PutRecord -&gt; PutRecord -&gt; Bool)
 -&gt; (PutRecord -&gt; PutRecord -&gt; Bool) -&gt; Eq PutRecord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRecord -&gt; PutRecord -&gt; Bool
 == :: PutRecord -&gt; PutRecord -&gt; Bool
 $c== :: PutRecord -&gt; PutRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283248"><span id="local-6989586621679283250"><span id="local-6989586621679283252"><span id="local-6989586621679283254"><span class="annot"><span class="annottext">ReadPrec [PutRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283257"><span id="local-6989586621679283259"><span id="local-6989586621679283261"><span id="local-6989586621679283263"><span class="annot"><span class="annottext">ReadPrec [PutRecord]
 ReadPrec PutRecord
 Int -&gt; ReadS PutRecord
 ReadS [PutRecord]
@@ -125,7 +125,7 @@ readList :: ReadS [PutRecord]
 $creadList :: ReadS [PutRecord]
 readsPrec :: Int -&gt; ReadS PutRecord
 $creadsPrec :: Int -&gt; ReadS PutRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283241"><span id="local-6989586621679283243"><span id="local-6989586621679283245"><span class="annot"><span class="annottext">Int -&gt; PutRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283250"><span id="local-6989586621679283252"><span id="local-6989586621679283254"><span class="annot"><span class="annottext">Int -&gt; PutRecord -&gt; ShowS
 [PutRecord] -&gt; ShowS
 PutRecord -&gt; String
 (Int -&gt; PutRecord -&gt; ShowS)
@@ -168,18 +168,18 @@ $cfrom :: forall x. PutRecord -&gt; Rep PutRecord x
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span>
 </span><span id="line-117"></span><span id="newPutRecord"><span class="annot"><span class="annottext">newPutRecord :: Text -&gt; Record -&gt; PutRecord
-</span><a href="Network.AWS.Firehose.PutRecord.html#newPutRecord"><span class="hs-identifier hs-var hs-var">newPutRecord</span></a></span></span><span> </span><span id="local-6989586621679283236"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283236"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span id="local-6989586621679283235"><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679283235"><span class="hs-identifier hs-var">pRecord_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.PutRecord.html#newPutRecord"><span class="hs-identifier hs-var hs-var">newPutRecord</span></a></span></span><span> </span><span id="local-6989586621679283245"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283245"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span id="local-6989586621679283244"><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679283244"><span class="hs-identifier hs-var">pRecord_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">PutRecord' :: Text -&gt; Record -&gt; PutRecord
 </span><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryStreamName:PutRecord' :: Text
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3AdeliveryStreamName%3APutRecord%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283236"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283245"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:record:PutRecord' :: Record
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3Arecord%3APutRecord%27"><span class="hs-identifier hs-var">record</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679283235"><span class="hs-identifier hs-var">pRecord_</span></a></span><span>
+</span><a href="#local-6989586621679283244"><span class="hs-identifier hs-var">pRecord_</span></a></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The name of the delivery stream.</span><span>
@@ -189,16 +189,16 @@ $cfrom :: forall x. PutRecord -&gt; Rep PutRecord x
 -&gt; (PutRecord -&gt; Text -&gt; PutRecord)
 -&gt; Lens PutRecord PutRecord Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283232"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283241"><span class="annot"><span class="annottext">Text
 deliveryStreamName :: Text
 $sel:deliveryStreamName:PutRecord' :: PutRecord -&gt; Text
-</span><a href="#local-6989586621679283232"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283232"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283231"><span class="annot"><span class="annottext">s :: PutRecord
-</span><a href="#local-6989586621679283231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecord
-</span><a href="#local-6989586621679283231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:PutRecord' :: Text
+</span><a href="#local-6989586621679283241"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283241"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283240"><span class="annot"><span class="annottext">s :: PutRecord
+</span><a href="#local-6989586621679283240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecord
+</span><a href="#local-6989586621679283240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:PutRecord' :: Text
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3AdeliveryStreamName%3APutRecord%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The record.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#putRecord_record"><span class="hs-identifier hs-type">putRecord_record</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span>
@@ -207,25 +207,25 @@ $sel:deliveryStreamName:PutRecord' :: PutRecord -&gt; Text
 -&gt; (PutRecord -&gt; Record -&gt; PutRecord)
 -&gt; Lens PutRecord PutRecord Record Record
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283229"><span class="annot"><span class="annottext">Record
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283238"><span class="annot"><span class="annottext">Record
 record :: Record
 $sel:record:PutRecord' :: PutRecord -&gt; Record
-</span><a href="#local-6989586621679283229"><span class="hs-identifier hs-var hs-var">record</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679283229"><span class="hs-identifier hs-var">record</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283228"><span class="annot"><span class="annottext">s :: PutRecord
-</span><a href="#local-6989586621679283228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283227"><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679283227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecord
-</span><a href="#local-6989586621679283228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:record:PutRecord' :: Record
+</span><a href="#local-6989586621679283238"><span class="hs-identifier hs-var hs-var">record</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679283238"><span class="hs-identifier hs-var">record</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283237"><span class="annot"><span class="annottext">s :: PutRecord
+</span><a href="#local-6989586621679283237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283236"><span class="annot"><span class="annottext">Record
+</span><a href="#local-6989586621679283236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecord
+</span><a href="#local-6989586621679283237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:record:PutRecord' :: Record
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3Arecord%3APutRecord%27"><span class="hs-identifier hs-var">record</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679283227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679283223"><span class="annot"><span class="annottext">request :: PutRecord -&gt; Request PutRecord
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679283232"><span class="annot"><span class="annottext">request :: PutRecord -&gt; Request PutRecord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRecord -&gt; Request PutRecord
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679283219"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679283228"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutRecord
 -&gt; ClientResponse ClientBody
@@ -249,10 +249,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283216"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283216"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283215"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679283215"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283214"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283225"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283224"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283224"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283223"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Int -&gt; Text -&gt; PutRecordResponse
 </span><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-var">PutRecordResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Int -&gt; Text -&gt; PutRecordResponse)
@@ -260,7 +260,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; Text -&gt; PutRecordResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679283223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encrypted&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,23 +272,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283216"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283225"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; PutRecordResponse)
 -&gt; Either String Text -&gt; Either String PutRecordResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679283223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecordId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283205"><span id="local-6989586621679283207"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283214"><span id="local-6989586621679283216"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679283198"><span class="annot"><span class="annottext">toHeaders :: PutRecord -&gt; ResponseHeaders
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679283207"><span class="annot"><span class="annottext">toHeaders :: PutRecord -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRecord -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -315,15 +315,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283188"><span id="local-6989586621679283190"><span id="local-6989586621679283192"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679283186"><span class="annot"><span class="annottext">toJSON :: PutRecord -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283183"><span id="local-6989586621679283184"><span class="annot"><span class="annottext">Text
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283197"><span id="local-6989586621679283199"><span id="local-6989586621679283201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679283195"><span class="annot"><span class="annottext">toJSON :: PutRecord -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord%27"><span class="hs-identifier hs-type">PutRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283192"><span id="local-6989586621679283193"><span class="annot"><span class="annottext">Text
 Record
 record :: Record
 deliveryStreamName :: Text
 $sel:record:PutRecord' :: PutRecord -&gt; Record
 $sel:deliveryStreamName:PutRecord' :: PutRecord -&gt; Text
-</span><a href="#local-6989586621679283183"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679283192"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -336,26 +336,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283184"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283193"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Record&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Record -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Record
-</span><a href="#local-6989586621679283183"><span class="hs-identifier hs-var">record</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283192"><span class="hs-identifier hs-var">record</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679283177"><span class="annot"><span class="annottext">toPath :: PutRecord -&gt; ByteString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679283186"><span class="annot"><span class="annottext">toPath :: PutRecord -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutRecord -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecord"><span class="hs-identifier hs-type">PutRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679283173"><span class="annot"><span class="annottext">toQuery :: PutRecord -&gt; QueryString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679283182"><span class="annot"><span class="annottext">toQuery :: PutRecord -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRecord -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -363,7 +363,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newPutRecordResponse' smart constructor.</span><span>
-</span><span id="line-180"></span><span id="local-6989586621679283170"><span id="local-6989586621679283171"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecordResponse"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-var">PutRecordResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecordResponse%27"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-var">PutRecordResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span id="local-6989586621679283179"><span id="local-6989586621679283180"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecordResponse"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-var">PutRecordResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecordResponse%27"><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-var">PutRecordResponse'</span></a></span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether server-side encryption (SSE) was enabled during this</span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-183"></span><span>    </span><span id="%24sel%3Aencrypted%3APutRecordResponse%27"><span class="annot"><span class="annottext">PutRecordResponse -&gt; Maybe Bool
@@ -375,7 +375,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3ArecordId%3APutRecordResponse%27"><span class="annot"><span class="annottext">PutRecordResponse -&gt; Text
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3ArecordId%3APutRecordResponse%27"><span class="hs-identifier hs-var hs-var">recordId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283163"><span id="local-6989586621679283165"><span class="annot"><span class="annottext">PutRecordResponse -&gt; PutRecordResponse -&gt; Bool
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283172"><span id="local-6989586621679283174"><span class="annot"><span class="annottext">PutRecordResponse -&gt; PutRecordResponse -&gt; Bool
 (PutRecordResponse -&gt; PutRecordResponse -&gt; Bool)
 -&gt; (PutRecordResponse -&gt; PutRecordResponse -&gt; Bool)
 -&gt; Eq PutRecordResponse
@@ -384,7 +384,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRecordResponse -&gt; PutRecordResponse -&gt; Bool
 == :: PutRecordResponse -&gt; PutRecordResponse -&gt; Bool
 $c== :: PutRecordResponse -&gt; PutRecordResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283155"><span id="local-6989586621679283157"><span id="local-6989586621679283159"><span id="local-6989586621679283161"><span class="annot"><span class="annottext">ReadPrec [PutRecordResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283164"><span id="local-6989586621679283166"><span id="local-6989586621679283168"><span id="local-6989586621679283170"><span class="annot"><span class="annottext">ReadPrec [PutRecordResponse]
 ReadPrec PutRecordResponse
 Int -&gt; ReadS PutRecordResponse
 ReadS [PutRecordResponse]
@@ -404,7 +404,7 @@ readList :: ReadS [PutRecordResponse]
 $creadList :: ReadS [PutRecordResponse]
 readsPrec :: Int -&gt; ReadS PutRecordResponse
 $creadsPrec :: Int -&gt; ReadS PutRecordResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283149"><span id="local-6989586621679283151"><span id="local-6989586621679283153"><span class="annot"><span class="annottext">Int -&gt; PutRecordResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283158"><span id="local-6989586621679283160"><span id="local-6989586621679283162"><span class="annot"><span class="annottext">Int -&gt; PutRecordResponse -&gt; ShowS
 [PutRecordResponse] -&gt; ShowS
 PutRecordResponse -&gt; String
 (Int -&gt; PutRecordResponse -&gt; ShowS)
@@ -451,9 +451,9 @@ $cfrom :: forall x. PutRecordResponse -&gt; Rep PutRecordResponse x
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span>
 </span><span id="line-211"></span><span id="newPutRecordResponse"><span class="annot"><span class="annottext">newPutRecordResponse :: Int -&gt; Text -&gt; PutRecordResponse
-</span><a href="Network.AWS.Firehose.PutRecord.html#newPutRecordResponse"><span class="hs-identifier hs-var hs-var">newPutRecordResponse</span></a></span></span><span> </span><span id="local-6989586621679283146"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283146"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679283145"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283145"><span class="hs-identifier hs-var">pRecordId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.PutRecord.html#newPutRecordResponse"><span class="hs-identifier hs-var hs-var">newPutRecordResponse</span></a></span></span><span> </span><span id="local-6989586621679283155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679283154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283154"><span class="hs-identifier hs-var">pRecordId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">PutRecordResponse' :: Maybe Bool -&gt; Int -&gt; Text -&gt; PutRecordResponse
 </span><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encrypted:PutRecordResponse' :: Maybe Bool
@@ -462,10 +462,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRecordResponse' :: Int
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3AhttpStatus%3APutRecordResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283146"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordId:PutRecordResponse' :: Text
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3ArecordId%3APutRecordResponse%27"><span class="hs-identifier hs-var">recordId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283145"><span class="hs-identifier hs-var">pRecordId_</span></a></span><span>
+</span><a href="#local-6989586621679283154"><span class="hs-identifier hs-var">pRecordId_</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | Indicates whether server-side encryption (SSE) was enabled during this</span><span>
@@ -478,16 +478,16 @@ forall a. Maybe a
 -&gt; Lens
      PutRecordResponse PutRecordResponse (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283144"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283153"><span class="annot"><span class="annottext">Maybe Bool
 encrypted :: Maybe Bool
 $sel:encrypted:PutRecordResponse' :: PutRecordResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679283144"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679283144"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283143"><span class="annot"><span class="annottext">s :: PutRecordResponse
-</span><a href="#local-6989586621679283143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283142"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679283142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordResponse
-</span><a href="#local-6989586621679283143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encrypted:PutRecordResponse' :: Maybe Bool
+</span><a href="#local-6989586621679283153"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679283153"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283152"><span class="annot"><span class="annottext">s :: PutRecordResponse
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283151"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679283151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordResponse
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encrypted:PutRecordResponse' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3Aencrypted%3APutRecordResponse%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679283142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#putRecordResponse_httpStatus"><span class="hs-identifier hs-type">putRecordResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -496,16 +496,16 @@ $sel:encrypted:PutRecordResponse' :: PutRecordResponse -&gt; Maybe Bool
 -&gt; (PutRecordResponse -&gt; Int -&gt; PutRecordResponse)
 -&gt; Lens PutRecordResponse PutRecordResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283141"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283150"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutRecordResponse' :: PutRecordResponse -&gt; Int
-</span><a href="#local-6989586621679283141"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283141"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283140"><span class="annot"><span class="annottext">s :: PutRecordResponse
-</span><a href="#local-6989586621679283140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283139"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordResponse
-</span><a href="#local-6989586621679283140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRecordResponse' :: Int
+</span><a href="#local-6989586621679283150"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283150"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283149"><span class="annot"><span class="annottext">s :: PutRecordResponse
+</span><a href="#local-6989586621679283149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283148"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordResponse
+</span><a href="#local-6989586621679283149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRecordResponse' :: Int
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3AhttpStatus%3APutRecordResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679283139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The ID of the record.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#putRecordResponse_recordId"><span class="hs-identifier hs-type">putRecordResponse_recordId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -514,16 +514,16 @@ $sel:httpStatus:PutRecordResponse' :: PutRecordResponse -&gt; Int
 -&gt; (PutRecordResponse -&gt; Text -&gt; PutRecordResponse)
 -&gt; Lens PutRecordResponse PutRecordResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283138"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283147"><span class="annot"><span class="annottext">Text
 recordId :: Text
 $sel:recordId:PutRecordResponse' :: PutRecordResponse -&gt; Text
-</span><a href="#local-6989586621679283138"><span class="hs-identifier hs-var hs-var">recordId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283138"><span class="hs-identifier hs-var">recordId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283137"><span class="annot"><span class="annottext">s :: PutRecordResponse
-</span><a href="#local-6989586621679283137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283136"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordResponse
-</span><a href="#local-6989586621679283137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordId:PutRecordResponse' :: Text
+</span><a href="#local-6989586621679283147"><span class="hs-identifier hs-var hs-var">recordId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283147"><span class="hs-identifier hs-var">recordId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283146"><span class="annot"><span class="annottext">s :: PutRecordResponse
+</span><a href="#local-6989586621679283146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse%27"><span class="hs-identifier hs-type">PutRecordResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordResponse
+</span><a href="#local-6989586621679283146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordId:PutRecordResponse' :: Text
 </span><a href="Network.AWS.Firehose.PutRecord.html#%24sel%3ArecordId%3APutRecordResponse%27"><span class="hs-identifier hs-var">recordId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679283136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.PutRecord.html#PutRecordResponse"><span class="hs-identifier hs-type">PutRecordResponse</span></a></span></span><span>
 </span><span id="line-232"></span></pre></body></html>

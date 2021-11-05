@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.html"><span class="hs-identifier">Network.AWS.StepFunctions.Types</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newUpdateStateMachine' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679234828"><span id="local-6989586621679234829"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStateMachine"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-var">UpdateStateMachine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStateMachine%27"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-var">UpdateStateMachine'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679234837"><span id="local-6989586621679234838"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStateMachine"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-var">UpdateStateMachine</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStateMachine%27"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-var">UpdateStateMachine'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon States Language definition of the state machine. See</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language&gt;.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Adefinition%3AUpdateStateMachine%27"><span class="annot"><span class="annottext">UpdateStateMachine -&gt; Maybe (Sensitive Text)
@@ -79,7 +79,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AstateMachineArn%3AUpdateStateMachine%27"><span class="annot"><span class="annottext">UpdateStateMachine -&gt; Text
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AstateMachineArn%3AUpdateStateMachine%27"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234818"><span id="local-6989586621679234820"><span class="annot"><span class="annottext">UpdateStateMachine -&gt; UpdateStateMachine -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234827"><span id="local-6989586621679234829"><span class="annot"><span class="annottext">UpdateStateMachine -&gt; UpdateStateMachine -&gt; Bool
 (UpdateStateMachine -&gt; UpdateStateMachine -&gt; Bool)
 -&gt; (UpdateStateMachine -&gt; UpdateStateMachine -&gt; Bool)
 -&gt; Eq UpdateStateMachine
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateStateMachine -&gt; UpdateStateMachine -&gt; Bool
 == :: UpdateStateMachine -&gt; UpdateStateMachine -&gt; Bool
 $c== :: UpdateStateMachine -&gt; UpdateStateMachine -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234811"><span id="local-6989586621679234813"><span id="local-6989586621679234815"><span class="annot"><span class="annottext">Int -&gt; UpdateStateMachine -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234820"><span id="local-6989586621679234822"><span id="local-6989586621679234824"><span class="annot"><span class="annottext">Int -&gt; UpdateStateMachine -&gt; ShowS
 [UpdateStateMachine] -&gt; ShowS
 UpdateStateMachine -&gt; String
 (Int -&gt; UpdateStateMachine -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. UpdateStateMachine -&gt; Rep UpdateStateMachine x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span>
 </span><span id="line-102"></span><span id="newUpdateStateMachine"><span class="annot"><span class="annottext">newUpdateStateMachine :: Text -&gt; UpdateStateMachine
-</span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#newUpdateStateMachine"><span class="hs-identifier hs-var hs-var">newUpdateStateMachine</span></a></span></span><span> </span><span id="local-6989586621679234806"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234806"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#newUpdateStateMachine"><span class="hs-identifier hs-var hs-var">newUpdateStateMachine</span></a></span></span><span> </span><span id="local-6989586621679234815"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234815"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">UpdateStateMachine' :: Maybe (Sensitive Text)
 -&gt; Maybe TracingConfiguration
 -&gt; Maybe LoggingConfiguration
@@ -165,7 +165,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateMachineArn:UpdateStateMachine' :: Text
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AstateMachineArn%3AUpdateStateMachine%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234806"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span>
+</span><a href="#local-6989586621679234815"><span class="hs-identifier hs-var">pStateMachineArn_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The Amazon States Language definition of the state machine. See</span><span>
@@ -182,16 +182,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234803"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234812"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 definition :: Maybe (Sensitive Text)
 $sel:definition:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679234803"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679234803"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234802"><span class="annot"><span class="annottext">s :: UpdateStateMachine
-</span><a href="#local-6989586621679234802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234801"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679234801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
-</span><a href="#local-6989586621679234802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:UpdateStateMachine' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679234812"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679234812"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234811"><span class="annot"><span class="annottext">s :: UpdateStateMachine
+</span><a href="#local-6989586621679234811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234810"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679234810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
+</span><a href="#local-6989586621679234811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:UpdateStateMachine' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3Adefinition%3AUpdateStateMachine%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679234801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679234810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UpdateStateMachine -&gt; f UpdateStateMachine)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -225,16 +225,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe TracingConfiguration)
      (Maybe TracingConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234797"><span class="annot"><span class="annottext">Maybe TracingConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234806"><span class="annot"><span class="annottext">Maybe TracingConfiguration
 tracingConfiguration :: Maybe TracingConfiguration
 $sel:tracingConfiguration:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe TracingConfiguration
-</span><a href="#local-6989586621679234797"><span class="hs-identifier hs-var hs-var">tracingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
-</span><a href="#local-6989586621679234797"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234796"><span class="annot"><span class="annottext">s :: UpdateStateMachine
-</span><a href="#local-6989586621679234796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234795"><span class="annot"><span class="annottext">Maybe TracingConfiguration
-</span><a href="#local-6989586621679234795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
-</span><a href="#local-6989586621679234796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tracingConfiguration:UpdateStateMachine' :: Maybe TracingConfiguration
+</span><a href="#local-6989586621679234806"><span class="hs-identifier hs-var hs-var">tracingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
+</span><a href="#local-6989586621679234806"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234805"><span class="annot"><span class="annottext">s :: UpdateStateMachine
+</span><a href="#local-6989586621679234805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234804"><span class="annot"><span class="annottext">Maybe TracingConfiguration
+</span><a href="#local-6989586621679234804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
+</span><a href="#local-6989586621679234805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tracingConfiguration:UpdateStateMachine' :: Maybe TracingConfiguration
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AtracingConfiguration%3AUpdateStateMachine%27"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
-</span><a href="#local-6989586621679234795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- options.</span><span>
@@ -250,16 +250,16 @@ $sel:tracingConfiguration:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe 
      (Maybe LoggingConfiguration)
      (Maybe LoggingConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234794"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234803"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
 loggingConfiguration :: Maybe LoggingConfiguration
 $sel:loggingConfiguration:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe LoggingConfiguration
-</span><a href="#local-6989586621679234794"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
-</span><a href="#local-6989586621679234794"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234793"><span class="annot"><span class="annottext">s :: UpdateStateMachine
-</span><a href="#local-6989586621679234793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234792"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
-</span><a href="#local-6989586621679234792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
-</span><a href="#local-6989586621679234793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:UpdateStateMachine' :: Maybe LoggingConfiguration
+</span><a href="#local-6989586621679234803"><span class="hs-identifier hs-var hs-var">loggingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679234803"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234802"><span class="annot"><span class="annottext">s :: UpdateStateMachine
+</span><a href="#local-6989586621679234802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234801"><span class="annot"><span class="annottext">Maybe LoggingConfiguration
+</span><a href="#local-6989586621679234801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
+</span><a href="#local-6989586621679234802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfiguration:UpdateStateMachine' :: Maybe LoggingConfiguration
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AloggingConfiguration%3AUpdateStateMachine%27"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
-</span><a href="#local-6989586621679234792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role of the state machine.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#updateStateMachine_roleArn"><span class="hs-identifier hs-type">updateStateMachine_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -270,16 +270,16 @@ $sel:loggingConfiguration:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe 
 -&gt; Lens
      UpdateStateMachine UpdateStateMachine (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234791"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234800"><span class="annot"><span class="annottext">Maybe Text
 roleArn :: Maybe Text
 $sel:roleArn:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe Text
-</span><a href="#local-6989586621679234791"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234791"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234790"><span class="annot"><span class="annottext">s :: UpdateStateMachine
-</span><a href="#local-6989586621679234790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234789"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
-</span><a href="#local-6989586621679234790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateStateMachine' :: Maybe Text
+</span><a href="#local-6989586621679234800"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234800"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234799"><span class="annot"><span class="annottext">s :: UpdateStateMachine
+</span><a href="#local-6989586621679234799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234798"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679234798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
+</span><a href="#local-6989586621679234799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:UpdateStateMachine' :: Maybe Text
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AroleArn%3AUpdateStateMachine%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the state machine.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#updateStateMachine_stateMachineArn"><span class="hs-identifier hs-type">updateStateMachine_stateMachineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -288,27 +288,27 @@ $sel:roleArn:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe Text
 -&gt; (UpdateStateMachine -&gt; Text -&gt; UpdateStateMachine)
 -&gt; Lens UpdateStateMachine UpdateStateMachine Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234788"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234797"><span class="annot"><span class="annottext">Text
 stateMachineArn :: Text
 $sel:stateMachineArn:UpdateStateMachine' :: UpdateStateMachine -&gt; Text
-</span><a href="#local-6989586621679234788"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234788"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234787"><span class="annot"><span class="annottext">s :: UpdateStateMachine
-</span><a href="#local-6989586621679234787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234786"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
-</span><a href="#local-6989586621679234787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:UpdateStateMachine' :: Text
+</span><a href="#local-6989586621679234797"><span class="hs-identifier hs-var hs-var">stateMachineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234797"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234796"><span class="annot"><span class="annottext">s :: UpdateStateMachine
+</span><a href="#local-6989586621679234796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachine
+</span><a href="#local-6989586621679234796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateMachineArn:UpdateStateMachine' :: Text
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AstateMachineArn%3AUpdateStateMachine%27"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679234782"><span class="annot"><span class="annottext">request :: UpdateStateMachine -&gt; Request UpdateStateMachine
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679234791"><span class="annot"><span class="annottext">request :: UpdateStateMachine -&gt; Request UpdateStateMachine
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateStateMachine -&gt; Request UpdateStateMachine
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679234778"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679234787"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateStateMachine
 -&gt; ClientResponse ClientBody
@@ -334,10 +334,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234775"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679234775"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679234774"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679234774"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679234773"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234784"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234784"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679234783"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679234783"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679234782"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; POSIX -&gt; UpdateStateMachineResponse
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-var">UpdateStateMachineResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; POSIX -&gt; UpdateStateMachineResponse)
@@ -349,23 +349,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679234775"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234784"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; UpdateStateMachineResponse)
 -&gt; Either String POSIX -&gt; Either String UpdateStateMachineResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+</span><a href="#local-6989586621679234782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;updateDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234765"><span id="local-6989586621679234767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234774"><span id="local-6989586621679234776"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679234758"><span class="annot"><span class="annottext">toHeaders :: UpdateStateMachine -&gt; ResponseHeaders
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679234767"><span class="annot"><span class="annottext">toHeaders :: UpdateStateMachine -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateStateMachine -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -392,9 +392,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234748"><span id="local-6989586621679234750"><span id="local-6989586621679234752"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679234746"><span class="annot"><span class="annottext">toJSON :: UpdateStateMachine -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234740"><span id="local-6989586621679234741"><span id="local-6989586621679234742"><span id="local-6989586621679234743"><span id="local-6989586621679234744"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234757"><span id="local-6989586621679234759"><span id="local-6989586621679234761"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679234755"><span class="annot"><span class="annottext">toJSON :: UpdateStateMachine -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine%27"><span class="hs-identifier hs-type">UpdateStateMachine'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234749"><span id="local-6989586621679234750"><span id="local-6989586621679234751"><span id="local-6989586621679234752"><span id="local-6989586621679234753"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Maybe LoggingConfiguration
 Maybe TracingConfiguration
@@ -409,7 +409,7 @@ $sel:roleArn:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe Text
 $sel:loggingConfiguration:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe LoggingConfiguration
 $sel:tracingConfiguration:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe TracingConfiguration
 $sel:definition:UpdateStateMachine' :: UpdateStateMachine -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679234740"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679234749"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -421,7 +421,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679234744"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234753"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tracingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TracingConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -430,7 +430,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TracingConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TracingConfiguration
-</span><a href="#local-6989586621679234743"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234752"><span class="hs-identifier hs-var">tracingConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;loggingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LoggingConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -439,14 +439,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LoggingConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfiguration
-</span><a href="#local-6989586621679234742"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234751"><span class="hs-identifier hs-var">loggingConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679234741"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234750"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -454,19 +454,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;stateMachineArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234740"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234749"><span class="hs-identifier hs-var">stateMachineArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679234734"><span class="annot"><span class="annottext">toPath :: UpdateStateMachine -&gt; ByteString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679234743"><span class="annot"><span class="annottext">toPath :: UpdateStateMachine -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateStateMachine -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachine"><span class="hs-identifier hs-type">UpdateStateMachine</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679234730"><span class="annot"><span class="annottext">toQuery :: UpdateStateMachine -&gt; QueryString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679234739"><span class="annot"><span class="annottext">toQuery :: UpdateStateMachine -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateStateMachine -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -474,7 +474,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newUpdateStateMachineResponse' smart constructor.</span><span>
-</span><span id="line-187"></span><span id="local-6989586621679234727"><span id="local-6989586621679234728"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStateMachineResponse"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-var">UpdateStateMachineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStateMachineResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-var">UpdateStateMachineResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span id="local-6989586621679234736"><span id="local-6989586621679234737"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateStateMachineResponse"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-var">UpdateStateMachineResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateStateMachineResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-var">UpdateStateMachineResponse'</span></a></span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateStateMachineResponse%27"><span class="annot"><span class="annottext">UpdateStateMachineResponse -&gt; Int
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AhttpStatus%3AUpdateStateMachineResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -482,7 +482,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AupdateDate%3AUpdateStateMachineResponse%27"><span class="annot"><span class="annottext">UpdateStateMachineResponse -&gt; POSIX
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AupdateDate%3AUpdateStateMachineResponse%27"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234721"><span id="local-6989586621679234723"><span class="annot"><span class="annottext">UpdateStateMachineResponse -&gt; UpdateStateMachineResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234730"><span id="local-6989586621679234732"><span class="annot"><span class="annottext">UpdateStateMachineResponse -&gt; UpdateStateMachineResponse -&gt; Bool
 (UpdateStateMachineResponse -&gt; UpdateStateMachineResponse -&gt; Bool)
 -&gt; (UpdateStateMachineResponse
     -&gt; UpdateStateMachineResponse -&gt; Bool)
@@ -492,7 +492,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateStateMachineResponse -&gt; UpdateStateMachineResponse -&gt; Bool
 == :: UpdateStateMachineResponse -&gt; UpdateStateMachineResponse -&gt; Bool
 $c== :: UpdateStateMachineResponse -&gt; UpdateStateMachineResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234713"><span id="local-6989586621679234715"><span id="local-6989586621679234717"><span id="local-6989586621679234719"><span class="annot"><span class="annottext">ReadPrec [UpdateStateMachineResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234722"><span id="local-6989586621679234724"><span id="local-6989586621679234726"><span id="local-6989586621679234728"><span class="annot"><span class="annottext">ReadPrec [UpdateStateMachineResponse]
 ReadPrec UpdateStateMachineResponse
 Int -&gt; ReadS UpdateStateMachineResponse
 ReadS [UpdateStateMachineResponse]
@@ -512,7 +512,7 @@ readList :: ReadS [UpdateStateMachineResponse]
 $creadList :: ReadS [UpdateStateMachineResponse]
 readsPrec :: Int -&gt; ReadS UpdateStateMachineResponse
 $creadsPrec :: Int -&gt; ReadS UpdateStateMachineResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234706"><span id="local-6989586621679234708"><span id="local-6989586621679234710"><span class="annot"><span class="annottext">Int -&gt; UpdateStateMachineResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234715"><span id="local-6989586621679234717"><span id="local-6989586621679234719"><span class="annot"><span class="annottext">Int -&gt; UpdateStateMachineResponse -&gt; ShowS
 [UpdateStateMachineResponse] -&gt; ShowS
 UpdateStateMachineResponse -&gt; String
 (Int -&gt; UpdateStateMachineResponse -&gt; ShowS)
@@ -563,16 +563,16 @@ UpdateStateMachineResponse -&gt; Rep UpdateStateMachineResponse x
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newUpdateStateMachineResponse"><span class="annot"><span class="annottext">newUpdateStateMachineResponse :: Int -&gt; UTCTime -&gt; UpdateStateMachineResponse
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#newUpdateStateMachineResponse"><span class="hs-identifier hs-var hs-var">newUpdateStateMachineResponse</span></a></span></span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679234703"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679234703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679234702"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679234702"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679234712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679234711"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679234711"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">UpdateStateMachineResponse' :: Int -&gt; POSIX -&gt; UpdateStateMachineResponse
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateStateMachineResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AhttpStatus%3AUpdateStateMachineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679234703"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateDate:UpdateStateMachineResponse' :: POSIX
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AupdateDate%3AUpdateStateMachineResponse%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -581,7 +581,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679234702"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span><span>
+</span><a href="#local-6989586621679234711"><span class="hs-identifier hs-var">pUpdateDate_</span></a></span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -594,16 +594,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      UpdateStateMachineResponse UpdateStateMachineResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234699"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234708"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateStateMachineResponse' :: UpdateStateMachineResponse -&gt; Int
-</span><a href="#local-6989586621679234699"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679234699"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234698"><span class="annot"><span class="annottext">s :: UpdateStateMachineResponse
-</span><a href="#local-6989586621679234698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234697"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679234697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachineResponse
-</span><a href="#local-6989586621679234698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateStateMachineResponse' :: Int
+</span><a href="#local-6989586621679234708"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234708"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234707"><span class="annot"><span class="annottext">s :: UpdateStateMachineResponse
+</span><a href="#local-6989586621679234707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679234706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachineResponse
+</span><a href="#local-6989586621679234707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateStateMachineResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AhttpStatus%3AUpdateStateMachineResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679234697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The date and time the state machine was updated.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#updateStateMachineResponse_updateDate"><span class="hs-identifier hs-type">updateStateMachineResponse_updateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -615,16 +615,16 @@ $sel:httpStatus:UpdateStateMachineResponse' :: UpdateStateMachineResponse -&gt; 
 -&gt; Lens
      UpdateStateMachineResponse UpdateStateMachineResponse POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234696"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234705"><span class="annot"><span class="annottext">POSIX
 updateDate :: POSIX
 $sel:updateDate:UpdateStateMachineResponse' :: UpdateStateMachineResponse -&gt; POSIX
-</span><a href="#local-6989586621679234696"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679234696"><span class="hs-identifier hs-var">updateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234695"><span class="annot"><span class="annottext">s :: UpdateStateMachineResponse
-</span><a href="#local-6989586621679234695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234694"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679234694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachineResponse
-</span><a href="#local-6989586621679234695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateDate:UpdateStateMachineResponse' :: POSIX
+</span><a href="#local-6989586621679234705"><span class="hs-identifier hs-var hs-var">updateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679234705"><span class="hs-identifier hs-var">updateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234704"><span class="annot"><span class="annottext">s :: UpdateStateMachineResponse
+</span><a href="#local-6989586621679234704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse%27"><span class="hs-identifier hs-type">UpdateStateMachineResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234703"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679234703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateStateMachineResponse
+</span><a href="#local-6989586621679234704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateDate:UpdateStateMachineResponse' :: POSIX
 </span><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#%24sel%3AupdateDate%3AUpdateStateMachineResponse%27"><span class="hs-identifier hs-var">updateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679234694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679234703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; UpdateStateMachineResponse -&gt; f UpdateStateMachineResponse)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -635,5 +635,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.UpdateStateMachine.html#UpdateStateMachineResponse"><span class="hs-identifier hs-type">UpdateStateMachineResponse</span></a></span></span><span>
 </span><span id="line-230"></span></pre></body></html>

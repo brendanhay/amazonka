@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newRemoveAttributesFromFindings' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679252066"><span id="local-6989586621679252067"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAttributesFromFindings"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-var">RemoveAttributesFromFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAttributesFromFindings%27"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-var">RemoveAttributesFromFindings'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679252075"><span id="local-6989586621679252076"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAttributesFromFindings"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-var">RemoveAttributesFromFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAttributesFromFindings%27"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-var">RemoveAttributesFromFindings'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARNs that specify the findings that you want to remove attributes</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- from.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AfindingArns%3ARemoveAttributesFromFindings%27"><span class="annot"><span class="annottext">RemoveAttributesFromFindings -&gt; NonEmpty Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AattributeKeys%3ARemoveAttributesFromFindings%27"><span class="annot"><span class="annottext">RemoveAttributesFromFindings -&gt; [Text]
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AattributeKeys%3ARemoveAttributesFromFindings%27"><span class="hs-identifier hs-var hs-var">attributeKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252059"><span id="local-6989586621679252061"><span class="annot"><span class="annottext">RemoveAttributesFromFindings
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252068"><span id="local-6989586621679252070"><span class="annot"><span class="annottext">RemoveAttributesFromFindings
 -&gt; RemoveAttributesFromFindings -&gt; Bool
 (RemoveAttributesFromFindings
  -&gt; RemoveAttributesFromFindings -&gt; Bool)
@@ -76,7 +76,7 @@ $c/= :: RemoveAttributesFromFindings
 -&gt; RemoveAttributesFromFindings -&gt; Bool
 $c== :: RemoveAttributesFromFindings
 -&gt; RemoveAttributesFromFindings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252050"><span id="local-6989586621679252052"><span id="local-6989586621679252054"><span id="local-6989586621679252056"><span class="annot"><span class="annottext">ReadPrec [RemoveAttributesFromFindings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252059"><span id="local-6989586621679252061"><span id="local-6989586621679252063"><span id="local-6989586621679252065"><span class="annot"><span class="annottext">ReadPrec [RemoveAttributesFromFindings]
 ReadPrec RemoveAttributesFromFindings
 Int -&gt; ReadS RemoveAttributesFromFindings
 ReadS [RemoveAttributesFromFindings]
@@ -96,7 +96,7 @@ readList :: ReadS [RemoveAttributesFromFindings]
 $creadList :: ReadS [RemoveAttributesFromFindings]
 readsPrec :: Int -&gt; ReadS RemoveAttributesFromFindings
 $creadsPrec :: Int -&gt; ReadS RemoveAttributesFromFindings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252043"><span id="local-6989586621679252045"><span id="local-6989586621679252047"><span class="annot"><span class="annottext">Int -&gt; RemoveAttributesFromFindings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252052"><span id="local-6989586621679252054"><span id="local-6989586621679252056"><span class="annot"><span class="annottext">Int -&gt; RemoveAttributesFromFindings -&gt; ShowS
 [RemoveAttributesFromFindings] -&gt; ShowS
 RemoveAttributesFromFindings -&gt; String
 (Int -&gt; RemoveAttributesFromFindings -&gt; ShowS)
@@ -146,8 +146,8 @@ RemoveAttributesFromFindings -&gt; Rep RemoveAttributesFromFindings x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span>
 </span><span id="line-80"></span><span id="newRemoveAttributesFromFindings"><span class="annot"><span class="annottext">newRemoveAttributesFromFindings :: NonEmpty Text -&gt; RemoveAttributesFromFindings
-</span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#newRemoveAttributesFromFindings"><span class="hs-identifier hs-var hs-var">newRemoveAttributesFromFindings</span></a></span></span><span> </span><span id="local-6989586621679252038"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679252038"><span class="hs-identifier hs-var">pFindingArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#newRemoveAttributesFromFindings"><span class="hs-identifier hs-var hs-var">newRemoveAttributesFromFindings</span></a></span></span><span> </span><span id="local-6989586621679252047"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679252047"><span class="hs-identifier hs-var">pFindingArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">RemoveAttributesFromFindings' :: NonEmpty Text -&gt; [Text] -&gt; RemoveAttributesFromFindings
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:findingArns:RemoveAttributesFromFindings' :: NonEmpty Text
@@ -160,7 +160,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679252038"><span class="hs-identifier hs-var">pFindingArns_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252047"><span class="hs-identifier hs-var">pFindingArns_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeKeys:RemoveAttributesFromFindings' :: [Text]
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AattributeKeys%3ARemoveAttributesFromFindings%27"><span class="hs-identifier hs-var">attributeKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -181,16 +181,16 @@ forall a. Monoid a =&gt; a
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252033"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252042"><span class="annot"><span class="annottext">NonEmpty Text
 findingArns :: NonEmpty Text
 $sel:findingArns:RemoveAttributesFromFindings' :: RemoveAttributesFromFindings -&gt; NonEmpty Text
-</span><a href="#local-6989586621679252033"><span class="hs-identifier hs-var hs-var">findingArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679252033"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252032"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindings
-</span><a href="#local-6989586621679252032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252031"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679252031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindings
-</span><a href="#local-6989586621679252032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingArns:RemoveAttributesFromFindings' :: NonEmpty Text
+</span><a href="#local-6989586621679252042"><span class="hs-identifier hs-var hs-var">findingArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679252042"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252041"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindings
+</span><a href="#local-6989586621679252041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252040"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679252040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindings
+</span><a href="#local-6989586621679252041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingArns:RemoveAttributesFromFindings' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AfindingArns%3ARemoveAttributesFromFindings%27"><span class="hs-identifier hs-var">findingArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679252031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679252040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; RemoveAttributesFromFindings -&gt; f RemoveAttributesFromFindings)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -217,16 +217,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252029"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252038"><span class="annot"><span class="annottext">[Text]
 attributeKeys :: [Text]
 $sel:attributeKeys:RemoveAttributesFromFindings' :: RemoveAttributesFromFindings -&gt; [Text]
-</span><a href="#local-6989586621679252029"><span class="hs-identifier hs-var hs-var">attributeKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679252029"><span class="hs-identifier hs-var">attributeKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252028"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindings
-</span><a href="#local-6989586621679252028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252027"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679252027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindings
-</span><a href="#local-6989586621679252028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeKeys:RemoveAttributesFromFindings' :: [Text]
+</span><a href="#local-6989586621679252038"><span class="hs-identifier hs-var hs-var">attributeKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679252038"><span class="hs-identifier hs-var">attributeKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252037"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindings
+</span><a href="#local-6989586621679252037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252036"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679252036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindings
+</span><a href="#local-6989586621679252037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeKeys:RemoveAttributesFromFindings' :: [Text]
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AattributeKeys%3ARemoveAttributesFromFindings%27"><span class="hs-identifier hs-var">attributeKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679252027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679252036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; RemoveAttributesFromFindings -&gt; f RemoveAttributesFromFindings)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -241,7 +241,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679252023"><span class="annot"><span class="annottext">request :: RemoveAttributesFromFindings
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679252032"><span class="annot"><span class="annottext">request :: RemoveAttributesFromFindings
 -&gt; Request RemoveAttributesFromFindings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RemoveAttributesFromFindings
@@ -249,7 +249,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679252019"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679252028"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveAttributesFromFindings
 -&gt; ClientResponse ClientBody
@@ -275,10 +275,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252016"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252015"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679252015"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252014"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252014"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252025"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679252025"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679252024"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679252024"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679252023"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252023"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; HashMap Text FailedItemDetails
 -&gt; RemoveAttributesFromFindingsResponse
@@ -297,7 +297,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679252016"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252025"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (HashMap Text FailedItemDetails
@@ -306,7 +306,7 @@ forall a. Enum a =&gt; a -&gt; Int
 -&gt; Either String RemoveAttributesFromFindingsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252014"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252023"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (HashMap Text FailedItemDetails))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -320,13 +320,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679252005"><span id="local-6989586621679252007"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679252014"><span id="local-6989586621679252016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679251998"><span class="annot"><span class="annottext">toHeaders :: RemoveAttributesFromFindings -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679252007"><span class="annot"><span class="annottext">toHeaders :: RemoveAttributesFromFindings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveAttributesFromFindings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -353,15 +353,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251988"><span id="local-6989586621679251990"><span id="local-6989586621679251992"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679251986"><span class="annot"><span class="annottext">toJSON :: RemoveAttributesFromFindings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251983"><span id="local-6989586621679251984"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251997"><span id="local-6989586621679251999"><span id="local-6989586621679252001"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679251995"><span class="annot"><span class="annottext">toJSON :: RemoveAttributesFromFindings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251992"><span id="local-6989586621679251993"><span class="annot"><span class="annottext">[Text]
 NonEmpty Text
 attributeKeys :: [Text]
 findingArns :: NonEmpty Text
 $sel:attributeKeys:RemoveAttributesFromFindings' :: RemoveAttributesFromFindings -&gt; [Text]
 $sel:findingArns:RemoveAttributesFromFindings' :: RemoveAttributesFromFindings -&gt; NonEmpty Text
-</span><a href="#local-6989586621679251983"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679251992"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -373,7 +373,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;findingArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679251984"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251993"><span class="hs-identifier hs-var">findingArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -381,19 +381,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;attributeKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679251983"><span class="hs-identifier hs-var">attributeKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251992"><span class="hs-identifier hs-var">attributeKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679251977"><span class="annot"><span class="annottext">toPath :: RemoveAttributesFromFindings -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679251986"><span class="annot"><span class="annottext">toPath :: RemoveAttributesFromFindings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveAttributesFromFindings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindings"><span class="hs-identifier hs-type">RemoveAttributesFromFindings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679251973"><span class="annot"><span class="annottext">toQuery :: RemoveAttributesFromFindings -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679251982"><span class="annot"><span class="annottext">toQuery :: RemoveAttributesFromFindings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveAttributesFromFindings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -401,7 +401,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newRemoveAttributesFromFindingsResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679251970"><span id="local-6989586621679251971"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAttributesFromFindingsResponse"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-var">RemoveAttributesFromFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAttributesFromFindingsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var">RemoveAttributesFromFindingsResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679251979"><span id="local-6989586621679251980"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveAttributesFromFindingsResponse"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-var">RemoveAttributesFromFindingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveAttributesFromFindingsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var">RemoveAttributesFromFindingsResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveAttributesFromFindingsResponse%27"><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse -&gt; Int
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AhttpStatus%3ARemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -411,7 +411,7 @@ forall a. Monoid a =&gt; a
 -&gt; HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AfailedItems%3ARemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251964"><span id="local-6989586621679251966"><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251973"><span id="local-6989586621679251975"><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse
 -&gt; RemoveAttributesFromFindingsResponse -&gt; Bool
 (RemoveAttributesFromFindingsResponse
  -&gt; RemoveAttributesFromFindingsResponse -&gt; Bool)
@@ -427,7 +427,7 @@ $c/= :: RemoveAttributesFromFindingsResponse
 -&gt; RemoveAttributesFromFindingsResponse -&gt; Bool
 $c== :: RemoveAttributesFromFindingsResponse
 -&gt; RemoveAttributesFromFindingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251956"><span id="local-6989586621679251958"><span id="local-6989586621679251960"><span id="local-6989586621679251962"><span class="annot"><span class="annottext">ReadPrec [RemoveAttributesFromFindingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251965"><span id="local-6989586621679251967"><span id="local-6989586621679251969"><span id="local-6989586621679251971"><span class="annot"><span class="annottext">ReadPrec [RemoveAttributesFromFindingsResponse]
 ReadPrec RemoveAttributesFromFindingsResponse
 Int -&gt; ReadS RemoveAttributesFromFindingsResponse
 ReadS [RemoveAttributesFromFindingsResponse]
@@ -447,7 +447,7 @@ readList :: ReadS [RemoveAttributesFromFindingsResponse]
 $creadList :: ReadS [RemoveAttributesFromFindingsResponse]
 readsPrec :: Int -&gt; ReadS RemoveAttributesFromFindingsResponse
 $creadsPrec :: Int -&gt; ReadS RemoveAttributesFromFindingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251950"><span id="local-6989586621679251952"><span id="local-6989586621679251954"><span class="annot"><span class="annottext">Int -&gt; RemoveAttributesFromFindingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251959"><span id="local-6989586621679251961"><span id="local-6989586621679251963"><span class="annot"><span class="annottext">Int -&gt; RemoveAttributesFromFindingsResponse -&gt; ShowS
 [RemoveAttributesFromFindingsResponse] -&gt; ShowS
 RemoveAttributesFromFindingsResponse -&gt; String
 (Int -&gt; RemoveAttributesFromFindingsResponse -&gt; ShowS)
@@ -502,8 +502,8 @@ RemoveAttributesFromFindingsResponse
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newRemoveAttributesFromFindingsResponse"><span class="annot"><span class="annottext">newRemoveAttributesFromFindingsResponse :: Int -&gt; RemoveAttributesFromFindingsResponse
-</span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#newRemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-var hs-var">newRemoveAttributesFromFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679251947"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#newRemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-var hs-var">newRemoveAttributesFromFindingsResponse</span></a></span></span><span> </span><span id="local-6989586621679251956"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse' :: Int
 -&gt; HashMap Text FailedItemDetails
 -&gt; RemoveAttributesFromFindingsResponse
@@ -511,7 +511,7 @@ RemoveAttributesFromFindingsResponse
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveAttributesFromFindingsResponse' :: Int
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AhttpStatus%3ARemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedItems:RemoveAttributesFromFindingsResponse' :: HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AfailedItems%3ARemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
 forall a. Monoid a =&gt; a
@@ -532,16 +532,16 @@ forall a. Monoid a =&gt; a
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251946"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251955"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveAttributesFromFindingsResponse' :: RemoveAttributesFromFindingsResponse -&gt; Int
-</span><a href="#local-6989586621679251946"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251946"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251945"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindingsResponse
-</span><a href="#local-6989586621679251945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251944"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse
-</span><a href="#local-6989586621679251945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveAttributesFromFindingsResponse' :: Int
+</span><a href="#local-6989586621679251955"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251955"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251954"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindingsResponse
+</span><a href="#local-6989586621679251954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251953"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse
+</span><a href="#local-6989586621679251954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveAttributesFromFindingsResponse' :: Int
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AhttpStatus%3ARemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | Attributes details that cannot be described. An error code is provided</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- for each failed item.</span><span>
@@ -561,17 +561,17 @@ $sel:httpStatus:RemoveAttributesFromFindingsResponse' :: RemoveAttributesFromFin
      (HashMap Text FailedItemDetails)
      (HashMap Text FailedItemDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251943"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251952"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
 failedItems :: HashMap Text FailedItemDetails
 $sel:failedItems:RemoveAttributesFromFindingsResponse' :: RemoveAttributesFromFindingsResponse
 -&gt; HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679251943"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679251943"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251942"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindingsResponse
-</span><a href="#local-6989586621679251942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251941"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679251941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse
-</span><a href="#local-6989586621679251942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:RemoveAttributesFromFindingsResponse' :: HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679251952"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679251952"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251951"><span class="annot"><span class="annottext">s :: RemoveAttributesFromFindingsResponse
+</span><a href="#local-6989586621679251951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251950"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679251950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveAttributesFromFindingsResponse
+</span><a href="#local-6989586621679251951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:RemoveAttributesFromFindingsResponse' :: HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#%24sel%3AfailedItems%3ARemoveAttributesFromFindingsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679251941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679251950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
   -&gt; f (HashMap Text FailedItemDetails))
  -&gt; RemoveAttributesFromFindingsResponse
  -&gt; f RemoveAttributesFromFindingsResponse)
@@ -592,6 +592,6 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679251939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679251948"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.RemoveAttributesFromFindings.html#RemoveAttributesFromFindingsResponse"><span class="hs-identifier hs-type">RemoveAttributesFromFindingsResponse</span></a></span></span><span>
 </span><span id="line-192"></span></pre></body></html>

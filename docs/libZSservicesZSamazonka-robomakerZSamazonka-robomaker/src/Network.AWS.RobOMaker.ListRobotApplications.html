@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.ListRobotApplications</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of robot application. You can optionally provide filters</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to retrieve specific robot applications.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.ListRobotApplications</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier">ListRobotApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#newListRobotApplications"><span class="hs-identifier">newListRobotApplications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_versionQualifier"><span class="hs-identifier">listRobotApplications_versionQualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_filters"><span class="hs-identifier">listRobotApplications_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_nextToken"><span class="hs-identifier">listRobotApplications_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_maxResults"><span class="hs-identifier">listRobotApplications_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier">ListRobotApplicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#newListRobotApplicationsResponse"><span class="hs-identifier">newListRobotApplicationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_robotApplicationSummaries"><span class="hs-identifier">listRobotApplicationsResponse_robotApplicationSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_nextToken"><span class="hs-identifier">listRobotApplicationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_httpStatus"><span class="hs-identifier">listRobotApplicationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListRobotApplications' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679380580"><span id="local-6989586621679380581"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRobotApplications"><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-var">ListRobotApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRobotApplications%27"><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-var">ListRobotApplications'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version qualifier of the robot application.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AversionQualifier%3AListRobotApplications%27"><span class="annot"><span class="annottext">ListRobotApplications -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AversionQualifier%3AListRobotApplications%27"><span class="hs-identifier hs-var hs-var">versionQualifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Optional filters to limit results.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- The filter name @name@ is supported. When filtering, you must use the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- complete value of the filtered item. You can use up to three filters.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Afilters%3AListRobotApplications%27"><span class="annot"><span class="annottext">ListRobotApplications -&gt; Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3Afilters%3AListRobotApplications%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListRobotApplications@</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- again and assign that token to the request object\'s @nextToken@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- parameter. If there are no remaining results, the previous response</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- object\'s NextToken parameter is set to null.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AnextToken%3AListRobotApplications%27"><span class="annot"><span class="annottext">ListRobotApplications -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AnextToken%3AListRobotApplications%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | When this parameter is used, @ListRobotApplications@ only returns</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @maxResults@ results in a single page along with a @nextToken@ response</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- element. The remaining results of the initial request can be seen by</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- sending another @ListRobotApplications@ request with the returned</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 100. If this</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- parameter is not used, then @ListRobotApplications@ returns up to 100</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AmaxResults%3AListRobotApplications%27"><span class="annot"><span class="annottext">ListRobotApplications -&gt; Maybe Int
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AmaxResults%3AListRobotApplications%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380571"><span id="local-6989586621679380573"><span class="annot"><span class="annottext">ListRobotApplications -&gt; ListRobotApplications -&gt; Bool
+(ListRobotApplications -&gt; ListRobotApplications -&gt; Bool)
+-&gt; (ListRobotApplications -&gt; ListRobotApplications -&gt; Bool)
+-&gt; Eq ListRobotApplications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRobotApplications -&gt; ListRobotApplications -&gt; Bool
+$c/= :: ListRobotApplications -&gt; ListRobotApplications -&gt; Bool
+== :: ListRobotApplications -&gt; ListRobotApplications -&gt; Bool
+$c== :: ListRobotApplications -&gt; ListRobotApplications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380562"><span id="local-6989586621679380564"><span id="local-6989586621679380566"><span id="local-6989586621679380568"><span class="annot"><span class="annottext">ReadPrec [ListRobotApplications]
+ReadPrec ListRobotApplications
+Int -&gt; ReadS ListRobotApplications
+ReadS [ListRobotApplications]
+(Int -&gt; ReadS ListRobotApplications)
+-&gt; ReadS [ListRobotApplications]
+-&gt; ReadPrec ListRobotApplications
+-&gt; ReadPrec [ListRobotApplications]
+-&gt; Read ListRobotApplications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRobotApplications]
+$creadListPrec :: ReadPrec [ListRobotApplications]
+readPrec :: ReadPrec ListRobotApplications
+$creadPrec :: ReadPrec ListRobotApplications
+readList :: ReadS [ListRobotApplications]
+$creadList :: ReadS [ListRobotApplications]
+readsPrec :: Int -&gt; ReadS ListRobotApplications
+$creadsPrec :: Int -&gt; ReadS ListRobotApplications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380555"><span id="local-6989586621679380557"><span id="local-6989586621679380559"><span class="annot"><span class="annottext">Int -&gt; ListRobotApplications -&gt; ShowS
+[ListRobotApplications] -&gt; ShowS
+ListRobotApplications -&gt; String
+(Int -&gt; ListRobotApplications -&gt; ShowS)
+-&gt; (ListRobotApplications -&gt; String)
+-&gt; ([ListRobotApplications] -&gt; ShowS)
+-&gt; Show ListRobotApplications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRobotApplications] -&gt; ShowS
+$cshowList :: [ListRobotApplications] -&gt; ShowS
+show :: ListRobotApplications -&gt; String
+$cshow :: ListRobotApplications -&gt; String
+showsPrec :: Int -&gt; ListRobotApplications -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRobotApplications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListRobotApplications -&gt; Rep ListRobotApplications x)
+-&gt; (forall x. Rep ListRobotApplications x -&gt; ListRobotApplications)
+-&gt; Generic ListRobotApplications
+forall x. Rep ListRobotApplications x -&gt; ListRobotApplications
+forall x. ListRobotApplications -&gt; Rep ListRobotApplications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListRobotApplications x -&gt; ListRobotApplications
+$cfrom :: forall x. ListRobotApplications -&gt; Rep ListRobotApplications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'ListRobotApplications' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'versionQualifier', 'listRobotApplications_versionQualifier' - The version qualifier of the robot application.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'filters', 'listRobotApplications_filters' - Optional filters to limit results.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The filter name @name@ is supported. When filtering, you must use the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- complete value of the filtered item. You can use up to three filters.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'nextToken', 'listRobotApplications_nextToken' - If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListRobotApplications@</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- again and assign that token to the request object\'s @nextToken@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- parameter. If there are no remaining results, the previous response</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- object\'s NextToken parameter is set to null.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'maxResults', 'listRobotApplications_maxResults' - When this parameter is used, @ListRobotApplications@ only returns</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @maxResults@ results in a single page along with a @nextToken@ response</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- element. The remaining results of the initial request can be seen by</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- sending another @ListRobotApplications@ request with the returned</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 100. If this</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- parameter is not used, then @ListRobotApplications@ returns up to 100</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#newListRobotApplications"><span class="hs-identifier hs-type">newListRobotApplications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span>
+</span><span id="line-114"></span><span id="newListRobotApplications"><span class="annot"><span class="annottext">newListRobotApplications :: ListRobotApplications
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#newListRobotApplications"><span class="hs-identifier hs-var hs-var">newListRobotApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">ListRobotApplications' :: Maybe Text
+-&gt; Maybe (NonEmpty Filter)
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; ListRobotApplications
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versionQualifier:ListRobotApplications' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AversionQualifier%3AListRobotApplications%27"><span class="hs-identifier hs-var">versionQualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListRobotApplications' :: Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3Afilters%3AListRobotApplications%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListRobotApplications' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AnextToken%3AListRobotApplications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListRobotApplications' :: Maybe Int
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AmaxResults%3AListRobotApplications%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The version qualifier of the robot application.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_versionQualifier"><span class="hs-identifier hs-type">listRobotApplications_versionQualifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listRobotApplications_versionQualifier"><span class="annot"><span class="annottext">listRobotApplications_versionQualifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRobotApplications -&gt; f ListRobotApplications
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_versionQualifier"><span class="hs-identifier hs-var hs-var">listRobotApplications_versionQualifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRobotApplications -&gt; Maybe Text)
+-&gt; (ListRobotApplications -&gt; Maybe Text -&gt; ListRobotApplications)
+-&gt; Lens
+     ListRobotApplications
+     ListRobotApplications
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380549"><span class="annot"><span class="annottext">Maybe Text
+versionQualifier :: Maybe Text
+$sel:versionQualifier:ListRobotApplications' :: ListRobotApplications -&gt; Maybe Text
+</span><a href="#local-6989586621679380549"><span class="hs-identifier hs-var hs-var">versionQualifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380549"><span class="hs-identifier hs-var">versionQualifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380548"><span class="annot"><span class="annottext">s :: ListRobotApplications
+</span><a href="#local-6989586621679380548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380547"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRobotApplications
+</span><a href="#local-6989586621679380548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionQualifier:ListRobotApplications' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AversionQualifier%3AListRobotApplications%27"><span class="hs-identifier hs-var">versionQualifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Optional filters to limit results.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- The filter name @name@ is supported. When filtering, you must use the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- complete value of the filtered item. You can use up to three filters.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_filters"><span class="hs-identifier hs-type">listRobotApplications_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listRobotApplications_filters"><span class="annot"><span class="annottext">listRobotApplications_filters :: (Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; ListRobotApplications -&gt; f ListRobotApplications
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_filters"><span class="hs-identifier hs-var hs-var">listRobotApplications_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRobotApplications -&gt; Maybe (NonEmpty Filter))
+-&gt; (ListRobotApplications
+    -&gt; Maybe (NonEmpty Filter) -&gt; ListRobotApplications)
+-&gt; Lens
+     ListRobotApplications
+     ListRobotApplications
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380546"><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+filters :: Maybe (NonEmpty Filter)
+$sel:filters:ListRobotApplications' :: ListRobotApplications -&gt; Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679380546"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679380546"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380545"><span class="annot"><span class="annottext">s :: ListRobotApplications
+</span><a href="#local-6989586621679380545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380544"><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679380544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRobotApplications
+</span><a href="#local-6989586621679380545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListRobotApplications' :: Maybe (NonEmpty Filter)
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3Afilters%3AListRobotApplications%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679380544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+ -&gt; ListRobotApplications -&gt; f ListRobotApplications)
+-&gt; ((Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+    -&gt; Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; (Maybe (NonEmpty Filter) -&gt; f (Maybe (NonEmpty Filter)))
+-&gt; ListRobotApplications
+-&gt; f ListRobotApplications
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+-&gt; Iso
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+     (Maybe (NonEmpty Filter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+  (NonEmpty Filter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListRobotApplications@</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- again and assign that token to the request object\'s @nextToken@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- parameter. If there are no remaining results, the previous response</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- object\'s NextToken parameter is set to null.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_nextToken"><span class="hs-identifier hs-type">listRobotApplications_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="listRobotApplications_nextToken"><span class="annot"><span class="annottext">listRobotApplications_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRobotApplications -&gt; f ListRobotApplications
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_nextToken"><span class="hs-identifier hs-var hs-var">listRobotApplications_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRobotApplications -&gt; Maybe Text)
+-&gt; (ListRobotApplications -&gt; Maybe Text -&gt; ListRobotApplications)
+-&gt; Lens
+     ListRobotApplications
+     ListRobotApplications
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380540"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRobotApplications' :: ListRobotApplications -&gt; Maybe Text
+</span><a href="#local-6989586621679380540"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380540"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380539"><span class="annot"><span class="annottext">s :: ListRobotApplications
+</span><a href="#local-6989586621679380539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRobotApplications
+</span><a href="#local-6989586621679380539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRobotApplications' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AnextToken%3AListRobotApplications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | When this parameter is used, @ListRobotApplications@ only returns</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- @maxResults@ results in a single page along with a @nextToken@ response</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- element. The remaining results of the initial request can be seen by</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- sending another @ListRobotApplications@ request with the returned</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- @nextToken@ value. This value can be between 1 and 100. If this</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- parameter is not used, then @ListRobotApplications@ returns up to 100</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- results and a @nextToken@ value if applicable.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_maxResults"><span class="hs-identifier hs-type">listRobotApplications_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="listRobotApplications_maxResults"><span class="annot"><span class="annottext">listRobotApplications_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListRobotApplications -&gt; f ListRobotApplications
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_maxResults"><span class="hs-identifier hs-var hs-var">listRobotApplications_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRobotApplications -&gt; Maybe Int)
+-&gt; (ListRobotApplications -&gt; Maybe Int -&gt; ListRobotApplications)
+-&gt; Lens
+     ListRobotApplications ListRobotApplications (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380537"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListRobotApplications' :: ListRobotApplications -&gt; Maybe Int
+</span><a href="#local-6989586621679380537"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380537"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380536"><span class="annot"><span class="annottext">s :: ListRobotApplications
+</span><a href="#local-6989586621679380536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380535"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRobotApplications
+</span><a href="#local-6989586621679380536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRobotApplications' :: Maybe Int
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AmaxResults%3AListRobotApplications%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679380531"><span class="annot"><span class="annottext">page :: ListRobotApplications
+-&gt; AWSResponse ListRobotApplications -&gt; Maybe ListRobotApplications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679380529"><span class="annot"><span class="annottext">ListRobotApplications
+</span><a href="#local-6989586621679380529"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679380528"><span class="annot"><span class="annottext">AWSResponse ListRobotApplications
+</span><a href="#local-6989586621679380528"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-156"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRobotApplications
+ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380528"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">ListRobotApplicationsResponse
+-&gt; Getting (First Text) ListRobotApplicationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRobotApplicationsResponse
+-&gt; Const (First Text) ListRobotApplicationsResponse
+Lens' ListRobotApplicationsResponse (Maybe Text)
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_nextToken"><span class="hs-identifier hs-var">listRobotApplicationsResponse_nextToken</span></a></span><span>
+</span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRobotApplicationsResponse
+ -&gt; Const (First Text) ListRobotApplicationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListRobotApplicationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-159"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRobotApplications
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-162"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRobotApplications
+ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380528"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">ListRobotApplicationsResponse
+-&gt; Getting
+     (First [RobotApplicationSummary])
+     ListRobotApplicationsResponse
+     [RobotApplicationSummary]
+-&gt; Maybe [RobotApplicationSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [RobotApplicationSummary]
+ -&gt; Const
+      (First [RobotApplicationSummary])
+      (Maybe [RobotApplicationSummary]))
+-&gt; ListRobotApplicationsResponse
+-&gt; Const
+     (First [RobotApplicationSummary]) ListRobotApplicationsResponse
+Lens'
+  ListRobotApplicationsResponse (Maybe [RobotApplicationSummary])
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_robotApplicationSummaries"><span class="hs-identifier hs-var">listRobotApplicationsResponse_robotApplicationSummaries</span></a></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [RobotApplicationSummary]
+  -&gt; Const
+       (First [RobotApplicationSummary])
+       (Maybe [RobotApplicationSummary]))
+ -&gt; ListRobotApplicationsResponse
+ -&gt; Const
+      (First [RobotApplicationSummary]) ListRobotApplicationsResponse)
+-&gt; (([RobotApplicationSummary]
+     -&gt; Const
+          (First [RobotApplicationSummary]) [RobotApplicationSummary])
+    -&gt; Maybe [RobotApplicationSummary]
+    -&gt; Const
+         (First [RobotApplicationSummary])
+         (Maybe [RobotApplicationSummary]))
+-&gt; Getting
+     (First [RobotApplicationSummary])
+     ListRobotApplicationsResponse
+     [RobotApplicationSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RobotApplicationSummary]
+ -&gt; Const
+      (First [RobotApplicationSummary]) [RobotApplicationSummary])
+-&gt; Maybe [RobotApplicationSummary]
+-&gt; Const
+     (First [RobotApplicationSummary]) (Maybe [RobotApplicationSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-165"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRobotApplications
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">ListRobotApplications -&gt; Maybe ListRobotApplications
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListRobotApplications -&gt; Maybe ListRobotApplications)
+-&gt; ListRobotApplications -&gt; Maybe ListRobotApplications
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ListRobotApplications
+</span><a href="#local-6989586621679380529"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">ListRobotApplications
+-&gt; (ListRobotApplications -&gt; ListRobotApplications)
+-&gt; ListRobotApplications
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListRobotApplications -&gt; Identity ListRobotApplications
+Lens
+  ListRobotApplications
+  ListRobotApplications
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplications_nextToken"><span class="hs-identifier hs-var">listRobotApplications_nextToken</span></a></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListRobotApplications -&gt; Identity ListRobotApplications)
+-&gt; Maybe Text -&gt; ListRobotApplications -&gt; ListRobotApplications
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRobotApplications
+ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380528"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">ListRobotApplicationsResponse
+-&gt; Getting (First Text) ListRobotApplicationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRobotApplicationsResponse
+-&gt; Const (First Text) ListRobotApplicationsResponse
+Lens' ListRobotApplicationsResponse (Maybe Text)
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_nextToken"><span class="hs-identifier hs-var">listRobotApplicationsResponse_nextToken</span></a></span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRobotApplicationsResponse
+ -&gt; Const (First Text) ListRobotApplicationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListRobotApplicationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-177"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679380519"><span class="annot"><span class="annottext">request :: ListRobotApplications -&gt; Request ListRobotApplications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRobotApplications -&gt; Request ListRobotApplications
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RobOMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679380515"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListRobotApplications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListRobotApplications)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListRobotApplications))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListRobotApplications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListRobotApplications)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679380512"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380512"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679380511"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679380511"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679380510"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679380510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListRobotApplicationsResponse
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">ListRobotApplicationsResponse'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RobotApplicationSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListRobotApplicationsResponse)
+-&gt; Either String (Maybe [RobotApplicationSummary])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListRobotApplicationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679380510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [RobotApplicationSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;robotApplicationSummaries&quot;</span></span><span>
+</span><span id="line-185"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RobotApplicationSummary]))
+-&gt; Maybe [RobotApplicationSummary]
+-&gt; Either String (Maybe [RobotApplicationSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListRobotApplicationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListRobotApplicationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679380510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListRobotApplicationsResponse)
+-&gt; Either String Int -&gt; Either String ListRobotApplicationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380512"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380501"><span id="local-6989586621679380503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679380494"><span class="annot"><span class="annottext">toHeaders :: ListRobotApplications -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRobotApplications -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-201"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-202"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380484"><span id="local-6989586621679380486"><span id="local-6989586621679380488"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679380482"><span class="annot"><span class="annottext">toJSON :: ListRobotApplications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications%27"><span class="hs-identifier hs-type">ListRobotApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380477"><span id="local-6989586621679380478"><span id="local-6989586621679380479"><span id="local-6989586621679380480"><span class="annot"><span class="annottext">Maybe Int
+Maybe (NonEmpty Filter)
+Maybe Text
+maxResults :: Maybe Int
+nextToken :: Maybe Text
+filters :: Maybe (NonEmpty Filter)
+versionQualifier :: Maybe Text
+$sel:maxResults:ListRobotApplications' :: ListRobotApplications -&gt; Maybe Int
+$sel:nextToken:ListRobotApplications' :: ListRobotApplications -&gt; Maybe Text
+$sel:filters:ListRobotApplications' :: ListRobotApplications -&gt; Maybe (NonEmpty Filter)
+$sel:versionQualifier:ListRobotApplications' :: ListRobotApplications -&gt; Maybe Text
+</span><a href="#local-6989586621679380477"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-210"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versionQualifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380480"><span class="hs-identifier hs-var">versionQualifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Filter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Filter -&gt; Pair) -&gt; Maybe (NonEmpty Filter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Filter)
+</span><a href="#local-6989586621679380479"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380478"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679380477"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679380471"><span class="annot"><span class="annottext">toPath :: ListRobotApplications -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRobotApplications -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/listRobotApplications&quot;</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplications"><span class="hs-identifier hs-type">ListRobotApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679380467"><span class="annot"><span class="annottext">toQuery :: ListRobotApplications -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRobotApplications -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | /See:/ 'newListRobotApplicationsResponse' smart constructor.</span><span>
+</span><span id="line-225"></span><span id="local-6989586621679380464"><span id="local-6989586621679380465"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRobotApplicationsResponse"><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-var">ListRobotApplicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRobotApplicationsResponse%27"><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">ListRobotApplicationsResponse'</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of robot application summaries that meet the criteria of the</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3ArobotApplicationSummaries%3AListRobotApplicationsResponse%27"><span class="annot"><span class="annottext">ListRobotApplicationsResponse -&gt; Maybe [RobotApplicationSummary]
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3ArobotApplicationSummaries%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">robotApplicationSummaries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationSummary.html#RobotApplicationSummary"><span class="hs-identifier hs-type">RobotApplicationSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListRobotApplications@</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- again and assign that token to the request object\'s @nextToken@</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">-- parameter. If there are no remaining results, the previous response</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- object\'s NextToken parameter is set to null.</span><span>
+</span><span id="line-235"></span><span>    </span><span id="%24sel%3AnextToken%3AListRobotApplicationsResponse%27"><span class="annot"><span class="annottext">ListRobotApplicationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AnextToken%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRobotApplicationsResponse%27"><span class="annot"><span class="annottext">ListRobotApplicationsResponse -&gt; Int
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AhttpStatus%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679380457"><span id="local-6989586621679380459"><span class="annot"><span class="annottext">ListRobotApplicationsResponse
+-&gt; ListRobotApplicationsResponse -&gt; Bool
+(ListRobotApplicationsResponse
+ -&gt; ListRobotApplicationsResponse -&gt; Bool)
+-&gt; (ListRobotApplicationsResponse
+    -&gt; ListRobotApplicationsResponse -&gt; Bool)
+-&gt; Eq ListRobotApplicationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRobotApplicationsResponse
+-&gt; ListRobotApplicationsResponse -&gt; Bool
+$c/= :: ListRobotApplicationsResponse
+-&gt; ListRobotApplicationsResponse -&gt; Bool
+== :: ListRobotApplicationsResponse
+-&gt; ListRobotApplicationsResponse -&gt; Bool
+$c== :: ListRobotApplicationsResponse
+-&gt; ListRobotApplicationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380449"><span id="local-6989586621679380451"><span id="local-6989586621679380453"><span id="local-6989586621679380455"><span class="annot"><span class="annottext">ReadPrec [ListRobotApplicationsResponse]
+ReadPrec ListRobotApplicationsResponse
+Int -&gt; ReadS ListRobotApplicationsResponse
+ReadS [ListRobotApplicationsResponse]
+(Int -&gt; ReadS ListRobotApplicationsResponse)
+-&gt; ReadS [ListRobotApplicationsResponse]
+-&gt; ReadPrec ListRobotApplicationsResponse
+-&gt; ReadPrec [ListRobotApplicationsResponse]
+-&gt; Read ListRobotApplicationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRobotApplicationsResponse]
+$creadListPrec :: ReadPrec [ListRobotApplicationsResponse]
+readPrec :: ReadPrec ListRobotApplicationsResponse
+$creadPrec :: ReadPrec ListRobotApplicationsResponse
+readList :: ReadS [ListRobotApplicationsResponse]
+$creadList :: ReadS [ListRobotApplicationsResponse]
+readsPrec :: Int -&gt; ReadS ListRobotApplicationsResponse
+$creadsPrec :: Int -&gt; ReadS ListRobotApplicationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679380443"><span id="local-6989586621679380445"><span id="local-6989586621679380447"><span class="annot"><span class="annottext">Int -&gt; ListRobotApplicationsResponse -&gt; ShowS
+[ListRobotApplicationsResponse] -&gt; ShowS
+ListRobotApplicationsResponse -&gt; String
+(Int -&gt; ListRobotApplicationsResponse -&gt; ShowS)
+-&gt; (ListRobotApplicationsResponse -&gt; String)
+-&gt; ([ListRobotApplicationsResponse] -&gt; ShowS)
+-&gt; Show ListRobotApplicationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRobotApplicationsResponse] -&gt; ShowS
+$cshowList :: [ListRobotApplicationsResponse] -&gt; ShowS
+show :: ListRobotApplicationsResponse -&gt; String
+$cshow :: ListRobotApplicationsResponse -&gt; String
+showsPrec :: Int -&gt; ListRobotApplicationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRobotApplicationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListRobotApplicationsResponse
+ -&gt; Rep ListRobotApplicationsResponse x)
+-&gt; (forall x.
+    Rep ListRobotApplicationsResponse x
+    -&gt; ListRobotApplicationsResponse)
+-&gt; Generic ListRobotApplicationsResponse
+forall x.
+Rep ListRobotApplicationsResponse x
+-&gt; ListRobotApplicationsResponse
+forall x.
+ListRobotApplicationsResponse
+-&gt; Rep ListRobotApplicationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListRobotApplicationsResponse x
+-&gt; ListRobotApplicationsResponse
+$cfrom :: forall x.
+ListRobotApplicationsResponse
+-&gt; Rep ListRobotApplicationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Create a value of 'ListRobotApplicationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- 'robotApplicationSummaries', 'listRobotApplicationsResponse_robotApplicationSummaries' - A list of robot application summaries that meet the criteria of the</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- 'nextToken', 'listRobotApplicationsResponse_nextToken' - If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListRobotApplications@</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- again and assign that token to the request object\'s @nextToken@</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- parameter. If there are no remaining results, the previous response</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- object\'s NextToken parameter is set to null.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'httpStatus', 'listRobotApplicationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#newListRobotApplicationsResponse"><span class="hs-identifier hs-type">newListRobotApplicationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span>
+</span><span id="line-264"></span><span id="newListRobotApplicationsResponse"><span class="annot"><span class="annottext">newListRobotApplicationsResponse :: Int -&gt; ListRobotApplicationsResponse
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#newListRobotApplicationsResponse"><span class="hs-identifier hs-var hs-var">newListRobotApplicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679380440"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">ListRobotApplicationsResponse' :: Maybe [RobotApplicationSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListRobotApplicationsResponse
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-type">ListRobotApplicationsResponse'</span></a></span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:robotApplicationSummaries:ListRobotApplicationsResponse' :: Maybe [RobotApplicationSummary]
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3ArobotApplicationSummaries%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">robotApplicationSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListRobotApplicationsResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AnextToken%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRobotApplicationsResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AhttpStatus%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380440"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | A list of robot application summaries that meet the criteria of the</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_robotApplicationSummaries"><span class="hs-identifier hs-type">listRobotApplicationsResponse_robotApplicationSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RobOMaker.Types.RobotApplicationSummary.html#RobotApplicationSummary"><span class="hs-identifier hs-type">RobotApplicationSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="listRobotApplicationsResponse_robotApplicationSummaries"><span class="annot"><span class="annottext">listRobotApplicationsResponse_robotApplicationSummaries :: (Maybe [RobotApplicationSummary]
+ -&gt; f (Maybe [RobotApplicationSummary]))
+-&gt; ListRobotApplicationsResponse -&gt; f ListRobotApplicationsResponse
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_robotApplicationSummaries"><span class="hs-identifier hs-var hs-var">listRobotApplicationsResponse_robotApplicationSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRobotApplicationsResponse -&gt; Maybe [RobotApplicationSummary])
+-&gt; (ListRobotApplicationsResponse
+    -&gt; Maybe [RobotApplicationSummary]
+    -&gt; ListRobotApplicationsResponse)
+-&gt; Lens'
+     ListRobotApplicationsResponse (Maybe [RobotApplicationSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-type">ListRobotApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380439"><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary]
+robotApplicationSummaries :: Maybe [RobotApplicationSummary]
+$sel:robotApplicationSummaries:ListRobotApplicationsResponse' :: ListRobotApplicationsResponse -&gt; Maybe [RobotApplicationSummary]
+</span><a href="#local-6989586621679380439"><span class="hs-identifier hs-var hs-var">robotApplicationSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary]
+</span><a href="#local-6989586621679380439"><span class="hs-identifier hs-var">robotApplicationSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380438"><span class="annot"><span class="annottext">s :: ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-type">ListRobotApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380437"><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary]
+</span><a href="#local-6989586621679380437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:robotApplicationSummaries:ListRobotApplicationsResponse' :: Maybe [RobotApplicationSummary]
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3ArobotApplicationSummaries%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">robotApplicationSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RobotApplicationSummary]
+</span><a href="#local-6989586621679380437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RobotApplicationSummary]
+  -&gt; f (Maybe [RobotApplicationSummary]))
+ -&gt; ListRobotApplicationsResponse
+ -&gt; f ListRobotApplicationsResponse)
+-&gt; ((Maybe [RobotApplicationSummary]
+     -&gt; f (Maybe [RobotApplicationSummary]))
+    -&gt; Maybe [RobotApplicationSummary]
+    -&gt; f (Maybe [RobotApplicationSummary]))
+-&gt; (Maybe [RobotApplicationSummary]
+    -&gt; f (Maybe [RobotApplicationSummary]))
+-&gt; ListRobotApplicationsResponse
+-&gt; f ListRobotApplicationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RobotApplicationSummary]
+  [RobotApplicationSummary]
+  [RobotApplicationSummary]
+  [RobotApplicationSummary]
+-&gt; Iso
+     (Maybe [RobotApplicationSummary])
+     (Maybe [RobotApplicationSummary])
+     (Maybe [RobotApplicationSummary])
+     (Maybe [RobotApplicationSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RobotApplicationSummary]
+  [RobotApplicationSummary]
+  [RobotApplicationSummary]
+  [RobotApplicationSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | If the previous paginated request did not return all of the remaining</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- results, the response object\'s @nextToken@ parameter value is set to a</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- token. To retrieve the next set of results, call @ListRobotApplications@</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- again and assign that token to the request object\'s @nextToken@</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- parameter. If there are no remaining results, the previous response</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- object\'s NextToken parameter is set to null.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_nextToken"><span class="hs-identifier hs-type">listRobotApplicationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="listRobotApplicationsResponse_nextToken"><span class="annot"><span class="annottext">listRobotApplicationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRobotApplicationsResponse -&gt; f ListRobotApplicationsResponse
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRobotApplicationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRobotApplicationsResponse -&gt; Maybe Text)
+-&gt; (ListRobotApplicationsResponse
+    -&gt; Maybe Text -&gt; ListRobotApplicationsResponse)
+-&gt; Lens' ListRobotApplicationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-type">ListRobotApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380436"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRobotApplicationsResponse' :: ListRobotApplicationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679380436"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380436"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380435"><span class="annot"><span class="annottext">s :: ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-type">ListRobotApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380434"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRobotApplicationsResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AnextToken%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679380434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_httpStatus"><span class="hs-identifier hs-type">listRobotApplicationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-288"></span><span id="listRobotApplicationsResponse_httpStatus"><span class="annot"><span class="annottext">listRobotApplicationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListRobotApplicationsResponse -&gt; f ListRobotApplicationsResponse
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#listRobotApplicationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listRobotApplicationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRobotApplicationsResponse -&gt; Int)
+-&gt; (ListRobotApplicationsResponse
+    -&gt; Int -&gt; ListRobotApplicationsResponse)
+-&gt; Lens
+     ListRobotApplicationsResponse ListRobotApplicationsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-type">ListRobotApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679380433"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListRobotApplicationsResponse' :: ListRobotApplicationsResponse -&gt; Int
+</span><a href="#local-6989586621679380433"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380433"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679380432"><span class="annot"><span class="annottext">s :: ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse%27"><span class="hs-identifier hs-type">ListRobotApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679380431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRobotApplicationsResponse
+</span><a href="#local-6989586621679380432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRobotApplicationsResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.ListRobotApplications.html#%24sel%3AhttpStatus%3AListRobotApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679380431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679380429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.ListRobotApplications.html#ListRobotApplicationsResponse"><span class="hs-identifier hs-type">ListRobotApplicationsResponse</span></a></span></span><span>
+</span><span id="line-291"></span></pre></body></html>

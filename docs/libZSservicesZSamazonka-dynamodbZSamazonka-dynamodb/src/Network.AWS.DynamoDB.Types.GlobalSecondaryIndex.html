@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Represents the properties of a global secondary index.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newGlobalSecondaryIndex' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679376161"><span id="local-6989586621679376162"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalSecondaryIndex"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-var">GlobalSecondaryIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalSecondaryIndex%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-var">GlobalSecondaryIndex'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679376170"><span id="local-6989586621679376171"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalSecondaryIndex"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-var">GlobalSecondaryIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalSecondaryIndex%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-var">GlobalSecondaryIndex'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the provisioned throughput settings for the specified global</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- secondary index.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Aprojection%3AGlobalSecondaryIndex%27"><span class="annot"><span class="annottext">GlobalSecondaryIndex -&gt; Projection
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3Aprojection%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Projection.html#Projection"><span class="hs-identifier hs-type">Projection</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376152"><span id="local-6989586621679376154"><span class="annot"><span class="annottext">GlobalSecondaryIndex -&gt; GlobalSecondaryIndex -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376161"><span id="local-6989586621679376163"><span class="annot"><span class="annottext">GlobalSecondaryIndex -&gt; GlobalSecondaryIndex -&gt; Bool
 (GlobalSecondaryIndex -&gt; GlobalSecondaryIndex -&gt; Bool)
 -&gt; (GlobalSecondaryIndex -&gt; GlobalSecondaryIndex -&gt; Bool)
 -&gt; Eq GlobalSecondaryIndex
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GlobalSecondaryIndex -&gt; GlobalSecondaryIndex -&gt; Bool
 == :: GlobalSecondaryIndex -&gt; GlobalSecondaryIndex -&gt; Bool
 $c== :: GlobalSecondaryIndex -&gt; GlobalSecondaryIndex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376143"><span id="local-6989586621679376145"><span id="local-6989586621679376147"><span id="local-6989586621679376149"><span class="annot"><span class="annottext">ReadPrec [GlobalSecondaryIndex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376152"><span id="local-6989586621679376154"><span id="local-6989586621679376156"><span id="local-6989586621679376158"><span class="annot"><span class="annottext">ReadPrec [GlobalSecondaryIndex]
 ReadPrec GlobalSecondaryIndex
 Int -&gt; ReadS GlobalSecondaryIndex
 ReadS [GlobalSecondaryIndex]
@@ -95,7 +95,7 @@ readList :: ReadS [GlobalSecondaryIndex]
 $creadList :: ReadS [GlobalSecondaryIndex]
 readsPrec :: Int -&gt; ReadS GlobalSecondaryIndex
 $creadsPrec :: Int -&gt; ReadS GlobalSecondaryIndex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376136"><span id="local-6989586621679376138"><span id="local-6989586621679376140"><span class="annot"><span class="annottext">Int -&gt; GlobalSecondaryIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376145"><span id="local-6989586621679376147"><span id="local-6989586621679376149"><span class="annot"><span class="annottext">Int -&gt; GlobalSecondaryIndex -&gt; ShowS
 [GlobalSecondaryIndex] -&gt; ShowS
 GlobalSecondaryIndex -&gt; String
 (Int -&gt; GlobalSecondaryIndex -&gt; ShowS)
@@ -170,12 +170,12 @@ $cfrom :: forall x. GlobalSecondaryIndex -&gt; Rep GlobalSecondaryIndex x
 </span><span id="line-113"></span><span id="newGlobalSecondaryIndex"><span class="annot"><span class="annottext">newGlobalSecondaryIndex :: Text
 -&gt; NonEmpty KeySchemaElement -&gt; Projection -&gt; GlobalSecondaryIndex
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#newGlobalSecondaryIndex"><span class="hs-identifier hs-var hs-var">newGlobalSecondaryIndex</span></a></span></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679376130"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376130"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679376129"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679376129"><span class="hs-identifier hs-var">pKeySchema_</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679376128"><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679376128"><span class="hs-identifier hs-var">pProjection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679376139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679376139"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679376138"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679376138"><span class="hs-identifier hs-var">pKeySchema_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679376137"><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679376137"><span class="hs-identifier hs-var">pProjection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">GlobalSecondaryIndex' :: Maybe ProvisionedThroughput
 -&gt; Text
 -&gt; NonEmpty KeySchemaElement
@@ -189,7 +189,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:GlobalSecondaryIndex' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3AindexName%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376130"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376139"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:keySchema:GlobalSecondaryIndex' :: NonEmpty KeySchemaElement
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3AkeySchema%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty KeySchemaElement) (Identity (NonEmpty KeySchemaElement))
@@ -203,10 +203,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty KeySchemaElement -&gt; NonEmpty KeySchemaElement
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679376129"><span class="hs-identifier hs-var">pKeySchema_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376138"><span class="hs-identifier hs-var">pKeySchema_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:projection:GlobalSecondaryIndex' :: Projection
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3Aprojection%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679376128"><span class="hs-identifier hs-var">pProjection_</span></a></span><span>
+</span><a href="#local-6989586621679376137"><span class="hs-identifier hs-var">pProjection_</span></a></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | Represents the provisioned throughput settings for the specified global</span><span>
@@ -227,16 +227,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe ProvisionedThroughput)
      (Maybe ProvisionedThroughput)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376122"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376131"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
 provisionedThroughput :: Maybe ProvisionedThroughput
 $sel:provisionedThroughput:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; Maybe ProvisionedThroughput
-</span><a href="#local-6989586621679376122"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
-</span><a href="#local-6989586621679376122"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376121"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
-</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376120"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
-</span><a href="#local-6989586621679376120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
-</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughput:GlobalSecondaryIndex' :: Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679376131"><span class="hs-identifier hs-var hs-var">provisionedThroughput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679376131"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376130"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
+</span><a href="#local-6989586621679376130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376129"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><a href="#local-6989586621679376129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
+</span><a href="#local-6989586621679376130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughput:GlobalSecondaryIndex' :: Maybe ProvisionedThroughput
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3AprovisionedThroughput%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
-</span><a href="#local-6989586621679376120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The name of the global secondary index. The name must be unique among</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- all other indexes on this table.</span><span>
@@ -246,16 +246,16 @@ $sel:provisionedThroughput:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; M
 -&gt; (GlobalSecondaryIndex -&gt; Text -&gt; GlobalSecondaryIndex)
 -&gt; Lens GlobalSecondaryIndex GlobalSecondaryIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376118"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376127"><span class="annot"><span class="annottext">Text
 indexName :: Text
 $sel:indexName:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; Text
-</span><a href="#local-6989586621679376118"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376118"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376117"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
-</span><a href="#local-6989586621679376117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376116"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
-</span><a href="#local-6989586621679376117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:GlobalSecondaryIndex' :: Text
+</span><a href="#local-6989586621679376127"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679376127"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376126"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
+</span><a href="#local-6989586621679376126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679376125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
+</span><a href="#local-6989586621679376126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:GlobalSecondaryIndex' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3AindexName%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The complete key schema for a global secondary index, which consists of</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- one or more pairs of attribute names and key types:</span><span>
@@ -285,16 +285,16 @@ $sel:indexName:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; Text
      (NonEmpty KeySchemaElement)
      (NonEmpty KeySchemaElement)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376114"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376123"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
 keySchema :: NonEmpty KeySchemaElement
 $sel:keySchema:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679376114"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679376114"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376113"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
-</span><a href="#local-6989586621679376113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376112"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679376112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
-</span><a href="#local-6989586621679376113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySchema:GlobalSecondaryIndex' :: NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679376123"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679376123"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376122"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
+</span><a href="#local-6989586621679376122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376121"><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
+</span><a href="#local-6989586621679376122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySchema:GlobalSecondaryIndex' :: NonEmpty KeySchemaElement
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3AkeySchema%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679376112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
+</span><a href="#local-6989586621679376121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
  -&gt; GlobalSecondaryIndex -&gt; f GlobalSecondaryIndex)
 -&gt; ((NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
     -&gt; NonEmpty KeySchemaElement -&gt; f (NonEmpty KeySchemaElement))
@@ -318,24 +318,24 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      GlobalSecondaryIndex GlobalSecondaryIndex Projection Projection
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376109"><span class="annot"><span class="annottext">Projection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376118"><span class="annot"><span class="annottext">Projection
 projection :: Projection
 $sel:projection:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; Projection
-</span><a href="#local-6989586621679376109"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679376109"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376108"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
-</span><a href="#local-6989586621679376108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376107"><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679376107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
-</span><a href="#local-6989586621679376108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projection:GlobalSecondaryIndex' :: Projection
+</span><a href="#local-6989586621679376118"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679376118"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376117"><span class="annot"><span class="annottext">s :: GlobalSecondaryIndex
+</span><a href="#local-6989586621679376117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376116"><span class="annot"><span class="annottext">Projection
+</span><a href="#local-6989586621679376116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalSecondaryIndex
+</span><a href="#local-6989586621679376117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projection:GlobalSecondaryIndex' :: Projection
 </span><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#%24sel%3Aprojection%3AGlobalSecondaryIndex%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679376107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376103"><span id="local-6989586621679376105"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376112"><span id="local-6989586621679376114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376100"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376092"><span id="local-6989586621679376094"><span id="local-6989586621679376096"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679376090"><span class="annot"><span class="annottext">toJSON :: GlobalSecondaryIndex -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376085"><span id="local-6989586621679376086"><span id="local-6989586621679376087"><span id="local-6989586621679376088"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376101"><span id="local-6989586621679376103"><span id="local-6989586621679376105"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex"><span class="hs-identifier hs-type">GlobalSecondaryIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679376099"><span class="annot"><span class="annottext">toJSON :: GlobalSecondaryIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.GlobalSecondaryIndex.html#GlobalSecondaryIndex%27"><span class="hs-identifier hs-type">GlobalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376094"><span id="local-6989586621679376095"><span id="local-6989586621679376096"><span id="local-6989586621679376097"><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
 NonEmpty KeySchemaElement
 Text
 Projection
@@ -347,7 +347,7 @@ $sel:projection:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; Projection
 $sel:keySchema:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; NonEmpty KeySchemaElement
 $sel:indexName:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; Text
 $sel:provisionedThroughput:GlobalSecondaryIndex' :: GlobalSecondaryIndex -&gt; Maybe ProvisionedThroughput
-</span><a href="#local-6989586621679376085"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679376094"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -361,28 +361,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ProvisionedThroughput -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughput
-</span><a href="#local-6989586621679376088"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376097"><span class="hs-identifier hs-var">provisionedThroughput</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679376087"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376096"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeySchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty KeySchemaElement -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty KeySchemaElement
-</span><a href="#local-6989586621679376086"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679376095"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Projection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Projection -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Projection
-</span><a href="#local-6989586621679376085"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376094"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span></pre></body></html>

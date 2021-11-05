@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SDB.Types.html"><span class="hs-identifier">Network.AWS.SDB.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDeleteAttributes' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679151307"><span id="local-6989586621679151308"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttributes"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-var">DeleteAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttributes%27"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-var">DeleteAttributes'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679151316"><span id="local-6989586621679151317"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttributes"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-var">DeleteAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttributes%27"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-var">DeleteAttributes'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Attributes. Similar to columns on a spreadsheet, attributes</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- represent categories of data that can be assigned to items.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Aattributes%3ADeleteAttributes%27"><span class="annot"><span class="annottext">DeleteAttributes -&gt; Maybe [Attribute]
@@ -74,7 +74,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AitemName%3ADeleteAttributes%27"><span class="annot"><span class="annottext">DeleteAttributes -&gt; Text
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#%24sel%3AitemName%3ADeleteAttributes%27"><span class="hs-identifier hs-var hs-var">itemName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151298"><span id="local-6989586621679151300"><span class="annot"><span class="annottext">DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151307"><span id="local-6989586621679151309"><span class="annot"><span class="annottext">DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
 (DeleteAttributes -&gt; DeleteAttributes -&gt; Bool)
 -&gt; (DeleteAttributes -&gt; DeleteAttributes -&gt; Bool)
 -&gt; Eq DeleteAttributes
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
 == :: DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
 $c== :: DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151289"><span id="local-6989586621679151291"><span id="local-6989586621679151293"><span id="local-6989586621679151295"><span class="annot"><span class="annottext">ReadPrec [DeleteAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151298"><span id="local-6989586621679151300"><span id="local-6989586621679151302"><span id="local-6989586621679151304"><span class="annot"><span class="annottext">ReadPrec [DeleteAttributes]
 ReadPrec DeleteAttributes
 Int -&gt; ReadS DeleteAttributes
 ReadS [DeleteAttributes]
@@ -103,7 +103,7 @@ readList :: ReadS [DeleteAttributes]
 $creadList :: ReadS [DeleteAttributes]
 readsPrec :: Int -&gt; ReadS DeleteAttributes
 $creadsPrec :: Int -&gt; ReadS DeleteAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151282"><span id="local-6989586621679151284"><span id="local-6989586621679151286"><span class="annot"><span class="annottext">Int -&gt; DeleteAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151291"><span id="local-6989586621679151293"><span id="local-6989586621679151295"><span class="annot"><span class="annottext">Int -&gt; DeleteAttributes -&gt; ShowS
 [DeleteAttributes] -&gt; ShowS
 DeleteAttributes -&gt; String
 (Int -&gt; DeleteAttributes -&gt; ShowS)
@@ -156,9 +156,9 @@ $cfrom :: forall x. DeleteAttributes -&gt; Rep DeleteAttributes x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span>
 </span><span id="line-101"></span><span id="newDeleteAttributes"><span class="annot"><span class="annottext">newDeleteAttributes :: Text -&gt; Text -&gt; DeleteAttributes
-</span><a href="Network.AWS.SDB.DeleteAttributes.html#newDeleteAttributes"><span class="hs-identifier hs-var hs-var">newDeleteAttributes</span></a></span></span><span> </span><span id="local-6989586621679151277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151277"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679151276"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151276"><span class="hs-identifier hs-var">pItemName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SDB.DeleteAttributes.html#newDeleteAttributes"><span class="hs-identifier hs-var hs-var">newDeleteAttributes</span></a></span></span><span> </span><span id="local-6989586621679151286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151286"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679151285"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151285"><span class="hs-identifier hs-var">pItemName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">DeleteAttributes' :: Maybe [Attribute]
 -&gt; Maybe UpdateCondition -&gt; Text -&gt; Text -&gt; DeleteAttributes
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span>
@@ -172,10 +172,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:DeleteAttributes' :: Text
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#%24sel%3AdomainName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151277"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151286"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:itemName:DeleteAttributes' :: Text
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#%24sel%3AitemName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">itemName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151276"><span class="hs-identifier hs-var">pItemName_</span></a></span><span>
+</span><a href="#local-6989586621679151285"><span class="hs-identifier hs-var">pItemName_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | A list of Attributes. Similar to columns on a spreadsheet, attributes</span><span>
@@ -191,16 +191,16 @@ forall a. Maybe a
      (Maybe [Attribute])
      (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151273"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151282"><span class="annot"><span class="annottext">Maybe [Attribute]
 attributes :: Maybe [Attribute]
 $sel:attributes:DeleteAttributes' :: DeleteAttributes -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679151273"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679151273"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151272"><span class="annot"><span class="annottext">s :: DeleteAttributes
-</span><a href="#local-6989586621679151272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151271"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679151271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
-</span><a href="#local-6989586621679151272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DeleteAttributes' :: Maybe [Attribute]
+</span><a href="#local-6989586621679151282"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679151282"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151281"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679151281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151280"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679151280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679151281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DeleteAttributes' :: Maybe [Attribute]
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#%24sel%3Aattributes%3ADeleteAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679151271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+</span><a href="#local-6989586621679151280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
  -&gt; DeleteAttributes -&gt; f DeleteAttributes)
 -&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
     -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
@@ -236,16 +236,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe UpdateCondition)
      (Maybe UpdateCondition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151267"><span class="annot"><span class="annottext">Maybe UpdateCondition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151276"><span class="annot"><span class="annottext">Maybe UpdateCondition
 expected :: Maybe UpdateCondition
 $sel:expected:DeleteAttributes' :: DeleteAttributes -&gt; Maybe UpdateCondition
-</span><a href="#local-6989586621679151267"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
-</span><a href="#local-6989586621679151267"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151266"><span class="annot"><span class="annottext">s :: DeleteAttributes
-</span><a href="#local-6989586621679151266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151265"><span class="annot"><span class="annottext">Maybe UpdateCondition
-</span><a href="#local-6989586621679151265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
-</span><a href="#local-6989586621679151266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:DeleteAttributes' :: Maybe UpdateCondition
+</span><a href="#local-6989586621679151276"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
+</span><a href="#local-6989586621679151276"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151275"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679151275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151274"><span class="annot"><span class="annottext">Maybe UpdateCondition
+</span><a href="#local-6989586621679151274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679151275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:DeleteAttributes' :: Maybe UpdateCondition
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#%24sel%3Aexpected%3ADeleteAttributes%27"><span class="hs-identifier hs-var">expected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
-</span><a href="#local-6989586621679151265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The name of the domain in which to perform the operation.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_domainName"><span class="hs-identifier hs-type">deleteAttributes_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -254,16 +254,16 @@ $sel:expected:DeleteAttributes' :: DeleteAttributes -&gt; Maybe UpdateCondition
 -&gt; (DeleteAttributes -&gt; Text -&gt; DeleteAttributes)
 -&gt; Lens DeleteAttributes DeleteAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151264"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151273"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:DeleteAttributes' :: DeleteAttributes -&gt; Text
-</span><a href="#local-6989586621679151264"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151264"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151263"><span class="annot"><span class="annottext">s :: DeleteAttributes
-</span><a href="#local-6989586621679151263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151262"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
-</span><a href="#local-6989586621679151263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteAttributes' :: Text
+</span><a href="#local-6989586621679151273"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151273"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151272"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679151272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151271"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679151272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteAttributes' :: Text
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#%24sel%3AdomainName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The name of the item. Similar to rows on a spreadsheet, items represent</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- individual objects that contain one or more value-attribute pairs.</span><span>
@@ -273,27 +273,27 @@ $sel:domainName:DeleteAttributes' :: DeleteAttributes -&gt; Text
 -&gt; (DeleteAttributes -&gt; Text -&gt; DeleteAttributes)
 -&gt; Lens DeleteAttributes DeleteAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151261"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151270"><span class="annot"><span class="annottext">Text
 itemName :: Text
 $sel:itemName:DeleteAttributes' :: DeleteAttributes -&gt; Text
-</span><a href="#local-6989586621679151261"><span class="hs-identifier hs-var hs-var">itemName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151261"><span class="hs-identifier hs-var">itemName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151260"><span class="annot"><span class="annottext">s :: DeleteAttributes
-</span><a href="#local-6989586621679151260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151259"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
-</span><a href="#local-6989586621679151260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemName:DeleteAttributes' :: Text
+</span><a href="#local-6989586621679151270"><span class="hs-identifier hs-var hs-var">itemName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151270"><span class="hs-identifier hs-var">itemName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151269"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679151269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151268"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679151269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemName:DeleteAttributes' :: Text
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#%24sel%3AitemName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">itemName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-type">DeleteAttributesResponse</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679151255"><span class="annot"><span class="annottext">request :: DeleteAttributes -&gt; Request DeleteAttributes
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679151264"><span class="annot"><span class="annottext">request :: DeleteAttributes -&gt; Request DeleteAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAttributes -&gt; Request DeleteAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679151251"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679151260"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAttributes
 -&gt; ClientResponse ClientBody
@@ -317,12 +317,12 @@ AWSResponse a
 DeleteAttributesResponse
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse%27"><span class="hs-identifier hs-var">DeleteAttributesResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151244"><span id="local-6989586621679151246"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151253"><span id="local-6989586621679151255"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679151237"><span class="annot"><span class="annottext">toHeaders :: DeleteAttributes -&gt; [Header]
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679151246"><span class="annot"><span class="annottext">toHeaders :: DeleteAttributes -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAttributes -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -330,15 +330,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679151232"><span class="annot"><span class="annottext">toPath :: DeleteAttributes -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679151241"><span class="annot"><span class="annottext">toPath :: DeleteAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679151228"><span class="annot"><span class="annottext">toQuery :: DeleteAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151223"><span id="local-6989586621679151224"><span id="local-6989586621679151225"><span id="local-6989586621679151226"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679151237"><span class="annot"><span class="annottext">toQuery :: DeleteAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151232"><span id="local-6989586621679151233"><span id="local-6989586621679151234"><span id="local-6989586621679151235"><span class="annot"><span class="annottext">Maybe [Attribute]
 Maybe UpdateCondition
 Text
 itemName :: Text
@@ -349,7 +349,7 @@ $sel:itemName:DeleteAttributes' :: DeleteAttributes -&gt; Text
 $sel:domainName:DeleteAttributes' :: DeleteAttributes -&gt; Text
 $sel:expected:DeleteAttributes' :: DeleteAttributes -&gt; Maybe UpdateCondition
 $sel:attributes:DeleteAttributes' :: DeleteAttributes -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679151223"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679151232"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -378,30 +378,30 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [Attribute] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679151226"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><a href="#local-6989586621679151235"><span class="hs-identifier hs-var">attributes</span></a></span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Expected&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe UpdateCondition -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
-</span><a href="#local-6989586621679151225"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151234"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151224"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151233"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ItemName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151223"><span class="hs-identifier hs-var">itemName</span></a></span><span>
+</span><a href="#local-6989586621679151232"><span class="hs-identifier hs-var">itemName</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newDeleteAttributesResponse' smart constructor.</span><span>
-</span><span id="line-165"></span><span id="local-6989586621679151218"><span id="local-6989586621679151219"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttributesResponse"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-var">DeleteAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttributesResponse%27"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse%27"><span class="hs-identifier hs-var">DeleteAttributesResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span id="local-6989586621679151227"><span id="local-6989586621679151228"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttributesResponse"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-var">DeleteAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttributesResponse%27"><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse%27"><span class="hs-identifier hs-var">DeleteAttributesResponse'</span></a></span></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151214"><span id="local-6989586621679151216"><span class="annot"><span class="annottext">DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151223"><span id="local-6989586621679151225"><span class="annot"><span class="annottext">DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
 (DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool)
 -&gt; (DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool)
 -&gt; Eq DeleteAttributesResponse
@@ -410,7 +410,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
 == :: DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
 $c== :: DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151206"><span id="local-6989586621679151208"><span id="local-6989586621679151210"><span id="local-6989586621679151212"><span class="annot"><span class="annottext">ReadPrec [DeleteAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151215"><span id="local-6989586621679151217"><span id="local-6989586621679151219"><span id="local-6989586621679151221"><span class="annot"><span class="annottext">ReadPrec [DeleteAttributesResponse]
 ReadPrec DeleteAttributesResponse
 Int -&gt; ReadS DeleteAttributesResponse
 ReadS [DeleteAttributesResponse]
@@ -430,7 +430,7 @@ readList :: ReadS [DeleteAttributesResponse]
 $creadList :: ReadS [DeleteAttributesResponse]
 readsPrec :: Int -&gt; ReadS DeleteAttributesResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151200"><span id="local-6989586621679151202"><span id="local-6989586621679151204"><span class="annot"><span class="annottext">Int -&gt; DeleteAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151209"><span id="local-6989586621679151211"><span id="local-6989586621679151213"><span class="annot"><span class="annottext">Int -&gt; DeleteAttributesResponse -&gt; ShowS
 [DeleteAttributesResponse] -&gt; ShowS
 DeleteAttributesResponse -&gt; String
 (Int -&gt; DeleteAttributesResponse -&gt; ShowS)
@@ -473,5 +473,5 @@ DeleteAttributesResponse -&gt; Rep DeleteAttributesResponse x
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">DeleteAttributesResponse
 </span><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse%27"><span class="hs-identifier hs-var">DeleteAttributesResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-type">DeleteAttributesResponse</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-type">DeleteAttributesResponse</span></a></span></span><span>
 </span><span id="line-180"></span></pre></body></html>

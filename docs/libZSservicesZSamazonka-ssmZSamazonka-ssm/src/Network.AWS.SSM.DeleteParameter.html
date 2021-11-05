@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteParameter' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679851149"><span id="local-6989586621679851150"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteParameter"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-var">DeleteParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteParameter%27"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-var">DeleteParameter'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679851158"><span id="local-6989586621679851159"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteParameter"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-var">DeleteParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteParameter%27"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-var">DeleteParameter'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the parameter to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3ADeleteParameter%27"><span class="annot"><span class="annottext">DeleteParameter -&gt; Text
 </span><a href="Network.AWS.SSM.DeleteParameter.html#%24sel%3Aname%3ADeleteParameter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851143"><span id="local-6989586621679851145"><span class="annot"><span class="annottext">DeleteParameter -&gt; DeleteParameter -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851152"><span id="local-6989586621679851154"><span class="annot"><span class="annottext">DeleteParameter -&gt; DeleteParameter -&gt; Bool
 (DeleteParameter -&gt; DeleteParameter -&gt; Bool)
 -&gt; (DeleteParameter -&gt; DeleteParameter -&gt; Bool)
 -&gt; Eq DeleteParameter
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteParameter -&gt; DeleteParameter -&gt; Bool
 == :: DeleteParameter -&gt; DeleteParameter -&gt; Bool
 $c== :: DeleteParameter -&gt; DeleteParameter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851134"><span id="local-6989586621679851136"><span id="local-6989586621679851138"><span id="local-6989586621679851140"><span class="annot"><span class="annottext">ReadPrec [DeleteParameter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851143"><span id="local-6989586621679851145"><span id="local-6989586621679851147"><span id="local-6989586621679851149"><span class="annot"><span class="annottext">ReadPrec [DeleteParameter]
 ReadPrec DeleteParameter
 Int -&gt; ReadS DeleteParameter
 ReadS [DeleteParameter]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteParameter]
 $creadList :: ReadS [DeleteParameter]
 readsPrec :: Int -&gt; ReadS DeleteParameter
 $creadsPrec :: Int -&gt; ReadS DeleteParameter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851127"><span id="local-6989586621679851129"><span id="local-6989586621679851131"><span class="annot"><span class="annottext">Int -&gt; DeleteParameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851136"><span id="local-6989586621679851138"><span id="local-6989586621679851140"><span class="annot"><span class="annottext">Int -&gt; DeleteParameter -&gt; ShowS
 [DeleteParameter] -&gt; ShowS
 DeleteParameter -&gt; String
 (Int -&gt; DeleteParameter -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. DeleteParameter -&gt; Rep DeleteParameter x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteParameter"><span class="annot"><span class="annottext">newDeleteParameter :: Text -&gt; DeleteParameter
-</span><a href="Network.AWS.SSM.DeleteParameter.html#newDeleteParameter"><span class="hs-identifier hs-var hs-var">newDeleteParameter</span></a></span></span><span> </span><span id="local-6989586621679851122"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851122"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteParameter.html#newDeleteParameter"><span class="hs-identifier hs-var hs-var">newDeleteParameter</span></a></span></span><span> </span><span id="local-6989586621679851131"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851131"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteParameter' :: Text -&gt; DeleteParameter
 </span><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-type">DeleteParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteParameter' :: Text
 </span><a href="Network.AWS.SSM.DeleteParameter.html#%24sel%3Aname%3ADeleteParameter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851122"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679851131"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the parameter to delete.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#deleteParameter_name"><span class="hs-identifier hs-type">deleteParameter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DeleteParameter -&gt; Rep DeleteParameter x
 -&gt; (DeleteParameter -&gt; Text -&gt; DeleteParameter)
 -&gt; Lens DeleteParameter DeleteParameter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-type">DeleteParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851119"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-type">DeleteParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851128"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteParameter' :: DeleteParameter -&gt; Text
-</span><a href="#local-6989586621679851119"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851119"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851118"><span class="annot"><span class="annottext">s :: DeleteParameter
-</span><a href="#local-6989586621679851118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-type">DeleteParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851117"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteParameter
-</span><a href="#local-6989586621679851118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteParameter' :: Text
+</span><a href="#local-6989586621679851128"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851128"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851127"><span class="annot"><span class="annottext">s :: DeleteParameter
+</span><a href="#local-6989586621679851127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-type">DeleteParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851126"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679851126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteParameter
+</span><a href="#local-6989586621679851127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteParameter' :: Text
 </span><a href="Network.AWS.SSM.DeleteParameter.html#%24sel%3Aname%3ADeleteParameter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-type">DeleteParameterResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679851113"><span class="annot"><span class="annottext">request :: DeleteParameter -&gt; Request DeleteParameter
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679851122"><span class="annot"><span class="annottext">request :: DeleteParameter -&gt; Request DeleteParameter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteParameter -&gt; Request DeleteParameter
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679851109"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679851118"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteParameter
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679851106"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851106"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679851105"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679851105"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679851104"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679851104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679851115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851115"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679851114"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679851114"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679851113"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679851113"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteParameterResponse
 </span><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-var">DeleteParameterResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteParameterResponse)
@@ -193,15 +193,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851106"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851115"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851097"><span id="local-6989586621679851099"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851106"><span id="local-6989586621679851108"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851094"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679851090"><span class="annot"><span class="annottext">toHeaders :: DeleteParameter -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679851099"><span class="annot"><span class="annottext">toHeaders :: DeleteParameter -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteParameter -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -226,12 +226,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851080"><span id="local-6989586621679851082"><span id="local-6989586621679851084"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679851078"><span class="annot"><span class="annottext">toJSON :: DeleteParameter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-type">DeleteParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851076"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851089"><span id="local-6989586621679851091"><span id="local-6989586621679851093"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679851087"><span class="annot"><span class="annottext">toJSON :: DeleteParameter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter%27"><span class="hs-identifier hs-type">DeleteParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851085"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteParameter' :: DeleteParameter -&gt; Text
-</span><a href="#local-6989586621679851076"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679851085"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,18 +243,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679851076"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679851085"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679851070"><span class="annot"><span class="annottext">toPath :: DeleteParameter -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679851079"><span class="annot"><span class="annottext">toPath :: DeleteParameter -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteParameter -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameter"><span class="hs-identifier hs-type">DeleteParameter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679851066"><span class="annot"><span class="annottext">toQuery :: DeleteParameter -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679851075"><span class="annot"><span class="annottext">toQuery :: DeleteParameter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteParameter -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -262,12 +262,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | /See:/ 'newDeleteParameterResponse' smart constructor.</span><span>
-</span><span id="line-119"></span><span id="local-6989586621679851063"><span id="local-6989586621679851064"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteParameterResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-var">DeleteParameterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteParameterResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-var">DeleteParameterResponse'</span></a></span></span><span>
+</span><span id="line-119"></span><span id="local-6989586621679851072"><span id="local-6989586621679851073"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteParameterResponse"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-var">DeleteParameterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteParameterResponse%27"><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-var">DeleteParameterResponse'</span></a></span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteParameterResponse%27"><span class="annot"><span class="annottext">DeleteParameterResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DeleteParameter.html#%24sel%3AhttpStatus%3ADeleteParameterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851058"><span id="local-6989586621679851060"><span class="annot"><span class="annottext">DeleteParameterResponse -&gt; DeleteParameterResponse -&gt; Bool
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679851067"><span id="local-6989586621679851069"><span class="annot"><span class="annottext">DeleteParameterResponse -&gt; DeleteParameterResponse -&gt; Bool
 (DeleteParameterResponse -&gt; DeleteParameterResponse -&gt; Bool)
 -&gt; (DeleteParameterResponse -&gt; DeleteParameterResponse -&gt; Bool)
 -&gt; Eq DeleteParameterResponse
@@ -276,7 +276,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteParameterResponse -&gt; DeleteParameterResponse -&gt; Bool
 == :: DeleteParameterResponse -&gt; DeleteParameterResponse -&gt; Bool
 $c== :: DeleteParameterResponse -&gt; DeleteParameterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851050"><span id="local-6989586621679851052"><span id="local-6989586621679851054"><span id="local-6989586621679851056"><span class="annot"><span class="annottext">ReadPrec [DeleteParameterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851059"><span id="local-6989586621679851061"><span id="local-6989586621679851063"><span id="local-6989586621679851065"><span class="annot"><span class="annottext">ReadPrec [DeleteParameterResponse]
 ReadPrec DeleteParameterResponse
 Int -&gt; ReadS DeleteParameterResponse
 ReadS [DeleteParameterResponse]
@@ -296,7 +296,7 @@ readList :: ReadS [DeleteParameterResponse]
 $creadList :: ReadS [DeleteParameterResponse]
 readsPrec :: Int -&gt; ReadS DeleteParameterResponse
 $creadsPrec :: Int -&gt; ReadS DeleteParameterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851044"><span id="local-6989586621679851046"><span id="local-6989586621679851048"><span class="annot"><span class="annottext">Int -&gt; DeleteParameterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679851053"><span id="local-6989586621679851055"><span id="local-6989586621679851057"><span class="annot"><span class="annottext">Int -&gt; DeleteParameterResponse -&gt; ShowS
 [DeleteParameterResponse] -&gt; ShowS
 DeleteParameterResponse -&gt; String
 (Int -&gt; DeleteParameterResponse -&gt; ShowS)
@@ -338,12 +338,12 @@ $cfrom :: forall x. DeleteParameterResponse -&gt; Rep DeleteParameterResponse x
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-type">DeleteParameterResponse</span></a></span><span>
 </span><span id="line-138"></span><span id="newDeleteParameterResponse"><span class="annot"><span class="annottext">newDeleteParameterResponse :: Int -&gt; DeleteParameterResponse
-</span><a href="Network.AWS.SSM.DeleteParameter.html#newDeleteParameterResponse"><span class="hs-identifier hs-var hs-var">newDeleteParameterResponse</span></a></span></span><span> </span><span id="local-6989586621679851041"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.DeleteParameter.html#newDeleteParameterResponse"><span class="hs-identifier hs-var hs-var">newDeleteParameterResponse</span></a></span></span><span> </span><span id="local-6989586621679851050"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851050"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">DeleteParameterResponse' :: Int -&gt; DeleteParameterResponse
 </span><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-type">DeleteParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteParameterResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteParameter.html#%24sel%3AhttpStatus%3ADeleteParameterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679851050"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#deleteParameterResponse_httpStatus"><span class="hs-identifier hs-type">deleteParameterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-type">DeleteParameterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -353,16 +353,16 @@ $cfrom :: forall x. DeleteParameterResponse -&gt; Rep DeleteParameterResponse x
 -&gt; (DeleteParameterResponse -&gt; Int -&gt; DeleteParameterResponse)
 -&gt; Lens DeleteParameterResponse DeleteParameterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-type">DeleteParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851040"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-type">DeleteParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679851049"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteParameterResponse' :: DeleteParameterResponse -&gt; Int
-</span><a href="#local-6989586621679851040"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851040"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851039"><span class="annot"><span class="annottext">s :: DeleteParameterResponse
-</span><a href="#local-6989586621679851039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-type">DeleteParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851038"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteParameterResponse
-</span><a href="#local-6989586621679851039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteParameterResponse' :: Int
+</span><a href="#local-6989586621679851049"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851049"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679851048"><span class="annot"><span class="annottext">s :: DeleteParameterResponse
+</span><a href="#local-6989586621679851048"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse%27"><span class="hs-identifier hs-type">DeleteParameterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679851047"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679851047"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteParameterResponse
+</span><a href="#local-6989586621679851048"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteParameterResponse' :: Int
 </span><a href="Network.AWS.SSM.DeleteParameter.html#%24sel%3AhttpStatus%3ADeleteParameterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679851038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-type">DeleteParameterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679851047"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-type">DeleteParameterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-type">DeleteParameterResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679851045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DeleteParameter.html#DeleteParameterResponse"><span class="hs-identifier hs-type">DeleteParameterResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

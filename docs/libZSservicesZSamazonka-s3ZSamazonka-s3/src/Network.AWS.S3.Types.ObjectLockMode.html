@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679545791"><span id="local-6989586621679545792"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectLockMode"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockMode.html#ObjectLockMode"><span class="hs-identifier hs-var">ObjectLockMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectLockMode%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockMode.html#ObjectLockMode%27"><span class="hs-identifier hs-var">ObjectLockMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679545800"><span id="local-6989586621679545801"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectLockMode"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockMode.html#ObjectLockMode"><span class="hs-identifier hs-var">ObjectLockMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectLockMode%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectLockMode.html#ObjectLockMode%27"><span class="hs-identifier hs-var">ObjectLockMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectLockMode"><span class="annot"><span class="annottext">ObjectLockMode -&gt; Text
 </span><a href="Network.AWS.S3.Types.ObjectLockMode.html#fromObjectLockMode"><span class="hs-identifier hs-var hs-var">fromObjectLockMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545783"><span id="local-6989586621679545785"><span id="local-6989586621679545787"><span class="annot"><span class="annottext">Int -&gt; ObjectLockMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545792"><span id="local-6989586621679545794"><span id="local-6989586621679545796"><span class="annot"><span class="annottext">Int -&gt; ObjectLockMode -&gt; ShowS
 [ObjectLockMode] -&gt; ShowS
 ObjectLockMode -&gt; String
 (Int -&gt; ObjectLockMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ObjectLockMode -&gt; String
 showsPrec :: Int -&gt; ObjectLockMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ObjectLockMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679545774"><span id="local-6989586621679545776"><span id="local-6989586621679545778"><span id="local-6989586621679545780"><span class="annot"><span class="annottext">ReadPrec [ObjectLockMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679545783"><span id="local-6989586621679545785"><span id="local-6989586621679545787"><span id="local-6989586621679545789"><span class="annot"><span class="annottext">ReadPrec [ObjectLockMode]
 ReadPrec ObjectLockMode
 Int -&gt; ReadS ObjectLockMode
 ReadS [ObjectLockMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ObjectLockMode]
 readsPrec :: Int -&gt; ReadS ObjectLockMode
 $creadsPrec :: Int -&gt; ReadS ObjectLockMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679545769"><span id="local-6989586621679545771"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ObjectLockMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679545778"><span id="local-6989586621679545780"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ObjectLockMode -&gt; Bool
 (ObjectLockMode -&gt; ObjectLockMode -&gt; Bool)
 -&gt; (ObjectLockMode -&gt; ObjectLockMode -&gt; Bool) -&gt; Eq ObjectLockMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ObjectLockMode -&gt; ObjectLockMode -&gt; Bool
 == :: ObjectLockMode -&gt; ObjectLockMode -&gt; Bool
 $c== :: ObjectLockMode -&gt; ObjectLockMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679545753"><span id="local-6989586621679545755"><span id="local-6989586621679545757"><span id="local-6989586621679545759"><span id="local-6989586621679545761"><span id="local-6989586621679545763"><span id="local-6989586621679545765"><span class="annot"><span class="annottext">Eq ObjectLockMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679545762"><span id="local-6989586621679545764"><span id="local-6989586621679545766"><span id="local-6989586621679545768"><span id="local-6989586621679545770"><span id="local-6989586621679545772"><span id="local-6989586621679545774"><span class="annot"><span class="annottext">Eq ObjectLockMode
 Eq ObjectLockMode
 -&gt; (ObjectLockMode -&gt; ObjectLockMode -&gt; Ordering)
 -&gt; (ObjectLockMode -&gt; ObjectLockMode -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ObjectLockMode -&gt; Rep ObjectLockMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545745"><span id="local-6989586621679545747"><span class="annot"><span class="annottext">Int -&gt; ObjectLockMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679545754"><span id="local-6989586621679545756"><span class="annot"><span class="annottext">Int -&gt; ObjectLockMode -&gt; Int
 ObjectLockMode -&gt; Int
 (Int -&gt; ObjectLockMode -&gt; Int)
 -&gt; (ObjectLockMode -&gt; Int) -&gt; Hashable ObjectLockMode
@@ -143,50 +143,50 @@ $chash :: ObjectLockMode -&gt; Int
 hashWithSalt :: Int -&gt; ObjectLockMode -&gt; Int
 $chashWithSalt :: Int -&gt; ObjectLockMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679545742"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679545751"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ()
 (ObjectLockMode -&gt; ()) -&gt; NFData ObjectLockMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ObjectLockMode -&gt; ()
 $crnf :: ObjectLockMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679545739"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectLockMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679545748"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectLockMode
 (Text -&gt; Either String ObjectLockMode) -&gt; FromText ObjectLockMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectLockMode
 $cfromText :: Text -&gt; Either String ObjectLockMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679545736"><span class="annot"><span class="annottext">ObjectLockMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679545745"><span class="annot"><span class="annottext">ObjectLockMode -&gt; Text
 (ObjectLockMode -&gt; Text) -&gt; ToText ObjectLockMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectLockMode -&gt; Text
 $ctoText :: ObjectLockMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679545733"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679545742"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ByteString
 (ObjectLockMode -&gt; ByteString) -&gt; ToByteString ObjectLockMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectLockMode -&gt; ByteString
 $ctoBS :: ObjectLockMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679545730"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679545739"><span class="annot"><span class="annottext">ObjectLockMode -&gt; ByteStringBuilder
 (ObjectLockMode -&gt; ByteStringBuilder) -&gt; ToLog ObjectLockMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectLockMode -&gt; ByteStringBuilder
 $cbuild :: ObjectLockMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679545727"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectLockMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679545736"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectLockMode -&gt; [Header]
 (HeaderName -&gt; ObjectLockMode -&gt; [Header])
 -&gt; ToHeader ObjectLockMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ObjectLockMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ObjectLockMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679545724"><span class="annot"><span class="annottext">ObjectLockMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679545733"><span class="annot"><span class="annottext">ObjectLockMode -&gt; QueryString
 (ObjectLockMode -&gt; QueryString) -&gt; ToQuery ObjectLockMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectLockMode -&gt; QueryString
 $ctoQuery :: ObjectLockMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679545719"><span id="local-6989586621679545721"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectLockMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679545728"><span id="local-6989586621679545730"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectLockMode]
 Value -&gt; Parser ObjectLockMode
 (Value -&gt; Parser ObjectLockMode)
 -&gt; (Value -&gt; Parser [ObjectLockMode]) -&gt; FromJSON ObjectLockMode
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ObjectLockMode]
 parseJSON :: Value -&gt; Parser ObjectLockMode
 $cparseJSON :: Value -&gt; Parser ObjectLockMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679545714"><span id="local-6989586621679545716"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectLockMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679545723"><span id="local-6989586621679545725"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectLockMode]
 FromJSONKeyFunction ObjectLockMode
 FromJSONKeyFunction ObjectLockMode
 -&gt; FromJSONKeyFunction [ObjectLockMode]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ObjectLockMode]
 fromJSONKey :: FromJSONKeyFunction ObjectLockMode
 $cfromJSONKey :: FromJSONKeyFunction ObjectLockMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679545705"><span id="local-6989586621679545707"><span id="local-6989586621679545709"><span id="local-6989586621679545711"><span class="annot"><span class="annottext">[ObjectLockMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679545714"><span id="local-6989586621679545716"><span id="local-6989586621679545718"><span id="local-6989586621679545720"><span class="annot"><span class="annottext">[ObjectLockMode] -&gt; Encoding
 [ObjectLockMode] -&gt; Value
 ObjectLockMode -&gt; Encoding
 ObjectLockMode -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ObjectLockMode -&gt; Encoding
 toJSON :: ObjectLockMode -&gt; Value
 $ctoJSON :: ObjectLockMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679545700"><span id="local-6989586621679545702"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectLockMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679545709"><span id="local-6989586621679545711"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectLockMode]
 ToJSONKeyFunction ObjectLockMode
 ToJSONKeyFunction ObjectLockMode
 -&gt; ToJSONKeyFunction [ObjectLockMode] -&gt; ToJSONKey ObjectLockMode
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ObjectLockMode]
 toJSONKey :: ToJSONKeyFunction ObjectLockMode
 $ctoJSONKey :: ToJSONKeyFunction ObjectLockMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679545697"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectLockMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679545706"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectLockMode
 ([Node] -&gt; Either String ObjectLockMode) -&gt; FromXML ObjectLockMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectLockMode
 $cparseXML :: [Node] -&gt; Either String ObjectLockMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679545694"><span class="annot"><span class="annottext">ObjectLockMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679545703"><span class="annot"><span class="annottext">ObjectLockMode -&gt; XML
 (ObjectLockMode -&gt; XML) -&gt; ToXML ObjectLockMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectLockMode -&gt; XML

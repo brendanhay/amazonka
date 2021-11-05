@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- time.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMethodSnapshot' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679367877"><span id="local-6989586621679367878"></span></span><span class="hs-keyword">data</span><span> </span><span id="MethodSnapshot"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-var">MethodSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodSnapshot%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-var">MethodSnapshot'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679367886"><span id="local-6989586621679367887"></span></span><span class="hs-keyword">data</span><span> </span><span id="MethodSnapshot"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-var">MethodSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodSnapshot%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-var">MethodSnapshot'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The method\'s authorization type. Valid values are @NONE@ for open</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AapiKeyRequired%3AMethodSnapshot%27"><span class="annot"><span class="annottext">MethodSnapshot -&gt; Maybe Bool
 </span><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#%24sel%3AapiKeyRequired%3AMethodSnapshot%27"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367870"><span id="local-6989586621679367872"><span class="annot"><span class="annottext">MethodSnapshot -&gt; MethodSnapshot -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367879"><span id="local-6989586621679367881"><span class="annot"><span class="annottext">MethodSnapshot -&gt; MethodSnapshot -&gt; Bool
 (MethodSnapshot -&gt; MethodSnapshot -&gt; Bool)
 -&gt; (MethodSnapshot -&gt; MethodSnapshot -&gt; Bool) -&gt; Eq MethodSnapshot
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MethodSnapshot -&gt; MethodSnapshot -&gt; Bool
 == :: MethodSnapshot -&gt; MethodSnapshot -&gt; Bool
 $c== :: MethodSnapshot -&gt; MethodSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367861"><span id="local-6989586621679367863"><span id="local-6989586621679367865"><span id="local-6989586621679367867"><span class="annot"><span class="annottext">ReadPrec [MethodSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367870"><span id="local-6989586621679367872"><span id="local-6989586621679367874"><span id="local-6989586621679367876"><span class="annot"><span class="annottext">ReadPrec [MethodSnapshot]
 ReadPrec MethodSnapshot
 Int -&gt; ReadS MethodSnapshot
 ReadS [MethodSnapshot]
@@ -66,7 +66,7 @@ readList :: ReadS [MethodSnapshot]
 $creadList :: ReadS [MethodSnapshot]
 readsPrec :: Int -&gt; ReadS MethodSnapshot
 $creadsPrec :: Int -&gt; ReadS MethodSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367854"><span id="local-6989586621679367856"><span id="local-6989586621679367858"><span class="annot"><span class="annottext">Int -&gt; MethodSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367863"><span id="local-6989586621679367865"><span id="local-6989586621679367867"><span class="annot"><span class="annottext">Int -&gt; MethodSnapshot -&gt; ShowS
 [MethodSnapshot] -&gt; ShowS
 MethodSnapshot -&gt; String
 (Int -&gt; MethodSnapshot -&gt; ShowS)
@@ -134,16 +134,16 @@ forall a. Maybe a
 -&gt; (MethodSnapshot -&gt; Maybe Text -&gt; MethodSnapshot)
 -&gt; Lens MethodSnapshot MethodSnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367845"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367854"><span class="annot"><span class="annottext">Maybe Text
 authorizationType :: Maybe Text
 $sel:authorizationType:MethodSnapshot' :: MethodSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679367845"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367845"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367844"><span class="annot"><span class="annottext">s :: MethodSnapshot
-</span><a href="#local-6989586621679367844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367843"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodSnapshot
-</span><a href="#local-6989586621679367844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:MethodSnapshot' :: Maybe Text
+</span><a href="#local-6989586621679367854"><span class="hs-identifier hs-var hs-var">authorizationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367854"><span class="hs-identifier hs-var">authorizationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367853"><span class="annot"><span class="annottext">s :: MethodSnapshot
+</span><a href="#local-6989586621679367853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodSnapshot
+</span><a href="#local-6989586621679367853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizationType:MethodSnapshot' :: Maybe Text
 </span><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#%24sel%3AauthorizationType%3AMethodSnapshot%27"><span class="hs-identifier hs-var">authorizationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | Specifies whether the method requires a valid ApiKey.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#methodSnapshot_apiKeyRequired"><span class="hs-identifier hs-type">methodSnapshot_apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -153,19 +153,19 @@ $sel:authorizationType:MethodSnapshot' :: MethodSnapshot -&gt; Maybe Text
 -&gt; (MethodSnapshot -&gt; Maybe Bool -&gt; MethodSnapshot)
 -&gt; Lens MethodSnapshot MethodSnapshot (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367841"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367850"><span class="annot"><span class="annottext">Maybe Bool
 apiKeyRequired :: Maybe Bool
 $sel:apiKeyRequired:MethodSnapshot' :: MethodSnapshot -&gt; Maybe Bool
-</span><a href="#local-6989586621679367841"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367841"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367840"><span class="annot"><span class="annottext">s :: MethodSnapshot
-</span><a href="#local-6989586621679367840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367839"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodSnapshot
-</span><a href="#local-6989586621679367840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyRequired:MethodSnapshot' :: Maybe Bool
+</span><a href="#local-6989586621679367850"><span class="hs-identifier hs-var hs-var">apiKeyRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367850"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367849"><span class="annot"><span class="annottext">s :: MethodSnapshot
+</span><a href="#local-6989586621679367849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-type">MethodSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367848"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodSnapshot
+</span><a href="#local-6989586621679367849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiKeyRequired:MethodSnapshot' :: Maybe Bool
 </span><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#%24sel%3AapiKeyRequired%3AMethodSnapshot%27"><span class="hs-identifier hs-var">apiKeyRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367836"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679367834"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MethodSnapshot
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367845"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679367843"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MethodSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MethodSnapshot)
@@ -175,15 +175,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MethodSnapshot&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367831"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367831"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367840"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; MethodSnapshot
 </span><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot%27"><span class="hs-identifier hs-var">MethodSnapshot'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; MethodSnapshot)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; MethodSnapshot)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authorizationType&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,13 +191,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser MethodSnapshot
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679367840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;apiKeyRequired&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367825"><span id="local-6989586621679367827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367834"><span id="local-6989586621679367836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodSnapshot.html#MethodSnapshot"><span class="hs-identifier hs-type">MethodSnapshot</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679377839"><span id="local-6989586621679377840"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceAuthType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuthType.html#SourceAuthType"><span class="hs-identifier hs-var">SourceAuthType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAuthType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuthType.html#SourceAuthType%27"><span class="hs-identifier hs-var">SourceAuthType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679377848"><span id="local-6989586621679377849"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceAuthType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuthType.html#SourceAuthType"><span class="hs-identifier hs-var">SourceAuthType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceAuthType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.SourceAuthType.html#SourceAuthType%27"><span class="hs-identifier hs-var">SourceAuthType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSourceAuthType"><span class="annot"><span class="annottext">SourceAuthType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.SourceAuthType.html#fromSourceAuthType"><span class="hs-identifier hs-var hs-var">fromSourceAuthType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377831"><span id="local-6989586621679377833"><span id="local-6989586621679377835"><span class="annot"><span class="annottext">Int -&gt; SourceAuthType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377840"><span id="local-6989586621679377842"><span id="local-6989586621679377844"><span class="annot"><span class="annottext">Int -&gt; SourceAuthType -&gt; ShowS
 [SourceAuthType] -&gt; ShowS
 SourceAuthType -&gt; String
 (Int -&gt; SourceAuthType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: SourceAuthType -&gt; String
 showsPrec :: Int -&gt; SourceAuthType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SourceAuthType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679377822"><span id="local-6989586621679377824"><span id="local-6989586621679377826"><span id="local-6989586621679377828"><span class="annot"><span class="annottext">ReadPrec [SourceAuthType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679377831"><span id="local-6989586621679377833"><span id="local-6989586621679377835"><span id="local-6989586621679377837"><span class="annot"><span class="annottext">ReadPrec [SourceAuthType]
 ReadPrec SourceAuthType
 Int -&gt; ReadS SourceAuthType
 ReadS [SourceAuthType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [SourceAuthType]
 readsPrec :: Int -&gt; ReadS SourceAuthType
 $creadsPrec :: Int -&gt; ReadS SourceAuthType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377817"><span id="local-6989586621679377819"><span class="annot"><span class="annottext">SourceAuthType -&gt; SourceAuthType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679377826"><span id="local-6989586621679377828"><span class="annot"><span class="annottext">SourceAuthType -&gt; SourceAuthType -&gt; Bool
 (SourceAuthType -&gt; SourceAuthType -&gt; Bool)
 -&gt; (SourceAuthType -&gt; SourceAuthType -&gt; Bool) -&gt; Eq SourceAuthType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: SourceAuthType -&gt; SourceAuthType -&gt; Bool
 == :: SourceAuthType -&gt; SourceAuthType -&gt; Bool
 $c== :: SourceAuthType -&gt; SourceAuthType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377801"><span id="local-6989586621679377803"><span id="local-6989586621679377805"><span id="local-6989586621679377807"><span id="local-6989586621679377809"><span id="local-6989586621679377811"><span id="local-6989586621679377813"><span class="annot"><span class="annottext">Eq SourceAuthType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679377810"><span id="local-6989586621679377812"><span id="local-6989586621679377814"><span id="local-6989586621679377816"><span id="local-6989586621679377818"><span id="local-6989586621679377820"><span id="local-6989586621679377822"><span class="annot"><span class="annottext">Eq SourceAuthType
 Eq SourceAuthType
 -&gt; (SourceAuthType -&gt; SourceAuthType -&gt; Ordering)
 -&gt; (SourceAuthType -&gt; SourceAuthType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. SourceAuthType -&gt; Rep SourceAuthType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377793"><span id="local-6989586621679377795"><span class="annot"><span class="annottext">Int -&gt; SourceAuthType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679377802"><span id="local-6989586621679377804"><span class="annot"><span class="annottext">Int -&gt; SourceAuthType -&gt; Int
 SourceAuthType -&gt; Int
 (Int -&gt; SourceAuthType -&gt; Int)
 -&gt; (SourceAuthType -&gt; Int) -&gt; Hashable SourceAuthType
@@ -141,50 +141,50 @@ $chash :: SourceAuthType -&gt; Int
 hashWithSalt :: Int -&gt; SourceAuthType -&gt; Int
 $chashWithSalt :: Int -&gt; SourceAuthType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679377790"><span class="annot"><span class="annottext">SourceAuthType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679377799"><span class="annot"><span class="annottext">SourceAuthType -&gt; ()
 (SourceAuthType -&gt; ()) -&gt; NFData SourceAuthType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SourceAuthType -&gt; ()
 $crnf :: SourceAuthType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377787"><span class="annot"><span class="annottext">Text -&gt; Either String SourceAuthType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679377796"><span class="annot"><span class="annottext">Text -&gt; Either String SourceAuthType
 (Text -&gt; Either String SourceAuthType) -&gt; FromText SourceAuthType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SourceAuthType
 $cfromText :: Text -&gt; Either String SourceAuthType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377784"><span class="annot"><span class="annottext">SourceAuthType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679377793"><span class="annot"><span class="annottext">SourceAuthType -&gt; Text
 (SourceAuthType -&gt; Text) -&gt; ToText SourceAuthType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SourceAuthType -&gt; Text
 $ctoText :: SourceAuthType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377781"><span class="annot"><span class="annottext">SourceAuthType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679377790"><span class="annot"><span class="annottext">SourceAuthType -&gt; ByteString
 (SourceAuthType -&gt; ByteString) -&gt; ToByteString SourceAuthType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SourceAuthType -&gt; ByteString
 $ctoBS :: SourceAuthType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377778"><span class="annot"><span class="annottext">SourceAuthType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679377787"><span class="annot"><span class="annottext">SourceAuthType -&gt; ByteStringBuilder
 (SourceAuthType -&gt; ByteStringBuilder) -&gt; ToLog SourceAuthType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SourceAuthType -&gt; ByteStringBuilder
 $cbuild :: SourceAuthType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377775"><span class="annot"><span class="annottext">HeaderName -&gt; SourceAuthType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679377784"><span class="annot"><span class="annottext">HeaderName -&gt; SourceAuthType -&gt; [Header]
 (HeaderName -&gt; SourceAuthType -&gt; [Header])
 -&gt; ToHeader SourceAuthType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SourceAuthType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SourceAuthType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377772"><span class="annot"><span class="annottext">SourceAuthType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679377781"><span class="annot"><span class="annottext">SourceAuthType -&gt; QueryString
 (SourceAuthType -&gt; QueryString) -&gt; ToQuery SourceAuthType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SourceAuthType -&gt; QueryString
 $ctoQuery :: SourceAuthType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377767"><span id="local-6989586621679377769"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceAuthType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679377776"><span id="local-6989586621679377778"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceAuthType]
 Value -&gt; Parser SourceAuthType
 (Value -&gt; Parser SourceAuthType)
 -&gt; (Value -&gt; Parser [SourceAuthType]) -&gt; FromJSON SourceAuthType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [SourceAuthType]
 parseJSON :: Value -&gt; Parser SourceAuthType
 $cparseJSON :: Value -&gt; Parser SourceAuthType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377762"><span id="local-6989586621679377764"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceAuthType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679377771"><span id="local-6989586621679377773"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceAuthType]
 FromJSONKeyFunction SourceAuthType
 FromJSONKeyFunction SourceAuthType
 -&gt; FromJSONKeyFunction [SourceAuthType]
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SourceAuthType]
 fromJSONKey :: FromJSONKeyFunction SourceAuthType
 $cfromJSONKey :: FromJSONKeyFunction SourceAuthType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377753"><span id="local-6989586621679377755"><span id="local-6989586621679377757"><span id="local-6989586621679377759"><span class="annot"><span class="annottext">[SourceAuthType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679377762"><span id="local-6989586621679377764"><span id="local-6989586621679377766"><span id="local-6989586621679377768"><span class="annot"><span class="annottext">[SourceAuthType] -&gt; Encoding
 [SourceAuthType] -&gt; Value
 SourceAuthType -&gt; Encoding
 SourceAuthType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: SourceAuthType -&gt; Encoding
 toJSON :: SourceAuthType -&gt; Value
 $ctoJSON :: SourceAuthType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377748"><span id="local-6989586621679377750"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceAuthType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679377757"><span id="local-6989586621679377759"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceAuthType]
 ToJSONKeyFunction SourceAuthType
 ToJSONKeyFunction SourceAuthType
 -&gt; ToJSONKeyFunction [SourceAuthType] -&gt; ToJSONKey SourceAuthType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SourceAuthType]
 toJSONKey :: ToJSONKeyFunction SourceAuthType
 $ctoJSONKey :: ToJSONKeyFunction SourceAuthType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377745"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceAuthType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679377754"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceAuthType
 ([Node] -&gt; Either String SourceAuthType) -&gt; FromXML SourceAuthType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SourceAuthType
 $cparseXML :: [Node] -&gt; Either String SourceAuthType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377742"><span class="annot"><span class="annottext">SourceAuthType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679377751"><span class="annot"><span class="annottext">SourceAuthType -&gt; XML
 (SourceAuthType -&gt; XML) -&gt; ToXML SourceAuthType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SourceAuthType -&gt; XML

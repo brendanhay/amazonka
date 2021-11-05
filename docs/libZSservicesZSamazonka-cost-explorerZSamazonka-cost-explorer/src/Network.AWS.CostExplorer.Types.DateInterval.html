@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The time period of the request.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDateInterval' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679328702"><span id="local-6989586621679328703"></span></span><span class="hs-keyword">data</span><span> </span><span id="DateInterval"><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-var">DateInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DateInterval%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-var">DateInterval'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679328711"><span id="local-6989586621679328712"></span></span><span class="hs-keyword">data</span><span> </span><span id="DateInterval"><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-var">DateInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DateInterval%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-var">DateInterval'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The beginning of the time period. The start date is inclusive. For</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- example, if @start@ is @2017-01-01@, Amazon Web Services retrieves cost</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- and usage data starting at @2017-01-01@ up to the end date. The start</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aend%3ADateInterval%27"><span class="annot"><span class="annottext">DateInterval -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#%24sel%3Aend%3ADateInterval%27"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328695"><span id="local-6989586621679328697"><span class="annot"><span class="annottext">DateInterval -&gt; DateInterval -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679328704"><span id="local-6989586621679328706"><span class="annot"><span class="annottext">DateInterval -&gt; DateInterval -&gt; Bool
 (DateInterval -&gt; DateInterval -&gt; Bool)
 -&gt; (DateInterval -&gt; DateInterval -&gt; Bool) -&gt; Eq DateInterval
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DateInterval -&gt; DateInterval -&gt; Bool
 == :: DateInterval -&gt; DateInterval -&gt; Bool
 $c== :: DateInterval -&gt; DateInterval -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328686"><span id="local-6989586621679328688"><span id="local-6989586621679328690"><span id="local-6989586621679328692"><span class="annot"><span class="annottext">ReadPrec [DateInterval]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328695"><span id="local-6989586621679328697"><span id="local-6989586621679328699"><span id="local-6989586621679328701"><span class="annot"><span class="annottext">ReadPrec [DateInterval]
 ReadPrec DateInterval
 Int -&gt; ReadS DateInterval
 ReadS [DateInterval]
@@ -68,7 +68,7 @@ readList :: ReadS [DateInterval]
 $creadList :: ReadS [DateInterval]
 readsPrec :: Int -&gt; ReadS DateInterval
 $creadsPrec :: Int -&gt; ReadS DateInterval
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328679"><span id="local-6989586621679328681"><span id="local-6989586621679328683"><span class="annot"><span class="annottext">Int -&gt; DateInterval -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679328688"><span id="local-6989586621679328690"><span id="local-6989586621679328692"><span class="annot"><span class="annottext">Int -&gt; DateInterval -&gt; ShowS
 [DateInterval] -&gt; ShowS
 DateInterval -&gt; String
 (Int -&gt; DateInterval -&gt; ShowS)
@@ -118,15 +118,15 @@ $cfrom :: forall x. DateInterval -&gt; Rep DateInterval x
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span>
 </span><span id="line-66"></span><span id="newDateInterval"><span class="annot"><span class="annottext">newDateInterval :: Text -&gt; Text -&gt; DateInterval
-</span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#newDateInterval"><span class="hs-identifier hs-var hs-var">newDateInterval</span></a></span></span><span> </span><span id="local-6989586621679328673"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328673"><span class="hs-identifier hs-var">pStart_</span></a></span></span><span> </span><span id="local-6989586621679328672"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328672"><span class="hs-identifier hs-var">pEnd_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#newDateInterval"><span class="hs-identifier hs-var hs-var">newDateInterval</span></a></span></span><span> </span><span id="local-6989586621679328682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328682"><span class="hs-identifier hs-var">pStart_</span></a></span></span><span> </span><span id="local-6989586621679328681"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328681"><span class="hs-identifier hs-var">pEnd_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">DateInterval' :: Text -&gt; Text -&gt; DateInterval
 </span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:DateInterval' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#%24sel%3Astart%3ADateInterval%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328673"><span class="hs-identifier hs-var">pStart_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:end:DateInterval' :: Text
+</span><a href="#local-6989586621679328682"><span class="hs-identifier hs-var">pStart_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:end:DateInterval' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#%24sel%3Aend%3ADateInterval%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328672"><span class="hs-identifier hs-var">pEnd_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679328681"><span class="hs-identifier hs-var">pEnd_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The beginning of the time period. The start date is inclusive. For</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- example, if @start@ is @2017-01-01@, Amazon Web Services retrieves cost</span><span>
@@ -139,16 +139,16 @@ $cfrom :: forall x. DateInterval -&gt; Rep DateInterval x
 -&gt; (DateInterval -&gt; Text -&gt; DateInterval)
 -&gt; Lens DateInterval DateInterval Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328668"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328677"><span class="annot"><span class="annottext">Text
 start :: Text
 $sel:start:DateInterval' :: DateInterval -&gt; Text
-</span><a href="#local-6989586621679328668"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328668"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328667"><span class="annot"><span class="annottext">s :: DateInterval
-</span><a href="#local-6989586621679328667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328666"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679328667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:DateInterval' :: Text
+</span><a href="#local-6989586621679328677"><span class="hs-identifier hs-var hs-var">start</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328677"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328676"><span class="annot"><span class="annottext">s :: DateInterval
+</span><a href="#local-6989586621679328676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328675"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679328676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:start:DateInterval' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#%24sel%3Astart%3ADateInterval%27"><span class="hs-identifier hs-var">start</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The end of the time period. The end date is exclusive. For example, if</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- @end@ is @2017-05-01@, Amazon Web Services retrieves cost and usage data</span><span>
@@ -159,19 +159,19 @@ $sel:start:DateInterval' :: DateInterval -&gt; Text
 -&gt; (DateInterval -&gt; Text -&gt; DateInterval)
 -&gt; Lens DateInterval DateInterval Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328664"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328673"><span class="annot"><span class="annottext">Text
 end :: Text
 $sel:end:DateInterval' :: DateInterval -&gt; Text
-</span><a href="#local-6989586621679328664"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328664"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328663"><span class="annot"><span class="annottext">s :: DateInterval
-</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328662"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
-</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:DateInterval' :: Text
+</span><a href="#local-6989586621679328673"><span class="hs-identifier hs-var hs-var">end</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328673"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679328672"><span class="annot"><span class="annottext">s :: DateInterval
+</span><a href="#local-6989586621679328672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679328671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679328671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DateInterval
+</span><a href="#local-6989586621679328672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:end:DateInterval' :: Text
 </span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#%24sel%3Aend%3ADateInterval%27"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328659"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679328657"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DateInterval
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328668"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679328666"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DateInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DateInterval) -&gt; Value -&gt; Parser DateInterval
@@ -179,38 +179,38 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DateInterval&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328654"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679328663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; DateInterval
 </span><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-var">DateInterval'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; DateInterval)
 -&gt; Parser Text -&gt; Parser (Text -&gt; DateInterval)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Start&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; DateInterval) -&gt; Parser Text -&gt; Parser DateInterval
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679328654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679328663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;End&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328648"><span id="local-6989586621679328650"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328657"><span id="local-6989586621679328659"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328645"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328637"><span id="local-6989586621679328639"><span id="local-6989586621679328641"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679328635"><span class="annot"><span class="annottext">toJSON :: DateInterval -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328632"><span id="local-6989586621679328633"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328646"><span id="local-6989586621679328648"><span id="local-6989586621679328650"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval"><span class="hs-identifier hs-type">DateInterval</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679328644"><span class="annot"><span class="annottext">toJSON :: DateInterval -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DateInterval.html#DateInterval%27"><span class="hs-identifier hs-type">DateInterval'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328641"><span id="local-6989586621679328642"><span class="annot"><span class="annottext">Text
 end :: Text
 start :: Text
 $sel:end:DateInterval' :: DateInterval -&gt; Text
 $sel:start:DateInterval' :: DateInterval -&gt; Text
-</span><a href="#local-6989586621679328632"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679328641"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -222,14 +222,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Start&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328633"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328642"><span class="hs-identifier hs-var">start</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;End&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679328632"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679328641"><span class="hs-identifier hs-var">end</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

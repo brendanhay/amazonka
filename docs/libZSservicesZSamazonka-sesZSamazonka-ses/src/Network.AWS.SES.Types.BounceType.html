@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679270380"><span id="local-6989586621679270381"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BounceType"><span class="annot"><a href="Network.AWS.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-var">BounceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BounceType%27"><span class="annot"><a href="Network.AWS.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-var">BounceType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679270389"><span id="local-6989586621679270390"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BounceType"><span class="annot"><a href="Network.AWS.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-var">BounceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BounceType%27"><span class="annot"><a href="Network.AWS.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-var">BounceType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBounceType"><span class="annot"><span class="annottext">BounceType -&gt; Text
 </span><a href="Network.AWS.SES.Types.BounceType.html#fromBounceType"><span class="hs-identifier hs-var hs-var">fromBounceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270372"><span id="local-6989586621679270374"><span id="local-6989586621679270376"><span class="annot"><span class="annottext">Int -&gt; BounceType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270381"><span id="local-6989586621679270383"><span id="local-6989586621679270385"><span class="annot"><span class="annottext">Int -&gt; BounceType -&gt; ShowS
 [BounceType] -&gt; ShowS
 BounceType -&gt; String
 (Int -&gt; BounceType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: BounceType -&gt; String
 showsPrec :: Int -&gt; BounceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BounceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679270363"><span id="local-6989586621679270365"><span id="local-6989586621679270367"><span id="local-6989586621679270369"><span class="annot"><span class="annottext">ReadPrec [BounceType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679270372"><span id="local-6989586621679270374"><span id="local-6989586621679270376"><span id="local-6989586621679270378"><span class="annot"><span class="annottext">ReadPrec [BounceType]
 ReadPrec BounceType
 Int -&gt; ReadS BounceType
 ReadS [BounceType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [BounceType]
 readsPrec :: Int -&gt; ReadS BounceType
 $creadsPrec :: Int -&gt; ReadS BounceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679270358"><span id="local-6989586621679270360"><span class="annot"><span class="annottext">BounceType -&gt; BounceType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679270367"><span id="local-6989586621679270369"><span class="annot"><span class="annottext">BounceType -&gt; BounceType -&gt; Bool
 (BounceType -&gt; BounceType -&gt; Bool)
 -&gt; (BounceType -&gt; BounceType -&gt; Bool) -&gt; Eq BounceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: BounceType -&gt; BounceType -&gt; Bool
 == :: BounceType -&gt; BounceType -&gt; Bool
 $c== :: BounceType -&gt; BounceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679270342"><span id="local-6989586621679270344"><span id="local-6989586621679270346"><span id="local-6989586621679270348"><span id="local-6989586621679270350"><span id="local-6989586621679270352"><span id="local-6989586621679270354"><span class="annot"><span class="annottext">Eq BounceType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679270351"><span id="local-6989586621679270353"><span id="local-6989586621679270355"><span id="local-6989586621679270357"><span id="local-6989586621679270359"><span id="local-6989586621679270361"><span id="local-6989586621679270363"><span class="annot"><span class="annottext">Eq BounceType
 Eq BounceType
 -&gt; (BounceType -&gt; BounceType -&gt; Ordering)
 -&gt; (BounceType -&gt; BounceType -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. BounceType -&gt; Rep BounceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270334"><span id="local-6989586621679270336"><span class="annot"><span class="annottext">Int -&gt; BounceType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270343"><span id="local-6989586621679270345"><span class="annot"><span class="annottext">Int -&gt; BounceType -&gt; Int
 BounceType -&gt; Int
 (Int -&gt; BounceType -&gt; Int)
 -&gt; (BounceType -&gt; Int) -&gt; Hashable BounceType
@@ -145,49 +145,49 @@ $chash :: BounceType -&gt; Int
 hashWithSalt :: Int -&gt; BounceType -&gt; Int
 $chashWithSalt :: Int -&gt; BounceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679270331"><span class="annot"><span class="annottext">BounceType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679270340"><span class="annot"><span class="annottext">BounceType -&gt; ()
 (BounceType -&gt; ()) -&gt; NFData BounceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BounceType -&gt; ()
 $crnf :: BounceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270328"><span class="annot"><span class="annottext">Text -&gt; Either String BounceType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270337"><span class="annot"><span class="annottext">Text -&gt; Either String BounceType
 (Text -&gt; Either String BounceType) -&gt; FromText BounceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BounceType
 $cfromText :: Text -&gt; Either String BounceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270325"><span class="annot"><span class="annottext">BounceType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270334"><span class="annot"><span class="annottext">BounceType -&gt; Text
 (BounceType -&gt; Text) -&gt; ToText BounceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BounceType -&gt; Text
 $ctoText :: BounceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270322"><span class="annot"><span class="annottext">BounceType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270331"><span class="annot"><span class="annottext">BounceType -&gt; ByteString
 (BounceType -&gt; ByteString) -&gt; ToByteString BounceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BounceType -&gt; ByteString
 $ctoBS :: BounceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270319"><span class="annot"><span class="annottext">BounceType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270328"><span class="annot"><span class="annottext">BounceType -&gt; ByteStringBuilder
 (BounceType -&gt; ByteStringBuilder) -&gt; ToLog BounceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BounceType -&gt; ByteStringBuilder
 $cbuild :: BounceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270316"><span class="annot"><span class="annottext">HeaderName -&gt; BounceType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270325"><span class="annot"><span class="annottext">HeaderName -&gt; BounceType -&gt; [Header]
 (HeaderName -&gt; BounceType -&gt; [Header]) -&gt; ToHeader BounceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BounceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BounceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270313"><span class="annot"><span class="annottext">BounceType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270322"><span class="annot"><span class="annottext">BounceType -&gt; QueryString
 (BounceType -&gt; QueryString) -&gt; ToQuery BounceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BounceType -&gt; QueryString
 $ctoQuery :: BounceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270308"><span id="local-6989586621679270310"><span class="annot"><span class="annottext">Value -&gt; Parser [BounceType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270317"><span id="local-6989586621679270319"><span class="annot"><span class="annottext">Value -&gt; Parser [BounceType]
 Value -&gt; Parser BounceType
 (Value -&gt; Parser BounceType)
 -&gt; (Value -&gt; Parser [BounceType]) -&gt; FromJSON BounceType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [BounceType]
 parseJSON :: Value -&gt; Parser BounceType
 $cparseJSON :: Value -&gt; Parser BounceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270303"><span id="local-6989586621679270305"><span class="annot"><span class="annottext">FromJSONKeyFunction [BounceType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270312"><span id="local-6989586621679270314"><span class="annot"><span class="annottext">FromJSONKeyFunction [BounceType]
 FromJSONKeyFunction BounceType
 FromJSONKeyFunction BounceType
 -&gt; FromJSONKeyFunction [BounceType] -&gt; FromJSONKey BounceType
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BounceType]
 fromJSONKey :: FromJSONKeyFunction BounceType
 $cfromJSONKey :: FromJSONKeyFunction BounceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679270294"><span id="local-6989586621679270296"><span id="local-6989586621679270298"><span id="local-6989586621679270300"><span class="annot"><span class="annottext">[BounceType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679270303"><span id="local-6989586621679270305"><span id="local-6989586621679270307"><span id="local-6989586621679270309"><span class="annot"><span class="annottext">[BounceType] -&gt; Encoding
 [BounceType] -&gt; Value
 BounceType -&gt; Encoding
 BounceType -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: BounceType -&gt; Encoding
 toJSON :: BounceType -&gt; Value
 $ctoJSON :: BounceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679270289"><span id="local-6989586621679270291"><span class="annot"><span class="annottext">ToJSONKeyFunction [BounceType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679270298"><span id="local-6989586621679270300"><span class="annot"><span class="annottext">ToJSONKeyFunction [BounceType]
 ToJSONKeyFunction BounceType
 ToJSONKeyFunction BounceType
 -&gt; ToJSONKeyFunction [BounceType] -&gt; ToJSONKey BounceType
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BounceType]
 toJSONKey :: ToJSONKeyFunction BounceType
 $ctoJSONKey :: ToJSONKeyFunction BounceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679270286"><span class="annot"><span class="annottext">[Node] -&gt; Either String BounceType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679270295"><span class="annot"><span class="annottext">[Node] -&gt; Either String BounceType
 ([Node] -&gt; Either String BounceType) -&gt; FromXML BounceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BounceType
 $cparseXML :: [Node] -&gt; Either String BounceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679270283"><span class="annot"><span class="annottext">BounceType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679270292"><span class="annot"><span class="annottext">BounceType -&gt; XML
 (BounceType -&gt; XML) -&gt; ToXML BounceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BounceType -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | M2ts Audio Stream Type</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679899691"><span id="local-6989586621679899692"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsAudioStreamType"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioStreamType.html#M2tsAudioStreamType"><span class="hs-identifier hs-var">M2tsAudioStreamType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsAudioStreamType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioStreamType.html#M2tsAudioStreamType%27"><span class="hs-identifier hs-var">M2tsAudioStreamType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679899700"><span id="local-6989586621679899701"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsAudioStreamType"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioStreamType.html#M2tsAudioStreamType"><span class="hs-identifier hs-var">M2tsAudioStreamType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsAudioStreamType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.M2tsAudioStreamType.html#M2tsAudioStreamType%27"><span class="hs-identifier hs-var">M2tsAudioStreamType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsAudioStreamType"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.M2tsAudioStreamType.html#fromM2tsAudioStreamType"><span class="hs-identifier hs-var hs-var">fromM2tsAudioStreamType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899683"><span id="local-6989586621679899685"><span id="local-6989586621679899687"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioStreamType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899692"><span id="local-6989586621679899694"><span id="local-6989586621679899696"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioStreamType -&gt; ShowS
 [M2tsAudioStreamType] -&gt; ShowS
 M2tsAudioStreamType -&gt; String
 (Int -&gt; M2tsAudioStreamType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: M2tsAudioStreamType -&gt; String
 showsPrec :: Int -&gt; M2tsAudioStreamType -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsAudioStreamType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679899674"><span id="local-6989586621679899676"><span id="local-6989586621679899678"><span id="local-6989586621679899680"><span class="annot"><span class="annottext">ReadPrec [M2tsAudioStreamType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679899683"><span id="local-6989586621679899685"><span id="local-6989586621679899687"><span id="local-6989586621679899689"><span class="annot"><span class="annottext">ReadPrec [M2tsAudioStreamType]
 ReadPrec M2tsAudioStreamType
 Int -&gt; ReadS M2tsAudioStreamType
 ReadS [M2tsAudioStreamType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [M2tsAudioStreamType]
 readsPrec :: Int -&gt; ReadS M2tsAudioStreamType
 $creadsPrec :: Int -&gt; ReadS M2tsAudioStreamType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679899669"><span id="local-6989586621679899671"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679899678"><span id="local-6989586621679899680"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool
 (M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool)
 -&gt; (M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool)
 -&gt; Eq M2tsAudioStreamType
@@ -83,7 +83,7 @@ $c/= :: M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool
 == :: M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool
 $c== :: M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679899653"><span id="local-6989586621679899655"><span id="local-6989586621679899657"><span id="local-6989586621679899659"><span id="local-6989586621679899661"><span id="local-6989586621679899663"><span id="local-6989586621679899665"><span class="annot"><span class="annottext">Eq M2tsAudioStreamType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679899662"><span id="local-6989586621679899664"><span id="local-6989586621679899666"><span id="local-6989586621679899668"><span id="local-6989586621679899670"><span id="local-6989586621679899672"><span id="local-6989586621679899674"><span class="annot"><span class="annottext">Eq M2tsAudioStreamType
 Eq M2tsAudioStreamType
 -&gt; (M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Ordering)
 -&gt; (M2tsAudioStreamType -&gt; M2tsAudioStreamType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. M2tsAudioStreamType -&gt; Rep M2tsAudioStreamType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899645"><span id="local-6989586621679899647"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioStreamType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679899654"><span id="local-6989586621679899656"><span class="annot"><span class="annottext">Int -&gt; M2tsAudioStreamType -&gt; Int
 M2tsAudioStreamType -&gt; Int
 (Int -&gt; M2tsAudioStreamType -&gt; Int)
 -&gt; (M2tsAudioStreamType -&gt; Int) -&gt; Hashable M2tsAudioStreamType
@@ -146,53 +146,53 @@ $chash :: M2tsAudioStreamType -&gt; Int
 hashWithSalt :: Int -&gt; M2tsAudioStreamType -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsAudioStreamType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679899642"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679899651"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; ()
 (M2tsAudioStreamType -&gt; ()) -&gt; NFData M2tsAudioStreamType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsAudioStreamType -&gt; ()
 $crnf :: M2tsAudioStreamType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679899639"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsAudioStreamType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679899648"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsAudioStreamType
 (Text -&gt; Either String M2tsAudioStreamType)
 -&gt; FromText M2tsAudioStreamType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsAudioStreamType
 $cfromText :: Text -&gt; Either String M2tsAudioStreamType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679899636"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679899645"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; Text
 (M2tsAudioStreamType -&gt; Text) -&gt; ToText M2tsAudioStreamType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsAudioStreamType -&gt; Text
 $ctoText :: M2tsAudioStreamType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679899633"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679899642"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; ByteString
 (M2tsAudioStreamType -&gt; ByteString)
 -&gt; ToByteString M2tsAudioStreamType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsAudioStreamType -&gt; ByteString
 $ctoBS :: M2tsAudioStreamType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679899630"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679899639"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; ByteStringBuilder
 (M2tsAudioStreamType -&gt; ByteStringBuilder)
 -&gt; ToLog M2tsAudioStreamType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsAudioStreamType -&gt; ByteStringBuilder
 $cbuild :: M2tsAudioStreamType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679899627"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsAudioStreamType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679899636"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsAudioStreamType -&gt; [Header]
 (HeaderName -&gt; M2tsAudioStreamType -&gt; [Header])
 -&gt; ToHeader M2tsAudioStreamType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsAudioStreamType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsAudioStreamType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679899624"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679899633"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; QueryString
 (M2tsAudioStreamType -&gt; QueryString) -&gt; ToQuery M2tsAudioStreamType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsAudioStreamType -&gt; QueryString
 $ctoQuery :: M2tsAudioStreamType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679899619"><span id="local-6989586621679899621"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsAudioStreamType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679899628"><span id="local-6989586621679899630"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsAudioStreamType]
 Value -&gt; Parser M2tsAudioStreamType
 (Value -&gt; Parser M2tsAudioStreamType)
 -&gt; (Value -&gt; Parser [M2tsAudioStreamType])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsAudioStreamType]
 parseJSON :: Value -&gt; Parser M2tsAudioStreamType
 $cparseJSON :: Value -&gt; Parser M2tsAudioStreamType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679899614"><span id="local-6989586621679899616"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsAudioStreamType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679899623"><span id="local-6989586621679899625"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsAudioStreamType]
 FromJSONKeyFunction M2tsAudioStreamType
 FromJSONKeyFunction M2tsAudioStreamType
 -&gt; FromJSONKeyFunction [M2tsAudioStreamType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsAudioStreamType]
 fromJSONKey :: FromJSONKeyFunction M2tsAudioStreamType
 $cfromJSONKey :: FromJSONKeyFunction M2tsAudioStreamType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679899605"><span id="local-6989586621679899607"><span id="local-6989586621679899609"><span id="local-6989586621679899611"><span class="annot"><span class="annottext">[M2tsAudioStreamType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679899614"><span id="local-6989586621679899616"><span id="local-6989586621679899618"><span id="local-6989586621679899620"><span class="annot"><span class="annottext">[M2tsAudioStreamType] -&gt; Encoding
 [M2tsAudioStreamType] -&gt; Value
 M2tsAudioStreamType -&gt; Encoding
 M2tsAudioStreamType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: M2tsAudioStreamType -&gt; Encoding
 toJSON :: M2tsAudioStreamType -&gt; Value
 $ctoJSON :: M2tsAudioStreamType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679899600"><span id="local-6989586621679899602"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsAudioStreamType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679899609"><span id="local-6989586621679899611"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsAudioStreamType]
 ToJSONKeyFunction M2tsAudioStreamType
 ToJSONKeyFunction M2tsAudioStreamType
 -&gt; ToJSONKeyFunction [M2tsAudioStreamType]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsAudioStreamType]
 toJSONKey :: ToJSONKeyFunction M2tsAudioStreamType
 $ctoJSONKey :: ToJSONKeyFunction M2tsAudioStreamType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679899597"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsAudioStreamType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679899606"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsAudioStreamType
 ([Node] -&gt; Either String M2tsAudioStreamType)
 -&gt; FromXML M2tsAudioStreamType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsAudioStreamType
 $cparseXML :: [Node] -&gt; Either String M2tsAudioStreamType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679899594"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679899603"><span class="annot"><span class="annottext">M2tsAudioStreamType -&gt; XML
 (M2tsAudioStreamType -&gt; XML) -&gt; ToXML M2tsAudioStreamType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsAudioStreamType -&gt; XML

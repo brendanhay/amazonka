@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode"><span class="hs-identifier">LambdaFunctionRecommendationFindingReasonCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_Inconclusive"><span class="hs-identifier">LambdaFunctionRecommendationFindingReasonCode_Inconclusive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_InsufficientData"><span class="hs-identifier">LambdaFunctionRecommendationFindingReasonCode_InsufficientData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned"><span class="hs-identifier">LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned"><span class="hs-identifier">LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679240520"><span id="local-6989586621679240521"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LambdaFunctionRecommendationFindingReasonCode"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode"><span class="hs-identifier hs-var">LambdaFunctionRecommendationFindingReasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionRecommendationFindingReasonCode%27"><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode%27"><span class="hs-identifier hs-var">LambdaFunctionRecommendationFindingReasonCode'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLambdaFunctionRecommendationFindingReasonCode"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode -&gt; Text
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#fromLambdaFunctionRecommendationFindingReasonCode"><span class="hs-identifier hs-var hs-var">fromLambdaFunctionRecommendationFindingReasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240512"><span id="local-6989586621679240514"><span id="local-6989586621679240516"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; ShowS
+[LambdaFunctionRecommendationFindingReasonCode] -&gt; ShowS
+LambdaFunctionRecommendationFindingReasonCode -&gt; String
+(Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; ShowS)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode -&gt; String)
+-&gt; ([LambdaFunctionRecommendationFindingReasonCode] -&gt; ShowS)
+-&gt; Show LambdaFunctionRecommendationFindingReasonCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaFunctionRecommendationFindingReasonCode] -&gt; ShowS
+$cshowList :: [LambdaFunctionRecommendationFindingReasonCode] -&gt; ShowS
+show :: LambdaFunctionRecommendationFindingReasonCode -&gt; String
+$cshow :: LambdaFunctionRecommendationFindingReasonCode -&gt; String
+showsPrec :: Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679240503"><span id="local-6989586621679240505"><span id="local-6989586621679240507"><span id="local-6989586621679240509"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionRecommendationFindingReasonCode]
+ReadPrec LambdaFunctionRecommendationFindingReasonCode
+Int -&gt; ReadS LambdaFunctionRecommendationFindingReasonCode
+ReadS [LambdaFunctionRecommendationFindingReasonCode]
+(Int -&gt; ReadS LambdaFunctionRecommendationFindingReasonCode)
+-&gt; ReadS [LambdaFunctionRecommendationFindingReasonCode]
+-&gt; ReadPrec LambdaFunctionRecommendationFindingReasonCode
+-&gt; ReadPrec [LambdaFunctionRecommendationFindingReasonCode]
+-&gt; Read LambdaFunctionRecommendationFindingReasonCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LambdaFunctionRecommendationFindingReasonCode]
+$creadListPrec :: ReadPrec [LambdaFunctionRecommendationFindingReasonCode]
+readPrec :: ReadPrec LambdaFunctionRecommendationFindingReasonCode
+$creadPrec :: ReadPrec LambdaFunctionRecommendationFindingReasonCode
+readList :: ReadS [LambdaFunctionRecommendationFindingReasonCode]
+$creadList :: ReadS [LambdaFunctionRecommendationFindingReasonCode]
+readsPrec :: Int -&gt; ReadS LambdaFunctionRecommendationFindingReasonCode
+$creadsPrec :: Int -&gt; ReadS LambdaFunctionRecommendationFindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679240498"><span id="local-6989586621679240500"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+(LambdaFunctionRecommendationFindingReasonCode
+ -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool)
+-&gt; Eq LambdaFunctionRecommendationFindingReasonCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+$c/= :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+== :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+$c== :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679240482"><span id="local-6989586621679240484"><span id="local-6989586621679240486"><span id="local-6989586621679240488"><span id="local-6989586621679240490"><span id="local-6989586621679240492"><span id="local-6989586621679240494"><span class="annot"><span class="annottext">Eq LambdaFunctionRecommendationFindingReasonCode
+Eq LambdaFunctionRecommendationFindingReasonCode
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Ordering)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode
+    -&gt; LambdaFunctionRecommendationFindingReasonCode)
+-&gt; Ord LambdaFunctionRecommendationFindingReasonCode
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Ordering
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+$cmin :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+max :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+$cmax :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+&gt;= :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+$c&gt;= :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+&gt; :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+$c&gt; :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+&lt;= :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+$c&lt;= :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+&lt; :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+$c&lt; :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Bool
+compare :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Ordering
+$ccompare :: LambdaFunctionRecommendationFindingReasonCode
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Ordering
+$cp1Ord :: Eq LambdaFunctionRecommendationFindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ LambdaFunctionRecommendationFindingReasonCode
+ -&gt; Rep LambdaFunctionRecommendationFindingReasonCode x)
+-&gt; (forall x.
+    Rep LambdaFunctionRecommendationFindingReasonCode x
+    -&gt; LambdaFunctionRecommendationFindingReasonCode)
+-&gt; Generic LambdaFunctionRecommendationFindingReasonCode
+forall x.
+Rep LambdaFunctionRecommendationFindingReasonCode x
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+forall x.
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; Rep LambdaFunctionRecommendationFindingReasonCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LambdaFunctionRecommendationFindingReasonCode x
+-&gt; LambdaFunctionRecommendationFindingReasonCode
+$cfrom :: forall x.
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; Rep LambdaFunctionRecommendationFindingReasonCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240474"><span id="local-6989586621679240476"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Int
+LambdaFunctionRecommendationFindingReasonCode -&gt; Int
+(Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Int)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode -&gt; Int)
+-&gt; Hashable LambdaFunctionRecommendationFindingReasonCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LambdaFunctionRecommendationFindingReasonCode -&gt; Int
+$chash :: LambdaFunctionRecommendationFindingReasonCode -&gt; Int
+hashWithSalt :: Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Int
+$chashWithSalt :: Int -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679240471"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode -&gt; ()
+(LambdaFunctionRecommendationFindingReasonCode -&gt; ())
+-&gt; NFData LambdaFunctionRecommendationFindingReasonCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LambdaFunctionRecommendationFindingReasonCode -&gt; ()
+$crnf :: LambdaFunctionRecommendationFindingReasonCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679240468"><span class="annot"><span class="annottext">Text -&gt; Either String LambdaFunctionRecommendationFindingReasonCode
+(Text
+ -&gt; Either String LambdaFunctionRecommendationFindingReasonCode)
+-&gt; FromText LambdaFunctionRecommendationFindingReasonCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LambdaFunctionRecommendationFindingReasonCode
+$cfromText :: Text -&gt; Either String LambdaFunctionRecommendationFindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679240465"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode -&gt; Text
+(LambdaFunctionRecommendationFindingReasonCode -&gt; Text)
+-&gt; ToText LambdaFunctionRecommendationFindingReasonCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LambdaFunctionRecommendationFindingReasonCode -&gt; Text
+$ctoText :: LambdaFunctionRecommendationFindingReasonCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679240462"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode -&gt; ByteString
+(LambdaFunctionRecommendationFindingReasonCode -&gt; ByteString)
+-&gt; ToByteString LambdaFunctionRecommendationFindingReasonCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LambdaFunctionRecommendationFindingReasonCode -&gt; ByteString
+$ctoBS :: LambdaFunctionRecommendationFindingReasonCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679240459"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode -&gt; ByteStringBuilder
+(LambdaFunctionRecommendationFindingReasonCode
+ -&gt; ByteStringBuilder)
+-&gt; ToLog LambdaFunctionRecommendationFindingReasonCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LambdaFunctionRecommendationFindingReasonCode -&gt; ByteStringBuilder
+$cbuild :: LambdaFunctionRecommendationFindingReasonCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679240456"><span class="annot"><span class="annottext">HeaderName
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; [Header]
+(HeaderName
+ -&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; [Header])
+-&gt; ToHeader LambdaFunctionRecommendationFindingReasonCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; LambdaFunctionRecommendationFindingReasonCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679240453"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode -&gt; QueryString
+(LambdaFunctionRecommendationFindingReasonCode -&gt; QueryString)
+-&gt; ToQuery LambdaFunctionRecommendationFindingReasonCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LambdaFunctionRecommendationFindingReasonCode -&gt; QueryString
+$ctoQuery :: LambdaFunctionRecommendationFindingReasonCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679240448"><span id="local-6989586621679240450"><span class="annot"><span class="annottext">Value -&gt; Parser [LambdaFunctionRecommendationFindingReasonCode]
+Value -&gt; Parser LambdaFunctionRecommendationFindingReasonCode
+(Value -&gt; Parser LambdaFunctionRecommendationFindingReasonCode)
+-&gt; (Value
+    -&gt; Parser [LambdaFunctionRecommendationFindingReasonCode])
+-&gt; FromJSON LambdaFunctionRecommendationFindingReasonCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LambdaFunctionRecommendationFindingReasonCode]
+$cparseJSONList :: Value -&gt; Parser [LambdaFunctionRecommendationFindingReasonCode]
+parseJSON :: Value -&gt; Parser LambdaFunctionRecommendationFindingReasonCode
+$cparseJSON :: Value -&gt; Parser LambdaFunctionRecommendationFindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679240443"><span id="local-6989586621679240445"><span class="annot"><span class="annottext">FromJSONKeyFunction [LambdaFunctionRecommendationFindingReasonCode]
+FromJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+FromJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+-&gt; FromJSONKeyFunction
+     [LambdaFunctionRecommendationFindingReasonCode]
+-&gt; FromJSONKey LambdaFunctionRecommendationFindingReasonCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LambdaFunctionRecommendationFindingReasonCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [LambdaFunctionRecommendationFindingReasonCode]
+fromJSONKey :: FromJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+$cfromJSONKey :: FromJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679240434"><span id="local-6989586621679240436"><span id="local-6989586621679240438"><span id="local-6989586621679240440"><span class="annot"><span class="annottext">[LambdaFunctionRecommendationFindingReasonCode] -&gt; Encoding
+[LambdaFunctionRecommendationFindingReasonCode] -&gt; Value
+LambdaFunctionRecommendationFindingReasonCode -&gt; Encoding
+LambdaFunctionRecommendationFindingReasonCode -&gt; Value
+(LambdaFunctionRecommendationFindingReasonCode -&gt; Value)
+-&gt; (LambdaFunctionRecommendationFindingReasonCode -&gt; Encoding)
+-&gt; ([LambdaFunctionRecommendationFindingReasonCode] -&gt; Value)
+-&gt; ([LambdaFunctionRecommendationFindingReasonCode] -&gt; Encoding)
+-&gt; ToJSON LambdaFunctionRecommendationFindingReasonCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LambdaFunctionRecommendationFindingReasonCode] -&gt; Encoding
+$ctoEncodingList :: [LambdaFunctionRecommendationFindingReasonCode] -&gt; Encoding
+toJSONList :: [LambdaFunctionRecommendationFindingReasonCode] -&gt; Value
+$ctoJSONList :: [LambdaFunctionRecommendationFindingReasonCode] -&gt; Value
+toEncoding :: LambdaFunctionRecommendationFindingReasonCode -&gt; Encoding
+$ctoEncoding :: LambdaFunctionRecommendationFindingReasonCode -&gt; Encoding
+toJSON :: LambdaFunctionRecommendationFindingReasonCode -&gt; Value
+$ctoJSON :: LambdaFunctionRecommendationFindingReasonCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679240429"><span id="local-6989586621679240431"><span class="annot"><span class="annottext">ToJSONKeyFunction [LambdaFunctionRecommendationFindingReasonCode]
+ToJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+ToJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+-&gt; ToJSONKeyFunction
+     [LambdaFunctionRecommendationFindingReasonCode]
+-&gt; ToJSONKey LambdaFunctionRecommendationFindingReasonCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LambdaFunctionRecommendationFindingReasonCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [LambdaFunctionRecommendationFindingReasonCode]
+toJSONKey :: ToJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+$ctoJSONKey :: ToJSONKeyFunction LambdaFunctionRecommendationFindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679240426"><span class="annot"><span class="annottext">[Node]
+-&gt; Either String LambdaFunctionRecommendationFindingReasonCode
+([Node]
+ -&gt; Either String LambdaFunctionRecommendationFindingReasonCode)
+-&gt; FromXML LambdaFunctionRecommendationFindingReasonCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either String LambdaFunctionRecommendationFindingReasonCode
+$cparseXML :: [Node]
+-&gt; Either String LambdaFunctionRecommendationFindingReasonCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679240423"><span class="annot"><span class="annottext">LambdaFunctionRecommendationFindingReasonCode -&gt; XML
+(LambdaFunctionRecommendationFindingReasonCode -&gt; XML)
+-&gt; ToXML LambdaFunctionRecommendationFindingReasonCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LambdaFunctionRecommendationFindingReasonCode -&gt; XML
+$ctoXML :: LambdaFunctionRecommendationFindingReasonCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_Inconclusive"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode_Inconclusive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLambdaFunctionRecommendationFindingReasonCode_Inconclusive"><span id="%24mLambdaFunctionRecommendationFindingReasonCode_Inconclusive"><span id="LambdaFunctionRecommendationFindingReasonCode_Inconclusive"><span class="annot"><span class="annottext">$bLambdaFunctionRecommendationFindingReasonCode_Inconclusive :: LambdaFunctionRecommendationFindingReasonCode
+$mLambdaFunctionRecommendationFindingReasonCode_Inconclusive :: forall r.
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#%24bLambdaFunctionRecommendationFindingReasonCode_Inconclusive"><span class="hs-identifier hs-var hs-var hs-var">LambdaFunctionRecommendationFindingReasonCode_Inconclusive</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode%27"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Inconclusive&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_InsufficientData"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode_InsufficientData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLambdaFunctionRecommendationFindingReasonCode_InsufficientData"><span id="%24mLambdaFunctionRecommendationFindingReasonCode_InsufficientData"><span id="LambdaFunctionRecommendationFindingReasonCode_InsufficientData"><span class="annot"><span class="annottext">$bLambdaFunctionRecommendationFindingReasonCode_InsufficientData :: LambdaFunctionRecommendationFindingReasonCode
+$mLambdaFunctionRecommendationFindingReasonCode_InsufficientData :: forall r.
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#%24bLambdaFunctionRecommendationFindingReasonCode_InsufficientData"><span class="hs-identifier hs-var hs-var hs-var">LambdaFunctionRecommendationFindingReasonCode_InsufficientData</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode%27"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;InsufficientData&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned"><span id="%24mLambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned"><span id="LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned"><span class="annot"><span class="annottext">$bLambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned :: LambdaFunctionRecommendationFindingReasonCode
+$mLambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned :: forall r.
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#%24bLambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned"><span class="hs-identifier hs-var hs-var hs-var">LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode%27"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MemoryOverprovisioned&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned"><span id="%24mLambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned"><span id="LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned"><span class="annot"><span class="annottext">$bLambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned :: LambdaFunctionRecommendationFindingReasonCode
+$mLambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned :: forall r.
+LambdaFunctionRecommendationFindingReasonCode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#%24bLambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned"><span class="hs-identifier hs-var hs-var hs-var">LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode%27"><span class="hs-identifier hs-type">LambdaFunctionRecommendationFindingReasonCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MemoryUnderprovisioned&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_Inconclusive"><span class="hs-pragma hs-type">LambdaFunctionRecommendationFindingReasonCode_Inconclusive</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_InsufficientData"><span class="hs-pragma hs-type">LambdaFunctionRecommendationFindingReasonCode_InsufficientData</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned"><span class="hs-pragma hs-type">LambdaFunctionRecommendationFindingReasonCode_MemoryOverprovisioned</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned"><span class="hs-pragma hs-type">LambdaFunctionRecommendationFindingReasonCode_MemoryUnderprovisioned</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode.html#LambdaFunctionRecommendationFindingReasonCode%27"><span class="hs-pragma hs-type">LambdaFunctionRecommendationFindingReasonCode'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

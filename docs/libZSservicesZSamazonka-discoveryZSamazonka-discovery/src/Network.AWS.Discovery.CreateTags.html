@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateTags' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679210096"><span id="local-6989586621679210097"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTags"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-var">CreateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTags%27"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-var">CreateTags'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679210105"><span id="local-6989586621679210106"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTags"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-var">CreateTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTags%27"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-var">CreateTags'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of configuration items that you want to tag.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AconfigurationIds%3ACreateTags%27"><span class="annot"><span class="annottext">CreateTags -&gt; [Text]
 </span><a href="Network.AWS.Discovery.CreateTags.html#%24sel%3AconfigurationIds%3ACreateTags%27"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Atags%3ACreateTags%27"><span class="annot"><span class="annottext">CreateTags -&gt; [Tag]
 </span><a href="Network.AWS.Discovery.CreateTags.html#%24sel%3Atags%3ACreateTags%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Discovery.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210089"><span id="local-6989586621679210091"><span class="annot"><span class="annottext">CreateTags -&gt; CreateTags -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210098"><span id="local-6989586621679210100"><span class="annot"><span class="annottext">CreateTags -&gt; CreateTags -&gt; Bool
 (CreateTags -&gt; CreateTags -&gt; Bool)
 -&gt; (CreateTags -&gt; CreateTags -&gt; Bool) -&gt; Eq CreateTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTags -&gt; CreateTags -&gt; Bool
 == :: CreateTags -&gt; CreateTags -&gt; Bool
 $c== :: CreateTags -&gt; CreateTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210080"><span id="local-6989586621679210082"><span id="local-6989586621679210084"><span id="local-6989586621679210086"><span class="annot"><span class="annottext">ReadPrec [CreateTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210089"><span id="local-6989586621679210091"><span id="local-6989586621679210093"><span id="local-6989586621679210095"><span class="annot"><span class="annottext">ReadPrec [CreateTags]
 ReadPrec CreateTags
 Int -&gt; ReadS CreateTags
 ReadS [CreateTags]
@@ -89,7 +89,7 @@ readList :: ReadS [CreateTags]
 $creadList :: ReadS [CreateTags]
 readsPrec :: Int -&gt; ReadS CreateTags
 $creadsPrec :: Int -&gt; ReadS CreateTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210073"><span id="local-6989586621679210075"><span id="local-6989586621679210077"><span class="annot"><span class="annottext">Int -&gt; CreateTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210082"><span id="local-6989586621679210084"><span id="local-6989586621679210086"><span class="annot"><span class="annottext">Int -&gt; CreateTags -&gt; ShowS
 [CreateTags] -&gt; ShowS
 CreateTags -&gt; String
 (Int -&gt; CreateTags -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CreateTags -&gt; [Text] -&gt; CreateTags)
 -&gt; Lens CreateTags CreateTags [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210066"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210075"><span class="annot"><span class="annottext">[Text]
 configurationIds :: [Text]
 $sel:configurationIds:CreateTags' :: CreateTags -&gt; [Text]
-</span><a href="#local-6989586621679210066"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679210066"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210065"><span class="annot"><span class="annottext">s :: CreateTags
-</span><a href="#local-6989586621679210065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210064"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679210064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
-</span><a href="#local-6989586621679210065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:CreateTags' :: [Text]
+</span><a href="#local-6989586621679210075"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679210075"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210074"><span class="annot"><span class="annottext">s :: CreateTags
+</span><a href="#local-6989586621679210074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210073"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679210073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
+</span><a href="#local-6989586621679210074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:CreateTags' :: [Text]
 </span><a href="Network.AWS.Discovery.CreateTags.html#%24sel%3AconfigurationIds%3ACreateTags%27"><span class="hs-identifier hs-var">configurationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679210064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CreateTags -&gt; f CreateTags)
+</span><a href="#local-6989586621679210073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; CreateTags -&gt; f CreateTags)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; CreateTags
@@ -182,16 +182,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateTags -&gt; [Tag] -&gt; CreateTags)
 -&gt; Lens CreateTags CreateTags [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210061"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210070"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:CreateTags' :: CreateTags -&gt; [Tag]
-</span><a href="#local-6989586621679210061"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679210061"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210060"><span class="annot"><span class="annottext">s :: CreateTags
-</span><a href="#local-6989586621679210060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210059"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679210059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
-</span><a href="#local-6989586621679210060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateTags' :: [Tag]
+</span><a href="#local-6989586621679210070"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679210070"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210069"><span class="annot"><span class="annottext">s :: CreateTags
+</span><a href="#local-6989586621679210069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210068"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679210068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTags
+</span><a href="#local-6989586621679210069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateTags' :: [Tag]
 </span><a href="Network.AWS.Discovery.CreateTags.html#%24sel%3Atags%3ACreateTags%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679210059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; CreateTags -&gt; f CreateTags)
+</span><a href="#local-6989586621679210068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; CreateTags -&gt; f CreateTags)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; CreateTags
@@ -203,12 +203,12 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679210055"><span class="annot"><span class="annottext">request :: CreateTags -&gt; Request CreateTags
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679210064"><span class="annot"><span class="annottext">request :: CreateTags -&gt; Request CreateTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTags -&gt; Request CreateTags
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679210051"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679210060"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateTags
 -&gt; ClientResponse ClientBody
@@ -230,10 +230,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210048"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210048"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210047"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679210047"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210046"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679210046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210057"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210056"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210056"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210055"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679210055"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateTagsResponse
 </span><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-var">CreateTagsResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateTagsResponse)
@@ -244,15 +244,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210048"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210057"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210039"><span id="local-6989586621679210041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210048"><span id="local-6989586621679210050"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210045"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679210032"><span class="annot"><span class="annottext">toHeaders :: CreateTags -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679210041"><span class="annot"><span class="annottext">toHeaders :: CreateTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -279,15 +279,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210022"><span id="local-6989586621679210024"><span id="local-6989586621679210026"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679210020"><span class="annot"><span class="annottext">toJSON :: CreateTags -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210017"><span id="local-6989586621679210018"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210031"><span id="local-6989586621679210033"><span id="local-6989586621679210035"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679210029"><span class="annot"><span class="annottext">toJSON :: CreateTags -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags%27"><span class="hs-identifier hs-type">CreateTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210026"><span id="local-6989586621679210027"><span class="annot"><span class="annottext">[Text]
 [Tag]
 tags :: [Tag]
 configurationIds :: [Text]
 $sel:tags:CreateTags' :: CreateTags -&gt; [Tag]
 $sel:configurationIds:CreateTags' :: CreateTags -&gt; [Text]
-</span><a href="#local-6989586621679210017"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210026"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,26 +300,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;configurationIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679210018"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210027"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679210017"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210026"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679210011"><span class="annot"><span class="annottext">toPath :: CreateTags -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679210020"><span class="annot"><span class="annottext">toPath :: CreateTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTags"><span class="hs-identifier hs-type">CreateTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679210007"><span class="annot"><span class="annottext">toQuery :: CreateTags -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679210016"><span class="annot"><span class="annottext">toQuery :: CreateTags -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTags -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -327,12 +327,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newCreateTagsResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679210004"><span id="local-6989586621679210005"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTagsResponse"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-var">CreateTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTagsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-var">CreateTagsResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679210013"><span id="local-6989586621679210014"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTagsResponse"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-var">CreateTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTagsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-var">CreateTagsResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTagsResponse%27"><span class="annot"><span class="annottext">CreateTagsResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.CreateTags.html#%24sel%3AhttpStatus%3ACreateTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209999"><span id="local-6989586621679210001"><span class="annot"><span class="annottext">CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210008"><span id="local-6989586621679210010"><span class="annot"><span class="annottext">CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
 (CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool)
 -&gt; (CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool)
 -&gt; Eq CreateTagsResponse
@@ -341,7 +341,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
 == :: CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
 $c== :: CreateTagsResponse -&gt; CreateTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209991"><span id="local-6989586621679209993"><span id="local-6989586621679209995"><span id="local-6989586621679209997"><span class="annot"><span class="annottext">ReadPrec [CreateTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210000"><span id="local-6989586621679210002"><span id="local-6989586621679210004"><span id="local-6989586621679210006"><span class="annot"><span class="annottext">ReadPrec [CreateTagsResponse]
 ReadPrec CreateTagsResponse
 Int -&gt; ReadS CreateTagsResponse
 ReadS [CreateTagsResponse]
@@ -361,7 +361,7 @@ readList :: ReadS [CreateTagsResponse]
 $creadList :: ReadS [CreateTagsResponse]
 readsPrec :: Int -&gt; ReadS CreateTagsResponse
 $creadsPrec :: Int -&gt; ReadS CreateTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209985"><span id="local-6989586621679209987"><span id="local-6989586621679209989"><span class="annot"><span class="annottext">Int -&gt; CreateTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209994"><span id="local-6989586621679209996"><span id="local-6989586621679209998"><span class="annot"><span class="annottext">Int -&gt; CreateTagsResponse -&gt; ShowS
 [CreateTagsResponse] -&gt; ShowS
 CreateTagsResponse -&gt; String
 (Int -&gt; CreateTagsResponse -&gt; ShowS)
@@ -401,12 +401,12 @@ $cfrom :: forall x. CreateTagsResponse -&gt; Rep CreateTagsResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newCreateTagsResponse"><span class="annot"><span class="annottext">newCreateTagsResponse :: Int -&gt; CreateTagsResponse
-</span><a href="Network.AWS.Discovery.CreateTags.html#newCreateTagsResponse"><span class="hs-identifier hs-var hs-var">newCreateTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679209982"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.CreateTags.html#newCreateTagsResponse"><span class="hs-identifier hs-var hs-var">newCreateTagsResponse</span></a></span></span><span> </span><span id="local-6989586621679209991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">CreateTagsResponse' :: Int -&gt; CreateTagsResponse
 </span><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-type">CreateTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTagsResponse' :: Int
 </span><a href="Network.AWS.Discovery.CreateTags.html#%24sel%3AhttpStatus%3ACreateTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679209991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#createTagsResponse_httpStatus"><span class="hs-identifier hs-type">createTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -415,16 +415,16 @@ $cfrom :: forall x. CreateTagsResponse -&gt; Rep CreateTagsResponse x
 -&gt; (CreateTagsResponse -&gt; Int -&gt; CreateTagsResponse)
 -&gt; Lens CreateTagsResponse CreateTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-type">CreateTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209981"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-type">CreateTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209990"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateTagsResponse' :: CreateTagsResponse -&gt; Int
-</span><a href="#local-6989586621679209981"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209981"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209980"><span class="annot"><span class="annottext">s :: CreateTagsResponse
-</span><a href="#local-6989586621679209980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-type">CreateTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209979"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTagsResponse
-</span><a href="#local-6989586621679209980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTagsResponse' :: Int
+</span><a href="#local-6989586621679209990"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209990"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209989"><span class="annot"><span class="annottext">s :: CreateTagsResponse
+</span><a href="#local-6989586621679209989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse%27"><span class="hs-identifier hs-type">CreateTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209988"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTagsResponse
+</span><a href="#local-6989586621679209989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTagsResponse' :: Int
 </span><a href="Network.AWS.Discovery.CreateTags.html#%24sel%3AhttpStatus%3ACreateTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209986"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.CreateTags.html#CreateTagsResponse"><span class="hs-identifier hs-type">CreateTagsResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

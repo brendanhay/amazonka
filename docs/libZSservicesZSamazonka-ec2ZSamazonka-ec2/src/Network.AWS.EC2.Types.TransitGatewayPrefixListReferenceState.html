@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681173308"><span id="local-6989586621681173309"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransitGatewayPrefixListReferenceState"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState.html#TransitGatewayPrefixListReferenceState"><span class="hs-identifier hs-var">TransitGatewayPrefixListReferenceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayPrefixListReferenceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState.html#TransitGatewayPrefixListReferenceState%27"><span class="hs-identifier hs-var">TransitGatewayPrefixListReferenceState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681173317"><span id="local-6989586621681173318"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransitGatewayPrefixListReferenceState"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState.html#TransitGatewayPrefixListReferenceState"><span class="hs-identifier hs-var">TransitGatewayPrefixListReferenceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayPrefixListReferenceState%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState.html#TransitGatewayPrefixListReferenceState%27"><span class="hs-identifier hs-var">TransitGatewayPrefixListReferenceState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransitGatewayPrefixListReferenceState"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState.html#fromTransitGatewayPrefixListReferenceState"><span class="hs-identifier hs-var hs-var">fromTransitGatewayPrefixListReferenceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681173300"><span id="local-6989586621681173302"><span id="local-6989586621681173304"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayPrefixListReferenceState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681173309"><span id="local-6989586621681173311"><span id="local-6989586621681173313"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayPrefixListReferenceState -&gt; ShowS
 [TransitGatewayPrefixListReferenceState] -&gt; ShowS
 TransitGatewayPrefixListReferenceState -&gt; String
 (Int -&gt; TransitGatewayPrefixListReferenceState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: TransitGatewayPrefixListReferenceState -&gt; String
 showsPrec :: Int -&gt; TransitGatewayPrefixListReferenceState -&gt; ShowS
 $cshowsPrec :: Int -&gt; TransitGatewayPrefixListReferenceState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681173291"><span id="local-6989586621681173293"><span id="local-6989586621681173295"><span id="local-6989586621681173297"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayPrefixListReferenceState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681173300"><span id="local-6989586621681173302"><span id="local-6989586621681173304"><span id="local-6989586621681173306"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayPrefixListReferenceState]
 ReadPrec TransitGatewayPrefixListReferenceState
 Int -&gt; ReadS TransitGatewayPrefixListReferenceState
 ReadS [TransitGatewayPrefixListReferenceState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [TransitGatewayPrefixListReferenceState]
 readsPrec :: Int -&gt; ReadS TransitGatewayPrefixListReferenceState
 $creadsPrec :: Int -&gt; ReadS TransitGatewayPrefixListReferenceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681173286"><span id="local-6989586621681173288"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681173295"><span id="local-6989586621681173297"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState
 -&gt; TransitGatewayPrefixListReferenceState -&gt; Bool
 (TransitGatewayPrefixListReferenceState
  -&gt; TransitGatewayPrefixListReferenceState -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: TransitGatewayPrefixListReferenceState
 $c== :: TransitGatewayPrefixListReferenceState
 -&gt; TransitGatewayPrefixListReferenceState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681173270"><span id="local-6989586621681173272"><span id="local-6989586621681173274"><span id="local-6989586621681173276"><span id="local-6989586621681173278"><span id="local-6989586621681173280"><span id="local-6989586621681173282"><span class="annot"><span class="annottext">Eq TransitGatewayPrefixListReferenceState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681173279"><span id="local-6989586621681173281"><span id="local-6989586621681173283"><span id="local-6989586621681173285"><span id="local-6989586621681173287"><span id="local-6989586621681173289"><span id="local-6989586621681173291"><span class="annot"><span class="annottext">Eq TransitGatewayPrefixListReferenceState
 Eq TransitGatewayPrefixListReferenceState
 -&gt; (TransitGatewayPrefixListReferenceState
     -&gt; TransitGatewayPrefixListReferenceState -&gt; Ordering)
@@ -186,7 +186,7 @@ TransitGatewayPrefixListReferenceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681173262"><span id="local-6989586621681173264"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayPrefixListReferenceState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681173271"><span id="local-6989586621681173273"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayPrefixListReferenceState -&gt; Int
 TransitGatewayPrefixListReferenceState -&gt; Int
 (Int -&gt; TransitGatewayPrefixListReferenceState -&gt; Int)
 -&gt; (TransitGatewayPrefixListReferenceState -&gt; Int)
@@ -197,56 +197,56 @@ $chash :: TransitGatewayPrefixListReferenceState -&gt; Int
 hashWithSalt :: Int -&gt; TransitGatewayPrefixListReferenceState -&gt; Int
 $chashWithSalt :: Int -&gt; TransitGatewayPrefixListReferenceState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681173259"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681173268"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; ()
 (TransitGatewayPrefixListReferenceState -&gt; ())
 -&gt; NFData TransitGatewayPrefixListReferenceState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TransitGatewayPrefixListReferenceState -&gt; ()
 $crnf :: TransitGatewayPrefixListReferenceState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681173256"><span class="annot"><span class="annottext">Text -&gt; Either String TransitGatewayPrefixListReferenceState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681173265"><span class="annot"><span class="annottext">Text -&gt; Either String TransitGatewayPrefixListReferenceState
 (Text -&gt; Either String TransitGatewayPrefixListReferenceState)
 -&gt; FromText TransitGatewayPrefixListReferenceState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TransitGatewayPrefixListReferenceState
 $cfromText :: Text -&gt; Either String TransitGatewayPrefixListReferenceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681173253"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681173262"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; Text
 (TransitGatewayPrefixListReferenceState -&gt; Text)
 -&gt; ToText TransitGatewayPrefixListReferenceState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TransitGatewayPrefixListReferenceState -&gt; Text
 $ctoText :: TransitGatewayPrefixListReferenceState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681173250"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681173259"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; ByteString
 (TransitGatewayPrefixListReferenceState -&gt; ByteString)
 -&gt; ToByteString TransitGatewayPrefixListReferenceState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TransitGatewayPrefixListReferenceState -&gt; ByteString
 $ctoBS :: TransitGatewayPrefixListReferenceState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681173247"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681173256"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; ByteStringBuilder
 (TransitGatewayPrefixListReferenceState -&gt; ByteStringBuilder)
 -&gt; ToLog TransitGatewayPrefixListReferenceState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TransitGatewayPrefixListReferenceState -&gt; ByteStringBuilder
 $cbuild :: TransitGatewayPrefixListReferenceState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681173244"><span class="annot"><span class="annottext">HeaderName -&gt; TransitGatewayPrefixListReferenceState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681173253"><span class="annot"><span class="annottext">HeaderName -&gt; TransitGatewayPrefixListReferenceState -&gt; [Header]
 (HeaderName -&gt; TransitGatewayPrefixListReferenceState -&gt; [Header])
 -&gt; ToHeader TransitGatewayPrefixListReferenceState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TransitGatewayPrefixListReferenceState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TransitGatewayPrefixListReferenceState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681173241"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681173250"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; QueryString
 (TransitGatewayPrefixListReferenceState -&gt; QueryString)
 -&gt; ToQuery TransitGatewayPrefixListReferenceState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TransitGatewayPrefixListReferenceState -&gt; QueryString
 $ctoQuery :: TransitGatewayPrefixListReferenceState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681173236"><span id="local-6989586621681173238"><span class="annot"><span class="annottext">Value -&gt; Parser [TransitGatewayPrefixListReferenceState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681173245"><span id="local-6989586621681173247"><span class="annot"><span class="annottext">Value -&gt; Parser [TransitGatewayPrefixListReferenceState]
 Value -&gt; Parser TransitGatewayPrefixListReferenceState
 (Value -&gt; Parser TransitGatewayPrefixListReferenceState)
 -&gt; (Value -&gt; Parser [TransitGatewayPrefixListReferenceState])
@@ -258,7 +258,7 @@ $cparseJSONList :: Value -&gt; Parser [TransitGatewayPrefixListReferenceState]
 parseJSON :: Value -&gt; Parser TransitGatewayPrefixListReferenceState
 $cparseJSON :: Value -&gt; Parser TransitGatewayPrefixListReferenceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681173231"><span id="local-6989586621681173233"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransitGatewayPrefixListReferenceState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681173240"><span id="local-6989586621681173242"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransitGatewayPrefixListReferenceState]
 FromJSONKeyFunction TransitGatewayPrefixListReferenceState
 FromJSONKeyFunction TransitGatewayPrefixListReferenceState
 -&gt; FromJSONKeyFunction [TransitGatewayPrefixListReferenceState]
@@ -270,7 +270,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TransitGatewayPrefixListReferenceState
 fromJSONKey :: FromJSONKeyFunction TransitGatewayPrefixListReferenceState
 $cfromJSONKey :: FromJSONKeyFunction TransitGatewayPrefixListReferenceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681173222"><span id="local-6989586621681173224"><span id="local-6989586621681173226"><span id="local-6989586621681173228"><span class="annot"><span class="annottext">[TransitGatewayPrefixListReferenceState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681173231"><span id="local-6989586621681173233"><span id="local-6989586621681173235"><span id="local-6989586621681173237"><span class="annot"><span class="annottext">[TransitGatewayPrefixListReferenceState] -&gt; Encoding
 [TransitGatewayPrefixListReferenceState] -&gt; Value
 TransitGatewayPrefixListReferenceState -&gt; Encoding
 TransitGatewayPrefixListReferenceState -&gt; Value
@@ -294,7 +294,7 @@ $ctoEncoding :: TransitGatewayPrefixListReferenceState -&gt; Encoding
 toJSON :: TransitGatewayPrefixListReferenceState -&gt; Value
 $ctoJSON :: TransitGatewayPrefixListReferenceState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681173217"><span id="local-6989586621681173219"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransitGatewayPrefixListReferenceState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681173226"><span id="local-6989586621681173228"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransitGatewayPrefixListReferenceState]
 ToJSONKeyFunction TransitGatewayPrefixListReferenceState
 ToJSONKeyFunction TransitGatewayPrefixListReferenceState
 -&gt; ToJSONKeyFunction [TransitGatewayPrefixListReferenceState]
@@ -306,14 +306,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TransitGatewayPrefixListReferenceState]
 toJSONKey :: ToJSONKeyFunction TransitGatewayPrefixListReferenceState
 $ctoJSONKey :: ToJSONKeyFunction TransitGatewayPrefixListReferenceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681173214"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransitGatewayPrefixListReferenceState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681173223"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransitGatewayPrefixListReferenceState
 ([Node] -&gt; Either String TransitGatewayPrefixListReferenceState)
 -&gt; FromXML TransitGatewayPrefixListReferenceState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TransitGatewayPrefixListReferenceState
 $cparseXML :: [Node] -&gt; Either String TransitGatewayPrefixListReferenceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681173211"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681173220"><span class="annot"><span class="annottext">TransitGatewayPrefixListReferenceState -&gt; XML
 (TransitGatewayPrefixListReferenceState -&gt; XML)
 -&gt; ToXML TransitGatewayPrefixListReferenceState
 forall a. (a -&gt; XML) -&gt; ToXML a

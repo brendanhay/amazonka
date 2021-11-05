@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span id="local-6989586621679466209"><span id="local-6989586621679466210"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UlimitName"><span class="annot"><a href="Network.AWS.ECS.Types.UlimitName.html#UlimitName"><span class="hs-identifier hs-var">UlimitName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UlimitName%27"><span class="annot"><a href="Network.AWS.ECS.Types.UlimitName.html#UlimitName%27"><span class="hs-identifier hs-var">UlimitName'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679466218"><span id="local-6989586621679466219"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UlimitName"><span class="annot"><a href="Network.AWS.ECS.Types.UlimitName.html#UlimitName"><span class="hs-identifier hs-var">UlimitName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UlimitName%27"><span class="annot"><a href="Network.AWS.ECS.Types.UlimitName.html#UlimitName%27"><span class="hs-identifier hs-var">UlimitName'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUlimitName"><span class="annot"><span class="annottext">UlimitName -&gt; Text
 </span><a href="Network.AWS.ECS.Types.UlimitName.html#fromUlimitName"><span class="hs-identifier hs-var hs-var">fromUlimitName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679466201"><span id="local-6989586621679466203"><span id="local-6989586621679466205"><span class="annot"><span class="annottext">Int -&gt; UlimitName -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679466210"><span id="local-6989586621679466212"><span id="local-6989586621679466214"><span class="annot"><span class="annottext">Int -&gt; UlimitName -&gt; ShowS
 [UlimitName] -&gt; ShowS
 UlimitName -&gt; String
 (Int -&gt; UlimitName -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: UlimitName -&gt; String
 showsPrec :: Int -&gt; UlimitName -&gt; ShowS
 $cshowsPrec :: Int -&gt; UlimitName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679466192"><span id="local-6989586621679466194"><span id="local-6989586621679466196"><span id="local-6989586621679466198"><span class="annot"><span class="annottext">ReadPrec [UlimitName]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679466201"><span id="local-6989586621679466203"><span id="local-6989586621679466205"><span id="local-6989586621679466207"><span class="annot"><span class="annottext">ReadPrec [UlimitName]
 ReadPrec UlimitName
 Int -&gt; ReadS UlimitName
 ReadS [UlimitName]
@@ -85,7 +85,7 @@ $creadList :: ReadS [UlimitName]
 readsPrec :: Int -&gt; ReadS UlimitName
 $creadsPrec :: Int -&gt; ReadS UlimitName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679466187"><span id="local-6989586621679466189"><span class="annot"><span class="annottext">UlimitName -&gt; UlimitName -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679466196"><span id="local-6989586621679466198"><span class="annot"><span class="annottext">UlimitName -&gt; UlimitName -&gt; Bool
 (UlimitName -&gt; UlimitName -&gt; Bool)
 -&gt; (UlimitName -&gt; UlimitName -&gt; Bool) -&gt; Eq UlimitName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ $c/= :: UlimitName -&gt; UlimitName -&gt; Bool
 == :: UlimitName -&gt; UlimitName -&gt; Bool
 $c== :: UlimitName -&gt; UlimitName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679466171"><span id="local-6989586621679466173"><span id="local-6989586621679466175"><span id="local-6989586621679466177"><span id="local-6989586621679466179"><span id="local-6989586621679466181"><span id="local-6989586621679466183"><span class="annot"><span class="annottext">Eq UlimitName
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679466180"><span id="local-6989586621679466182"><span id="local-6989586621679466184"><span id="local-6989586621679466186"><span id="local-6989586621679466188"><span id="local-6989586621679466190"><span id="local-6989586621679466192"><span class="annot"><span class="annottext">Eq UlimitName
 Eq UlimitName
 -&gt; (UlimitName -&gt; UlimitName -&gt; Ordering)
 -&gt; (UlimitName -&gt; UlimitName -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. UlimitName -&gt; Rep UlimitName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679466163"><span id="local-6989586621679466165"><span class="annot"><span class="annottext">Int -&gt; UlimitName -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679466172"><span id="local-6989586621679466174"><span class="annot"><span class="annottext">Int -&gt; UlimitName -&gt; Int
 UlimitName -&gt; Int
 (Int -&gt; UlimitName -&gt; Int)
 -&gt; (UlimitName -&gt; Int) -&gt; Hashable UlimitName
@@ -154,49 +154,49 @@ $chash :: UlimitName -&gt; Int
 hashWithSalt :: Int -&gt; UlimitName -&gt; Int
 $chashWithSalt :: Int -&gt; UlimitName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679466160"><span class="annot"><span class="annottext">UlimitName -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679466169"><span class="annot"><span class="annottext">UlimitName -&gt; ()
 (UlimitName -&gt; ()) -&gt; NFData UlimitName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UlimitName -&gt; ()
 $crnf :: UlimitName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679466157"><span class="annot"><span class="annottext">Text -&gt; Either String UlimitName
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679466166"><span class="annot"><span class="annottext">Text -&gt; Either String UlimitName
 (Text -&gt; Either String UlimitName) -&gt; FromText UlimitName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UlimitName
 $cfromText :: Text -&gt; Either String UlimitName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679466154"><span class="annot"><span class="annottext">UlimitName -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679466163"><span class="annot"><span class="annottext">UlimitName -&gt; Text
 (UlimitName -&gt; Text) -&gt; ToText UlimitName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UlimitName -&gt; Text
 $ctoText :: UlimitName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679466151"><span class="annot"><span class="annottext">UlimitName -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679466160"><span class="annot"><span class="annottext">UlimitName -&gt; ByteString
 (UlimitName -&gt; ByteString) -&gt; ToByteString UlimitName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UlimitName -&gt; ByteString
 $ctoBS :: UlimitName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679466148"><span class="annot"><span class="annottext">UlimitName -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679466157"><span class="annot"><span class="annottext">UlimitName -&gt; ByteStringBuilder
 (UlimitName -&gt; ByteStringBuilder) -&gt; ToLog UlimitName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UlimitName -&gt; ByteStringBuilder
 $cbuild :: UlimitName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679466145"><span class="annot"><span class="annottext">HeaderName -&gt; UlimitName -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679466154"><span class="annot"><span class="annottext">HeaderName -&gt; UlimitName -&gt; [Header]
 (HeaderName -&gt; UlimitName -&gt; [Header]) -&gt; ToHeader UlimitName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UlimitName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UlimitName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679466142"><span class="annot"><span class="annottext">UlimitName -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679466151"><span class="annot"><span class="annottext">UlimitName -&gt; QueryString
 (UlimitName -&gt; QueryString) -&gt; ToQuery UlimitName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UlimitName -&gt; QueryString
 $ctoQuery :: UlimitName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679466137"><span id="local-6989586621679466139"><span class="annot"><span class="annottext">Value -&gt; Parser [UlimitName]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679466146"><span id="local-6989586621679466148"><span class="annot"><span class="annottext">Value -&gt; Parser [UlimitName]
 Value -&gt; Parser UlimitName
 (Value -&gt; Parser UlimitName)
 -&gt; (Value -&gt; Parser [UlimitName]) -&gt; FromJSON UlimitName
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [UlimitName]
 parseJSON :: Value -&gt; Parser UlimitName
 $cparseJSON :: Value -&gt; Parser UlimitName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679466132"><span id="local-6989586621679466134"><span class="annot"><span class="annottext">FromJSONKeyFunction [UlimitName]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679466141"><span id="local-6989586621679466143"><span class="annot"><span class="annottext">FromJSONKeyFunction [UlimitName]
 FromJSONKeyFunction UlimitName
 FromJSONKeyFunction UlimitName
 -&gt; FromJSONKeyFunction [UlimitName] -&gt; FromJSONKey UlimitName
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UlimitName]
 fromJSONKey :: FromJSONKeyFunction UlimitName
 $cfromJSONKey :: FromJSONKeyFunction UlimitName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679466123"><span id="local-6989586621679466125"><span id="local-6989586621679466127"><span id="local-6989586621679466129"><span class="annot"><span class="annottext">[UlimitName] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679466132"><span id="local-6989586621679466134"><span id="local-6989586621679466136"><span id="local-6989586621679466138"><span class="annot"><span class="annottext">[UlimitName] -&gt; Encoding
 [UlimitName] -&gt; Value
 UlimitName -&gt; Encoding
 UlimitName -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: UlimitName -&gt; Encoding
 toJSON :: UlimitName -&gt; Value
 $ctoJSON :: UlimitName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679466118"><span id="local-6989586621679466120"><span class="annot"><span class="annottext">ToJSONKeyFunction [UlimitName]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679466127"><span id="local-6989586621679466129"><span class="annot"><span class="annottext">ToJSONKeyFunction [UlimitName]
 ToJSONKeyFunction UlimitName
 ToJSONKeyFunction UlimitName
 -&gt; ToJSONKeyFunction [UlimitName] -&gt; ToJSONKey UlimitName
@@ -253,13 +253,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UlimitName]
 toJSONKey :: ToJSONKeyFunction UlimitName
 $ctoJSONKey :: ToJSONKeyFunction UlimitName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679466115"><span class="annot"><span class="annottext">[Node] -&gt; Either String UlimitName
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679466124"><span class="annot"><span class="annottext">[Node] -&gt; Either String UlimitName
 ([Node] -&gt; Either String UlimitName) -&gt; FromXML UlimitName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UlimitName
 $cparseXML :: [Node] -&gt; Either String UlimitName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679466112"><span class="annot"><span class="annottext">UlimitName -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679466121"><span class="annot"><span class="annottext">UlimitName -&gt; XML
 (UlimitName -&gt; XML) -&gt; ToXML UlimitName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UlimitName -&gt; XML

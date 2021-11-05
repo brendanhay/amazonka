@@ -68,7 +68,7 @@
 </span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newHeadBucket' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679571856"><span id="local-6989586621679571857"></span></span><span class="hs-keyword">data</span><span> </span><span id="HeadBucket"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-var">HeadBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HeadBucket%27"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-var">HeadBucket'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679571865"><span id="local-6989586621679571866"></span></span><span class="hs-keyword">data</span><span> </span><span id="HeadBucket"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-var">HeadBucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HeadBucket%27"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-var">HeadBucket'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
@@ -97,7 +97,7 @@
 </span><span id="line-96"></span><span>    </span><span id="%24sel%3Abucket%3AHeadBucket%27"><span class="annot"><span class="annottext">HeadBucket -&gt; BucketName
 </span><a href="Network.AWS.S3.HeadBucket.html#%24sel%3Abucket%3AHeadBucket%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679571849"><span id="local-6989586621679571851"><span class="annot"><span class="annottext">HeadBucket -&gt; HeadBucket -&gt; Bool
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679571858"><span id="local-6989586621679571860"><span class="annot"><span class="annottext">HeadBucket -&gt; HeadBucket -&gt; Bool
 (HeadBucket -&gt; HeadBucket -&gt; Bool)
 -&gt; (HeadBucket -&gt; HeadBucket -&gt; Bool) -&gt; Eq HeadBucket
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HeadBucket -&gt; HeadBucket -&gt; Bool
 == :: HeadBucket -&gt; HeadBucket -&gt; Bool
 $c== :: HeadBucket -&gt; HeadBucket -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571840"><span id="local-6989586621679571842"><span id="local-6989586621679571844"><span id="local-6989586621679571846"><span class="annot"><span class="annottext">ReadPrec [HeadBucket]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571849"><span id="local-6989586621679571851"><span id="local-6989586621679571853"><span id="local-6989586621679571855"><span class="annot"><span class="annottext">ReadPrec [HeadBucket]
 ReadPrec HeadBucket
 Int -&gt; ReadS HeadBucket
 ReadS [HeadBucket]
@@ -125,7 +125,7 @@ readList :: ReadS [HeadBucket]
 $creadList :: ReadS [HeadBucket]
 readsPrec :: Int -&gt; ReadS HeadBucket
 $creadsPrec :: Int -&gt; ReadS HeadBucket
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571833"><span id="local-6989586621679571835"><span id="local-6989586621679571837"><span class="annot"><span class="annottext">Int -&gt; HeadBucket -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571842"><span id="local-6989586621679571844"><span id="local-6989586621679571846"><span class="annot"><span class="annottext">Int -&gt; HeadBucket -&gt; ShowS
 [HeadBucket] -&gt; ShowS
 HeadBucket -&gt; String
 (Int -&gt; HeadBucket -&gt; ShowS)
@@ -187,8 +187,8 @@ $cfrom :: forall x. HeadBucket -&gt; Rep HeadBucket x
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span>
 </span><span id="line-136"></span><span id="newHeadBucket"><span class="annot"><span class="annottext">newHeadBucket :: BucketName -&gt; HeadBucket
-</span><a href="Network.AWS.S3.HeadBucket.html#newHeadBucket"><span class="hs-identifier hs-var hs-var">newHeadBucket</span></a></span></span><span> </span><span id="local-6989586621679571828"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571828"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.HeadBucket.html#newHeadBucket"><span class="hs-identifier hs-var hs-var">newHeadBucket</span></a></span></span><span> </span><span id="local-6989586621679571837"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679571837"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">HeadBucket' :: Maybe Text -&gt; BucketName -&gt; HeadBucket
 </span><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:HeadBucket' :: Maybe Text
@@ -197,7 +197,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:HeadBucket' :: BucketName
 </span><a href="Network.AWS.S3.HeadBucket.html#%24sel%3Abucket%3AHeadBucket%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571828"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679571837"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
@@ -209,16 +209,16 @@ forall a. Maybe a
 -&gt; (HeadBucket -&gt; Maybe Text -&gt; HeadBucket)
 -&gt; Lens HeadBucket HeadBucket (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571825"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571834"><span class="annot"><span class="annottext">Maybe Text
 expectedBucketOwner :: Maybe Text
 $sel:expectedBucketOwner:HeadBucket' :: HeadBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679571825"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571825"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571824"><span class="annot"><span class="annottext">s :: HeadBucket
-</span><a href="#local-6989586621679571824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571823"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HeadBucket
-</span><a href="#local-6989586621679571824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:HeadBucket' :: Maybe Text
+</span><a href="#local-6989586621679571834"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679571834"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571833"><span class="annot"><span class="annottext">s :: HeadBucket
+</span><a href="#local-6989586621679571833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571832"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679571832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HeadBucket
+</span><a href="#local-6989586621679571833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:HeadBucket' :: Maybe Text
 </span><a href="Network.AWS.S3.HeadBucket.html#%24sel%3AexpectedBucketOwner%3AHeadBucket%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679571832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The bucket name.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
@@ -246,20 +246,20 @@ $sel:expectedBucketOwner:HeadBucket' :: HeadBucket -&gt; Maybe Text
 -&gt; (HeadBucket -&gt; BucketName -&gt; HeadBucket)
 -&gt; Lens HeadBucket HeadBucket BucketName BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571822"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571831"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:HeadBucket' :: HeadBucket -&gt; BucketName
-</span><a href="#local-6989586621679571822"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571822"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571821"><span class="annot"><span class="annottext">s :: HeadBucket
-</span><a href="#local-6989586621679571821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571820"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HeadBucket
-</span><a href="#local-6989586621679571821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:HeadBucket' :: BucketName
+</span><a href="#local-6989586621679571831"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679571831"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679571830"><span class="annot"><span class="annottext">s :: HeadBucket
+</span><a href="#local-6989586621679571830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679571829"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679571829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HeadBucket
+</span><a href="#local-6989586621679571830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:HeadBucket' :: BucketName
 </span><a href="Network.AWS.S3.HeadBucket.html#%24sel%3Abucket%3AHeadBucket%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679571829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse"><span class="hs-identifier hs-type">HeadBucketResponse</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679571816"><span class="annot"><span class="annottext">request :: HeadBucket -&gt; Request HeadBucket
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679571825"><span class="annot"><span class="annottext">request :: HeadBucket -&gt; Request HeadBucket
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">Request HeadBucket -&gt; Request HeadBucket
 forall a. Request a -&gt; Request a
@@ -273,7 +273,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.head'</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679571810"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679571819"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy HeadBucket
 -&gt; ClientResponse ClientBody
@@ -296,19 +296,19 @@ AWSResponse a
 HeadBucketResponse
 </span><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse%27"><span class="hs-identifier hs-var">HeadBucketResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571803"><span id="local-6989586621679571805"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571812"><span id="local-6989586621679571814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span></span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679571796"><span class="annot"><span class="annottext">toHeaders :: HeadBucket -&gt; [Header]
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571793"><span id="local-6989586621679571794"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679571805"><span class="annot"><span class="annottext">toHeaders :: HeadBucket -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571802"><span id="local-6989586621679571803"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:HeadBucket' :: HeadBucket -&gt; BucketName
 $sel:expectedBucketOwner:HeadBucket' :: HeadBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679571793"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679571802"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -317,28 +317,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679571794"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><a href="#local-6989586621679571803"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679571789"><span class="annot"><span class="annottext">toPath :: HeadBucket -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571786"><span id="local-6989586621679571787"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679571798"><span class="annot"><span class="annottext">toPath :: HeadBucket -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket%27"><span class="hs-identifier hs-type">HeadBucket'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679571795"><span id="local-6989586621679571796"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
 expectedBucketOwner :: Maybe Text
 $sel:bucket:HeadBucket' :: HeadBucket -&gt; BucketName
 $sel:expectedBucketOwner:HeadBucket' :: HeadBucket -&gt; Maybe Text
-</span><a href="#local-6989586621679571786"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679571795"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679571786"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679571795"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucket"><span class="hs-identifier hs-type">HeadBucket</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679571782"><span class="annot"><span class="annottext">toQuery :: HeadBucket -&gt; QueryString
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679571791"><span class="annot"><span class="annottext">toQuery :: HeadBucket -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; HeadBucket -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -346,10 +346,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | /See:/ 'newHeadBucketResponse' smart constructor.</span><span>
-</span><span id="line-197"></span><span id="local-6989586621679571778"><span id="local-6989586621679571779"></span></span><span class="hs-keyword">data</span><span> </span><span id="HeadBucketResponse"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse"><span class="hs-identifier hs-var">HeadBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HeadBucketResponse%27"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse%27"><span class="hs-identifier hs-var">HeadBucketResponse'</span></a></span></span><span>
+</span><span id="line-197"></span><span id="local-6989586621679571787"><span id="local-6989586621679571788"></span></span><span class="hs-keyword">data</span><span> </span><span id="HeadBucketResponse"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse"><span class="hs-identifier hs-var">HeadBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HeadBucketResponse%27"><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse%27"><span class="hs-identifier hs-var">HeadBucketResponse'</span></a></span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679571774"><span id="local-6989586621679571776"><span class="annot"><span class="annottext">HeadBucketResponse -&gt; HeadBucketResponse -&gt; Bool
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679571783"><span id="local-6989586621679571785"><span class="annot"><span class="annottext">HeadBucketResponse -&gt; HeadBucketResponse -&gt; Bool
 (HeadBucketResponse -&gt; HeadBucketResponse -&gt; Bool)
 -&gt; (HeadBucketResponse -&gt; HeadBucketResponse -&gt; Bool)
 -&gt; Eq HeadBucketResponse
@@ -358,7 +358,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HeadBucketResponse -&gt; HeadBucketResponse -&gt; Bool
 == :: HeadBucketResponse -&gt; HeadBucketResponse -&gt; Bool
 $c== :: HeadBucketResponse -&gt; HeadBucketResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571766"><span id="local-6989586621679571768"><span id="local-6989586621679571770"><span id="local-6989586621679571772"><span class="annot"><span class="annottext">ReadPrec [HeadBucketResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571775"><span id="local-6989586621679571777"><span id="local-6989586621679571779"><span id="local-6989586621679571781"><span class="annot"><span class="annottext">ReadPrec [HeadBucketResponse]
 ReadPrec HeadBucketResponse
 Int -&gt; ReadS HeadBucketResponse
 ReadS [HeadBucketResponse]
@@ -378,7 +378,7 @@ readList :: ReadS [HeadBucketResponse]
 $creadList :: ReadS [HeadBucketResponse]
 readsPrec :: Int -&gt; ReadS HeadBucketResponse
 $creadsPrec :: Int -&gt; ReadS HeadBucketResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571760"><span id="local-6989586621679571762"><span id="local-6989586621679571764"><span class="annot"><span class="annottext">Int -&gt; HeadBucketResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679571769"><span id="local-6989586621679571771"><span id="local-6989586621679571773"><span class="annot"><span class="annottext">Int -&gt; HeadBucketResponse -&gt; ShowS
 [HeadBucketResponse] -&gt; ShowS
 HeadBucketResponse -&gt; String
 (Int -&gt; HeadBucketResponse -&gt; ShowS)
@@ -414,5 +414,5 @@ $cfrom :: forall x. HeadBucketResponse -&gt; Rep HeadBucketResponse x
 </span><a href="Network.AWS.S3.HeadBucket.html#newHeadBucketResponse"><span class="hs-identifier hs-var hs-var">newHeadBucketResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeadBucketResponse
 </span><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse%27"><span class="hs-identifier hs-var">HeadBucketResponse'</span></a></span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse"><span class="hs-identifier hs-type">HeadBucketResponse</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679571765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.HeadBucket.html#HeadBucketResponse"><span class="hs-identifier hs-type">HeadBucketResponse</span></a></span></span><span>
 </span><span id="line-211"></span></pre></body></html>

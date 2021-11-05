@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | The input for the StartConfigurationRecorder action.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newStartConfigurationRecorder' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679412868"><span id="local-6989586621679412869"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartConfigurationRecorder"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-var">StartConfigurationRecorder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartConfigurationRecorder%27"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-var">StartConfigurationRecorder'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679412877"><span id="local-6989586621679412878"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartConfigurationRecorder"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-var">StartConfigurationRecorder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartConfigurationRecorder%27"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-var">StartConfigurationRecorder'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the recorder object that records each configuration change</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- made to the resources.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AconfigurationRecorderName%3AStartConfigurationRecorder%27"><span class="annot"><span class="annottext">StartConfigurationRecorder -&gt; Text
 </span><a href="Network.AWS.Config.StartConfigurationRecorder.html#%24sel%3AconfigurationRecorderName%3AStartConfigurationRecorder%27"><span class="hs-identifier hs-var hs-var">configurationRecorderName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412862"><span id="local-6989586621679412864"><span class="annot"><span class="annottext">StartConfigurationRecorder -&gt; StartConfigurationRecorder -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412871"><span id="local-6989586621679412873"><span class="annot"><span class="annottext">StartConfigurationRecorder -&gt; StartConfigurationRecorder -&gt; Bool
 (StartConfigurationRecorder -&gt; StartConfigurationRecorder -&gt; Bool)
 -&gt; (StartConfigurationRecorder
     -&gt; StartConfigurationRecorder -&gt; Bool)
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartConfigurationRecorder -&gt; StartConfigurationRecorder -&gt; Bool
 == :: StartConfigurationRecorder -&gt; StartConfigurationRecorder -&gt; Bool
 $c== :: StartConfigurationRecorder -&gt; StartConfigurationRecorder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412853"><span id="local-6989586621679412855"><span id="local-6989586621679412857"><span id="local-6989586621679412859"><span class="annot"><span class="annottext">ReadPrec [StartConfigurationRecorder]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412862"><span id="local-6989586621679412864"><span id="local-6989586621679412866"><span id="local-6989586621679412868"><span class="annot"><span class="annottext">ReadPrec [StartConfigurationRecorder]
 ReadPrec StartConfigurationRecorder
 Int -&gt; ReadS StartConfigurationRecorder
 ReadS [StartConfigurationRecorder]
@@ -85,7 +85,7 @@ readList :: ReadS [StartConfigurationRecorder]
 $creadList :: ReadS [StartConfigurationRecorder]
 readsPrec :: Int -&gt; ReadS StartConfigurationRecorder
 $creadsPrec :: Int -&gt; ReadS StartConfigurationRecorder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412846"><span id="local-6989586621679412848"><span id="local-6989586621679412850"><span class="annot"><span class="annottext">Int -&gt; StartConfigurationRecorder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412855"><span id="local-6989586621679412857"><span id="local-6989586621679412859"><span class="annot"><span class="annottext">Int -&gt; StartConfigurationRecorder -&gt; ShowS
 [StartConfigurationRecorder] -&gt; ShowS
 StartConfigurationRecorder -&gt; String
 (Int -&gt; StartConfigurationRecorder -&gt; ShowS)
@@ -133,14 +133,14 @@ StartConfigurationRecorder -&gt; Rep StartConfigurationRecorder x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span>
 </span><span id="line-73"></span><span id="newStartConfigurationRecorder"><span class="annot"><span class="annottext">newStartConfigurationRecorder :: Text -&gt; StartConfigurationRecorder
 </span><a href="Network.AWS.Config.StartConfigurationRecorder.html#newStartConfigurationRecorder"><span class="hs-identifier hs-var hs-var">newStartConfigurationRecorder</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679412841"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412841"><span class="hs-identifier hs-var">pConfigurationRecorderName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679412850"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412850"><span class="hs-identifier hs-var">pConfigurationRecorderName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">StartConfigurationRecorder' :: Text -&gt; StartConfigurationRecorder
 </span><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-type">StartConfigurationRecorder'</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configurationRecorderName:StartConfigurationRecorder' :: Text
 </span><a href="Network.AWS.Config.StartConfigurationRecorder.html#%24sel%3AconfigurationRecorderName%3AStartConfigurationRecorder%27"><span class="hs-identifier hs-var">configurationRecorderName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412841"><span class="hs-identifier hs-var">pConfigurationRecorderName_</span></a></span><span>
+</span><a href="#local-6989586621679412850"><span class="hs-identifier hs-var">pConfigurationRecorderName_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of the recorder object that records each configuration change</span><span>
@@ -154,28 +154,28 @@ StartConfigurationRecorder -&gt; Rep StartConfigurationRecorder x
 -&gt; Lens
      StartConfigurationRecorder StartConfigurationRecorder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-type">StartConfigurationRecorder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412838"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-type">StartConfigurationRecorder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412847"><span class="annot"><span class="annottext">Text
 configurationRecorderName :: Text
 $sel:configurationRecorderName:StartConfigurationRecorder' :: StartConfigurationRecorder -&gt; Text
-</span><a href="#local-6989586621679412838"><span class="hs-identifier hs-var hs-var">configurationRecorderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412838"><span class="hs-identifier hs-var">configurationRecorderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412837"><span class="annot"><span class="annottext">s :: StartConfigurationRecorder
-</span><a href="#local-6989586621679412837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-type">StartConfigurationRecorder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412836"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartConfigurationRecorder
-</span><a href="#local-6989586621679412837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationRecorderName:StartConfigurationRecorder' :: Text
+</span><a href="#local-6989586621679412847"><span class="hs-identifier hs-var hs-var">configurationRecorderName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412847"><span class="hs-identifier hs-var">configurationRecorderName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412846"><span class="annot"><span class="annottext">s :: StartConfigurationRecorder
+</span><a href="#local-6989586621679412846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-type">StartConfigurationRecorder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412845"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartConfigurationRecorder
+</span><a href="#local-6989586621679412846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationRecorderName:StartConfigurationRecorder' :: Text
 </span><a href="Network.AWS.Config.StartConfigurationRecorder.html#%24sel%3AconfigurationRecorderName%3AStartConfigurationRecorder%27"><span class="hs-identifier hs-var">configurationRecorderName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse"><span class="hs-identifier hs-type">StartConfigurationRecorderResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679412832"><span class="annot"><span class="annottext">request :: StartConfigurationRecorder -&gt; Request StartConfigurationRecorder
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679412841"><span class="annot"><span class="annottext">request :: StartConfigurationRecorder -&gt; Request StartConfigurationRecorder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; StartConfigurationRecorder -&gt; Request StartConfigurationRecorder
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679412828"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679412837"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartConfigurationRecorder
 -&gt; ClientResponse ClientBody
@@ -202,12 +202,12 @@ AWSResponse a
 StartConfigurationRecorderResponse
 </span><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse%27"><span class="hs-identifier hs-var">StartConfigurationRecorderResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412821"><span id="local-6989586621679412823"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412830"><span id="local-6989586621679412832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679412814"><span class="annot"><span class="annottext">toHeaders :: StartConfigurationRecorder -&gt; [Header]
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679412823"><span class="annot"><span class="annottext">toHeaders :: StartConfigurationRecorder -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StartConfigurationRecorder -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -234,12 +234,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412804"><span id="local-6989586621679412806"><span id="local-6989586621679412808"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679412802"><span class="annot"><span class="annottext">toJSON :: StartConfigurationRecorder -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-type">StartConfigurationRecorder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412800"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412813"><span id="local-6989586621679412815"><span id="local-6989586621679412817"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679412811"><span class="annot"><span class="annottext">toJSON :: StartConfigurationRecorder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder%27"><span class="hs-identifier hs-type">StartConfigurationRecorder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412809"><span class="annot"><span class="annottext">Text
 configurationRecorderName :: Text
 $sel:configurationRecorderName:StartConfigurationRecorder' :: StartConfigurationRecorder -&gt; Text
-</span><a href="#local-6989586621679412800"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679412809"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -253,20 +253,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-119"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412800"><span class="hs-identifier hs-var">configurationRecorderName</span></a></span><span>
+</span><a href="#local-6989586621679412809"><span class="hs-identifier hs-var">configurationRecorderName</span></a></span><span>
 </span><span id="line-120"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679412794"><span class="annot"><span class="annottext">toPath :: StartConfigurationRecorder -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679412803"><span class="annot"><span class="annottext">toPath :: StartConfigurationRecorder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartConfigurationRecorder -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorder"><span class="hs-identifier hs-type">StartConfigurationRecorder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679412790"><span class="annot"><span class="annottext">toQuery :: StartConfigurationRecorder -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679412799"><span class="annot"><span class="annottext">toQuery :: StartConfigurationRecorder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartConfigurationRecorder -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -274,10 +274,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newStartConfigurationRecorderResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679412787"><span id="local-6989586621679412788"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartConfigurationRecorderResponse"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse"><span class="hs-identifier hs-var">StartConfigurationRecorderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartConfigurationRecorderResponse%27"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse%27"><span class="hs-identifier hs-var">StartConfigurationRecorderResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679412796"><span id="local-6989586621679412797"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartConfigurationRecorderResponse"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse"><span class="hs-identifier hs-var">StartConfigurationRecorderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartConfigurationRecorderResponse%27"><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse%27"><span class="hs-identifier hs-var">StartConfigurationRecorderResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412783"><span id="local-6989586621679412785"><span class="annot"><span class="annottext">StartConfigurationRecorderResponse
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412792"><span id="local-6989586621679412794"><span class="annot"><span class="annottext">StartConfigurationRecorderResponse
 -&gt; StartConfigurationRecorderResponse -&gt; Bool
 (StartConfigurationRecorderResponse
  -&gt; StartConfigurationRecorderResponse -&gt; Bool)
@@ -293,7 +293,7 @@ $c/= :: StartConfigurationRecorderResponse
 -&gt; StartConfigurationRecorderResponse -&gt; Bool
 $c== :: StartConfigurationRecorderResponse
 -&gt; StartConfigurationRecorderResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412775"><span id="local-6989586621679412777"><span id="local-6989586621679412779"><span id="local-6989586621679412781"><span class="annot"><span class="annottext">ReadPrec [StartConfigurationRecorderResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412784"><span id="local-6989586621679412786"><span id="local-6989586621679412788"><span id="local-6989586621679412790"><span class="annot"><span class="annottext">ReadPrec [StartConfigurationRecorderResponse]
 ReadPrec StartConfigurationRecorderResponse
 Int -&gt; ReadS StartConfigurationRecorderResponse
 ReadS [StartConfigurationRecorderResponse]
@@ -313,7 +313,7 @@ readList :: ReadS [StartConfigurationRecorderResponse]
 $creadList :: ReadS [StartConfigurationRecorderResponse]
 readsPrec :: Int -&gt; ReadS StartConfigurationRecorderResponse
 $creadsPrec :: Int -&gt; ReadS StartConfigurationRecorderResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412769"><span id="local-6989586621679412771"><span id="local-6989586621679412773"><span class="annot"><span class="annottext">Int -&gt; StartConfigurationRecorderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412778"><span id="local-6989586621679412780"><span id="local-6989586621679412782"><span class="annot"><span class="annottext">Int -&gt; StartConfigurationRecorderResponse -&gt; ShowS
 [StartConfigurationRecorderResponse] -&gt; ShowS
 StartConfigurationRecorderResponse -&gt; String
 (Int -&gt; StartConfigurationRecorderResponse -&gt; ShowS)
@@ -363,6 +363,6 @@ StartConfigurationRecorderResponse
 </span><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse%27"><span class="hs-identifier hs-var">StartConfigurationRecorderResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679412765"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679412774"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.StartConfigurationRecorder.html#StartConfigurationRecorderResponse"><span class="hs-identifier hs-type">StartConfigurationRecorderResponse</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

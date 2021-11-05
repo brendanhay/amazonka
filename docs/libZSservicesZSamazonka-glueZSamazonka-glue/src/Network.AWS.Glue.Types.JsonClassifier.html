@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A classifier for @JSON@ content.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newJsonClassifier' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679688954"><span id="local-6989586621679688955"></span></span><span class="hs-keyword">data</span><span> </span><span id="JsonClassifier"><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-var">JsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JsonClassifier%27"><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-var">JsonClassifier'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679688963"><span id="local-6989586621679688964"></span></span><span class="hs-keyword">data</span><span> </span><span id="JsonClassifier"><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-var">JsonClassifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JsonClassifier%27"><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-var">JsonClassifier'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that this classifier was registered.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreationTime%3AJsonClassifier%27"><span class="annot"><span class="annottext">JsonClassifier -&gt; Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3AcreationTime%3AJsonClassifier%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AjsonPath%3AJsonClassifier%27"><span class="annot"><span class="annottext">JsonClassifier -&gt; Text
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3AjsonPath%3AJsonClassifier%27"><span class="hs-identifier hs-var hs-var">jsonPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679688944"><span id="local-6989586621679688946"><span class="annot"><span class="annottext">JsonClassifier -&gt; JsonClassifier -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679688953"><span id="local-6989586621679688955"><span class="annot"><span class="annottext">JsonClassifier -&gt; JsonClassifier -&gt; Bool
 (JsonClassifier -&gt; JsonClassifier -&gt; Bool)
 -&gt; (JsonClassifier -&gt; JsonClassifier -&gt; Bool) -&gt; Eq JsonClassifier
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JsonClassifier -&gt; JsonClassifier -&gt; Bool
 == :: JsonClassifier -&gt; JsonClassifier -&gt; Bool
 $c== :: JsonClassifier -&gt; JsonClassifier -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688935"><span id="local-6989586621679688937"><span id="local-6989586621679688939"><span id="local-6989586621679688941"><span class="annot"><span class="annottext">ReadPrec [JsonClassifier]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688944"><span id="local-6989586621679688946"><span id="local-6989586621679688948"><span id="local-6989586621679688950"><span class="annot"><span class="annottext">ReadPrec [JsonClassifier]
 ReadPrec JsonClassifier
 Int -&gt; ReadS JsonClassifier
 ReadS [JsonClassifier]
@@ -73,7 +73,7 @@ readList :: ReadS [JsonClassifier]
 $creadList :: ReadS [JsonClassifier]
 readsPrec :: Int -&gt; ReadS JsonClassifier
 $creadsPrec :: Int -&gt; ReadS JsonClassifier
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688928"><span id="local-6989586621679688930"><span id="local-6989586621679688932"><span class="annot"><span class="annottext">Int -&gt; JsonClassifier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688937"><span id="local-6989586621679688939"><span id="local-6989586621679688941"><span class="annot"><span class="annottext">Int -&gt; JsonClassifier -&gt; ShowS
 [JsonClassifier] -&gt; ShowS
 JsonClassifier -&gt; String
 (Int -&gt; JsonClassifier -&gt; ShowS)
@@ -125,9 +125,9 @@ $cfrom :: forall x. JsonClassifier -&gt; Rep JsonClassifier x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span>
 </span><span id="line-70"></span><span id="newJsonClassifier"><span class="annot"><span class="annottext">newJsonClassifier :: Text -&gt; Text -&gt; JsonClassifier
-</span><a href="Network.AWS.Glue.Types.JsonClassifier.html#newJsonClassifier"><span class="hs-identifier hs-var hs-var">newJsonClassifier</span></a></span></span><span> </span><span id="local-6989586621679688922"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688922"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679688921"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688921"><span class="hs-identifier hs-var">pJsonPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.JsonClassifier.html#newJsonClassifier"><span class="hs-identifier hs-var hs-var">newJsonClassifier</span></a></span></span><span> </span><span id="local-6989586621679688931"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679688931"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679688930"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679688930"><span class="hs-identifier hs-var">pJsonPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">JsonClassifier' :: Maybe POSIX
 -&gt; Maybe POSIX -&gt; Maybe Integer -&gt; Text -&gt; Text -&gt; JsonClassifier
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span>
@@ -145,10 +145,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:JsonClassifier' :: Text
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3Aname%3AJsonClassifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688922"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679688931"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:jsonPath:JsonClassifier' :: Text
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3AjsonPath%3AJsonClassifier%27"><span class="hs-identifier hs-var">jsonPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688921"><span class="hs-identifier hs-var">pJsonPath_</span></a></span><span>
+</span><a href="#local-6989586621679688930"><span class="hs-identifier hs-var">pJsonPath_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The time that this classifier was registered.</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (JsonClassifier -&gt; Maybe POSIX -&gt; JsonClassifier)
 -&gt; Lens JsonClassifier JsonClassifier (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688917"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688926"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:JsonClassifier' :: JsonClassifier -&gt; Maybe POSIX
-</span><a href="#local-6989586621679688917"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679688917"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688916"><span class="annot"><span class="annottext">s :: JsonClassifier
-</span><a href="#local-6989586621679688916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688915"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679688915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
-</span><a href="#local-6989586621679688916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:JsonClassifier' :: Maybe POSIX
+</span><a href="#local-6989586621679688926"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679688926"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688925"><span class="annot"><span class="annottext">s :: JsonClassifier
+</span><a href="#local-6989586621679688925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688924"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679688924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
+</span><a href="#local-6989586621679688925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:JsonClassifier' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3AcreationTime%3AJsonClassifier%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679688915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679688924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; JsonClassifier -&gt; f JsonClassifier)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -193,16 +193,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (JsonClassifier -&gt; Maybe POSIX -&gt; JsonClassifier)
 -&gt; Lens JsonClassifier JsonClassifier (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688910"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688919"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdated :: Maybe POSIX
 $sel:lastUpdated:JsonClassifier' :: JsonClassifier -&gt; Maybe POSIX
-</span><a href="#local-6989586621679688910"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679688910"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688909"><span class="annot"><span class="annottext">s :: JsonClassifier
-</span><a href="#local-6989586621679688909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688908"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679688908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
-</span><a href="#local-6989586621679688909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:JsonClassifier' :: Maybe POSIX
+</span><a href="#local-6989586621679688919"><span class="hs-identifier hs-var hs-var">lastUpdated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679688919"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688918"><span class="annot"><span class="annottext">s :: JsonClassifier
+</span><a href="#local-6989586621679688918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688917"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679688917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
+</span><a href="#local-6989586621679688918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdated:JsonClassifier' :: Maybe POSIX
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3AlastUpdated%3AJsonClassifier%27"><span class="hs-identifier hs-var">lastUpdated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679688908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679688917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; JsonClassifier -&gt; f JsonClassifier)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -228,16 +228,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      JsonClassifier JsonClassifier (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688906"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688915"><span class="annot"><span class="annottext">Maybe Integer
 version :: Maybe Integer
 $sel:version:JsonClassifier' :: JsonClassifier -&gt; Maybe Integer
-</span><a href="#local-6989586621679688906"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679688906"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688905"><span class="annot"><span class="annottext">s :: JsonClassifier
-</span><a href="#local-6989586621679688905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688904"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679688904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
-</span><a href="#local-6989586621679688905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:JsonClassifier' :: Maybe Integer
+</span><a href="#local-6989586621679688915"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679688915"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688914"><span class="annot"><span class="annottext">s :: JsonClassifier
+</span><a href="#local-6989586621679688914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688913"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679688913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
+</span><a href="#local-6989586621679688914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:JsonClassifier' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3Aversion%3AJsonClassifier%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679688904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679688913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The name of the classifier.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#jsonClassifier_name"><span class="hs-identifier hs-type">jsonClassifier_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -246,16 +246,16 @@ $sel:version:JsonClassifier' :: JsonClassifier -&gt; Maybe Integer
 -&gt; (JsonClassifier -&gt; Text -&gt; JsonClassifier)
 -&gt; Lens JsonClassifier JsonClassifier Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688902"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688911"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:JsonClassifier' :: JsonClassifier -&gt; Text
-</span><a href="#local-6989586621679688902"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688902"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688901"><span class="annot"><span class="annottext">s :: JsonClassifier
-</span><a href="#local-6989586621679688901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688900"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
-</span><a href="#local-6989586621679688901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:JsonClassifier' :: Text
+</span><a href="#local-6989586621679688911"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679688911"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688910"><span class="annot"><span class="annottext">s :: JsonClassifier
+</span><a href="#local-6989586621679688910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688909"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679688909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
+</span><a href="#local-6989586621679688910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:JsonClassifier' :: Text
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3Aname%3AJsonClassifier%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679688909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A @JsonPath@ string defining the JSON data for the classifier to</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- classify. Glue supports a subset of JsonPath, as described in</span><span>
@@ -266,19 +266,19 @@ $sel:name:JsonClassifier' :: JsonClassifier -&gt; Text
 -&gt; (JsonClassifier -&gt; Text -&gt; JsonClassifier)
 -&gt; Lens JsonClassifier JsonClassifier Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688898"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688907"><span class="annot"><span class="annottext">Text
 jsonPath :: Text
 $sel:jsonPath:JsonClassifier' :: JsonClassifier -&gt; Text
-</span><a href="#local-6989586621679688898"><span class="hs-identifier hs-var hs-var">jsonPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688898"><span class="hs-identifier hs-var">jsonPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688897"><span class="annot"><span class="annottext">s :: JsonClassifier
-</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688896"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
-</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonPath:JsonClassifier' :: Text
+</span><a href="#local-6989586621679688907"><span class="hs-identifier hs-var hs-var">jsonPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679688907"><span class="hs-identifier hs-var">jsonPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688906"><span class="annot"><span class="annottext">s :: JsonClassifier
+</span><a href="#local-6989586621679688906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-type">JsonClassifier'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679688905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JsonClassifier
+</span><a href="#local-6989586621679688906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonPath:JsonClassifier' :: Text
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#%24sel%3AjsonPath%3AJsonClassifier%27"><span class="hs-identifier hs-var">jsonPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679688896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679688905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688893"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679688891"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JsonClassifier
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688902"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679688900"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JsonClassifier
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JsonClassifier)
@@ -288,8 +288,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JsonClassifier&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679688888"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679688888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679688897"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe POSIX -&gt; Maybe Integer -&gt; Text -&gt; Text -&gt; JsonClassifier
 </span><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier%27"><span class="hs-identifier hs-var">JsonClassifier'</span></a></span><span>
@@ -300,7 +300,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe POSIX -&gt; Maybe Integer -&gt; Text -&gt; Text -&gt; JsonClassifier)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679688888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -310,7 +310,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer -&gt; Text -&gt; Text -&gt; JsonClassifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679688888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastUpdated&quot;</span></span><span class="hs-special">)</span><span>
@@ -319,7 +319,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; Text -&gt; JsonClassifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679688888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
@@ -327,7 +327,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; JsonClassifier)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679688888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -335,13 +335,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser JsonClassifier
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679688888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679688897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JsonPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688881"><span id="local-6989586621679688883"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688890"><span id="local-6989586621679688892"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688887"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JsonClassifier.html#JsonClassifier"><span class="hs-identifier hs-type">JsonClassifier</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AccessAnalyzer.Types.Configuration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.Configuration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.IamRoleConfiguration.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.IamRoleConfiguration</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.KmsKeyConfiguration.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.KmsKeyConfiguration</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.SecretsManagerSecretConfiguration.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.SecretsManagerSecretConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.SqsQueueConfiguration.html"><span class="hs-identifier">Network.AWS.AccessAnalyzer.Types.SqsQueueConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Access control configuration structures for your resource. You specify</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- the configuration as a type-value pair. You can specify only one type of</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- access control configuration.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newConfiguration' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679252747"><span id="local-6989586621679252748"></span></span><span class="hs-keyword">data</span><span> </span><span id="Configuration"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-var">Configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Configuration%27"><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access control configuration is for a KMS key.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AkmsKey%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe KmsKeyConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AkmsKey%3AConfiguration%27"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.KmsKeyConfiguration.html#KmsKeyConfiguration"><span class="hs-identifier hs-type">KmsKeyConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The access control configuration is for a Secrets Manager secret.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsecretsManagerSecret%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe SecretsManagerSecretConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AsecretsManagerSecret%3AConfiguration%27"><span class="hs-identifier hs-var hs-var">secretsManagerSecret</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.SecretsManagerSecretConfiguration.html#SecretsManagerSecretConfiguration"><span class="hs-identifier hs-type">SecretsManagerSecretConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The access control configuration is for an Amazon SQS queue.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsqsQueue%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe SqsQueueConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AsqsQueue%3AConfiguration%27"><span class="hs-identifier hs-var hs-var">sqsQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.SqsQueueConfiguration.html#SqsQueueConfiguration"><span class="hs-identifier hs-type">SqsQueueConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The access control configuration is for an Amazon S3 Bucket.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3As3Bucket%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe S3BucketConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3As3Bucket%3AConfiguration%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration.html#S3BucketConfiguration"><span class="hs-identifier hs-type">S3BucketConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The access control configuration is for an IAM role.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AiamRole%3AConfiguration%27"><span class="annot"><span class="annottext">Configuration -&gt; Maybe IamRoleConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AiamRole%3AConfiguration%27"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.IamRoleConfiguration.html#IamRoleConfiguration"><span class="hs-identifier hs-type">IamRoleConfiguration</span></a></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252737"><span id="local-6989586621679252739"><span class="annot"><span class="annottext">Configuration -&gt; Configuration -&gt; Bool
+(Configuration -&gt; Configuration -&gt; Bool)
+-&gt; (Configuration -&gt; Configuration -&gt; Bool) -&gt; Eq Configuration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Configuration -&gt; Configuration -&gt; Bool
+$c/= :: Configuration -&gt; Configuration -&gt; Bool
+== :: Configuration -&gt; Configuration -&gt; Bool
+$c== :: Configuration -&gt; Configuration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252728"><span id="local-6989586621679252730"><span id="local-6989586621679252732"><span id="local-6989586621679252734"><span class="annot"><span class="annottext">ReadPrec [Configuration]
+ReadPrec Configuration
+Int -&gt; ReadS Configuration
+ReadS [Configuration]
+(Int -&gt; ReadS Configuration)
+-&gt; ReadS [Configuration]
+-&gt; ReadPrec Configuration
+-&gt; ReadPrec [Configuration]
+-&gt; Read Configuration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Configuration]
+$creadListPrec :: ReadPrec [Configuration]
+readPrec :: ReadPrec Configuration
+$creadPrec :: ReadPrec Configuration
+readList :: ReadS [Configuration]
+$creadList :: ReadS [Configuration]
+readsPrec :: Int -&gt; ReadS Configuration
+$creadsPrec :: Int -&gt; ReadS Configuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252721"><span id="local-6989586621679252723"><span id="local-6989586621679252725"><span class="annot"><span class="annottext">Int -&gt; Configuration -&gt; ShowS
+[Configuration] -&gt; ShowS
+Configuration -&gt; String
+(Int -&gt; Configuration -&gt; ShowS)
+-&gt; (Configuration -&gt; String)
+-&gt; ([Configuration] -&gt; ShowS)
+-&gt; Show Configuration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Configuration] -&gt; ShowS
+$cshowList :: [Configuration] -&gt; ShowS
+show :: Configuration -&gt; String
+$cshow :: Configuration -&gt; String
+showsPrec :: Int -&gt; Configuration -&gt; ShowS
+$cshowsPrec :: Int -&gt; Configuration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Configuration -&gt; Rep Configuration x)
+-&gt; (forall x. Rep Configuration x -&gt; Configuration)
+-&gt; Generic Configuration
+forall x. Rep Configuration x -&gt; Configuration
+forall x. Configuration -&gt; Rep Configuration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Configuration x -&gt; Configuration
+$cfrom :: forall x. Configuration -&gt; Rep Configuration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'Configuration' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'kmsKey', 'configuration_kmsKey' - The access control configuration is for a KMS key.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'secretsManagerSecret', 'configuration_secretsManagerSecret' - The access control configuration is for a Secrets Manager secret.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'sqsQueue', 'configuration_sqsQueue' - The access control configuration is for an Amazon SQS queue.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 's3Bucket', 'configuration_s3Bucket' - The access control configuration is for an Amazon S3 Bucket.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'iamRole', 'configuration_iamRole' - The access control configuration is for an IAM role.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#newConfiguration"><span class="hs-identifier hs-type">newConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span>
+</span><span id="line-69"></span><span id="newConfiguration"><span class="annot"><span class="annottext">newConfiguration :: Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#newConfiguration"><span class="hs-identifier hs-var hs-var">newConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">Configuration' :: Maybe KmsKeyConfiguration
+-&gt; Maybe SecretsManagerSecretConfiguration
+-&gt; Maybe SqsQueueConfiguration
+-&gt; Maybe S3BucketConfiguration
+-&gt; Maybe IamRoleConfiguration
+-&gt; Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKey:Configuration' :: Maybe KmsKeyConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AkmsKey%3AConfiguration%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KmsKeyConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretsManagerSecret:Configuration' :: Maybe SecretsManagerSecretConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AsecretsManagerSecret%3AConfiguration%27"><span class="hs-identifier hs-var">secretsManagerSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqsQueue:Configuration' :: Maybe SqsQueueConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AsqsQueue%3AConfiguration%27"><span class="hs-identifier hs-var">sqsQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsQueueConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:Configuration' :: Maybe S3BucketConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3As3Bucket%3AConfiguration%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamRole:Configuration' :: Maybe IamRoleConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AiamRole%3AConfiguration%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamRoleConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The access control configuration is for a KMS key.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_kmsKey"><span class="hs-identifier hs-type">configuration_kmsKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.KmsKeyConfiguration.html#KmsKeyConfiguration"><span class="hs-identifier hs-type">KmsKeyConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="configuration_kmsKey"><span class="annot"><span class="annottext">configuration_kmsKey :: (Maybe KmsKeyConfiguration -&gt; f (Maybe KmsKeyConfiguration))
+-&gt; Configuration -&gt; f Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_kmsKey"><span class="hs-identifier hs-var hs-var">configuration_kmsKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configuration -&gt; Maybe KmsKeyConfiguration)
+-&gt; (Configuration -&gt; Maybe KmsKeyConfiguration -&gt; Configuration)
+-&gt; Lens
+     Configuration
+     Configuration
+     (Maybe KmsKeyConfiguration)
+     (Maybe KmsKeyConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252712"><span class="annot"><span class="annottext">Maybe KmsKeyConfiguration
+kmsKey :: Maybe KmsKeyConfiguration
+$sel:kmsKey:Configuration' :: Configuration -&gt; Maybe KmsKeyConfiguration
+</span><a href="#local-6989586621679252712"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KmsKeyConfiguration
+</span><a href="#local-6989586621679252712"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252711"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679252711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252710"><span class="annot"><span class="annottext">Maybe KmsKeyConfiguration
+</span><a href="#local-6989586621679252710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679252711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKey:Configuration' :: Maybe KmsKeyConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AkmsKey%3AConfiguration%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KmsKeyConfiguration
+</span><a href="#local-6989586621679252710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The access control configuration is for a Secrets Manager secret.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_secretsManagerSecret"><span class="hs-identifier hs-type">configuration_secretsManagerSecret</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.SecretsManagerSecretConfiguration.html#SecretsManagerSecretConfiguration"><span class="hs-identifier hs-type">SecretsManagerSecretConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="configuration_secretsManagerSecret"><span class="annot"><span class="annottext">configuration_secretsManagerSecret :: (Maybe SecretsManagerSecretConfiguration
+ -&gt; f (Maybe SecretsManagerSecretConfiguration))
+-&gt; Configuration -&gt; f Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_secretsManagerSecret"><span class="hs-identifier hs-var hs-var">configuration_secretsManagerSecret</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configuration -&gt; Maybe SecretsManagerSecretConfiguration)
+-&gt; (Configuration
+    -&gt; Maybe SecretsManagerSecretConfiguration -&gt; Configuration)
+-&gt; Lens
+     Configuration
+     Configuration
+     (Maybe SecretsManagerSecretConfiguration)
+     (Maybe SecretsManagerSecretConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252708"><span class="annot"><span class="annottext">Maybe SecretsManagerSecretConfiguration
+secretsManagerSecret :: Maybe SecretsManagerSecretConfiguration
+$sel:secretsManagerSecret:Configuration' :: Configuration -&gt; Maybe SecretsManagerSecretConfiguration
+</span><a href="#local-6989586621679252708"><span class="hs-identifier hs-var hs-var">secretsManagerSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretConfiguration
+</span><a href="#local-6989586621679252708"><span class="hs-identifier hs-var">secretsManagerSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252707"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679252707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252706"><span class="annot"><span class="annottext">Maybe SecretsManagerSecretConfiguration
+</span><a href="#local-6989586621679252706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679252707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecret:Configuration' :: Maybe SecretsManagerSecretConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AsecretsManagerSecret%3AConfiguration%27"><span class="hs-identifier hs-var">secretsManagerSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretConfiguration
+</span><a href="#local-6989586621679252706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The access control configuration is for an Amazon SQS queue.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_sqsQueue"><span class="hs-identifier hs-type">configuration_sqsQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.SqsQueueConfiguration.html#SqsQueueConfiguration"><span class="hs-identifier hs-type">SqsQueueConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="configuration_sqsQueue"><span class="annot"><span class="annottext">configuration_sqsQueue :: (Maybe SqsQueueConfiguration -&gt; f (Maybe SqsQueueConfiguration))
+-&gt; Configuration -&gt; f Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_sqsQueue"><span class="hs-identifier hs-var hs-var">configuration_sqsQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configuration -&gt; Maybe SqsQueueConfiguration)
+-&gt; (Configuration -&gt; Maybe SqsQueueConfiguration -&gt; Configuration)
+-&gt; Lens
+     Configuration
+     Configuration
+     (Maybe SqsQueueConfiguration)
+     (Maybe SqsQueueConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252704"><span class="annot"><span class="annottext">Maybe SqsQueueConfiguration
+sqsQueue :: Maybe SqsQueueConfiguration
+$sel:sqsQueue:Configuration' :: Configuration -&gt; Maybe SqsQueueConfiguration
+</span><a href="#local-6989586621679252704"><span class="hs-identifier hs-var hs-var">sqsQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsQueueConfiguration
+</span><a href="#local-6989586621679252704"><span class="hs-identifier hs-var">sqsQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252703"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679252703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252702"><span class="annot"><span class="annottext">Maybe SqsQueueConfiguration
+</span><a href="#local-6989586621679252702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679252703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqsQueue:Configuration' :: Maybe SqsQueueConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AsqsQueue%3AConfiguration%27"><span class="hs-identifier hs-var">sqsQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsQueueConfiguration
+</span><a href="#local-6989586621679252702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The access control configuration is for an Amazon S3 Bucket.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_s3Bucket"><span class="hs-identifier hs-type">configuration_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.S3BucketConfiguration.html#S3BucketConfiguration"><span class="hs-identifier hs-type">S3BucketConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="configuration_s3Bucket"><span class="annot"><span class="annottext">configuration_s3Bucket :: (Maybe S3BucketConfiguration -&gt; f (Maybe S3BucketConfiguration))
+-&gt; Configuration -&gt; f Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_s3Bucket"><span class="hs-identifier hs-var hs-var">configuration_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configuration -&gt; Maybe S3BucketConfiguration)
+-&gt; (Configuration -&gt; Maybe S3BucketConfiguration -&gt; Configuration)
+-&gt; Lens
+     Configuration
+     Configuration
+     (Maybe S3BucketConfiguration)
+     (Maybe S3BucketConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252700"><span class="annot"><span class="annottext">Maybe S3BucketConfiguration
+s3Bucket :: Maybe S3BucketConfiguration
+$sel:s3Bucket:Configuration' :: Configuration -&gt; Maybe S3BucketConfiguration
+</span><a href="#local-6989586621679252700"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketConfiguration
+</span><a href="#local-6989586621679252700"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252699"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679252699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252698"><span class="annot"><span class="annottext">Maybe S3BucketConfiguration
+</span><a href="#local-6989586621679252698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679252699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:Configuration' :: Maybe S3BucketConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3As3Bucket%3AConfiguration%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketConfiguration
+</span><a href="#local-6989586621679252698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The access control configuration is for an IAM role.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_iamRole"><span class="hs-identifier hs-type">configuration_iamRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.IamRoleConfiguration.html#IamRoleConfiguration"><span class="hs-identifier hs-type">IamRoleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="configuration_iamRole"><span class="annot"><span class="annottext">configuration_iamRole :: (Maybe IamRoleConfiguration -&gt; f (Maybe IamRoleConfiguration))
+-&gt; Configuration -&gt; f Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#configuration_iamRole"><span class="hs-identifier hs-var hs-var">configuration_iamRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Configuration -&gt; Maybe IamRoleConfiguration)
+-&gt; (Configuration -&gt; Maybe IamRoleConfiguration -&gt; Configuration)
+-&gt; Lens
+     Configuration
+     Configuration
+     (Maybe IamRoleConfiguration)
+     (Maybe IamRoleConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252696"><span class="annot"><span class="annottext">Maybe IamRoleConfiguration
+iamRole :: Maybe IamRoleConfiguration
+$sel:iamRole:Configuration' :: Configuration -&gt; Maybe IamRoleConfiguration
+</span><a href="#local-6989586621679252696"><span class="hs-identifier hs-var hs-var">iamRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IamRoleConfiguration
+</span><a href="#local-6989586621679252696"><span class="hs-identifier hs-var">iamRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252695"><span class="annot"><span class="annottext">s :: Configuration
+</span><a href="#local-6989586621679252695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252694"><span class="annot"><span class="annottext">Maybe IamRoleConfiguration
+</span><a href="#local-6989586621679252694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Configuration
+</span><a href="#local-6989586621679252695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRole:Configuration' :: Maybe IamRoleConfiguration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#%24sel%3AiamRole%3AConfiguration%27"><span class="hs-identifier hs-var">iamRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamRoleConfiguration
+</span><a href="#local-6989586621679252694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252691"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679252689"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Configuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Configuration)
+-&gt; Value
+-&gt; Parser Configuration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252686"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe KmsKeyConfiguration
+-&gt; Maybe SecretsManagerSecretConfiguration
+-&gt; Maybe SqsQueueConfiguration
+-&gt; Maybe S3BucketConfiguration
+-&gt; Maybe IamRoleConfiguration
+-&gt; Configuration
+</span><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-var">Configuration'</span></a></span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KmsKeyConfiguration
+ -&gt; Maybe SecretsManagerSecretConfiguration
+ -&gt; Maybe SqsQueueConfiguration
+ -&gt; Maybe S3BucketConfiguration
+ -&gt; Maybe IamRoleConfiguration
+ -&gt; Configuration)
+-&gt; Parser (Maybe KmsKeyConfiguration)
+-&gt; Parser
+     (Maybe SecretsManagerSecretConfiguration
+      -&gt; Maybe SqsQueueConfiguration
+      -&gt; Maybe S3BucketConfiguration
+      -&gt; Maybe IamRoleConfiguration
+      -&gt; Configuration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KmsKeyConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SecretsManagerSecretConfiguration
+   -&gt; Maybe SqsQueueConfiguration
+   -&gt; Maybe S3BucketConfiguration
+   -&gt; Maybe IamRoleConfiguration
+   -&gt; Configuration)
+-&gt; Parser (Maybe SecretsManagerSecretConfiguration)
+-&gt; Parser
+     (Maybe SqsQueueConfiguration
+      -&gt; Maybe S3BucketConfiguration
+      -&gt; Maybe IamRoleConfiguration
+      -&gt; Configuration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SecretsManagerSecretConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretsManagerSecret&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SqsQueueConfiguration
+   -&gt; Maybe S3BucketConfiguration
+   -&gt; Maybe IamRoleConfiguration
+   -&gt; Configuration)
+-&gt; Parser (Maybe SqsQueueConfiguration)
+-&gt; Parser
+     (Maybe S3BucketConfiguration
+      -&gt; Maybe IamRoleConfiguration -&gt; Configuration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsQueueConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sqsQueue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe S3BucketConfiguration
+   -&gt; Maybe IamRoleConfiguration -&gt; Configuration)
+-&gt; Parser (Maybe S3BucketConfiguration)
+-&gt; Parser (Maybe IamRoleConfiguration -&gt; Configuration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3BucketConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IamRoleConfiguration -&gt; Configuration)
+-&gt; Parser (Maybe IamRoleConfiguration) -&gt; Parser Configuration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IamRoleConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252680"><span id="local-6989586621679252682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252669"><span id="local-6989586621679252671"><span id="local-6989586621679252673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration"><span class="hs-identifier hs-type">Configuration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679252667"><span class="annot"><span class="annottext">toJSON :: Configuration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AccessAnalyzer.Types.Configuration.html#Configuration%27"><span class="hs-identifier hs-type">Configuration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252661"><span id="local-6989586621679252662"><span id="local-6989586621679252663"><span id="local-6989586621679252664"><span id="local-6989586621679252665"><span class="annot"><span class="annottext">Maybe IamRoleConfiguration
+Maybe KmsKeyConfiguration
+Maybe SecretsManagerSecretConfiguration
+Maybe SqsQueueConfiguration
+Maybe S3BucketConfiguration
+iamRole :: Maybe IamRoleConfiguration
+s3Bucket :: Maybe S3BucketConfiguration
+sqsQueue :: Maybe SqsQueueConfiguration
+secretsManagerSecret :: Maybe SecretsManagerSecretConfiguration
+kmsKey :: Maybe KmsKeyConfiguration
+$sel:iamRole:Configuration' :: Configuration -&gt; Maybe IamRoleConfiguration
+$sel:s3Bucket:Configuration' :: Configuration -&gt; Maybe S3BucketConfiguration
+$sel:sqsQueue:Configuration' :: Configuration -&gt; Maybe SqsQueueConfiguration
+$sel:secretsManagerSecret:Configuration' :: Configuration -&gt; Maybe SecretsManagerSecretConfiguration
+$sel:kmsKey:Configuration' :: Configuration -&gt; Maybe KmsKeyConfiguration
+</span><a href="#local-6989586621679252661"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;kmsKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KmsKeyConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KmsKeyConfiguration -&gt; Pair)
+-&gt; Maybe KmsKeyConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KmsKeyConfiguration
+</span><a href="#local-6989586621679252665"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretsManagerSecret&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SecretsManagerSecretConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(SecretsManagerSecretConfiguration -&gt; Pair)
+-&gt; Maybe SecretsManagerSecretConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SecretsManagerSecretConfiguration
+</span><a href="#local-6989586621679252664"><span class="hs-identifier hs-var">secretsManagerSecret</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sqsQueue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqsQueueConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SqsQueueConfiguration -&gt; Pair)
+-&gt; Maybe SqsQueueConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqsQueueConfiguration
+</span><a href="#local-6989586621679252663"><span class="hs-identifier hs-var">sqsQueue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3BucketConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3BucketConfiguration -&gt; Pair)
+-&gt; Maybe S3BucketConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3BucketConfiguration
+</span><a href="#local-6989586621679252662"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamRole&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IamRoleConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IamRoleConfiguration -&gt; Pair)
+-&gt; Maybe IamRoleConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IamRoleConfiguration
+</span><a href="#local-6989586621679252661"><span class="hs-identifier hs-var">iamRole</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span></pre></body></html>

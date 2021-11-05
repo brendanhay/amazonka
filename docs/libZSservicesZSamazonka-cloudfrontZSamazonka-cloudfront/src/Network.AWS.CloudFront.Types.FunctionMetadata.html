@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains metadata about a CloudFront function.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFunctionMetadata' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679391689"><span id="local-6989586621679391690"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionMetadata"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-var">FunctionMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionMetadata%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-var">FunctionMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679391698"><span id="local-6989586621679391699"></span></span><span class="hs-keyword">data</span><span> </span><span id="FunctionMetadata"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-var">FunctionMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FunctionMetadata%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-var">FunctionMetadata'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- When a function is in the @DEVELOPMENT@ stage, you can test the function</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AFunctionMetadata%27"><span class="annot"><span class="annottext">FunctionMetadata -&gt; ISO8601
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#%24sel%3AlastModifiedTime%3AFunctionMetadata%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391680"><span id="local-6989586621679391682"><span class="annot"><span class="annottext">FunctionMetadata -&gt; FunctionMetadata -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391689"><span id="local-6989586621679391691"><span class="annot"><span class="annottext">FunctionMetadata -&gt; FunctionMetadata -&gt; Bool
 (FunctionMetadata -&gt; FunctionMetadata -&gt; Bool)
 -&gt; (FunctionMetadata -&gt; FunctionMetadata -&gt; Bool)
 -&gt; Eq FunctionMetadata
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FunctionMetadata -&gt; FunctionMetadata -&gt; Bool
 == :: FunctionMetadata -&gt; FunctionMetadata -&gt; Bool
 $c== :: FunctionMetadata -&gt; FunctionMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391671"><span id="local-6989586621679391673"><span id="local-6989586621679391675"><span id="local-6989586621679391677"><span class="annot"><span class="annottext">ReadPrec [FunctionMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391680"><span id="local-6989586621679391682"><span id="local-6989586621679391684"><span id="local-6989586621679391686"><span class="annot"><span class="annottext">ReadPrec [FunctionMetadata]
 ReadPrec FunctionMetadata
 Int -&gt; ReadS FunctionMetadata
 ReadS [FunctionMetadata]
@@ -77,7 +77,7 @@ readList :: ReadS [FunctionMetadata]
 $creadList :: ReadS [FunctionMetadata]
 readsPrec :: Int -&gt; ReadS FunctionMetadata
 $creadsPrec :: Int -&gt; ReadS FunctionMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391664"><span id="local-6989586621679391666"><span id="local-6989586621679391668"><span class="annot"><span class="annottext">Int -&gt; FunctionMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391673"><span id="local-6989586621679391675"><span id="local-6989586621679391677"><span class="annot"><span class="annottext">Int -&gt; FunctionMetadata -&gt; ShowS
 [FunctionMetadata] -&gt; ShowS
 FunctionMetadata -&gt; String
 (Int -&gt; FunctionMetadata -&gt; ShowS)
@@ -132,9 +132,9 @@ $cfrom :: forall x. FunctionMetadata -&gt; Rep FunctionMetadata x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span>
 </span><span id="line-77"></span><span id="newFunctionMetadata"><span class="annot"><span class="annottext">newFunctionMetadata :: Text -&gt; UTCTime -&gt; FunctionMetadata
-</span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#newFunctionMetadata"><span class="hs-identifier hs-var hs-var">newFunctionMetadata</span></a></span></span><span> </span><span id="local-6989586621679391658"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391658"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span></span><span> </span><span id="local-6989586621679391657"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679391657"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#newFunctionMetadata"><span class="hs-identifier hs-var hs-var">newFunctionMetadata</span></a></span></span><span> </span><span id="local-6989586621679391667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391667"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span></span><span> </span><span id="local-6989586621679391666"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679391666"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">FunctionMetadata' :: Maybe FunctionStage
 -&gt; Maybe ISO8601 -&gt; Text -&gt; ISO8601 -&gt; FunctionMetadata
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span>
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionARN:FunctionMetadata' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#%24sel%3AfunctionARN%3AFunctionMetadata%27"><span class="hs-identifier hs-var">functionARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391658"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679391667"><span class="hs-identifier hs-var">pFunctionARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:FunctionMetadata' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#%24sel%3AlastModifiedTime%3AFunctionMetadata%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
@@ -159,7 +159,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679391657"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
+</span><a href="#local-6989586621679391666"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.</span><span>
@@ -180,16 +180,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe FunctionStage)
      (Maybe FunctionStage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391651"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391660"><span class="annot"><span class="annottext">Maybe FunctionStage
 stage :: Maybe FunctionStage
 $sel:stage:FunctionMetadata' :: FunctionMetadata -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679391651"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679391651"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391650"><span class="annot"><span class="annottext">s :: FunctionMetadata
-</span><a href="#local-6989586621679391650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391649"><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679391649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
-</span><a href="#local-6989586621679391650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:FunctionMetadata' :: Maybe FunctionStage
+</span><a href="#local-6989586621679391660"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679391660"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391659"><span class="annot"><span class="annottext">s :: FunctionMetadata
+</span><a href="#local-6989586621679391659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391658"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679391658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
+</span><a href="#local-6989586621679391659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:FunctionMetadata' :: Maybe FunctionStage
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#%24sel%3Astage%3AFunctionMetadata%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679391649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The date and time when the function was created.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#functionMetadata_createdTime"><span class="hs-identifier hs-type">functionMetadata_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -200,16 +200,16 @@ $sel:stage:FunctionMetadata' :: FunctionMetadata -&gt; Maybe FunctionStage
 -&gt; Lens
      FunctionMetadata FunctionMetadata (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391647"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391656"><span class="annot"><span class="annottext">Maybe ISO8601
 createdTime :: Maybe ISO8601
 $sel:createdTime:FunctionMetadata' :: FunctionMetadata -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679391647"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679391647"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391646"><span class="annot"><span class="annottext">s :: FunctionMetadata
-</span><a href="#local-6989586621679391646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391645"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679391645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
-</span><a href="#local-6989586621679391646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:FunctionMetadata' :: Maybe ISO8601
+</span><a href="#local-6989586621679391656"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679391656"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391655"><span class="annot"><span class="annottext">s :: FunctionMetadata
+</span><a href="#local-6989586621679391655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391654"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679391654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
+</span><a href="#local-6989586621679391655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:FunctionMetadata' :: Maybe ISO8601
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#%24sel%3AcreatedTime%3AFunctionMetadata%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679391645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679391654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; FunctionMetadata -&gt; f FunctionMetadata)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -235,16 +235,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (FunctionMetadata -&gt; Text -&gt; FunctionMetadata)
 -&gt; Lens FunctionMetadata FunctionMetadata Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391641"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391650"><span class="annot"><span class="annottext">Text
 functionARN :: Text
 $sel:functionARN:FunctionMetadata' :: FunctionMetadata -&gt; Text
-</span><a href="#local-6989586621679391641"><span class="hs-identifier hs-var hs-var">functionARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391641"><span class="hs-identifier hs-var">functionARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391640"><span class="annot"><span class="annottext">s :: FunctionMetadata
-</span><a href="#local-6989586621679391640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391639"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
-</span><a href="#local-6989586621679391640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionARN:FunctionMetadata' :: Text
+</span><a href="#local-6989586621679391650"><span class="hs-identifier hs-var hs-var">functionARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391650"><span class="hs-identifier hs-var">functionARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391649"><span class="annot"><span class="annottext">s :: FunctionMetadata
+</span><a href="#local-6989586621679391649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
+</span><a href="#local-6989586621679391649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionARN:FunctionMetadata' :: Text
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#%24sel%3AfunctionARN%3AFunctionMetadata%27"><span class="hs-identifier hs-var">functionARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The date and time when the function was most recently updated.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#functionMetadata_lastModifiedTime"><span class="hs-identifier hs-type">functionMetadata_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -253,16 +253,16 @@ $sel:functionARN:FunctionMetadata' :: FunctionMetadata -&gt; Text
 -&gt; (FunctionMetadata -&gt; ISO8601 -&gt; FunctionMetadata)
 -&gt; Lens FunctionMetadata FunctionMetadata ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391637"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391646"><span class="annot"><span class="annottext">ISO8601
 lastModifiedTime :: ISO8601
 $sel:lastModifiedTime:FunctionMetadata' :: FunctionMetadata -&gt; ISO8601
-</span><a href="#local-6989586621679391637"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679391637"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391636"><span class="annot"><span class="annottext">s :: FunctionMetadata
-</span><a href="#local-6989586621679391636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391635"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679391635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
-</span><a href="#local-6989586621679391636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:FunctionMetadata' :: ISO8601
+</span><a href="#local-6989586621679391646"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679391646"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391645"><span class="annot"><span class="annottext">s :: FunctionMetadata
+</span><a href="#local-6989586621679391645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-type">FunctionMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391644"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679391644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FunctionMetadata
+</span><a href="#local-6989586621679391645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:FunctionMetadata' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#%24sel%3AlastModifiedTime%3AFunctionMetadata%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679391635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; FunctionMetadata -&gt; f FunctionMetadata)
+</span><a href="#local-6989586621679391644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; FunctionMetadata -&gt; f FunctionMetadata)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; FunctionMetadata
@@ -273,9 +273,9 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679391632"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FunctionMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679391630"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679391641"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FunctionMetadata
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679391639"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe FunctionStage
 -&gt; Maybe ISO8601 -&gt; Text -&gt; ISO8601 -&gt; FunctionMetadata
 </span><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata%27"><span class="hs-identifier hs-var">FunctionMetadata'</span></a></span><span>
@@ -286,7 +286,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
      String (Maybe ISO8601 -&gt; Text -&gt; ISO8601 -&gt; FunctionMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FunctionStage)
+</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FunctionStage)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Stage&quot;</span></span><span class="hs-special">)</span><span>
@@ -296,7 +296,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; ISO8601 -&gt; FunctionMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -305,7 +305,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (ISO8601 -&gt; FunctionMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FunctionARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -313,12 +313,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ISO8601 -&gt; Either String FunctionMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679391630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679391639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391623"><span id="local-6989586621679391625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391632"><span id="local-6989586621679391634"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391629"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FunctionMetadata.html#FunctionMetadata"><span class="hs-identifier hs-type">FunctionMetadata</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

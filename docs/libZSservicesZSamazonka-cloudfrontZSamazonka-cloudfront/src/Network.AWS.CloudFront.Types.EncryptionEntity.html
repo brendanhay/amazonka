@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- encryption key and field pattern specifications.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEncryptionEntity' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679389719"><span id="local-6989586621679389720"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionEntity"><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-var">EncryptionEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionEntity%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-var">EncryptionEntity'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679389728"><span id="local-6989586621679389729"></span></span><span class="hs-keyword">data</span><span> </span><span id="EncryptionEntity"><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-var">EncryptionEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionEntity%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-var">EncryptionEntity'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The public key associated with a set of field-level encryption patterns,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to be used when encrypting the fields that match the patterns.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3ApublicKeyId%3AEncryptionEntity%27"><span class="annot"><span class="annottext">EncryptionEntity -&gt; Text
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="annot"><span class="annottext">EncryptionEntity -&gt; FieldPatterns
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="hs-identifier hs-var hs-var">fieldPatterns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.FieldPatterns.html#FieldPatterns"><span class="hs-identifier hs-type">FieldPatterns</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389711"><span id="local-6989586621679389713"><span class="annot"><span class="annottext">EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389720"><span id="local-6989586621679389722"><span class="annot"><span class="annottext">EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
 (EncryptionEntity -&gt; EncryptionEntity -&gt; Bool)
 -&gt; (EncryptionEntity -&gt; EncryptionEntity -&gt; Bool)
 -&gt; Eq EncryptionEntity
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
 == :: EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
 $c== :: EncryptionEntity -&gt; EncryptionEntity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389702"><span id="local-6989586621679389704"><span id="local-6989586621679389706"><span id="local-6989586621679389708"><span class="annot"><span class="annottext">ReadPrec [EncryptionEntity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389711"><span id="local-6989586621679389713"><span id="local-6989586621679389715"><span id="local-6989586621679389717"><span class="annot"><span class="annottext">ReadPrec [EncryptionEntity]
 ReadPrec EncryptionEntity
 Int -&gt; ReadS EncryptionEntity
 ReadS [EncryptionEntity]
@@ -75,7 +75,7 @@ readList :: ReadS [EncryptionEntity]
 $creadList :: ReadS [EncryptionEntity]
 readsPrec :: Int -&gt; ReadS EncryptionEntity
 $creadsPrec :: Int -&gt; ReadS EncryptionEntity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389695"><span id="local-6989586621679389697"><span id="local-6989586621679389699"><span class="annot"><span class="annottext">Int -&gt; EncryptionEntity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389704"><span id="local-6989586621679389706"><span id="local-6989586621679389708"><span class="annot"><span class="annottext">Int -&gt; EncryptionEntity -&gt; ShowS
 [EncryptionEntity] -&gt; ShowS
 EncryptionEntity -&gt; String
 (Int -&gt; EncryptionEntity -&gt; ShowS)
@@ -131,23 +131,23 @@ $cfrom :: forall x. EncryptionEntity -&gt; Rep EncryptionEntity x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span>
 </span><span id="line-76"></span><span id="newEncryptionEntity"><span class="annot"><span class="annottext">newEncryptionEntity :: Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#newEncryptionEntity"><span class="hs-identifier hs-var hs-var">newEncryptionEntity</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679389689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389689"><span class="hs-identifier hs-var">pPublicKeyId_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679389688"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389688"><span class="hs-identifier hs-var">pProviderId_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679389687"><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389687"><span class="hs-identifier hs-var">pFieldPatterns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679389698"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389698"><span class="hs-identifier hs-var">pPublicKeyId_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679389697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389697"><span class="hs-identifier hs-var">pProviderId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679389696"><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389696"><span class="hs-identifier hs-var">pFieldPatterns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">EncryptionEntity' :: Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:publicKeyId:EncryptionEntity' :: Text
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#%24sel%3ApublicKeyId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389689"><span class="hs-identifier hs-var">pPublicKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389698"><span class="hs-identifier hs-var">pPublicKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:providerId:EncryptionEntity' :: Text
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#%24sel%3AproviderId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">providerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389688"><span class="hs-identifier hs-var">pProviderId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389697"><span class="hs-identifier hs-var">pProviderId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:fieldPatterns:EncryptionEntity' :: FieldPatterns
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389687"><span class="hs-identifier hs-var">pFieldPatterns_</span></a></span><span>
+</span><a href="#local-6989586621679389696"><span class="hs-identifier hs-var">pFieldPatterns_</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The public key associated with a set of field-level encryption patterns,</span><span>
@@ -158,16 +158,16 @@ $cfrom :: forall x. EncryptionEntity -&gt; Rep EncryptionEntity x
 -&gt; (EncryptionEntity -&gt; Text -&gt; EncryptionEntity)
 -&gt; Lens EncryptionEntity EncryptionEntity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389683"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389692"><span class="annot"><span class="annottext">Text
 publicKeyId :: Text
 $sel:publicKeyId:EncryptionEntity' :: EncryptionEntity -&gt; Text
-</span><a href="#local-6989586621679389683"><span class="hs-identifier hs-var hs-var">publicKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389683"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389682"><span class="annot"><span class="annottext">s :: EncryptionEntity
-</span><a href="#local-6989586621679389682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389681"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
-</span><a href="#local-6989586621679389682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyId:EncryptionEntity' :: Text
+</span><a href="#local-6989586621679389692"><span class="hs-identifier hs-var hs-var">publicKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389692"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389691"><span class="annot"><span class="annottext">s :: EncryptionEntity
+</span><a href="#local-6989586621679389691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389690"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
+</span><a href="#local-6989586621679389691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicKeyId:EncryptionEntity' :: Text
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#%24sel%3ApublicKeyId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The provider associated with the public key being used for encryption.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- This value must also be provided with the private key for applications</span><span>
@@ -178,16 +178,16 @@ $sel:publicKeyId:EncryptionEntity' :: EncryptionEntity -&gt; Text
 -&gt; (EncryptionEntity -&gt; Text -&gt; EncryptionEntity)
 -&gt; Lens EncryptionEntity EncryptionEntity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389679"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389688"><span class="annot"><span class="annottext">Text
 providerId :: Text
 $sel:providerId:EncryptionEntity' :: EncryptionEntity -&gt; Text
-</span><a href="#local-6989586621679389679"><span class="hs-identifier hs-var hs-var">providerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389679"><span class="hs-identifier hs-var">providerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389678"><span class="annot"><span class="annottext">s :: EncryptionEntity
-</span><a href="#local-6989586621679389678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389677"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
-</span><a href="#local-6989586621679389678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerId:EncryptionEntity' :: Text
+</span><a href="#local-6989586621679389688"><span class="hs-identifier hs-var hs-var">providerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389688"><span class="hs-identifier hs-var">providerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389687"><span class="annot"><span class="annottext">s :: EncryptionEntity
+</span><a href="#local-6989586621679389687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389686"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679389686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
+</span><a href="#local-6989586621679389687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerId:EncryptionEntity' :: Text
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#%24sel%3AproviderId%3AEncryptionEntity%27"><span class="hs-identifier hs-var">providerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Field patterns in a field-level encryption content type profile specify</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- the fields that you want to be encrypted. You can provide the full field</span><span>
@@ -202,21 +202,21 @@ $sel:providerId:EncryptionEntity' :: EncryptionEntity -&gt; Text
 -&gt; Lens
      EncryptionEntity EncryptionEntity FieldPatterns FieldPatterns
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389675"><span class="annot"><span class="annottext">FieldPatterns
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389684"><span class="annot"><span class="annottext">FieldPatterns
 fieldPatterns :: FieldPatterns
 $sel:fieldPatterns:EncryptionEntity' :: EncryptionEntity -&gt; FieldPatterns
-</span><a href="#local-6989586621679389675"><span class="hs-identifier hs-var hs-var">fieldPatterns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389675"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389674"><span class="annot"><span class="annottext">s :: EncryptionEntity
-</span><a href="#local-6989586621679389674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389673"><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
-</span><a href="#local-6989586621679389674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldPatterns:EncryptionEntity' :: FieldPatterns
+</span><a href="#local-6989586621679389684"><span class="hs-identifier hs-var hs-var">fieldPatterns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389684"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389683"><span class="annot"><span class="annottext">s :: EncryptionEntity
+</span><a href="#local-6989586621679389683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389682"><span class="annot"><span class="annottext">FieldPatterns
+</span><a href="#local-6989586621679389682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EncryptionEntity
+</span><a href="#local-6989586621679389683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fieldPatterns:EncryptionEntity' :: FieldPatterns
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#%24sel%3AfieldPatterns%3AEncryptionEntity%27"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389670"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EncryptionEntity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679389668"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679389668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389679"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EncryptionEntity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679389677"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity
 </span><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-var">EncryptionEntity'</span></a></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; FieldPatterns -&gt; EncryptionEntity)
@@ -224,7 +224,7 @@ $sel:fieldPatterns:EncryptionEntity' :: EncryptionEntity -&gt; FieldPatterns
 -&gt; Either String (Text -&gt; FieldPatterns -&gt; EncryptionEntity)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679389668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PublicKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,7 +233,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (FieldPatterns -&gt; EncryptionEntity)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679389668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProviderId&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,18 +241,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String FieldPatterns -&gt; Either String EncryptionEntity
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679389668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String FieldPatterns
+</span><a href="#local-6989586621679389677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String FieldPatterns
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FieldPatterns&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389662"><span id="local-6989586621679389664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389671"><span id="local-6989586621679389673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity"><span class="hs-identifier hs-type">EncryptionEntity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679389655"><span class="annot"><span class="annottext">toXML :: EncryptionEntity -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389651"><span id="local-6989586621679389652"><span id="local-6989586621679389653"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679389664"><span class="annot"><span class="annottext">toXML :: EncryptionEntity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.EncryptionEntity.html#EncryptionEntity%27"><span class="hs-identifier hs-type">EncryptionEntity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389660"><span id="local-6989586621679389661"><span id="local-6989586621679389662"><span class="annot"><span class="annottext">Text
 FieldPatterns
 fieldPatterns :: FieldPatterns
 providerId :: Text
@@ -260,7 +260,7 @@ publicKeyId :: Text
 $sel:fieldPatterns:EncryptionEntity' :: EncryptionEntity -&gt; FieldPatterns
 $sel:providerId:EncryptionEntity' :: EncryptionEntity -&gt; Text
 $sel:publicKeyId:EncryptionEntity' :: EncryptionEntity -&gt; Text
-</span><a href="#local-6989586621679389651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389660"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -268,16 +268,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;PublicKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389653"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389662"><span class="hs-identifier hs-var">publicKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ProviderId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679389652"><span class="hs-identifier hs-var">providerId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389661"><span class="hs-identifier hs-var">providerId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;FieldPatterns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; FieldPatterns -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">FieldPatterns
-</span><a href="#local-6989586621679389651"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span>
+</span><a href="#local-6989586621679389660"><span class="hs-identifier hs-var">fieldPatterns</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span></pre></body></html>

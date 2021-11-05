@@ -1,0 +1,940 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the quota increase requests in the specified quota request</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#newListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier">newListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_nextToken"><span class="hs-identifier">listServiceQuotaIncreaseRequestsInTemplate_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_awsRegion"><span class="hs-identifier">listServiceQuotaIncreaseRequestsInTemplate_awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_serviceCode"><span class="hs-identifier">listServiceQuotaIncreaseRequestsInTemplate_serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_maxResults"><span class="hs-identifier">listServiceQuotaIncreaseRequestsInTemplate_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#newListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier">newListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList"><span class="hs-identifier">listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken"><span class="hs-identifier">listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus"><span class="hs-identifier">listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.Types.html"><span class="hs-identifier">Network.AWS.ServiceQuotas.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListServiceQuotaIncreaseRequestsInTemplate' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679179565"><span id="local-6989586621679179566"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListServiceQuotaIncreaseRequestsInTemplate"><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-var">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The AWS Region.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AawsRegion%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AawsRegion%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The service identifier.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AserviceCode%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AserviceCode%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the remaining results, if any, make another call with the token returned</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- from this call.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AmaxResults%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179556"><span id="local-6989586621679179558"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; Bool
+(ListServiceQuotaIncreaseRequestsInTemplate
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; Bool)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplate
+    -&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; Bool)
+-&gt; Eq ListServiceQuotaIncreaseRequestsInTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; Bool
+$c/= :: ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; Bool
+== :: ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; Bool
+$c== :: ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179547"><span id="local-6989586621679179549"><span id="local-6989586621679179551"><span id="local-6989586621679179553"><span class="annot"><span class="annottext">ReadPrec [ListServiceQuotaIncreaseRequestsInTemplate]
+ReadPrec ListServiceQuotaIncreaseRequestsInTemplate
+Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplate
+ReadS [ListServiceQuotaIncreaseRequestsInTemplate]
+(Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; ReadS [ListServiceQuotaIncreaseRequestsInTemplate]
+-&gt; ReadPrec ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ReadPrec [ListServiceQuotaIncreaseRequestsInTemplate]
+-&gt; Read ListServiceQuotaIncreaseRequestsInTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListServiceQuotaIncreaseRequestsInTemplate]
+$creadListPrec :: ReadPrec [ListServiceQuotaIncreaseRequestsInTemplate]
+readPrec :: ReadPrec ListServiceQuotaIncreaseRequestsInTemplate
+$creadPrec :: ReadPrec ListServiceQuotaIncreaseRequestsInTemplate
+readList :: ReadS [ListServiceQuotaIncreaseRequestsInTemplate]
+$creadList :: ReadS [ListServiceQuotaIncreaseRequestsInTemplate]
+readsPrec :: Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplate
+$creadsPrec :: Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179540"><span id="local-6989586621679179542"><span id="local-6989586621679179544"><span class="annot"><span class="annottext">Int -&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; ShowS
+[ListServiceQuotaIncreaseRequestsInTemplate] -&gt; ShowS
+ListServiceQuotaIncreaseRequestsInTemplate -&gt; String
+(Int -&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; ShowS)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplate -&gt; String)
+-&gt; ([ListServiceQuotaIncreaseRequestsInTemplate] -&gt; ShowS)
+-&gt; Show ListServiceQuotaIncreaseRequestsInTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListServiceQuotaIncreaseRequestsInTemplate] -&gt; ShowS
+$cshowList :: [ListServiceQuotaIncreaseRequestsInTemplate] -&gt; ShowS
+show :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; String
+$cshow :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; String
+showsPrec :: Int -&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListServiceQuotaIncreaseRequestsInTemplate
+ -&gt; Rep ListServiceQuotaIncreaseRequestsInTemplate x)
+-&gt; (forall x.
+    Rep ListServiceQuotaIncreaseRequestsInTemplate x
+    -&gt; ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; Generic ListServiceQuotaIncreaseRequestsInTemplate
+forall x.
+Rep ListServiceQuotaIncreaseRequestsInTemplate x
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+forall x.
+ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Rep ListServiceQuotaIncreaseRequestsInTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListServiceQuotaIncreaseRequestsInTemplate x
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+$cfrom :: forall x.
+ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Rep ListServiceQuotaIncreaseRequestsInTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'ListServiceQuotaIncreaseRequestsInTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'nextToken', 'listServiceQuotaIncreaseRequestsInTemplate_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'awsRegion', 'listServiceQuotaIncreaseRequestsInTemplate_awsRegion' - The AWS Region.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'serviceCode', 'listServiceQuotaIncreaseRequestsInTemplate_serviceCode' - The service identifier.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'listServiceQuotaIncreaseRequestsInTemplate_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the remaining results, if any, make another call with the token returned</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- from this call.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#newListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">newListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span>
+</span><span id="line-90"></span><span id="newListServiceQuotaIncreaseRequestsInTemplate"><span class="annot"><span class="annottext">newListServiceQuotaIncreaseRequestsInTemplate :: ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#newListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-var hs-var">newListServiceQuotaIncreaseRequestsInTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AawsRegion%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCode:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AserviceCode%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Natural
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AmaxResults%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_nextToken"><span class="hs-identifier hs-type">listServiceQuotaIncreaseRequestsInTemplate_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listServiceQuotaIncreaseRequestsInTemplate_nextToken"><span class="annot"><span class="annottext">listServiceQuotaIncreaseRequestsInTemplate_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_nextToken"><span class="hs-identifier hs-var hs-var">listServiceQuotaIncreaseRequestsInTemplate_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplate
+    -&gt; Maybe Text -&gt; ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; Lens
+     ListServiceQuotaIncreaseRequestsInTemplate
+     ListServiceQuotaIncreaseRequestsInTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179534"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679179534"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179534"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179533"><span class="annot"><span class="annottext">s :: ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179532"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The AWS Region.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_awsRegion"><span class="hs-identifier hs-type">listServiceQuotaIncreaseRequestsInTemplate_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listServiceQuotaIncreaseRequestsInTemplate_awsRegion"><span class="annot"><span class="annottext">listServiceQuotaIncreaseRequestsInTemplate_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_awsRegion"><span class="hs-identifier hs-var hs-var">listServiceQuotaIncreaseRequestsInTemplate_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplate
+    -&gt; Maybe Text -&gt; ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; Lens
+     ListServiceQuotaIncreaseRequestsInTemplate
+     ListServiceQuotaIncreaseRequestsInTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179531"><span class="annot"><span class="annottext">Maybe Text
+awsRegion :: Maybe Text
+$sel:awsRegion:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679179531"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179531"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179530"><span class="annot"><span class="annottext">s :: ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179529"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AawsRegion%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The service identifier.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_serviceCode"><span class="hs-identifier hs-type">listServiceQuotaIncreaseRequestsInTemplate_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="listServiceQuotaIncreaseRequestsInTemplate_serviceCode"><span class="annot"><span class="annottext">listServiceQuotaIncreaseRequestsInTemplate_serviceCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_serviceCode"><span class="hs-identifier hs-var hs-var">listServiceQuotaIncreaseRequestsInTemplate_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplate
+    -&gt; Maybe Text -&gt; ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; Lens
+     ListServiceQuotaIncreaseRequestsInTemplate
+     ListServiceQuotaIncreaseRequestsInTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179528"><span class="annot"><span class="annottext">Maybe Text
+serviceCode :: Maybe Text
+$sel:serviceCode:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679179528"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179528"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179527"><span class="annot"><span class="annottext">s :: ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179526"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AserviceCode%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the remaining results, if any, make another call with the token returned</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- from this call.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_maxResults"><span class="hs-identifier hs-type">listServiceQuotaIncreaseRequestsInTemplate_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="listServiceQuotaIncreaseRequestsInTemplate_maxResults"><span class="annot"><span class="annottext">listServiceQuotaIncreaseRequestsInTemplate_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_maxResults"><span class="hs-identifier hs-var hs-var">listServiceQuotaIncreaseRequestsInTemplate_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Natural)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplate
+    -&gt; Maybe Natural -&gt; ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; Lens
+     ListServiceQuotaIncreaseRequestsInTemplate
+     ListServiceQuotaIncreaseRequestsInTemplate
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179525"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Natural
+</span><a href="#local-6989586621679179525"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179525"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179524"><span class="annot"><span class="annottext">s :: ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179523"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListServiceQuotaIncreaseRequestsInTemplate' :: Maybe Natural
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AmaxResults%3AListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679179519"><span class="annot"><span class="annottext">page :: ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; AWSResponse ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Maybe ListServiceQuotaIncreaseRequestsInTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679179517"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179517"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679179516"><span class="annot"><span class="annottext">AWSResponse ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179516"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListServiceQuotaIncreaseRequestsInTemplate
+ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179516"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Getting
+     (First Text)
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Const
+     (First Text) ListServiceQuotaIncreaseRequestsInTemplateResponse
+Lens'
+  ListServiceQuotaIncreaseRequestsInTemplateResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken"><span class="hs-identifier hs-var">listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+ -&gt; Const
+      (First Text) ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text)
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListServiceQuotaIncreaseRequestsInTemplate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListServiceQuotaIncreaseRequestsInTemplate
+ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179516"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Getting
+     (First [ServiceQuotaIncreaseRequestInTemplate])
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     [ServiceQuotaIncreaseRequestInTemplate]
+-&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ServiceQuotaIncreaseRequestInTemplate]
+ -&gt; Const
+      (First [ServiceQuotaIncreaseRequestInTemplate])
+      (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Const
+     (First [ServiceQuotaIncreaseRequestInTemplate])
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+Lens'
+  ListServiceQuotaIncreaseRequestsInTemplateResponse
+  (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList"><span class="hs-identifier hs-var">listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList</span></a></span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ServiceQuotaIncreaseRequestInTemplate]
+  -&gt; Const
+       (First [ServiceQuotaIncreaseRequestInTemplate])
+       (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+ -&gt; Const
+      (First [ServiceQuotaIncreaseRequestInTemplate])
+      ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; (([ServiceQuotaIncreaseRequestInTemplate]
+     -&gt; Const
+          (First [ServiceQuotaIncreaseRequestInTemplate])
+          [ServiceQuotaIncreaseRequestInTemplate])
+    -&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+    -&gt; Const
+         (First [ServiceQuotaIncreaseRequestInTemplate])
+         (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+-&gt; Getting
+     (First [ServiceQuotaIncreaseRequestInTemplate])
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     [ServiceQuotaIncreaseRequestInTemplate]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ServiceQuotaIncreaseRequestInTemplate]
+ -&gt; Const
+      (First [ServiceQuotaIncreaseRequestInTemplate])
+      [ServiceQuotaIncreaseRequestInTemplate])
+-&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+-&gt; Const
+     (First [ServiceQuotaIncreaseRequestInTemplate])
+     (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListServiceQuotaIncreaseRequestsInTemplate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Maybe ListServiceQuotaIncreaseRequestsInTemplate
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplate
+ -&gt; Maybe ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Maybe ListServiceQuotaIncreaseRequestsInTemplate
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+</span><a href="#local-6989586621679179517"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplate
+    -&gt; ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Identity ListServiceQuotaIncreaseRequestsInTemplate
+Lens
+  ListServiceQuotaIncreaseRequestsInTemplate
+  ListServiceQuotaIncreaseRequestsInTemplate
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplate_nextToken"><span class="hs-identifier hs-var">listServiceQuotaIncreaseRequestsInTemplate_nextToken</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplate
+ -&gt; Identity ListServiceQuotaIncreaseRequestsInTemplate)
+-&gt; Maybe Text
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListServiceQuotaIncreaseRequestsInTemplate
+ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179516"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Getting
+     (First Text)
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Const
+     (First Text) ListServiceQuotaIncreaseRequestsInTemplateResponse
+Lens'
+  ListServiceQuotaIncreaseRequestsInTemplateResponse (Maybe Text)
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken"><span class="hs-identifier hs-var">listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken</span></a></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+ -&gt; Const
+      (First Text) ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting
+     (First Text)
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679179506"><span class="annot"><span class="annottext">request :: ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Request ListServiceQuotaIncreaseRequestsInTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; Request ListServiceQuotaIncreaseRequestsInTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.ServiceQuotas.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679179502"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListServiceQuotaIncreaseRequestsInTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse ListServiceQuotaIncreaseRequestsInTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListServiceQuotaIncreaseRequestsInTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse ListServiceQuotaIncreaseRequestsInTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679179499"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679179498"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679179498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679179497"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ServiceQuotaIncreaseRequestInTemplate]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; Either String (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179497"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceQuotaIncreaseRequestInTemplateList&quot;</span></span><span>
+</span><span id="line-157"></span><span>                            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+-&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+-&gt; Either String (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679179497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String ListServiceQuotaIncreaseRequestsInTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179499"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679179488"><span id="local-6989586621679179490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679179485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679179481"><span class="annot"><span class="annottext">toHeaders :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-181"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-185"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679179471"><span id="local-6989586621679179473"><span id="local-6989586621679179475"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span></span></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679179469"><span class="annot"><span class="annottext">toJSON :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179464"><span id="local-6989586621679179465"><span id="local-6989586621679179466"><span id="local-6989586621679179467"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+serviceCode :: Maybe Text
+awsRegion :: Maybe Text
+nextToken :: Maybe Text
+$sel:maxResults:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Natural
+$sel:serviceCode:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+$sel:awsRegion:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+$sel:nextToken:ListServiceQuotaIncreaseRequestsInTemplate' :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679179464"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-196"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-197"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179467"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179466"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179465"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679179464"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679179458"><span class="annot"><span class="annottext">toPath :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplate"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplate</span></a></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679179454"><span class="annot"><span class="annottext">toQuery :: ListServiceQuotaIncreaseRequestsInTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; ListServiceQuotaIncreaseRequestsInTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | /See:/ 'newListServiceQuotaIncreaseRequestsInTemplateResponse' smart constructor.</span><span>
+</span><span id="line-217"></span><span id="local-6989586621679179451"><span id="local-6989586621679179452"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-var">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the quota increase requests.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AserviceQuotaIncreaseRequestInTemplateList%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AserviceQuotaIncreaseRequestInTemplateList%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var hs-var">serviceQuotaIncreaseRequestInTemplateList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.html#ServiceQuotaIncreaseRequestInTemplate"><span class="hs-identifier hs-type">ServiceQuotaIncreaseRequestInTemplate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Int
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AhttpStatus%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679179444"><span id="local-6989586621679179446"><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Bool
+(ListServiceQuotaIncreaseRequestsInTemplateResponse
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Bool)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplateResponse
+    -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Bool)
+-&gt; Eq ListServiceQuotaIncreaseRequestsInTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Bool
+$c/= :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Bool
+== :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Bool
+$c== :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179436"><span id="local-6989586621679179438"><span id="local-6989586621679179440"><span id="local-6989586621679179442"><span class="annot"><span class="annottext">ReadPrec [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+ReadPrec ListServiceQuotaIncreaseRequestsInTemplateResponse
+Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplateResponse
+ReadS [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+(Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; ReadS [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+-&gt; ReadPrec ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; ReadPrec [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+-&gt; Read ListServiceQuotaIncreaseRequestsInTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+$creadListPrec :: ReadPrec [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+readPrec :: ReadPrec ListServiceQuotaIncreaseRequestsInTemplateResponse
+$creadPrec :: ReadPrec ListServiceQuotaIncreaseRequestsInTemplateResponse
+readList :: ReadS [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+$creadList :: ReadS [ListServiceQuotaIncreaseRequestsInTemplateResponse]
+readsPrec :: Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplateResponse
+$creadsPrec :: Int -&gt; ReadS ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679179430"><span id="local-6989586621679179432"><span id="local-6989586621679179434"><span class="annot"><span class="annottext">Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; ShowS
+[ListServiceQuotaIncreaseRequestsInTemplateResponse] -&gt; ShowS
+ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; String
+(Int
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; ShowS)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; String)
+-&gt; ([ListServiceQuotaIncreaseRequestsInTemplateResponse] -&gt; ShowS)
+-&gt; Show ListServiceQuotaIncreaseRequestsInTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListServiceQuotaIncreaseRequestsInTemplateResponse] -&gt; ShowS
+$cshowList :: [ListServiceQuotaIncreaseRequestsInTemplateResponse] -&gt; ShowS
+show :: ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; String
+$cshow :: ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; String
+showsPrec :: Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListServiceQuotaIncreaseRequestsInTemplateResponse
+ -&gt; Rep ListServiceQuotaIncreaseRequestsInTemplateResponse x)
+-&gt; (forall x.
+    Rep ListServiceQuotaIncreaseRequestsInTemplateResponse x
+    -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; Generic ListServiceQuotaIncreaseRequestsInTemplateResponse
+forall x.
+Rep ListServiceQuotaIncreaseRequestsInTemplateResponse x
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+forall x.
+ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Rep ListServiceQuotaIncreaseRequestsInTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListServiceQuotaIncreaseRequestsInTemplateResponse x
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+$cfrom :: forall x.
+ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Rep ListServiceQuotaIncreaseRequestsInTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'ListServiceQuotaIncreaseRequestsInTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'serviceQuotaIncreaseRequestInTemplateList', 'listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList' - Information about the quota increase requests.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'nextToken', 'listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#newListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">newListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-243"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span>
+</span><span id="line-246"></span><span id="newListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="annot"><span class="annottext">newListServiceQuotaIncreaseRequestsInTemplateResponse :: Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#newListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-var hs-var">newListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679179427"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179427"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse' :: Maybe [ServiceQuotaIncreaseRequestInTemplate]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceQuotaIncreaseRequestInTemplateList:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: Maybe [ServiceQuotaIncreaseRequestInTemplate]
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AserviceQuotaIncreaseRequestInTemplateList%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">serviceQuotaIncreaseRequestInTemplateList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: Int
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AhttpStatus%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179427"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | Information about the quota increase requests.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList"><span class="hs-identifier hs-type">listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceQuotas.Types.ServiceQuotaIncreaseRequestInTemplate.html#ServiceQuotaIncreaseRequestInTemplate"><span class="hs-identifier hs-type">ServiceQuotaIncreaseRequestInTemplate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList"><span class="annot"><span class="annottext">listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList :: (Maybe [ServiceQuotaIncreaseRequestInTemplate]
+ -&gt; f (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList"><span class="hs-identifier hs-var hs-var">listServiceQuotaIncreaseRequestsInTemplateResponse_serviceQuotaIncreaseRequestInTemplateList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplateResponse
+ -&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate])
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplateResponse
+    -&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+    -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; Lens'
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179426"><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate]
+serviceQuotaIncreaseRequestInTemplateList :: Maybe [ServiceQuotaIncreaseRequestInTemplate]
+$sel:serviceQuotaIncreaseRequestInTemplateList:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+</span><a href="#local-6989586621679179426"><span class="hs-identifier hs-var hs-var">serviceQuotaIncreaseRequestInTemplateList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate]
+</span><a href="#local-6989586621679179426"><span class="hs-identifier hs-var">serviceQuotaIncreaseRequestInTemplateList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179425"><span class="annot"><span class="annottext">s :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179424"><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate]
+</span><a href="#local-6989586621679179424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceQuotaIncreaseRequestInTemplateList:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: Maybe [ServiceQuotaIncreaseRequestInTemplate]
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AserviceQuotaIncreaseRequestInTemplateList%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">serviceQuotaIncreaseRequestInTemplateList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServiceQuotaIncreaseRequestInTemplate]
+</span><a href="#local-6989586621679179424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServiceQuotaIncreaseRequestInTemplate]
+  -&gt; f (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+ -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+ -&gt; f ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; ((Maybe [ServiceQuotaIncreaseRequestInTemplate]
+     -&gt; f (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+    -&gt; Maybe [ServiceQuotaIncreaseRequestInTemplate]
+    -&gt; f (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+-&gt; (Maybe [ServiceQuotaIncreaseRequestInTemplate]
+    -&gt; f (Maybe [ServiceQuotaIncreaseRequestInTemplate]))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ServiceQuotaIncreaseRequestInTemplate]
+  [ServiceQuotaIncreaseRequestInTemplate]
+  [ServiceQuotaIncreaseRequestInTemplate]
+  [ServiceQuotaIncreaseRequestInTemplate]
+-&gt; Iso
+     (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+     (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+     (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+     (Maybe [ServiceQuotaIncreaseRequestInTemplate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ServiceQuotaIncreaseRequestInTemplate]
+  [ServiceQuotaIncreaseRequestInTemplate]
+  [ServiceQuotaIncreaseRequestInTemplate]
+  [ServiceQuotaIncreaseRequestInTemplate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- null when there are no more results to return.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken"><span class="hs-identifier hs-type">listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken"><span class="annot"><span class="annottext">listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken"><span class="hs-identifier hs-var hs-var">listServiceQuotaIncreaseRequestsInTemplateResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Maybe Text)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplateResponse
+    -&gt; Maybe Text
+    -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; Lens'
+     ListServiceQuotaIncreaseRequestsInTemplateResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179421"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679179421"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179421"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179420"><span class="annot"><span class="annottext">s :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AnextToken%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus"><span class="hs-identifier hs-type">listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-268"></span><span id="listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus"><span class="annot"><span class="annottext">listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse
+-&gt; f ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listServiceQuotaIncreaseRequestsInTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Int)
+-&gt; (ListServiceQuotaIncreaseRequestsInTemplateResponse
+    -&gt; Int -&gt; ListServiceQuotaIncreaseRequestsInTemplateResponse)
+-&gt; Lens
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     ListServiceQuotaIncreaseRequestsInTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179418"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: ListServiceQuotaIncreaseRequestsInTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679179418"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179418"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679179417"><span class="annot"><span class="annottext">s :: ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679179416"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListServiceQuotaIncreaseRequestsInTemplateResponse
+</span><a href="#local-6989586621679179417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListServiceQuotaIncreaseRequestsInTemplateResponse' :: Int
+</span><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#%24sel%3AhttpStatus%3AListServiceQuotaIncreaseRequestsInTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679179416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679179414"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceQuotas.ListServiceQuotaIncreaseRequestsInTemplate.html#ListServiceQuotaIncreaseRequestsInTemplateResponse"><span class="hs-identifier hs-type">ListServiceQuotaIncreaseRequestsInTemplateResponse</span></a></span></span><span>
+</span><span id="line-273"></span></pre></body></html>

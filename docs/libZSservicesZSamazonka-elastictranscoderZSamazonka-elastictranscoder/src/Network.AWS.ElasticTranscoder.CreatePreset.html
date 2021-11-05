@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-comment">-- | The @CreatePresetRequest@ structure.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- /See:/ 'newCreatePreset' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679216996"><span id="local-6989586621679216997"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePreset"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-var">CreatePreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePreset%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-var">CreatePreset'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679217005"><span id="local-6989586621679217006"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePreset"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-var">CreatePreset</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePreset%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-var">CreatePreset'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A section of the request body that specifies the video parameters.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Avideo%3ACreatePreset%27"><span class="annot"><span class="annottext">CreatePreset -&gt; Maybe VideoParameters
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Avideo%3ACreatePreset%27"><span class="hs-identifier hs-var hs-var">video</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.VideoParameters.html#VideoParameters"><span class="hs-identifier hs-type">VideoParameters</span></a></span><span class="hs-special">,</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3Acontainer%3ACreatePreset%27"><span class="annot"><span class="annottext">CreatePreset -&gt; Text
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Acontainer%3ACreatePreset%27"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216985"><span id="local-6989586621679216987"><span class="annot"><span class="annottext">CreatePreset -&gt; CreatePreset -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216994"><span id="local-6989586621679216996"><span class="annot"><span class="annottext">CreatePreset -&gt; CreatePreset -&gt; Bool
 (CreatePreset -&gt; CreatePreset -&gt; Bool)
 -&gt; (CreatePreset -&gt; CreatePreset -&gt; Bool) -&gt; Eq CreatePreset
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -104,7 +104,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePreset -&gt; CreatePreset -&gt; Bool
 == :: CreatePreset -&gt; CreatePreset -&gt; Bool
 $c== :: CreatePreset -&gt; CreatePreset -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216976"><span id="local-6989586621679216978"><span id="local-6989586621679216980"><span id="local-6989586621679216982"><span class="annot"><span class="annottext">ReadPrec [CreatePreset]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216985"><span id="local-6989586621679216987"><span id="local-6989586621679216989"><span id="local-6989586621679216991"><span class="annot"><span class="annottext">ReadPrec [CreatePreset]
 ReadPrec CreatePreset
 Int -&gt; ReadS CreatePreset
 ReadS [CreatePreset]
@@ -124,7 +124,7 @@ readList :: ReadS [CreatePreset]
 $creadList :: ReadS [CreatePreset]
 readsPrec :: Int -&gt; ReadS CreatePreset
 $creadsPrec :: Int -&gt; ReadS CreatePreset
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216969"><span id="local-6989586621679216971"><span id="local-6989586621679216973"><span class="annot"><span class="annottext">Int -&gt; CreatePreset -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216978"><span id="local-6989586621679216980"><span id="local-6989586621679216982"><span class="annot"><span class="annottext">Int -&gt; CreatePreset -&gt; ShowS
 [CreatePreset] -&gt; ShowS
 CreatePreset -&gt; String
 (Int -&gt; CreatePreset -&gt; ShowS)
@@ -180,9 +180,9 @@ $cfrom :: forall x. CreatePreset -&gt; Rep CreatePreset x
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span>
 </span><span id="line-124"></span><span id="newCreatePreset"><span class="annot"><span class="annottext">newCreatePreset :: Text -&gt; Text -&gt; CreatePreset
-</span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#newCreatePreset"><span class="hs-identifier hs-var hs-var">newCreatePreset</span></a></span></span><span> </span><span id="local-6989586621679216964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216964"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679216963"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216963"><span class="hs-identifier hs-var">pContainer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#newCreatePreset"><span class="hs-identifier hs-var hs-var">newCreatePreset</span></a></span></span><span> </span><span id="local-6989586621679216973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216973"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679216972"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216972"><span class="hs-identifier hs-var">pContainer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">CreatePreset' :: Maybe VideoParameters
 -&gt; Maybe Thumbnails
 -&gt; Maybe Text
@@ -209,10 +209,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreatePreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Aname%3ACreatePreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216964"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216973"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:container:CreatePreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Acontainer%3ACreatePreset%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216963"><span class="hs-identifier hs-var">pContainer_</span></a></span><span>
+</span><a href="#local-6989586621679216972"><span class="hs-identifier hs-var">pContainer_</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | A section of the request body that specifies the video parameters.</span><span>
@@ -227,16 +227,16 @@ forall a. Maybe a
      (Maybe VideoParameters)
      (Maybe VideoParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216960"><span class="annot"><span class="annottext">Maybe VideoParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216969"><span class="annot"><span class="annottext">Maybe VideoParameters
 video :: Maybe VideoParameters
 $sel:video:CreatePreset' :: CreatePreset -&gt; Maybe VideoParameters
-</span><a href="#local-6989586621679216960"><span class="hs-identifier hs-var hs-var">video</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoParameters
-</span><a href="#local-6989586621679216960"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216959"><span class="annot"><span class="annottext">s :: CreatePreset
-</span><a href="#local-6989586621679216959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216958"><span class="annot"><span class="annottext">Maybe VideoParameters
-</span><a href="#local-6989586621679216958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
-</span><a href="#local-6989586621679216959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:video:CreatePreset' :: Maybe VideoParameters
+</span><a href="#local-6989586621679216969"><span class="hs-identifier hs-var hs-var">video</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoParameters
+</span><a href="#local-6989586621679216969"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216968"><span class="annot"><span class="annottext">s :: CreatePreset
+</span><a href="#local-6989586621679216968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216967"><span class="annot"><span class="annottext">Maybe VideoParameters
+</span><a href="#local-6989586621679216967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
+</span><a href="#local-6989586621679216968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:video:CreatePreset' :: Maybe VideoParameters
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Avideo%3ACreatePreset%27"><span class="hs-identifier hs-var">video</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoParameters
-</span><a href="#local-6989586621679216958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | A section of the request body that specifies the thumbnail parameters,</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- if any.</span><span>
@@ -248,16 +248,16 @@ $sel:video:CreatePreset' :: CreatePreset -&gt; Maybe VideoParameters
 -&gt; Lens
      CreatePreset CreatePreset (Maybe Thumbnails) (Maybe Thumbnails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216957"><span class="annot"><span class="annottext">Maybe Thumbnails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216966"><span class="annot"><span class="annottext">Maybe Thumbnails
 thumbnails :: Maybe Thumbnails
 $sel:thumbnails:CreatePreset' :: CreatePreset -&gt; Maybe Thumbnails
-</span><a href="#local-6989586621679216957"><span class="hs-identifier hs-var hs-var">thumbnails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Thumbnails
-</span><a href="#local-6989586621679216957"><span class="hs-identifier hs-var">thumbnails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216956"><span class="annot"><span class="annottext">s :: CreatePreset
-</span><a href="#local-6989586621679216956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216955"><span class="annot"><span class="annottext">Maybe Thumbnails
-</span><a href="#local-6989586621679216955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
-</span><a href="#local-6989586621679216956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnails:CreatePreset' :: Maybe Thumbnails
+</span><a href="#local-6989586621679216966"><span class="hs-identifier hs-var hs-var">thumbnails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Thumbnails
+</span><a href="#local-6989586621679216966"><span class="hs-identifier hs-var">thumbnails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216965"><span class="annot"><span class="annottext">s :: CreatePreset
+</span><a href="#local-6989586621679216965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216964"><span class="annot"><span class="annottext">Maybe Thumbnails
+</span><a href="#local-6989586621679216964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
+</span><a href="#local-6989586621679216965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thumbnails:CreatePreset' :: Maybe Thumbnails
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Athumbnails%3ACreatePreset%27"><span class="hs-identifier hs-var">thumbnails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Thumbnails
-</span><a href="#local-6989586621679216955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | A description of the preset.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#createPreset_description"><span class="hs-identifier hs-type">createPreset_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -266,16 +266,16 @@ $sel:thumbnails:CreatePreset' :: CreatePreset -&gt; Maybe Thumbnails
 -&gt; (CreatePreset -&gt; Maybe Text -&gt; CreatePreset)
 -&gt; Lens CreatePreset CreatePreset (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216954"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216963"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:CreatePreset' :: CreatePreset -&gt; Maybe Text
-</span><a href="#local-6989586621679216954"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216954"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216953"><span class="annot"><span class="annottext">s :: CreatePreset
-</span><a href="#local-6989586621679216953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216952"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
-</span><a href="#local-6989586621679216953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePreset' :: Maybe Text
+</span><a href="#local-6989586621679216963"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216963"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216962"><span class="annot"><span class="annottext">s :: CreatePreset
+</span><a href="#local-6989586621679216962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
+</span><a href="#local-6989586621679216962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreatePreset' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Adescription%3ACreatePreset%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A section of the request body that specifies the audio parameters.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#createPreset_audio"><span class="hs-identifier hs-type">createPreset_audio</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
@@ -289,16 +289,16 @@ $sel:description:CreatePreset' :: CreatePreset -&gt; Maybe Text
      (Maybe AudioParameters)
      (Maybe AudioParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216951"><span class="annot"><span class="annottext">Maybe AudioParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216960"><span class="annot"><span class="annottext">Maybe AudioParameters
 audio :: Maybe AudioParameters
 $sel:audio:CreatePreset' :: CreatePreset -&gt; Maybe AudioParameters
-</span><a href="#local-6989586621679216951"><span class="hs-identifier hs-var hs-var">audio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioParameters
-</span><a href="#local-6989586621679216951"><span class="hs-identifier hs-var">audio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216950"><span class="annot"><span class="annottext">s :: CreatePreset
-</span><a href="#local-6989586621679216950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216949"><span class="annot"><span class="annottext">Maybe AudioParameters
-</span><a href="#local-6989586621679216949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
-</span><a href="#local-6989586621679216950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audio:CreatePreset' :: Maybe AudioParameters
+</span><a href="#local-6989586621679216960"><span class="hs-identifier hs-var hs-var">audio</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioParameters
+</span><a href="#local-6989586621679216960"><span class="hs-identifier hs-var">audio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216959"><span class="annot"><span class="annottext">s :: CreatePreset
+</span><a href="#local-6989586621679216959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216958"><span class="annot"><span class="annottext">Maybe AudioParameters
+</span><a href="#local-6989586621679216958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
+</span><a href="#local-6989586621679216959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audio:CreatePreset' :: Maybe AudioParameters
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Aaudio%3ACreatePreset%27"><span class="hs-identifier hs-var">audio</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioParameters
-</span><a href="#local-6989586621679216949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The name of the preset. We recommend that the name be unique within the</span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- AWS account, but uniqueness is not enforced.</span><span>
@@ -308,16 +308,16 @@ $sel:audio:CreatePreset' :: CreatePreset -&gt; Maybe AudioParameters
 -&gt; (CreatePreset -&gt; Text -&gt; CreatePreset)
 -&gt; Lens CreatePreset CreatePreset Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216948"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216957"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreatePreset' :: CreatePreset -&gt; Text
-</span><a href="#local-6989586621679216948"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216948"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216947"><span class="annot"><span class="annottext">s :: CreatePreset
-</span><a href="#local-6989586621679216947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216946"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
-</span><a href="#local-6989586621679216947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatePreset' :: Text
+</span><a href="#local-6989586621679216957"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216957"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216956"><span class="annot"><span class="annottext">s :: CreatePreset
+</span><a href="#local-6989586621679216956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216955"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
+</span><a href="#local-6989586621679216956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreatePreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Aname%3ACreatePreset%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The container type for the output file. Valid values include @flac@,</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- @flv@, @fmp4@, @gif@, @mp3@, @mp4@, @mpg@, @mxf@, @oga@, @ogg@, @ts@,</span><span>
@@ -328,25 +328,25 @@ $sel:name:CreatePreset' :: CreatePreset -&gt; Text
 -&gt; (CreatePreset -&gt; Text -&gt; CreatePreset)
 -&gt; Lens CreatePreset CreatePreset Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216945"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216954"><span class="annot"><span class="annottext">Text
 container :: Text
 $sel:container:CreatePreset' :: CreatePreset -&gt; Text
-</span><a href="#local-6989586621679216945"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216945"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216944"><span class="annot"><span class="annottext">s :: CreatePreset
-</span><a href="#local-6989586621679216944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216943"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
-</span><a href="#local-6989586621679216944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:CreatePreset' :: Text
+</span><a href="#local-6989586621679216954"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216954"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216953"><span class="annot"><span class="annottext">s :: CreatePreset
+</span><a href="#local-6989586621679216953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePreset
+</span><a href="#local-6989586621679216953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:CreatePreset' :: Text
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Acontainer%3ACreatePreset%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679216939"><span class="annot"><span class="annottext">request :: CreatePreset -&gt; Request CreatePreset
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679216948"><span class="annot"><span class="annottext">request :: CreatePreset -&gt; Request CreatePreset
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePreset -&gt; Request CreatePreset
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679216935"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679216944"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePreset
 -&gt; ClientResponse ClientBody
@@ -370,10 +370,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216932"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216932"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216931"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679216931"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216930"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216930"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216941"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679216940"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679216940"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679216939"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Preset -&gt; Int -&gt; CreatePresetResponse
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-var">CreatePresetResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Preset -&gt; Int -&gt; CreatePresetResponse)
@@ -381,7 +381,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Preset -&gt; Int -&gt; CreatePresetResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679216939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Warning&quot;</span></span><span class="hs-special">)</span><span>
@@ -390,7 +390,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; CreatePresetResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216930"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Preset)
+</span><a href="#local-6989586621679216939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Preset)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Preset&quot;</span></span><span class="hs-special">)</span><span>
@@ -402,24 +402,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216932"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216941"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216922"><span id="local-6989586621679216924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216931"><span id="local-6989586621679216933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span></span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679216915"><span class="annot"><span class="annottext">toHeaders :: CreatePreset -&gt; ResponseHeaders
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679216924"><span class="annot"><span class="annottext">toHeaders :: CreatePreset -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePreset -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216906"><span id="local-6989586621679216908"><span id="local-6989586621679216910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679216904"><span class="annot"><span class="annottext">toJSON :: CreatePreset -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216897"><span id="local-6989586621679216898"><span id="local-6989586621679216899"><span id="local-6989586621679216900"><span id="local-6989586621679216901"><span id="local-6989586621679216902"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216915"><span id="local-6989586621679216917"><span id="local-6989586621679216919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679216913"><span class="annot"><span class="annottext">toJSON :: CreatePreset -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset%27"><span class="hs-identifier hs-type">CreatePreset'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216906"><span id="local-6989586621679216907"><span id="local-6989586621679216908"><span id="local-6989586621679216909"><span id="local-6989586621679216910"><span id="local-6989586621679216911"><span class="annot"><span class="annottext">Maybe Text
 Maybe AudioParameters
 Maybe Thumbnails
 Maybe VideoParameters
@@ -436,7 +436,7 @@ $sel:audio:CreatePreset' :: CreatePreset -&gt; Maybe AudioParameters
 $sel:description:CreatePreset' :: CreatePreset -&gt; Maybe Text
 $sel:thumbnails:CreatePreset' :: CreatePreset -&gt; Maybe Thumbnails
 $sel:video:CreatePreset' :: CreatePreset -&gt; Maybe VideoParameters
-</span><a href="#local-6989586621679216897"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216906"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -448,54 +448,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VideoParameters -&gt; Pair) -&gt; Maybe VideoParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoParameters
-</span><a href="#local-6989586621679216902"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216911"><span class="hs-identifier hs-var">video</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Thumbnails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Thumbnails -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Thumbnails -&gt; Pair) -&gt; Maybe Thumbnails -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Thumbnails
-</span><a href="#local-6989586621679216901"><span class="hs-identifier hs-var">thumbnails</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216910"><span class="hs-identifier hs-var">thumbnails</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216900"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216909"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Audio&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioParameters -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AudioParameters -&gt; Pair) -&gt; Maybe AudioParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioParameters
-</span><a href="#local-6989586621679216899"><span class="hs-identifier hs-var">audio</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216908"><span class="hs-identifier hs-var">audio</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216898"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216907"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Container&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679216897"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216906"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679216891"><span class="annot"><span class="annottext">toPath :: CreatePreset -&gt; ByteString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679216900"><span class="annot"><span class="annottext">toPath :: CreatePreset -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePreset -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2012-09-25/presets&quot;</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePreset"><span class="hs-identifier hs-type">CreatePreset</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679216887"><span class="annot"><span class="annottext">toQuery :: CreatePreset -&gt; QueryString
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679216896"><span class="annot"><span class="annottext">toQuery :: CreatePreset -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePreset -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -505,7 +505,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-200"></span><span class="hs-comment">-- | The @CreatePresetResponse@ structure.</span><span>
 </span><span id="line-201"></span><span class="hs-comment">--</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- /See:/ 'newCreatePresetResponse' smart constructor.</span><span>
-</span><span id="line-203"></span><span id="local-6989586621679216884"><span id="local-6989586621679216885"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePresetResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-var">CreatePresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePresetResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-var">CreatePresetResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span id="local-6989586621679216893"><span id="local-6989586621679216894"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePresetResponse"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-var">CreatePresetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePresetResponse%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-var">CreatePresetResponse'</span></a></span></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the preset settings don\'t comply with the standards for the video</span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-comment">-- codec but Elastic Transcoder created the preset, this message explains</span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-comment">-- the reason the preset settings don\'t meet the standard. Elastic</span><span>
@@ -521,7 +521,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePresetResponse%27"><span class="annot"><span class="annottext">CreatePresetResponse -&gt; Int
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3AhttpStatus%3ACreatePresetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216877"><span id="local-6989586621679216879"><span class="annot"><span class="annottext">CreatePresetResponse -&gt; CreatePresetResponse -&gt; Bool
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216886"><span id="local-6989586621679216888"><span class="annot"><span class="annottext">CreatePresetResponse -&gt; CreatePresetResponse -&gt; Bool
 (CreatePresetResponse -&gt; CreatePresetResponse -&gt; Bool)
 -&gt; (CreatePresetResponse -&gt; CreatePresetResponse -&gt; Bool)
 -&gt; Eq CreatePresetResponse
@@ -530,7 +530,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePresetResponse -&gt; CreatePresetResponse -&gt; Bool
 == :: CreatePresetResponse -&gt; CreatePresetResponse -&gt; Bool
 $c== :: CreatePresetResponse -&gt; CreatePresetResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216869"><span id="local-6989586621679216871"><span id="local-6989586621679216873"><span id="local-6989586621679216875"><span class="annot"><span class="annottext">ReadPrec [CreatePresetResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216878"><span id="local-6989586621679216880"><span id="local-6989586621679216882"><span id="local-6989586621679216884"><span class="annot"><span class="annottext">ReadPrec [CreatePresetResponse]
 ReadPrec CreatePresetResponse
 Int -&gt; ReadS CreatePresetResponse
 ReadS [CreatePresetResponse]
@@ -550,7 +550,7 @@ readList :: ReadS [CreatePresetResponse]
 $creadList :: ReadS [CreatePresetResponse]
 readsPrec :: Int -&gt; ReadS CreatePresetResponse
 $creadsPrec :: Int -&gt; ReadS CreatePresetResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216863"><span id="local-6989586621679216865"><span id="local-6989586621679216867"><span class="annot"><span class="annottext">Int -&gt; CreatePresetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216872"><span id="local-6989586621679216874"><span id="local-6989586621679216876"><span class="annot"><span class="annottext">Int -&gt; CreatePresetResponse -&gt; ShowS
 [CreatePresetResponse] -&gt; ShowS
 CreatePresetResponse -&gt; String
 (Int -&gt; CreatePresetResponse -&gt; ShowS)
@@ -599,8 +599,8 @@ $cfrom :: forall x. CreatePresetResponse -&gt; Rep CreatePresetResponse x
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span>
 </span><span id="line-240"></span><span id="newCreatePresetResponse"><span class="annot"><span class="annottext">newCreatePresetResponse :: Int -&gt; CreatePresetResponse
-</span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#newCreatePresetResponse"><span class="hs-identifier hs-var hs-var">newCreatePresetResponse</span></a></span></span><span> </span><span id="local-6989586621679216860"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216860"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#newCreatePresetResponse"><span class="hs-identifier hs-var hs-var">newCreatePresetResponse</span></a></span></span><span> </span><span id="local-6989586621679216869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">CreatePresetResponse' :: Maybe Text -&gt; Maybe Preset -&gt; Int -&gt; CreatePresetResponse
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:warning:CreatePresetResponse' :: Maybe Text
@@ -613,7 +613,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePresetResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3AhttpStatus%3ACreatePresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216860"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679216869"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- | If the preset settings don\'t comply with the standards for the video</span><span>
@@ -629,16 +629,16 @@ forall a. Maybe a
 -&gt; Lens
      CreatePresetResponse CreatePresetResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216859"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216868"><span class="annot"><span class="annottext">Maybe Text
 warning :: Maybe Text
 $sel:warning:CreatePresetResponse' :: CreatePresetResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679216859"><span class="hs-identifier hs-var hs-var">warning</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216859"><span class="hs-identifier hs-var">warning</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216858"><span class="annot"><span class="annottext">s :: CreatePresetResponse
-</span><a href="#local-6989586621679216858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216857"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePresetResponse
-</span><a href="#local-6989586621679216858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warning:CreatePresetResponse' :: Maybe Text
+</span><a href="#local-6989586621679216868"><span class="hs-identifier hs-var hs-var">warning</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216868"><span class="hs-identifier hs-var">warning</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216867"><span class="annot"><span class="annottext">s :: CreatePresetResponse
+</span><a href="#local-6989586621679216867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216866"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePresetResponse
+</span><a href="#local-6989586621679216867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warning:CreatePresetResponse' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Awarning%3ACreatePresetResponse%27"><span class="hs-identifier hs-var">warning</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- | A section of the response body that provides information about the</span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- preset that is created.</span><span>
@@ -653,16 +653,16 @@ $sel:warning:CreatePresetResponse' :: CreatePresetResponse -&gt; Maybe Text
      (Maybe Preset)
      (Maybe Preset)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216856"><span class="annot"><span class="annottext">Maybe Preset
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216865"><span class="annot"><span class="annottext">Maybe Preset
 preset :: Maybe Preset
 $sel:preset:CreatePresetResponse' :: CreatePresetResponse -&gt; Maybe Preset
-</span><a href="#local-6989586621679216856"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
-</span><a href="#local-6989586621679216856"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216855"><span class="annot"><span class="annottext">s :: CreatePresetResponse
-</span><a href="#local-6989586621679216855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216854"><span class="annot"><span class="annottext">Maybe Preset
-</span><a href="#local-6989586621679216854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePresetResponse
-</span><a href="#local-6989586621679216855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preset:CreatePresetResponse' :: Maybe Preset
+</span><a href="#local-6989586621679216865"><span class="hs-identifier hs-var hs-var">preset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
+</span><a href="#local-6989586621679216865"><span class="hs-identifier hs-var">preset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216864"><span class="annot"><span class="annottext">s :: CreatePresetResponse
+</span><a href="#local-6989586621679216864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216863"><span class="annot"><span class="annottext">Maybe Preset
+</span><a href="#local-6989586621679216863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePresetResponse
+</span><a href="#local-6989586621679216864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preset:CreatePresetResponse' :: Maybe Preset
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3Apreset%3ACreatePresetResponse%27"><span class="hs-identifier hs-var">preset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Preset
-</span><a href="#local-6989586621679216854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-261"></span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#createPresetResponse_httpStatus"><span class="hs-identifier hs-type">createPresetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -671,16 +671,16 @@ $sel:preset:CreatePresetResponse' :: CreatePresetResponse -&gt; Maybe Preset
 -&gt; (CreatePresetResponse -&gt; Int -&gt; CreatePresetResponse)
 -&gt; Lens CreatePresetResponse CreatePresetResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216853"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216862"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePresetResponse' :: CreatePresetResponse -&gt; Int
-</span><a href="#local-6989586621679216853"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216853"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216852"><span class="annot"><span class="annottext">s :: CreatePresetResponse
-</span><a href="#local-6989586621679216852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216851"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePresetResponse
-</span><a href="#local-6989586621679216852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePresetResponse' :: Int
+</span><a href="#local-6989586621679216862"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216862"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216861"><span class="annot"><span class="annottext">s :: CreatePresetResponse
+</span><a href="#local-6989586621679216861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse%27"><span class="hs-identifier hs-type">CreatePresetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216860"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679216860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePresetResponse
+</span><a href="#local-6989586621679216861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePresetResponse' :: Int
 </span><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#%24sel%3AhttpStatus%3ACreatePresetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679216851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.CreatePreset.html#CreatePresetResponse"><span class="hs-identifier hs-type">CreatePresetResponse</span></a></span></span><span>
 </span><span id="line-265"></span></pre></body></html>

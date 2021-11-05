@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes the container, as part of model definition.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newContainerDefinition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680337826"><span id="local-6989586621680337827"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-var">ContainerDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-var">ContainerDefinition'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680337835"><span id="local-6989586621680337836"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-var">ContainerDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-var">ContainerDefinition'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies additional configuration for multi-model endpoints.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AmultiModelConfig%3AContainerDefinition%27"><span class="annot"><span class="annottext">ContainerDefinition -&gt; Maybe MultiModelConfig
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3AmultiModelConfig%3AContainerDefinition%27"><span class="hs-identifier hs-var hs-var">multiModelConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MultiModelConfig.html#MultiModelConfig"><span class="hs-identifier hs-type">MultiModelConfig</span></a></span><span class="hs-special">,</span><span>
@@ -104,7 +104,7 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3AcontainerHostname%3AContainerDefinition%27"><span class="annot"><span class="annottext">ContainerDefinition -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3AcontainerHostname%3AContainerDefinition%27"><span class="hs-identifier hs-var hs-var">containerHostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680337813"><span id="local-6989586621680337815"><span class="annot"><span class="annottext">ContainerDefinition -&gt; ContainerDefinition -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680337822"><span id="local-6989586621680337824"><span class="annot"><span class="annottext">ContainerDefinition -&gt; ContainerDefinition -&gt; Bool
 (ContainerDefinition -&gt; ContainerDefinition -&gt; Bool)
 -&gt; (ContainerDefinition -&gt; ContainerDefinition -&gt; Bool)
 -&gt; Eq ContainerDefinition
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerDefinition -&gt; ContainerDefinition -&gt; Bool
 == :: ContainerDefinition -&gt; ContainerDefinition -&gt; Bool
 $c== :: ContainerDefinition -&gt; ContainerDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337804"><span id="local-6989586621680337806"><span id="local-6989586621680337808"><span id="local-6989586621680337810"><span class="annot"><span class="annottext">ReadPrec [ContainerDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337813"><span id="local-6989586621680337815"><span id="local-6989586621680337817"><span id="local-6989586621680337819"><span class="annot"><span class="annottext">ReadPrec [ContainerDefinition]
 ReadPrec ContainerDefinition
 Int -&gt; ReadS ContainerDefinition
 ReadS [ContainerDefinition]
@@ -133,7 +133,7 @@ readList :: ReadS [ContainerDefinition]
 $creadList :: ReadS [ContainerDefinition]
 readsPrec :: Int -&gt; ReadS ContainerDefinition
 $creadsPrec :: Int -&gt; ReadS ContainerDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337797"><span id="local-6989586621680337799"><span id="local-6989586621680337801"><span class="annot"><span class="annottext">Int -&gt; ContainerDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680337806"><span id="local-6989586621680337808"><span id="local-6989586621680337810"><span class="annot"><span class="annottext">Int -&gt; ContainerDefinition -&gt; ShowS
 [ContainerDefinition] -&gt; ShowS
 ContainerDefinition -&gt; String
 (Int -&gt; ContainerDefinition -&gt; ShowS)
@@ -293,16 +293,16 @@ forall a. Maybe a
      (Maybe MultiModelConfig)
      (Maybe MultiModelConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337788"><span class="annot"><span class="annottext">Maybe MultiModelConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337797"><span class="annot"><span class="annottext">Maybe MultiModelConfig
 multiModelConfig :: Maybe MultiModelConfig
 $sel:multiModelConfig:ContainerDefinition' :: ContainerDefinition -&gt; Maybe MultiModelConfig
-</span><a href="#local-6989586621680337788"><span class="hs-identifier hs-var hs-var">multiModelConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiModelConfig
-</span><a href="#local-6989586621680337788"><span class="hs-identifier hs-var">multiModelConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337787"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337786"><span class="annot"><span class="annottext">Maybe MultiModelConfig
-</span><a href="#local-6989586621680337786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiModelConfig:ContainerDefinition' :: Maybe MultiModelConfig
+</span><a href="#local-6989586621680337797"><span class="hs-identifier hs-var hs-var">multiModelConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MultiModelConfig
+</span><a href="#local-6989586621680337797"><span class="hs-identifier hs-var">multiModelConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337796"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337795"><span class="annot"><span class="annottext">Maybe MultiModelConfig
+</span><a href="#local-6989586621680337795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:multiModelConfig:ContainerDefinition' :: Maybe MultiModelConfig
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3AmultiModelConfig%3AContainerDefinition%27"><span class="hs-identifier hs-var">multiModelConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MultiModelConfig
-</span><a href="#local-6989586621680337786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The S3 path where the model artifacts, which result from model training,</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- are stored. This path must point to a single gzip compressed tar archive</span><span>
@@ -334,16 +334,16 @@ $sel:multiModelConfig:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Mu
 -&gt; Lens
      ContainerDefinition ContainerDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337784"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337793"><span class="annot"><span class="annottext">Maybe Text
 modelDataUrl :: Maybe Text
 $sel:modelDataUrl:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621680337784"><span class="hs-identifier hs-var hs-var">modelDataUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337784"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337783"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337782"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelDataUrl:ContainerDefinition' :: Maybe Text
+</span><a href="#local-6989586621680337793"><span class="hs-identifier hs-var hs-var">modelDataUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337793"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337792"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelDataUrl:ContainerDefinition' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3AmodelDataUrl%3AContainerDefinition%27"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The path where inference code is stored. This can be either in Amazon</span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- EC2 Container Registry or in a Docker registry that is accessible from</span><span>
@@ -362,16 +362,16 @@ $sel:modelDataUrl:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
 -&gt; Lens
      ContainerDefinition ContainerDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337780"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337789"><span class="annot"><span class="annottext">Maybe Text
 image :: Maybe Text
 $sel:image:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621680337780"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337780"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337779"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337778"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ContainerDefinition' :: Maybe Text
+</span><a href="#local-6989586621680337789"><span class="hs-identifier hs-var hs-var">image</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337789"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337788"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:image:ContainerDefinition' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3Aimage%3AContainerDefinition%27"><span class="hs-identifier hs-var">image</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the model package to use to</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- create the model.</span><span>
@@ -383,16 +383,16 @@ $sel:image:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
 -&gt; Lens
      ContainerDefinition ContainerDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337776"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337785"><span class="annot"><span class="annottext">Maybe Text
 modelPackageName :: Maybe Text
 $sel:modelPackageName:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621680337776"><span class="hs-identifier hs-var hs-var">modelPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337776"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337775"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337774"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageName:ContainerDefinition' :: Maybe Text
+</span><a href="#local-6989586621680337785"><span class="hs-identifier hs-var hs-var">modelPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337785"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337784"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337783"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelPackageName:ContainerDefinition' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3AmodelPackageName%3AContainerDefinition%27"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The environment variables to set in the Docker container. Each key and</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- value in the @Environment@ string to string map can have length of up to</span><span>
@@ -409,16 +409,16 @@ $sel:modelPackageName:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Te
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337772"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337781"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 environment :: Maybe (HashMap Text Text)
 $sel:environment:ContainerDefinition' :: ContainerDefinition -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680337772"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680337772"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337771"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337770"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680337770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:ContainerDefinition' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680337781"><span class="hs-identifier hs-var hs-var">environment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680337781"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337780"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337779"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680337779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environment:ContainerDefinition' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3Aenvironment%3AContainerDefinition%27"><span class="hs-identifier hs-var">environment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680337770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680337779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ContainerDefinition -&gt; f ContainerDefinition)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -464,16 +464,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe ImageConfig)
      (Maybe ImageConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337765"><span class="annot"><span class="annottext">Maybe ImageConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337774"><span class="annot"><span class="annottext">Maybe ImageConfig
 imageConfig :: Maybe ImageConfig
 $sel:imageConfig:ContainerDefinition' :: ContainerDefinition -&gt; Maybe ImageConfig
-</span><a href="#local-6989586621680337765"><span class="hs-identifier hs-var hs-var">imageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageConfig
-</span><a href="#local-6989586621680337765"><span class="hs-identifier hs-var">imageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337764"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337763"><span class="annot"><span class="annottext">Maybe ImageConfig
-</span><a href="#local-6989586621680337763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageConfig:ContainerDefinition' :: Maybe ImageConfig
+</span><a href="#local-6989586621680337774"><span class="hs-identifier hs-var hs-var">imageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageConfig
+</span><a href="#local-6989586621680337774"><span class="hs-identifier hs-var">imageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337773"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337772"><span class="annot"><span class="annottext">Maybe ImageConfig
+</span><a href="#local-6989586621680337772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageConfig:ContainerDefinition' :: Maybe ImageConfig
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3AimageConfig%3AContainerDefinition%27"><span class="hs-identifier hs-var">imageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageConfig
-</span><a href="#local-6989586621680337763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- | Whether the container hosts a single model or multiple models.</span><span>
 </span><span id="line-249"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#containerDefinition_mode"><span class="hs-identifier hs-type">containerDefinition_mode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerMode.html#ContainerMode"><span class="hs-identifier hs-type">ContainerMode</span></a></span><span class="hs-special">)</span><span>
@@ -488,16 +488,16 @@ $sel:imageConfig:ContainerDefinition' :: ContainerDefinition -&gt; Maybe ImageCo
      (Maybe ContainerMode)
      (Maybe ContainerMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337761"><span class="annot"><span class="annottext">Maybe ContainerMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337770"><span class="annot"><span class="annottext">Maybe ContainerMode
 mode :: Maybe ContainerMode
 $sel:mode:ContainerDefinition' :: ContainerDefinition -&gt; Maybe ContainerMode
-</span><a href="#local-6989586621680337761"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerMode
-</span><a href="#local-6989586621680337761"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337760"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337759"><span class="annot"><span class="annottext">Maybe ContainerMode
-</span><a href="#local-6989586621680337759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:ContainerDefinition' :: Maybe ContainerMode
+</span><a href="#local-6989586621680337770"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerMode
+</span><a href="#local-6989586621680337770"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337769"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337768"><span class="annot"><span class="annottext">Maybe ContainerMode
+</span><a href="#local-6989586621680337768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:ContainerDefinition' :: Maybe ContainerMode
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3Amode%3AContainerDefinition%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerMode
-</span><a href="#local-6989586621680337759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | This parameter is ignored for models that contain only a</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- @PrimaryContainer@.</span><span>
@@ -521,19 +521,19 @@ $sel:mode:ContainerDefinition' :: ContainerDefinition -&gt; Maybe ContainerMode
 -&gt; Lens
      ContainerDefinition ContainerDefinition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337757"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337766"><span class="annot"><span class="annottext">Maybe Text
 containerHostname :: Maybe Text
 $sel:containerHostname:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
-</span><a href="#local-6989586621680337757"><span class="hs-identifier hs-var hs-var">containerHostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337757"><span class="hs-identifier hs-var">containerHostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337756"><span class="annot"><span class="annottext">s :: ContainerDefinition
-</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337755"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
-</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerHostname:ContainerDefinition' :: Maybe Text
+</span><a href="#local-6989586621680337766"><span class="hs-identifier hs-var hs-var">containerHostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337766"><span class="hs-identifier hs-var">containerHostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680337765"><span class="annot"><span class="annottext">s :: ContainerDefinition
+</span><a href="#local-6989586621680337765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680337764"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680337764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerDefinition
+</span><a href="#local-6989586621680337765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerHostname:ContainerDefinition' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#%24sel%3AcontainerHostname%3AContainerDefinition%27"><span class="hs-identifier hs-var">containerHostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680337764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337752"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-270"></span><span>  </span><span id="local-6989586621680337750"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerDefinition
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337761"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621680337759"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerDefinition)
@@ -543,8 +543,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-272"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerDefinition&quot;</span></span><span>
-</span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680337747"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680337756"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-274"></span><span>          </span><span class="annot"><span class="annottext">Maybe MultiModelConfig
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -576,7 +576,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ContainerDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiModelConfig)
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MultiModelConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MultiModelConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -600,7 +600,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelDataUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -622,7 +622,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Image&quot;</span></span><span class="hs-special">)</span><span>
@@ -642,7 +642,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ContainerDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelPackageName&quot;</span></span><span class="hs-special">)</span><span>
@@ -658,7 +658,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe ContainerMode -&gt; Maybe Text -&gt; ContainerDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -675,7 +675,7 @@ forall a. Monoid a =&gt; a
      (Maybe ContainerMode -&gt; Maybe Text -&gt; ContainerDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageConfig)
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ImageConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -684,7 +684,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; ContainerDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerMode)
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
@@ -692,19 +692,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ContainerDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680337747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680337756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContainerHostname&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337740"><span id="local-6989586621680337742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337749"><span id="local-6989586621680337751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span></span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span><span>
 </span><span id="line-288"></span><span>
-</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337729"><span id="local-6989586621680337731"><span id="local-6989586621680337733"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621680337727"><span class="annot"><span class="annottext">toJSON :: ContainerDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337718"><span id="local-6989586621680337719"><span id="local-6989586621680337720"><span id="local-6989586621680337721"><span id="local-6989586621680337722"><span id="local-6989586621680337723"><span id="local-6989586621680337724"><span id="local-6989586621680337725"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680337738"><span id="local-6989586621680337740"><span id="local-6989586621680337742"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition"><span class="hs-identifier hs-type">ContainerDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621680337736"><span class="annot"><span class="annottext">toJSON :: ContainerDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContainerDefinition.html#ContainerDefinition%27"><span class="hs-identifier hs-type">ContainerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680337727"><span id="local-6989586621680337728"><span id="local-6989586621680337729"><span id="local-6989586621680337730"><span id="local-6989586621680337731"><span id="local-6989586621680337732"><span id="local-6989586621680337733"><span id="local-6989586621680337734"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Maybe ContainerMode
 Maybe MultiModelConfig
@@ -725,7 +725,7 @@ $sel:modelPackageName:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Te
 $sel:image:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
 $sel:modelDataUrl:ContainerDefinition' :: ContainerDefinition -&gt; Maybe Text
 $sel:multiModelConfig:ContainerDefinition' :: ContainerDefinition -&gt; Maybe MultiModelConfig
-</span><a href="#local-6989586621680337718"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680337727"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-292"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -738,21 +738,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-294"></span><span>              </span><span class="annot"><span class="annottext">(MultiModelConfig -&gt; Pair) -&gt; Maybe MultiModelConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MultiModelConfig
-</span><a href="#local-6989586621680337725"><span class="hs-identifier hs-var">multiModelConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680337734"><span class="hs-identifier hs-var">multiModelConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-295"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelDataUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337724"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680337733"><span class="hs-identifier hs-var">modelDataUrl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Image&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337723"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680337732"><span class="hs-identifier hs-var">image</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-297"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModelPackageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -760,7 +760,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337722"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680337731"><span class="hs-identifier hs-var">modelPackageName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Environment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -768,21 +768,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680337721"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680337730"><span class="hs-identifier hs-var">environment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ImageConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ImageConfig -&gt; Pair) -&gt; Maybe ImageConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ImageConfig
-</span><a href="#local-6989586621680337720"><span class="hs-identifier hs-var">imageConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680337729"><span class="hs-identifier hs-var">imageConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-301"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ContainerMode -&gt; Pair) -&gt; Maybe ContainerMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerMode
-</span><a href="#local-6989586621680337719"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680337728"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContainerHostname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -790,7 +790,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-303"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680337718"><span class="hs-identifier hs-var">containerHostname</span></a></span><span>
+</span><a href="#local-6989586621680337727"><span class="hs-identifier hs-var">containerHostname</span></a></span><span>
 </span><span id="line-304"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-305"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span></pre></body></html>

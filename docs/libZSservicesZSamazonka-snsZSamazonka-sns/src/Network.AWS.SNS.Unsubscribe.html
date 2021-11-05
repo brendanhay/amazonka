@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Input for Unsubscribe action.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUnsubscribe' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679200477"><span id="local-6989586621679200478"></span></span><span class="hs-keyword">data</span><span> </span><span id="Unsubscribe"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-var">Unsubscribe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Unsubscribe%27"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-var">Unsubscribe'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679200486"><span id="local-6989586621679200487"></span></span><span class="hs-keyword">data</span><span> </span><span id="Unsubscribe"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-var">Unsubscribe</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Unsubscribe%27"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-var">Unsubscribe'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the subscription to be deleted.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AsubscriptionArn%3AUnsubscribe%27"><span class="annot"><span class="annottext">Unsubscribe -&gt; Text
 </span><a href="Network.AWS.SNS.Unsubscribe.html#%24sel%3AsubscriptionArn%3AUnsubscribe%27"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200471"><span id="local-6989586621679200473"><span class="annot"><span class="annottext">Unsubscribe -&gt; Unsubscribe -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200480"><span id="local-6989586621679200482"><span class="annot"><span class="annottext">Unsubscribe -&gt; Unsubscribe -&gt; Bool
 (Unsubscribe -&gt; Unsubscribe -&gt; Bool)
 -&gt; (Unsubscribe -&gt; Unsubscribe -&gt; Bool) -&gt; Eq Unsubscribe
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Unsubscribe -&gt; Unsubscribe -&gt; Bool
 == :: Unsubscribe -&gt; Unsubscribe -&gt; Bool
 $c== :: Unsubscribe -&gt; Unsubscribe -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200462"><span id="local-6989586621679200464"><span id="local-6989586621679200466"><span id="local-6989586621679200468"><span class="annot"><span class="annottext">ReadPrec [Unsubscribe]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200471"><span id="local-6989586621679200473"><span id="local-6989586621679200475"><span id="local-6989586621679200477"><span class="annot"><span class="annottext">ReadPrec [Unsubscribe]
 ReadPrec Unsubscribe
 Int -&gt; ReadS Unsubscribe
 ReadS [Unsubscribe]
@@ -86,7 +86,7 @@ readList :: ReadS [Unsubscribe]
 $creadList :: ReadS [Unsubscribe]
 readsPrec :: Int -&gt; ReadS Unsubscribe
 $creadsPrec :: Int -&gt; ReadS Unsubscribe
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200455"><span id="local-6989586621679200457"><span id="local-6989586621679200459"><span class="annot"><span class="annottext">Int -&gt; Unsubscribe -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200464"><span id="local-6989586621679200466"><span id="local-6989586621679200468"><span class="annot"><span class="annottext">Int -&gt; Unsubscribe -&gt; ShowS
 [Unsubscribe] -&gt; ShowS
 Unsubscribe -&gt; String
 (Int -&gt; Unsubscribe -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. Unsubscribe -&gt; Rep Unsubscribe x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span>
 </span><span id="line-75"></span><span id="newUnsubscribe"><span class="annot"><span class="annottext">newUnsubscribe :: Text -&gt; Unsubscribe
-</span><a href="Network.AWS.SNS.Unsubscribe.html#newUnsubscribe"><span class="hs-identifier hs-var hs-var">newUnsubscribe</span></a></span></span><span> </span><span id="local-6989586621679200450"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200450"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.Unsubscribe.html#newUnsubscribe"><span class="hs-identifier hs-var hs-var">newUnsubscribe</span></a></span></span><span> </span><span id="local-6989586621679200459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200459"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">Unsubscribe' :: Text -&gt; Unsubscribe
 </span><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-type">Unsubscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:Unsubscribe' :: Text
 </span><a href="Network.AWS.SNS.Unsubscribe.html#%24sel%3AsubscriptionArn%3AUnsubscribe%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200450"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679200459"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The ARN of the subscription to be deleted.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#unsubscribe_subscriptionArn"><span class="hs-identifier hs-type">unsubscribe_subscriptionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,25 +140,25 @@ $cfrom :: forall x. Unsubscribe -&gt; Rep Unsubscribe x
 -&gt; (Unsubscribe -&gt; Text -&gt; Unsubscribe)
 -&gt; Lens Unsubscribe Unsubscribe Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-type">Unsubscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200447"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-type">Unsubscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200456"><span class="annot"><span class="annottext">Text
 subscriptionArn :: Text
 $sel:subscriptionArn:Unsubscribe' :: Unsubscribe -&gt; Text
-</span><a href="#local-6989586621679200447"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200447"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200446"><span class="annot"><span class="annottext">s :: Unsubscribe
-</span><a href="#local-6989586621679200446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-type">Unsubscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200445"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Unsubscribe
-</span><a href="#local-6989586621679200446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:Unsubscribe' :: Text
+</span><a href="#local-6989586621679200456"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200456"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200455"><span class="annot"><span class="annottext">s :: Unsubscribe
+</span><a href="#local-6989586621679200455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-type">Unsubscribe'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200454"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Unsubscribe
+</span><a href="#local-6989586621679200455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:Unsubscribe' :: Text
 </span><a href="Network.AWS.SNS.Unsubscribe.html#%24sel%3AsubscriptionArn%3AUnsubscribe%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse"><span class="hs-identifier hs-type">UnsubscribeResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679200441"><span class="annot"><span class="annottext">request :: Unsubscribe -&gt; Request Unsubscribe
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679200450"><span class="annot"><span class="annottext">request :: Unsubscribe -&gt; Request Unsubscribe
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Unsubscribe -&gt; Request Unsubscribe
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679200437"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679200446"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Unsubscribe
 -&gt; ClientResponse ClientBody
@@ -181,12 +181,12 @@ AWSResponse a
 UnsubscribeResponse
 </span><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse%27"><span class="hs-identifier hs-var">UnsubscribeResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200430"><span id="local-6989586621679200432"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200439"><span id="local-6989586621679200441"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679200423"><span class="annot"><span class="annottext">toHeaders :: Unsubscribe -&gt; [Header]
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679200432"><span class="annot"><span class="annottext">toHeaders :: Unsubscribe -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; Unsubscribe -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -194,18 +194,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679200418"><span class="annot"><span class="annottext">toPath :: Unsubscribe -&gt; ByteString
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679200427"><span class="annot"><span class="annottext">toPath :: Unsubscribe -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Unsubscribe -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe"><span class="hs-identifier hs-type">Unsubscribe</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679200414"><span class="annot"><span class="annottext">toQuery :: Unsubscribe -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-type">Unsubscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200412"><span class="annot"><span class="annottext">Text
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679200423"><span class="annot"><span class="annottext">toQuery :: Unsubscribe -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#Unsubscribe%27"><span class="hs-identifier hs-type">Unsubscribe'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200421"><span class="annot"><span class="annottext">Text
 subscriptionArn :: Text
 $sel:subscriptionArn:Unsubscribe' :: Unsubscribe -&gt; Text
-</span><a href="#local-6989586621679200412"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200421"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -225,14 +225,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200412"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span>
+</span><a href="#local-6989586621679200421"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newUnsubscribeResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679200409"><span id="local-6989586621679200410"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnsubscribeResponse"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse"><span class="hs-identifier hs-var">UnsubscribeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnsubscribeResponse%27"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse%27"><span class="hs-identifier hs-var">UnsubscribeResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679200418"><span id="local-6989586621679200419"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnsubscribeResponse"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse"><span class="hs-identifier hs-var">UnsubscribeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnsubscribeResponse%27"><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse%27"><span class="hs-identifier hs-var">UnsubscribeResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200405"><span id="local-6989586621679200407"><span class="annot"><span class="annottext">UnsubscribeResponse -&gt; UnsubscribeResponse -&gt; Bool
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200414"><span id="local-6989586621679200416"><span class="annot"><span class="annottext">UnsubscribeResponse -&gt; UnsubscribeResponse -&gt; Bool
 (UnsubscribeResponse -&gt; UnsubscribeResponse -&gt; Bool)
 -&gt; (UnsubscribeResponse -&gt; UnsubscribeResponse -&gt; Bool)
 -&gt; Eq UnsubscribeResponse
@@ -241,7 +241,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnsubscribeResponse -&gt; UnsubscribeResponse -&gt; Bool
 == :: UnsubscribeResponse -&gt; UnsubscribeResponse -&gt; Bool
 $c== :: UnsubscribeResponse -&gt; UnsubscribeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200397"><span id="local-6989586621679200399"><span id="local-6989586621679200401"><span id="local-6989586621679200403"><span class="annot"><span class="annottext">ReadPrec [UnsubscribeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200406"><span id="local-6989586621679200408"><span id="local-6989586621679200410"><span id="local-6989586621679200412"><span class="annot"><span class="annottext">ReadPrec [UnsubscribeResponse]
 ReadPrec UnsubscribeResponse
 Int -&gt; ReadS UnsubscribeResponse
 ReadS [UnsubscribeResponse]
@@ -261,7 +261,7 @@ readList :: ReadS [UnsubscribeResponse]
 $creadList :: ReadS [UnsubscribeResponse]
 readsPrec :: Int -&gt; ReadS UnsubscribeResponse
 $creadsPrec :: Int -&gt; ReadS UnsubscribeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200391"><span id="local-6989586621679200393"><span id="local-6989586621679200395"><span class="annot"><span class="annottext">Int -&gt; UnsubscribeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200400"><span id="local-6989586621679200402"><span id="local-6989586621679200404"><span class="annot"><span class="annottext">Int -&gt; UnsubscribeResponse -&gt; ShowS
 [UnsubscribeResponse] -&gt; ShowS
 UnsubscribeResponse -&gt; String
 (Int -&gt; UnsubscribeResponse -&gt; ShowS)
@@ -297,5 +297,5 @@ $cfrom :: forall x. UnsubscribeResponse -&gt; Rep UnsubscribeResponse x
 </span><a href="Network.AWS.SNS.Unsubscribe.html#newUnsubscribeResponse"><span class="hs-identifier hs-var hs-var">newUnsubscribeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UnsubscribeResponse
 </span><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse%27"><span class="hs-identifier hs-var">UnsubscribeResponse'</span></a></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse"><span class="hs-identifier hs-type">UnsubscribeResponse</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Unsubscribe.html#UnsubscribeResponse"><span class="hs-identifier hs-type">UnsubscribeResponse</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Identifies the specific version of an intent.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newIntent' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679311244"><span id="local-6989586621679311245"></span></span><span class="hs-keyword">data</span><span> </span><span id="Intent"><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-var">Intent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Intent%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-var">Intent'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679311253"><span id="local-6989586621679311254"></span></span><span class="hs-keyword">data</span><span> </span><span id="Intent"><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-var">Intent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Intent%27"><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-var">Intent'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the intent.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AintentName%3AIntent%27"><span class="annot"><span class="annottext">Intent -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.Intent.html#%24sel%3AintentName%3AIntent%27"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AintentVersion%3AIntent%27"><span class="annot"><span class="annottext">Intent -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.Intent.html#%24sel%3AintentVersion%3AIntent%27"><span class="hs-identifier hs-var hs-var">intentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311237"><span id="local-6989586621679311239"><span class="annot"><span class="annottext">Intent -&gt; Intent -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311246"><span id="local-6989586621679311248"><span class="annot"><span class="annottext">Intent -&gt; Intent -&gt; Bool
 (Intent -&gt; Intent -&gt; Bool)
 -&gt; (Intent -&gt; Intent -&gt; Bool) -&gt; Eq Intent
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Intent -&gt; Intent -&gt; Bool
 == :: Intent -&gt; Intent -&gt; Bool
 $c== :: Intent -&gt; Intent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311228"><span id="local-6989586621679311230"><span id="local-6989586621679311232"><span id="local-6989586621679311234"><span class="annot"><span class="annottext">ReadPrec [Intent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311237"><span id="local-6989586621679311239"><span id="local-6989586621679311241"><span id="local-6989586621679311243"><span class="annot"><span class="annottext">ReadPrec [Intent]
 ReadPrec Intent
 Int -&gt; ReadS Intent
 ReadS [Intent]
@@ -62,7 +62,7 @@ readList :: ReadS [Intent]
 $creadList :: ReadS [Intent]
 readsPrec :: Int -&gt; ReadS Intent
 $creadsPrec :: Int -&gt; ReadS Intent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311221"><span id="local-6989586621679311223"><span id="local-6989586621679311225"><span class="annot"><span class="annottext">Int -&gt; Intent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311230"><span id="local-6989586621679311232"><span id="local-6989586621679311234"><span class="annot"><span class="annottext">Int -&gt; Intent -&gt; ShowS
 [Intent] -&gt; ShowS
 Intent -&gt; String
 (Int -&gt; Intent -&gt; ShowS)
@@ -103,17 +103,17 @@ $cfrom :: forall x. Intent -&gt; Rep Intent x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span><span>
 </span><span id="line-54"></span><span id="newIntent"><span class="annot"><span class="annottext">newIntent :: Text -&gt; Text -&gt; Intent
-</span><a href="Network.AWS.LexModels.Types.Intent.html#newIntent"><span class="hs-identifier hs-var hs-var">newIntent</span></a></span></span><span> </span><span id="local-6989586621679311215"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311215"><span class="hs-identifier hs-var">pIntentName_</span></a></span></span><span> </span><span id="local-6989586621679311214"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311214"><span class="hs-identifier hs-var">pIntentVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.LexModels.Types.Intent.html#newIntent"><span class="hs-identifier hs-var hs-var">newIntent</span></a></span></span><span> </span><span id="local-6989586621679311224"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311224"><span class="hs-identifier hs-var">pIntentName_</span></a></span></span><span> </span><span id="local-6989586621679311223"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311223"><span class="hs-identifier hs-var">pIntentVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Intent' :: Text -&gt; Text -&gt; Intent
 </span><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:intentName:Intent' :: Text
 </span><a href="Network.AWS.LexModels.Types.Intent.html#%24sel%3AintentName%3AIntent%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311215"><span class="hs-identifier hs-var">pIntentName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311224"><span class="hs-identifier hs-var">pIntentName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:intentVersion:Intent' :: Text
 </span><a href="Network.AWS.LexModels.Types.Intent.html#%24sel%3AintentVersion%3AIntent%27"><span class="hs-identifier hs-var">intentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311214"><span class="hs-identifier hs-var">pIntentVersion_</span></a></span><span>
+</span><a href="#local-6989586621679311223"><span class="hs-identifier hs-var">pIntentVersion_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The name of the intent.</span><span>
@@ -122,16 +122,16 @@ $cfrom :: forall x. Intent -&gt; Rep Intent x
 </span><a href="Network.AWS.LexModels.Types.Intent.html#intent_intentName"><span class="hs-identifier hs-var hs-var">intent_intentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Intent -&gt; Text)
 -&gt; (Intent -&gt; Text -&gt; Intent) -&gt; Lens Intent Intent Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311210"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311219"><span class="annot"><span class="annottext">Text
 intentName :: Text
 $sel:intentName:Intent' :: Intent -&gt; Text
-</span><a href="#local-6989586621679311210"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311210"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311209"><span class="annot"><span class="annottext">s :: Intent
-</span><a href="#local-6989586621679311209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311208"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Intent
-</span><a href="#local-6989586621679311209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:Intent' :: Text
+</span><a href="#local-6989586621679311219"><span class="hs-identifier hs-var hs-var">intentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311219"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311218"><span class="annot"><span class="annottext">s :: Intent
+</span><a href="#local-6989586621679311218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311217"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Intent
+</span><a href="#local-6989586621679311218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentName:Intent' :: Text
 </span><a href="Network.AWS.LexModels.Types.Intent.html#%24sel%3AintentName%3AIntent%27"><span class="hs-identifier hs-var">intentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The version of the intent.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#intent_intentVersion"><span class="hs-identifier hs-type">intent_intentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,57 +139,57 @@ $sel:intentName:Intent' :: Intent -&gt; Text
 </span><a href="Network.AWS.LexModels.Types.Intent.html#intent_intentVersion"><span class="hs-identifier hs-var hs-var">intent_intentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Intent -&gt; Text)
 -&gt; (Intent -&gt; Text -&gt; Intent) -&gt; Lens Intent Intent Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311206"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311215"><span class="annot"><span class="annottext">Text
 intentVersion :: Text
 $sel:intentVersion:Intent' :: Intent -&gt; Text
-</span><a href="#local-6989586621679311206"><span class="hs-identifier hs-var hs-var">intentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311206"><span class="hs-identifier hs-var">intentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311205"><span class="annot"><span class="annottext">s :: Intent
-</span><a href="#local-6989586621679311205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311204"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Intent
-</span><a href="#local-6989586621679311205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentVersion:Intent' :: Text
+</span><a href="#local-6989586621679311215"><span class="hs-identifier hs-var hs-var">intentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311215"><span class="hs-identifier hs-var">intentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311214"><span class="annot"><span class="annottext">s :: Intent
+</span><a href="#local-6989586621679311214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Intent
+</span><a href="#local-6989586621679311214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:intentVersion:Intent' :: Text
 </span><a href="Network.AWS.LexModels.Types.Intent.html#%24sel%3AintentVersion%3AIntent%27"><span class="hs-identifier hs-var">intentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311201"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679311199"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Intent
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311210"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679311208"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Intent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Intent) -&gt; Value -&gt; Parser Intent
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Intent&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311196"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311205"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Intent
 </span><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-var">Intent'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Intent) -&gt; Parser Text -&gt; Parser (Text -&gt; Intent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679311205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;intentName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Intent) -&gt; Parser Text -&gt; Parser Intent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679311205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;intentVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311190"><span id="local-6989586621679311192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311199"><span id="local-6989586621679311201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311179"><span id="local-6989586621679311181"><span id="local-6989586621679311183"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679311177"><span class="annot"><span class="annottext">toJSON :: Intent -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311174"><span id="local-6989586621679311175"><span class="annot"><span class="annottext">Text
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311188"><span id="local-6989586621679311190"><span id="local-6989586621679311192"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent"><span class="hs-identifier hs-type">Intent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679311186"><span class="annot"><span class="annottext">toJSON :: Intent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.Intent.html#Intent%27"><span class="hs-identifier hs-type">Intent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311183"><span id="local-6989586621679311184"><span class="annot"><span class="annottext">Text
 intentVersion :: Text
 intentName :: Text
 $sel:intentVersion:Intent' :: Intent -&gt; Text
 $sel:intentName:Intent' :: Intent -&gt; Text
-</span><a href="#local-6989586621679311174"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311183"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -201,7 +201,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;intentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311175"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311184"><span class="hs-identifier hs-var">intentName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -209,7 +209,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;intentVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311174"><span class="hs-identifier hs-var">intentVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311183"><span class="hs-identifier hs-var">intentVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Audio Only Hls Settings</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAudioOnlyHlsSettings' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679894858"><span id="local-6989586621679894859"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioOnlyHlsSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-var">AudioOnlyHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioOnlyHlsSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-var">AudioOnlyHlsSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679894867"><span id="local-6989586621679894868"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioOnlyHlsSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-var">AudioOnlyHlsSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioOnlyHlsSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-var">AudioOnlyHlsSettings'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. Specifies the .jpg or .png image to use as the cover art for</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- an audio-only output. We recommend a low bit-size file because the image</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- increases the output audio bandwidth. The image is attached to the audio</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AaudioTrackType%3AAudioOnlyHlsSettings%27"><span class="annot"><span class="annottext">AudioOnlyHlsSettings -&gt; Maybe AudioOnlyHlsTrackType
 </span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#%24sel%3AaudioTrackType%3AAudioOnlyHlsSettings%27"><span class="hs-identifier hs-var hs-var">audioTrackType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType.html#AudioOnlyHlsTrackType"><span class="hs-identifier hs-type">AudioOnlyHlsTrackType</span></a></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679894849"><span id="local-6989586621679894851"><span class="annot"><span class="annottext">AudioOnlyHlsSettings -&gt; AudioOnlyHlsSettings -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679894858"><span id="local-6989586621679894860"><span class="annot"><span class="annottext">AudioOnlyHlsSettings -&gt; AudioOnlyHlsSettings -&gt; Bool
 (AudioOnlyHlsSettings -&gt; AudioOnlyHlsSettings -&gt; Bool)
 -&gt; (AudioOnlyHlsSettings -&gt; AudioOnlyHlsSettings -&gt; Bool)
 -&gt; Eq AudioOnlyHlsSettings
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioOnlyHlsSettings -&gt; AudioOnlyHlsSettings -&gt; Bool
 == :: AudioOnlyHlsSettings -&gt; AudioOnlyHlsSettings -&gt; Bool
 $c== :: AudioOnlyHlsSettings -&gt; AudioOnlyHlsSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679894840"><span id="local-6989586621679894842"><span id="local-6989586621679894844"><span id="local-6989586621679894846"><span class="annot"><span class="annottext">ReadPrec [AudioOnlyHlsSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679894849"><span id="local-6989586621679894851"><span id="local-6989586621679894853"><span id="local-6989586621679894855"><span class="annot"><span class="annottext">ReadPrec [AudioOnlyHlsSettings]
 ReadPrec AudioOnlyHlsSettings
 Int -&gt; ReadS AudioOnlyHlsSettings
 ReadS [AudioOnlyHlsSettings]
@@ -87,7 +87,7 @@ readList :: ReadS [AudioOnlyHlsSettings]
 $creadList :: ReadS [AudioOnlyHlsSettings]
 readsPrec :: Int -&gt; ReadS AudioOnlyHlsSettings
 $creadsPrec :: Int -&gt; ReadS AudioOnlyHlsSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679894833"><span id="local-6989586621679894835"><span id="local-6989586621679894837"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679894842"><span id="local-6989586621679894844"><span id="local-6989586621679894846"><span class="annot"><span class="annottext">Int -&gt; AudioOnlyHlsSettings -&gt; ShowS
 [AudioOnlyHlsSettings] -&gt; ShowS
 AudioOnlyHlsSettings -&gt; String
 (Int -&gt; AudioOnlyHlsSettings -&gt; ShowS)
@@ -189,16 +189,16 @@ forall a. Maybe a
      (Maybe InputLocation)
      (Maybe InputLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894824"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894833"><span class="annot"><span class="annottext">Maybe InputLocation
 audioOnlyImage :: Maybe InputLocation
 $sel:audioOnlyImage:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679894824"><span class="hs-identifier hs-var hs-var">audioOnlyImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679894824"><span class="hs-identifier hs-var">audioOnlyImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894823"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894822"><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679894822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioOnlyImage:AudioOnlyHlsSettings' :: Maybe InputLocation
+</span><a href="#local-6989586621679894833"><span class="hs-identifier hs-var hs-var">audioOnlyImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894833"><span class="hs-identifier hs-var">audioOnlyImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894832"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894831"><span class="annot"><span class="annottext">Maybe InputLocation
+</span><a href="#local-6989586621679894831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioOnlyImage:AudioOnlyHlsSettings' :: Maybe InputLocation
 </span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#%24sel%3AaudioOnlyImage%3AAudioOnlyHlsSettings%27"><span class="hs-identifier hs-var">audioOnlyImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679894822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679894831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Specifies the segment type.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#audioOnlyHlsSettings_segmentType"><span class="hs-identifier hs-type">audioOnlyHlsSettings_segmentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType.html#AudioOnlyHlsSegmentType"><span class="hs-identifier hs-type">AudioOnlyHlsSegmentType</span></a></span><span class="hs-special">)</span><span>
@@ -214,16 +214,16 @@ $sel:audioOnlyImage:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe In
      (Maybe AudioOnlyHlsSegmentType)
      (Maybe AudioOnlyHlsSegmentType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894820"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894829"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
 segmentType :: Maybe AudioOnlyHlsSegmentType
 $sel:segmentType:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe AudioOnlyHlsSegmentType
-</span><a href="#local-6989586621679894820"><span class="hs-identifier hs-var hs-var">segmentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
-</span><a href="#local-6989586621679894820"><span class="hs-identifier hs-var">segmentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894819"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894818"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
-</span><a href="#local-6989586621679894818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentType:AudioOnlyHlsSettings' :: Maybe AudioOnlyHlsSegmentType
+</span><a href="#local-6989586621679894829"><span class="hs-identifier hs-var hs-var">segmentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
+</span><a href="#local-6989586621679894829"><span class="hs-identifier hs-var">segmentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894828"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894827"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
+</span><a href="#local-6989586621679894827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:segmentType:AudioOnlyHlsSettings' :: Maybe AudioOnlyHlsSegmentType
 </span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#%24sel%3AsegmentType%3AAudioOnlyHlsSettings%27"><span class="hs-identifier hs-var">segmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
-</span><a href="#local-6989586621679894818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679894827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Specifies the group to which the audio Rendition belongs.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#audioOnlyHlsSettings_audioGroupId"><span class="hs-identifier hs-type">audioOnlyHlsSettings_audioGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -234,16 +234,16 @@ $sel:segmentType:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe Audio
 -&gt; Lens
      AudioOnlyHlsSettings AudioOnlyHlsSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894816"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894825"><span class="annot"><span class="annottext">Maybe Text
 audioGroupId :: Maybe Text
 $sel:audioGroupId:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679894816"><span class="hs-identifier hs-var hs-var">audioGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679894816"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894815"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894814"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679894814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioGroupId:AudioOnlyHlsSettings' :: Maybe Text
+</span><a href="#local-6989586621679894825"><span class="hs-identifier hs-var hs-var">audioGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679894825"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894824"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679894823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioGroupId:AudioOnlyHlsSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#%24sel%3AaudioGroupId%3AAudioOnlyHlsSettings%27"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679894814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679894823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Four types of audio-only tracks are supported: Audio-Only Variant Stream</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- The client can play back this audio-only stream instead of video in</span><span>
@@ -269,19 +269,19 @@ $sel:audioGroupId:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe Text
      (Maybe AudioOnlyHlsTrackType)
      (Maybe AudioOnlyHlsTrackType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894812"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894821"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
 audioTrackType :: Maybe AudioOnlyHlsTrackType
 $sel:audioTrackType:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe AudioOnlyHlsTrackType
-</span><a href="#local-6989586621679894812"><span class="hs-identifier hs-var hs-var">audioTrackType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
-</span><a href="#local-6989586621679894812"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894811"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894810"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
-</span><a href="#local-6989586621679894810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
-</span><a href="#local-6989586621679894811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioTrackType:AudioOnlyHlsSettings' :: Maybe AudioOnlyHlsTrackType
+</span><a href="#local-6989586621679894821"><span class="hs-identifier hs-var hs-var">audioTrackType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
+</span><a href="#local-6989586621679894821"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679894820"><span class="annot"><span class="annottext">s :: AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679894819"><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
+</span><a href="#local-6989586621679894819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioOnlyHlsSettings
+</span><a href="#local-6989586621679894820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioTrackType:AudioOnlyHlsSettings' :: Maybe AudioOnlyHlsTrackType
 </span><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#%24sel%3AaudioTrackType%3AAudioOnlyHlsSettings%27"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
-</span><a href="#local-6989586621679894810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679894819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894807"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679894805"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioOnlyHlsSettings
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894816"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679894814"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioOnlyHlsSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioOnlyHlsSettings)
@@ -291,8 +291,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioOnlyHlsSettings&quot;</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679894802"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679894802"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679894811"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679894811"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe InputLocation
 -&gt; Maybe AudioOnlyHlsSegmentType
 -&gt; Maybe Text
@@ -312,7 +312,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AudioOnlyHlsSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679894802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
+</span><a href="#local-6989586621679894811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InputLocation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioOnlyImage&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,7 +326,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe AudioOnlyHlsTrackType -&gt; AudioOnlyHlsSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679894802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioOnlyHlsSegmentType)
+</span><a href="#local-6989586621679894811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioOnlyHlsSegmentType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;segmentType&quot;</span></span><span class="hs-special">)</span><span>
@@ -336,7 +336,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe AudioOnlyHlsTrackType -&gt; AudioOnlyHlsSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679894802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679894811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioGroupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,19 +345,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser AudioOnlyHlsSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679894802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioOnlyHlsTrackType)
+</span><a href="#local-6989586621679894811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioOnlyHlsTrackType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioTrackType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894796"><span id="local-6989586621679894798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894805"><span id="local-6989586621679894807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894785"><span id="local-6989586621679894787"><span id="local-6989586621679894789"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679894783"><span class="annot"><span class="annottext">toJSON :: AudioOnlyHlsSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894778"><span id="local-6989586621679894779"><span id="local-6989586621679894780"><span id="local-6989586621679894781"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679894794"><span id="local-6989586621679894796"><span id="local-6989586621679894798"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings"><span class="hs-identifier hs-type">AudioOnlyHlsSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679894792"><span class="annot"><span class="annottext">toJSON :: AudioOnlyHlsSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.AudioOnlyHlsSettings.html#AudioOnlyHlsSettings%27"><span class="hs-identifier hs-type">AudioOnlyHlsSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679894787"><span id="local-6989586621679894788"><span id="local-6989586621679894789"><span id="local-6989586621679894790"><span class="annot"><span class="annottext">Maybe Text
 Maybe AudioOnlyHlsSegmentType
 Maybe AudioOnlyHlsTrackType
 Maybe InputLocation
@@ -369,7 +369,7 @@ $sel:audioTrackType:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe Au
 $sel:audioGroupId:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe Text
 $sel:segmentType:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe AudioOnlyHlsSegmentType
 $sel:audioOnlyImage:AudioOnlyHlsSettings' :: AudioOnlyHlsSettings -&gt; Maybe InputLocation
-</span><a href="#local-6989586621679894778"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679894787"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -382,7 +382,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(InputLocation -&gt; Pair) -&gt; Maybe InputLocation -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputLocation
-</span><a href="#local-6989586621679894781"><span class="hs-identifier hs-var">audioOnlyImage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679894790"><span class="hs-identifier hs-var">audioOnlyImage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;segmentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioOnlyHlsSegmentType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -390,14 +390,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AudioOnlyHlsSegmentType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsSegmentType
-</span><a href="#local-6989586621679894780"><span class="hs-identifier hs-var">segmentType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679894789"><span class="hs-identifier hs-var">segmentType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679894779"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679894788"><span class="hs-identifier hs-var">audioGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;audioTrackType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioOnlyHlsTrackType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -406,7 +406,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AudioOnlyHlsTrackType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioOnlyHlsTrackType
-</span><a href="#local-6989586621679894778"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span>
+</span><a href="#local-6989586621679894787"><span class="hs-identifier hs-var">audioTrackType</span></a></span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span></pre></body></html>

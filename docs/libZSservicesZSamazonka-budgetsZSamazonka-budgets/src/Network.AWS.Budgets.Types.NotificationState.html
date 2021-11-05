@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679207181"><span id="local-6989586621679207182"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotificationState"><span class="annot"><a href="Network.AWS.Budgets.Types.NotificationState.html#NotificationState"><span class="hs-identifier hs-var">NotificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationState%27"><span class="annot"><a href="Network.AWS.Budgets.Types.NotificationState.html#NotificationState%27"><span class="hs-identifier hs-var">NotificationState'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679207190"><span id="local-6989586621679207191"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NotificationState"><span class="annot"><a href="Network.AWS.Budgets.Types.NotificationState.html#NotificationState"><span class="hs-identifier hs-var">NotificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotificationState%27"><span class="annot"><a href="Network.AWS.Budgets.Types.NotificationState.html#NotificationState%27"><span class="hs-identifier hs-var">NotificationState'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNotificationState"><span class="annot"><span class="annottext">NotificationState -&gt; Text
 </span><a href="Network.AWS.Budgets.Types.NotificationState.html#fromNotificationState"><span class="hs-identifier hs-var hs-var">fromNotificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207173"><span id="local-6989586621679207175"><span id="local-6989586621679207177"><span class="annot"><span class="annottext">Int -&gt; NotificationState -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207182"><span id="local-6989586621679207184"><span id="local-6989586621679207186"><span class="annot"><span class="annottext">Int -&gt; NotificationState -&gt; ShowS
 [NotificationState] -&gt; ShowS
 NotificationState -&gt; String
 (Int -&gt; NotificationState -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: NotificationState -&gt; String
 showsPrec :: Int -&gt; NotificationState -&gt; ShowS
 $cshowsPrec :: Int -&gt; NotificationState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679207164"><span id="local-6989586621679207166"><span id="local-6989586621679207168"><span id="local-6989586621679207170"><span class="annot"><span class="annottext">ReadPrec [NotificationState]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679207173"><span id="local-6989586621679207175"><span id="local-6989586621679207177"><span id="local-6989586621679207179"><span class="annot"><span class="annottext">ReadPrec [NotificationState]
 ReadPrec NotificationState
 Int -&gt; ReadS NotificationState
 ReadS [NotificationState]
@@ -72,7 +72,7 @@ $creadList :: ReadS [NotificationState]
 readsPrec :: Int -&gt; ReadS NotificationState
 $creadsPrec :: Int -&gt; ReadS NotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679207159"><span id="local-6989586621679207161"><span class="annot"><span class="annottext">NotificationState -&gt; NotificationState -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679207168"><span id="local-6989586621679207170"><span class="annot"><span class="annottext">NotificationState -&gt; NotificationState -&gt; Bool
 (NotificationState -&gt; NotificationState -&gt; Bool)
 -&gt; (NotificationState -&gt; NotificationState -&gt; Bool)
 -&gt; Eq NotificationState
@@ -82,7 +82,7 @@ $c/= :: NotificationState -&gt; NotificationState -&gt; Bool
 == :: NotificationState -&gt; NotificationState -&gt; Bool
 $c== :: NotificationState -&gt; NotificationState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679207143"><span id="local-6989586621679207145"><span id="local-6989586621679207147"><span id="local-6989586621679207149"><span id="local-6989586621679207151"><span id="local-6989586621679207153"><span id="local-6989586621679207155"><span class="annot"><span class="annottext">Eq NotificationState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679207152"><span id="local-6989586621679207154"><span id="local-6989586621679207156"><span id="local-6989586621679207158"><span id="local-6989586621679207160"><span id="local-6989586621679207162"><span id="local-6989586621679207164"><span class="annot"><span class="annottext">Eq NotificationState
 Eq NotificationState
 -&gt; (NotificationState -&gt; NotificationState -&gt; Ordering)
 -&gt; (NotificationState -&gt; NotificationState -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. NotificationState -&gt; Rep NotificationState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207135"><span id="local-6989586621679207137"><span class="annot"><span class="annottext">Int -&gt; NotificationState -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679207144"><span id="local-6989586621679207146"><span class="annot"><span class="annottext">Int -&gt; NotificationState -&gt; Int
 NotificationState -&gt; Int
 (Int -&gt; NotificationState -&gt; Int)
 -&gt; (NotificationState -&gt; Int) -&gt; Hashable NotificationState
@@ -143,51 +143,51 @@ $chash :: NotificationState -&gt; Int
 hashWithSalt :: Int -&gt; NotificationState -&gt; Int
 $chashWithSalt :: Int -&gt; NotificationState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679207132"><span class="annot"><span class="annottext">NotificationState -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679207141"><span class="annot"><span class="annottext">NotificationState -&gt; ()
 (NotificationState -&gt; ()) -&gt; NFData NotificationState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NotificationState -&gt; ()
 $crnf :: NotificationState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679207129"><span class="annot"><span class="annottext">Text -&gt; Either String NotificationState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679207138"><span class="annot"><span class="annottext">Text -&gt; Either String NotificationState
 (Text -&gt; Either String NotificationState)
 -&gt; FromText NotificationState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NotificationState
 $cfromText :: Text -&gt; Either String NotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679207126"><span class="annot"><span class="annottext">NotificationState -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679207135"><span class="annot"><span class="annottext">NotificationState -&gt; Text
 (NotificationState -&gt; Text) -&gt; ToText NotificationState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NotificationState -&gt; Text
 $ctoText :: NotificationState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679207123"><span class="annot"><span class="annottext">NotificationState -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679207132"><span class="annot"><span class="annottext">NotificationState -&gt; ByteString
 (NotificationState -&gt; ByteString) -&gt; ToByteString NotificationState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NotificationState -&gt; ByteString
 $ctoBS :: NotificationState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679207120"><span class="annot"><span class="annottext">NotificationState -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679207129"><span class="annot"><span class="annottext">NotificationState -&gt; ByteStringBuilder
 (NotificationState -&gt; ByteStringBuilder) -&gt; ToLog NotificationState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NotificationState -&gt; ByteStringBuilder
 $cbuild :: NotificationState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679207117"><span class="annot"><span class="annottext">HeaderName -&gt; NotificationState -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679207126"><span class="annot"><span class="annottext">HeaderName -&gt; NotificationState -&gt; [Header]
 (HeaderName -&gt; NotificationState -&gt; [Header])
 -&gt; ToHeader NotificationState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NotificationState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NotificationState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679207114"><span class="annot"><span class="annottext">NotificationState -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679207123"><span class="annot"><span class="annottext">NotificationState -&gt; QueryString
 (NotificationState -&gt; QueryString) -&gt; ToQuery NotificationState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NotificationState -&gt; QueryString
 $ctoQuery :: NotificationState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679207109"><span id="local-6989586621679207111"><span class="annot"><span class="annottext">Value -&gt; Parser [NotificationState]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679207118"><span id="local-6989586621679207120"><span class="annot"><span class="annottext">Value -&gt; Parser [NotificationState]
 Value -&gt; Parser NotificationState
 (Value -&gt; Parser NotificationState)
 -&gt; (Value -&gt; Parser [NotificationState])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [NotificationState]
 parseJSON :: Value -&gt; Parser NotificationState
 $cparseJSON :: Value -&gt; Parser NotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679207104"><span id="local-6989586621679207106"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotificationState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679207113"><span id="local-6989586621679207115"><span class="annot"><span class="annottext">FromJSONKeyFunction [NotificationState]
 FromJSONKeyFunction NotificationState
 FromJSONKeyFunction NotificationState
 -&gt; FromJSONKeyFunction [NotificationState]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NotificationState]
 fromJSONKey :: FromJSONKeyFunction NotificationState
 $cfromJSONKey :: FromJSONKeyFunction NotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679207095"><span id="local-6989586621679207097"><span id="local-6989586621679207099"><span id="local-6989586621679207101"><span class="annot"><span class="annottext">[NotificationState] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679207104"><span id="local-6989586621679207106"><span id="local-6989586621679207108"><span id="local-6989586621679207110"><span class="annot"><span class="annottext">[NotificationState] -&gt; Encoding
 [NotificationState] -&gt; Value
 NotificationState -&gt; Encoding
 NotificationState -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: NotificationState -&gt; Encoding
 toJSON :: NotificationState -&gt; Value
 $ctoJSON :: NotificationState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679207090"><span id="local-6989586621679207092"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotificationState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679207099"><span id="local-6989586621679207101"><span class="annot"><span class="annottext">ToJSONKeyFunction [NotificationState]
 ToJSONKeyFunction NotificationState
 ToJSONKeyFunction NotificationState
 -&gt; ToJSONKeyFunction [NotificationState]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NotificationState]
 toJSONKey :: ToJSONKeyFunction NotificationState
 $ctoJSONKey :: ToJSONKeyFunction NotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679207087"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotificationState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679207096"><span class="annot"><span class="annottext">[Node] -&gt; Either String NotificationState
 ([Node] -&gt; Either String NotificationState)
 -&gt; FromXML NotificationState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NotificationState
 $cparseXML :: [Node] -&gt; Either String NotificationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679207084"><span class="annot"><span class="annottext">NotificationState -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679207093"><span class="annot"><span class="annottext">NotificationState -&gt; XML
 (NotificationState -&gt; XML) -&gt; ToXML NotificationState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NotificationState -&gt; XML

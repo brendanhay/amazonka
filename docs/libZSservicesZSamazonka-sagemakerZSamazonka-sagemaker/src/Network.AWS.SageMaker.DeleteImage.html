@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteImage' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621680408677"><span id="local-6989586621680408678"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImage"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-var">DeleteImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImage%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-var">DeleteImage'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621680408686"><span id="local-6989586621680408687"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImage"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-var">DeleteImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImage%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-var">DeleteImage'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the image to delete.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AimageName%3ADeleteImage%27"><span class="annot"><span class="annottext">DeleteImage -&gt; Text
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#%24sel%3AimageName%3ADeleteImage%27"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408671"><span id="local-6989586621680408673"><span class="annot"><span class="annottext">DeleteImage -&gt; DeleteImage -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408680"><span id="local-6989586621680408682"><span class="annot"><span class="annottext">DeleteImage -&gt; DeleteImage -&gt; Bool
 (DeleteImage -&gt; DeleteImage -&gt; Bool)
 -&gt; (DeleteImage -&gt; DeleteImage -&gt; Bool) -&gt; Eq DeleteImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteImage -&gt; DeleteImage -&gt; Bool
 == :: DeleteImage -&gt; DeleteImage -&gt; Bool
 $c== :: DeleteImage -&gt; DeleteImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408662"><span id="local-6989586621680408664"><span id="local-6989586621680408666"><span id="local-6989586621680408668"><span class="annot"><span class="annottext">ReadPrec [DeleteImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408671"><span id="local-6989586621680408673"><span id="local-6989586621680408675"><span id="local-6989586621680408677"><span class="annot"><span class="annottext">ReadPrec [DeleteImage]
 ReadPrec DeleteImage
 Int -&gt; ReadS DeleteImage
 ReadS [DeleteImage]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteImage]
 $creadList :: ReadS [DeleteImage]
 readsPrec :: Int -&gt; ReadS DeleteImage
 $creadsPrec :: Int -&gt; ReadS DeleteImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408655"><span id="local-6989586621680408657"><span id="local-6989586621680408659"><span class="annot"><span class="annottext">Int -&gt; DeleteImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408664"><span id="local-6989586621680408666"><span id="local-6989586621680408668"><span class="annot"><span class="annottext">Int -&gt; DeleteImage -&gt; ShowS
 [DeleteImage] -&gt; ShowS
 DeleteImage -&gt; String
 (Int -&gt; DeleteImage -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteImage -&gt; Rep DeleteImage x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteImage"><span class="annot"><span class="annottext">newDeleteImage :: Text -&gt; DeleteImage
-</span><a href="Network.AWS.SageMaker.DeleteImage.html#newDeleteImage"><span class="hs-identifier hs-var hs-var">newDeleteImage</span></a></span></span><span> </span><span id="local-6989586621680408650"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408650"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DeleteImage.html#newDeleteImage"><span class="hs-identifier hs-var hs-var">newDeleteImage</span></a></span></span><span> </span><span id="local-6989586621680408659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408659"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteImage' :: Text -&gt; DeleteImage
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DeleteImage' :: Text
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#%24sel%3AimageName%3ADeleteImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408650"><span class="hs-identifier hs-var">pImageName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680408659"><span class="hs-identifier hs-var">pImageName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the image to delete.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#deleteImage_imageName"><span class="hs-identifier hs-type">deleteImage_imageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. DeleteImage -&gt; Rep DeleteImage x
 -&gt; (DeleteImage -&gt; Text -&gt; DeleteImage)
 -&gt; Lens DeleteImage DeleteImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408647"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408656"><span class="annot"><span class="annottext">Text
 imageName :: Text
 $sel:imageName:DeleteImage' :: DeleteImage -&gt; Text
-</span><a href="#local-6989586621680408647"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408647"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408646"><span class="annot"><span class="annottext">s :: DeleteImage
-</span><a href="#local-6989586621680408646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408645"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImage
-</span><a href="#local-6989586621680408646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DeleteImage' :: Text
+</span><a href="#local-6989586621680408656"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408656"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408655"><span class="annot"><span class="annottext">s :: DeleteImage
+</span><a href="#local-6989586621680408655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680408654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImage
+</span><a href="#local-6989586621680408655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DeleteImage' :: Text
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#%24sel%3AimageName%3ADeleteImage%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680408654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680408641"><span class="annot"><span class="annottext">request :: DeleteImage -&gt; Request DeleteImage
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680408650"><span class="annot"><span class="annottext">request :: DeleteImage -&gt; Request DeleteImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteImage -&gt; Request DeleteImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621680408637"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680408646"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteImage
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680408634"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680408634"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680408633"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680408633"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680408632"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621680408632"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680408643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408643"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680408642"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680408642"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680408641"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680408641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteImageResponse
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-var">DeleteImageResponse'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteImageResponse)
@@ -190,15 +190,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680408634"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680408643"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408625"><span id="local-6989586621680408627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408634"><span id="local-6989586621680408636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680408618"><span class="annot"><span class="annottext">toHeaders :: DeleteImage -&gt; ResponseHeaders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680408627"><span class="annot"><span class="annottext">toHeaders :: DeleteImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -223,12 +223,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408608"><span id="local-6989586621680408610"><span id="local-6989586621680408612"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680408606"><span class="annot"><span class="annottext">toJSON :: DeleteImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408604"><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408617"><span id="local-6989586621680408619"><span id="local-6989586621680408621"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680408615"><span class="annot"><span class="annottext">toJSON :: DeleteImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage%27"><span class="hs-identifier hs-type">DeleteImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408613"><span class="annot"><span class="annottext">Text
 imageName :: Text
 $sel:imageName:DeleteImage' :: DeleteImage -&gt; Text
-</span><a href="#local-6989586621680408604"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680408613"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -240,18 +240,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ImageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680408604"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680408613"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621680408598"><span class="annot"><span class="annottext">toPath :: DeleteImage -&gt; ByteString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621680408607"><span class="annot"><span class="annottext">toPath :: DeleteImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImage"><span class="hs-identifier hs-type">DeleteImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621680408594"><span class="annot"><span class="annottext">toQuery :: DeleteImage -&gt; QueryString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621680408603"><span class="annot"><span class="annottext">toQuery :: DeleteImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -259,12 +259,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newDeleteImageResponse' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621680408591"><span id="local-6989586621680408592"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImageResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-var">DeleteImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImageResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-var">DeleteImageResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621680408600"><span id="local-6989586621680408601"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteImageResponse"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-var">DeleteImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteImageResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-var">DeleteImageResponse'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="annot"><span class="annottext">DeleteImageResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408586"><span id="local-6989586621680408588"><span class="annot"><span class="annottext">DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680408595"><span id="local-6989586621680408597"><span class="annot"><span class="annottext">DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
 (DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool)
 -&gt; (DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool)
 -&gt; Eq DeleteImageResponse
@@ -273,7 +273,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
 == :: DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
 $c== :: DeleteImageResponse -&gt; DeleteImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408578"><span id="local-6989586621680408580"><span id="local-6989586621680408582"><span id="local-6989586621680408584"><span class="annot"><span class="annottext">ReadPrec [DeleteImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408587"><span id="local-6989586621680408589"><span id="local-6989586621680408591"><span id="local-6989586621680408593"><span class="annot"><span class="annottext">ReadPrec [DeleteImageResponse]
 ReadPrec DeleteImageResponse
 Int -&gt; ReadS DeleteImageResponse
 ReadS [DeleteImageResponse]
@@ -293,7 +293,7 @@ readList :: ReadS [DeleteImageResponse]
 $creadList :: ReadS [DeleteImageResponse]
 readsPrec :: Int -&gt; ReadS DeleteImageResponse
 $creadsPrec :: Int -&gt; ReadS DeleteImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408572"><span id="local-6989586621680408574"><span id="local-6989586621680408576"><span class="annot"><span class="annottext">Int -&gt; DeleteImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680408581"><span id="local-6989586621680408583"><span id="local-6989586621680408585"><span class="annot"><span class="annottext">Int -&gt; DeleteImageResponse -&gt; ShowS
 [DeleteImageResponse] -&gt; ShowS
 DeleteImageResponse -&gt; String
 (Int -&gt; DeleteImageResponse -&gt; ShowS)
@@ -333,12 +333,12 @@ $cfrom :: forall x. DeleteImageResponse -&gt; Rep DeleteImageResponse x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span>
 </span><span id="line-136"></span><span id="newDeleteImageResponse"><span class="annot"><span class="annottext">newDeleteImageResponse :: Int -&gt; DeleteImageResponse
-</span><a href="Network.AWS.SageMaker.DeleteImage.html#newDeleteImageResponse"><span class="hs-identifier hs-var hs-var">newDeleteImageResponse</span></a></span></span><span> </span><span id="local-6989586621680408569"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680408569"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DeleteImage.html#newDeleteImageResponse"><span class="hs-identifier hs-var hs-var">newDeleteImageResponse</span></a></span></span><span> </span><span id="local-6989586621680408578"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">DeleteImageResponse' :: Int -&gt; DeleteImageResponse
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImageResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680408569"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680408578"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#deleteImageResponse_httpStatus"><span class="hs-identifier hs-type">deleteImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -347,16 +347,16 @@ $cfrom :: forall x. DeleteImageResponse -&gt; Rep DeleteImageResponse x
 -&gt; (DeleteImageResponse -&gt; Int -&gt; DeleteImageResponse)
 -&gt; Lens DeleteImageResponse DeleteImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408568"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680408577"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteImageResponse' :: DeleteImageResponse -&gt; Int
-</span><a href="#local-6989586621680408568"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680408568"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408567"><span class="annot"><span class="annottext">s :: DeleteImageResponse
-</span><a href="#local-6989586621680408567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408566"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680408566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImageResponse
-</span><a href="#local-6989586621680408567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImageResponse' :: Int
+</span><a href="#local-6989586621680408577"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408577"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680408576"><span class="annot"><span class="annottext">s :: DeleteImageResponse
+</span><a href="#local-6989586621680408576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse%27"><span class="hs-identifier hs-type">DeleteImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680408575"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680408575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteImageResponse
+</span><a href="#local-6989586621680408576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteImageResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DeleteImage.html#%24sel%3AhttpStatus%3ADeleteImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680408566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680408575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680408573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DeleteImage.html#DeleteImageResponse"><span class="hs-identifier hs-type">DeleteImageResponse</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

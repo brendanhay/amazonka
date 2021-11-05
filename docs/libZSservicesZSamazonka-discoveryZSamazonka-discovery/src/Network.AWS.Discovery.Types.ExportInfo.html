@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- an array of objects.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExportInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679203679"><span id="local-6989586621679203680"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportInfo"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-var">ExportInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportInfo%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-var">ExportInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679203688"><span id="local-6989586621679203689"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportInfo"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-var">ExportInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportInfo%27"><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-var">ExportInfo'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A URL for an Amazon S3 bucket where you can review the exported data.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The URL is displayed only if the export succeeded.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AconfigurationsDownloadUrl%3AExportInfo%27"><span class="annot"><span class="annottext">ExportInfo -&gt; Maybe Text
@@ -61,7 +61,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AexportRequestTime%3AExportInfo%27"><span class="annot"><span class="annottext">ExportInfo -&gt; POSIX
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AexportRequestTime%3AExportInfo%27"><span class="hs-identifier hs-var hs-var">exportRequestTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203666"><span id="local-6989586621679203668"><span class="annot"><span class="annottext">ExportInfo -&gt; ExportInfo -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679203675"><span id="local-6989586621679203677"><span class="annot"><span class="annottext">ExportInfo -&gt; ExportInfo -&gt; Bool
 (ExportInfo -&gt; ExportInfo -&gt; Bool)
 -&gt; (ExportInfo -&gt; ExportInfo -&gt; Bool) -&gt; Eq ExportInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExportInfo -&gt; ExportInfo -&gt; Bool
 == :: ExportInfo -&gt; ExportInfo -&gt; Bool
 $c== :: ExportInfo -&gt; ExportInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203657"><span id="local-6989586621679203659"><span id="local-6989586621679203661"><span id="local-6989586621679203663"><span class="annot"><span class="annottext">ReadPrec [ExportInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203666"><span id="local-6989586621679203668"><span id="local-6989586621679203670"><span id="local-6989586621679203672"><span class="annot"><span class="annottext">ReadPrec [ExportInfo]
 ReadPrec ExportInfo
 Int -&gt; ReadS ExportInfo
 ReadS [ExportInfo]
@@ -89,7 +89,7 @@ readList :: ReadS [ExportInfo]
 $creadList :: ReadS [ExportInfo]
 readsPrec :: Int -&gt; ReadS ExportInfo
 $creadsPrec :: Int -&gt; ReadS ExportInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203650"><span id="local-6989586621679203652"><span id="local-6989586621679203654"><span class="annot"><span class="annottext">Int -&gt; ExportInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679203659"><span id="local-6989586621679203661"><span id="local-6989586621679203663"><span class="annot"><span class="annottext">Int -&gt; ExportInfo -&gt; ShowS
 [ExportInfo] -&gt; ShowS
 ExportInfo -&gt; String
 (Int -&gt; ExportInfo -&gt; ShowS)
@@ -156,14 +156,14 @@ $cfrom :: forall x. ExportInfo -&gt; Rep ExportInfo x
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span>
 </span><span id="line-98"></span><span id="newExportInfo"><span class="annot"><span class="annottext">newExportInfo :: Text -&gt; ExportStatus -&gt; Text -&gt; UTCTime -&gt; ExportInfo
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#newExportInfo"><span class="hs-identifier hs-var hs-var">newExportInfo</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679203644"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203644"><span class="hs-identifier hs-var">pExportId_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679203643"><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679203643"><span class="hs-identifier hs-var">pExportStatus_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679203642"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203642"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679203641"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679203641"><span class="hs-identifier hs-var">pExportRequestTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679203653"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203653"><span class="hs-identifier hs-var">pExportId_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679203652"><span class="annot"><span class="annottext">ExportStatus
+</span><a href="#local-6989586621679203652"><span class="hs-identifier hs-var">pExportStatus_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679203651"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203651"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679203650"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679203650"><span class="hs-identifier hs-var">pExportRequestTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ExportInfo' :: Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe POSIX
@@ -193,13 +193,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportId:ExportInfo' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AexportId%3AExportInfo%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203644"><span class="hs-identifier hs-var">pExportId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203653"><span class="hs-identifier hs-var">pExportId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportStatus:ExportInfo' :: ExportStatus
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AexportStatus%3AExportInfo%27"><span class="hs-identifier hs-var">exportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679203643"><span class="hs-identifier hs-var">pExportStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203652"><span class="hs-identifier hs-var">pExportStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:statusMessage:ExportInfo' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AstatusMessage%3AExportInfo%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203642"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679203651"><span class="hs-identifier hs-var">pStatusMessage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:exportRequestTime:ExportInfo' :: POSIX
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AexportRequestTime%3AExportInfo%27"><span class="hs-identifier hs-var">exportRequestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -209,7 +209,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679203641"><span class="hs-identifier hs-var">pExportRequestTime_</span></a></span><span>
+</span><a href="#local-6989586621679203650"><span class="hs-identifier hs-var">pExportRequestTime_</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A URL for an Amazon S3 bucket where you can review the exported data.</span><span>
@@ -220,16 +220,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ExportInfo -&gt; Maybe Text -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203644"><span class="annot"><span class="annottext">Maybe Text
 configurationsDownloadUrl :: Maybe Text
 $sel:configurationsDownloadUrl:ExportInfo' :: ExportInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679203635"><span class="hs-identifier hs-var hs-var">configurationsDownloadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203635"><span class="hs-identifier hs-var">configurationsDownloadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203634"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationsDownloadUrl:ExportInfo' :: Maybe Text
+</span><a href="#local-6989586621679203644"><span class="hs-identifier hs-var hs-var">configurationsDownloadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203644"><span class="hs-identifier hs-var">configurationsDownloadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203643"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203642"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679203642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationsDownloadUrl:ExportInfo' :: Maybe Text
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AconfigurationsDownloadUrl%3AExportInfo%27"><span class="hs-identifier hs-var">configurationsDownloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679203633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The value of @startTime@ parameter in the @StartExportTask@ request. If</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- no @startTime@ was requested, this result does not appear in</span><span>
@@ -240,16 +240,16 @@ $sel:configurationsDownloadUrl:ExportInfo' :: ExportInfo -&gt; Maybe Text
 -&gt; (ExportInfo -&gt; Maybe POSIX -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203631"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203640"><span class="annot"><span class="annottext">Maybe POSIX
 requestedStartTime :: Maybe POSIX
 $sel:requestedStartTime:ExportInfo' :: ExportInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var hs-var">requestedStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203631"><span class="hs-identifier hs-var">requestedStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203630"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203629"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedStartTime:ExportInfo' :: Maybe POSIX
+</span><a href="#local-6989586621679203640"><span class="hs-identifier hs-var hs-var">requestedStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203640"><span class="hs-identifier hs-var">requestedStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203639"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203638"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedStartTime:ExportInfo' :: Maybe POSIX
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3ArequestedStartTime%3AExportInfo%27"><span class="hs-identifier hs-var">requestedStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ExportInfo -&gt; f ExportInfo)
+</span><a href="#local-6989586621679203638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ExportInfo -&gt; f ExportInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -273,16 +273,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ExportInfo -&gt; Maybe POSIX -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203625"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203634"><span class="annot"><span class="annottext">Maybe POSIX
 requestedEndTime :: Maybe POSIX
 $sel:requestedEndTime:ExportInfo' :: ExportInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679203625"><span class="hs-identifier hs-var hs-var">requestedEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203625"><span class="hs-identifier hs-var">requestedEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203624"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203623"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedEndTime:ExportInfo' :: Maybe POSIX
+</span><a href="#local-6989586621679203634"><span class="hs-identifier hs-var hs-var">requestedEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203634"><span class="hs-identifier hs-var">requestedEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203633"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203632"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679203632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedEndTime:ExportInfo' :: Maybe POSIX
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3ArequestedEndTime%3AExportInfo%27"><span class="hs-identifier hs-var">requestedEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679203623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ExportInfo -&gt; f ExportInfo)
+</span><a href="#local-6989586621679203632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; ExportInfo -&gt; f ExportInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -308,16 +308,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ExportInfo -&gt; Maybe Bool -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203621"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203630"><span class="annot"><span class="annottext">Maybe Bool
 isTruncated :: Maybe Bool
 $sel:isTruncated:ExportInfo' :: ExportInfo -&gt; Maybe Bool
-</span><a href="#local-6989586621679203621"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679203621"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203620"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203619"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679203619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ExportInfo' :: Maybe Bool
+</span><a href="#local-6989586621679203630"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679203630"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203629"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203628"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679203628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ExportInfo' :: Maybe Bool
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AisTruncated%3AExportInfo%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679203619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | A unique identifier used to query an export.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#exportInfo_exportId"><span class="hs-identifier hs-type">exportInfo_exportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -326,16 +326,16 @@ $sel:isTruncated:ExportInfo' :: ExportInfo -&gt; Maybe Bool
 -&gt; (ExportInfo -&gt; Text -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203617"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203626"><span class="annot"><span class="annottext">Text
 exportId :: Text
 $sel:exportId:ExportInfo' :: ExportInfo -&gt; Text
-</span><a href="#local-6989586621679203617"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203617"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203616"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203615"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:ExportInfo' :: Text
+</span><a href="#local-6989586621679203626"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203626"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203625"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:ExportInfo' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AexportId%3AExportInfo%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The status of the data export job.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#exportInfo_exportStatus"><span class="hs-identifier hs-type">exportInfo_exportStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportStatus.html#ExportStatus"><span class="hs-identifier hs-type">ExportStatus</span></a></span><span>
@@ -344,16 +344,16 @@ $sel:exportId:ExportInfo' :: ExportInfo -&gt; Text
 -&gt; (ExportInfo -&gt; ExportStatus -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo ExportStatus ExportStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203613"><span class="annot"><span class="annottext">ExportStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203622"><span class="annot"><span class="annottext">ExportStatus
 exportStatus :: ExportStatus
 $sel:exportStatus:ExportInfo' :: ExportInfo -&gt; ExportStatus
-</span><a href="#local-6989586621679203613"><span class="hs-identifier hs-var hs-var">exportStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679203613"><span class="hs-identifier hs-var">exportStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203612"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203611"><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679203611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportStatus:ExportInfo' :: ExportStatus
+</span><a href="#local-6989586621679203622"><span class="hs-identifier hs-var hs-var">exportStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportStatus
+</span><a href="#local-6989586621679203622"><span class="hs-identifier hs-var">exportStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203621"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203620"><span class="annot"><span class="annottext">ExportStatus
+</span><a href="#local-6989586621679203620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportStatus:ExportInfo' :: ExportStatus
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AexportStatus%3AExportInfo%27"><span class="hs-identifier hs-var">exportStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ExportStatus
-</span><a href="#local-6989586621679203611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | A status message provided for API callers.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#exportInfo_statusMessage"><span class="hs-identifier hs-type">exportInfo_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -362,16 +362,16 @@ $sel:exportStatus:ExportInfo' :: ExportInfo -&gt; ExportStatus
 -&gt; (ExportInfo -&gt; Text -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203609"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203618"><span class="annot"><span class="annottext">Text
 statusMessage :: Text
 $sel:statusMessage:ExportInfo' :: ExportInfo -&gt; Text
-</span><a href="#local-6989586621679203609"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203609"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203608"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203607"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ExportInfo' :: Text
+</span><a href="#local-6989586621679203618"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203618"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203617"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203616"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679203616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:ExportInfo' :: Text
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AstatusMessage%3AExportInfo%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679203607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679203616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | The time that the data export was initiated.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#exportInfo_exportRequestTime"><span class="hs-identifier hs-type">exportInfo_exportRequestTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -380,16 +380,16 @@ $sel:statusMessage:ExportInfo' :: ExportInfo -&gt; Text
 -&gt; (ExportInfo -&gt; POSIX -&gt; ExportInfo)
 -&gt; Lens ExportInfo ExportInfo POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203605"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679203614"><span class="annot"><span class="annottext">POSIX
 exportRequestTime :: POSIX
 $sel:exportRequestTime:ExportInfo' :: ExportInfo -&gt; POSIX
-</span><a href="#local-6989586621679203605"><span class="hs-identifier hs-var hs-var">exportRequestTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679203605"><span class="hs-identifier hs-var">exportRequestTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203604"><span class="annot"><span class="annottext">s :: ExportInfo
-</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203603"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679203603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
-</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportRequestTime:ExportInfo' :: POSIX
+</span><a href="#local-6989586621679203614"><span class="hs-identifier hs-var hs-var">exportRequestTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679203614"><span class="hs-identifier hs-var">exportRequestTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679203613"><span class="annot"><span class="annottext">s :: ExportInfo
+</span><a href="#local-6989586621679203613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo%27"><span class="hs-identifier hs-type">ExportInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679203612"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679203612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportInfo
+</span><a href="#local-6989586621679203613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportRequestTime:ExportInfo' :: POSIX
 </span><a href="Network.AWS.Discovery.Types.ExportInfo.html#%24sel%3AexportRequestTime%3AExportInfo%27"><span class="hs-identifier hs-var">exportRequestTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679203603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ExportInfo -&gt; f ExportInfo)
+</span><a href="#local-6989586621679203612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ExportInfo -&gt; f ExportInfo)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ExportInfo
@@ -399,8 +399,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679203598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExportInfo
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203609"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679203607"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExportInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExportInfo) -&gt; Value -&gt; Parser ExportInfo
@@ -408,8 +408,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExportInfo&quot;</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203595"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679203604"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe POSIX
@@ -441,7 +441,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ExportInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configurationsDownloadUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -465,7 +465,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ExportInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestedStartTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -482,7 +482,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Text -&gt; ExportStatus -&gt; Text -&gt; POSIX -&gt; ExportInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;requestedEndTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -492,7 +492,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; ExportStatus -&gt; Text -&gt; POSIX -&gt; ExportInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;isTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -501,7 +501,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (ExportStatus -&gt; Text -&gt; POSIX -&gt; ExportInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exportId&quot;</span></span><span class="hs-special">)</span><span>
@@ -509,7 +509,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ExportStatus -&gt; Parser (Text -&gt; POSIX -&gt; ExportInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExportStatus
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ExportStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exportStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -517,20 +517,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (POSIX -&gt; ExportInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser (POSIX -&gt; ExportInfo) -&gt; Parser POSIX -&gt; Parser ExportInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679203595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679203604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exportRequestTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203588"><span id="local-6989586621679203590"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203597"><span id="local-6989586621679203599"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679203594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.Types.ExportInfo.html#ExportInfo"><span class="hs-identifier hs-type">ExportInfo</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

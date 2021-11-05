@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679247019"><span id="local-6989586621679247020"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyComplianceStatusType"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#PolicyComplianceStatusType"><span class="hs-identifier hs-var">PolicyComplianceStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyComplianceStatusType%27"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#PolicyComplianceStatusType%27"><span class="hs-identifier hs-var">PolicyComplianceStatusType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679247028"><span id="local-6989586621679247029"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PolicyComplianceStatusType"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#PolicyComplianceStatusType"><span class="hs-identifier hs-var">PolicyComplianceStatusType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyComplianceStatusType%27"><span class="annot"><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#PolicyComplianceStatusType%27"><span class="hs-identifier hs-var">PolicyComplianceStatusType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPolicyComplianceStatusType"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; Text
 </span><a href="Network.AWS.FMS.Types.PolicyComplianceStatusType.html#fromPolicyComplianceStatusType"><span class="hs-identifier hs-var hs-var">fromPolicyComplianceStatusType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247011"><span id="local-6989586621679247013"><span id="local-6989586621679247015"><span class="annot"><span class="annottext">Int -&gt; PolicyComplianceStatusType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679247020"><span id="local-6989586621679247022"><span id="local-6989586621679247024"><span class="annot"><span class="annottext">Int -&gt; PolicyComplianceStatusType -&gt; ShowS
 [PolicyComplianceStatusType] -&gt; ShowS
 PolicyComplianceStatusType -&gt; String
 (Int -&gt; PolicyComplianceStatusType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: PolicyComplianceStatusType -&gt; String
 showsPrec :: Int -&gt; PolicyComplianceStatusType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PolicyComplianceStatusType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247002"><span id="local-6989586621679247004"><span id="local-6989586621679247006"><span id="local-6989586621679247008"><span class="annot"><span class="annottext">ReadPrec [PolicyComplianceStatusType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679247011"><span id="local-6989586621679247013"><span id="local-6989586621679247015"><span id="local-6989586621679247017"><span class="annot"><span class="annottext">ReadPrec [PolicyComplianceStatusType]
 ReadPrec PolicyComplianceStatusType
 Int -&gt; ReadS PolicyComplianceStatusType
 ReadS [PolicyComplianceStatusType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [PolicyComplianceStatusType]
 readsPrec :: Int -&gt; ReadS PolicyComplianceStatusType
 $creadsPrec :: Int -&gt; ReadS PolicyComplianceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246997"><span id="local-6989586621679246999"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; PolicyComplianceStatusType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679247006"><span id="local-6989586621679247008"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; PolicyComplianceStatusType -&gt; Bool
 (PolicyComplianceStatusType -&gt; PolicyComplianceStatusType -&gt; Bool)
 -&gt; (PolicyComplianceStatusType
     -&gt; PolicyComplianceStatusType -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: PolicyComplianceStatusType -&gt; PolicyComplianceStatusType -&gt; Bool
 == :: PolicyComplianceStatusType -&gt; PolicyComplianceStatusType -&gt; Bool
 $c== :: PolicyComplianceStatusType -&gt; PolicyComplianceStatusType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246981"><span id="local-6989586621679246983"><span id="local-6989586621679246985"><span id="local-6989586621679246987"><span id="local-6989586621679246989"><span id="local-6989586621679246991"><span id="local-6989586621679246993"><span class="annot"><span class="annottext">Eq PolicyComplianceStatusType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679246990"><span id="local-6989586621679246992"><span id="local-6989586621679246994"><span id="local-6989586621679246996"><span id="local-6989586621679246998"><span id="local-6989586621679247000"><span id="local-6989586621679247002"><span class="annot"><span class="annottext">Eq PolicyComplianceStatusType
 Eq PolicyComplianceStatusType
 -&gt; (PolicyComplianceStatusType
     -&gt; PolicyComplianceStatusType -&gt; Ordering)
@@ -155,7 +155,7 @@ PolicyComplianceStatusType -&gt; Rep PolicyComplianceStatusType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246973"><span id="local-6989586621679246975"><span class="annot"><span class="annottext">Int -&gt; PolicyComplianceStatusType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246982"><span id="local-6989586621679246984"><span class="annot"><span class="annottext">Int -&gt; PolicyComplianceStatusType -&gt; Int
 PolicyComplianceStatusType -&gt; Int
 (Int -&gt; PolicyComplianceStatusType -&gt; Int)
 -&gt; (PolicyComplianceStatusType -&gt; Int)
@@ -166,56 +166,56 @@ $chash :: PolicyComplianceStatusType -&gt; Int
 hashWithSalt :: Int -&gt; PolicyComplianceStatusType -&gt; Int
 $chashWithSalt :: Int -&gt; PolicyComplianceStatusType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246970"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246979"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; ()
 (PolicyComplianceStatusType -&gt; ())
 -&gt; NFData PolicyComplianceStatusType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PolicyComplianceStatusType -&gt; ()
 $crnf :: PolicyComplianceStatusType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246967"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyComplianceStatusType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246976"><span class="annot"><span class="annottext">Text -&gt; Either String PolicyComplianceStatusType
 (Text -&gt; Either String PolicyComplianceStatusType)
 -&gt; FromText PolicyComplianceStatusType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PolicyComplianceStatusType
 $cfromText :: Text -&gt; Either String PolicyComplianceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246964"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246973"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; Text
 (PolicyComplianceStatusType -&gt; Text)
 -&gt; ToText PolicyComplianceStatusType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PolicyComplianceStatusType -&gt; Text
 $ctoText :: PolicyComplianceStatusType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246961"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246970"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; ByteString
 (PolicyComplianceStatusType -&gt; ByteString)
 -&gt; ToByteString PolicyComplianceStatusType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PolicyComplianceStatusType -&gt; ByteString
 $ctoBS :: PolicyComplianceStatusType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246958"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246967"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; ByteStringBuilder
 (PolicyComplianceStatusType -&gt; ByteStringBuilder)
 -&gt; ToLog PolicyComplianceStatusType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PolicyComplianceStatusType -&gt; ByteStringBuilder
 $cbuild :: PolicyComplianceStatusType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246955"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyComplianceStatusType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246964"><span class="annot"><span class="annottext">HeaderName -&gt; PolicyComplianceStatusType -&gt; [Header]
 (HeaderName -&gt; PolicyComplianceStatusType -&gt; [Header])
 -&gt; ToHeader PolicyComplianceStatusType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PolicyComplianceStatusType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PolicyComplianceStatusType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246952"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246961"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; QueryString
 (PolicyComplianceStatusType -&gt; QueryString)
 -&gt; ToQuery PolicyComplianceStatusType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PolicyComplianceStatusType -&gt; QueryString
 $ctoQuery :: PolicyComplianceStatusType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246947"><span id="local-6989586621679246949"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyComplianceStatusType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246956"><span id="local-6989586621679246958"><span class="annot"><span class="annottext">Value -&gt; Parser [PolicyComplianceStatusType]
 Value -&gt; Parser PolicyComplianceStatusType
 (Value -&gt; Parser PolicyComplianceStatusType)
 -&gt; (Value -&gt; Parser [PolicyComplianceStatusType])
@@ -227,7 +227,7 @@ $cparseJSONList :: Value -&gt; Parser [PolicyComplianceStatusType]
 parseJSON :: Value -&gt; Parser PolicyComplianceStatusType
 $cparseJSON :: Value -&gt; Parser PolicyComplianceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246942"><span id="local-6989586621679246944"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyComplianceStatusType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246951"><span id="local-6989586621679246953"><span class="annot"><span class="annottext">FromJSONKeyFunction [PolicyComplianceStatusType]
 FromJSONKeyFunction PolicyComplianceStatusType
 FromJSONKeyFunction PolicyComplianceStatusType
 -&gt; FromJSONKeyFunction [PolicyComplianceStatusType]
@@ -239,7 +239,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PolicyComplianceStatusType]
 fromJSONKey :: FromJSONKeyFunction PolicyComplianceStatusType
 $cfromJSONKey :: FromJSONKeyFunction PolicyComplianceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246933"><span id="local-6989586621679246935"><span id="local-6989586621679246937"><span id="local-6989586621679246939"><span class="annot"><span class="annottext">[PolicyComplianceStatusType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246942"><span id="local-6989586621679246944"><span id="local-6989586621679246946"><span id="local-6989586621679246948"><span class="annot"><span class="annottext">[PolicyComplianceStatusType] -&gt; Encoding
 [PolicyComplianceStatusType] -&gt; Value
 PolicyComplianceStatusType -&gt; Encoding
 PolicyComplianceStatusType -&gt; Value
@@ -263,7 +263,7 @@ $ctoEncoding :: PolicyComplianceStatusType -&gt; Encoding
 toJSON :: PolicyComplianceStatusType -&gt; Value
 $ctoJSON :: PolicyComplianceStatusType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246928"><span id="local-6989586621679246930"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyComplianceStatusType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246937"><span id="local-6989586621679246939"><span class="annot"><span class="annottext">ToJSONKeyFunction [PolicyComplianceStatusType]
 ToJSONKeyFunction PolicyComplianceStatusType
 ToJSONKeyFunction PolicyComplianceStatusType
 -&gt; ToJSONKeyFunction [PolicyComplianceStatusType]
@@ -275,14 +275,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PolicyComplianceStatusType]
 toJSONKey :: ToJSONKeyFunction PolicyComplianceStatusType
 $ctoJSONKey :: ToJSONKeyFunction PolicyComplianceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246925"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyComplianceStatusType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246934"><span class="annot"><span class="annottext">[Node] -&gt; Either String PolicyComplianceStatusType
 ([Node] -&gt; Either String PolicyComplianceStatusType)
 -&gt; FromXML PolicyComplianceStatusType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PolicyComplianceStatusType
 $cparseXML :: [Node] -&gt; Either String PolicyComplianceStatusType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246922"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246931"><span class="annot"><span class="annottext">PolicyComplianceStatusType -&gt; XML
 (PolicyComplianceStatusType -&gt; XML)
 -&gt; ToXML PolicyComplianceStatusType
 forall a. (a -&gt; XML) -&gt; ToXML a

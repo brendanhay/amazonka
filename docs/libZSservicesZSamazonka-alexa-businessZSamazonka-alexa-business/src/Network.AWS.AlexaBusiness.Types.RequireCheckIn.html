@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- prompt the user to check in; otherwise, the room will be released.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRequireCheckIn' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679370474"><span id="local-6989586621679370475"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequireCheckIn"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-var">RequireCheckIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequireCheckIn%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-var">RequireCheckIn'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679370483"><span id="local-6989586621679370484"></span></span><span class="hs-keyword">data</span><span> </span><span id="RequireCheckIn"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-var">RequireCheckIn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RequireCheckIn%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-var">RequireCheckIn'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether require check in is enabled or not.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aenabled%3ARequireCheckIn%27"><span class="annot"><span class="annottext">RequireCheckIn -&gt; Maybe Bool
 </span><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#%24sel%3Aenabled%3ARequireCheckIn%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AreleaseAfterMinutes%3ARequireCheckIn%27"><span class="annot"><span class="annottext">RequireCheckIn -&gt; Maybe Int
 </span><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#%24sel%3AreleaseAfterMinutes%3ARequireCheckIn%27"><span class="hs-identifier hs-var hs-var">releaseAfterMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370467"><span id="local-6989586621679370469"><span class="annot"><span class="annottext">RequireCheckIn -&gt; RequireCheckIn -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370476"><span id="local-6989586621679370478"><span class="annot"><span class="annottext">RequireCheckIn -&gt; RequireCheckIn -&gt; Bool
 (RequireCheckIn -&gt; RequireCheckIn -&gt; Bool)
 -&gt; (RequireCheckIn -&gt; RequireCheckIn -&gt; Bool) -&gt; Eq RequireCheckIn
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RequireCheckIn -&gt; RequireCheckIn -&gt; Bool
 == :: RequireCheckIn -&gt; RequireCheckIn -&gt; Bool
 $c== :: RequireCheckIn -&gt; RequireCheckIn -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370458"><span id="local-6989586621679370460"><span id="local-6989586621679370462"><span id="local-6989586621679370464"><span class="annot"><span class="annottext">ReadPrec [RequireCheckIn]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370467"><span id="local-6989586621679370469"><span id="local-6989586621679370471"><span id="local-6989586621679370473"><span class="annot"><span class="annottext">ReadPrec [RequireCheckIn]
 ReadPrec RequireCheckIn
 Int -&gt; ReadS RequireCheckIn
 ReadS [RequireCheckIn]
@@ -65,7 +65,7 @@ readList :: ReadS [RequireCheckIn]
 $creadList :: ReadS [RequireCheckIn]
 readsPrec :: Int -&gt; ReadS RequireCheckIn
 $creadsPrec :: Int -&gt; ReadS RequireCheckIn
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370451"><span id="local-6989586621679370453"><span id="local-6989586621679370455"><span class="annot"><span class="annottext">Int -&gt; RequireCheckIn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370460"><span id="local-6989586621679370462"><span id="local-6989586621679370464"><span class="annot"><span class="annottext">Int -&gt; RequireCheckIn -&gt; ShowS
 [RequireCheckIn] -&gt; ShowS
 RequireCheckIn -&gt; String
 (Int -&gt; RequireCheckIn -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (RequireCheckIn -&gt; Maybe Bool -&gt; RequireCheckIn)
 -&gt; Lens RequireCheckIn RequireCheckIn (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370442"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370451"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:RequireCheckIn' :: RequireCheckIn -&gt; Maybe Bool
-</span><a href="#local-6989586621679370442"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370442"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370441"><span class="annot"><span class="annottext">s :: RequireCheckIn
-</span><a href="#local-6989586621679370441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370440"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequireCheckIn
-</span><a href="#local-6989586621679370441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:RequireCheckIn' :: Maybe Bool
+</span><a href="#local-6989586621679370451"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370451"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370450"><span class="annot"><span class="annottext">s :: RequireCheckIn
+</span><a href="#local-6989586621679370450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370449"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequireCheckIn
+</span><a href="#local-6989586621679370450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:RequireCheckIn' :: Maybe Bool
 </span><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#%24sel%3Aenabled%3ARequireCheckIn%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679370440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Duration between 5 and 20 minutes to determine when to release the room</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- if it\'s not checked into.</span><span>
@@ -146,19 +146,19 @@ $sel:enabled:RequireCheckIn' :: RequireCheckIn -&gt; Maybe Bool
 -&gt; (RequireCheckIn -&gt; Maybe Int -&gt; RequireCheckIn)
 -&gt; Lens RequireCheckIn RequireCheckIn (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370438"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370447"><span class="annot"><span class="annottext">Maybe Int
 releaseAfterMinutes :: Maybe Int
 $sel:releaseAfterMinutes:RequireCheckIn' :: RequireCheckIn -&gt; Maybe Int
-</span><a href="#local-6989586621679370438"><span class="hs-identifier hs-var hs-var">releaseAfterMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370438"><span class="hs-identifier hs-var">releaseAfterMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370437"><span class="annot"><span class="annottext">s :: RequireCheckIn
-</span><a href="#local-6989586621679370437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370436"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequireCheckIn
-</span><a href="#local-6989586621679370437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:releaseAfterMinutes:RequireCheckIn' :: Maybe Int
+</span><a href="#local-6989586621679370447"><span class="hs-identifier hs-var hs-var">releaseAfterMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370447"><span class="hs-identifier hs-var">releaseAfterMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370446"><span class="annot"><span class="annottext">s :: RequireCheckIn
+</span><a href="#local-6989586621679370446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-type">RequireCheckIn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370445"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RequireCheckIn
+</span><a href="#local-6989586621679370446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:releaseAfterMinutes:RequireCheckIn' :: Maybe Int
 </span><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#%24sel%3AreleaseAfterMinutes%3ARequireCheckIn%27"><span class="hs-identifier hs-var">releaseAfterMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370433"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679370431"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RequireCheckIn
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370442"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679370440"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RequireCheckIn
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RequireCheckIn)
@@ -168,15 +168,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RequireCheckIn&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370428"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370428"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370437"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Int -&gt; RequireCheckIn
 </span><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn%27"><span class="hs-identifier hs-var">RequireCheckIn'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Int -&gt; RequireCheckIn)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Int -&gt; RequireCheckIn)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679370437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -184,13 +184,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser RequireCheckIn
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370428"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679370437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReleaseAfterMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370422"><span id="local-6989586621679370424"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370431"><span id="local-6989586621679370433"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370428"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.RequireCheckIn.html#RequireCheckIn"><span class="hs-identifier hs-type">RequireCheckIn</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

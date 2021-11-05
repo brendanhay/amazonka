@@ -1,0 +1,814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.DataSync.CreateLocationFsxWindows</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an endpoint for an Amazon FSx for Windows File Server file</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.DataSync.CreateLocationFsxWindows</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#newCreateLocationFsxWindows"><span class="hs-identifier">newCreateLocationFsxWindows</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_domain"><span class="hs-identifier">createLocationFsxWindows_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_subdirectory"><span class="hs-identifier">createLocationFsxWindows_subdirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_tags"><span class="hs-identifier">createLocationFsxWindows_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_fsxFilesystemArn"><span class="hs-identifier">createLocationFsxWindows_fsxFilesystemArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_securityGroupArns"><span class="hs-identifier">createLocationFsxWindows_securityGroupArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_user"><span class="hs-identifier">createLocationFsxWindows_user</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_password"><span class="hs-identifier">createLocationFsxWindows_password</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier">CreateLocationFsxWindowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#newCreateLocationFsxWindowsResponse"><span class="hs-identifier">newCreateLocationFsxWindowsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindowsResponse_locationArn"><span class="hs-identifier">createLocationFsxWindowsResponse_locationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindowsResponse_httpStatus"><span class="hs-identifier">createLocationFsxWindowsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.Types.html"><span class="hs-identifier">Network.AWS.DataSync.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newCreateLocationFsxWindows' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679260280"><span id="local-6989586621679260281"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLocationFsxWindows"><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-var">CreateLocationFsxWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLocationFsxWindows%27"><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-var">CreateLocationFsxWindows'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Windows domain that the FSx for Windows File Server</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- belongs to.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Adomain%3ACreateLocationFsxWindows%27"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Adomain%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A subdirectory in the location&#8217;s path. This subdirectory in the Amazon</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- FSx for Windows File Server file system is used to read data from the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Amazon FSx for Windows File Server source location or write data to the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- FSx for Windows File Server destination.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Asubdirectory%3ACreateLocationFsxWindows%27"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Asubdirectory%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var hs-var">subdirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The key-value pair that represents a tag that you want to add to the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- resource. The value can be an empty string. This value helps you manage,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- filter, and search for your resources. We recommend that you create a</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- name tag for your location.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Atags%3ACreateLocationFsxWindows%27"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; Maybe [TagListEntry]
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Atags%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataSync.Types.TagListEntry.html#TagListEntry"><span class="hs-identifier hs-type">TagListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the FSx for Windows File Server file</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AfsxFilesystemArn%3ACreateLocationFsxWindows%27"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AfsxFilesystemArn%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var hs-var">fsxFilesystemArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the security groups that are to use</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- to configure the FSx for Windows File Server file system.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsecurityGroupArns%3ACreateLocationFsxWindows%27"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; NonEmpty Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AsecurityGroupArns%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var hs-var">securityGroupArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The user who has the permissions to access files and folders in the FSx</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- for Windows File Server file system.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- For information about choosing a user name that ensures sufficient</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- permissions to files, folders, and metadata, see</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- &lt;create-fsx-location.html#FSxWuser user&gt;.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Auser%3ACreateLocationFsxWindows%27"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Auser%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The password of the user who has the permissions to access files and</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- folders in the FSx for Windows File Server file system.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Apassword%3ACreateLocationFsxWindows%27"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; Sensitive Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Apassword%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260268"><span id="local-6989586621679260270"><span class="annot"><span class="annottext">CreateLocationFsxWindows -&gt; CreateLocationFsxWindows -&gt; Bool
+(CreateLocationFsxWindows -&gt; CreateLocationFsxWindows -&gt; Bool)
+-&gt; (CreateLocationFsxWindows -&gt; CreateLocationFsxWindows -&gt; Bool)
+-&gt; Eq CreateLocationFsxWindows
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLocationFsxWindows -&gt; CreateLocationFsxWindows -&gt; Bool
+$c/= :: CreateLocationFsxWindows -&gt; CreateLocationFsxWindows -&gt; Bool
+== :: CreateLocationFsxWindows -&gt; CreateLocationFsxWindows -&gt; Bool
+$c== :: CreateLocationFsxWindows -&gt; CreateLocationFsxWindows -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260261"><span id="local-6989586621679260263"><span id="local-6989586621679260265"><span class="annot"><span class="annottext">Int -&gt; CreateLocationFsxWindows -&gt; ShowS
+[CreateLocationFsxWindows] -&gt; ShowS
+CreateLocationFsxWindows -&gt; String
+(Int -&gt; CreateLocationFsxWindows -&gt; ShowS)
+-&gt; (CreateLocationFsxWindows -&gt; String)
+-&gt; ([CreateLocationFsxWindows] -&gt; ShowS)
+-&gt; Show CreateLocationFsxWindows
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLocationFsxWindows] -&gt; ShowS
+$cshowList :: [CreateLocationFsxWindows] -&gt; ShowS
+show :: CreateLocationFsxWindows -&gt; String
+$cshow :: CreateLocationFsxWindows -&gt; String
+showsPrec :: Int -&gt; CreateLocationFsxWindows -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLocationFsxWindows -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateLocationFsxWindows -&gt; Rep CreateLocationFsxWindows x)
+-&gt; (forall x.
+    Rep CreateLocationFsxWindows x -&gt; CreateLocationFsxWindows)
+-&gt; Generic CreateLocationFsxWindows
+forall x.
+Rep CreateLocationFsxWindows x -&gt; CreateLocationFsxWindows
+forall x.
+CreateLocationFsxWindows -&gt; Rep CreateLocationFsxWindows x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateLocationFsxWindows x -&gt; CreateLocationFsxWindows
+$cfrom :: forall x.
+CreateLocationFsxWindows -&gt; Rep CreateLocationFsxWindows x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Create a value of 'CreateLocationFsxWindows' with all optional fields omitted.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'domain', 'createLocationFsxWindows_domain' - The name of the Windows domain that the FSx for Windows File Server</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- belongs to.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'subdirectory', 'createLocationFsxWindows_subdirectory' - A subdirectory in the location&#8217;s path. This subdirectory in the Amazon</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- FSx for Windows File Server file system is used to read data from the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Amazon FSx for Windows File Server source location or write data to the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- FSx for Windows File Server destination.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'tags', 'createLocationFsxWindows_tags' - The key-value pair that represents a tag that you want to add to the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- resource. The value can be an empty string. This value helps you manage,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- filter, and search for your resources. We recommend that you create a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- name tag for your location.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'fsxFilesystemArn', 'createLocationFsxWindows_fsxFilesystemArn' - The Amazon Resource Name (ARN) for the FSx for Windows File Server file</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'securityGroupArns', 'createLocationFsxWindows_securityGroupArns' - The Amazon Resource Names (ARNs) of the security groups that are to use</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- to configure the FSx for Windows File Server file system.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'user', 'createLocationFsxWindows_user' - The user who has the permissions to access files and folders in the FSx</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for Windows File Server file system.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- For information about choosing a user name that ensures sufficient</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- permissions to files, folders, and metadata, see</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- &lt;create-fsx-location.html#FSxWuser user&gt;.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'password', 'createLocationFsxWindows_password' - The password of the user who has the permissions to access files and</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- folders in the FSx for Windows File Server file system.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#newCreateLocationFsxWindows"><span class="hs-identifier hs-type">newCreateLocationFsxWindows</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-comment">-- | 'fsxFilesystemArn'</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'securityGroupArns'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'user'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'password'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span>
+</span><span id="line-136"></span><span id="newCreateLocationFsxWindows"><span class="annot"><span class="annottext">newCreateLocationFsxWindows :: Text -&gt; NonEmpty Text -&gt; Text -&gt; Text -&gt; CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#newCreateLocationFsxWindows"><span class="hs-identifier hs-var hs-var">newCreateLocationFsxWindows</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679260256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260256"><span class="hs-identifier hs-var">pFsxFilesystemArn_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679260255"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679260255"><span class="hs-identifier hs-var">pSecurityGroupArns_</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679260254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260254"><span class="hs-identifier hs-var">pUser_</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679260253"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260253"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">CreateLocationFsxWindows' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [TagListEntry]
+-&gt; Text
+-&gt; NonEmpty Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domain:CreateLocationFsxWindows' :: Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Adomain%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:subdirectory:CreateLocationFsxWindows' :: Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Asubdirectory%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">subdirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateLocationFsxWindows' :: Maybe [TagListEntry]
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Atags%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:fsxFilesystemArn:CreateLocationFsxWindows' :: Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AfsxFilesystemArn%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">fsxFilesystemArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260256"><span class="hs-identifier hs-var">pFsxFilesystemArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:securityGroupArns:CreateLocationFsxWindows' :: NonEmpty Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AsecurityGroupArns%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">securityGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679260255"><span class="hs-identifier hs-var">pSecurityGroupArns_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:user:CreateLocationFsxWindows' :: Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Auser%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260254"><span class="hs-identifier hs-var">pUser_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:password:CreateLocationFsxWindows' :: Sensitive Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Apassword%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260253"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The name of the Windows domain that the FSx for Windows File Server</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- belongs to.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_domain"><span class="hs-identifier hs-type">createLocationFsxWindows_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createLocationFsxWindows_domain"><span class="annot"><span class="annottext">createLocationFsxWindows_domain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_domain"><span class="hs-identifier hs-var hs-var">createLocationFsxWindows_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindows -&gt; Maybe Text)
+-&gt; (CreateLocationFsxWindows
+    -&gt; Maybe Text -&gt; CreateLocationFsxWindows)
+-&gt; Lens
+     CreateLocationFsxWindows
+     CreateLocationFsxWindows
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260247"><span class="annot"><span class="annottext">Maybe Text
+domain :: Maybe Text
+$sel:domain:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Maybe Text
+</span><a href="#local-6989586621679260247"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260247"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260246"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindows
+</span><a href="#local-6989586621679260246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindows
+</span><a href="#local-6989586621679260246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:CreateLocationFsxWindows' :: Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Adomain%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | A subdirectory in the location&#8217;s path. This subdirectory in the Amazon</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- FSx for Windows File Server file system is used to read data from the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Amazon FSx for Windows File Server source location or write data to the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- FSx for Windows File Server destination.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_subdirectory"><span class="hs-identifier hs-type">createLocationFsxWindows_subdirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="createLocationFsxWindows_subdirectory"><span class="annot"><span class="annottext">createLocationFsxWindows_subdirectory :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_subdirectory"><span class="hs-identifier hs-var hs-var">createLocationFsxWindows_subdirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindows -&gt; Maybe Text)
+-&gt; (CreateLocationFsxWindows
+    -&gt; Maybe Text -&gt; CreateLocationFsxWindows)
+-&gt; Lens
+     CreateLocationFsxWindows
+     CreateLocationFsxWindows
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260244"><span class="annot"><span class="annottext">Maybe Text
+subdirectory :: Maybe Text
+$sel:subdirectory:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Maybe Text
+</span><a href="#local-6989586621679260244"><span class="hs-identifier hs-var hs-var">subdirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260244"><span class="hs-identifier hs-var">subdirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260243"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindows
+</span><a href="#local-6989586621679260243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindows
+</span><a href="#local-6989586621679260243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdirectory:CreateLocationFsxWindows' :: Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Asubdirectory%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">subdirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The key-value pair that represents a tag that you want to add to the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- resource. The value can be an empty string. This value helps you manage,</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- filter, and search for your resources. We recommend that you create a</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- name tag for your location.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_tags"><span class="hs-identifier hs-type">createLocationFsxWindows_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataSync.Types.TagListEntry.html#TagListEntry"><span class="hs-identifier hs-type">TagListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="createLocationFsxWindows_tags"><span class="annot"><span class="annottext">createLocationFsxWindows_tags :: (Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+-&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_tags"><span class="hs-identifier hs-var hs-var">createLocationFsxWindows_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindows -&gt; Maybe [TagListEntry])
+-&gt; (CreateLocationFsxWindows
+    -&gt; Maybe [TagListEntry] -&gt; CreateLocationFsxWindows)
+-&gt; Lens
+     CreateLocationFsxWindows
+     CreateLocationFsxWindows
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260241"><span class="annot"><span class="annottext">Maybe [TagListEntry]
+tags :: Maybe [TagListEntry]
+$sel:tags:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Maybe [TagListEntry]
+</span><a href="#local-6989586621679260241"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679260241"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260240"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindows
+</span><a href="#local-6989586621679260240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260239"><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679260239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindows
+</span><a href="#local-6989586621679260240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLocationFsxWindows' :: Maybe [TagListEntry]
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Atags%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679260239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+ -&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows)
+-&gt; ((Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+    -&gt; Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+-&gt; (Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+-&gt; CreateLocationFsxWindows
+-&gt; f CreateLocationFsxWindows
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagListEntry] [TagListEntry] [TagListEntry] [TagListEntry]
+-&gt; Iso
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagListEntry] [TagListEntry] [TagListEntry] [TagListEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the FSx for Windows File Server file</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- system.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_fsxFilesystemArn"><span class="hs-identifier hs-type">createLocationFsxWindows_fsxFilesystemArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-174"></span><span id="createLocationFsxWindows_fsxFilesystemArn"><span class="annot"><span class="annottext">createLocationFsxWindows_fsxFilesystemArn :: (Text -&gt; f Text)
+-&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_fsxFilesystemArn"><span class="hs-identifier hs-var hs-var">createLocationFsxWindows_fsxFilesystemArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindows -&gt; Text)
+-&gt; (CreateLocationFsxWindows -&gt; Text -&gt; CreateLocationFsxWindows)
+-&gt; Lens CreateLocationFsxWindows CreateLocationFsxWindows Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260236"><span class="annot"><span class="annottext">Text
+fsxFilesystemArn :: Text
+$sel:fsxFilesystemArn:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Text
+</span><a href="#local-6989586621679260236"><span class="hs-identifier hs-var hs-var">fsxFilesystemArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260236"><span class="hs-identifier hs-var">fsxFilesystemArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260235"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindows
+</span><a href="#local-6989586621679260235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindows
+</span><a href="#local-6989586621679260235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fsxFilesystemArn:CreateLocationFsxWindows' :: Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AfsxFilesystemArn%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">fsxFilesystemArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the security groups that are to use</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- to configure the FSx for Windows File Server file system.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_securityGroupArns"><span class="hs-identifier hs-type">createLocationFsxWindows_securityGroupArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createLocationFsxWindows_securityGroupArns"><span class="annot"><span class="annottext">createLocationFsxWindows_securityGroupArns :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_securityGroupArns"><span class="hs-identifier hs-var hs-var">createLocationFsxWindows_securityGroupArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindows -&gt; NonEmpty Text)
+-&gt; (CreateLocationFsxWindows
+    -&gt; NonEmpty Text -&gt; CreateLocationFsxWindows)
+-&gt; Lens
+     CreateLocationFsxWindows
+     CreateLocationFsxWindows
+     (NonEmpty Text)
+     (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260233"><span class="annot"><span class="annottext">NonEmpty Text
+securityGroupArns :: NonEmpty Text
+$sel:securityGroupArns:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; NonEmpty Text
+</span><a href="#local-6989586621679260233"><span class="hs-identifier hs-var hs-var">securityGroupArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679260233"><span class="hs-identifier hs-var">securityGroupArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260232"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindows
+</span><a href="#local-6989586621679260232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260231"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679260231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindows
+</span><a href="#local-6989586621679260232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupArns:CreateLocationFsxWindows' :: NonEmpty Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AsecurityGroupArns%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">securityGroupArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679260231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateLocationFsxWindows
+-&gt; f CreateLocationFsxWindows
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The user who has the permissions to access files and folders in the FSx</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for Windows File Server file system.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- For information about choosing a user name that ensures sufficient</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- permissions to files, folders, and metadata, see</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- &lt;create-fsx-location.html#FSxWuser user&gt;.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_user"><span class="hs-identifier hs-type">createLocationFsxWindows_user</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-188"></span><span id="createLocationFsxWindows_user"><span class="annot"><span class="annottext">createLocationFsxWindows_user :: (Text -&gt; f Text)
+-&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_user"><span class="hs-identifier hs-var hs-var">createLocationFsxWindows_user</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindows -&gt; Text)
+-&gt; (CreateLocationFsxWindows -&gt; Text -&gt; CreateLocationFsxWindows)
+-&gt; Lens CreateLocationFsxWindows CreateLocationFsxWindows Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260230"><span class="annot"><span class="annottext">Text
+user :: Text
+$sel:user:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Text
+</span><a href="#local-6989586621679260230"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260230"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260229"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindows
+</span><a href="#local-6989586621679260229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260228"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindows
+</span><a href="#local-6989586621679260229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:CreateLocationFsxWindows' :: Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Auser%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The password of the user who has the permissions to access files and</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- folders in the FSx for Windows File Server file system.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_password"><span class="hs-identifier hs-type">createLocationFsxWindows_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-193"></span><span id="createLocationFsxWindows_password"><span class="annot"><span class="annottext">createLocationFsxWindows_password :: (Text -&gt; f Text)
+-&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindows_password"><span class="hs-identifier hs-var hs-var">createLocationFsxWindows_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindows -&gt; Sensitive Text)
+-&gt; (CreateLocationFsxWindows
+    -&gt; Sensitive Text -&gt; CreateLocationFsxWindows)
+-&gt; Lens
+     CreateLocationFsxWindows
+     CreateLocationFsxWindows
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260227"><span class="annot"><span class="annottext">Sensitive Text
+password :: Sensitive Text
+$sel:password:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Sensitive Text
+</span><a href="#local-6989586621679260227"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679260227"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260226"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindows
+</span><a href="#local-6989586621679260226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260225"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679260225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindows
+</span><a href="#local-6989586621679260226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateLocationFsxWindows' :: Sensitive Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3Apassword%3ACreateLocationFsxWindows%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679260225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateLocationFsxWindows -&gt; f CreateLocationFsxWindows)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateLocationFsxWindows
+-&gt; f CreateLocationFsxWindows
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-197"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse</span></a></span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679260221"><span class="annot"><span class="annottext">request :: CreateLocationFsxWindows -&gt; Request CreateLocationFsxWindows
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateLocationFsxWindows -&gt; Request CreateLocationFsxWindows
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679260217"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateLocationFsxWindows
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLocationFsxWindows)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateLocationFsxWindows))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateLocationFsxWindows
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLocationFsxWindows)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260214"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260214"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679260213"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679260213"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679260212"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateLocationFsxWindowsResponse
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var">CreateLocationFsxWindowsResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateLocationFsxWindowsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateLocationFsxWindowsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateLocationFsxWindowsResponse)
+-&gt; Either String Int
+-&gt; Either String CreateLocationFsxWindowsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260214"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260204"><span id="local-6989586621679260206"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span></span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679260197"><span class="annot"><span class="annottext">toHeaders :: CreateLocationFsxWindows -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLocationFsxWindows -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FmrsService.CreateLocationFsxWindows&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-218"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-219"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-221"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-223"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260187"><span id="local-6989586621679260189"><span id="local-6989586621679260191"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679260185"><span class="annot"><span class="annottext">toJSON :: CreateLocationFsxWindows -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows%27"><span class="hs-identifier hs-type">CreateLocationFsxWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260177"><span id="local-6989586621679260178"><span id="local-6989586621679260179"><span id="local-6989586621679260180"><span id="local-6989586621679260181"><span id="local-6989586621679260182"><span id="local-6989586621679260183"><span class="annot"><span class="annottext">Maybe [TagListEntry]
+Maybe Text
+NonEmpty Text
+Text
+Sensitive Text
+password :: Sensitive Text
+user :: Text
+securityGroupArns :: NonEmpty Text
+fsxFilesystemArn :: Text
+tags :: Maybe [TagListEntry]
+subdirectory :: Maybe Text
+domain :: Maybe Text
+$sel:password:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Sensitive Text
+$sel:user:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Text
+$sel:securityGroupArns:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; NonEmpty Text
+$sel:fsxFilesystemArn:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Text
+$sel:tags:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Maybe [TagListEntry]
+$sel:subdirectory:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Maybe Text
+$sel:domain:CreateLocationFsxWindows' :: CreateLocationFsxWindows -&gt; Maybe Text
+</span><a href="#local-6989586621679260177"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-231"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260183"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subdirectory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260182"><span class="hs-identifier hs-var">subdirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagListEntry] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagListEntry] -&gt; Pair) -&gt; Maybe [TagListEntry] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679260181"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-235"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FsxFilesystemArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260180"><span class="hs-identifier hs-var">fsxFilesystemArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-237"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SecurityGroupArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679260179"><span class="hs-identifier hs-var">securityGroupArns</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;User&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260178"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679260177"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679260171"><span class="annot"><span class="annottext">toPath :: CreateLocationFsxWindows -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLocationFsxWindows -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindows"><span class="hs-identifier hs-type">CreateLocationFsxWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679260167"><span class="annot"><span class="annottext">toQuery :: CreateLocationFsxWindows -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLocationFsxWindows -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | /See:/ 'newCreateLocationFsxWindowsResponse' smart constructor.</span><span>
+</span><span id="line-250"></span><span id="local-6989586621679260164"><span id="local-6989586621679260165"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLocationFsxWindowsResponse"><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-var">CreateLocationFsxWindowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLocationFsxWindowsResponse%27"><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var">CreateLocationFsxWindowsResponse'</span></a></span></span><span>
+</span><span id="line-251"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the FSx for Windows File Server file</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- system location that is created.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AlocationArn%3ACreateLocationFsxWindowsResponse%27"><span class="annot"><span class="annottext">CreateLocationFsxWindowsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AlocationArn%3ACreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var hs-var">locationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLocationFsxWindowsResponse%27"><span class="annot"><span class="annottext">CreateLocationFsxWindowsResponse -&gt; Int
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AhttpStatus%3ACreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-256"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260158"><span id="local-6989586621679260160"><span class="annot"><span class="annottext">CreateLocationFsxWindowsResponse
+-&gt; CreateLocationFsxWindowsResponse -&gt; Bool
+(CreateLocationFsxWindowsResponse
+ -&gt; CreateLocationFsxWindowsResponse -&gt; Bool)
+-&gt; (CreateLocationFsxWindowsResponse
+    -&gt; CreateLocationFsxWindowsResponse -&gt; Bool)
+-&gt; Eq CreateLocationFsxWindowsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLocationFsxWindowsResponse
+-&gt; CreateLocationFsxWindowsResponse -&gt; Bool
+$c/= :: CreateLocationFsxWindowsResponse
+-&gt; CreateLocationFsxWindowsResponse -&gt; Bool
+== :: CreateLocationFsxWindowsResponse
+-&gt; CreateLocationFsxWindowsResponse -&gt; Bool
+$c== :: CreateLocationFsxWindowsResponse
+-&gt; CreateLocationFsxWindowsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260150"><span id="local-6989586621679260152"><span id="local-6989586621679260154"><span id="local-6989586621679260156"><span class="annot"><span class="annottext">ReadPrec [CreateLocationFsxWindowsResponse]
+ReadPrec CreateLocationFsxWindowsResponse
+Int -&gt; ReadS CreateLocationFsxWindowsResponse
+ReadS [CreateLocationFsxWindowsResponse]
+(Int -&gt; ReadS CreateLocationFsxWindowsResponse)
+-&gt; ReadS [CreateLocationFsxWindowsResponse]
+-&gt; ReadPrec CreateLocationFsxWindowsResponse
+-&gt; ReadPrec [CreateLocationFsxWindowsResponse]
+-&gt; Read CreateLocationFsxWindowsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLocationFsxWindowsResponse]
+$creadListPrec :: ReadPrec [CreateLocationFsxWindowsResponse]
+readPrec :: ReadPrec CreateLocationFsxWindowsResponse
+$creadPrec :: ReadPrec CreateLocationFsxWindowsResponse
+readList :: ReadS [CreateLocationFsxWindowsResponse]
+$creadList :: ReadS [CreateLocationFsxWindowsResponse]
+readsPrec :: Int -&gt; ReadS CreateLocationFsxWindowsResponse
+$creadsPrec :: Int -&gt; ReadS CreateLocationFsxWindowsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260143"><span id="local-6989586621679260145"><span id="local-6989586621679260147"><span class="annot"><span class="annottext">Int -&gt; CreateLocationFsxWindowsResponse -&gt; ShowS
+[CreateLocationFsxWindowsResponse] -&gt; ShowS
+CreateLocationFsxWindowsResponse -&gt; String
+(Int -&gt; CreateLocationFsxWindowsResponse -&gt; ShowS)
+-&gt; (CreateLocationFsxWindowsResponse -&gt; String)
+-&gt; ([CreateLocationFsxWindowsResponse] -&gt; ShowS)
+-&gt; Show CreateLocationFsxWindowsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLocationFsxWindowsResponse] -&gt; ShowS
+$cshowList :: [CreateLocationFsxWindowsResponse] -&gt; ShowS
+show :: CreateLocationFsxWindowsResponse -&gt; String
+$cshow :: CreateLocationFsxWindowsResponse -&gt; String
+showsPrec :: Int -&gt; CreateLocationFsxWindowsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLocationFsxWindowsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateLocationFsxWindowsResponse
+ -&gt; Rep CreateLocationFsxWindowsResponse x)
+-&gt; (forall x.
+    Rep CreateLocationFsxWindowsResponse x
+    -&gt; CreateLocationFsxWindowsResponse)
+-&gt; Generic CreateLocationFsxWindowsResponse
+forall x.
+Rep CreateLocationFsxWindowsResponse x
+-&gt; CreateLocationFsxWindowsResponse
+forall x.
+CreateLocationFsxWindowsResponse
+-&gt; Rep CreateLocationFsxWindowsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateLocationFsxWindowsResponse x
+-&gt; CreateLocationFsxWindowsResponse
+$cfrom :: forall x.
+CreateLocationFsxWindowsResponse
+-&gt; Rep CreateLocationFsxWindowsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- Create a value of 'CreateLocationFsxWindowsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- 'locationArn', 'createLocationFsxWindowsResponse_locationArn' - The Amazon Resource Name (ARN) of the FSx for Windows File Server file</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- system location that is created.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'httpStatus', 'createLocationFsxWindowsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#newCreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">newCreateLocationFsxWindowsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-272"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-273"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-274"></span><span>  </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse</span></a></span><span>
+</span><span id="line-275"></span><span id="newCreateLocationFsxWindowsResponse"><span class="annot"><span class="annottext">newCreateLocationFsxWindowsResponse :: Int -&gt; CreateLocationFsxWindowsResponse
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#newCreateLocationFsxWindowsResponse"><span class="hs-identifier hs-var hs-var">newCreateLocationFsxWindowsResponse</span></a></span></span><span> </span><span id="local-6989586621679260140"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>  </span><span class="annot"><span class="annottext">CreateLocationFsxWindowsResponse' :: Maybe Text -&gt; Int -&gt; CreateLocationFsxWindowsResponse
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse'</span></a></span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:locationArn:CreateLocationFsxWindowsResponse' :: Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AlocationArn%3ACreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var">locationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLocationFsxWindowsResponse' :: Int
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AhttpStatus%3ACreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the FSx for Windows File Server file</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- system location that is created.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindowsResponse_locationArn"><span class="hs-identifier hs-type">createLocationFsxWindowsResponse_locationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="createLocationFsxWindowsResponse_locationArn"><span class="annot"><span class="annottext">createLocationFsxWindowsResponse_locationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLocationFsxWindowsResponse
+-&gt; f CreateLocationFsxWindowsResponse
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindowsResponse_locationArn"><span class="hs-identifier hs-var hs-var">createLocationFsxWindowsResponse_locationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindowsResponse -&gt; Maybe Text)
+-&gt; (CreateLocationFsxWindowsResponse
+    -&gt; Maybe Text -&gt; CreateLocationFsxWindowsResponse)
+-&gt; Lens
+     CreateLocationFsxWindowsResponse
+     CreateLocationFsxWindowsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260139"><span class="annot"><span class="annottext">Maybe Text
+locationArn :: Maybe Text
+$sel:locationArn:CreateLocationFsxWindowsResponse' :: CreateLocationFsxWindowsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679260139"><span class="hs-identifier hs-var hs-var">locationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260139"><span class="hs-identifier hs-var">locationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260138"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindowsResponse
+</span><a href="#local-6989586621679260138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260137"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindowsResponse
+</span><a href="#local-6989586621679260138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationArn:CreateLocationFsxWindowsResponse' :: Maybe Text
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AlocationArn%3ACreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var">locationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindowsResponse_httpStatus"><span class="hs-identifier hs-type">createLocationFsxWindowsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-289"></span><span id="createLocationFsxWindowsResponse_httpStatus"><span class="annot"><span class="annottext">createLocationFsxWindowsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateLocationFsxWindowsResponse
+-&gt; f CreateLocationFsxWindowsResponse
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#createLocationFsxWindowsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createLocationFsxWindowsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationFsxWindowsResponse -&gt; Int)
+-&gt; (CreateLocationFsxWindowsResponse
+    -&gt; Int -&gt; CreateLocationFsxWindowsResponse)
+-&gt; Lens
+     CreateLocationFsxWindowsResponse
+     CreateLocationFsxWindowsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260136"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateLocationFsxWindowsResponse' :: CreateLocationFsxWindowsResponse -&gt; Int
+</span><a href="#local-6989586621679260136"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260136"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260135"><span class="annot"><span class="annottext">s :: CreateLocationFsxWindowsResponse
+</span><a href="#local-6989586621679260135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260134"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationFsxWindowsResponse
+</span><a href="#local-6989586621679260135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLocationFsxWindowsResponse' :: Int
+</span><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#%24sel%3AhttpStatus%3ACreateLocationFsxWindowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-292"></span><span>  </span><span id="local-6989586621679260132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.DataSync.CreateLocationFsxWindows.html#CreateLocationFsxWindowsResponse"><span class="hs-identifier hs-type">CreateLocationFsxWindowsResponse</span></a></span></span><span>
+</span><span id="line-294"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679299602"><span id="local-6989586621679299603"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShareMethod"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod"><span class="hs-identifier hs-var">ShareMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareMethod%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod%27"><span class="hs-identifier hs-var">ShareMethod'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679299611"><span id="local-6989586621679299612"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShareMethod"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod"><span class="hs-identifier hs-var">ShareMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareMethod%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#ShareMethod%27"><span class="hs-identifier hs-var">ShareMethod'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromShareMethod"><span class="annot"><span class="annottext">ShareMethod -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.ShareMethod.html#fromShareMethod"><span class="hs-identifier hs-var hs-var">fromShareMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299594"><span id="local-6989586621679299596"><span id="local-6989586621679299598"><span class="annot"><span class="annottext">Int -&gt; ShareMethod -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299603"><span id="local-6989586621679299605"><span id="local-6989586621679299607"><span class="annot"><span class="annottext">Int -&gt; ShareMethod -&gt; ShowS
 [ShareMethod] -&gt; ShowS
 ShareMethod -&gt; String
 (Int -&gt; ShareMethod -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ShareMethod -&gt; String
 showsPrec :: Int -&gt; ShareMethod -&gt; ShowS
 $cshowsPrec :: Int -&gt; ShareMethod -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679299585"><span id="local-6989586621679299587"><span id="local-6989586621679299589"><span id="local-6989586621679299591"><span class="annot"><span class="annottext">ReadPrec [ShareMethod]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679299594"><span id="local-6989586621679299596"><span id="local-6989586621679299598"><span id="local-6989586621679299600"><span class="annot"><span class="annottext">ReadPrec [ShareMethod]
 ReadPrec ShareMethod
 Int -&gt; ReadS ShareMethod
 ReadS [ShareMethod]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ShareMethod]
 readsPrec :: Int -&gt; ReadS ShareMethod
 $creadsPrec :: Int -&gt; ReadS ShareMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299580"><span id="local-6989586621679299582"><span class="annot"><span class="annottext">ShareMethod -&gt; ShareMethod -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679299589"><span id="local-6989586621679299591"><span class="annot"><span class="annottext">ShareMethod -&gt; ShareMethod -&gt; Bool
 (ShareMethod -&gt; ShareMethod -&gt; Bool)
 -&gt; (ShareMethod -&gt; ShareMethod -&gt; Bool) -&gt; Eq ShareMethod
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ShareMethod -&gt; ShareMethod -&gt; Bool
 == :: ShareMethod -&gt; ShareMethod -&gt; Bool
 $c== :: ShareMethod -&gt; ShareMethod -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679299564"><span id="local-6989586621679299566"><span id="local-6989586621679299568"><span id="local-6989586621679299570"><span id="local-6989586621679299572"><span id="local-6989586621679299574"><span id="local-6989586621679299576"><span class="annot"><span class="annottext">Eq ShareMethod
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679299573"><span id="local-6989586621679299575"><span id="local-6989586621679299577"><span id="local-6989586621679299579"><span id="local-6989586621679299581"><span id="local-6989586621679299583"><span id="local-6989586621679299585"><span class="annot"><span class="annottext">Eq ShareMethod
 Eq ShareMethod
 -&gt; (ShareMethod -&gt; ShareMethod -&gt; Ordering)
 -&gt; (ShareMethod -&gt; ShareMethod -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ShareMethod -&gt; Rep ShareMethod x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299556"><span id="local-6989586621679299558"><span class="annot"><span class="annottext">Int -&gt; ShareMethod -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299565"><span id="local-6989586621679299567"><span class="annot"><span class="annottext">Int -&gt; ShareMethod -&gt; Int
 ShareMethod -&gt; Int
 (Int -&gt; ShareMethod -&gt; Int)
 -&gt; (ShareMethod -&gt; Int) -&gt; Hashable ShareMethod
@@ -142,49 +142,49 @@ $chash :: ShareMethod -&gt; Int
 hashWithSalt :: Int -&gt; ShareMethod -&gt; Int
 $chashWithSalt :: Int -&gt; ShareMethod -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299553"><span class="annot"><span class="annottext">ShareMethod -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299562"><span class="annot"><span class="annottext">ShareMethod -&gt; ()
 (ShareMethod -&gt; ()) -&gt; NFData ShareMethod
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ShareMethod -&gt; ()
 $crnf :: ShareMethod -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299550"><span class="annot"><span class="annottext">Text -&gt; Either String ShareMethod
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299559"><span class="annot"><span class="annottext">Text -&gt; Either String ShareMethod
 (Text -&gt; Either String ShareMethod) -&gt; FromText ShareMethod
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ShareMethod
 $cfromText :: Text -&gt; Either String ShareMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299547"><span class="annot"><span class="annottext">ShareMethod -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299556"><span class="annot"><span class="annottext">ShareMethod -&gt; Text
 (ShareMethod -&gt; Text) -&gt; ToText ShareMethod
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ShareMethod -&gt; Text
 $ctoText :: ShareMethod -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299544"><span class="annot"><span class="annottext">ShareMethod -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679299553"><span class="annot"><span class="annottext">ShareMethod -&gt; ByteString
 (ShareMethod -&gt; ByteString) -&gt; ToByteString ShareMethod
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ShareMethod -&gt; ByteString
 $ctoBS :: ShareMethod -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299541"><span class="annot"><span class="annottext">ShareMethod -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679299550"><span class="annot"><span class="annottext">ShareMethod -&gt; ByteStringBuilder
 (ShareMethod -&gt; ByteStringBuilder) -&gt; ToLog ShareMethod
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ShareMethod -&gt; ByteStringBuilder
 $cbuild :: ShareMethod -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299538"><span class="annot"><span class="annottext">HeaderName -&gt; ShareMethod -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679299547"><span class="annot"><span class="annottext">HeaderName -&gt; ShareMethod -&gt; [Header]
 (HeaderName -&gt; ShareMethod -&gt; [Header]) -&gt; ToHeader ShareMethod
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ShareMethod -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ShareMethod -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299535"><span class="annot"><span class="annottext">ShareMethod -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679299544"><span class="annot"><span class="annottext">ShareMethod -&gt; QueryString
 (ShareMethod -&gt; QueryString) -&gt; ToQuery ShareMethod
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ShareMethod -&gt; QueryString
 $ctoQuery :: ShareMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299530"><span id="local-6989586621679299532"><span class="annot"><span class="annottext">Value -&gt; Parser [ShareMethod]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299539"><span id="local-6989586621679299541"><span class="annot"><span class="annottext">Value -&gt; Parser [ShareMethod]
 Value -&gt; Parser ShareMethod
 (Value -&gt; Parser ShareMethod)
 -&gt; (Value -&gt; Parser [ShareMethod]) -&gt; FromJSON ShareMethod
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ShareMethod]
 parseJSON :: Value -&gt; Parser ShareMethod
 $cparseJSON :: Value -&gt; Parser ShareMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299525"><span id="local-6989586621679299527"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShareMethod]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299534"><span id="local-6989586621679299536"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShareMethod]
 FromJSONKeyFunction ShareMethod
 FromJSONKeyFunction ShareMethod
 -&gt; FromJSONKeyFunction [ShareMethod] -&gt; FromJSONKey ShareMethod
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ShareMethod]
 fromJSONKey :: FromJSONKeyFunction ShareMethod
 $cfromJSONKey :: FromJSONKeyFunction ShareMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299516"><span id="local-6989586621679299518"><span id="local-6989586621679299520"><span id="local-6989586621679299522"><span class="annot"><span class="annottext">[ShareMethod] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299525"><span id="local-6989586621679299527"><span id="local-6989586621679299529"><span id="local-6989586621679299531"><span class="annot"><span class="annottext">[ShareMethod] -&gt; Encoding
 [ShareMethod] -&gt; Value
 ShareMethod -&gt; Encoding
 ShareMethod -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ShareMethod -&gt; Encoding
 toJSON :: ShareMethod -&gt; Value
 $ctoJSON :: ShareMethod -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299511"><span id="local-6989586621679299513"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShareMethod]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299520"><span id="local-6989586621679299522"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShareMethod]
 ToJSONKeyFunction ShareMethod
 ToJSONKeyFunction ShareMethod
 -&gt; ToJSONKeyFunction [ShareMethod] -&gt; ToJSONKey ShareMethod
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ShareMethod]
 toJSONKey :: ToJSONKeyFunction ShareMethod
 $ctoJSONKey :: ToJSONKeyFunction ShareMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299508"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShareMethod
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299517"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShareMethod
 ([Node] -&gt; Either String ShareMethod) -&gt; FromXML ShareMethod
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ShareMethod
 $cparseXML :: [Node] -&gt; Either String ShareMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299505"><span class="annot"><span class="annottext">ShareMethod -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299514"><span class="annot"><span class="annottext">ShareMethod -&gt; XML
 (ShareMethod -&gt; XML) -&gt; ToXML ShareMethod
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ShareMethod -&gt; XML

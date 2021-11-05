@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- activity in a journey.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEventCondition' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679611543"><span id="local-6989586621679611544"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventCondition"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-var">EventCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventCondition%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-var">EventCondition'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679611552"><span id="local-6989586621679611553"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventCondition"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-var">EventCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventCondition%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-var">EventCondition'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dimensions for the event filter to use for the activity.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adimensions%3AEventCondition%27"><span class="annot"><span class="annottext">EventCondition -&gt; Maybe EventDimensions
 </span><a href="Network.AWS.Pinpoint.Types.EventCondition.html#%24sel%3Adimensions%3AEventCondition%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventDimensions.html#EventDimensions"><span class="hs-identifier hs-type">EventDimensions</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AmessageActivity%3AEventCondition%27"><span class="annot"><span class="annottext">EventCondition -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EventCondition.html#%24sel%3AmessageActivity%3AEventCondition%27"><span class="hs-identifier hs-var hs-var">messageActivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611536"><span id="local-6989586621679611538"><span class="annot"><span class="annottext">EventCondition -&gt; EventCondition -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611545"><span id="local-6989586621679611547"><span class="annot"><span class="annottext">EventCondition -&gt; EventCondition -&gt; Bool
 (EventCondition -&gt; EventCondition -&gt; Bool)
 -&gt; (EventCondition -&gt; EventCondition -&gt; Bool) -&gt; Eq EventCondition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EventCondition -&gt; EventCondition -&gt; Bool
 == :: EventCondition -&gt; EventCondition -&gt; Bool
 $c== :: EventCondition -&gt; EventCondition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611527"><span id="local-6989586621679611529"><span id="local-6989586621679611531"><span id="local-6989586621679611533"><span class="annot"><span class="annottext">ReadPrec [EventCondition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611536"><span id="local-6989586621679611538"><span id="local-6989586621679611540"><span id="local-6989586621679611542"><span class="annot"><span class="annottext">ReadPrec [EventCondition]
 ReadPrec EventCondition
 Int -&gt; ReadS EventCondition
 ReadS [EventCondition]
@@ -65,7 +65,7 @@ readList :: ReadS [EventCondition]
 $creadList :: ReadS [EventCondition]
 readsPrec :: Int -&gt; ReadS EventCondition
 $creadsPrec :: Int -&gt; ReadS EventCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611520"><span id="local-6989586621679611522"><span id="local-6989586621679611524"><span class="annot"><span class="annottext">Int -&gt; EventCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611529"><span id="local-6989586621679611531"><span id="local-6989586621679611533"><span class="annot"><span class="annottext">Int -&gt; EventCondition -&gt; ShowS
 [EventCondition] -&gt; ShowS
 EventCondition -&gt; String
 (Int -&gt; EventCondition -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe EventDimensions)
      (Maybe EventDimensions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611511"><span class="annot"><span class="annottext">Maybe EventDimensions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611520"><span class="annot"><span class="annottext">Maybe EventDimensions
 dimensions :: Maybe EventDimensions
 $sel:dimensions:EventCondition' :: EventCondition -&gt; Maybe EventDimensions
-</span><a href="#local-6989586621679611511"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventDimensions
-</span><a href="#local-6989586621679611511"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611510"><span class="annot"><span class="annottext">s :: EventCondition
-</span><a href="#local-6989586621679611510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611509"><span class="annot"><span class="annottext">Maybe EventDimensions
-</span><a href="#local-6989586621679611509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCondition
-</span><a href="#local-6989586621679611510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:EventCondition' :: Maybe EventDimensions
+</span><a href="#local-6989586621679611520"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventDimensions
+</span><a href="#local-6989586621679611520"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611519"><span class="annot"><span class="annottext">s :: EventCondition
+</span><a href="#local-6989586621679611519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611518"><span class="annot"><span class="annottext">Maybe EventDimensions
+</span><a href="#local-6989586621679611518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCondition
+</span><a href="#local-6989586621679611519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:EventCondition' :: Maybe EventDimensions
 </span><a href="Network.AWS.Pinpoint.Types.EventCondition.html#%24sel%3Adimensions%3AEventCondition%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventDimensions
-</span><a href="#local-6989586621679611509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The message identifier (message_id) for the message to use when</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- determining whether message events meet the condition.</span><span>
@@ -151,19 +151,19 @@ $sel:dimensions:EventCondition' :: EventCondition -&gt; Maybe EventDimensions
 -&gt; (EventCondition -&gt; Maybe Text -&gt; EventCondition)
 -&gt; Lens EventCondition EventCondition (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611507"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611516"><span class="annot"><span class="annottext">Maybe Text
 messageActivity :: Maybe Text
 $sel:messageActivity:EventCondition' :: EventCondition -&gt; Maybe Text
-</span><a href="#local-6989586621679611507"><span class="hs-identifier hs-var hs-var">messageActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611507"><span class="hs-identifier hs-var">messageActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611506"><span class="annot"><span class="annottext">s :: EventCondition
-</span><a href="#local-6989586621679611506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611505"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCondition
-</span><a href="#local-6989586621679611506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageActivity:EventCondition' :: Maybe Text
+</span><a href="#local-6989586621679611516"><span class="hs-identifier hs-var hs-var">messageActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611516"><span class="hs-identifier hs-var">messageActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611515"><span class="annot"><span class="annottext">s :: EventCondition
+</span><a href="#local-6989586621679611515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventCondition
+</span><a href="#local-6989586621679611515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageActivity:EventCondition' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.EventCondition.html#%24sel%3AmessageActivity%3AEventCondition%27"><span class="hs-identifier hs-var">messageActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679611514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611502"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679611500"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventCondition
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611511"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679611509"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EventCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EventCondition)
@@ -173,8 +173,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EventCondition&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611497"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611506"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventDimensions -&gt; Maybe Text -&gt; EventCondition
 </span><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-var">EventCondition'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EventDimensions -&gt; Maybe Text -&gt; EventCondition)
@@ -182,7 +182,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; EventCondition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventDimensions)
+</span><a href="#local-6989586621679611506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EventDimensions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimensions&quot;</span></span><span class="hs-special">)</span><span>
@@ -190,25 +190,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser EventCondition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679611506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageActivity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611491"><span id="local-6989586621679611493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611500"><span id="local-6989586621679611502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611480"><span id="local-6989586621679611482"><span id="local-6989586621679611484"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679611478"><span class="annot"><span class="annottext">toJSON :: EventCondition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611475"><span id="local-6989586621679611476"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611489"><span id="local-6989586621679611491"><span id="local-6989586621679611493"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition"><span class="hs-identifier hs-type">EventCondition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679611487"><span class="annot"><span class="annottext">toJSON :: EventCondition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EventCondition.html#EventCondition%27"><span class="hs-identifier hs-type">EventCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611484"><span id="local-6989586621679611485"><span class="annot"><span class="annottext">Maybe Text
 Maybe EventDimensions
 messageActivity :: Maybe Text
 dimensions :: Maybe EventDimensions
 $sel:messageActivity:EventCondition' :: EventCondition -&gt; Maybe Text
 $sel:dimensions:EventCondition' :: EventCondition -&gt; Maybe EventDimensions
-</span><a href="#local-6989586621679611475"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679611484"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,7 +220,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EventDimensions -&gt; Pair) -&gt; Maybe EventDimensions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EventDimensions
-</span><a href="#local-6989586621679611476"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679611485"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageActivity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -228,7 +228,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-89"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611475"><span class="hs-identifier hs-var">messageActivity</span></a></span><span>
+</span><a href="#local-6989586621679611484"><span class="hs-identifier hs-var">messageActivity</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

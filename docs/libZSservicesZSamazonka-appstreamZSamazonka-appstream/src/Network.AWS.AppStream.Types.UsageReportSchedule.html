@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679290523"><span id="local-6989586621679290524"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageReportSchedule"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-var">UsageReportSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageReportSchedule%27"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule%27"><span class="hs-identifier hs-var">UsageReportSchedule'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679290532"><span id="local-6989586621679290533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageReportSchedule"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule"><span class="hs-identifier hs-var">UsageReportSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageReportSchedule%27"><span class="annot"><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#UsageReportSchedule%27"><span class="hs-identifier hs-var">UsageReportSchedule'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageReportSchedule"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; Text
 </span><a href="Network.AWS.AppStream.Types.UsageReportSchedule.html#fromUsageReportSchedule"><span class="hs-identifier hs-var hs-var">fromUsageReportSchedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290515"><span id="local-6989586621679290517"><span id="local-6989586621679290519"><span class="annot"><span class="annottext">Int -&gt; UsageReportSchedule -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290524"><span id="local-6989586621679290526"><span id="local-6989586621679290528"><span class="annot"><span class="annottext">Int -&gt; UsageReportSchedule -&gt; ShowS
 [UsageReportSchedule] -&gt; ShowS
 UsageReportSchedule -&gt; String
 (Int -&gt; UsageReportSchedule -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: UsageReportSchedule -&gt; String
 showsPrec :: Int -&gt; UsageReportSchedule -&gt; ShowS
 $cshowsPrec :: Int -&gt; UsageReportSchedule -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679290506"><span id="local-6989586621679290508"><span id="local-6989586621679290510"><span id="local-6989586621679290512"><span class="annot"><span class="annottext">ReadPrec [UsageReportSchedule]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679290515"><span id="local-6989586621679290517"><span id="local-6989586621679290519"><span id="local-6989586621679290521"><span class="annot"><span class="annottext">ReadPrec [UsageReportSchedule]
 ReadPrec UsageReportSchedule
 Int -&gt; ReadS UsageReportSchedule
 ReadS [UsageReportSchedule]
@@ -71,7 +71,7 @@ $creadList :: ReadS [UsageReportSchedule]
 readsPrec :: Int -&gt; ReadS UsageReportSchedule
 $creadsPrec :: Int -&gt; ReadS UsageReportSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679290501"><span id="local-6989586621679290503"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679290510"><span id="local-6989586621679290512"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
 (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
 -&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
 -&gt; Eq UsageReportSchedule
@@ -81,7 +81,7 @@ $c/= :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
 == :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
 $c== :: UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679290485"><span id="local-6989586621679290487"><span id="local-6989586621679290489"><span id="local-6989586621679290491"><span id="local-6989586621679290493"><span id="local-6989586621679290495"><span id="local-6989586621679290497"><span class="annot"><span class="annottext">Eq UsageReportSchedule
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679290494"><span id="local-6989586621679290496"><span id="local-6989586621679290498"><span id="local-6989586621679290500"><span id="local-6989586621679290502"><span id="local-6989586621679290504"><span id="local-6989586621679290506"><span class="annot"><span class="annottext">Eq UsageReportSchedule
 Eq UsageReportSchedule
 -&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Ordering)
 -&gt; (UsageReportSchedule -&gt; UsageReportSchedule -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. UsageReportSchedule -&gt; Rep UsageReportSchedule x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290477"><span id="local-6989586621679290479"><span class="annot"><span class="annottext">Int -&gt; UsageReportSchedule -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679290486"><span id="local-6989586621679290488"><span class="annot"><span class="annottext">Int -&gt; UsageReportSchedule -&gt; Int
 UsageReportSchedule -&gt; Int
 (Int -&gt; UsageReportSchedule -&gt; Int)
 -&gt; (UsageReportSchedule -&gt; Int) -&gt; Hashable UsageReportSchedule
@@ -144,53 +144,53 @@ $chash :: UsageReportSchedule -&gt; Int
 hashWithSalt :: Int -&gt; UsageReportSchedule -&gt; Int
 $chashWithSalt :: Int -&gt; UsageReportSchedule -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679290474"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679290483"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ()
 (UsageReportSchedule -&gt; ()) -&gt; NFData UsageReportSchedule
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UsageReportSchedule -&gt; ()
 $crnf :: UsageReportSchedule -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679290471"><span class="annot"><span class="annottext">Text -&gt; Either String UsageReportSchedule
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679290480"><span class="annot"><span class="annottext">Text -&gt; Either String UsageReportSchedule
 (Text -&gt; Either String UsageReportSchedule)
 -&gt; FromText UsageReportSchedule
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UsageReportSchedule
 $cfromText :: Text -&gt; Either String UsageReportSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679290468"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679290477"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; Text
 (UsageReportSchedule -&gt; Text) -&gt; ToText UsageReportSchedule
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UsageReportSchedule -&gt; Text
 $ctoText :: UsageReportSchedule -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679290465"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679290474"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ByteString
 (UsageReportSchedule -&gt; ByteString)
 -&gt; ToByteString UsageReportSchedule
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UsageReportSchedule -&gt; ByteString
 $ctoBS :: UsageReportSchedule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679290462"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679290471"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; ByteStringBuilder
 (UsageReportSchedule -&gt; ByteStringBuilder)
 -&gt; ToLog UsageReportSchedule
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UsageReportSchedule -&gt; ByteStringBuilder
 $cbuild :: UsageReportSchedule -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679290459"><span class="annot"><span class="annottext">HeaderName -&gt; UsageReportSchedule -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679290468"><span class="annot"><span class="annottext">HeaderName -&gt; UsageReportSchedule -&gt; [Header]
 (HeaderName -&gt; UsageReportSchedule -&gt; [Header])
 -&gt; ToHeader UsageReportSchedule
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UsageReportSchedule -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UsageReportSchedule -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679290456"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679290465"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; QueryString
 (UsageReportSchedule -&gt; QueryString) -&gt; ToQuery UsageReportSchedule
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UsageReportSchedule -&gt; QueryString
 $ctoQuery :: UsageReportSchedule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679290451"><span id="local-6989586621679290453"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageReportSchedule]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679290460"><span id="local-6989586621679290462"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageReportSchedule]
 Value -&gt; Parser UsageReportSchedule
 (Value -&gt; Parser UsageReportSchedule)
 -&gt; (Value -&gt; Parser [UsageReportSchedule])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [UsageReportSchedule]
 parseJSON :: Value -&gt; Parser UsageReportSchedule
 $cparseJSON :: Value -&gt; Parser UsageReportSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679290446"><span id="local-6989586621679290448"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageReportSchedule]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679290455"><span id="local-6989586621679290457"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageReportSchedule]
 FromJSONKeyFunction UsageReportSchedule
 FromJSONKeyFunction UsageReportSchedule
 -&gt; FromJSONKeyFunction [UsageReportSchedule]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UsageReportSchedule]
 fromJSONKey :: FromJSONKeyFunction UsageReportSchedule
 $cfromJSONKey :: FromJSONKeyFunction UsageReportSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679290437"><span id="local-6989586621679290439"><span id="local-6989586621679290441"><span id="local-6989586621679290443"><span class="annot"><span class="annottext">[UsageReportSchedule] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679290446"><span id="local-6989586621679290448"><span id="local-6989586621679290450"><span id="local-6989586621679290452"><span class="annot"><span class="annottext">[UsageReportSchedule] -&gt; Encoding
 [UsageReportSchedule] -&gt; Value
 UsageReportSchedule -&gt; Encoding
 UsageReportSchedule -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: UsageReportSchedule -&gt; Encoding
 toJSON :: UsageReportSchedule -&gt; Value
 $ctoJSON :: UsageReportSchedule -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679290432"><span id="local-6989586621679290434"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageReportSchedule]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679290441"><span id="local-6989586621679290443"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageReportSchedule]
 ToJSONKeyFunction UsageReportSchedule
 ToJSONKeyFunction UsageReportSchedule
 -&gt; ToJSONKeyFunction [UsageReportSchedule]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UsageReportSchedule]
 toJSONKey :: ToJSONKeyFunction UsageReportSchedule
 $ctoJSONKey :: ToJSONKeyFunction UsageReportSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679290429"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageReportSchedule
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679290438"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageReportSchedule
 ([Node] -&gt; Either String UsageReportSchedule)
 -&gt; FromXML UsageReportSchedule
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UsageReportSchedule
 $cparseXML :: [Node] -&gt; Either String UsageReportSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679290426"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679290435"><span class="annot"><span class="annottext">UsageReportSchedule -&gt; XML
 (UsageReportSchedule -&gt; XML) -&gt; ToXML UsageReportSchedule
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UsageReportSchedule -&gt; XML

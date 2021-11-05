@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-comment">-- | The input to the SetVisibleToAllUsers action.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newSetVisibleToAllUsers' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679383944"><span id="local-6989586621679383945"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVisibleToAllUsers"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-var">SetVisibleToAllUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVisibleToAllUsers%27"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-var">SetVisibleToAllUsers'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679383953"><span id="local-6989586621679383954"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVisibleToAllUsers"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-var">SetVisibleToAllUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVisibleToAllUsers%27"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-var">SetVisibleToAllUsers'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier of the job flow (cluster).</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AjobFlowIds%3ASetVisibleToAllUsers%27"><span class="annot"><span class="annottext">SetVisibleToAllUsers -&gt; [Text]
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#%24sel%3AjobFlowIds%3ASetVisibleToAllUsers%27"><span class="hs-identifier hs-var hs-var">jobFlowIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AvisibleToAllUsers%3ASetVisibleToAllUsers%27"><span class="annot"><span class="annottext">SetVisibleToAllUsers -&gt; Bool
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#%24sel%3AvisibleToAllUsers%3ASetVisibleToAllUsers%27"><span class="hs-identifier hs-var hs-var">visibleToAllUsers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383937"><span id="local-6989586621679383939"><span class="annot"><span class="annottext">SetVisibleToAllUsers -&gt; SetVisibleToAllUsers -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383946"><span id="local-6989586621679383948"><span class="annot"><span class="annottext">SetVisibleToAllUsers -&gt; SetVisibleToAllUsers -&gt; Bool
 (SetVisibleToAllUsers -&gt; SetVisibleToAllUsers -&gt; Bool)
 -&gt; (SetVisibleToAllUsers -&gt; SetVisibleToAllUsers -&gt; Bool)
 -&gt; Eq SetVisibleToAllUsers
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetVisibleToAllUsers -&gt; SetVisibleToAllUsers -&gt; Bool
 == :: SetVisibleToAllUsers -&gt; SetVisibleToAllUsers -&gt; Bool
 $c== :: SetVisibleToAllUsers -&gt; SetVisibleToAllUsers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383928"><span id="local-6989586621679383930"><span id="local-6989586621679383932"><span id="local-6989586621679383934"><span class="annot"><span class="annottext">ReadPrec [SetVisibleToAllUsers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383937"><span id="local-6989586621679383939"><span id="local-6989586621679383941"><span id="local-6989586621679383943"><span class="annot"><span class="annottext">ReadPrec [SetVisibleToAllUsers]
 ReadPrec SetVisibleToAllUsers
 Int -&gt; ReadS SetVisibleToAllUsers
 ReadS [SetVisibleToAllUsers]
@@ -99,7 +99,7 @@ readList :: ReadS [SetVisibleToAllUsers]
 $creadList :: ReadS [SetVisibleToAllUsers]
 readsPrec :: Int -&gt; ReadS SetVisibleToAllUsers
 $creadsPrec :: Int -&gt; ReadS SetVisibleToAllUsers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383921"><span id="local-6989586621679383923"><span id="local-6989586621679383925"><span class="annot"><span class="annottext">Int -&gt; SetVisibleToAllUsers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383930"><span id="local-6989586621679383932"><span id="local-6989586621679383934"><span class="annot"><span class="annottext">Int -&gt; SetVisibleToAllUsers -&gt; ShowS
 [SetVisibleToAllUsers] -&gt; ShowS
 SetVisibleToAllUsers -&gt; String
 (Int -&gt; SetVisibleToAllUsers -&gt; ShowS)
@@ -145,8 +145,8 @@ $cfrom :: forall x. SetVisibleToAllUsers -&gt; Rep SetVisibleToAllUsers x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span>
 </span><span id="line-92"></span><span id="newSetVisibleToAllUsers"><span class="annot"><span class="annottext">newSetVisibleToAllUsers :: Bool -&gt; SetVisibleToAllUsers
-</span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#newSetVisibleToAllUsers"><span class="hs-identifier hs-var hs-var">newSetVisibleToAllUsers</span></a></span></span><span> </span><span id="local-6989586621679383916"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679383916"><span class="hs-identifier hs-var">pVisibleToAllUsers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#newSetVisibleToAllUsers"><span class="hs-identifier hs-var hs-var">newSetVisibleToAllUsers</span></a></span></span><span> </span><span id="local-6989586621679383925"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679383925"><span class="hs-identifier hs-var">pVisibleToAllUsers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">SetVisibleToAllUsers' :: [Text] -&gt; Bool -&gt; SetVisibleToAllUsers
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobFlowIds:SetVisibleToAllUsers' :: [Text]
@@ -155,7 +155,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:visibleToAllUsers:SetVisibleToAllUsers' :: Bool
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#%24sel%3AvisibleToAllUsers%3ASetVisibleToAllUsers%27"><span class="hs-identifier hs-var">visibleToAllUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679383916"><span class="hs-identifier hs-var">pVisibleToAllUsers_</span></a></span><span>
+</span><a href="#local-6989586621679383925"><span class="hs-identifier hs-var">pVisibleToAllUsers_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The unique identifier of the job flow (cluster).</span><span>
@@ -166,16 +166,16 @@ forall a. Monoid a =&gt; a
 -&gt; (SetVisibleToAllUsers -&gt; [Text] -&gt; SetVisibleToAllUsers)
 -&gt; Lens SetVisibleToAllUsers SetVisibleToAllUsers [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383913"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383922"><span class="annot"><span class="annottext">[Text]
 jobFlowIds :: [Text]
 $sel:jobFlowIds:SetVisibleToAllUsers' :: SetVisibleToAllUsers -&gt; [Text]
-</span><a href="#local-6989586621679383913"><span class="hs-identifier hs-var hs-var">jobFlowIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679383913"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383912"><span class="annot"><span class="annottext">s :: SetVisibleToAllUsers
-</span><a href="#local-6989586621679383912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383911"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679383911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVisibleToAllUsers
-</span><a href="#local-6989586621679383912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowIds:SetVisibleToAllUsers' :: [Text]
+</span><a href="#local-6989586621679383922"><span class="hs-identifier hs-var hs-var">jobFlowIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679383922"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383921"><span class="annot"><span class="annottext">s :: SetVisibleToAllUsers
+</span><a href="#local-6989586621679383921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383920"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679383920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVisibleToAllUsers
+</span><a href="#local-6989586621679383921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobFlowIds:SetVisibleToAllUsers' :: [Text]
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#%24sel%3AjobFlowIds%3ASetVisibleToAllUsers%27"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679383911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679383920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; SetVisibleToAllUsers -&gt; f SetVisibleToAllUsers)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -197,27 +197,27 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SetVisibleToAllUsers -&gt; Bool -&gt; SetVisibleToAllUsers)
 -&gt; Lens SetVisibleToAllUsers SetVisibleToAllUsers Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383908"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383917"><span class="annot"><span class="annottext">Bool
 visibleToAllUsers :: Bool
 $sel:visibleToAllUsers:SetVisibleToAllUsers' :: SetVisibleToAllUsers -&gt; Bool
-</span><a href="#local-6989586621679383908"><span class="hs-identifier hs-var hs-var">visibleToAllUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679383908"><span class="hs-identifier hs-var">visibleToAllUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383907"><span class="annot"><span class="annottext">s :: SetVisibleToAllUsers
-</span><a href="#local-6989586621679383907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383906"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679383906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVisibleToAllUsers
-</span><a href="#local-6989586621679383907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:visibleToAllUsers:SetVisibleToAllUsers' :: Bool
+</span><a href="#local-6989586621679383917"><span class="hs-identifier hs-var hs-var">visibleToAllUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679383917"><span class="hs-identifier hs-var">visibleToAllUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383916"><span class="annot"><span class="annottext">s :: SetVisibleToAllUsers
+</span><a href="#local-6989586621679383916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383915"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679383915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetVisibleToAllUsers
+</span><a href="#local-6989586621679383916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:visibleToAllUsers:SetVisibleToAllUsers' :: Bool
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#%24sel%3AvisibleToAllUsers%3ASetVisibleToAllUsers%27"><span class="hs-identifier hs-var">visibleToAllUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679383906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse"><span class="hs-identifier hs-type">SetVisibleToAllUsersResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679383902"><span class="annot"><span class="annottext">request :: SetVisibleToAllUsers -&gt; Request SetVisibleToAllUsers
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679383911"><span class="annot"><span class="annottext">request :: SetVisibleToAllUsers -&gt; Request SetVisibleToAllUsers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetVisibleToAllUsers -&gt; Request SetVisibleToAllUsers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EMR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679383898"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679383907"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetVisibleToAllUsers
 -&gt; ClientResponse ClientBody
@@ -243,12 +243,12 @@ AWSResponse a
 SetVisibleToAllUsersResponse
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse%27"><span class="hs-identifier hs-var">SetVisibleToAllUsersResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383891"><span id="local-6989586621679383893"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383900"><span id="local-6989586621679383902"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383897"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679383884"><span class="annot"><span class="annottext">toHeaders :: SetVisibleToAllUsers -&gt; [Header]
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679383893"><span class="annot"><span class="annottext">toHeaders :: SetVisibleToAllUsers -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; SetVisibleToAllUsers -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -275,15 +275,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383874"><span id="local-6989586621679383876"><span id="local-6989586621679383878"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679383872"><span class="annot"><span class="annottext">toJSON :: SetVisibleToAllUsers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383869"><span id="local-6989586621679383870"><span class="annot"><span class="annottext">Bool
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383883"><span id="local-6989586621679383885"><span id="local-6989586621679383887"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679383881"><span class="annot"><span class="annottext">toJSON :: SetVisibleToAllUsers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers%27"><span class="hs-identifier hs-type">SetVisibleToAllUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383878"><span id="local-6989586621679383879"><span class="annot"><span class="annottext">Bool
 [Text]
 visibleToAllUsers :: Bool
 jobFlowIds :: [Text]
 $sel:visibleToAllUsers:SetVisibleToAllUsers' :: SetVisibleToAllUsers -&gt; Bool
 $sel:jobFlowIds:SetVisibleToAllUsers' :: SetVisibleToAllUsers -&gt; [Text]
-</span><a href="#local-6989586621679383869"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383878"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -295,7 +295,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;JobFlowIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679383870"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383879"><span class="hs-identifier hs-var">jobFlowIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -303,19 +303,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VisibleToAllUsers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679383869"><span class="hs-identifier hs-var">visibleToAllUsers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383878"><span class="hs-identifier hs-var">visibleToAllUsers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679383863"><span class="annot"><span class="annottext">toPath :: SetVisibleToAllUsers -&gt; ByteString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679383872"><span class="annot"><span class="annottext">toPath :: SetVisibleToAllUsers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetVisibleToAllUsers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsers"><span class="hs-identifier hs-type">SetVisibleToAllUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679383859"><span class="annot"><span class="annottext">toQuery :: SetVisibleToAllUsers -&gt; QueryString
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679383868"><span class="annot"><span class="annottext">toQuery :: SetVisibleToAllUsers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetVisibleToAllUsers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -323,10 +323,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | /See:/ 'newSetVisibleToAllUsersResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679383856"><span id="local-6989586621679383857"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVisibleToAllUsersResponse"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse"><span class="hs-identifier hs-var">SetVisibleToAllUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVisibleToAllUsersResponse%27"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse%27"><span class="hs-identifier hs-var">SetVisibleToAllUsersResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679383865"><span id="local-6989586621679383866"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetVisibleToAllUsersResponse"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse"><span class="hs-identifier hs-var">SetVisibleToAllUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetVisibleToAllUsersResponse%27"><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse%27"><span class="hs-identifier hs-var">SetVisibleToAllUsersResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383852"><span id="local-6989586621679383854"><span class="annot"><span class="annottext">SetVisibleToAllUsersResponse
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383861"><span id="local-6989586621679383863"><span class="annot"><span class="annottext">SetVisibleToAllUsersResponse
 -&gt; SetVisibleToAllUsersResponse -&gt; Bool
 (SetVisibleToAllUsersResponse
  -&gt; SetVisibleToAllUsersResponse -&gt; Bool)
@@ -342,7 +342,7 @@ $c/= :: SetVisibleToAllUsersResponse
 -&gt; SetVisibleToAllUsersResponse -&gt; Bool
 $c== :: SetVisibleToAllUsersResponse
 -&gt; SetVisibleToAllUsersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383844"><span id="local-6989586621679383846"><span id="local-6989586621679383848"><span id="local-6989586621679383850"><span class="annot"><span class="annottext">ReadPrec [SetVisibleToAllUsersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383853"><span id="local-6989586621679383855"><span id="local-6989586621679383857"><span id="local-6989586621679383859"><span class="annot"><span class="annottext">ReadPrec [SetVisibleToAllUsersResponse]
 ReadPrec SetVisibleToAllUsersResponse
 Int -&gt; ReadS SetVisibleToAllUsersResponse
 ReadS [SetVisibleToAllUsersResponse]
@@ -362,7 +362,7 @@ readList :: ReadS [SetVisibleToAllUsersResponse]
 $creadList :: ReadS [SetVisibleToAllUsersResponse]
 readsPrec :: Int -&gt; ReadS SetVisibleToAllUsersResponse
 $creadsPrec :: Int -&gt; ReadS SetVisibleToAllUsersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383838"><span id="local-6989586621679383840"><span id="local-6989586621679383842"><span class="annot"><span class="annottext">Int -&gt; SetVisibleToAllUsersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383847"><span id="local-6989586621679383849"><span id="local-6989586621679383851"><span class="annot"><span class="annottext">Int -&gt; SetVisibleToAllUsersResponse -&gt; ShowS
 [SetVisibleToAllUsersResponse] -&gt; ShowS
 SetVisibleToAllUsersResponse -&gt; String
 (Int -&gt; SetVisibleToAllUsersResponse -&gt; ShowS)
@@ -405,5 +405,5 @@ SetVisibleToAllUsersResponse -&gt; Rep SetVisibleToAllUsersResponse x
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">SetVisibleToAllUsersResponse
 </span><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse%27"><span class="hs-identifier hs-var">SetVisibleToAllUsersResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse"><span class="hs-identifier hs-type">SetVisibleToAllUsersResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383843"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.SetVisibleToAllUsers.html#SetVisibleToAllUsersResponse"><span class="hs-identifier hs-type">SetVisibleToAllUsersResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

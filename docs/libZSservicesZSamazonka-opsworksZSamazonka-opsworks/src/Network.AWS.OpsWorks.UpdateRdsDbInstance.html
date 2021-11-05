@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateRdsDbInstance' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679397596"><span id="local-6989586621679397597"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRdsDbInstance"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-var">UpdateRdsDbInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRdsDbInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-var">UpdateRdsDbInstance'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679397605"><span id="local-6989586621679397606"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRdsDbInstance"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-var">UpdateRdsDbInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRdsDbInstance%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-var">UpdateRdsDbInstance'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The master user name.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AdbUser%3AUpdateRdsDbInstance%27"><span class="annot"><span class="annottext">UpdateRdsDbInstance -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#%24sel%3AdbUser%3AUpdateRdsDbInstance%27"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3ArdsDbInstanceArn%3AUpdateRdsDbInstance%27"><span class="annot"><span class="annottext">UpdateRdsDbInstance -&gt; Text
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#%24sel%3ArdsDbInstanceArn%3AUpdateRdsDbInstance%27"><span class="hs-identifier hs-var hs-var">rdsDbInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397588"><span id="local-6989586621679397590"><span class="annot"><span class="annottext">UpdateRdsDbInstance -&gt; UpdateRdsDbInstance -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397597"><span id="local-6989586621679397599"><span class="annot"><span class="annottext">UpdateRdsDbInstance -&gt; UpdateRdsDbInstance -&gt; Bool
 (UpdateRdsDbInstance -&gt; UpdateRdsDbInstance -&gt; Bool)
 -&gt; (UpdateRdsDbInstance -&gt; UpdateRdsDbInstance -&gt; Bool)
 -&gt; Eq UpdateRdsDbInstance
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRdsDbInstance -&gt; UpdateRdsDbInstance -&gt; Bool
 == :: UpdateRdsDbInstance -&gt; UpdateRdsDbInstance -&gt; Bool
 $c== :: UpdateRdsDbInstance -&gt; UpdateRdsDbInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397579"><span id="local-6989586621679397581"><span id="local-6989586621679397583"><span id="local-6989586621679397585"><span class="annot"><span class="annottext">ReadPrec [UpdateRdsDbInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397588"><span id="local-6989586621679397590"><span id="local-6989586621679397592"><span id="local-6989586621679397594"><span class="annot"><span class="annottext">ReadPrec [UpdateRdsDbInstance]
 ReadPrec UpdateRdsDbInstance
 Int -&gt; ReadS UpdateRdsDbInstance
 ReadS [UpdateRdsDbInstance]
@@ -91,7 +91,7 @@ readList :: ReadS [UpdateRdsDbInstance]
 $creadList :: ReadS [UpdateRdsDbInstance]
 readsPrec :: Int -&gt; ReadS UpdateRdsDbInstance
 $creadsPrec :: Int -&gt; ReadS UpdateRdsDbInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397572"><span id="local-6989586621679397574"><span id="local-6989586621679397576"><span class="annot"><span class="annottext">Int -&gt; UpdateRdsDbInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397581"><span id="local-6989586621679397583"><span id="local-6989586621679397585"><span class="annot"><span class="annottext">Int -&gt; UpdateRdsDbInstance -&gt; ShowS
 [UpdateRdsDbInstance] -&gt; ShowS
 UpdateRdsDbInstance -&gt; String
 (Int -&gt; UpdateRdsDbInstance -&gt; ShowS)
@@ -135,8 +135,8 @@ $cfrom :: forall x. UpdateRdsDbInstance -&gt; Rep UpdateRdsDbInstance x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span>
 </span><span id="line-81"></span><span id="newUpdateRdsDbInstance"><span class="annot"><span class="annottext">newUpdateRdsDbInstance :: Text -&gt; UpdateRdsDbInstance
-</span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#newUpdateRdsDbInstance"><span class="hs-identifier hs-var hs-var">newUpdateRdsDbInstance</span></a></span></span><span> </span><span id="local-6989586621679397567"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397567"><span class="hs-identifier hs-var">pRdsDbInstanceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#newUpdateRdsDbInstance"><span class="hs-identifier hs-var hs-var">newUpdateRdsDbInstance</span></a></span></span><span> </span><span id="local-6989586621679397576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397576"><span class="hs-identifier hs-var">pRdsDbInstanceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">UpdateRdsDbInstance' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateRdsDbInstance
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbUser:UpdateRdsDbInstance' :: Maybe Text
@@ -149,7 +149,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:rdsDbInstanceArn:UpdateRdsDbInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#%24sel%3ArdsDbInstanceArn%3AUpdateRdsDbInstance%27"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397567"><span class="hs-identifier hs-var">pRdsDbInstanceArn_</span></a></span><span>
+</span><a href="#local-6989586621679397576"><span class="hs-identifier hs-var">pRdsDbInstanceArn_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The master user name.</span><span>
@@ -161,16 +161,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateRdsDbInstance UpdateRdsDbInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397564"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397573"><span class="annot"><span class="annottext">Maybe Text
 dbUser :: Maybe Text
 $sel:dbUser:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679397564"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397564"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397563"><span class="annot"><span class="annottext">s :: UpdateRdsDbInstance
-</span><a href="#local-6989586621679397563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397562"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRdsDbInstance
-</span><a href="#local-6989586621679397563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbUser:UpdateRdsDbInstance' :: Maybe Text
+</span><a href="#local-6989586621679397573"><span class="hs-identifier hs-var hs-var">dbUser</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397573"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397572"><span class="annot"><span class="annottext">s :: UpdateRdsDbInstance
+</span><a href="#local-6989586621679397572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRdsDbInstance
+</span><a href="#local-6989586621679397572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbUser:UpdateRdsDbInstance' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#%24sel%3AdbUser%3AUpdateRdsDbInstance%27"><span class="hs-identifier hs-var">dbUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The database password.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#updateRdsDbInstance_dbPassword"><span class="hs-identifier hs-type">updateRdsDbInstance_dbPassword</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -181,16 +181,16 @@ $sel:dbUser:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Maybe Text
 -&gt; Lens
      UpdateRdsDbInstance UpdateRdsDbInstance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397561"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397570"><span class="annot"><span class="annottext">Maybe Text
 dbPassword :: Maybe Text
 $sel:dbPassword:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679397561"><span class="hs-identifier hs-var hs-var">dbPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397561"><span class="hs-identifier hs-var">dbPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397560"><span class="annot"><span class="annottext">s :: UpdateRdsDbInstance
-</span><a href="#local-6989586621679397560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397559"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRdsDbInstance
-</span><a href="#local-6989586621679397560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbPassword:UpdateRdsDbInstance' :: Maybe Text
+</span><a href="#local-6989586621679397570"><span class="hs-identifier hs-var hs-var">dbPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397570"><span class="hs-identifier hs-var">dbPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397569"><span class="annot"><span class="annottext">s :: UpdateRdsDbInstance
+</span><a href="#local-6989586621679397569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397568"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRdsDbInstance
+</span><a href="#local-6989586621679397569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbPassword:UpdateRdsDbInstance' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#%24sel%3AdbPassword%3AUpdateRdsDbInstance%27"><span class="hs-identifier hs-var">dbPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The Amazon RDS instance\'s ARN.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#updateRdsDbInstance_rdsDbInstanceArn"><span class="hs-identifier hs-type">updateRdsDbInstance_rdsDbInstanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -199,27 +199,27 @@ $sel:dbPassword:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Maybe Text
 -&gt; (UpdateRdsDbInstance -&gt; Text -&gt; UpdateRdsDbInstance)
 -&gt; Lens UpdateRdsDbInstance UpdateRdsDbInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397558"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397567"><span class="annot"><span class="annottext">Text
 rdsDbInstanceArn :: Text
 $sel:rdsDbInstanceArn:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Text
-</span><a href="#local-6989586621679397558"><span class="hs-identifier hs-var hs-var">rdsDbInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397558"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397557"><span class="annot"><span class="annottext">s :: UpdateRdsDbInstance
-</span><a href="#local-6989586621679397557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397556"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRdsDbInstance
-</span><a href="#local-6989586621679397557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rdsDbInstanceArn:UpdateRdsDbInstance' :: Text
+</span><a href="#local-6989586621679397567"><span class="hs-identifier hs-var hs-var">rdsDbInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397567"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397566"><span class="annot"><span class="annottext">s :: UpdateRdsDbInstance
+</span><a href="#local-6989586621679397566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRdsDbInstance
+</span><a href="#local-6989586621679397566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rdsDbInstanceArn:UpdateRdsDbInstance' :: Text
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#%24sel%3ArdsDbInstanceArn%3AUpdateRdsDbInstance%27"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse"><span class="hs-identifier hs-type">UpdateRdsDbInstanceResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679397552"><span class="annot"><span class="annottext">request :: UpdateRdsDbInstance -&gt; Request UpdateRdsDbInstance
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679397561"><span class="annot"><span class="annottext">request :: UpdateRdsDbInstance -&gt; Request UpdateRdsDbInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateRdsDbInstance -&gt; Request UpdateRdsDbInstance
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679397548"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679397557"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRdsDbInstance
 -&gt; ClientResponse ClientBody
@@ -245,12 +245,12 @@ AWSResponse a
 UpdateRdsDbInstanceResponse
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse%27"><span class="hs-identifier hs-var">UpdateRdsDbInstanceResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397541"><span id="local-6989586621679397543"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397550"><span id="local-6989586621679397552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679397534"><span class="annot"><span class="annottext">toHeaders :: UpdateRdsDbInstance -&gt; [Header]
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679397543"><span class="annot"><span class="annottext">toHeaders :: UpdateRdsDbInstance -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateRdsDbInstance -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -277,9 +277,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397524"><span id="local-6989586621679397526"><span id="local-6989586621679397528"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679397522"><span class="annot"><span class="annottext">toJSON :: UpdateRdsDbInstance -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397518"><span id="local-6989586621679397519"><span id="local-6989586621679397520"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397533"><span id="local-6989586621679397535"><span id="local-6989586621679397537"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679397531"><span class="annot"><span class="annottext">toJSON :: UpdateRdsDbInstance -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance%27"><span class="hs-identifier hs-type">UpdateRdsDbInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397527"><span id="local-6989586621679397528"><span id="local-6989586621679397529"><span class="annot"><span class="annottext">Maybe Text
 Text
 rdsDbInstanceArn :: Text
 dbPassword :: Maybe Text
@@ -287,7 +287,7 @@ dbUser :: Maybe Text
 $sel:rdsDbInstanceArn:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Text
 $sel:dbPassword:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Maybe Text
 $sel:dbUser:UpdateRdsDbInstance' :: UpdateRdsDbInstance -&gt; Maybe Text
-</span><a href="#local-6989586621679397518"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397527"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,14 +299,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397520"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397529"><span class="hs-identifier hs-var">dbUser</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DbPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397519"><span class="hs-identifier hs-var">dbPassword</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397528"><span class="hs-identifier hs-var">dbPassword</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -314,19 +314,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RdsDbInstanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397518"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397527"><span class="hs-identifier hs-var">rdsDbInstanceArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679397511"><span class="annot"><span class="annottext">toPath :: UpdateRdsDbInstance -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679397520"><span class="annot"><span class="annottext">toPath :: UpdateRdsDbInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRdsDbInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstance"><span class="hs-identifier hs-type">UpdateRdsDbInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679397507"><span class="annot"><span class="annottext">toQuery :: UpdateRdsDbInstance -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679397516"><span class="annot"><span class="annottext">toQuery :: UpdateRdsDbInstance -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRdsDbInstance -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -334,10 +334,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newUpdateRdsDbInstanceResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679397504"><span id="local-6989586621679397505"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRdsDbInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse"><span class="hs-identifier hs-var">UpdateRdsDbInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRdsDbInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse%27"><span class="hs-identifier hs-var">UpdateRdsDbInstanceResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679397513"><span id="local-6989586621679397514"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRdsDbInstanceResponse"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse"><span class="hs-identifier hs-var">UpdateRdsDbInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRdsDbInstanceResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse%27"><span class="hs-identifier hs-var">UpdateRdsDbInstanceResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397500"><span id="local-6989586621679397502"><span class="annot"><span class="annottext">UpdateRdsDbInstanceResponse -&gt; UpdateRdsDbInstanceResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397509"><span id="local-6989586621679397511"><span class="annot"><span class="annottext">UpdateRdsDbInstanceResponse -&gt; UpdateRdsDbInstanceResponse -&gt; Bool
 (UpdateRdsDbInstanceResponse
  -&gt; UpdateRdsDbInstanceResponse -&gt; Bool)
 -&gt; (UpdateRdsDbInstanceResponse
@@ -348,7 +348,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRdsDbInstanceResponse -&gt; UpdateRdsDbInstanceResponse -&gt; Bool
 == :: UpdateRdsDbInstanceResponse -&gt; UpdateRdsDbInstanceResponse -&gt; Bool
 $c== :: UpdateRdsDbInstanceResponse -&gt; UpdateRdsDbInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397492"><span id="local-6989586621679397494"><span id="local-6989586621679397496"><span id="local-6989586621679397498"><span class="annot"><span class="annottext">ReadPrec [UpdateRdsDbInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397501"><span id="local-6989586621679397503"><span id="local-6989586621679397505"><span id="local-6989586621679397507"><span class="annot"><span class="annottext">ReadPrec [UpdateRdsDbInstanceResponse]
 ReadPrec UpdateRdsDbInstanceResponse
 Int -&gt; ReadS UpdateRdsDbInstanceResponse
 ReadS [UpdateRdsDbInstanceResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [UpdateRdsDbInstanceResponse]
 $creadList :: ReadS [UpdateRdsDbInstanceResponse]
 readsPrec :: Int -&gt; ReadS UpdateRdsDbInstanceResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRdsDbInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397486"><span id="local-6989586621679397488"><span id="local-6989586621679397490"><span class="annot"><span class="annottext">Int -&gt; UpdateRdsDbInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397495"><span id="local-6989586621679397497"><span id="local-6989586621679397499"><span class="annot"><span class="annottext">Int -&gt; UpdateRdsDbInstanceResponse -&gt; ShowS
 [UpdateRdsDbInstanceResponse] -&gt; ShowS
 UpdateRdsDbInstanceResponse -&gt; String
 (Int -&gt; UpdateRdsDbInstanceResponse -&gt; ShowS)
@@ -411,5 +411,5 @@ UpdateRdsDbInstanceResponse -&gt; Rep UpdateRdsDbInstanceResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">UpdateRdsDbInstanceResponse
 </span><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse%27"><span class="hs-identifier hs-var">UpdateRdsDbInstanceResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse"><span class="hs-identifier hs-type">UpdateRdsDbInstanceResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.UpdateRdsDbInstance.html#UpdateRdsDbInstanceResponse"><span class="hs-identifier hs-type">UpdateRdsDbInstanceResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

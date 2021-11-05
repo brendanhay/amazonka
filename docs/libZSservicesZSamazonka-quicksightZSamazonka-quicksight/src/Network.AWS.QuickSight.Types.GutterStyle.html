@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.GutterStyle</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.GutterStyle</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The display options for gutter spacing between tiles on a sheet.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGutterStyle' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679557245"><span id="local-6989586621679557246"></span></span><span class="hs-keyword">data</span><span> </span><span id="GutterStyle"><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-var">GutterStyle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GutterStyle%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle%27"><span class="hs-identifier hs-var">GutterStyle'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This Boolean value controls whether to display a gutter space between</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- sheet tiles.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Ashow%3AGutterStyle%27"><span class="annot"><span class="annottext">GutterStyle -&gt; Maybe Bool
+</span><a href="Network.AWS.QuickSight.Types.GutterStyle.html#%24sel%3Ashow%3AGutterStyle%27"><span class="hs-identifier hs-var hs-var">show</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557239"><span id="local-6989586621679557241"><span class="annot"><span class="annottext">GutterStyle -&gt; GutterStyle -&gt; Bool
+(GutterStyle -&gt; GutterStyle -&gt; Bool)
+-&gt; (GutterStyle -&gt; GutterStyle -&gt; Bool) -&gt; Eq GutterStyle
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GutterStyle -&gt; GutterStyle -&gt; Bool
+$c/= :: GutterStyle -&gt; GutterStyle -&gt; Bool
+== :: GutterStyle -&gt; GutterStyle -&gt; Bool
+$c== :: GutterStyle -&gt; GutterStyle -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557230"><span id="local-6989586621679557232"><span id="local-6989586621679557234"><span id="local-6989586621679557236"><span class="annot"><span class="annottext">ReadPrec [GutterStyle]
+ReadPrec GutterStyle
+Int -&gt; ReadS GutterStyle
+ReadS [GutterStyle]
+(Int -&gt; ReadS GutterStyle)
+-&gt; ReadS [GutterStyle]
+-&gt; ReadPrec GutterStyle
+-&gt; ReadPrec [GutterStyle]
+-&gt; Read GutterStyle
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GutterStyle]
+$creadListPrec :: ReadPrec [GutterStyle]
+readPrec :: ReadPrec GutterStyle
+$creadPrec :: ReadPrec GutterStyle
+readList :: ReadS [GutterStyle]
+$creadList :: ReadS [GutterStyle]
+readsPrec :: Int -&gt; ReadS GutterStyle
+$creadsPrec :: Int -&gt; ReadS GutterStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557223"><span id="local-6989586621679557225"><span id="local-6989586621679557227"><span class="annot"><span class="annottext">Int -&gt; GutterStyle -&gt; ShowS
+[GutterStyle] -&gt; ShowS
+GutterStyle -&gt; String
+(Int -&gt; GutterStyle -&gt; ShowS)
+-&gt; (GutterStyle -&gt; String)
+-&gt; ([GutterStyle] -&gt; ShowS)
+-&gt; Show GutterStyle
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GutterStyle] -&gt; ShowS
+$cshowList :: [GutterStyle] -&gt; ShowS
+show :: GutterStyle -&gt; String
+$cshow :: GutterStyle -&gt; String
+showsPrec :: Int -&gt; GutterStyle -&gt; ShowS
+$cshowsPrec :: Int -&gt; GutterStyle -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GutterStyle -&gt; Rep GutterStyle x)
+-&gt; (forall x. Rep GutterStyle x -&gt; GutterStyle)
+-&gt; Generic GutterStyle
+forall x. Rep GutterStyle x -&gt; GutterStyle
+forall x. GutterStyle -&gt; Rep GutterStyle x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GutterStyle x -&gt; GutterStyle
+$cfrom :: forall x. GutterStyle -&gt; Rep GutterStyle x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'GutterStyle' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'show', 'gutterStyle_show' - This Boolean value controls whether to display a gutter space between</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- sheet tiles.</span><span>
+</span><span id="line-46"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#newGutterStyle"><span class="hs-identifier hs-type">newGutterStyle</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-type">GutterStyle</span></a></span><span>
+</span><span id="line-48"></span><span id="newGutterStyle"><span class="annot"><span class="annottext">newGutterStyle :: GutterStyle
+</span><a href="Network.AWS.QuickSight.Types.GutterStyle.html#newGutterStyle"><span class="hs-identifier hs-var hs-var">newGutterStyle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GutterStyle' :: Maybe Bool -&gt; GutterStyle
+</span><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle%27"><span class="hs-identifier hs-type">GutterStyle'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:show:GutterStyle' :: Maybe Bool
+</span><a href="Network.AWS.QuickSight.Types.GutterStyle.html#%24sel%3Ashow%3AGutterStyle%27"><span class="hs-identifier hs-var">show</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | This Boolean value controls whether to display a gutter space between</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- sheet tiles.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#gutterStyle_show"><span class="hs-identifier hs-type">gutterStyle_show</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-type">GutterStyle</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span id="gutterStyle_show"><span class="annot"><span class="annottext">gutterStyle_show :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; GutterStyle -&gt; f GutterStyle
+</span><a href="Network.AWS.QuickSight.Types.GutterStyle.html#gutterStyle_show"><span class="hs-identifier hs-var hs-var">gutterStyle_show</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GutterStyle -&gt; Maybe Bool)
+-&gt; (GutterStyle -&gt; Maybe Bool -&gt; GutterStyle)
+-&gt; Lens GutterStyle GutterStyle (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle%27"><span class="hs-identifier hs-type">GutterStyle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557214"><span class="annot"><span class="annottext">Maybe Bool
+show :: Maybe Bool
+$sel:show:GutterStyle' :: GutterStyle -&gt; Maybe Bool
+</span><a href="#local-6989586621679557214"><span class="hs-identifier hs-var hs-var">show</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679557214"><span class="hs-identifier hs-var">show</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557213"><span class="annot"><span class="annottext">s :: GutterStyle
+</span><a href="#local-6989586621679557213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle%27"><span class="hs-identifier hs-type">GutterStyle'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557212"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679557212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GutterStyle
+</span><a href="#local-6989586621679557213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:show:GutterStyle' :: Maybe Bool
+</span><a href="Network.AWS.QuickSight.Types.GutterStyle.html#%24sel%3Ashow%3AGutterStyle%27"><span class="hs-identifier hs-var">show</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679557212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-type">GutterStyle</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557209"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-type">GutterStyle</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679557207"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GutterStyle
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser GutterStyle) -&gt; Value -&gt; Parser GutterStyle
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;GutterStyle&quot;</span></span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557204"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557204"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; GutterStyle
+</span><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle%27"><span class="hs-identifier hs-var">GutterStyle'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; GutterStyle)
+-&gt; Parser (Maybe Bool) -&gt; Parser GutterStyle
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679557204"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Show&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557198"><span id="local-6989586621679557200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-type">GutterStyle</span></a></span></span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-type">GutterStyle</span></a></span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557187"><span id="local-6989586621679557189"><span id="local-6989586621679557191"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle"><span class="hs-identifier hs-type">GutterStyle</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679557185"><span class="annot"><span class="annottext">toJSON :: GutterStyle -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.GutterStyle.html#GutterStyle%27"><span class="hs-identifier hs-type">GutterStyle'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557183"><span class="annot"><span class="annottext">Maybe Bool
+show :: Maybe Bool
+$sel:show:GutterStyle' :: GutterStyle -&gt; Maybe Bool
+</span><a href="#local-6989586621679557183"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-69"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Show&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679557183"><span class="hs-identifier hs-var">show</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span></pre></body></html>

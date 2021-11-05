@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-43"></span><span>
-</span><span id="line-44"></span><span id="local-6989586621679270571"><span id="local-6989586621679270572"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BulkEmailStatus"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailStatus.html#BulkEmailStatus"><span class="hs-identifier hs-var">BulkEmailStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkEmailStatus%27"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailStatus.html#BulkEmailStatus%27"><span class="hs-identifier hs-var">BulkEmailStatus'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679270580"><span id="local-6989586621679270581"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BulkEmailStatus"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailStatus.html#BulkEmailStatus"><span class="hs-identifier hs-var">BulkEmailStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkEmailStatus%27"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailStatus.html#BulkEmailStatus%27"><span class="hs-identifier hs-var">BulkEmailStatus'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBulkEmailStatus"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; Text
 </span><a href="Network.AWS.SES.Types.BulkEmailStatus.html#fromBulkEmailStatus"><span class="hs-identifier hs-var hs-var">fromBulkEmailStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270563"><span id="local-6989586621679270565"><span id="local-6989586621679270567"><span class="annot"><span class="annottext">Int -&gt; BulkEmailStatus -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270572"><span id="local-6989586621679270574"><span id="local-6989586621679270576"><span class="annot"><span class="annottext">Int -&gt; BulkEmailStatus -&gt; ShowS
 [BulkEmailStatus] -&gt; ShowS
 BulkEmailStatus -&gt; String
 (Int -&gt; BulkEmailStatus -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: BulkEmailStatus -&gt; String
 showsPrec :: Int -&gt; BulkEmailStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; BulkEmailStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270554"><span id="local-6989586621679270556"><span id="local-6989586621679270558"><span id="local-6989586621679270560"><span class="annot"><span class="annottext">ReadPrec [BulkEmailStatus]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270563"><span id="local-6989586621679270565"><span id="local-6989586621679270567"><span id="local-6989586621679270569"><span class="annot"><span class="annottext">ReadPrec [BulkEmailStatus]
 ReadPrec BulkEmailStatus
 Int -&gt; ReadS BulkEmailStatus
 ReadS [BulkEmailStatus]
@@ -84,7 +84,7 @@ $creadList :: ReadS [BulkEmailStatus]
 readsPrec :: Int -&gt; ReadS BulkEmailStatus
 $creadsPrec :: Int -&gt; ReadS BulkEmailStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270549"><span id="local-6989586621679270551"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270558"><span id="local-6989586621679270560"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool
 (BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool)
 -&gt; (BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool)
 -&gt; Eq BulkEmailStatus
@@ -94,7 +94,7 @@ $c/= :: BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool
 == :: BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool
 $c== :: BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270533"><span id="local-6989586621679270535"><span id="local-6989586621679270537"><span id="local-6989586621679270539"><span id="local-6989586621679270541"><span id="local-6989586621679270543"><span id="local-6989586621679270545"><span class="annot"><span class="annottext">Eq BulkEmailStatus
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270542"><span id="local-6989586621679270544"><span id="local-6989586621679270546"><span id="local-6989586621679270548"><span id="local-6989586621679270550"><span id="local-6989586621679270552"><span id="local-6989586621679270554"><span class="annot"><span class="annottext">Eq BulkEmailStatus
 Eq BulkEmailStatus
 -&gt; (BulkEmailStatus -&gt; BulkEmailStatus -&gt; Ordering)
 -&gt; (BulkEmailStatus -&gt; BulkEmailStatus -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. BulkEmailStatus -&gt; Rep BulkEmailStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270525"><span id="local-6989586621679270527"><span class="annot"><span class="annottext">Int -&gt; BulkEmailStatus -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270534"><span id="local-6989586621679270536"><span class="annot"><span class="annottext">Int -&gt; BulkEmailStatus -&gt; Int
 BulkEmailStatus -&gt; Int
 (Int -&gt; BulkEmailStatus -&gt; Int)
 -&gt; (BulkEmailStatus -&gt; Int) -&gt; Hashable BulkEmailStatus
@@ -155,50 +155,50 @@ $chash :: BulkEmailStatus -&gt; Int
 hashWithSalt :: Int -&gt; BulkEmailStatus -&gt; Int
 $chashWithSalt :: Int -&gt; BulkEmailStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270522"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270531"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; ()
 (BulkEmailStatus -&gt; ()) -&gt; NFData BulkEmailStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BulkEmailStatus -&gt; ()
 $crnf :: BulkEmailStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679270519"><span class="annot"><span class="annottext">Text -&gt; Either String BulkEmailStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679270528"><span class="annot"><span class="annottext">Text -&gt; Either String BulkEmailStatus
 (Text -&gt; Either String BulkEmailStatus) -&gt; FromText BulkEmailStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BulkEmailStatus
 $cfromText :: Text -&gt; Either String BulkEmailStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679270516"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679270525"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; Text
 (BulkEmailStatus -&gt; Text) -&gt; ToText BulkEmailStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BulkEmailStatus -&gt; Text
 $ctoText :: BulkEmailStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679270513"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679270522"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; ByteString
 (BulkEmailStatus -&gt; ByteString) -&gt; ToByteString BulkEmailStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BulkEmailStatus -&gt; ByteString
 $ctoBS :: BulkEmailStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679270510"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679270519"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; ByteStringBuilder
 (BulkEmailStatus -&gt; ByteStringBuilder) -&gt; ToLog BulkEmailStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BulkEmailStatus -&gt; ByteStringBuilder
 $cbuild :: BulkEmailStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679270507"><span class="annot"><span class="annottext">HeaderName -&gt; BulkEmailStatus -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679270516"><span class="annot"><span class="annottext">HeaderName -&gt; BulkEmailStatus -&gt; [Header]
 (HeaderName -&gt; BulkEmailStatus -&gt; [Header])
 -&gt; ToHeader BulkEmailStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BulkEmailStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BulkEmailStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679270504"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679270513"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; QueryString
 (BulkEmailStatus -&gt; QueryString) -&gt; ToQuery BulkEmailStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BulkEmailStatus -&gt; QueryString
 $ctoQuery :: BulkEmailStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679270499"><span id="local-6989586621679270501"><span class="annot"><span class="annottext">Value -&gt; Parser [BulkEmailStatus]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679270508"><span id="local-6989586621679270510"><span class="annot"><span class="annottext">Value -&gt; Parser [BulkEmailStatus]
 Value -&gt; Parser BulkEmailStatus
 (Value -&gt; Parser BulkEmailStatus)
 -&gt; (Value -&gt; Parser [BulkEmailStatus]) -&gt; FromJSON BulkEmailStatus
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [BulkEmailStatus]
 parseJSON :: Value -&gt; Parser BulkEmailStatus
 $cparseJSON :: Value -&gt; Parser BulkEmailStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679270494"><span id="local-6989586621679270496"><span class="annot"><span class="annottext">FromJSONKeyFunction [BulkEmailStatus]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679270503"><span id="local-6989586621679270505"><span class="annot"><span class="annottext">FromJSONKeyFunction [BulkEmailStatus]
 FromJSONKeyFunction BulkEmailStatus
 FromJSONKeyFunction BulkEmailStatus
 -&gt; FromJSONKeyFunction [BulkEmailStatus]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BulkEmailStatus]
 fromJSONKey :: FromJSONKeyFunction BulkEmailStatus
 $cfromJSONKey :: FromJSONKeyFunction BulkEmailStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679270485"><span id="local-6989586621679270487"><span id="local-6989586621679270489"><span id="local-6989586621679270491"><span class="annot"><span class="annottext">[BulkEmailStatus] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679270494"><span id="local-6989586621679270496"><span id="local-6989586621679270498"><span id="local-6989586621679270500"><span class="annot"><span class="annottext">[BulkEmailStatus] -&gt; Encoding
 [BulkEmailStatus] -&gt; Value
 BulkEmailStatus -&gt; Encoding
 BulkEmailStatus -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: BulkEmailStatus -&gt; Encoding
 toJSON :: BulkEmailStatus -&gt; Value
 $ctoJSON :: BulkEmailStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679270480"><span id="local-6989586621679270482"><span class="annot"><span class="annottext">ToJSONKeyFunction [BulkEmailStatus]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679270489"><span id="local-6989586621679270491"><span class="annot"><span class="annottext">ToJSONKeyFunction [BulkEmailStatus]
 ToJSONKeyFunction BulkEmailStatus
 ToJSONKeyFunction BulkEmailStatus
 -&gt; ToJSONKeyFunction [BulkEmailStatus] -&gt; ToJSONKey BulkEmailStatus
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BulkEmailStatus]
 toJSONKey :: ToJSONKeyFunction BulkEmailStatus
 $ctoJSONKey :: ToJSONKeyFunction BulkEmailStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679270477"><span class="annot"><span class="annottext">[Node] -&gt; Either String BulkEmailStatus
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679270486"><span class="annot"><span class="annottext">[Node] -&gt; Either String BulkEmailStatus
 ([Node] -&gt; Either String BulkEmailStatus)
 -&gt; FromXML BulkEmailStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BulkEmailStatus
 $cparseXML :: [Node] -&gt; Either String BulkEmailStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679270474"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679270483"><span class="annot"><span class="annottext">BulkEmailStatus -&gt; XML
 (BulkEmailStatus -&gt; XML) -&gt; ToXML BulkEmailStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BulkEmailStatus -&gt; XML

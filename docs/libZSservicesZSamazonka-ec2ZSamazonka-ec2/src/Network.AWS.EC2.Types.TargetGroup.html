@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a load balancer target group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTargetGroup' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681165193"><span id="local-6989586621681165194"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetGroup"><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-var">TargetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetGroup%27"><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-var">TargetGroup'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681165202"><span id="local-6989586621681165203"></span></span><span class="hs-keyword">data</span><span> </span><span id="TargetGroup"><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-var">TargetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetGroup%27"><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-var">TargetGroup'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the target group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3ATargetGroup%27"><span class="annot"><span class="annottext">TargetGroup -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TargetGroup.html#%24sel%3Aarn%3ATargetGroup%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681165187"><span id="local-6989586621681165189"><span class="annot"><span class="annottext">TargetGroup -&gt; TargetGroup -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681165196"><span id="local-6989586621681165198"><span class="annot"><span class="annottext">TargetGroup -&gt; TargetGroup -&gt; Bool
 (TargetGroup -&gt; TargetGroup -&gt; Bool)
 -&gt; (TargetGroup -&gt; TargetGroup -&gt; Bool) -&gt; Eq TargetGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TargetGroup -&gt; TargetGroup -&gt; Bool
 == :: TargetGroup -&gt; TargetGroup -&gt; Bool
 $c== :: TargetGroup -&gt; TargetGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681165178"><span id="local-6989586621681165180"><span id="local-6989586621681165182"><span id="local-6989586621681165184"><span class="annot"><span class="annottext">ReadPrec [TargetGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681165187"><span id="local-6989586621681165189"><span id="local-6989586621681165191"><span id="local-6989586621681165193"><span class="annot"><span class="annottext">ReadPrec [TargetGroup]
 ReadPrec TargetGroup
 Int -&gt; ReadS TargetGroup
 ReadS [TargetGroup]
@@ -60,7 +60,7 @@ readList :: ReadS [TargetGroup]
 $creadList :: ReadS [TargetGroup]
 readsPrec :: Int -&gt; ReadS TargetGroup
 $creadsPrec :: Int -&gt; ReadS TargetGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681165171"><span id="local-6989586621681165173"><span id="local-6989586621681165175"><span class="annot"><span class="annottext">Int -&gt; TargetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681165180"><span id="local-6989586621681165182"><span id="local-6989586621681165184"><span class="annot"><span class="annottext">Int -&gt; TargetGroup -&gt; ShowS
 [TargetGroup] -&gt; ShowS
 TargetGroup -&gt; String
 (Int -&gt; TargetGroup -&gt; ShowS)
@@ -111,46 +111,46 @@ forall a. Maybe a
 -&gt; (TargetGroup -&gt; Maybe Text -&gt; TargetGroup)
 -&gt; Lens TargetGroup TargetGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-type">TargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165162"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-type">TargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165171"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:TargetGroup' :: TargetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621681165162"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681165162"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165161"><span class="annot"><span class="annottext">s :: TargetGroup
-</span><a href="#local-6989586621681165161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-type">TargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165160"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681165160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroup
-</span><a href="#local-6989586621681165161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TargetGroup' :: Maybe Text
+</span><a href="#local-6989586621681165171"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165171"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681165170"><span class="annot"><span class="annottext">s :: TargetGroup
+</span><a href="#local-6989586621681165170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-type">TargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681165169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681165169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TargetGroup
+</span><a href="#local-6989586621681165170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:TargetGroup' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TargetGroup.html#%24sel%3Aarn%3ATargetGroup%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681165160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681165169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621681165157"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TargetGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681165155"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681165155"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621681165166"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TargetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681165164"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681165164"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; TargetGroup
 </span><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-var">TargetGroup'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; TargetGroup)
 -&gt; Either String (Maybe Text) -&gt; Either String TargetGroup
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681165155"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681165164"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681165149"><span id="local-6989586621681165151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681165158"><span id="local-6989586621681165160"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681165146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681165155"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup"><span class="hs-identifier hs-type">TargetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621681165142"><span class="annot"><span class="annottext">toQuery :: TargetGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-type">TargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165140"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621681165151"><span class="annot"><span class="annottext">toQuery :: TargetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TargetGroup.html#TargetGroup%27"><span class="hs-identifier hs-type">TargetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681165149"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:TargetGroup' :: TargetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621681165140"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681165149"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681165140"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681165149"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span></pre></body></html>

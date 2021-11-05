@@ -55,12 +55,12 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDeleteEndpointAccess' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679523473"><span id="local-6989586621679523474"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpointAccess"><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-var">DeleteEndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpointAccess%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-var">DeleteEndpointAccess'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679523482"><span id="local-6989586621679523483"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEndpointAccess"><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-var">DeleteEndpointAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEndpointAccess%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-var">DeleteEndpointAccess'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Redshift-managed VPC endpoint to delete.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AendpointName%3ADeleteEndpointAccess%27"><span class="annot"><span class="annottext">DeleteEndpointAccess -&gt; Text
 </span><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#%24sel%3AendpointName%3ADeleteEndpointAccess%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679523467"><span id="local-6989586621679523469"><span class="annot"><span class="annottext">DeleteEndpointAccess -&gt; DeleteEndpointAccess -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679523476"><span id="local-6989586621679523478"><span class="annot"><span class="annottext">DeleteEndpointAccess -&gt; DeleteEndpointAccess -&gt; Bool
 (DeleteEndpointAccess -&gt; DeleteEndpointAccess -&gt; Bool)
 -&gt; (DeleteEndpointAccess -&gt; DeleteEndpointAccess -&gt; Bool)
 -&gt; Eq DeleteEndpointAccess
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEndpointAccess -&gt; DeleteEndpointAccess -&gt; Bool
 == :: DeleteEndpointAccess -&gt; DeleteEndpointAccess -&gt; Bool
 $c== :: DeleteEndpointAccess -&gt; DeleteEndpointAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523458"><span id="local-6989586621679523460"><span id="local-6989586621679523462"><span id="local-6989586621679523464"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpointAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523467"><span id="local-6989586621679523469"><span id="local-6989586621679523471"><span id="local-6989586621679523473"><span class="annot"><span class="annottext">ReadPrec [DeleteEndpointAccess]
 ReadPrec DeleteEndpointAccess
 Int -&gt; ReadS DeleteEndpointAccess
 ReadS [DeleteEndpointAccess]
@@ -89,7 +89,7 @@ readList :: ReadS [DeleteEndpointAccess]
 $creadList :: ReadS [DeleteEndpointAccess]
 readsPrec :: Int -&gt; ReadS DeleteEndpointAccess
 $creadsPrec :: Int -&gt; ReadS DeleteEndpointAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523451"><span id="local-6989586621679523453"><span id="local-6989586621679523455"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpointAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679523460"><span id="local-6989586621679523462"><span id="local-6989586621679523464"><span class="annot"><span class="annottext">Int -&gt; DeleteEndpointAccess -&gt; ShowS
 [DeleteEndpointAccess] -&gt; ShowS
 DeleteEndpointAccess -&gt; String
 (Int -&gt; DeleteEndpointAccess -&gt; ShowS)
@@ -129,14 +129,14 @@ $cfrom :: forall x. DeleteEndpointAccess -&gt; Rep DeleteEndpointAccess x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span>
 </span><span id="line-77"></span><span id="newDeleteEndpointAccess"><span class="annot"><span class="annottext">newDeleteEndpointAccess :: Text -&gt; DeleteEndpointAccess
-</span><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#newDeleteEndpointAccess"><span class="hs-identifier hs-var hs-var">newDeleteEndpointAccess</span></a></span></span><span> </span><span id="local-6989586621679523446"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523446"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#newDeleteEndpointAccess"><span class="hs-identifier hs-var hs-var">newDeleteEndpointAccess</span></a></span></span><span> </span><span id="local-6989586621679523455"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679523455"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DeleteEndpointAccess' :: Text -&gt; DeleteEndpointAccess
 </span><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-type">DeleteEndpointAccess'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointName:DeleteEndpointAccess' :: Text
 </span><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#%24sel%3AendpointName%3ADeleteEndpointAccess%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523446"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span>
+</span><a href="#local-6989586621679523455"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The Redshift-managed VPC endpoint to delete.</span><span>
@@ -146,27 +146,27 @@ $cfrom :: forall x. DeleteEndpointAccess -&gt; Rep DeleteEndpointAccess x
 -&gt; (DeleteEndpointAccess -&gt; Text -&gt; DeleteEndpointAccess)
 -&gt; Lens DeleteEndpointAccess DeleteEndpointAccess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-type">DeleteEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523443"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-type">DeleteEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523452"><span class="annot"><span class="annottext">Text
 endpointName :: Text
 $sel:endpointName:DeleteEndpointAccess' :: DeleteEndpointAccess -&gt; Text
-</span><a href="#local-6989586621679523443"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523443"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679523442"><span class="annot"><span class="annottext">s :: DeleteEndpointAccess
-</span><a href="#local-6989586621679523442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-type">DeleteEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679523441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEndpointAccess
-</span><a href="#local-6989586621679523442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:DeleteEndpointAccess' :: Text
+</span><a href="#local-6989586621679523452"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679523452"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679523451"><span class="annot"><span class="annottext">s :: DeleteEndpointAccess
+</span><a href="#local-6989586621679523451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-type">DeleteEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679523450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679523450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEndpointAccess
+</span><a href="#local-6989586621679523451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:DeleteEndpointAccess' :: Text
 </span><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#%24sel%3AendpointName%3ADeleteEndpointAccess%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679523450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.Types.EndpointAccess.html#EndpointAccess"><span class="hs-identifier hs-type">EndpointAccess</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679523437"><span class="annot"><span class="annottext">request :: DeleteEndpointAccess -&gt; Request DeleteEndpointAccess
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679523446"><span class="annot"><span class="annottext">request :: DeleteEndpointAccess -&gt; Request DeleteEndpointAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteEndpointAccess -&gt; Request DeleteEndpointAccess
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679523433"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679523442"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteEndpointAccess
 -&gt; ClientResponse ClientBody
@@ -197,20 +197,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteEndpointAccessResult&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679523430"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679523430"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679523429"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679523429"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679523428"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679523428"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointAccess
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679523439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679523439"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679523438"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679523438"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679523437"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679523437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointAccess
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679523428"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679523437"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523423"><span id="local-6989586621679523425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523432"><span id="local-6989586621679523434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679523429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679523416"><span class="annot"><span class="annottext">toHeaders :: DeleteEndpointAccess -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679523425"><span class="annot"><span class="annottext">toHeaders :: DeleteEndpointAccess -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteEndpointAccess -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -218,18 +218,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679523411"><span class="annot"><span class="annottext">toPath :: DeleteEndpointAccess -&gt; ByteString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679523420"><span class="annot"><span class="annottext">toPath :: DeleteEndpointAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteEndpointAccess -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess"><span class="hs-identifier hs-type">DeleteEndpointAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679523407"><span class="annot"><span class="annottext">toQuery :: DeleteEndpointAccess -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-type">DeleteEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523405"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679523416"><span class="annot"><span class="annottext">toQuery :: DeleteEndpointAccess -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteEndpointAccess.html#DeleteEndpointAccess%27"><span class="hs-identifier hs-type">DeleteEndpointAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679523414"><span class="annot"><span class="annottext">Text
 endpointName :: Text
 $sel:endpointName:DeleteEndpointAccess' :: DeleteEndpointAccess -&gt; Text
-</span><a href="#local-6989586621679523405"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679523414"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -249,6 +249,6 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;EndpointName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679523405"><span class="hs-identifier hs-var">endpointName</span></a></span><span>
+</span><a href="#local-6989586621679523414"><span class="hs-identifier hs-var">endpointName</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span></pre></body></html>

@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The data source for the Autopilot job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAutoMLDataSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680294492"><span id="local-6989586621680294493"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLDataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-var">AutoMLDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLDataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-var">AutoMLDataSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680294501"><span id="local-6989586621680294502"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoMLDataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-var">AutoMLDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoMLDataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-var">AutoMLDataSource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 location of the input data.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The input data must be in CSV format and contain at least 500 rows.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3As3DataSource%3AAutoMLDataSource%27"><span class="annot"><span class="annottext">AutoMLDataSource -&gt; AutoMLS3DataSource
 </span><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#%24sel%3As3DataSource%3AAutoMLDataSource%27"><span class="hs-identifier hs-var hs-var">s3DataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLS3DataSource.html#AutoMLS3DataSource"><span class="hs-identifier hs-type">AutoMLS3DataSource</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680294486"><span id="local-6989586621680294488"><span class="annot"><span class="annottext">AutoMLDataSource -&gt; AutoMLDataSource -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680294495"><span id="local-6989586621680294497"><span class="annot"><span class="annottext">AutoMLDataSource -&gt; AutoMLDataSource -&gt; Bool
 (AutoMLDataSource -&gt; AutoMLDataSource -&gt; Bool)
 -&gt; (AutoMLDataSource -&gt; AutoMLDataSource -&gt; Bool)
 -&gt; Eq AutoMLDataSource
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AutoMLDataSource -&gt; AutoMLDataSource -&gt; Bool
 == :: AutoMLDataSource -&gt; AutoMLDataSource -&gt; Bool
 $c== :: AutoMLDataSource -&gt; AutoMLDataSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294477"><span id="local-6989586621680294479"><span id="local-6989586621680294481"><span id="local-6989586621680294483"><span class="annot"><span class="annottext">ReadPrec [AutoMLDataSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294486"><span id="local-6989586621680294488"><span id="local-6989586621680294490"><span id="local-6989586621680294492"><span class="annot"><span class="annottext">ReadPrec [AutoMLDataSource]
 ReadPrec AutoMLDataSource
 Int -&gt; ReadS AutoMLDataSource
 ReadS [AutoMLDataSource]
@@ -63,7 +63,7 @@ readList :: ReadS [AutoMLDataSource]
 $creadList :: ReadS [AutoMLDataSource]
 readsPrec :: Int -&gt; ReadS AutoMLDataSource
 $creadsPrec :: Int -&gt; ReadS AutoMLDataSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294470"><span id="local-6989586621680294472"><span id="local-6989586621680294474"><span class="annot"><span class="annottext">Int -&gt; AutoMLDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680294479"><span id="local-6989586621680294481"><span id="local-6989586621680294483"><span class="annot"><span class="annottext">Int -&gt; AutoMLDataSource -&gt; ShowS
 [AutoMLDataSource] -&gt; ShowS
 AutoMLDataSource -&gt; String
 (Int -&gt; AutoMLDataSource -&gt; ShowS)
@@ -105,12 +105,12 @@ $cfrom :: forall x. AutoMLDataSource -&gt; Rep AutoMLDataSource x
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLS3DataSource.html#AutoMLS3DataSource"><span class="hs-identifier hs-type">AutoMLS3DataSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span><span>
 </span><span id="line-53"></span><span id="newAutoMLDataSource"><span class="annot"><span class="annottext">newAutoMLDataSource :: AutoMLS3DataSource -&gt; AutoMLDataSource
-</span><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#newAutoMLDataSource"><span class="hs-identifier hs-var hs-var">newAutoMLDataSource</span></a></span></span><span> </span><span id="local-6989586621680294464"><span class="annot"><span class="annottext">AutoMLS3DataSource
-</span><a href="#local-6989586621680294464"><span class="hs-identifier hs-var">pS3DataSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#newAutoMLDataSource"><span class="hs-identifier hs-var hs-var">newAutoMLDataSource</span></a></span></span><span> </span><span id="local-6989586621680294473"><span class="annot"><span class="annottext">AutoMLS3DataSource
+</span><a href="#local-6989586621680294473"><span class="hs-identifier hs-var">pS3DataSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">AutoMLDataSource' :: AutoMLS3DataSource -&gt; AutoMLDataSource
 </span><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-type">AutoMLDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataSource:AutoMLDataSource' :: AutoMLS3DataSource
 </span><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#%24sel%3As3DataSource%3AAutoMLDataSource%27"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLS3DataSource
-</span><a href="#local-6989586621680294464"><span class="hs-identifier hs-var">pS3DataSource_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680294473"><span class="hs-identifier hs-var">pS3DataSource_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | The Amazon S3 location of the input data.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
@@ -126,19 +126,19 @@ $cfrom :: forall x. AutoMLDataSource -&gt; Rep AutoMLDataSource x
      AutoMLS3DataSource
      AutoMLS3DataSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-type">AutoMLDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294460"><span class="annot"><span class="annottext">AutoMLS3DataSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-type">AutoMLDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294469"><span class="annot"><span class="annottext">AutoMLS3DataSource
 s3DataSource :: AutoMLS3DataSource
 $sel:s3DataSource:AutoMLDataSource' :: AutoMLDataSource -&gt; AutoMLS3DataSource
-</span><a href="#local-6989586621680294460"><span class="hs-identifier hs-var hs-var">s3DataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLS3DataSource
-</span><a href="#local-6989586621680294460"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294459"><span class="annot"><span class="annottext">s :: AutoMLDataSource
-</span><a href="#local-6989586621680294459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-type">AutoMLDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294458"><span class="annot"><span class="annottext">AutoMLS3DataSource
-</span><a href="#local-6989586621680294458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLDataSource
-</span><a href="#local-6989586621680294459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataSource:AutoMLDataSource' :: AutoMLS3DataSource
+</span><a href="#local-6989586621680294469"><span class="hs-identifier hs-var hs-var">s3DataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLS3DataSource
+</span><a href="#local-6989586621680294469"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680294468"><span class="annot"><span class="annottext">s :: AutoMLDataSource
+</span><a href="#local-6989586621680294468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-type">AutoMLDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680294467"><span class="annot"><span class="annottext">AutoMLS3DataSource
+</span><a href="#local-6989586621680294467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoMLDataSource
+</span><a href="#local-6989586621680294468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataSource:AutoMLDataSource' :: AutoMLS3DataSource
 </span><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#%24sel%3As3DataSource%3AAutoMLDataSource%27"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AutoMLS3DataSource
-</span><a href="#local-6989586621680294458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680294467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621680294453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLDataSource
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294464"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621680294462"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoMLDataSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoMLDataSource)
@@ -148,30 +148,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoMLDataSource&quot;</span></span><span>
-</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680294450"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680294450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680294459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680294459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">AutoMLS3DataSource -&gt; AutoMLDataSource
 </span><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-var">AutoMLDataSource'</span></a></span><span>
 </span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(AutoMLS3DataSource -&gt; AutoMLDataSource)
 -&gt; Parser AutoMLS3DataSource -&gt; Parser AutoMLDataSource
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680294450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLS3DataSource
+</span><a href="#local-6989586621680294459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AutoMLS3DataSource
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3DataSource&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294444"><span id="local-6989586621680294446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294453"><span id="local-6989586621680294455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294433"><span id="local-6989586621680294435"><span id="local-6989586621680294437"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680294431"><span class="annot"><span class="annottext">toJSON :: AutoMLDataSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-type">AutoMLDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294429"><span class="annot"><span class="annottext">AutoMLS3DataSource
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680294442"><span id="local-6989586621680294444"><span id="local-6989586621680294446"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource"><span class="hs-identifier hs-type">AutoMLDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680294440"><span class="annot"><span class="annottext">toJSON :: AutoMLDataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AutoMLDataSource.html#AutoMLDataSource%27"><span class="hs-identifier hs-type">AutoMLDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680294438"><span class="annot"><span class="annottext">AutoMLS3DataSource
 s3DataSource :: AutoMLS3DataSource
 $sel:s3DataSource:AutoMLDataSource' :: AutoMLDataSource -&gt; AutoMLS3DataSource
-</span><a href="#local-6989586621680294429"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680294438"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,6 +183,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3DataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoMLS3DataSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AutoMLS3DataSource
-</span><a href="#local-6989586621680294429"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680294438"><span class="hs-identifier hs-var">s3DataSource</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

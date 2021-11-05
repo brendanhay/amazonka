@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | This data type is used in the ImageScanFinding data type.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAttribute' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679231127"><span id="local-6989586621679231128"></span></span><span class="hs-keyword">data</span><span> </span><span id="Attribute"><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-var">Attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Attribute%27"><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679231136"><span id="local-6989586621679231137"></span></span><span class="hs-keyword">data</span><span> </span><span id="Attribute"><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-var">Attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Attribute%27"><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value assigned to the attribute key.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalue%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.Types.Attribute.html#%24sel%3Avalue%3AAttribute%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3AAttribute%27"><span class="annot"><span class="annottext">Attribute -&gt; Text
 </span><a href="Network.AWS.ECR.Types.Attribute.html#%24sel%3Akey%3AAttribute%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231120"><span id="local-6989586621679231122"><span class="annot"><span class="annottext">Attribute -&gt; Attribute -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231129"><span id="local-6989586621679231131"><span class="annot"><span class="annottext">Attribute -&gt; Attribute -&gt; Bool
 (Attribute -&gt; Attribute -&gt; Bool)
 -&gt; (Attribute -&gt; Attribute -&gt; Bool) -&gt; Eq Attribute
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Attribute -&gt; Attribute -&gt; Bool
 == :: Attribute -&gt; Attribute -&gt; Bool
 $c== :: Attribute -&gt; Attribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231111"><span id="local-6989586621679231113"><span id="local-6989586621679231115"><span id="local-6989586621679231117"><span class="annot"><span class="annottext">ReadPrec [Attribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231120"><span id="local-6989586621679231122"><span id="local-6989586621679231124"><span id="local-6989586621679231126"><span class="annot"><span class="annottext">ReadPrec [Attribute]
 ReadPrec Attribute
 Int -&gt; ReadS Attribute
 ReadS [Attribute]
@@ -62,7 +62,7 @@ readList :: ReadS [Attribute]
 $creadList :: ReadS [Attribute]
 readsPrec :: Int -&gt; ReadS Attribute
 $creadsPrec :: Int -&gt; ReadS Attribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231104"><span id="local-6989586621679231106"><span id="local-6989586621679231108"><span class="annot"><span class="annottext">Int -&gt; Attribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231113"><span id="local-6989586621679231115"><span id="local-6989586621679231117"><span class="annot"><span class="annottext">Int -&gt; Attribute -&gt; ShowS
 [Attribute] -&gt; ShowS
 Attribute -&gt; String
 (Int -&gt; Attribute -&gt; ShowS)
@@ -103,15 +103,15 @@ $cfrom :: forall x. Attribute -&gt; Rep Attribute x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span>
 </span><span id="line-52"></span><span id="newAttribute"><span class="annot"><span class="annottext">newAttribute :: Text -&gt; Attribute
-</span><a href="Network.AWS.ECR.Types.Attribute.html#newAttribute"><span class="hs-identifier hs-var hs-var">newAttribute</span></a></span></span><span> </span><span id="local-6989586621679231098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231098"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.Types.Attribute.html#newAttribute"><span class="hs-identifier hs-var hs-var">newAttribute</span></a></span></span><span> </span><span id="local-6989586621679231107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231107"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Attribute' :: Maybe Text -&gt; Text -&gt; Attribute
 </span><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Attribute' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.Attribute.html#%24sel%3Avalue%3AAttribute%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:key:Attribute' :: Text
 </span><a href="Network.AWS.ECR.Types.Attribute.html#%24sel%3Akey%3AAttribute%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231098"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679231107"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | The value assigned to the attribute key.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#attribute_value"><span class="hs-identifier hs-type">attribute_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -120,16 +120,16 @@ forall a. Maybe a
 -&gt; (Attribute -&gt; Maybe Text -&gt; Attribute)
 -&gt; Lens Attribute Attribute (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231094"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231103"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:Attribute' :: Attribute -&gt; Maybe Text
-</span><a href="#local-6989586621679231094"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231094"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231093"><span class="annot"><span class="annottext">s :: Attribute
-</span><a href="#local-6989586621679231093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231092"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
-</span><a href="#local-6989586621679231093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Attribute' :: Maybe Text
+</span><a href="#local-6989586621679231103"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231103"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231102"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679231102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679231101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679231102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Attribute' :: Maybe Text
 </span><a href="Network.AWS.ECR.Types.Attribute.html#%24sel%3Avalue%3AAttribute%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679231092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | The attribute key.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#attribute_key"><span class="hs-identifier hs-type">attribute_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,46 +138,46 @@ $sel:value:Attribute' :: Attribute -&gt; Maybe Text
 -&gt; (Attribute -&gt; Text -&gt; Attribute)
 -&gt; Lens Attribute Attribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231090"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231099"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:Attribute' :: Attribute -&gt; Text
-</span><a href="#local-6989586621679231090"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231090"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231089"><span class="annot"><span class="annottext">s :: Attribute
-</span><a href="#local-6989586621679231089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231088"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
-</span><a href="#local-6989586621679231089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Attribute' :: Text
+</span><a href="#local-6989586621679231099"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231099"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231098"><span class="annot"><span class="annottext">s :: Attribute
+</span><a href="#local-6989586621679231098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-type">Attribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231097"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Attribute
+</span><a href="#local-6989586621679231098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Attribute' :: Text
 </span><a href="Network.AWS.ECR.Types.Attribute.html#%24sel%3Akey%3AAttribute%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679231088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679231097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231085"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679231083"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Attribute
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679231092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Attribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Attribute) -&gt; Value -&gt; Parser Attribute
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Attribute&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231080"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231080"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679231089"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679231089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Attribute
 </span><a href="Network.AWS.ECR.Types.Attribute.html#Attribute%27"><span class="hs-identifier hs-var">Attribute'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Attribute)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Attribute)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679231089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; Attribute) -&gt; Parser Text -&gt; Parser Attribute
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679231080"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679231089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231073"><span id="local-6989586621679231075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231082"><span id="local-6989586621679231084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

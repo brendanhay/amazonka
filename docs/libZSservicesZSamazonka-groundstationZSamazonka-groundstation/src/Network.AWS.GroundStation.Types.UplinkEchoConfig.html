@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.GroundStation.Types.UplinkEchoConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.GroundStation.Types.UplinkEchoConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about an uplink echo @Config@.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Parameters from the @AntennaUplinkConfig@, corresponding to the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- specified @AntennaUplinkConfigArn@, are used when this</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @UplinkEchoConfig@ is used in a contact.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUplinkEchoConfig' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679216853"><span id="local-6989586621679216854"></span></span><span class="hs-keyword">data</span><span> </span><span id="UplinkEchoConfig"><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-var">UplinkEchoConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UplinkEchoConfig%27"><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-var">UplinkEchoConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ARN of an uplink @Config@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AantennaUplinkConfigArn%3AUplinkEchoConfig%27"><span class="annot"><span class="annottext">UplinkEchoConfig -&gt; Text
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#%24sel%3AantennaUplinkConfigArn%3AUplinkEchoConfig%27"><span class="hs-identifier hs-var hs-var">antennaUplinkConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Whether or not an uplink @Config@ is enabled.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aenabled%3AUplinkEchoConfig%27"><span class="annot"><span class="annottext">UplinkEchoConfig -&gt; Bool
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#%24sel%3Aenabled%3AUplinkEchoConfig%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216846"><span id="local-6989586621679216848"><span class="annot"><span class="annottext">UplinkEchoConfig -&gt; UplinkEchoConfig -&gt; Bool
+(UplinkEchoConfig -&gt; UplinkEchoConfig -&gt; Bool)
+-&gt; (UplinkEchoConfig -&gt; UplinkEchoConfig -&gt; Bool)
+-&gt; Eq UplinkEchoConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UplinkEchoConfig -&gt; UplinkEchoConfig -&gt; Bool
+$c/= :: UplinkEchoConfig -&gt; UplinkEchoConfig -&gt; Bool
+== :: UplinkEchoConfig -&gt; UplinkEchoConfig -&gt; Bool
+$c== :: UplinkEchoConfig -&gt; UplinkEchoConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216837"><span id="local-6989586621679216839"><span id="local-6989586621679216841"><span id="local-6989586621679216843"><span class="annot"><span class="annottext">ReadPrec [UplinkEchoConfig]
+ReadPrec UplinkEchoConfig
+Int -&gt; ReadS UplinkEchoConfig
+ReadS [UplinkEchoConfig]
+(Int -&gt; ReadS UplinkEchoConfig)
+-&gt; ReadS [UplinkEchoConfig]
+-&gt; ReadPrec UplinkEchoConfig
+-&gt; ReadPrec [UplinkEchoConfig]
+-&gt; Read UplinkEchoConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UplinkEchoConfig]
+$creadListPrec :: ReadPrec [UplinkEchoConfig]
+readPrec :: ReadPrec UplinkEchoConfig
+$creadPrec :: ReadPrec UplinkEchoConfig
+readList :: ReadS [UplinkEchoConfig]
+$creadList :: ReadS [UplinkEchoConfig]
+readsPrec :: Int -&gt; ReadS UplinkEchoConfig
+$creadsPrec :: Int -&gt; ReadS UplinkEchoConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216830"><span id="local-6989586621679216832"><span id="local-6989586621679216834"><span class="annot"><span class="annottext">Int -&gt; UplinkEchoConfig -&gt; ShowS
+[UplinkEchoConfig] -&gt; ShowS
+UplinkEchoConfig -&gt; String
+(Int -&gt; UplinkEchoConfig -&gt; ShowS)
+-&gt; (UplinkEchoConfig -&gt; String)
+-&gt; ([UplinkEchoConfig] -&gt; ShowS)
+-&gt; Show UplinkEchoConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UplinkEchoConfig] -&gt; ShowS
+$cshowList :: [UplinkEchoConfig] -&gt; ShowS
+show :: UplinkEchoConfig -&gt; String
+$cshow :: UplinkEchoConfig -&gt; String
+showsPrec :: Int -&gt; UplinkEchoConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; UplinkEchoConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UplinkEchoConfig -&gt; Rep UplinkEchoConfig x)
+-&gt; (forall x. Rep UplinkEchoConfig x -&gt; UplinkEchoConfig)
+-&gt; Generic UplinkEchoConfig
+forall x. Rep UplinkEchoConfig x -&gt; UplinkEchoConfig
+forall x. UplinkEchoConfig -&gt; Rep UplinkEchoConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UplinkEchoConfig x -&gt; UplinkEchoConfig
+$cfrom :: forall x. UplinkEchoConfig -&gt; Rep UplinkEchoConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'UplinkEchoConfig' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'antennaUplinkConfigArn', 'uplinkEchoConfig_antennaUplinkConfigArn' - ARN of an uplink @Config@.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'enabled', 'uplinkEchoConfig_enabled' - Whether or not an uplink @Config@ is enabled.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#newUplinkEchoConfig"><span class="hs-identifier hs-type">newUplinkEchoConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'antennaUplinkConfigArn'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'enabled'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span><span>
+</span><span id="line-58"></span><span id="newUplinkEchoConfig"><span class="annot"><span class="annottext">newUplinkEchoConfig :: Text -&gt; Bool -&gt; UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#newUplinkEchoConfig"><span class="hs-identifier hs-var hs-var">newUplinkEchoConfig</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679216824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216824"><span class="hs-identifier hs-var">pAntennaUplinkConfigArn_</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679216823"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679216823"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">UplinkEchoConfig' :: Text -&gt; Bool -&gt; UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-type">UplinkEchoConfig'</span></a></span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:antennaUplinkConfigArn:UplinkEchoConfig' :: Text
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#%24sel%3AantennaUplinkConfigArn%3AUplinkEchoConfig%27"><span class="hs-identifier hs-var">antennaUplinkConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216824"><span class="hs-identifier hs-var">pAntennaUplinkConfigArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">$sel:enabled:UplinkEchoConfig' :: Bool
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#%24sel%3Aenabled%3AUplinkEchoConfig%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679216823"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | ARN of an uplink @Config@.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#uplinkEchoConfig_antennaUplinkConfigArn"><span class="hs-identifier hs-type">uplinkEchoConfig_antennaUplinkConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span id="uplinkEchoConfig_antennaUplinkConfigArn"><span class="annot"><span class="annottext">uplinkEchoConfig_antennaUplinkConfigArn :: (Text -&gt; f Text) -&gt; UplinkEchoConfig -&gt; f UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#uplinkEchoConfig_antennaUplinkConfigArn"><span class="hs-identifier hs-var hs-var">uplinkEchoConfig_antennaUplinkConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UplinkEchoConfig -&gt; Text)
+-&gt; (UplinkEchoConfig -&gt; Text -&gt; UplinkEchoConfig)
+-&gt; Lens UplinkEchoConfig UplinkEchoConfig Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-type">UplinkEchoConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216819"><span class="annot"><span class="annottext">Text
+antennaUplinkConfigArn :: Text
+$sel:antennaUplinkConfigArn:UplinkEchoConfig' :: UplinkEchoConfig -&gt; Text
+</span><a href="#local-6989586621679216819"><span class="hs-identifier hs-var hs-var">antennaUplinkConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216819"><span class="hs-identifier hs-var">antennaUplinkConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216818"><span class="annot"><span class="annottext">s :: UplinkEchoConfig
+</span><a href="#local-6989586621679216818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-type">UplinkEchoConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UplinkEchoConfig
+</span><a href="#local-6989586621679216818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:antennaUplinkConfigArn:UplinkEchoConfig' :: Text
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#%24sel%3AantennaUplinkConfigArn%3AUplinkEchoConfig%27"><span class="hs-identifier hs-var">antennaUplinkConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Whether or not an uplink @Config@ is enabled.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#uplinkEchoConfig_enabled"><span class="hs-identifier hs-type">uplinkEchoConfig_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-73"></span><span id="uplinkEchoConfig_enabled"><span class="annot"><span class="annottext">uplinkEchoConfig_enabled :: (Bool -&gt; f Bool) -&gt; UplinkEchoConfig -&gt; f UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#uplinkEchoConfig_enabled"><span class="hs-identifier hs-var hs-var">uplinkEchoConfig_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UplinkEchoConfig -&gt; Bool)
+-&gt; (UplinkEchoConfig -&gt; Bool -&gt; UplinkEchoConfig)
+-&gt; Lens UplinkEchoConfig UplinkEchoConfig Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-type">UplinkEchoConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216815"><span class="annot"><span class="annottext">Bool
+enabled :: Bool
+$sel:enabled:UplinkEchoConfig' :: UplinkEchoConfig -&gt; Bool
+</span><a href="#local-6989586621679216815"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679216815"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216814"><span class="annot"><span class="annottext">s :: UplinkEchoConfig
+</span><a href="#local-6989586621679216814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-type">UplinkEchoConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216813"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679216813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UplinkEchoConfig
+</span><a href="#local-6989586621679216814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:UplinkEchoConfig' :: Bool
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#%24sel%3Aenabled%3AUplinkEchoConfig%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679216813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216810"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679216808"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UplinkEchoConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser UplinkEchoConfig)
+-&gt; Value
+-&gt; Parser UplinkEchoConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;UplinkEchoConfig&quot;</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216805"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; UplinkEchoConfig
+</span><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-var">UplinkEchoConfig'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Bool -&gt; UplinkEchoConfig)
+-&gt; Parser Text -&gt; Parser (Bool -&gt; UplinkEchoConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaUplinkConfigArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; UplinkEchoConfig)
+-&gt; Parser Bool -&gt; Parser UplinkEchoConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216799"><span id="local-6989586621679216801"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216796"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216788"><span id="local-6989586621679216790"><span id="local-6989586621679216792"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig"><span class="hs-identifier hs-type">UplinkEchoConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679216786"><span class="annot"><span class="annottext">toJSON :: UplinkEchoConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GroundStation.Types.UplinkEchoConfig.html#UplinkEchoConfig%27"><span class="hs-identifier hs-type">UplinkEchoConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216783"><span id="local-6989586621679216784"><span class="annot"><span class="annottext">Bool
+Text
+enabled :: Bool
+antennaUplinkConfigArn :: Text
+$sel:enabled:UplinkEchoConfig' :: UplinkEchoConfig -&gt; Bool
+$sel:antennaUplinkConfigArn:UplinkEchoConfig' :: UplinkEchoConfig -&gt; Text
+</span><a href="#local-6989586621679216783"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-94"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;antennaUplinkConfigArn&quot;</span></span><span>
+</span><span id="line-95"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679216784"><span class="hs-identifier hs-var">antennaUplinkConfigArn</span></a></span><span>
+</span><span id="line-96"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679216783"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

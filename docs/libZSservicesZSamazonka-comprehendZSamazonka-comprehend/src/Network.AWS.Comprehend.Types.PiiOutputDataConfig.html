@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- jobs.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPiiOutputDataConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679347598"><span id="local-6989586621679347599"></span></span><span class="hs-keyword">data</span><span> </span><span id="PiiOutputDataConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-var">PiiOutputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PiiOutputDataConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-var">PiiOutputDataConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679347607"><span id="local-6989586621679347608"></span></span><span class="hs-keyword">data</span><span> </span><span id="PiiOutputDataConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-var">PiiOutputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PiiOutputDataConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-var">PiiOutputDataConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- uses to encrypt the output results from an analysis job.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AkmsKeyId%3APiiOutputDataConfig%27"><span class="annot"><span class="annottext">PiiOutputDataConfig -&gt; Maybe Text
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3As3Uri%3APiiOutputDataConfig%27"><span class="annot"><span class="annottext">PiiOutputDataConfig -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#%24sel%3As3Uri%3APiiOutputDataConfig%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347591"><span id="local-6989586621679347593"><span class="annot"><span class="annottext">PiiOutputDataConfig -&gt; PiiOutputDataConfig -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347600"><span id="local-6989586621679347602"><span class="annot"><span class="annottext">PiiOutputDataConfig -&gt; PiiOutputDataConfig -&gt; Bool
 (PiiOutputDataConfig -&gt; PiiOutputDataConfig -&gt; Bool)
 -&gt; (PiiOutputDataConfig -&gt; PiiOutputDataConfig -&gt; Bool)
 -&gt; Eq PiiOutputDataConfig
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PiiOutputDataConfig -&gt; PiiOutputDataConfig -&gt; Bool
 == :: PiiOutputDataConfig -&gt; PiiOutputDataConfig -&gt; Bool
 $c== :: PiiOutputDataConfig -&gt; PiiOutputDataConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347582"><span id="local-6989586621679347584"><span id="local-6989586621679347586"><span id="local-6989586621679347588"><span class="annot"><span class="annottext">ReadPrec [PiiOutputDataConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347591"><span id="local-6989586621679347593"><span id="local-6989586621679347595"><span id="local-6989586621679347597"><span class="annot"><span class="annottext">ReadPrec [PiiOutputDataConfig]
 ReadPrec PiiOutputDataConfig
 Int -&gt; ReadS PiiOutputDataConfig
 ReadS [PiiOutputDataConfig]
@@ -67,7 +67,7 @@ readList :: ReadS [PiiOutputDataConfig]
 $creadList :: ReadS [PiiOutputDataConfig]
 readsPrec :: Int -&gt; ReadS PiiOutputDataConfig
 $creadsPrec :: Int -&gt; ReadS PiiOutputDataConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347575"><span id="local-6989586621679347577"><span id="local-6989586621679347579"><span class="annot"><span class="annottext">Int -&gt; PiiOutputDataConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347584"><span id="local-6989586621679347586"><span id="local-6989586621679347588"><span class="annot"><span class="annottext">Int -&gt; PiiOutputDataConfig -&gt; ShowS
 [PiiOutputDataConfig] -&gt; ShowS
 PiiOutputDataConfig -&gt; String
 (Int -&gt; PiiOutputDataConfig -&gt; ShowS)
@@ -112,8 +112,8 @@ $cfrom :: forall x. PiiOutputDataConfig -&gt; Rep PiiOutputDataConfig x
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span><span>
 </span><span id="line-59"></span><span id="newPiiOutputDataConfig"><span class="annot"><span class="annottext">newPiiOutputDataConfig :: Text -&gt; PiiOutputDataConfig
-</span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#newPiiOutputDataConfig"><span class="hs-identifier hs-var hs-var">newPiiOutputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679347569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347569"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#newPiiOutputDataConfig"><span class="hs-identifier hs-var hs-var">newPiiOutputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679347578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347578"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">PiiOutputDataConfig' :: Maybe Text -&gt; Text -&gt; PiiOutputDataConfig
 </span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyId:PiiOutputDataConfig' :: Maybe Text
@@ -122,7 +122,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:PiiOutputDataConfig' :: Text
 </span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#%24sel%3As3Uri%3APiiOutputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347569"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
+</span><a href="#local-6989586621679347578"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend</span><span>
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; Lens
      PiiOutputDataConfig PiiOutputDataConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347565"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347574"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:PiiOutputDataConfig' :: PiiOutputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679347565"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347565"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347564"><span class="annot"><span class="annottext">s :: PiiOutputDataConfig
-</span><a href="#local-6989586621679347564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347563"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PiiOutputDataConfig
-</span><a href="#local-6989586621679347564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:PiiOutputDataConfig' :: Maybe Text
+</span><a href="#local-6989586621679347574"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347574"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347573"><span class="annot"><span class="annottext">s :: PiiOutputDataConfig
+</span><a href="#local-6989586621679347573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PiiOutputDataConfig
+</span><a href="#local-6989586621679347573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:PiiOutputDataConfig' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#%24sel%3AkmsKeyId%3APiiOutputDataConfig%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | When you use the @PiiOutputDataConfig@ object with asynchronous</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- operations, you specify the Amazon S3 location where you want to write</span><span>
@@ -155,19 +155,19 @@ $sel:kmsKeyId:PiiOutputDataConfig' :: PiiOutputDataConfig -&gt; Maybe Text
 -&gt; (PiiOutputDataConfig -&gt; Text -&gt; PiiOutputDataConfig)
 -&gt; Lens PiiOutputDataConfig PiiOutputDataConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347561"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347570"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:PiiOutputDataConfig' :: PiiOutputDataConfig -&gt; Text
-</span><a href="#local-6989586621679347561"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347561"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347560"><span class="annot"><span class="annottext">s :: PiiOutputDataConfig
-</span><a href="#local-6989586621679347560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347559"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PiiOutputDataConfig
-</span><a href="#local-6989586621679347560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:PiiOutputDataConfig' :: Text
+</span><a href="#local-6989586621679347570"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347570"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347569"><span class="annot"><span class="annottext">s :: PiiOutputDataConfig
+</span><a href="#local-6989586621679347569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-type">PiiOutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347568"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679347568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PiiOutputDataConfig
+</span><a href="#local-6989586621679347569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:PiiOutputDataConfig' :: Text
 </span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#%24sel%3As3Uri%3APiiOutputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679347559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347556"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679347554"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PiiOutputDataConfig
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347565"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679347563"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PiiOutputDataConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PiiOutputDataConfig)
@@ -177,15 +177,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PiiOutputDataConfig&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347551"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347560"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347560"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; PiiOutputDataConfig
 </span><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig%27"><span class="hs-identifier hs-var">PiiOutputDataConfig'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; PiiOutputDataConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; PiiOutputDataConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679347560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -193,13 +193,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser PiiOutputDataConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679347560"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347544"><span id="local-6989586621679347546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347553"><span id="local-6989586621679347555"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347550"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiOutputDataConfig.html#PiiOutputDataConfig"><span class="hs-identifier hs-type">PiiOutputDataConfig</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

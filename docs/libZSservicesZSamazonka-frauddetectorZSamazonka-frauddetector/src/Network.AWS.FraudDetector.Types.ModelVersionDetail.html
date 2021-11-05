@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.FraudDetector.Types.ModelVersionDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.FraudDetector.Types.ModelVersionDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ExternalEventsDetail.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types.ExternalEventsDetail</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.IngestedEventsDetail.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types.IngestedEventsDetail</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types.ModelTypeEnum</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSchema.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types.TrainingDataSchema</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types.TrainingDataSourceEnum</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingResult.html"><span class="hs-identifier">Network.AWS.FraudDetector.Types.TrainingResult</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The details of the model version.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newModelVersionDetail' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679309142"><span id="local-6989586621679309143"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModelVersionDetail"><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-var">ModelVersionDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelVersionDetail%27"><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-var">ModelVersionDetail'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the model version.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3Astatus%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The model type.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AmodelType%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelType%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">modelType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier hs-type">ModelTypeEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The timestamp when the model was last updated.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlastUpdatedTime%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AlastUpdatedTime%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmodelId%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelId%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The model version ARN.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aarn%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3Aarn%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The model version training data source.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtrainingDataSource%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe TrainingDataSourceEnum
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingDataSource%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">trainingDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum"><span class="hs-identifier hs-type">TrainingDataSourceEnum</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The timestamp when the model was created.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AcreatedTime%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AcreatedTime%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The external events data details. This will be populated if the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @trainingDataSource@ for the model version is specified as</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @EXTERNAL_EVENTS@.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AexternalEventsDetail%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe ExternalEventsDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AexternalEventsDetail%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">externalEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ExternalEventsDetail.html#ExternalEventsDetail"><span class="hs-identifier hs-type">ExternalEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ingested events data details. This will be populated if the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @trainingDataSource@ for the model version is specified as</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @INGESTED_EVENTS@.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AingestedEventsDetail%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe IngestedEventsDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AingestedEventsDetail%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">ingestedEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.IngestedEventsDetail.html#IngestedEventsDetail"><span class="hs-identifier hs-type">IngestedEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The model version number.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmodelVersionNumber%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelVersionNumber%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">modelVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The training results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtrainingResult%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe TrainingResult
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingResult%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">trainingResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingResult.html#TrainingResult"><span class="hs-identifier hs-type">TrainingResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The training data schema.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AtrainingDataSchema%3AModelVersionDetail%27"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; Maybe TrainingDataSchema
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingDataSchema%3AModelVersionDetail%27"><span class="hs-identifier hs-var hs-var">trainingDataSchema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSchema.html#TrainingDataSchema"><span class="hs-identifier hs-type">TrainingDataSchema</span></a></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309125"><span id="local-6989586621679309127"><span class="annot"><span class="annottext">ModelVersionDetail -&gt; ModelVersionDetail -&gt; Bool
+(ModelVersionDetail -&gt; ModelVersionDetail -&gt; Bool)
+-&gt; (ModelVersionDetail -&gt; ModelVersionDetail -&gt; Bool)
+-&gt; Eq ModelVersionDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelVersionDetail -&gt; ModelVersionDetail -&gt; Bool
+$c/= :: ModelVersionDetail -&gt; ModelVersionDetail -&gt; Bool
+== :: ModelVersionDetail -&gt; ModelVersionDetail -&gt; Bool
+$c== :: ModelVersionDetail -&gt; ModelVersionDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309116"><span id="local-6989586621679309118"><span id="local-6989586621679309120"><span id="local-6989586621679309122"><span class="annot"><span class="annottext">ReadPrec [ModelVersionDetail]
+ReadPrec ModelVersionDetail
+Int -&gt; ReadS ModelVersionDetail
+ReadS [ModelVersionDetail]
+(Int -&gt; ReadS ModelVersionDetail)
+-&gt; ReadS [ModelVersionDetail]
+-&gt; ReadPrec ModelVersionDetail
+-&gt; ReadPrec [ModelVersionDetail]
+-&gt; Read ModelVersionDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelVersionDetail]
+$creadListPrec :: ReadPrec [ModelVersionDetail]
+readPrec :: ReadPrec ModelVersionDetail
+$creadPrec :: ReadPrec ModelVersionDetail
+readList :: ReadS [ModelVersionDetail]
+$creadList :: ReadS [ModelVersionDetail]
+readsPrec :: Int -&gt; ReadS ModelVersionDetail
+$creadsPrec :: Int -&gt; ReadS ModelVersionDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309109"><span id="local-6989586621679309111"><span id="local-6989586621679309113"><span class="annot"><span class="annottext">Int -&gt; ModelVersionDetail -&gt; ShowS
+[ModelVersionDetail] -&gt; ShowS
+ModelVersionDetail -&gt; String
+(Int -&gt; ModelVersionDetail -&gt; ShowS)
+-&gt; (ModelVersionDetail -&gt; String)
+-&gt; ([ModelVersionDetail] -&gt; ShowS)
+-&gt; Show ModelVersionDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelVersionDetail] -&gt; ShowS
+$cshowList :: [ModelVersionDetail] -&gt; ShowS
+show :: ModelVersionDetail -&gt; String
+$cshow :: ModelVersionDetail -&gt; String
+showsPrec :: Int -&gt; ModelVersionDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelVersionDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModelVersionDetail -&gt; Rep ModelVersionDetail x)
+-&gt; (forall x. Rep ModelVersionDetail x -&gt; ModelVersionDetail)
+-&gt; Generic ModelVersionDetail
+forall x. Rep ModelVersionDetail x -&gt; ModelVersionDetail
+forall x. ModelVersionDetail -&gt; Rep ModelVersionDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelVersionDetail x -&gt; ModelVersionDetail
+$cfrom :: forall x. ModelVersionDetail -&gt; Rep ModelVersionDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'ModelVersionDetail' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'status', 'modelVersionDetail_status' - The status of the model version.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'modelType', 'modelVersionDetail_modelType' - The model type.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'lastUpdatedTime', 'modelVersionDetail_lastUpdatedTime' - The timestamp when the model was last updated.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'modelId', 'modelVersionDetail_modelId' - The model ID.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'arn', 'modelVersionDetail_arn' - The model version ARN.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'trainingDataSource', 'modelVersionDetail_trainingDataSource' - The model version training data source.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'createdTime', 'modelVersionDetail_createdTime' - The timestamp when the model was created.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'externalEventsDetail', 'modelVersionDetail_externalEventsDetail' - The external events data details. This will be populated if the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- @trainingDataSource@ for the model version is specified as</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- @EXTERNAL_EVENTS@.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'ingestedEventsDetail', 'modelVersionDetail_ingestedEventsDetail' - The ingested events data details. This will be populated if the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @trainingDataSource@ for the model version is specified as</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @INGESTED_EVENTS@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'modelVersionNumber', 'modelVersionDetail_modelVersionNumber' - The model version number.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'trainingResult', 'modelVersionDetail_trainingResult' - The training results.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'trainingDataSchema', 'modelVersionDetail_trainingDataSchema' - The training data schema.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#newModelVersionDetail"><span class="hs-identifier hs-type">newModelVersionDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span>
+</span><span id="line-104"></span><span id="newModelVersionDetail"><span class="annot"><span class="annottext">newModelVersionDetail :: ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#newModelVersionDetail"><span class="hs-identifier hs-var hs-var">newModelVersionDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ModelVersionDetail' :: Maybe Text
+-&gt; Maybe ModelTypeEnum
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TrainingDataSourceEnum
+-&gt; Maybe Text
+-&gt; Maybe ExternalEventsDetail
+-&gt; Maybe IngestedEventsDetail
+-&gt; Maybe Text
+-&gt; Maybe TrainingResult
+-&gt; Maybe TrainingDataSchema
+-&gt; ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3Astatus%3AModelVersionDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelType:ModelVersionDetail' :: Maybe ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelType%3AModelVersionDetail%27"><span class="hs-identifier hs-var">modelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AlastUpdatedTime%3AModelVersionDetail%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelId:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelId%3AModelVersionDetail%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3Aarn%3AModelVersionDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingDataSource:ModelVersionDetail' :: Maybe TrainingDataSourceEnum
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingDataSource%3AModelVersionDetail%27"><span class="hs-identifier hs-var">trainingDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataSourceEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AcreatedTime%3AModelVersionDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:externalEventsDetail:ModelVersionDetail' :: Maybe ExternalEventsDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AexternalEventsDetail%3AModelVersionDetail%27"><span class="hs-identifier hs-var">externalEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:ingestedEventsDetail:ModelVersionDetail' :: Maybe IngestedEventsDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AingestedEventsDetail%3AModelVersionDetail%27"><span class="hs-identifier hs-var">ingestedEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelVersionNumber:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelVersionNumber%3AModelVersionDetail%27"><span class="hs-identifier hs-var">modelVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingResult:ModelVersionDetail' :: Maybe TrainingResult
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingResult%3AModelVersionDetail%27"><span class="hs-identifier hs-var">trainingResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingDataSchema:ModelVersionDetail' :: Maybe TrainingDataSchema
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingDataSchema%3AModelVersionDetail%27"><span class="hs-identifier hs-var">trainingDataSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataSchema
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The status of the model version.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_status"><span class="hs-identifier hs-type">modelVersionDetail_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="modelVersionDetail_status"><span class="annot"><span class="annottext">modelVersionDetail_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_status"><span class="hs-identifier hs-var hs-var">modelVersionDetail_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe Text)
+-&gt; (ModelVersionDetail -&gt; Maybe Text -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail ModelVersionDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309100"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679309100"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309100"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309099"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3Astatus%3AModelVersionDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The model type.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelType"><span class="hs-identifier hs-type">modelVersionDetail_modelType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier hs-type">ModelTypeEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="modelVersionDetail_modelType"><span class="annot"><span class="annottext">modelVersionDetail_modelType :: (Maybe ModelTypeEnum -&gt; f (Maybe ModelTypeEnum))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelType"><span class="hs-identifier hs-var hs-var">modelVersionDetail_modelType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe ModelTypeEnum)
+-&gt; (ModelVersionDetail
+    -&gt; Maybe ModelTypeEnum -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail
+     ModelVersionDetail
+     (Maybe ModelTypeEnum)
+     (Maybe ModelTypeEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309096"><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+modelType :: Maybe ModelTypeEnum
+$sel:modelType:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe ModelTypeEnum
+</span><a href="#local-6989586621679309096"><span class="hs-identifier hs-var hs-var">modelType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+</span><a href="#local-6989586621679309096"><span class="hs-identifier hs-var">modelType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309095"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309094"><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+</span><a href="#local-6989586621679309094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelType:ModelVersionDetail' :: Maybe ModelTypeEnum
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelType%3AModelVersionDetail%27"><span class="hs-identifier hs-var">modelType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelTypeEnum
+</span><a href="#local-6989586621679309094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The timestamp when the model was last updated.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_lastUpdatedTime"><span class="hs-identifier hs-type">modelVersionDetail_lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="modelVersionDetail_lastUpdatedTime"><span class="annot"><span class="annottext">modelVersionDetail_lastUpdatedTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_lastUpdatedTime"><span class="hs-identifier hs-var hs-var">modelVersionDetail_lastUpdatedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe Text)
+-&gt; (ModelVersionDetail -&gt; Maybe Text -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail ModelVersionDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309092"><span class="annot"><span class="annottext">Maybe Text
+lastUpdatedTime :: Maybe Text
+$sel:lastUpdatedTime:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679309092"><span class="hs-identifier hs-var hs-var">lastUpdatedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309092"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309091"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309090"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTime:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AlastUpdatedTime%3AModelVersionDetail%27"><span class="hs-identifier hs-var">lastUpdatedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The model ID.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelId"><span class="hs-identifier hs-type">modelVersionDetail_modelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="modelVersionDetail_modelId"><span class="annot"><span class="annottext">modelVersionDetail_modelId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelId"><span class="hs-identifier hs-var hs-var">modelVersionDetail_modelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe Text)
+-&gt; (ModelVersionDetail -&gt; Maybe Text -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail ModelVersionDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309088"><span class="annot"><span class="annottext">Maybe Text
+modelId :: Maybe Text
+$sel:modelId:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679309088"><span class="hs-identifier hs-var hs-var">modelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309088"><span class="hs-identifier hs-var">modelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309087"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309086"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelId:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelId%3AModelVersionDetail%27"><span class="hs-identifier hs-var">modelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The model version ARN.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_arn"><span class="hs-identifier hs-type">modelVersionDetail_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="modelVersionDetail_arn"><span class="annot"><span class="annottext">modelVersionDetail_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_arn"><span class="hs-identifier hs-var hs-var">modelVersionDetail_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe Text)
+-&gt; (ModelVersionDetail -&gt; Maybe Text -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail ModelVersionDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309084"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679309084"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309084"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309083"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309082"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3Aarn%3AModelVersionDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The model version training data source.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingDataSource"><span class="hs-identifier hs-type">modelVersionDetail_trainingDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum"><span class="hs-identifier hs-type">TrainingDataSourceEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="modelVersionDetail_trainingDataSource"><span class="annot"><span class="annottext">modelVersionDetail_trainingDataSource :: (Maybe TrainingDataSourceEnum -&gt; f (Maybe TrainingDataSourceEnum))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingDataSource"><span class="hs-identifier hs-var hs-var">modelVersionDetail_trainingDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe TrainingDataSourceEnum)
+-&gt; (ModelVersionDetail
+    -&gt; Maybe TrainingDataSourceEnum -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail
+     ModelVersionDetail
+     (Maybe TrainingDataSourceEnum)
+     (Maybe TrainingDataSourceEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309080"><span class="annot"><span class="annottext">Maybe TrainingDataSourceEnum
+trainingDataSource :: Maybe TrainingDataSourceEnum
+$sel:trainingDataSource:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe TrainingDataSourceEnum
+</span><a href="#local-6989586621679309080"><span class="hs-identifier hs-var hs-var">trainingDataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataSourceEnum
+</span><a href="#local-6989586621679309080"><span class="hs-identifier hs-var">trainingDataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309079"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309078"><span class="annot"><span class="annottext">Maybe TrainingDataSourceEnum
+</span><a href="#local-6989586621679309078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingDataSource:ModelVersionDetail' :: Maybe TrainingDataSourceEnum
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingDataSource%3AModelVersionDetail%27"><span class="hs-identifier hs-var">trainingDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataSourceEnum
+</span><a href="#local-6989586621679309078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The timestamp when the model was created.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_createdTime"><span class="hs-identifier hs-type">modelVersionDetail_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="modelVersionDetail_createdTime"><span class="annot"><span class="annottext">modelVersionDetail_createdTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_createdTime"><span class="hs-identifier hs-var hs-var">modelVersionDetail_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe Text)
+-&gt; (ModelVersionDetail -&gt; Maybe Text -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail ModelVersionDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309076"><span class="annot"><span class="annottext">Maybe Text
+createdTime :: Maybe Text
+$sel:createdTime:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679309076"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309076"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309075"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AcreatedTime%3AModelVersionDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The external events data details. This will be populated if the</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- @trainingDataSource@ for the model version is specified as</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @EXTERNAL_EVENTS@.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_externalEventsDetail"><span class="hs-identifier hs-type">modelVersionDetail_externalEventsDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ExternalEventsDetail.html#ExternalEventsDetail"><span class="hs-identifier hs-type">ExternalEventsDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="modelVersionDetail_externalEventsDetail"><span class="annot"><span class="annottext">modelVersionDetail_externalEventsDetail :: (Maybe ExternalEventsDetail -&gt; f (Maybe ExternalEventsDetail))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_externalEventsDetail"><span class="hs-identifier hs-var hs-var">modelVersionDetail_externalEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe ExternalEventsDetail)
+-&gt; (ModelVersionDetail
+    -&gt; Maybe ExternalEventsDetail -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail
+     ModelVersionDetail
+     (Maybe ExternalEventsDetail)
+     (Maybe ExternalEventsDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309072"><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+externalEventsDetail :: Maybe ExternalEventsDetail
+$sel:externalEventsDetail:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679309072"><span class="hs-identifier hs-var hs-var">externalEventsDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679309072"><span class="hs-identifier hs-var">externalEventsDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309071"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309070"><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679309070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalEventsDetail:ModelVersionDetail' :: Maybe ExternalEventsDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AexternalEventsDetail%3AModelVersionDetail%27"><span class="hs-identifier hs-var">externalEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExternalEventsDetail
+</span><a href="#local-6989586621679309070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The ingested events data details. This will be populated if the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @trainingDataSource@ for the model version is specified as</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @INGESTED_EVENTS@.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_ingestedEventsDetail"><span class="hs-identifier hs-type">modelVersionDetail_ingestedEventsDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.IngestedEventsDetail.html#IngestedEventsDetail"><span class="hs-identifier hs-type">IngestedEventsDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="modelVersionDetail_ingestedEventsDetail"><span class="annot"><span class="annottext">modelVersionDetail_ingestedEventsDetail :: (Maybe IngestedEventsDetail -&gt; f (Maybe IngestedEventsDetail))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_ingestedEventsDetail"><span class="hs-identifier hs-var hs-var">modelVersionDetail_ingestedEventsDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe IngestedEventsDetail)
+-&gt; (ModelVersionDetail
+    -&gt; Maybe IngestedEventsDetail -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail
+     ModelVersionDetail
+     (Maybe IngestedEventsDetail)
+     (Maybe IngestedEventsDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309068"><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+ingestedEventsDetail :: Maybe IngestedEventsDetail
+$sel:ingestedEventsDetail:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679309068"><span class="hs-identifier hs-var hs-var">ingestedEventsDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679309068"><span class="hs-identifier hs-var">ingestedEventsDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309067"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309066"><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679309066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ingestedEventsDetail:ModelVersionDetail' :: Maybe IngestedEventsDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AingestedEventsDetail%3AModelVersionDetail%27"><span class="hs-identifier hs-var">ingestedEventsDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IngestedEventsDetail
+</span><a href="#local-6989586621679309066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The model version number.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelVersionNumber"><span class="hs-identifier hs-type">modelVersionDetail_modelVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="modelVersionDetail_modelVersionNumber"><span class="annot"><span class="annottext">modelVersionDetail_modelVersionNumber :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelVersionNumber"><span class="hs-identifier hs-var hs-var">modelVersionDetail_modelVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe Text)
+-&gt; (ModelVersionDetail -&gt; Maybe Text -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail ModelVersionDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309064"><span class="annot"><span class="annottext">Maybe Text
+modelVersionNumber :: Maybe Text
+$sel:modelVersionNumber:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679309064"><span class="hs-identifier hs-var hs-var">modelVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309064"><span class="hs-identifier hs-var">modelVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309063"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309062"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelVersionNumber:ModelVersionDetail' :: Maybe Text
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AmodelVersionNumber%3AModelVersionDetail%27"><span class="hs-identifier hs-var">modelVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The training results.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingResult"><span class="hs-identifier hs-type">modelVersionDetail_trainingResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingResult.html#TrainingResult"><span class="hs-identifier hs-type">TrainingResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="modelVersionDetail_trainingResult"><span class="annot"><span class="annottext">modelVersionDetail_trainingResult :: (Maybe TrainingResult -&gt; f (Maybe TrainingResult))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingResult"><span class="hs-identifier hs-var hs-var">modelVersionDetail_trainingResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe TrainingResult)
+-&gt; (ModelVersionDetail
+    -&gt; Maybe TrainingResult -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail
+     ModelVersionDetail
+     (Maybe TrainingResult)
+     (Maybe TrainingResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309060"><span class="annot"><span class="annottext">Maybe TrainingResult
+trainingResult :: Maybe TrainingResult
+$sel:trainingResult:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe TrainingResult
+</span><a href="#local-6989586621679309060"><span class="hs-identifier hs-var hs-var">trainingResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingResult
+</span><a href="#local-6989586621679309060"><span class="hs-identifier hs-var">trainingResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309059"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309058"><span class="annot"><span class="annottext">Maybe TrainingResult
+</span><a href="#local-6989586621679309058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingResult:ModelVersionDetail' :: Maybe TrainingResult
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingResult%3AModelVersionDetail%27"><span class="hs-identifier hs-var">trainingResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingResult
+</span><a href="#local-6989586621679309058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The training data schema.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingDataSchema"><span class="hs-identifier hs-type">modelVersionDetail_trainingDataSchema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.TrainingDataSchema.html#TrainingDataSchema"><span class="hs-identifier hs-type">TrainingDataSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="modelVersionDetail_trainingDataSchema"><span class="annot"><span class="annottext">modelVersionDetail_trainingDataSchema :: (Maybe TrainingDataSchema -&gt; f (Maybe TrainingDataSchema))
+-&gt; ModelVersionDetail -&gt; f ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingDataSchema"><span class="hs-identifier hs-var hs-var">modelVersionDetail_trainingDataSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModelVersionDetail -&gt; Maybe TrainingDataSchema)
+-&gt; (ModelVersionDetail
+    -&gt; Maybe TrainingDataSchema -&gt; ModelVersionDetail)
+-&gt; Lens
+     ModelVersionDetail
+     ModelVersionDetail
+     (Maybe TrainingDataSchema)
+     (Maybe TrainingDataSchema)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309056"><span class="annot"><span class="annottext">Maybe TrainingDataSchema
+trainingDataSchema :: Maybe TrainingDataSchema
+$sel:trainingDataSchema:ModelVersionDetail' :: ModelVersionDetail -&gt; Maybe TrainingDataSchema
+</span><a href="#local-6989586621679309056"><span class="hs-identifier hs-var hs-var">trainingDataSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataSchema
+</span><a href="#local-6989586621679309056"><span class="hs-identifier hs-var">trainingDataSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309055"><span class="annot"><span class="annottext">s :: ModelVersionDetail
+</span><a href="#local-6989586621679309055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-type">ModelVersionDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309054"><span class="annot"><span class="annottext">Maybe TrainingDataSchema
+</span><a href="#local-6989586621679309054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModelVersionDetail
+</span><a href="#local-6989586621679309055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingDataSchema:ModelVersionDetail' :: Maybe TrainingDataSchema
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#%24sel%3AtrainingDataSchema%3AModelVersionDetail%27"><span class="hs-identifier hs-var">trainingDataSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingDataSchema
+</span><a href="#local-6989586621679309054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309051"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679309049"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ModelVersionDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ModelVersionDetail)
+-&gt; Value
+-&gt; Parser ModelVersionDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ModelVersionDetail&quot;</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309046"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ModelTypeEnum
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe TrainingDataSourceEnum
+-&gt; Maybe Text
+-&gt; Maybe ExternalEventsDetail
+-&gt; Maybe IngestedEventsDetail
+-&gt; Maybe Text
+-&gt; Maybe TrainingResult
+-&gt; Maybe TrainingDataSchema
+-&gt; ModelVersionDetail
+</span><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail%27"><span class="hs-identifier hs-var">ModelVersionDetail'</span></a></span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ModelTypeEnum
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe TrainingDataSourceEnum
+ -&gt; Maybe Text
+ -&gt; Maybe ExternalEventsDetail
+ -&gt; Maybe IngestedEventsDetail
+ -&gt; Maybe Text
+ -&gt; Maybe TrainingResult
+ -&gt; Maybe TrainingDataSchema
+ -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ModelTypeEnum
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingDataSourceEnum
+      -&gt; Maybe Text
+      -&gt; Maybe ExternalEventsDetail
+      -&gt; Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ModelTypeEnum
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingDataSourceEnum
+   -&gt; Maybe Text
+   -&gt; Maybe ExternalEventsDetail
+   -&gt; Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe ModelTypeEnum)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingDataSourceEnum
+      -&gt; Maybe Text
+      -&gt; Maybe ExternalEventsDetail
+      -&gt; Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelTypeEnum)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingDataSourceEnum
+   -&gt; Maybe Text
+   -&gt; Maybe ExternalEventsDetail
+   -&gt; Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingDataSourceEnum
+      -&gt; Maybe Text
+      -&gt; Maybe ExternalEventsDetail
+      -&gt; Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingDataSourceEnum
+   -&gt; Maybe Text
+   -&gt; Maybe ExternalEventsDetail
+   -&gt; Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TrainingDataSourceEnum
+      -&gt; Maybe Text
+      -&gt; Maybe ExternalEventsDetail
+      -&gt; Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TrainingDataSourceEnum
+   -&gt; Maybe Text
+   -&gt; Maybe ExternalEventsDetail
+   -&gt; Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TrainingDataSourceEnum
+      -&gt; Maybe Text
+      -&gt; Maybe ExternalEventsDetail
+      -&gt; Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrainingDataSourceEnum
+   -&gt; Maybe Text
+   -&gt; Maybe ExternalEventsDetail
+   -&gt; Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe TrainingDataSourceEnum)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ExternalEventsDetail
+      -&gt; Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingDataSourceEnum)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trainingDataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ExternalEventsDetail
+   -&gt; Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ExternalEventsDetail
+      -&gt; Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ExternalEventsDetail
+   -&gt; Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe ExternalEventsDetail)
+-&gt; Parser
+     (Maybe IngestedEventsDetail
+      -&gt; Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExternalEventsDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;externalEventsDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IngestedEventsDetail
+   -&gt; Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe IngestedEventsDetail)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema
+      -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IngestedEventsDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ingestedEventsDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema
+   -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TrainingResult
+      -&gt; Maybe TrainingDataSchema -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelVersionNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TrainingResult
+   -&gt; Maybe TrainingDataSchema -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe TrainingResult)
+-&gt; Parser (Maybe TrainingDataSchema -&gt; ModelVersionDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingResult)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trainingResult&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TrainingDataSchema -&gt; ModelVersionDetail)
+-&gt; Parser (Maybe TrainingDataSchema) -&gt; Parser ModelVersionDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TrainingDataSchema)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trainingDataSchema&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309040"><span id="local-6989586621679309042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span></span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier hs-type">ModelVersionDetail</span></a></span></span><span>
+</span><span id="line-195"></span></pre></body></html>

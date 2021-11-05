@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Scte35 Splice Insert</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScte35SpliceInsert' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679919055"><span id="local-6989586621679919056"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scte35SpliceInsert"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-var">Scte35SpliceInsert</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35SpliceInsert%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-var">Scte35SpliceInsert'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679919064"><span id="local-6989586621679919065"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scte35SpliceInsert"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-var">Scte35SpliceInsert</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte35SpliceInsert%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-var">Scte35SpliceInsert'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- to 0 will no longer trigger blackouts or Ad Avail slates</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AwebDeliveryAllowedFlag%3AScte35SpliceInsert%27"><span class="annot"><span class="annottext">Scte35SpliceInsert
@@ -45,7 +45,7 @@
 -&gt; Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
 </span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#%24sel%3AnoRegionalBlackoutFlag%3AScte35SpliceInsert%27"><span class="hs-identifier hs-var hs-var">noRegionalBlackoutFlag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior.html#Scte35SpliceInsertNoRegionalBlackoutBehavior"><span class="hs-identifier hs-type">Scte35SpliceInsertNoRegionalBlackoutBehavior</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919047"><span id="local-6989586621679919049"><span class="annot"><span class="annottext">Scte35SpliceInsert -&gt; Scte35SpliceInsert -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679919056"><span id="local-6989586621679919058"><span class="annot"><span class="annottext">Scte35SpliceInsert -&gt; Scte35SpliceInsert -&gt; Bool
 (Scte35SpliceInsert -&gt; Scte35SpliceInsert -&gt; Bool)
 -&gt; (Scte35SpliceInsert -&gt; Scte35SpliceInsert -&gt; Bool)
 -&gt; Eq Scte35SpliceInsert
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Scte35SpliceInsert -&gt; Scte35SpliceInsert -&gt; Bool
 == :: Scte35SpliceInsert -&gt; Scte35SpliceInsert -&gt; Bool
 $c== :: Scte35SpliceInsert -&gt; Scte35SpliceInsert -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919038"><span id="local-6989586621679919040"><span id="local-6989586621679919042"><span id="local-6989586621679919044"><span class="annot"><span class="annottext">ReadPrec [Scte35SpliceInsert]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919047"><span id="local-6989586621679919049"><span id="local-6989586621679919051"><span id="local-6989586621679919053"><span class="annot"><span class="annottext">ReadPrec [Scte35SpliceInsert]
 ReadPrec Scte35SpliceInsert
 Int -&gt; ReadS Scte35SpliceInsert
 ReadS [Scte35SpliceInsert]
@@ -74,7 +74,7 @@ readList :: ReadS [Scte35SpliceInsert]
 $creadList :: ReadS [Scte35SpliceInsert]
 readsPrec :: Int -&gt; ReadS Scte35SpliceInsert
 $creadsPrec :: Int -&gt; ReadS Scte35SpliceInsert
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919031"><span id="local-6989586621679919033"><span id="local-6989586621679919035"><span class="annot"><span class="annottext">Int -&gt; Scte35SpliceInsert -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679919040"><span id="local-6989586621679919042"><span id="local-6989586621679919044"><span class="annot"><span class="annottext">Int -&gt; Scte35SpliceInsert -&gt; ShowS
 [Scte35SpliceInsert] -&gt; ShowS
 Scte35SpliceInsert -&gt; String
 (Int -&gt; Scte35SpliceInsert -&gt; ShowS)
@@ -158,17 +158,17 @@ forall a. Maybe a
      (Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior)
      (Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919022"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919031"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
 webDeliveryAllowedFlag :: Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
 $sel:webDeliveryAllowedFlag:Scte35SpliceInsert' :: Scte35SpliceInsert
 -&gt; Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919022"><span class="hs-identifier hs-var hs-var">webDeliveryAllowedFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919022"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919021"><span class="annot"><span class="annottext">s :: Scte35SpliceInsert
-</span><a href="#local-6989586621679919021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919020"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsert
-</span><a href="#local-6989586621679919021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webDeliveryAllowedFlag:Scte35SpliceInsert' :: Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
+</span><a href="#local-6989586621679919031"><span class="hs-identifier hs-var hs-var">webDeliveryAllowedFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
+</span><a href="#local-6989586621679919031"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919030"><span class="annot"><span class="annottext">s :: Scte35SpliceInsert
+</span><a href="#local-6989586621679919030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919029"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
+</span><a href="#local-6989586621679919029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsert
+</span><a href="#local-6989586621679919030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webDeliveryAllowedFlag:Scte35SpliceInsert' :: Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
 </span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#%24sel%3AwebDeliveryAllowedFlag%3AScte35SpliceInsert%27"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679919020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | When specified, this offset (in milliseconds) is added to the input Ad</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and</span><span>
@@ -181,16 +181,16 @@ $sel:webDeliveryAllowedFlag:Scte35SpliceInsert' :: Scte35SpliceInsert
 -&gt; Lens
      Scte35SpliceInsert Scte35SpliceInsert (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919018"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919027"><span class="annot"><span class="annottext">Maybe Int
 adAvailOffset :: Maybe Int
 $sel:adAvailOffset:Scte35SpliceInsert' :: Scte35SpliceInsert -&gt; Maybe Int
-</span><a href="#local-6989586621679919018"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679919018"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919017"><span class="annot"><span class="annottext">s :: Scte35SpliceInsert
-</span><a href="#local-6989586621679919017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919016"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679919016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsert
-</span><a href="#local-6989586621679919017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adAvailOffset:Scte35SpliceInsert' :: Maybe Int
+</span><a href="#local-6989586621679919027"><span class="hs-identifier hs-var hs-var">adAvailOffset</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679919027"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919026"><span class="annot"><span class="annottext">s :: Scte35SpliceInsert
+</span><a href="#local-6989586621679919026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919025"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679919025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsert
+</span><a href="#local-6989586621679919026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adAvailOffset:Scte35SpliceInsert' :: Maybe Int
 </span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#%24sel%3AadAvailOffset%3AScte35SpliceInsert%27"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679919016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- to 0 will no longer trigger blackouts or Ad Avail slates</span><span>
@@ -209,20 +209,20 @@ $sel:adAvailOffset:Scte35SpliceInsert' :: Scte35SpliceInsert -&gt; Maybe Int
      (Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior)
      (Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919014"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679919023"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
 noRegionalBlackoutFlag :: Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
 $sel:noRegionalBlackoutFlag:Scte35SpliceInsert' :: Scte35SpliceInsert
 -&gt; Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919014"><span class="hs-identifier hs-var hs-var">noRegionalBlackoutFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919014"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919013"><span class="annot"><span class="annottext">s :: Scte35SpliceInsert
-</span><a href="#local-6989586621679919013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919012"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsert
-</span><a href="#local-6989586621679919013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noRegionalBlackoutFlag:Scte35SpliceInsert' :: Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><a href="#local-6989586621679919023"><span class="hs-identifier hs-var hs-var">noRegionalBlackoutFlag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><a href="#local-6989586621679919023"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679919022"><span class="annot"><span class="annottext">s :: Scte35SpliceInsert
+</span><a href="#local-6989586621679919022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679919021"><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
+</span><a href="#local-6989586621679919021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scte35SpliceInsert
+</span><a href="#local-6989586621679919022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noRegionalBlackoutFlag:Scte35SpliceInsert' :: Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
 </span><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#%24sel%3AnoRegionalBlackoutFlag%3AScte35SpliceInsert%27"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679919012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679919021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919009"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679919007"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scte35SpliceInsert
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919018"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679919016"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scte35SpliceInsert
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Scte35SpliceInsert)
@@ -232,8 +232,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Scte35SpliceInsert&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919004"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919004"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679919013"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679919013"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
 -&gt; Maybe Int
 -&gt; Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Scte35SpliceInsert)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679919013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -266,7 +266,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Scte35SpliceInsert)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679919013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,7 +277,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Scte35SpliceInsert
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679919004"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679919013"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Parser (Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -285,13 +285,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-string">&quot;noRegionalBlackoutFlag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918998"><span id="local-6989586621679919000"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919007"><span id="local-6989586621679919009"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679919004"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918987"><span id="local-6989586621679918989"><span id="local-6989586621679918991"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679918985"><span class="annot"><span class="annottext">toJSON :: Scte35SpliceInsert -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679918981"><span id="local-6989586621679918982"><span id="local-6989586621679918983"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679918996"><span id="local-6989586621679918998"><span id="local-6989586621679919000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert"><span class="hs-identifier hs-type">Scte35SpliceInsert</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679918994"><span class="annot"><span class="annottext">toJSON :: Scte35SpliceInsert -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte35SpliceInsert.html#Scte35SpliceInsert%27"><span class="hs-identifier hs-type">Scte35SpliceInsert'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679918990"><span id="local-6989586621679918991"><span id="local-6989586621679918992"><span class="annot"><span class="annottext">Maybe Int
 Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
 Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
 noRegionalBlackoutFlag :: Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
@@ -302,7 +302,7 @@ $sel:noRegionalBlackoutFlag:Scte35SpliceInsert' :: Scte35SpliceInsert
 $sel:adAvailOffset:Scte35SpliceInsert' :: Scte35SpliceInsert -&gt; Maybe Int
 $sel:webDeliveryAllowedFlag:Scte35SpliceInsert' :: Scte35SpliceInsert
 -&gt; Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679918981"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679918990"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -316,14 +316,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
-</span><a href="#local-6989586621679918983"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679918992"><span class="hs-identifier hs-var">webDeliveryAllowedFlag</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;adAvailOffset&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679918982"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679918991"><span class="hs-identifier hs-var">adAvailOffset</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;noRegionalBlackoutFlag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -332,7 +332,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
-</span><a href="#local-6989586621679918981"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span>
+</span><a href="#local-6989586621679918990"><span class="hs-identifier hs-var">noRegionalBlackoutFlag</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span></pre></body></html>

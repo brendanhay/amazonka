@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An endpoint information details.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEndpoint' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679372136"><span id="local-6989586621679372137"></span></span><span class="hs-keyword">data</span><span> </span><span id="Endpoint"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-var">Endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Endpoint%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679372145"><span id="local-6989586621679372146"></span></span><span class="hs-keyword">data</span><span> </span><span id="Endpoint"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-var">Endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Endpoint%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | IP address of the endpoint.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aaddress%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#%24sel%3Aaddress%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcachePeriodInMinutes%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Integer
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#%24sel%3AcachePeriodInMinutes%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">cachePeriodInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372129"><span id="local-6989586621679372131"><span class="annot"><span class="annottext">Endpoint -&gt; Endpoint -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372138"><span id="local-6989586621679372140"><span class="annot"><span class="annottext">Endpoint -&gt; Endpoint -&gt; Bool
 (Endpoint -&gt; Endpoint -&gt; Bool)
 -&gt; (Endpoint -&gt; Endpoint -&gt; Bool) -&gt; Eq Endpoint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Endpoint -&gt; Endpoint -&gt; Bool
 == :: Endpoint -&gt; Endpoint -&gt; Bool
 $c== :: Endpoint -&gt; Endpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372120"><span id="local-6989586621679372122"><span id="local-6989586621679372124"><span id="local-6989586621679372126"><span class="annot"><span class="annottext">ReadPrec [Endpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372129"><span id="local-6989586621679372131"><span id="local-6989586621679372133"><span id="local-6989586621679372135"><span class="annot"><span class="annottext">ReadPrec [Endpoint]
 ReadPrec Endpoint
 Int -&gt; ReadS Endpoint
 ReadS [Endpoint]
@@ -62,7 +62,7 @@ readList :: ReadS [Endpoint]
 $creadList :: ReadS [Endpoint]
 readsPrec :: Int -&gt; ReadS Endpoint
 $creadsPrec :: Int -&gt; ReadS Endpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372113"><span id="local-6989586621679372115"><span id="local-6989586621679372117"><span class="annot"><span class="annottext">Int -&gt; Endpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372122"><span id="local-6989586621679372124"><span id="local-6989586621679372126"><span class="annot"><span class="annottext">Int -&gt; Endpoint -&gt; ShowS
 [Endpoint] -&gt; ShowS
 Endpoint -&gt; String
 (Int -&gt; Endpoint -&gt; ShowS)
@@ -103,17 +103,17 @@ $cfrom :: forall x. Endpoint -&gt; Rep Endpoint x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span>
 </span><span id="line-54"></span><span id="newEndpoint"><span class="annot"><span class="annottext">newEndpoint :: Text -&gt; Integer -&gt; Endpoint
-</span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#newEndpoint"><span class="hs-identifier hs-var hs-var">newEndpoint</span></a></span></span><span> </span><span id="local-6989586621679372107"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372107"><span class="hs-identifier hs-var">pAddress_</span></a></span></span><span> </span><span id="local-6989586621679372106"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679372106"><span class="hs-identifier hs-var">pCachePeriodInMinutes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#newEndpoint"><span class="hs-identifier hs-var hs-var">newEndpoint</span></a></span></span><span> </span><span id="local-6989586621679372116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372116"><span class="hs-identifier hs-var">pAddress_</span></a></span></span><span> </span><span id="local-6989586621679372115"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679372115"><span class="hs-identifier hs-var">pCachePeriodInMinutes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">Endpoint' :: Text -&gt; Integer -&gt; Endpoint
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:address:Endpoint' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#%24sel%3Aaddress%3AEndpoint%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372107"><span class="hs-identifier hs-var">pAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679372116"><span class="hs-identifier hs-var">pAddress_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:cachePeriodInMinutes:Endpoint' :: Integer
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#%24sel%3AcachePeriodInMinutes%3AEndpoint%27"><span class="hs-identifier hs-var">cachePeriodInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679372106"><span class="hs-identifier hs-var">pCachePeriodInMinutes_</span></a></span><span>
+</span><a href="#local-6989586621679372115"><span class="hs-identifier hs-var">pCachePeriodInMinutes_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | IP address of the endpoint.</span><span>
@@ -123,16 +123,16 @@ $cfrom :: forall x. Endpoint -&gt; Rep Endpoint x
 -&gt; (Endpoint -&gt; Text -&gt; Endpoint)
 -&gt; Lens Endpoint Endpoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372102"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372111"><span class="annot"><span class="annottext">Text
 address :: Text
 $sel:address:Endpoint' :: Endpoint -&gt; Text
-</span><a href="#local-6989586621679372102"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372102"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372101"><span class="annot"><span class="annottext">s :: Endpoint
-</span><a href="#local-6989586621679372101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372100"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679372101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:Endpoint' :: Text
+</span><a href="#local-6989586621679372111"><span class="hs-identifier hs-var hs-var">address</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372111"><span class="hs-identifier hs-var">address</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372110"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679372110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372109"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679372109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679372110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:address:Endpoint' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#%24sel%3Aaddress%3AEndpoint%27"><span class="hs-identifier hs-var">address</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Endpoint cache time to live (TTL) value.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#endpoint_cachePeriodInMinutes"><span class="hs-identifier hs-type">endpoint_cachePeriodInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -141,47 +141,47 @@ $sel:address:Endpoint' :: Endpoint -&gt; Text
 -&gt; (Endpoint -&gt; Integer -&gt; Endpoint)
 -&gt; Lens Endpoint Endpoint Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372098"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372107"><span class="annot"><span class="annottext">Integer
 cachePeriodInMinutes :: Integer
 $sel:cachePeriodInMinutes:Endpoint' :: Endpoint -&gt; Integer
-</span><a href="#local-6989586621679372098"><span class="hs-identifier hs-var hs-var">cachePeriodInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679372098"><span class="hs-identifier hs-var">cachePeriodInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372097"><span class="annot"><span class="annottext">s :: Endpoint
-</span><a href="#local-6989586621679372097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372096"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679372096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679372097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePeriodInMinutes:Endpoint' :: Integer
+</span><a href="#local-6989586621679372107"><span class="hs-identifier hs-var hs-var">cachePeriodInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679372107"><span class="hs-identifier hs-var">cachePeriodInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372106"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679372106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372105"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679372105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679372106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePeriodInMinutes:Endpoint' :: Integer
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#%24sel%3AcachePeriodInMinutes%3AEndpoint%27"><span class="hs-identifier hs-var">cachePeriodInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679372096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679372105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372093"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679372091"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Endpoint
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372102"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679372100"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Endpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Endpoint) -&gt; Value -&gt; Parser Endpoint
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Endpoint&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372088"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372097"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679372097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Integer -&gt; Endpoint
 </span><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Integer -&gt; Endpoint)
 -&gt; Parser Text -&gt; Parser (Integer -&gt; Endpoint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679372097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Address&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; Endpoint) -&gt; Parser Integer -&gt; Parser Endpoint
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679372097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CachePeriodInMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372082"><span id="local-6989586621679372084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372091"><span id="local-6989586621679372093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

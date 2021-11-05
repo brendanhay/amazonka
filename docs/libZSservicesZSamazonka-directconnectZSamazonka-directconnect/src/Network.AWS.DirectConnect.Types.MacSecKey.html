@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the MAC Security (MACsec) secret key.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMacSecKey' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679288939"><span id="local-6989586621679288940"></span></span><span class="hs-keyword">data</span><span> </span><span id="MacSecKey"><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-var">MacSecKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MacSecKey%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-var">MacSecKey'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679288948"><span id="local-6989586621679288949"></span></span><span class="hs-keyword">data</span><span> </span><span id="MacSecKey"><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-var">MacSecKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MacSecKey%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-var">MacSecKey'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the MAC Security (MACsec) secret key.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- The possible values are:</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AstartOn%3AMacSecKey%27"><span class="annot"><span class="annottext">MacSecKey -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#%24sel%3AstartOn%3AMacSecKey%27"><span class="hs-identifier hs-var hs-var">startOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288930"><span id="local-6989586621679288932"><span class="annot"><span class="annottext">MacSecKey -&gt; MacSecKey -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288939"><span id="local-6989586621679288941"><span class="annot"><span class="annottext">MacSecKey -&gt; MacSecKey -&gt; Bool
 (MacSecKey -&gt; MacSecKey -&gt; Bool)
 -&gt; (MacSecKey -&gt; MacSecKey -&gt; Bool) -&gt; Eq MacSecKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MacSecKey -&gt; MacSecKey -&gt; Bool
 == :: MacSecKey -&gt; MacSecKey -&gt; Bool
 $c== :: MacSecKey -&gt; MacSecKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288921"><span id="local-6989586621679288923"><span id="local-6989586621679288925"><span id="local-6989586621679288927"><span class="annot"><span class="annottext">ReadPrec [MacSecKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288930"><span id="local-6989586621679288932"><span id="local-6989586621679288934"><span id="local-6989586621679288936"><span class="annot"><span class="annottext">ReadPrec [MacSecKey]
 ReadPrec MacSecKey
 Int -&gt; ReadS MacSecKey
 ReadS [MacSecKey]
@@ -83,7 +83,7 @@ readList :: ReadS [MacSecKey]
 $creadList :: ReadS [MacSecKey]
 readsPrec :: Int -&gt; ReadS MacSecKey
 $creadsPrec :: Int -&gt; ReadS MacSecKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288914"><span id="local-6989586621679288916"><span id="local-6989586621679288918"><span class="annot"><span class="annottext">Int -&gt; MacSecKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288923"><span id="local-6989586621679288925"><span id="local-6989586621679288927"><span class="annot"><span class="annottext">Int -&gt; MacSecKey -&gt; ShowS
 [MacSecKey] -&gt; ShowS
 MacSecKey -&gt; String
 (Int -&gt; MacSecKey -&gt; ShowS)
@@ -183,16 +183,16 @@ forall a. Maybe a
 -&gt; (MacSecKey -&gt; Maybe Text -&gt; MacSecKey)
 -&gt; Lens MacSecKey MacSecKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288905"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288914"><span class="annot"><span class="annottext">Maybe Text
 state :: Maybe Text
 $sel:state:MacSecKey' :: MacSecKey -&gt; Maybe Text
-</span><a href="#local-6989586621679288905"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288905"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288904"><span class="annot"><span class="annottext">s :: MacSecKey
-</span><a href="#local-6989586621679288904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288903"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
-</span><a href="#local-6989586621679288904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:MacSecKey' :: Maybe Text
+</span><a href="#local-6989586621679288914"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288914"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288913"><span class="annot"><span class="annottext">s :: MacSecKey
+</span><a href="#local-6989586621679288913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288912"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
+</span><a href="#local-6989586621679288913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:MacSecKey' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#%24sel%3Astate%3AMacSecKey%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The Connection Key Name (CKN) for the MAC Security secret key.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#macSecKey_ckn"><span class="hs-identifier hs-type">macSecKey_ckn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -201,16 +201,16 @@ $sel:state:MacSecKey' :: MacSecKey -&gt; Maybe Text
 -&gt; (MacSecKey -&gt; Maybe Text -&gt; MacSecKey)
 -&gt; Lens MacSecKey MacSecKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288901"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288910"><span class="annot"><span class="annottext">Maybe Text
 ckn :: Maybe Text
 $sel:ckn:MacSecKey' :: MacSecKey -&gt; Maybe Text
-</span><a href="#local-6989586621679288901"><span class="hs-identifier hs-var hs-var">ckn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288901"><span class="hs-identifier hs-var">ckn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288900"><span class="annot"><span class="annottext">s :: MacSecKey
-</span><a href="#local-6989586621679288900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288899"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
-</span><a href="#local-6989586621679288900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ckn:MacSecKey' :: Maybe Text
+</span><a href="#local-6989586621679288910"><span class="hs-identifier hs-var hs-var">ckn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288910"><span class="hs-identifier hs-var">ckn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288909"><span class="annot"><span class="annottext">s :: MacSecKey
+</span><a href="#local-6989586621679288909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288908"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
+</span><a href="#local-6989586621679288909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ckn:MacSecKey' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#%24sel%3Ackn%3AMacSecKey%27"><span class="hs-identifier hs-var">ckn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#macSecKey_secretARN"><span class="hs-identifier hs-type">macSecKey_secretARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -219,16 +219,16 @@ $sel:ckn:MacSecKey' :: MacSecKey -&gt; Maybe Text
 -&gt; (MacSecKey -&gt; Maybe Text -&gt; MacSecKey)
 -&gt; Lens MacSecKey MacSecKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288897"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288906"><span class="annot"><span class="annottext">Maybe Text
 secretARN :: Maybe Text
 $sel:secretARN:MacSecKey' :: MacSecKey -&gt; Maybe Text
-</span><a href="#local-6989586621679288897"><span class="hs-identifier hs-var hs-var">secretARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288897"><span class="hs-identifier hs-var">secretARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288896"><span class="annot"><span class="annottext">s :: MacSecKey
-</span><a href="#local-6989586621679288896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288895"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
-</span><a href="#local-6989586621679288896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretARN:MacSecKey' :: Maybe Text
+</span><a href="#local-6989586621679288906"><span class="hs-identifier hs-var hs-var">secretARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288906"><span class="hs-identifier hs-var">secretARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288905"><span class="annot"><span class="annottext">s :: MacSecKey
+</span><a href="#local-6989586621679288905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288904"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
+</span><a href="#local-6989586621679288905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretARN:MacSecKey' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#%24sel%3AsecretARN%3AMacSecKey%27"><span class="hs-identifier hs-var">secretARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The date that the MAC Security (MACsec) secret key takes effect. The</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- value is displayed in UTC format.</span><span>
@@ -238,27 +238,27 @@ $sel:secretARN:MacSecKey' :: MacSecKey -&gt; Maybe Text
 -&gt; (MacSecKey -&gt; Maybe Text -&gt; MacSecKey)
 -&gt; Lens MacSecKey MacSecKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288893"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288902"><span class="annot"><span class="annottext">Maybe Text
 startOn :: Maybe Text
 $sel:startOn:MacSecKey' :: MacSecKey -&gt; Maybe Text
-</span><a href="#local-6989586621679288893"><span class="hs-identifier hs-var hs-var">startOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288893"><span class="hs-identifier hs-var">startOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288892"><span class="annot"><span class="annottext">s :: MacSecKey
-</span><a href="#local-6989586621679288892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288891"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
-</span><a href="#local-6989586621679288892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startOn:MacSecKey' :: Maybe Text
+</span><a href="#local-6989586621679288902"><span class="hs-identifier hs-var hs-var">startOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288902"><span class="hs-identifier hs-var">startOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288901"><span class="annot"><span class="annottext">s :: MacSecKey
+</span><a href="#local-6989586621679288901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-type">MacSecKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288900"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MacSecKey
+</span><a href="#local-6989586621679288901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startOn:MacSecKey' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#%24sel%3AstartOn%3AMacSecKey%27"><span class="hs-identifier hs-var">startOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679288891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679288900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288888"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679288886"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MacSecKey
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288897"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679288895"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MacSecKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser MacSecKey) -&gt; Value -&gt; Parser MacSecKey
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MacSecKey&quot;</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288883"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288883"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288892"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288892"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MacSecKey
 </span><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey%27"><span class="hs-identifier hs-var">MacSecKey'</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MacSecKey)
@@ -266,7 +266,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MacSecKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679288892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,7 +275,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MacSecKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679288892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ckn&quot;</span></span><span class="hs-special">)</span><span>
@@ -283,7 +283,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MacSecKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679288892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;secretARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,13 +291,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser MacSecKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288883"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679288892"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startOn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288877"><span id="local-6989586621679288879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288886"><span id="local-6989586621679288888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.MacSecKey.html#MacSecKey"><span class="hs-identifier hs-type">MacSecKey</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

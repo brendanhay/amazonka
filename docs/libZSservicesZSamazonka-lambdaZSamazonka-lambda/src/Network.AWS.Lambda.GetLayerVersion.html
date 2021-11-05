@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetLayerVersion' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679307454"><span id="local-6989586621679307455"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLayerVersion"><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-var">GetLayerVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLayerVersion%27"><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-var">GetLayerVersion'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679307463"><span id="local-6989586621679307464"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLayerVersion"><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-var">GetLayerVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLayerVersion%27"><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-var">GetLayerVersion'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the layer.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AlayerName%3AGetLayerVersion%27"><span class="annot"><span class="annottext">GetLayerVersion -&gt; Text
 </span><a href="Network.AWS.Lambda.GetLayerVersion.html#%24sel%3AlayerName%3AGetLayerVersion%27"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AversionNumber%3AGetLayerVersion%27"><span class="annot"><span class="annottext">GetLayerVersion -&gt; Integer
 </span><a href="Network.AWS.Lambda.GetLayerVersion.html#%24sel%3AversionNumber%3AGetLayerVersion%27"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307447"><span id="local-6989586621679307449"><span class="annot"><span class="annottext">GetLayerVersion -&gt; GetLayerVersion -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307456"><span id="local-6989586621679307458"><span class="annot"><span class="annottext">GetLayerVersion -&gt; GetLayerVersion -&gt; Bool
 (GetLayerVersion -&gt; GetLayerVersion -&gt; Bool)
 -&gt; (GetLayerVersion -&gt; GetLayerVersion -&gt; Bool)
 -&gt; Eq GetLayerVersion
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetLayerVersion -&gt; GetLayerVersion -&gt; Bool
 == :: GetLayerVersion -&gt; GetLayerVersion -&gt; Bool
 $c== :: GetLayerVersion -&gt; GetLayerVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307438"><span id="local-6989586621679307440"><span id="local-6989586621679307442"><span id="local-6989586621679307444"><span class="annot"><span class="annottext">ReadPrec [GetLayerVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307447"><span id="local-6989586621679307449"><span id="local-6989586621679307451"><span id="local-6989586621679307453"><span class="annot"><span class="annottext">ReadPrec [GetLayerVersion]
 ReadPrec GetLayerVersion
 Int -&gt; ReadS GetLayerVersion
 ReadS [GetLayerVersion]
@@ -94,7 +94,7 @@ readList :: ReadS [GetLayerVersion]
 $creadList :: ReadS [GetLayerVersion]
 readsPrec :: Int -&gt; ReadS GetLayerVersion
 $creadsPrec :: Int -&gt; ReadS GetLayerVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307431"><span id="local-6989586621679307433"><span id="local-6989586621679307435"><span class="annot"><span class="annottext">Int -&gt; GetLayerVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307440"><span id="local-6989586621679307442"><span id="local-6989586621679307444"><span class="annot"><span class="annottext">Int -&gt; GetLayerVersion -&gt; ShowS
 [GetLayerVersion] -&gt; ShowS
 GetLayerVersion -&gt; String
 (Int -&gt; GetLayerVersion -&gt; ShowS)
@@ -138,17 +138,17 @@ $cfrom :: forall x. GetLayerVersion -&gt; Rep GetLayerVersion x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span>
 </span><span id="line-85"></span><span id="newGetLayerVersion"><span class="annot"><span class="annottext">newGetLayerVersion :: Text -&gt; Integer -&gt; GetLayerVersion
-</span><a href="Network.AWS.Lambda.GetLayerVersion.html#newGetLayerVersion"><span class="hs-identifier hs-var hs-var">newGetLayerVersion</span></a></span></span><span> </span><span id="local-6989586621679307426"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307426"><span class="hs-identifier hs-var">pLayerName_</span></a></span></span><span> </span><span id="local-6989586621679307425"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307425"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.GetLayerVersion.html#newGetLayerVersion"><span class="hs-identifier hs-var hs-var">newGetLayerVersion</span></a></span></span><span> </span><span id="local-6989586621679307435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307435"><span class="hs-identifier hs-var">pLayerName_</span></a></span></span><span> </span><span id="local-6989586621679307434"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679307434"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">GetLayerVersion' :: Text -&gt; Integer -&gt; GetLayerVersion
 </span><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:layerName:GetLayerVersion' :: Text
 </span><a href="Network.AWS.Lambda.GetLayerVersion.html#%24sel%3AlayerName%3AGetLayerVersion%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307426"><span class="hs-identifier hs-var">pLayerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307435"><span class="hs-identifier hs-var">pLayerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:versionNumber:GetLayerVersion' :: Integer
 </span><a href="Network.AWS.Lambda.GetLayerVersion.html#%24sel%3AversionNumber%3AGetLayerVersion%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307425"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span><span>
+</span><a href="#local-6989586621679307434"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the layer.</span><span>
@@ -158,16 +158,16 @@ $cfrom :: forall x. GetLayerVersion -&gt; Rep GetLayerVersion x
 -&gt; (GetLayerVersion -&gt; Text -&gt; GetLayerVersion)
 -&gt; Lens GetLayerVersion GetLayerVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307422"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307431"><span class="annot"><span class="annottext">Text
 layerName :: Text
 $sel:layerName:GetLayerVersion' :: GetLayerVersion -&gt; Text
-</span><a href="#local-6989586621679307422"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307422"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307421"><span class="annot"><span class="annottext">s :: GetLayerVersion
-</span><a href="#local-6989586621679307421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307420"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLayerVersion
-</span><a href="#local-6989586621679307421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerName:GetLayerVersion' :: Text
+</span><a href="#local-6989586621679307431"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307431"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307430"><span class="annot"><span class="annottext">s :: GetLayerVersion
+</span><a href="#local-6989586621679307430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLayerVersion
+</span><a href="#local-6989586621679307430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerName:GetLayerVersion' :: Text
 </span><a href="Network.AWS.Lambda.GetLayerVersion.html#%24sel%3AlayerName%3AGetLayerVersion%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The version number.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#getLayerVersion_versionNumber"><span class="hs-identifier hs-type">getLayerVersion_versionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -176,27 +176,27 @@ $sel:layerName:GetLayerVersion' :: GetLayerVersion -&gt; Text
 -&gt; (GetLayerVersion -&gt; Integer -&gt; GetLayerVersion)
 -&gt; Lens GetLayerVersion GetLayerVersion Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307419"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307428"><span class="annot"><span class="annottext">Integer
 versionNumber :: Integer
 $sel:versionNumber:GetLayerVersion' :: GetLayerVersion -&gt; Integer
-</span><a href="#local-6989586621679307419"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307419"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307418"><span class="annot"><span class="annottext">s :: GetLayerVersion
-</span><a href="#local-6989586621679307418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307417"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLayerVersion
-</span><a href="#local-6989586621679307418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:GetLayerVersion' :: Integer
+</span><a href="#local-6989586621679307428"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679307428"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307427"><span class="annot"><span class="annottext">s :: GetLayerVersion
+</span><a href="#local-6989586621679307427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307426"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679307426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLayerVersion
+</span><a href="#local-6989586621679307427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:GetLayerVersion' :: Integer
 </span><a href="Network.AWS.Lambda.GetLayerVersion.html#%24sel%3AversionNumber%3AGetLayerVersion%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.Types.GetLayerVersionResponse.html#GetLayerVersionResponse"><span class="hs-identifier hs-type">GetLayerVersionResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679307413"><span class="annot"><span class="annottext">request :: GetLayerVersion -&gt; Request GetLayerVersion
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679307422"><span class="annot"><span class="annottext">request :: GetLayerVersion -&gt; Request GetLayerVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetLayerVersion -&gt; Request GetLayerVersion
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679307409"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679307418"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetLayerVersion
 -&gt; ClientResponse ClientBody
@@ -220,20 +220,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307406"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307406"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307405"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679307405"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307404"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307404"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String GetLayerVersionResponse
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307415"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307415"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307414"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679307414"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307413"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307413"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String GetLayerVersionResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307404"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307413"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307399"><span id="local-6989586621679307401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307408"><span id="local-6989586621679307410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679307392"><span class="annot"><span class="annottext">toHeaders :: GetLayerVersion -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679307401"><span class="annot"><span class="annottext">toHeaders :: GetLayerVersion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetLayerVersion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -241,14 +241,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679307387"><span class="annot"><span class="annottext">toPath :: GetLayerVersion -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307384"><span id="local-6989586621679307385"><span class="annot"><span class="annottext">Integer
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679307396"><span class="annot"><span class="annottext">toPath :: GetLayerVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion%27"><span class="hs-identifier hs-type">GetLayerVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307393"><span id="local-6989586621679307394"><span class="annot"><span class="annottext">Integer
 Text
 versionNumber :: Integer
 layerName :: Text
 $sel:versionNumber:GetLayerVersion' :: GetLayerVersion -&gt; Integer
 $sel:layerName:GetLayerVersion' :: GetLayerVersion -&gt; Text
-</span><a href="#local-6989586621679307384"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679307393"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -257,17 +257,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307385"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307394"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Integer -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307384"><span class="hs-identifier hs-var">versionNumber</span></a></span><span>
+</span><a href="#local-6989586621679307393"><span class="hs-identifier hs-var">versionNumber</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.GetLayerVersion.html#GetLayerVersion"><span class="hs-identifier hs-type">GetLayerVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679307380"><span class="annot"><span class="annottext">toQuery :: GetLayerVersion -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679307389"><span class="annot"><span class="annottext">toQuery :: GetLayerVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetLayerVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

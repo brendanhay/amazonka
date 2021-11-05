@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.AppMesh.Types.ListenerTlsMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.AppMesh.Types.ListenerTlsMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode"><span class="hs-identifier">ListenerTlsMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_DISABLED"><span class="hs-identifier">ListenerTlsMode_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_PERMISSIVE"><span class="hs-identifier">ListenerTlsMode_PERMISSIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_STRICT"><span class="hs-identifier">ListenerTlsMode_STRICT</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679327229"><span id="local-6989586621679327230"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ListenerTlsMode"><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode"><span class="hs-identifier hs-var">ListenerTlsMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListenerTlsMode%27"><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode%27"><span class="hs-identifier hs-var">ListenerTlsMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromListenerTlsMode"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; Text
+</span><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#fromListenerTlsMode"><span class="hs-identifier hs-var hs-var">fromListenerTlsMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327221"><span id="local-6989586621679327223"><span id="local-6989586621679327225"><span class="annot"><span class="annottext">Int -&gt; ListenerTlsMode -&gt; ShowS
+[ListenerTlsMode] -&gt; ShowS
+ListenerTlsMode -&gt; String
+(Int -&gt; ListenerTlsMode -&gt; ShowS)
+-&gt; (ListenerTlsMode -&gt; String)
+-&gt; ([ListenerTlsMode] -&gt; ShowS)
+-&gt; Show ListenerTlsMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListenerTlsMode] -&gt; ShowS
+$cshowList :: [ListenerTlsMode] -&gt; ShowS
+show :: ListenerTlsMode -&gt; String
+$cshow :: ListenerTlsMode -&gt; String
+showsPrec :: Int -&gt; ListenerTlsMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListenerTlsMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327212"><span id="local-6989586621679327214"><span id="local-6989586621679327216"><span id="local-6989586621679327218"><span class="annot"><span class="annottext">ReadPrec [ListenerTlsMode]
+ReadPrec ListenerTlsMode
+Int -&gt; ReadS ListenerTlsMode
+ReadS [ListenerTlsMode]
+(Int -&gt; ReadS ListenerTlsMode)
+-&gt; ReadS [ListenerTlsMode]
+-&gt; ReadPrec ListenerTlsMode
+-&gt; ReadPrec [ListenerTlsMode]
+-&gt; Read ListenerTlsMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListenerTlsMode]
+$creadListPrec :: ReadPrec [ListenerTlsMode]
+readPrec :: ReadPrec ListenerTlsMode
+$creadPrec :: ReadPrec ListenerTlsMode
+readList :: ReadS [ListenerTlsMode]
+$creadList :: ReadS [ListenerTlsMode]
+readsPrec :: Int -&gt; ReadS ListenerTlsMode
+$creadsPrec :: Int -&gt; ReadS ListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327207"><span id="local-6989586621679327209"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+(ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool)
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool)
+-&gt; Eq ListenerTlsMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+$c/= :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+== :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+$c== :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679327191"><span id="local-6989586621679327193"><span id="local-6989586621679327195"><span id="local-6989586621679327197"><span id="local-6989586621679327199"><span id="local-6989586621679327201"><span id="local-6989586621679327203"><span class="annot"><span class="annottext">Eq ListenerTlsMode
+Eq ListenerTlsMode
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; Ordering)
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool)
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool)
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool)
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool)
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; ListenerTlsMode)
+-&gt; (ListenerTlsMode -&gt; ListenerTlsMode -&gt; ListenerTlsMode)
+-&gt; Ord ListenerTlsMode
+ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+ListenerTlsMode -&gt; ListenerTlsMode -&gt; Ordering
+ListenerTlsMode -&gt; ListenerTlsMode -&gt; ListenerTlsMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; ListenerTlsMode
+$cmin :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; ListenerTlsMode
+max :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; ListenerTlsMode
+$cmax :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; ListenerTlsMode
+&gt;= :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+$c&gt;= :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+&gt; :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+$c&gt; :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+&lt;= :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+$c&lt;= :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+&lt; :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+$c&lt; :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Bool
+compare :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Ordering
+$ccompare :: ListenerTlsMode -&gt; ListenerTlsMode -&gt; Ordering
+$cp1Ord :: Eq ListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ListenerTlsMode -&gt; Rep ListenerTlsMode x)
+-&gt; (forall x. Rep ListenerTlsMode x -&gt; ListenerTlsMode)
+-&gt; Generic ListenerTlsMode
+forall x. Rep ListenerTlsMode x -&gt; ListenerTlsMode
+forall x. ListenerTlsMode -&gt; Rep ListenerTlsMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListenerTlsMode x -&gt; ListenerTlsMode
+$cfrom :: forall x. ListenerTlsMode -&gt; Rep ListenerTlsMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327183"><span id="local-6989586621679327185"><span class="annot"><span class="annottext">Int -&gt; ListenerTlsMode -&gt; Int
+ListenerTlsMode -&gt; Int
+(Int -&gt; ListenerTlsMode -&gt; Int)
+-&gt; (ListenerTlsMode -&gt; Int) -&gt; Hashable ListenerTlsMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ListenerTlsMode -&gt; Int
+$chash :: ListenerTlsMode -&gt; Int
+hashWithSalt :: Int -&gt; ListenerTlsMode -&gt; Int
+$chashWithSalt :: Int -&gt; ListenerTlsMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327180"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; ()
+(ListenerTlsMode -&gt; ()) -&gt; NFData ListenerTlsMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ListenerTlsMode -&gt; ()
+$crnf :: ListenerTlsMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327177"><span class="annot"><span class="annottext">Text -&gt; Either String ListenerTlsMode
+(Text -&gt; Either String ListenerTlsMode) -&gt; FromText ListenerTlsMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ListenerTlsMode
+$cfromText :: Text -&gt; Either String ListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327174"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; Text
+(ListenerTlsMode -&gt; Text) -&gt; ToText ListenerTlsMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ListenerTlsMode -&gt; Text
+$ctoText :: ListenerTlsMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327171"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; ByteString
+(ListenerTlsMode -&gt; ByteString) -&gt; ToByteString ListenerTlsMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ListenerTlsMode -&gt; ByteString
+$ctoBS :: ListenerTlsMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327168"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; ByteStringBuilder
+(ListenerTlsMode -&gt; ByteStringBuilder) -&gt; ToLog ListenerTlsMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ListenerTlsMode -&gt; ByteStringBuilder
+$cbuild :: ListenerTlsMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327165"><span class="annot"><span class="annottext">HeaderName -&gt; ListenerTlsMode -&gt; [Header]
+(HeaderName -&gt; ListenerTlsMode -&gt; [Header])
+-&gt; ToHeader ListenerTlsMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ListenerTlsMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ListenerTlsMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327162"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; QueryString
+(ListenerTlsMode -&gt; QueryString) -&gt; ToQuery ListenerTlsMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ListenerTlsMode -&gt; QueryString
+$ctoQuery :: ListenerTlsMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327157"><span id="local-6989586621679327159"><span class="annot"><span class="annottext">Value -&gt; Parser [ListenerTlsMode]
+Value -&gt; Parser ListenerTlsMode
+(Value -&gt; Parser ListenerTlsMode)
+-&gt; (Value -&gt; Parser [ListenerTlsMode]) -&gt; FromJSON ListenerTlsMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ListenerTlsMode]
+$cparseJSONList :: Value -&gt; Parser [ListenerTlsMode]
+parseJSON :: Value -&gt; Parser ListenerTlsMode
+$cparseJSON :: Value -&gt; Parser ListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327152"><span id="local-6989586621679327154"><span class="annot"><span class="annottext">FromJSONKeyFunction [ListenerTlsMode]
+FromJSONKeyFunction ListenerTlsMode
+FromJSONKeyFunction ListenerTlsMode
+-&gt; FromJSONKeyFunction [ListenerTlsMode]
+-&gt; FromJSONKey ListenerTlsMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ListenerTlsMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [ListenerTlsMode]
+fromJSONKey :: FromJSONKeyFunction ListenerTlsMode
+$cfromJSONKey :: FromJSONKeyFunction ListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327143"><span id="local-6989586621679327145"><span id="local-6989586621679327147"><span id="local-6989586621679327149"><span class="annot"><span class="annottext">[ListenerTlsMode] -&gt; Encoding
+[ListenerTlsMode] -&gt; Value
+ListenerTlsMode -&gt; Encoding
+ListenerTlsMode -&gt; Value
+(ListenerTlsMode -&gt; Value)
+-&gt; (ListenerTlsMode -&gt; Encoding)
+-&gt; ([ListenerTlsMode] -&gt; Value)
+-&gt; ([ListenerTlsMode] -&gt; Encoding)
+-&gt; ToJSON ListenerTlsMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ListenerTlsMode] -&gt; Encoding
+$ctoEncodingList :: [ListenerTlsMode] -&gt; Encoding
+toJSONList :: [ListenerTlsMode] -&gt; Value
+$ctoJSONList :: [ListenerTlsMode] -&gt; Value
+toEncoding :: ListenerTlsMode -&gt; Encoding
+$ctoEncoding :: ListenerTlsMode -&gt; Encoding
+toJSON :: ListenerTlsMode -&gt; Value
+$ctoJSON :: ListenerTlsMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327138"><span id="local-6989586621679327140"><span class="annot"><span class="annottext">ToJSONKeyFunction [ListenerTlsMode]
+ToJSONKeyFunction ListenerTlsMode
+ToJSONKeyFunction ListenerTlsMode
+-&gt; ToJSONKeyFunction [ListenerTlsMode] -&gt; ToJSONKey ListenerTlsMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ListenerTlsMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [ListenerTlsMode]
+toJSONKey :: ToJSONKeyFunction ListenerTlsMode
+$ctoJSONKey :: ToJSONKeyFunction ListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327135"><span class="annot"><span class="annottext">[Node] -&gt; Either String ListenerTlsMode
+([Node] -&gt; Either String ListenerTlsMode)
+-&gt; FromXML ListenerTlsMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ListenerTlsMode
+$cparseXML :: [Node] -&gt; Either String ListenerTlsMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679327132"><span class="annot"><span class="annottext">ListenerTlsMode -&gt; XML
+(ListenerTlsMode -&gt; XML) -&gt; ToXML ListenerTlsMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ListenerTlsMode -&gt; XML
+$ctoXML :: ListenerTlsMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_DISABLED"><span class="hs-identifier hs-type">ListenerTlsMode_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode"><span class="hs-identifier hs-type">ListenerTlsMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListenerTlsMode_DISABLED"><span id="%24mListenerTlsMode_DISABLED"><span id="ListenerTlsMode_DISABLED"><span class="annot"><span class="annottext">$bListenerTlsMode_DISABLED :: ListenerTlsMode
+$mListenerTlsMode_DISABLED :: forall r. ListenerTlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#%24bListenerTlsMode_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">ListenerTlsMode_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode%27"><span class="hs-identifier hs-type">ListenerTlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_PERMISSIVE"><span class="hs-identifier hs-type">ListenerTlsMode_PERMISSIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode"><span class="hs-identifier hs-type">ListenerTlsMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListenerTlsMode_PERMISSIVE"><span id="%24mListenerTlsMode_PERMISSIVE"><span id="ListenerTlsMode_PERMISSIVE"><span class="annot"><span class="annottext">$bListenerTlsMode_PERMISSIVE :: ListenerTlsMode
+$mListenerTlsMode_PERMISSIVE :: forall r. ListenerTlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#%24bListenerTlsMode_PERMISSIVE"><span class="hs-identifier hs-var hs-var hs-var">ListenerTlsMode_PERMISSIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode%27"><span class="hs-identifier hs-type">ListenerTlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PERMISSIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_STRICT"><span class="hs-identifier hs-type">ListenerTlsMode_STRICT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode"><span class="hs-identifier hs-type">ListenerTlsMode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bListenerTlsMode_STRICT"><span id="%24mListenerTlsMode_STRICT"><span id="ListenerTlsMode_STRICT"><span class="annot"><span class="annottext">$bListenerTlsMode_STRICT :: ListenerTlsMode
+$mListenerTlsMode_STRICT :: forall r. ListenerTlsMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#%24bListenerTlsMode_STRICT"><span class="hs-identifier hs-var hs-var hs-var">ListenerTlsMode_STRICT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode%27"><span class="hs-identifier hs-type">ListenerTlsMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRICT&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_DISABLED"><span class="hs-pragma hs-type">ListenerTlsMode_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_PERMISSIVE"><span class="hs-pragma hs-type">ListenerTlsMode_PERMISSIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode_STRICT"><span class="hs-pragma hs-type">ListenerTlsMode_STRICT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.AppMesh.Types.ListenerTlsMode.html#ListenerTlsMode%27"><span class="hs-pragma hs-type">ListenerTlsMode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

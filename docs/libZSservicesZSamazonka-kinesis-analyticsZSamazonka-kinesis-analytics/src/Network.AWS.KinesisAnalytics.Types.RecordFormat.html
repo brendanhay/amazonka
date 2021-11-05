@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- be applied to schematize the records on the stream.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRecordFormat' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679208575"><span id="local-6989586621679208576"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordFormat"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-var">RecordFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordFormat%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-var">RecordFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679208584"><span id="local-6989586621679208585"></span></span><span class="hs-keyword">data</span><span> </span><span id="RecordFormat"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-var">RecordFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecordFormat%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-var">RecordFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When configuring application input at the time of creating or updating</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- an application, provides additional mapping information specific to the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- record format (such as JSON, CSV, or record fields delimited by some</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3ArecordFormatType%3ARecordFormat%27"><span class="annot"><span class="annottext">RecordFormat -&gt; RecordFormatType
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#%24sel%3ArecordFormatType%3ARecordFormat%27"><span class="hs-identifier hs-var hs-var">recordFormatType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormatType.html#RecordFormatType"><span class="hs-identifier hs-type">RecordFormatType</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208568"><span id="local-6989586621679208570"><span class="annot"><span class="annottext">RecordFormat -&gt; RecordFormat -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208577"><span id="local-6989586621679208579"><span class="annot"><span class="annottext">RecordFormat -&gt; RecordFormat -&gt; Bool
 (RecordFormat -&gt; RecordFormat -&gt; Bool)
 -&gt; (RecordFormat -&gt; RecordFormat -&gt; Bool) -&gt; Eq RecordFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RecordFormat -&gt; RecordFormat -&gt; Bool
 == :: RecordFormat -&gt; RecordFormat -&gt; Bool
 $c== :: RecordFormat -&gt; RecordFormat -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208559"><span id="local-6989586621679208561"><span id="local-6989586621679208563"><span id="local-6989586621679208565"><span class="annot"><span class="annottext">ReadPrec [RecordFormat]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208568"><span id="local-6989586621679208570"><span id="local-6989586621679208572"><span id="local-6989586621679208574"><span class="annot"><span class="annottext">ReadPrec [RecordFormat]
 ReadPrec RecordFormat
 Int -&gt; ReadS RecordFormat
 ReadS [RecordFormat]
@@ -68,7 +68,7 @@ readList :: ReadS [RecordFormat]
 $creadList :: ReadS [RecordFormat]
 readsPrec :: Int -&gt; ReadS RecordFormat
 $creadsPrec :: Int -&gt; ReadS RecordFormat
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208552"><span id="local-6989586621679208554"><span id="local-6989586621679208556"><span class="annot"><span class="annottext">Int -&gt; RecordFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208561"><span id="local-6989586621679208563"><span id="local-6989586621679208565"><span class="annot"><span class="annottext">Int -&gt; RecordFormat -&gt; ShowS
 [RecordFormat] -&gt; ShowS
 RecordFormat -&gt; String
 (Int -&gt; RecordFormat -&gt; ShowS)
@@ -113,8 +113,8 @@ $cfrom :: forall x. RecordFormat -&gt; Rep RecordFormat x
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormatType.html#RecordFormatType"><span class="hs-identifier hs-type">RecordFormatType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span><span>
 </span><span id="line-61"></span><span id="newRecordFormat"><span class="annot"><span class="annottext">newRecordFormat :: RecordFormatType -&gt; RecordFormat
-</span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#newRecordFormat"><span class="hs-identifier hs-var hs-var">newRecordFormat</span></a></span></span><span> </span><span id="local-6989586621679208546"><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208546"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#newRecordFormat"><span class="hs-identifier hs-var hs-var">newRecordFormat</span></a></span></span><span> </span><span id="local-6989586621679208555"><span class="annot"><span class="annottext">RecordFormatType
+</span><a href="#local-6989586621679208555"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">RecordFormat' :: Maybe MappingParameters -&gt; RecordFormatType -&gt; RecordFormat
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mappingParameters:RecordFormat' :: Maybe MappingParameters
@@ -123,7 +123,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:recordFormatType:RecordFormat' :: RecordFormatType
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#%24sel%3ArecordFormatType%3ARecordFormat%27"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208546"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span><span>
+</span><a href="#local-6989586621679208555"><span class="hs-identifier hs-var">pRecordFormatType_</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | When configuring application input at the time of creating or updating</span><span>
@@ -141,16 +141,16 @@ forall a. Maybe a
      (Maybe MappingParameters)
      (Maybe MappingParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208542"><span class="annot"><span class="annottext">Maybe MappingParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208551"><span class="annot"><span class="annottext">Maybe MappingParameters
 mappingParameters :: Maybe MappingParameters
 $sel:mappingParameters:RecordFormat' :: RecordFormat -&gt; Maybe MappingParameters
-</span><a href="#local-6989586621679208542"><span class="hs-identifier hs-var hs-var">mappingParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MappingParameters
-</span><a href="#local-6989586621679208542"><span class="hs-identifier hs-var">mappingParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208541"><span class="annot"><span class="annottext">s :: RecordFormat
-</span><a href="#local-6989586621679208541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208540"><span class="annot"><span class="annottext">Maybe MappingParameters
-</span><a href="#local-6989586621679208540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormat
-</span><a href="#local-6989586621679208541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mappingParameters:RecordFormat' :: Maybe MappingParameters
+</span><a href="#local-6989586621679208551"><span class="hs-identifier hs-var hs-var">mappingParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MappingParameters
+</span><a href="#local-6989586621679208551"><span class="hs-identifier hs-var">mappingParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208550"><span class="annot"><span class="annottext">s :: RecordFormat
+</span><a href="#local-6989586621679208550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208549"><span class="annot"><span class="annottext">Maybe MappingParameters
+</span><a href="#local-6989586621679208549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormat
+</span><a href="#local-6989586621679208550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mappingParameters:RecordFormat' :: Maybe MappingParameters
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#%24sel%3AmappingParameters%3ARecordFormat%27"><span class="hs-identifier hs-var">mappingParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MappingParameters
-</span><a href="#local-6989586621679208540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The type of record format.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#recordFormat_recordFormatType"><span class="hs-identifier hs-type">recordFormat_recordFormatType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormatType.html#RecordFormatType"><span class="hs-identifier hs-type">RecordFormatType</span></a></span><span>
@@ -160,19 +160,19 @@ $sel:mappingParameters:RecordFormat' :: RecordFormat -&gt; Maybe MappingParamete
 -&gt; (RecordFormat -&gt; RecordFormatType -&gt; RecordFormat)
 -&gt; Lens RecordFormat RecordFormat RecordFormatType RecordFormatType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208538"><span class="annot"><span class="annottext">RecordFormatType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208547"><span class="annot"><span class="annottext">RecordFormatType
 recordFormatType :: RecordFormatType
 $sel:recordFormatType:RecordFormat' :: RecordFormat -&gt; RecordFormatType
-</span><a href="#local-6989586621679208538"><span class="hs-identifier hs-var hs-var">recordFormatType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208538"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208537"><span class="annot"><span class="annottext">s :: RecordFormat
-</span><a href="#local-6989586621679208537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208536"><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormat
-</span><a href="#local-6989586621679208537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordFormatType:RecordFormat' :: RecordFormatType
+</span><a href="#local-6989586621679208547"><span class="hs-identifier hs-var hs-var">recordFormatType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormatType
+</span><a href="#local-6989586621679208547"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208546"><span class="annot"><span class="annottext">s :: RecordFormat
+</span><a href="#local-6989586621679208546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208545"><span class="annot"><span class="annottext">RecordFormatType
+</span><a href="#local-6989586621679208545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RecordFormat
+</span><a href="#local-6989586621679208546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordFormatType:RecordFormat' :: RecordFormatType
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#%24sel%3ArecordFormatType%3ARecordFormat%27"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208533"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679208531"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordFormat
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208542"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679208540"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RecordFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RecordFormat) -&gt; Value -&gt; Parser RecordFormat
@@ -180,8 +180,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RecordFormat&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208528"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208528"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679208537"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679208537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe MappingParameters -&gt; RecordFormatType -&gt; RecordFormat
 </span><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-var">RecordFormat'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MappingParameters -&gt; RecordFormatType -&gt; RecordFormat)
@@ -189,7 +189,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (RecordFormatType -&gt; RecordFormat)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MappingParameters)
+</span><a href="#local-6989586621679208537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MappingParameters)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MappingParameters&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,25 +197,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser RecordFormatType -&gt; Parser RecordFormat
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679208528"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecordFormatType
+</span><a href="#local-6989586621679208537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RecordFormatType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RecordFormatType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208521"><span id="local-6989586621679208523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208530"><span id="local-6989586621679208532"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208527"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208510"><span id="local-6989586621679208512"><span id="local-6989586621679208514"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679208508"><span class="annot"><span class="annottext">toJSON :: RecordFormat -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208505"><span id="local-6989586621679208506"><span class="annot"><span class="annottext">Maybe MappingParameters
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208519"><span id="local-6989586621679208521"><span id="local-6989586621679208523"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat"><span class="hs-identifier hs-type">RecordFormat</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679208517"><span class="annot"><span class="annottext">toJSON :: RecordFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.RecordFormat.html#RecordFormat%27"><span class="hs-identifier hs-type">RecordFormat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208514"><span id="local-6989586621679208515"><span class="annot"><span class="annottext">Maybe MappingParameters
 RecordFormatType
 recordFormatType :: RecordFormatType
 mappingParameters :: Maybe MappingParameters
 $sel:recordFormatType:RecordFormat' :: RecordFormat -&gt; RecordFormatType
 $sel:mappingParameters:RecordFormat' :: RecordFormat -&gt; Maybe MappingParameters
-</span><a href="#local-6989586621679208505"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679208514"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -229,7 +229,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MappingParameters -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MappingParameters
-</span><a href="#local-6989586621679208506"><span class="hs-identifier hs-var">mappingParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208515"><span class="hs-identifier hs-var">mappingParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -237,7 +237,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RecordFormatType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RecordFormatType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RecordFormatType
-</span><a href="#local-6989586621679208505"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208514"><span class="hs-identifier hs-var">recordFormatType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

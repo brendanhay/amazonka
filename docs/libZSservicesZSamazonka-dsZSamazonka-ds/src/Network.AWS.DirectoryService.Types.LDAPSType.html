@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679297450"><span id="local-6989586621679297451"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LDAPSType"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSType.html#LDAPSType"><span class="hs-identifier hs-var">LDAPSType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LDAPSType%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSType.html#LDAPSType%27"><span class="hs-identifier hs-var">LDAPSType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679297459"><span id="local-6989586621679297460"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LDAPSType"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSType.html#LDAPSType"><span class="hs-identifier hs-var">LDAPSType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LDAPSType%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.LDAPSType.html#LDAPSType%27"><span class="hs-identifier hs-var">LDAPSType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLDAPSType"><span class="annot"><span class="annottext">LDAPSType -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.LDAPSType.html#fromLDAPSType"><span class="hs-identifier hs-var hs-var">fromLDAPSType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297442"><span id="local-6989586621679297444"><span id="local-6989586621679297446"><span class="annot"><span class="annottext">Int -&gt; LDAPSType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297451"><span id="local-6989586621679297453"><span id="local-6989586621679297455"><span class="annot"><span class="annottext">Int -&gt; LDAPSType -&gt; ShowS
 [LDAPSType] -&gt; ShowS
 LDAPSType -&gt; String
 (Int -&gt; LDAPSType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: LDAPSType -&gt; String
 showsPrec :: Int -&gt; LDAPSType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LDAPSType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679297433"><span id="local-6989586621679297435"><span id="local-6989586621679297437"><span id="local-6989586621679297439"><span class="annot"><span class="annottext">ReadPrec [LDAPSType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679297442"><span id="local-6989586621679297444"><span id="local-6989586621679297446"><span id="local-6989586621679297448"><span class="annot"><span class="annottext">ReadPrec [LDAPSType]
 ReadPrec LDAPSType
 Int -&gt; ReadS LDAPSType
 ReadS [LDAPSType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [LDAPSType]
 readsPrec :: Int -&gt; ReadS LDAPSType
 $creadsPrec :: Int -&gt; ReadS LDAPSType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679297428"><span id="local-6989586621679297430"><span class="annot"><span class="annottext">LDAPSType -&gt; LDAPSType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679297437"><span id="local-6989586621679297439"><span class="annot"><span class="annottext">LDAPSType -&gt; LDAPSType -&gt; Bool
 (LDAPSType -&gt; LDAPSType -&gt; Bool)
 -&gt; (LDAPSType -&gt; LDAPSType -&gt; Bool) -&gt; Eq LDAPSType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: LDAPSType -&gt; LDAPSType -&gt; Bool
 == :: LDAPSType -&gt; LDAPSType -&gt; Bool
 $c== :: LDAPSType -&gt; LDAPSType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679297412"><span id="local-6989586621679297414"><span id="local-6989586621679297416"><span id="local-6989586621679297418"><span id="local-6989586621679297420"><span id="local-6989586621679297422"><span id="local-6989586621679297424"><span class="annot"><span class="annottext">Eq LDAPSType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679297421"><span id="local-6989586621679297423"><span id="local-6989586621679297425"><span id="local-6989586621679297427"><span id="local-6989586621679297429"><span id="local-6989586621679297431"><span id="local-6989586621679297433"><span class="annot"><span class="annottext">Eq LDAPSType
 Eq LDAPSType
 -&gt; (LDAPSType -&gt; LDAPSType -&gt; Ordering)
 -&gt; (LDAPSType -&gt; LDAPSType -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. LDAPSType -&gt; Rep LDAPSType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297404"><span id="local-6989586621679297406"><span class="annot"><span class="annottext">Int -&gt; LDAPSType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679297413"><span id="local-6989586621679297415"><span class="annot"><span class="annottext">Int -&gt; LDAPSType -&gt; Int
 LDAPSType -&gt; Int
 (Int -&gt; LDAPSType -&gt; Int)
 -&gt; (LDAPSType -&gt; Int) -&gt; Hashable LDAPSType
@@ -140,49 +140,49 @@ $chash :: LDAPSType -&gt; Int
 hashWithSalt :: Int -&gt; LDAPSType -&gt; Int
 $chashWithSalt :: Int -&gt; LDAPSType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679297401"><span class="annot"><span class="annottext">LDAPSType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679297410"><span class="annot"><span class="annottext">LDAPSType -&gt; ()
 (LDAPSType -&gt; ()) -&gt; NFData LDAPSType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LDAPSType -&gt; ()
 $crnf :: LDAPSType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679297398"><span class="annot"><span class="annottext">Text -&gt; Either String LDAPSType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679297407"><span class="annot"><span class="annottext">Text -&gt; Either String LDAPSType
 (Text -&gt; Either String LDAPSType) -&gt; FromText LDAPSType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LDAPSType
 $cfromText :: Text -&gt; Either String LDAPSType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679297395"><span class="annot"><span class="annottext">LDAPSType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679297404"><span class="annot"><span class="annottext">LDAPSType -&gt; Text
 (LDAPSType -&gt; Text) -&gt; ToText LDAPSType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LDAPSType -&gt; Text
 $ctoText :: LDAPSType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679297392"><span class="annot"><span class="annottext">LDAPSType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679297401"><span class="annot"><span class="annottext">LDAPSType -&gt; ByteString
 (LDAPSType -&gt; ByteString) -&gt; ToByteString LDAPSType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LDAPSType -&gt; ByteString
 $ctoBS :: LDAPSType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679297389"><span class="annot"><span class="annottext">LDAPSType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679297398"><span class="annot"><span class="annottext">LDAPSType -&gt; ByteStringBuilder
 (LDAPSType -&gt; ByteStringBuilder) -&gt; ToLog LDAPSType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LDAPSType -&gt; ByteStringBuilder
 $cbuild :: LDAPSType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679297386"><span class="annot"><span class="annottext">HeaderName -&gt; LDAPSType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679297395"><span class="annot"><span class="annottext">HeaderName -&gt; LDAPSType -&gt; [Header]
 (HeaderName -&gt; LDAPSType -&gt; [Header]) -&gt; ToHeader LDAPSType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LDAPSType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LDAPSType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297383"><span class="annot"><span class="annottext">LDAPSType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679297392"><span class="annot"><span class="annottext">LDAPSType -&gt; QueryString
 (LDAPSType -&gt; QueryString) -&gt; ToQuery LDAPSType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LDAPSType -&gt; QueryString
 $ctoQuery :: LDAPSType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297378"><span id="local-6989586621679297380"><span class="annot"><span class="annottext">Value -&gt; Parser [LDAPSType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679297387"><span id="local-6989586621679297389"><span class="annot"><span class="annottext">Value -&gt; Parser [LDAPSType]
 Value -&gt; Parser LDAPSType
 (Value -&gt; Parser LDAPSType)
 -&gt; (Value -&gt; Parser [LDAPSType]) -&gt; FromJSON LDAPSType
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [LDAPSType]
 parseJSON :: Value -&gt; Parser LDAPSType
 $cparseJSON :: Value -&gt; Parser LDAPSType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297373"><span id="local-6989586621679297375"><span class="annot"><span class="annottext">FromJSONKeyFunction [LDAPSType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679297382"><span id="local-6989586621679297384"><span class="annot"><span class="annottext">FromJSONKeyFunction [LDAPSType]
 FromJSONKeyFunction LDAPSType
 FromJSONKeyFunction LDAPSType
 -&gt; FromJSONKeyFunction [LDAPSType] -&gt; FromJSONKey LDAPSType
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LDAPSType]
 fromJSONKey :: FromJSONKeyFunction LDAPSType
 $cfromJSONKey :: FromJSONKeyFunction LDAPSType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297364"><span id="local-6989586621679297366"><span id="local-6989586621679297368"><span id="local-6989586621679297370"><span class="annot"><span class="annottext">[LDAPSType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679297373"><span id="local-6989586621679297375"><span id="local-6989586621679297377"><span id="local-6989586621679297379"><span class="annot"><span class="annottext">[LDAPSType] -&gt; Encoding
 [LDAPSType] -&gt; Value
 LDAPSType -&gt; Encoding
 LDAPSType -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: LDAPSType -&gt; Encoding
 toJSON :: LDAPSType -&gt; Value
 $ctoJSON :: LDAPSType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297359"><span id="local-6989586621679297361"><span class="annot"><span class="annottext">ToJSONKeyFunction [LDAPSType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679297368"><span id="local-6989586621679297370"><span class="annot"><span class="annottext">ToJSONKeyFunction [LDAPSType]
 ToJSONKeyFunction LDAPSType
 ToJSONKeyFunction LDAPSType
 -&gt; ToJSONKeyFunction [LDAPSType] -&gt; ToJSONKey LDAPSType
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LDAPSType]
 toJSONKey :: ToJSONKeyFunction LDAPSType
 $ctoJSONKey :: ToJSONKeyFunction LDAPSType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297356"><span class="annot"><span class="annottext">[Node] -&gt; Either String LDAPSType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679297365"><span class="annot"><span class="annottext">[Node] -&gt; Either String LDAPSType
 ([Node] -&gt; Either String LDAPSType) -&gt; FromXML LDAPSType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LDAPSType
 $cparseXML :: [Node] -&gt; Either String LDAPSType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297353"><span class="annot"><span class="annottext">LDAPSType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679297362"><span class="annot"><span class="annottext">LDAPSType -&gt; XML
 (LDAPSType -&gt; XML) -&gt; ToXML LDAPSType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LDAPSType -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679275550"><span id="local-6989586621679275551"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceDirectoryType"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier hs-var">WorkspaceDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceDirectoryType%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType%27"><span class="hs-identifier hs-var">WorkspaceDirectoryType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679275559"><span id="local-6989586621679275560"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WorkspaceDirectoryType"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType"><span class="hs-identifier hs-var">WorkspaceDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceDirectoryType%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#WorkspaceDirectoryType%27"><span class="hs-identifier hs-var">WorkspaceDirectoryType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWorkspaceDirectoryType"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceDirectoryType.html#fromWorkspaceDirectoryType"><span class="hs-identifier hs-var hs-var">fromWorkspaceDirectoryType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275542"><span id="local-6989586621679275544"><span id="local-6989586621679275546"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDirectoryType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275551"><span id="local-6989586621679275553"><span id="local-6989586621679275555"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDirectoryType -&gt; ShowS
 [WorkspaceDirectoryType] -&gt; ShowS
 WorkspaceDirectoryType -&gt; String
 (Int -&gt; WorkspaceDirectoryType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: WorkspaceDirectoryType -&gt; String
 showsPrec :: Int -&gt; WorkspaceDirectoryType -&gt; ShowS
 $cshowsPrec :: Int -&gt; WorkspaceDirectoryType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275533"><span id="local-6989586621679275535"><span id="local-6989586621679275537"><span id="local-6989586621679275539"><span class="annot"><span class="annottext">ReadPrec [WorkspaceDirectoryType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275542"><span id="local-6989586621679275544"><span id="local-6989586621679275546"><span id="local-6989586621679275548"><span class="annot"><span class="annottext">ReadPrec [WorkspaceDirectoryType]
 ReadPrec WorkspaceDirectoryType
 Int -&gt; ReadS WorkspaceDirectoryType
 ReadS [WorkspaceDirectoryType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [WorkspaceDirectoryType]
 readsPrec :: Int -&gt; ReadS WorkspaceDirectoryType
 $creadsPrec :: Int -&gt; ReadS WorkspaceDirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275528"><span id="local-6989586621679275530"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275537"><span id="local-6989586621679275539"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
 (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
 -&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
 -&gt; Eq WorkspaceDirectoryType
@@ -82,7 +82,7 @@ $c/= :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
 == :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
 $c== :: WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679275512"><span id="local-6989586621679275514"><span id="local-6989586621679275516"><span id="local-6989586621679275518"><span id="local-6989586621679275520"><span id="local-6989586621679275522"><span id="local-6989586621679275524"><span class="annot"><span class="annottext">Eq WorkspaceDirectoryType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679275521"><span id="local-6989586621679275523"><span id="local-6989586621679275525"><span id="local-6989586621679275527"><span id="local-6989586621679275529"><span id="local-6989586621679275531"><span id="local-6989586621679275533"><span class="annot"><span class="annottext">Eq WorkspaceDirectoryType
 Eq WorkspaceDirectoryType
 -&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Ordering)
 -&gt; (WorkspaceDirectoryType -&gt; WorkspaceDirectoryType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. WorkspaceDirectoryType -&gt; Rep WorkspaceDirectoryType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275504"><span id="local-6989586621679275506"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDirectoryType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275513"><span id="local-6989586621679275515"><span class="annot"><span class="annottext">Int -&gt; WorkspaceDirectoryType -&gt; Int
 WorkspaceDirectoryType -&gt; Int
 (Int -&gt; WorkspaceDirectoryType -&gt; Int)
 -&gt; (WorkspaceDirectoryType -&gt; Int)
@@ -152,54 +152,54 @@ $chash :: WorkspaceDirectoryType -&gt; Int
 hashWithSalt :: Int -&gt; WorkspaceDirectoryType -&gt; Int
 $chashWithSalt :: Int -&gt; WorkspaceDirectoryType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275501"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275510"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ()
 (WorkspaceDirectoryType -&gt; ()) -&gt; NFData WorkspaceDirectoryType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WorkspaceDirectoryType -&gt; ()
 $crnf :: WorkspaceDirectoryType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275498"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceDirectoryType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275507"><span class="annot"><span class="annottext">Text -&gt; Either String WorkspaceDirectoryType
 (Text -&gt; Either String WorkspaceDirectoryType)
 -&gt; FromText WorkspaceDirectoryType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WorkspaceDirectoryType
 $cfromText :: Text -&gt; Either String WorkspaceDirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275495"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275504"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; Text
 (WorkspaceDirectoryType -&gt; Text) -&gt; ToText WorkspaceDirectoryType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WorkspaceDirectoryType -&gt; Text
 $ctoText :: WorkspaceDirectoryType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275492"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275501"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ByteString
 (WorkspaceDirectoryType -&gt; ByteString)
 -&gt; ToByteString WorkspaceDirectoryType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WorkspaceDirectoryType -&gt; ByteString
 $ctoBS :: WorkspaceDirectoryType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275489"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275498"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; ByteStringBuilder
 (WorkspaceDirectoryType -&gt; ByteStringBuilder)
 -&gt; ToLog WorkspaceDirectoryType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WorkspaceDirectoryType -&gt; ByteStringBuilder
 $cbuild :: WorkspaceDirectoryType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275486"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275495"><span class="annot"><span class="annottext">HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header]
 (HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header])
 -&gt; ToHeader WorkspaceDirectoryType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WorkspaceDirectoryType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275483"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275492"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; QueryString
 (WorkspaceDirectoryType -&gt; QueryString)
 -&gt; ToQuery WorkspaceDirectoryType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WorkspaceDirectoryType -&gt; QueryString
 $ctoQuery :: WorkspaceDirectoryType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275478"><span id="local-6989586621679275480"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceDirectoryType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275487"><span id="local-6989586621679275489"><span class="annot"><span class="annottext">Value -&gt; Parser [WorkspaceDirectoryType]
 Value -&gt; Parser WorkspaceDirectoryType
 (Value -&gt; Parser WorkspaceDirectoryType)
 -&gt; (Value -&gt; Parser [WorkspaceDirectoryType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [WorkspaceDirectoryType]
 parseJSON :: Value -&gt; Parser WorkspaceDirectoryType
 $cparseJSON :: Value -&gt; Parser WorkspaceDirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275473"><span id="local-6989586621679275475"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceDirectoryType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275482"><span id="local-6989586621679275484"><span class="annot"><span class="annottext">FromJSONKeyFunction [WorkspaceDirectoryType]
 FromJSONKeyFunction WorkspaceDirectoryType
 FromJSONKeyFunction WorkspaceDirectoryType
 -&gt; FromJSONKeyFunction [WorkspaceDirectoryType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WorkspaceDirectoryType]
 fromJSONKey :: FromJSONKeyFunction WorkspaceDirectoryType
 $cfromJSONKey :: FromJSONKeyFunction WorkspaceDirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275464"><span id="local-6989586621679275466"><span id="local-6989586621679275468"><span id="local-6989586621679275470"><span class="annot"><span class="annottext">[WorkspaceDirectoryType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275473"><span id="local-6989586621679275475"><span id="local-6989586621679275477"><span id="local-6989586621679275479"><span class="annot"><span class="annottext">[WorkspaceDirectoryType] -&gt; Encoding
 [WorkspaceDirectoryType] -&gt; Value
 WorkspaceDirectoryType -&gt; Encoding
 WorkspaceDirectoryType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: WorkspaceDirectoryType -&gt; Encoding
 toJSON :: WorkspaceDirectoryType -&gt; Value
 $ctoJSON :: WorkspaceDirectoryType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275459"><span id="local-6989586621679275461"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceDirectoryType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275468"><span id="local-6989586621679275470"><span class="annot"><span class="annottext">ToJSONKeyFunction [WorkspaceDirectoryType]
 ToJSONKeyFunction WorkspaceDirectoryType
 ToJSONKeyFunction WorkspaceDirectoryType
 -&gt; ToJSONKeyFunction [WorkspaceDirectoryType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WorkspaceDirectoryType]
 toJSONKey :: ToJSONKeyFunction WorkspaceDirectoryType
 $ctoJSONKey :: ToJSONKeyFunction WorkspaceDirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275456"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceDirectoryType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275465"><span class="annot"><span class="annottext">[Node] -&gt; Either String WorkspaceDirectoryType
 ([Node] -&gt; Either String WorkspaceDirectoryType)
 -&gt; FromXML WorkspaceDirectoryType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WorkspaceDirectoryType
 $cparseXML :: [Node] -&gt; Either String WorkspaceDirectoryType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679275453"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679275462"><span class="annot"><span class="annottext">WorkspaceDirectoryType -&gt; XML
 (WorkspaceDirectoryType -&gt; XML) -&gt; ToXML WorkspaceDirectoryType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WorkspaceDirectoryType -&gt; XML

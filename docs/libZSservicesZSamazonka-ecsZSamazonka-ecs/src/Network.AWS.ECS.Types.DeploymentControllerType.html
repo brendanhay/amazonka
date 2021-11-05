@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679450644"><span id="local-6989586621679450645"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentControllerType"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentControllerType.html#DeploymentControllerType"><span class="hs-identifier hs-var">DeploymentControllerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentControllerType%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentControllerType.html#DeploymentControllerType%27"><span class="hs-identifier hs-var">DeploymentControllerType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679450653"><span id="local-6989586621679450654"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentControllerType"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentControllerType.html#DeploymentControllerType"><span class="hs-identifier hs-var">DeploymentControllerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentControllerType%27"><span class="annot"><a href="Network.AWS.ECS.Types.DeploymentControllerType.html#DeploymentControllerType%27"><span class="hs-identifier hs-var">DeploymentControllerType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentControllerType"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; Text
 </span><a href="Network.AWS.ECS.Types.DeploymentControllerType.html#fromDeploymentControllerType"><span class="hs-identifier hs-var hs-var">fromDeploymentControllerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450636"><span id="local-6989586621679450638"><span id="local-6989586621679450640"><span class="annot"><span class="annottext">Int -&gt; DeploymentControllerType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450645"><span id="local-6989586621679450647"><span id="local-6989586621679450649"><span class="annot"><span class="annottext">Int -&gt; DeploymentControllerType -&gt; ShowS
 [DeploymentControllerType] -&gt; ShowS
 DeploymentControllerType -&gt; String
 (Int -&gt; DeploymentControllerType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DeploymentControllerType -&gt; String
 showsPrec :: Int -&gt; DeploymentControllerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeploymentControllerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450627"><span id="local-6989586621679450629"><span id="local-6989586621679450631"><span id="local-6989586621679450633"><span class="annot"><span class="annottext">ReadPrec [DeploymentControllerType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450636"><span id="local-6989586621679450638"><span id="local-6989586621679450640"><span id="local-6989586621679450642"><span class="annot"><span class="annottext">ReadPrec [DeploymentControllerType]
 ReadPrec DeploymentControllerType
 Int -&gt; ReadS DeploymentControllerType
 ReadS [DeploymentControllerType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DeploymentControllerType]
 readsPrec :: Int -&gt; ReadS DeploymentControllerType
 $creadsPrec :: Int -&gt; ReadS DeploymentControllerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679450622"><span id="local-6989586621679450624"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; DeploymentControllerType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679450631"><span id="local-6989586621679450633"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; DeploymentControllerType -&gt; Bool
 (DeploymentControllerType -&gt; DeploymentControllerType -&gt; Bool)
 -&gt; (DeploymentControllerType -&gt; DeploymentControllerType -&gt; Bool)
 -&gt; Eq DeploymentControllerType
@@ -83,7 +83,7 @@ $c/= :: DeploymentControllerType -&gt; DeploymentControllerType -&gt; Bool
 == :: DeploymentControllerType -&gt; DeploymentControllerType -&gt; Bool
 $c== :: DeploymentControllerType -&gt; DeploymentControllerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679450606"><span id="local-6989586621679450608"><span id="local-6989586621679450610"><span id="local-6989586621679450612"><span id="local-6989586621679450614"><span id="local-6989586621679450616"><span id="local-6989586621679450618"><span class="annot"><span class="annottext">Eq DeploymentControllerType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679450615"><span id="local-6989586621679450617"><span id="local-6989586621679450619"><span id="local-6989586621679450621"><span id="local-6989586621679450623"><span id="local-6989586621679450625"><span id="local-6989586621679450627"><span class="annot"><span class="annottext">Eq DeploymentControllerType
 Eq DeploymentControllerType
 -&gt; (DeploymentControllerType
     -&gt; DeploymentControllerType -&gt; Ordering)
@@ -148,7 +148,7 @@ DeploymentControllerType -&gt; Rep DeploymentControllerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450598"><span id="local-6989586621679450600"><span class="annot"><span class="annottext">Int -&gt; DeploymentControllerType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450607"><span id="local-6989586621679450609"><span class="annot"><span class="annottext">Int -&gt; DeploymentControllerType -&gt; Int
 DeploymentControllerType -&gt; Int
 (Int -&gt; DeploymentControllerType -&gt; Int)
 -&gt; (DeploymentControllerType -&gt; Int)
@@ -159,55 +159,55 @@ $chash :: DeploymentControllerType -&gt; Int
 hashWithSalt :: Int -&gt; DeploymentControllerType -&gt; Int
 $chashWithSalt :: Int -&gt; DeploymentControllerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450595"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450604"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; ()
 (DeploymentControllerType -&gt; ()) -&gt; NFData DeploymentControllerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeploymentControllerType -&gt; ()
 $crnf :: DeploymentControllerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450592"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentControllerType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450601"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentControllerType
 (Text -&gt; Either String DeploymentControllerType)
 -&gt; FromText DeploymentControllerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeploymentControllerType
 $cfromText :: Text -&gt; Either String DeploymentControllerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679450589"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679450598"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; Text
 (DeploymentControllerType -&gt; Text)
 -&gt; ToText DeploymentControllerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeploymentControllerType -&gt; Text
 $ctoText :: DeploymentControllerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679450586"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679450595"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; ByteString
 (DeploymentControllerType -&gt; ByteString)
 -&gt; ToByteString DeploymentControllerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeploymentControllerType -&gt; ByteString
 $ctoBS :: DeploymentControllerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679450583"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679450592"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; ByteStringBuilder
 (DeploymentControllerType -&gt; ByteStringBuilder)
 -&gt; ToLog DeploymentControllerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeploymentControllerType -&gt; ByteStringBuilder
 $cbuild :: DeploymentControllerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679450580"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentControllerType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679450589"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentControllerType -&gt; [Header]
 (HeaderName -&gt; DeploymentControllerType -&gt; [Header])
 -&gt; ToHeader DeploymentControllerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeploymentControllerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeploymentControllerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679450577"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679450586"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; QueryString
 (DeploymentControllerType -&gt; QueryString)
 -&gt; ToQuery DeploymentControllerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeploymentControllerType -&gt; QueryString
 $ctoQuery :: DeploymentControllerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679450572"><span id="local-6989586621679450574"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentControllerType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679450581"><span id="local-6989586621679450583"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentControllerType]
 Value -&gt; Parser DeploymentControllerType
 (Value -&gt; Parser DeploymentControllerType)
 -&gt; (Value -&gt; Parser [DeploymentControllerType])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [DeploymentControllerType]
 parseJSON :: Value -&gt; Parser DeploymentControllerType
 $cparseJSON :: Value -&gt; Parser DeploymentControllerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679450567"><span id="local-6989586621679450569"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentControllerType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679450576"><span id="local-6989586621679450578"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentControllerType]
 FromJSONKeyFunction DeploymentControllerType
 FromJSONKeyFunction DeploymentControllerType
 -&gt; FromJSONKeyFunction [DeploymentControllerType]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeploymentControllerType]
 fromJSONKey :: FromJSONKeyFunction DeploymentControllerType
 $cfromJSONKey :: FromJSONKeyFunction DeploymentControllerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679450558"><span id="local-6989586621679450560"><span id="local-6989586621679450562"><span id="local-6989586621679450564"><span class="annot"><span class="annottext">[DeploymentControllerType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679450567"><span id="local-6989586621679450569"><span id="local-6989586621679450571"><span id="local-6989586621679450573"><span class="annot"><span class="annottext">[DeploymentControllerType] -&gt; Encoding
 [DeploymentControllerType] -&gt; Value
 DeploymentControllerType -&gt; Encoding
 DeploymentControllerType -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: DeploymentControllerType -&gt; Encoding
 toJSON :: DeploymentControllerType -&gt; Value
 $ctoJSON :: DeploymentControllerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679450553"><span id="local-6989586621679450555"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentControllerType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679450562"><span id="local-6989586621679450564"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentControllerType]
 ToJSONKeyFunction DeploymentControllerType
 ToJSONKeyFunction DeploymentControllerType
 -&gt; ToJSONKeyFunction [DeploymentControllerType]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeploymentControllerType]
 toJSONKey :: ToJSONKeyFunction DeploymentControllerType
 $ctoJSONKey :: ToJSONKeyFunction DeploymentControllerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679450550"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentControllerType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679450559"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentControllerType
 ([Node] -&gt; Either String DeploymentControllerType)
 -&gt; FromXML DeploymentControllerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeploymentControllerType
 $cparseXML :: [Node] -&gt; Either String DeploymentControllerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679450547"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679450556"><span class="annot"><span class="annottext">DeploymentControllerType -&gt; XML
 (DeploymentControllerType -&gt; XML) -&gt; ToXML DeploymentControllerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeploymentControllerType -&gt; XML

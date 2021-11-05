@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the reason that the finding was generated.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEvidence' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679301981"><span id="local-6989586621679301982"></span></span><span class="hs-keyword">data</span><span> </span><span id="Evidence"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-var">Evidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Evidence%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-var">Evidence'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679301990"><span id="local-6989586621679301991"></span></span><span class="hs-keyword">data</span><span> </span><span id="Evidence"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-var">Evidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Evidence%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-var">Evidence'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of threat intelligence details related to the evidence.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AthreatIntelligenceDetails%3AEvidence%27"><span class="annot"><span class="annottext">Evidence -&gt; Maybe [ThreatIntelligenceDetail]
 </span><a href="Network.AWS.GuardDuty.Types.Evidence.html#%24sel%3AthreatIntelligenceDetails%3AEvidence%27"><span class="hs-identifier hs-var hs-var">threatIntelligenceDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail.html#ThreatIntelligenceDetail"><span class="hs-identifier hs-type">ThreatIntelligenceDetail</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301975"><span id="local-6989586621679301977"><span class="annot"><span class="annottext">Evidence -&gt; Evidence -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301984"><span id="local-6989586621679301986"><span class="annot"><span class="annottext">Evidence -&gt; Evidence -&gt; Bool
 (Evidence -&gt; Evidence -&gt; Bool)
 -&gt; (Evidence -&gt; Evidence -&gt; Bool) -&gt; Eq Evidence
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Evidence -&gt; Evidence -&gt; Bool
 == :: Evidence -&gt; Evidence -&gt; Bool
 $c== :: Evidence -&gt; Evidence -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301966"><span id="local-6989586621679301968"><span id="local-6989586621679301970"><span id="local-6989586621679301972"><span class="annot"><span class="annottext">ReadPrec [Evidence]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301975"><span id="local-6989586621679301977"><span id="local-6989586621679301979"><span id="local-6989586621679301981"><span class="annot"><span class="annottext">ReadPrec [Evidence]
 ReadPrec Evidence
 Int -&gt; ReadS Evidence
 ReadS [Evidence]
@@ -60,7 +60,7 @@ readList :: ReadS [Evidence]
 $creadList :: ReadS [Evidence]
 readsPrec :: Int -&gt; ReadS Evidence
 $creadsPrec :: Int -&gt; ReadS Evidence
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301959"><span id="local-6989586621679301961"><span id="local-6989586621679301963"><span class="annot"><span class="annottext">Int -&gt; Evidence -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301968"><span id="local-6989586621679301970"><span id="local-6989586621679301972"><span class="annot"><span class="annottext">Int -&gt; Evidence -&gt; ShowS
 [Evidence] -&gt; ShowS
 Evidence -&gt; String
 (Int -&gt; Evidence -&gt; ShowS)
@@ -118,16 +118,16 @@ forall a. Maybe a
      (Maybe [ThreatIntelligenceDetail])
      (Maybe [ThreatIntelligenceDetail])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301950"><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301959"><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
 threatIntelligenceDetails :: Maybe [ThreatIntelligenceDetail]
 $sel:threatIntelligenceDetails:Evidence' :: Evidence -&gt; Maybe [ThreatIntelligenceDetail]
-</span><a href="#local-6989586621679301950"><span class="hs-identifier hs-var hs-var">threatIntelligenceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
-</span><a href="#local-6989586621679301950"><span class="hs-identifier hs-var">threatIntelligenceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301949"><span class="annot"><span class="annottext">s :: Evidence
-</span><a href="#local-6989586621679301949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301948"><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
-</span><a href="#local-6989586621679301948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
-</span><a href="#local-6989586621679301949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatIntelligenceDetails:Evidence' :: Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301959"><span class="hs-identifier hs-var hs-var">threatIntelligenceDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301959"><span class="hs-identifier hs-var">threatIntelligenceDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301958"><span class="annot"><span class="annottext">s :: Evidence
+</span><a href="#local-6989586621679301958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-type">Evidence'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301957"><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Evidence
+</span><a href="#local-6989586621679301958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:threatIntelligenceDetails:Evidence' :: Maybe [ThreatIntelligenceDetail]
 </span><a href="Network.AWS.GuardDuty.Types.Evidence.html#%24sel%3AthreatIntelligenceDetails%3AEvidence%27"><span class="hs-identifier hs-var">threatIntelligenceDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail]
-</span><a href="#local-6989586621679301948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ThreatIntelligenceDetail]
+</span><a href="#local-6989586621679301957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ThreatIntelligenceDetail]
   -&gt; f (Maybe [ThreatIntelligenceDetail]))
  -&gt; Evidence -&gt; f Evidence)
 -&gt; ((Maybe [ThreatIntelligenceDetail]
@@ -160,23 +160,23 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301942"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679301940"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Evidence
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301951"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679301949"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Evidence
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Evidence) -&gt; Value -&gt; Parser Evidence
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Evidence&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301937"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301946"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301946"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ThreatIntelligenceDetail] -&gt; Evidence
 </span><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence%27"><span class="hs-identifier hs-var">Evidence'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ThreatIntelligenceDetail] -&gt; Evidence)
 -&gt; Parser (Maybe [ThreatIntelligenceDetail]) -&gt; Parser Evidence
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ThreatIntelligenceDetail]))
+</span><a href="#local-6989586621679301946"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ThreatIntelligenceDetail]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;threatIntelligenceDetails&quot;</span></span><span>
@@ -190,7 +190,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-65"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301930"><span id="local-6989586621679301932"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301939"><span id="local-6989586621679301941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Evidence.html#Evidence"><span class="hs-identifier hs-type">Evidence</span></a></span></span><span>
 </span><span id="line-71"></span></pre></body></html>

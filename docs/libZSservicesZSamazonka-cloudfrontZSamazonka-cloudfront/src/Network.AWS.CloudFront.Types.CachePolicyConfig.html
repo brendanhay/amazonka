@@ -44,7 +44,7 @@
 </span><span id="line-44"></span><span class="hs-comment">-- @OriginRequestPolicy@.</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- /See:/ 'newCachePolicyConfig' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679400438"><span id="local-6989586621679400439"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachePolicyConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-var">CachePolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicyConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-var">CachePolicyConfig'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679400447"><span id="local-6989586621679400448"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachePolicyConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-var">CachePolicyConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicyConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-var">CachePolicyConfig'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum amount of time, in seconds, that objects stay in the</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- CloudFront cache before CloudFront sends another request to the origin</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- to see if the object has been updated. CloudFront uses this value only</span><span>
@@ -93,7 +93,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AminTTL%3ACachePolicyConfig%27"><span class="annot"><span class="annottext">CachePolicyConfig -&gt; Integer
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3AminTTL%3ACachePolicyConfig%27"><span class="hs-identifier hs-var hs-var">minTTL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400427"><span id="local-6989586621679400429"><span class="annot"><span class="annottext">CachePolicyConfig -&gt; CachePolicyConfig -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400436"><span id="local-6989586621679400438"><span class="annot"><span class="annottext">CachePolicyConfig -&gt; CachePolicyConfig -&gt; Bool
 (CachePolicyConfig -&gt; CachePolicyConfig -&gt; Bool)
 -&gt; (CachePolicyConfig -&gt; CachePolicyConfig -&gt; Bool)
 -&gt; Eq CachePolicyConfig
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CachePolicyConfig -&gt; CachePolicyConfig -&gt; Bool
 == :: CachePolicyConfig -&gt; CachePolicyConfig -&gt; Bool
 $c== :: CachePolicyConfig -&gt; CachePolicyConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400418"><span id="local-6989586621679400420"><span id="local-6989586621679400422"><span id="local-6989586621679400424"><span class="annot"><span class="annottext">ReadPrec [CachePolicyConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400427"><span id="local-6989586621679400429"><span id="local-6989586621679400431"><span id="local-6989586621679400433"><span class="annot"><span class="annottext">ReadPrec [CachePolicyConfig]
 ReadPrec CachePolicyConfig
 Int -&gt; ReadS CachePolicyConfig
 ReadS [CachePolicyConfig]
@@ -122,7 +122,7 @@ readList :: ReadS [CachePolicyConfig]
 $creadList :: ReadS [CachePolicyConfig]
 readsPrec :: Int -&gt; ReadS CachePolicyConfig
 $creadsPrec :: Int -&gt; ReadS CachePolicyConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400411"><span id="local-6989586621679400413"><span id="local-6989586621679400415"><span class="annot"><span class="annottext">Int -&gt; CachePolicyConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400420"><span id="local-6989586621679400422"><span id="local-6989586621679400424"><span class="annot"><span class="annottext">Int -&gt; CachePolicyConfig -&gt; ShowS
 [CachePolicyConfig] -&gt; ShowS
 CachePolicyConfig -&gt; String
 (Int -&gt; CachePolicyConfig -&gt; ShowS)
@@ -203,9 +203,9 @@ $cfrom :: forall x. CachePolicyConfig -&gt; Rep CachePolicyConfig x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span>
 </span><span id="line-146"></span><span id="newCachePolicyConfig"><span class="annot"><span class="annottext">newCachePolicyConfig :: Text -&gt; Integer -&gt; CachePolicyConfig
-</span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#newCachePolicyConfig"><span class="hs-identifier hs-var hs-var">newCachePolicyConfig</span></a></span></span><span> </span><span id="local-6989586621679400405"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400405"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679400404"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679400404"><span class="hs-identifier hs-var">pMinTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#newCachePolicyConfig"><span class="hs-identifier hs-var hs-var">newCachePolicyConfig</span></a></span></span><span> </span><span id="local-6989586621679400414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400414"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679400413"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400413"><span class="hs-identifier hs-var">pMinTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">CachePolicyConfig' :: Maybe Integer
 -&gt; Maybe ParametersInCacheKeyAndForwardedToOrigin
 -&gt; Maybe Integer
@@ -233,10 +233,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CachePolicyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3Aname%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400405"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400414"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:minTTL:CachePolicyConfig' :: Integer
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3AminTTL%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">minTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679400404"><span class="hs-identifier hs-var">pMinTTL_</span></a></span><span>
+</span><a href="#local-6989586621679400413"><span class="hs-identifier hs-var">pMinTTL_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The maximum amount of time, in seconds, that objects stay in the</span><span>
@@ -259,16 +259,16 @@ forall a. Maybe a
 -&gt; Lens
      CachePolicyConfig CachePolicyConfig (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400400"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400409"><span class="annot"><span class="annottext">Maybe Integer
 maxTTL :: Maybe Integer
 $sel:maxTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679400400"><span class="hs-identifier hs-var hs-var">maxTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400400"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400399"><span class="annot"><span class="annottext">s :: CachePolicyConfig
-</span><a href="#local-6989586621679400399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400398"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxTTL:CachePolicyConfig' :: Maybe Integer
+</span><a href="#local-6989586621679400409"><span class="hs-identifier hs-var hs-var">maxTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679400409"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400408"><span class="annot"><span class="annottext">s :: CachePolicyConfig
+</span><a href="#local-6989586621679400408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400407"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679400407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxTTL:CachePolicyConfig' :: Maybe Integer
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3AmaxTTL%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">maxTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The HTTP headers, cookies, and URL query strings to include in the cache</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- key. The values included in the cache key are automatically included in</span><span>
@@ -288,16 +288,16 @@ $sel:maxTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Integer
      (Maybe ParametersInCacheKeyAndForwardedToOrigin)
      (Maybe ParametersInCacheKeyAndForwardedToOrigin)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400396"><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400405"><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
 parametersInCacheKeyAndForwardedToOrigin :: Maybe ParametersInCacheKeyAndForwardedToOrigin
 $sel:parametersInCacheKeyAndForwardedToOrigin:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe ParametersInCacheKeyAndForwardedToOrigin
-</span><a href="#local-6989586621679400396"><span class="hs-identifier hs-var hs-var">parametersInCacheKeyAndForwardedToOrigin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
-</span><a href="#local-6989586621679400396"><span class="hs-identifier hs-var">parametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400395"><span class="annot"><span class="annottext">s :: CachePolicyConfig
-</span><a href="#local-6989586621679400395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400394"><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
-</span><a href="#local-6989586621679400394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parametersInCacheKeyAndForwardedToOrigin:CachePolicyConfig' :: Maybe ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679400405"><span class="hs-identifier hs-var hs-var">parametersInCacheKeyAndForwardedToOrigin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679400405"><span class="hs-identifier hs-var">parametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400404"><span class="annot"><span class="annottext">s :: CachePolicyConfig
+</span><a href="#local-6989586621679400404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400403"><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679400403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parametersInCacheKeyAndForwardedToOrigin:CachePolicyConfig' :: Maybe ParametersInCacheKeyAndForwardedToOrigin
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3AparametersInCacheKeyAndForwardedToOrigin%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">parametersInCacheKeyAndForwardedToOrigin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
-</span><a href="#local-6989586621679400394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The default amount of time, in seconds, that you want objects to stay in</span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- the CloudFront cache before CloudFront sends another request to the</span><span>
@@ -319,16 +319,16 @@ $sel:parametersInCacheKeyAndForwardedToOrigin:CachePolicyConfig' :: CachePolicyC
 -&gt; Lens
      CachePolicyConfig CachePolicyConfig (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400392"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400401"><span class="annot"><span class="annottext">Maybe Integer
 defaultTTL :: Maybe Integer
 $sel:defaultTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679400392"><span class="hs-identifier hs-var hs-var">defaultTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400392"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400391"><span class="annot"><span class="annottext">s :: CachePolicyConfig
-</span><a href="#local-6989586621679400391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400390"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTTL:CachePolicyConfig' :: Maybe Integer
+</span><a href="#local-6989586621679400401"><span class="hs-identifier hs-var hs-var">defaultTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679400401"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400400"><span class="annot"><span class="annottext">s :: CachePolicyConfig
+</span><a href="#local-6989586621679400400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400399"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679400399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultTTL:CachePolicyConfig' :: Maybe Integer
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3AdefaultTTL%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | A comment to describe the cache policy. The comment cannot be longer</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- than 128 characters.</span><span>
@@ -340,16 +340,16 @@ $sel:defaultTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Integer
 -&gt; Lens
      CachePolicyConfig CachePolicyConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400388"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400397"><span class="annot"><span class="annottext">Maybe Text
 comment :: Maybe Text
 $sel:comment:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679400388"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400388"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400387"><span class="annot"><span class="annottext">s :: CachePolicyConfig
-</span><a href="#local-6989586621679400387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400386"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:CachePolicyConfig' :: Maybe Text
+</span><a href="#local-6989586621679400397"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400397"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400396"><span class="annot"><span class="annottext">s :: CachePolicyConfig
+</span><a href="#local-6989586621679400396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:CachePolicyConfig' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3Acomment%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- | A unique name to identify the cache policy.</span><span>
 </span><span id="line-199"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#cachePolicyConfig_name"><span class="hs-identifier hs-type">cachePolicyConfig_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -358,16 +358,16 @@ $sel:comment:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Text
 -&gt; (CachePolicyConfig -&gt; Text -&gt; CachePolicyConfig)
 -&gt; Lens CachePolicyConfig CachePolicyConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400384"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400393"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CachePolicyConfig' :: CachePolicyConfig -&gt; Text
-</span><a href="#local-6989586621679400384"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400384"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400383"><span class="annot"><span class="annottext">s :: CachePolicyConfig
-</span><a href="#local-6989586621679400383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400382"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CachePolicyConfig' :: Text
+</span><a href="#local-6989586621679400393"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400393"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400392"><span class="annot"><span class="annottext">s :: CachePolicyConfig
+</span><a href="#local-6989586621679400392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679400391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CachePolicyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3Aname%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The minimum amount of time, in seconds, that you want objects to stay in</span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- the CloudFront cache before CloudFront sends another request to the</span><span>
@@ -380,21 +380,21 @@ $sel:name:CachePolicyConfig' :: CachePolicyConfig -&gt; Text
 -&gt; (CachePolicyConfig -&gt; Integer -&gt; CachePolicyConfig)
 -&gt; Lens CachePolicyConfig CachePolicyConfig Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400380"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400389"><span class="annot"><span class="annottext">Integer
 minTTL :: Integer
 $sel:minTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Integer
-</span><a href="#local-6989586621679400380"><span class="hs-identifier hs-var hs-var">minTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679400380"><span class="hs-identifier hs-var">minTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400379"><span class="annot"><span class="annottext">s :: CachePolicyConfig
-</span><a href="#local-6989586621679400379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400378"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679400378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
-</span><a href="#local-6989586621679400379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minTTL:CachePolicyConfig' :: Integer
+</span><a href="#local-6989586621679400389"><span class="hs-identifier hs-var hs-var">minTTL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400389"><span class="hs-identifier hs-var">minTTL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400388"><span class="annot"><span class="annottext">s :: CachePolicyConfig
+</span><a href="#local-6989586621679400388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400387"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679400387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyConfig
+</span><a href="#local-6989586621679400388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minTTL:CachePolicyConfig' :: Integer
 </span><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#%24sel%3AminTTL%3ACachePolicyConfig%27"><span class="hs-identifier hs-var">minTTL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679400378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679400375"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachePolicyConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679400373"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679400384"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachePolicyConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679400382"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe ParametersInCacheKeyAndForwardedToOrigin
 -&gt; Maybe Integer
@@ -421,7 +421,7 @@ $sel:minTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Integer
       -&gt; CachePolicyConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,7 +440,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Text -&gt; Integer -&gt; CachePolicyConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-215"></span><span>                      </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either String (Maybe ParametersInCacheKeyAndForwardedToOrigin)
@@ -457,7 +457,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Text -&gt; Integer -&gt; CachePolicyConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultTTL&quot;</span></span><span class="hs-special">)</span><span>
@@ -466,7 +466,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Integer -&gt; CachePolicyConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
@@ -475,7 +475,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Integer -&gt; CachePolicyConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -483,18 +483,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Integer -&gt; Either String CachePolicyConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Integer
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Integer
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinTTL&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400366"><span id="local-6989586621679400368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400375"><span id="local-6989586621679400377"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span></span></span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400372"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig"><span class="hs-identifier hs-type">CachePolicyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679400359"><span class="annot"><span class="annottext">toXML :: CachePolicyConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400352"><span id="local-6989586621679400353"><span id="local-6989586621679400354"><span id="local-6989586621679400355"><span id="local-6989586621679400356"><span id="local-6989586621679400357"><span class="annot"><span class="annottext">Integer
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679400368"><span class="annot"><span class="annottext">toXML :: CachePolicyConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CachePolicyConfig.html#CachePolicyConfig%27"><span class="hs-identifier hs-type">CachePolicyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400361"><span id="local-6989586621679400362"><span id="local-6989586621679400363"><span id="local-6989586621679400364"><span id="local-6989586621679400365"><span id="local-6989586621679400366"><span class="annot"><span class="annottext">Integer
 Maybe Integer
 Maybe Text
 Maybe ParametersInCacheKeyAndForwardedToOrigin
@@ -511,7 +511,7 @@ $sel:comment:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Text
 $sel:defaultTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Integer
 $sel:parametersInCacheKeyAndForwardedToOrigin:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe ParametersInCacheKeyAndForwardedToOrigin
 $sel:maxTTL:CachePolicyConfig' :: CachePolicyConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679400352"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679400361"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -519,32 +519,32 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;MaxTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400357"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400366"><span class="hs-identifier hs-var">maxTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ParametersInCacheKeyAndForwardedToOrigin&quot;</span></span><span>
 </span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe ParametersInCacheKeyAndForwardedToOrigin -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParametersInCacheKeyAndForwardedToOrigin
-</span><a href="#local-6989586621679400356"><span class="hs-identifier hs-var">parametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400365"><span class="hs-identifier hs-var">parametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;DefaultTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679400355"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">defaultTTL</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679400354"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400363"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679400353"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679400362"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;MinTTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679400352"><span class="hs-identifier hs-var">minTTL</span></a></span><span>
+</span><a href="#local-6989586621679400361"><span class="hs-identifier hs-var">minTTL</span></a></span><span>
 </span><span id="line-236"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-237"></span></pre></body></html>

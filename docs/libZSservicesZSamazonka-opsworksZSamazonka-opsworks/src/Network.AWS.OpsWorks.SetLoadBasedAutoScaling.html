@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newSetLoadBasedAutoScaling' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679383342"><span id="local-6989586621679383343"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoadBasedAutoScaling"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-var">SetLoadBasedAutoScaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoadBasedAutoScaling%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var">SetLoadBasedAutoScaling'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679383351"><span id="local-6989586621679383352"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoadBasedAutoScaling"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-var">SetLoadBasedAutoScaling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoadBasedAutoScaling%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var">SetLoadBasedAutoScaling'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An @AutoScalingThresholds@ object with the upscaling threshold</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- configuration. If the load exceeds these thresholds for a specified</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- amount of time, AWS OpsWorks Stacks starts a specified number of</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AlayerId%3ASetLoadBasedAutoScaling%27"><span class="annot"><span class="annottext">SetLoadBasedAutoScaling -&gt; Text
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#%24sel%3AlayerId%3ASetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383333"><span id="local-6989586621679383335"><span class="annot"><span class="annottext">SetLoadBasedAutoScaling -&gt; SetLoadBasedAutoScaling -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383342"><span id="local-6989586621679383344"><span class="annot"><span class="annottext">SetLoadBasedAutoScaling -&gt; SetLoadBasedAutoScaling -&gt; Bool
 (SetLoadBasedAutoScaling -&gt; SetLoadBasedAutoScaling -&gt; Bool)
 -&gt; (SetLoadBasedAutoScaling -&gt; SetLoadBasedAutoScaling -&gt; Bool)
 -&gt; Eq SetLoadBasedAutoScaling
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetLoadBasedAutoScaling -&gt; SetLoadBasedAutoScaling -&gt; Bool
 == :: SetLoadBasedAutoScaling -&gt; SetLoadBasedAutoScaling -&gt; Bool
 $c== :: SetLoadBasedAutoScaling -&gt; SetLoadBasedAutoScaling -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383324"><span id="local-6989586621679383326"><span id="local-6989586621679383328"><span id="local-6989586621679383330"><span class="annot"><span class="annottext">ReadPrec [SetLoadBasedAutoScaling]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383333"><span id="local-6989586621679383335"><span id="local-6989586621679383337"><span id="local-6989586621679383339"><span class="annot"><span class="annottext">ReadPrec [SetLoadBasedAutoScaling]
 ReadPrec SetLoadBasedAutoScaling
 Int -&gt; ReadS SetLoadBasedAutoScaling
 ReadS [SetLoadBasedAutoScaling]
@@ -108,7 +108,7 @@ readList :: ReadS [SetLoadBasedAutoScaling]
 $creadList :: ReadS [SetLoadBasedAutoScaling]
 readsPrec :: Int -&gt; ReadS SetLoadBasedAutoScaling
 $creadsPrec :: Int -&gt; ReadS SetLoadBasedAutoScaling
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383317"><span id="local-6989586621679383319"><span id="local-6989586621679383321"><span class="annot"><span class="annottext">Int -&gt; SetLoadBasedAutoScaling -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383326"><span id="local-6989586621679383328"><span id="local-6989586621679383330"><span class="annot"><span class="annottext">Int -&gt; SetLoadBasedAutoScaling -&gt; ShowS
 [SetLoadBasedAutoScaling] -&gt; ShowS
 SetLoadBasedAutoScaling -&gt; String
 (Int -&gt; SetLoadBasedAutoScaling -&gt; ShowS)
@@ -162,8 +162,8 @@ $cfrom :: forall x. SetLoadBasedAutoScaling -&gt; Rep SetLoadBasedAutoScaling x
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span>
 </span><span id="line-105"></span><span id="newSetLoadBasedAutoScaling"><span class="annot"><span class="annottext">newSetLoadBasedAutoScaling :: Text -&gt; SetLoadBasedAutoScaling
-</span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#newSetLoadBasedAutoScaling"><span class="hs-identifier hs-var hs-var">newSetLoadBasedAutoScaling</span></a></span></span><span> </span><span id="local-6989586621679383312"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383312"><span class="hs-identifier hs-var">pLayerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#newSetLoadBasedAutoScaling"><span class="hs-identifier hs-var hs-var">newSetLoadBasedAutoScaling</span></a></span></span><span> </span><span id="local-6989586621679383321"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383321"><span class="hs-identifier hs-var">pLayerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling' :: Maybe AutoScalingThresholds
 -&gt; Maybe Bool
 -&gt; Maybe AutoScalingThresholds
@@ -185,7 +185,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:layerId:SetLoadBasedAutoScaling' :: Text
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#%24sel%3AlayerId%3ASetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var">layerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383312"><span class="hs-identifier hs-var">pLayerId_</span></a></span><span>
+</span><a href="#local-6989586621679383321"><span class="hs-identifier hs-var">pLayerId_</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | An @AutoScalingThresholds@ object with the upscaling threshold</span><span>
@@ -204,16 +204,16 @@ forall a. Maybe a
      (Maybe AutoScalingThresholds)
      (Maybe AutoScalingThresholds)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383309"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383318"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
 upScaling :: Maybe AutoScalingThresholds
 $sel:upScaling:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383309"><span class="hs-identifier hs-var hs-var">upScaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383309"><span class="hs-identifier hs-var">upScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383308"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383307"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upScaling:SetLoadBasedAutoScaling' :: Maybe AutoScalingThresholds
+</span><a href="#local-6989586621679383318"><span class="hs-identifier hs-var hs-var">upScaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
+</span><a href="#local-6989586621679383318"><span class="hs-identifier hs-var">upScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383317"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383316"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
+</span><a href="#local-6989586621679383316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upScaling:SetLoadBasedAutoScaling' :: Maybe AutoScalingThresholds
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#%24sel%3AupScaling%3ASetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var">upScaling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | Enables load-based auto scaling for the layer.</span><span>
 </span><span id="line-122"></span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#setLoadBasedAutoScaling_enable"><span class="hs-identifier hs-type">setLoadBasedAutoScaling_enable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -228,16 +228,16 @@ $sel:upScaling:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe A
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383306"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383315"><span class="annot"><span class="annottext">Maybe Bool
 enable :: Maybe Bool
 $sel:enable:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe Bool
-</span><a href="#local-6989586621679383306"><span class="hs-identifier hs-var hs-var">enable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679383306"><span class="hs-identifier hs-var">enable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383305"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383304"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679383304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enable:SetLoadBasedAutoScaling' :: Maybe Bool
+</span><a href="#local-6989586621679383315"><span class="hs-identifier hs-var hs-var">enable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383315"><span class="hs-identifier hs-var">enable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383314"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383313"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enable:SetLoadBasedAutoScaling' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#%24sel%3Aenable%3ASetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var">enable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679383304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | An @AutoScalingThresholds@ object with the downscaling threshold</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- configuration. If the load falls below these thresholds for a specified</span><span>
@@ -255,16 +255,16 @@ $sel:enable:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe Bool
      (Maybe AutoScalingThresholds)
      (Maybe AutoScalingThresholds)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383303"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383312"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
 downScaling :: Maybe AutoScalingThresholds
 $sel:downScaling:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383303"><span class="hs-identifier hs-var hs-var">downScaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383303"><span class="hs-identifier hs-var">downScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383302"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383301"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downScaling:SetLoadBasedAutoScaling' :: Maybe AutoScalingThresholds
+</span><a href="#local-6989586621679383312"><span class="hs-identifier hs-var hs-var">downScaling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
+</span><a href="#local-6989586621679383312"><span class="hs-identifier hs-var">downScaling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383311"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383310"><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
+</span><a href="#local-6989586621679383310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downScaling:SetLoadBasedAutoScaling' :: Maybe AutoScalingThresholds
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#%24sel%3AdownScaling%3ASetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var">downScaling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The layer ID.</span><span>
 </span><span id="line-133"></span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#setLoadBasedAutoScaling_layerId"><span class="hs-identifier hs-type">setLoadBasedAutoScaling_layerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -274,28 +274,28 @@ $sel:downScaling:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe
 -&gt; (SetLoadBasedAutoScaling -&gt; Text -&gt; SetLoadBasedAutoScaling)
 -&gt; Lens SetLoadBasedAutoScaling SetLoadBasedAutoScaling Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383300"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383309"><span class="annot"><span class="annottext">Text
 layerId :: Text
 $sel:layerId:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Text
-</span><a href="#local-6989586621679383300"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383300"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383299"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383298"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
-</span><a href="#local-6989586621679383299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerId:SetLoadBasedAutoScaling' :: Text
+</span><a href="#local-6989586621679383309"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383309"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383308"><span class="annot"><span class="annottext">s :: SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383307"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetLoadBasedAutoScaling
+</span><a href="#local-6989586621679383308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerId:SetLoadBasedAutoScaling' :: Text
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#%24sel%3AlayerId%3ASetLoadBasedAutoScaling%27"><span class="hs-identifier hs-var">layerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse"><span class="hs-identifier hs-type">SetLoadBasedAutoScalingResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679383294"><span class="annot"><span class="annottext">request :: SetLoadBasedAutoScaling -&gt; Request SetLoadBasedAutoScaling
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679383303"><span class="annot"><span class="annottext">request :: SetLoadBasedAutoScaling -&gt; Request SetLoadBasedAutoScaling
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; SetLoadBasedAutoScaling -&gt; Request SetLoadBasedAutoScaling
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679383290"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679383299"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetLoadBasedAutoScaling
 -&gt; ClientResponse ClientBody
@@ -322,12 +322,12 @@ AWSResponse a
 SetLoadBasedAutoScalingResponse
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">SetLoadBasedAutoScalingResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383283"><span id="local-6989586621679383285"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383292"><span id="local-6989586621679383294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679383276"><span class="annot"><span class="annottext">toHeaders :: SetLoadBasedAutoScaling -&gt; [Header]
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679383285"><span class="annot"><span class="annottext">toHeaders :: SetLoadBasedAutoScaling -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; SetLoadBasedAutoScaling -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -354,9 +354,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383266"><span id="local-6989586621679383268"><span id="local-6989586621679383270"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679383264"><span class="annot"><span class="annottext">toJSON :: SetLoadBasedAutoScaling -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383259"><span id="local-6989586621679383260"><span id="local-6989586621679383261"><span id="local-6989586621679383262"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383275"><span id="local-6989586621679383277"><span id="local-6989586621679383279"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679383273"><span class="annot"><span class="annottext">toJSON :: SetLoadBasedAutoScaling -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling%27"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383268"><span id="local-6989586621679383269"><span id="local-6989586621679383270"><span id="local-6989586621679383271"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AutoScalingThresholds
 Text
 layerId :: Text
@@ -367,7 +367,7 @@ $sel:layerId:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Text
 $sel:downScaling:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe AutoScalingThresholds
 $sel:enable:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe Bool
 $sel:upScaling:SetLoadBasedAutoScaling' :: SetLoadBasedAutoScaling -&gt; Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383259"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383268"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -380,14 +380,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AutoScalingThresholds -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383262"><span class="hs-identifier hs-var">upScaling</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383271"><span class="hs-identifier hs-var">upScaling</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679383261"><span class="hs-identifier hs-var">enable</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383270"><span class="hs-identifier hs-var">enable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DownScaling&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AutoScalingThresholds -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -395,26 +395,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AutoScalingThresholds -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoScalingThresholds
-</span><a href="#local-6989586621679383260"><span class="hs-identifier hs-var">downScaling</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383269"><span class="hs-identifier hs-var">downScaling</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LayerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383259"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383268"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679383252"><span class="annot"><span class="annottext">toPath :: SetLoadBasedAutoScaling -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679383261"><span class="annot"><span class="annottext">toPath :: SetLoadBasedAutoScaling -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetLoadBasedAutoScaling -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScaling"><span class="hs-identifier hs-type">SetLoadBasedAutoScaling</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679383248"><span class="annot"><span class="annottext">toQuery :: SetLoadBasedAutoScaling -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679383257"><span class="annot"><span class="annottext">toQuery :: SetLoadBasedAutoScaling -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetLoadBasedAutoScaling -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -422,10 +422,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newSetLoadBasedAutoScalingResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679383245"><span id="local-6989586621679383246"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoadBasedAutoScalingResponse"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse"><span class="hs-identifier hs-var">SetLoadBasedAutoScalingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoadBasedAutoScalingResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">SetLoadBasedAutoScalingResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679383254"><span id="local-6989586621679383255"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetLoadBasedAutoScalingResponse"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse"><span class="hs-identifier hs-var">SetLoadBasedAutoScalingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetLoadBasedAutoScalingResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">SetLoadBasedAutoScalingResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383241"><span id="local-6989586621679383243"><span class="annot"><span class="annottext">SetLoadBasedAutoScalingResponse
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383250"><span id="local-6989586621679383252"><span class="annot"><span class="annottext">SetLoadBasedAutoScalingResponse
 -&gt; SetLoadBasedAutoScalingResponse -&gt; Bool
 (SetLoadBasedAutoScalingResponse
  -&gt; SetLoadBasedAutoScalingResponse -&gt; Bool)
@@ -441,7 +441,7 @@ $c/= :: SetLoadBasedAutoScalingResponse
 -&gt; SetLoadBasedAutoScalingResponse -&gt; Bool
 $c== :: SetLoadBasedAutoScalingResponse
 -&gt; SetLoadBasedAutoScalingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383233"><span id="local-6989586621679383235"><span id="local-6989586621679383237"><span id="local-6989586621679383239"><span class="annot"><span class="annottext">ReadPrec [SetLoadBasedAutoScalingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383242"><span id="local-6989586621679383244"><span id="local-6989586621679383246"><span id="local-6989586621679383248"><span class="annot"><span class="annottext">ReadPrec [SetLoadBasedAutoScalingResponse]
 ReadPrec SetLoadBasedAutoScalingResponse
 Int -&gt; ReadS SetLoadBasedAutoScalingResponse
 ReadS [SetLoadBasedAutoScalingResponse]
@@ -461,7 +461,7 @@ readList :: ReadS [SetLoadBasedAutoScalingResponse]
 $creadList :: ReadS [SetLoadBasedAutoScalingResponse]
 readsPrec :: Int -&gt; ReadS SetLoadBasedAutoScalingResponse
 $creadsPrec :: Int -&gt; ReadS SetLoadBasedAutoScalingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383227"><span id="local-6989586621679383229"><span id="local-6989586621679383231"><span class="annot"><span class="annottext">Int -&gt; SetLoadBasedAutoScalingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383236"><span id="local-6989586621679383238"><span id="local-6989586621679383240"><span class="annot"><span class="annottext">Int -&gt; SetLoadBasedAutoScalingResponse -&gt; ShowS
 [SetLoadBasedAutoScalingResponse] -&gt; ShowS
 SetLoadBasedAutoScalingResponse -&gt; String
 (Int -&gt; SetLoadBasedAutoScalingResponse -&gt; ShowS)
@@ -511,6 +511,6 @@ SetLoadBasedAutoScalingResponse
 </span><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse%27"><span class="hs-identifier hs-var">SetLoadBasedAutoScalingResponse'</span></a></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679383223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679383232"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.SetLoadBasedAutoScaling.html#SetLoadBasedAutoScalingResponse"><span class="hs-identifier hs-type">SetLoadBasedAutoScalingResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

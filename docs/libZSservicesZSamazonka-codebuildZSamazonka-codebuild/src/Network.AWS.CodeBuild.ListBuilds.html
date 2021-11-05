@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListBuilds' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679387577"><span id="local-6989586621679387578"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBuilds"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-var">ListBuilds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBuilds%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-var">ListBuilds'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679387586"><span id="local-6989586621679387587"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBuilds"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-var">ListBuilds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBuilds%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-var">ListBuilds'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The order to list build IDs. Valid values include:</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @ASCENDING@: List the build IDs in ascending order by build ID.</span><span>
@@ -69,7 +69,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AnextToken%3AListBuilds%27"><span class="annot"><span class="annottext">ListBuilds -&gt; Maybe Text
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3AnextToken%3AListBuilds%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387570"><span id="local-6989586621679387572"><span class="annot"><span class="annottext">ListBuilds -&gt; ListBuilds -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387579"><span id="local-6989586621679387581"><span class="annot"><span class="annottext">ListBuilds -&gt; ListBuilds -&gt; Bool
 (ListBuilds -&gt; ListBuilds -&gt; Bool)
 -&gt; (ListBuilds -&gt; ListBuilds -&gt; Bool) -&gt; Eq ListBuilds
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBuilds -&gt; ListBuilds -&gt; Bool
 == :: ListBuilds -&gt; ListBuilds -&gt; Bool
 $c== :: ListBuilds -&gt; ListBuilds -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387561"><span id="local-6989586621679387563"><span id="local-6989586621679387565"><span id="local-6989586621679387567"><span class="annot"><span class="annottext">ReadPrec [ListBuilds]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387570"><span id="local-6989586621679387572"><span id="local-6989586621679387574"><span id="local-6989586621679387576"><span class="annot"><span class="annottext">ReadPrec [ListBuilds]
 ReadPrec ListBuilds
 Int -&gt; ReadS ListBuilds
 ReadS [ListBuilds]
@@ -97,7 +97,7 @@ readList :: ReadS [ListBuilds]
 $creadList :: ReadS [ListBuilds]
 readsPrec :: Int -&gt; ReadS ListBuilds
 $creadsPrec :: Int -&gt; ReadS ListBuilds
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387554"><span id="local-6989586621679387556"><span id="local-6989586621679387558"><span class="annot"><span class="annottext">Int -&gt; ListBuilds -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387563"><span id="local-6989586621679387565"><span id="local-6989586621679387567"><span class="annot"><span class="annottext">Int -&gt; ListBuilds -&gt; ShowS
 [ListBuilds] -&gt; ShowS
 ListBuilds -&gt; String
 (Int -&gt; ListBuilds -&gt; ShowS)
@@ -171,16 +171,16 @@ forall a. Maybe a
 -&gt; Lens
      ListBuilds ListBuilds (Maybe SortOrderType) (Maybe SortOrderType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387548"><span class="annot"><span class="annottext">Maybe SortOrderType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387557"><span class="annot"><span class="annottext">Maybe SortOrderType
 sortOrder :: Maybe SortOrderType
 $sel:sortOrder:ListBuilds' :: ListBuilds -&gt; Maybe SortOrderType
-</span><a href="#local-6989586621679387548"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679387548"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387547"><span class="annot"><span class="annottext">s :: ListBuilds
-</span><a href="#local-6989586621679387547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387546"><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679387546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuilds
-</span><a href="#local-6989586621679387547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListBuilds' :: Maybe SortOrderType
+</span><a href="#local-6989586621679387557"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
+</span><a href="#local-6989586621679387557"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387556"><span class="annot"><span class="annottext">s :: ListBuilds
+</span><a href="#local-6989586621679387556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387555"><span class="annot"><span class="annottext">Maybe SortOrderType
+</span><a href="#local-6989586621679387555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuilds
+</span><a href="#local-6989586621679387556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListBuilds' :: Maybe SortOrderType
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3AsortOrder%3AListBuilds%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679387546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | During a previous call, if there are more than 100 items in the list,</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- only the first 100 items are returned, along with a unique string called</span><span>
@@ -194,28 +194,28 @@ $sel:sortOrder:ListBuilds' :: ListBuilds -&gt; Maybe SortOrderType
 -&gt; (ListBuilds -&gt; Maybe Text -&gt; ListBuilds)
 -&gt; Lens ListBuilds ListBuilds (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387545"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387554"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBuilds' :: ListBuilds -&gt; Maybe Text
-</span><a href="#local-6989586621679387545"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387545"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387544"><span class="annot"><span class="annottext">s :: ListBuilds
-</span><a href="#local-6989586621679387544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387543"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuilds
-</span><a href="#local-6989586621679387544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBuilds' :: Maybe Text
+</span><a href="#local-6989586621679387554"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387554"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387553"><span class="annot"><span class="annottext">s :: ListBuilds
+</span><a href="#local-6989586621679387553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387552"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuilds
+</span><a href="#local-6989586621679387553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBuilds' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3AnextToken%3AListBuilds%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679387539"><span class="annot"><span class="annottext">page :: ListBuilds -&gt; AWSResponse ListBuilds -&gt; Maybe ListBuilds
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679387537"><span class="annot"><span class="annottext">ListBuilds
-</span><a href="#local-6989586621679387537"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679387536"><span class="annot"><span class="annottext">AWSResponse ListBuilds
-</span><a href="#local-6989586621679387536"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679387548"><span class="annot"><span class="annottext">page :: ListBuilds -&gt; AWSResponse ListBuilds -&gt; Maybe ListBuilds
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679387546"><span class="annot"><span class="annottext">ListBuilds
+</span><a href="#local-6989586621679387546"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679387545"><span class="annot"><span class="annottext">AWSResponse ListBuilds
+</span><a href="#local-6989586621679387545"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBuilds
 ListBuildsResponse
-</span><a href="#local-6989586621679387536"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387545"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">ListBuildsResponse
 -&gt; Getting (First Text) ListBuildsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -241,7 +241,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBuilds
 ListBuildsResponse
-</span><a href="#local-6989586621679387536"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387545"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">ListBuildsResponse
 -&gt; Getting (First [Text]) ListBuildsResponse [Text] -&gt; Maybe [Text]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -293,7 +293,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">ListBuilds
-</span><a href="#local-6989586621679387537"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679387546"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListBuilds -&gt; (ListBuilds -&gt; ListBuilds) -&gt; ListBuilds
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -306,7 +306,7 @@ Lens ListBuilds ListBuilds (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBuilds
 ListBuildsResponse
-</span><a href="#local-6989586621679387536"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679387545"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">ListBuildsResponse
 -&gt; Getting (First Text) ListBuildsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -326,12 +326,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679387525"><span class="annot"><span class="annottext">request :: ListBuilds -&gt; Request ListBuilds
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679387534"><span class="annot"><span class="annottext">request :: ListBuilds -&gt; Request ListBuilds
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBuilds -&gt; Request ListBuilds
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679387521"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679387530"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBuilds
 -&gt; ClientResponse ClientBody
@@ -355,10 +355,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387518"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387518"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387517"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387517"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387516"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387527"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387527"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387526"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387526"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387525"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text) -&gt; Maybe Text -&gt; Int -&gt; ListBuildsResponse
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-var">ListBuildsResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text) -&gt; Maybe Text -&gt; Int -&gt; ListBuildsResponse)
@@ -366,7 +366,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListBuildsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679387525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ids&quot;</span></span><span class="hs-special">)</span><span>
@@ -375,7 +375,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListBuildsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679387525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -387,15 +387,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387518"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387527"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387508"><span id="local-6989586621679387510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387517"><span id="local-6989586621679387519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679387501"><span class="annot"><span class="annottext">toHeaders :: ListBuilds -&gt; ResponseHeaders
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679387510"><span class="annot"><span class="annottext">toHeaders :: ListBuilds -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBuilds -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -422,15 +422,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387491"><span id="local-6989586621679387493"><span id="local-6989586621679387495"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679387489"><span class="annot"><span class="annottext">toJSON :: ListBuilds -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387486"><span id="local-6989586621679387487"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387500"><span id="local-6989586621679387502"><span id="local-6989586621679387504"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679387498"><span class="annot"><span class="annottext">toJSON :: ListBuilds -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds%27"><span class="hs-identifier hs-type">ListBuilds'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387495"><span id="local-6989586621679387496"><span class="annot"><span class="annottext">Maybe Text
 Maybe SortOrderType
 nextToken :: Maybe Text
 sortOrder :: Maybe SortOrderType
 $sel:nextToken:ListBuilds' :: ListBuilds -&gt; Maybe Text
 $sel:sortOrder:ListBuilds' :: ListBuilds -&gt; Maybe SortOrderType
-</span><a href="#local-6989586621679387486"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387495"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -442,26 +442,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrderType -&gt; Pair) -&gt; Maybe SortOrderType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrderType
-</span><a href="#local-6989586621679387487"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387496"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387486"><span class="hs-identifier hs-var">nextToken</span></a></span><span>
+</span><a href="#local-6989586621679387495"><span class="hs-identifier hs-var">nextToken</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679387480"><span class="annot"><span class="annottext">toPath :: ListBuilds -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679387489"><span class="annot"><span class="annottext">toPath :: ListBuilds -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBuilds -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuilds"><span class="hs-identifier hs-type">ListBuilds</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679387476"><span class="annot"><span class="annottext">toQuery :: ListBuilds -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679387485"><span class="annot"><span class="annottext">toQuery :: ListBuilds -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListBuilds -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -469,7 +469,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newListBuildsResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679387473"><span id="local-6989586621679387474"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBuildsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-var">ListBuildsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBuildsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-var">ListBuildsResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679387482"><span id="local-6989586621679387483"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBuildsResponse"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-var">ListBuildsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBuildsResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-var">ListBuildsResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of build IDs, with each build ID representing a single build.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3Aids%3AListBuildsResponse%27"><span class="annot"><span class="annottext">ListBuildsResponse -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3Aids%3AListBuildsResponse%27"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -483,7 +483,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBuildsResponse%27"><span class="annot"><span class="annottext">ListBuildsResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3AhttpStatus%3AListBuildsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387466"><span id="local-6989586621679387468"><span class="annot"><span class="annottext">ListBuildsResponse -&gt; ListBuildsResponse -&gt; Bool
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387475"><span id="local-6989586621679387477"><span class="annot"><span class="annottext">ListBuildsResponse -&gt; ListBuildsResponse -&gt; Bool
 (ListBuildsResponse -&gt; ListBuildsResponse -&gt; Bool)
 -&gt; (ListBuildsResponse -&gt; ListBuildsResponse -&gt; Bool)
 -&gt; Eq ListBuildsResponse
@@ -492,7 +492,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBuildsResponse -&gt; ListBuildsResponse -&gt; Bool
 == :: ListBuildsResponse -&gt; ListBuildsResponse -&gt; Bool
 $c== :: ListBuildsResponse -&gt; ListBuildsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387458"><span id="local-6989586621679387460"><span id="local-6989586621679387462"><span id="local-6989586621679387464"><span class="annot"><span class="annottext">ReadPrec [ListBuildsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387467"><span id="local-6989586621679387469"><span id="local-6989586621679387471"><span id="local-6989586621679387473"><span class="annot"><span class="annottext">ReadPrec [ListBuildsResponse]
 ReadPrec ListBuildsResponse
 Int -&gt; ReadS ListBuildsResponse
 ReadS [ListBuildsResponse]
@@ -512,7 +512,7 @@ readList :: ReadS [ListBuildsResponse]
 $creadList :: ReadS [ListBuildsResponse]
 readsPrec :: Int -&gt; ReadS ListBuildsResponse
 $creadsPrec :: Int -&gt; ReadS ListBuildsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387452"><span id="local-6989586621679387454"><span id="local-6989586621679387456"><span class="annot"><span class="annottext">Int -&gt; ListBuildsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387461"><span id="local-6989586621679387463"><span id="local-6989586621679387465"><span class="annot"><span class="annottext">Int -&gt; ListBuildsResponse -&gt; ShowS
 [ListBuildsResponse] -&gt; ShowS
 ListBuildsResponse -&gt; String
 (Int -&gt; ListBuildsResponse -&gt; ShowS)
@@ -559,8 +559,8 @@ $cfrom :: forall x. ListBuildsResponse -&gt; Rep ListBuildsResponse x
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newListBuildsResponse"><span class="annot"><span class="annottext">newListBuildsResponse :: Int -&gt; ListBuildsResponse
-</span><a href="Network.AWS.CodeBuild.ListBuilds.html#newListBuildsResponse"><span class="hs-identifier hs-var hs-var">newListBuildsResponse</span></a></span></span><span> </span><span id="local-6989586621679387449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.ListBuilds.html#newListBuildsResponse"><span class="hs-identifier hs-var hs-var">newListBuildsResponse</span></a></span></span><span> </span><span id="local-6989586621679387458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">ListBuildsResponse' :: Maybe (NonEmpty Text) -&gt; Maybe Text -&gt; Int -&gt; ListBuildsResponse
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ids:ListBuildsResponse' :: Maybe (NonEmpty Text)
@@ -573,7 +573,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBuildsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3AhttpStatus%3AListBuildsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679387458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | A list of build IDs, with each build ID representing a single build.</span><span>
@@ -585,16 +585,16 @@ forall a. Maybe a
     -&gt; Maybe (NonEmpty Text) -&gt; ListBuildsResponse)
 -&gt; Lens' ListBuildsResponse (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387448"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387457"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 ids :: Maybe (NonEmpty Text)
 $sel:ids:ListBuildsResponse' :: ListBuildsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387448"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387448"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387447"><span class="annot"><span class="annottext">s :: ListBuildsResponse
-</span><a href="#local-6989586621679387447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387446"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuildsResponse
-</span><a href="#local-6989586621679387447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:ListBuildsResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679387457"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679387457"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387456"><span class="annot"><span class="annottext">s :: ListBuildsResponse
+</span><a href="#local-6989586621679387456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387455"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679387455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuildsResponse
+</span><a href="#local-6989586621679387456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:ListBuildsResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3Aids%3AListBuildsResponse%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679387446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679387455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ListBuildsResponse -&gt; f ListBuildsResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -628,16 +628,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListBuildsResponse -&gt; Maybe Text -&gt; ListBuildsResponse)
 -&gt; Lens' ListBuildsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387443"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387452"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBuildsResponse' :: ListBuildsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679387443"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387443"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387442"><span class="annot"><span class="annottext">s :: ListBuildsResponse
-</span><a href="#local-6989586621679387442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387441"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuildsResponse
-</span><a href="#local-6989586621679387442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBuildsResponse' :: Maybe Text
+</span><a href="#local-6989586621679387452"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387452"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387451"><span class="annot"><span class="annottext">s :: ListBuildsResponse
+</span><a href="#local-6989586621679387451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387450"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuildsResponse
+</span><a href="#local-6989586621679387451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBuildsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3AnextToken%3AListBuildsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#listBuildsResponse_httpStatus"><span class="hs-identifier hs-type">listBuildsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -646,16 +646,16 @@ $sel:nextToken:ListBuildsResponse' :: ListBuildsResponse -&gt; Maybe Text
 -&gt; (ListBuildsResponse -&gt; Int -&gt; ListBuildsResponse)
 -&gt; Lens ListBuildsResponse ListBuildsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387440"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387449"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBuildsResponse' :: ListBuildsResponse -&gt; Int
-</span><a href="#local-6989586621679387440"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387440"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387439"><span class="annot"><span class="annottext">s :: ListBuildsResponse
-</span><a href="#local-6989586621679387439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuildsResponse
-</span><a href="#local-6989586621679387439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBuildsResponse' :: Int
+</span><a href="#local-6989586621679387449"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387449"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387448"><span class="annot"><span class="annottext">s :: ListBuildsResponse
+</span><a href="#local-6989586621679387448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse%27"><span class="hs-identifier hs-type">ListBuildsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBuildsResponse
+</span><a href="#local-6989586621679387448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBuildsResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.ListBuilds.html#%24sel%3AhttpStatus%3AListBuildsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.ListBuilds.html#ListBuildsResponse"><span class="hs-identifier hs-type">ListBuildsResponse</span></a></span></span><span>
 </span><span id="line-240"></span></pre></body></html>

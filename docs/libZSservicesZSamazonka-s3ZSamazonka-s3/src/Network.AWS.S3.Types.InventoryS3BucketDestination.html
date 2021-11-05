@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- prefix (optional) where inventory results are published.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInventoryS3BucketDestination' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679552537"><span id="local-6989586621679552538"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryS3BucketDestination"><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-var">InventoryS3BucketDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryS3BucketDestination%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-var">InventoryS3BucketDestination'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679552546"><span id="local-6989586621679552547"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryS3BucketDestination"><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-var">InventoryS3BucketDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryS3BucketDestination%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-var">InventoryS3BucketDestination'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix that is prepended to all inventory results.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprefix%3AInventoryS3BucketDestination%27"><span class="annot"><span class="annottext">InventoryS3BucketDestination -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Aprefix%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aformat%3AInventoryS3BucketDestination%27"><span class="annot"><span class="annottext">InventoryS3BucketDestination -&gt; InventoryFormat
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Aformat%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryFormat.html#InventoryFormat"><span class="hs-identifier hs-type">InventoryFormat</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552527"><span id="local-6989586621679552529"><span class="annot"><span class="annottext">InventoryS3BucketDestination
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552536"><span id="local-6989586621679552538"><span class="annot"><span class="annottext">InventoryS3BucketDestination
 -&gt; InventoryS3BucketDestination -&gt; Bool
 (InventoryS3BucketDestination
  -&gt; InventoryS3BucketDestination -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: InventoryS3BucketDestination
 -&gt; InventoryS3BucketDestination -&gt; Bool
 $c== :: InventoryS3BucketDestination
 -&gt; InventoryS3BucketDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552520"><span id="local-6989586621679552522"><span id="local-6989586621679552524"><span class="annot"><span class="annottext">Int -&gt; InventoryS3BucketDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552529"><span id="local-6989586621679552531"><span id="local-6989586621679552533"><span class="annot"><span class="annottext">Int -&gt; InventoryS3BucketDestination -&gt; ShowS
 [InventoryS3BucketDestination] -&gt; ShowS
 InventoryS3BucketDestination -&gt; String
 (Int -&gt; InventoryS3BucketDestination -&gt; ShowS)
@@ -131,9 +131,9 @@ InventoryS3BucketDestination -&gt; Rep InventoryS3BucketDestination x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryFormat.html#InventoryFormat"><span class="hs-identifier hs-type">InventoryFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span>
 </span><span id="line-82"></span><span id="newInventoryS3BucketDestination"><span class="annot"><span class="annottext">newInventoryS3BucketDestination :: BucketName -&gt; InventoryFormat -&gt; InventoryS3BucketDestination
-</span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#newInventoryS3BucketDestination"><span class="hs-identifier hs-var hs-var">newInventoryS3BucketDestination</span></a></span></span><span> </span><span id="local-6989586621679552514"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679552514"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679552513"><span class="annot"><span class="annottext">InventoryFormat
-</span><a href="#local-6989586621679552513"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#newInventoryS3BucketDestination"><span class="hs-identifier hs-var hs-var">newInventoryS3BucketDestination</span></a></span></span><span> </span><span id="local-6989586621679552523"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679552523"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span id="local-6989586621679552522"><span class="annot"><span class="annottext">InventoryFormat
+</span><a href="#local-6989586621679552522"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">InventoryS3BucketDestination' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe InventoryEncryption
@@ -156,10 +156,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:InventoryS3BucketDestination' :: BucketName
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Abucket%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679552514"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552523"><span class="hs-identifier hs-var">pBucket_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:InventoryS3BucketDestination' :: InventoryFormat
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Aformat%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryFormat
-</span><a href="#local-6989586621679552513"><span class="hs-identifier hs-var">pFormat_</span></a></span><span>
+</span><a href="#local-6989586621679552522"><span class="hs-identifier hs-var">pFormat_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The prefix that is prepended to all inventory results.</span><span>
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552509"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552518"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679552509"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552509"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552508"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
-</span><a href="#local-6989586621679552508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552507"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
-</span><a href="#local-6989586621679552508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:InventoryS3BucketDestination' :: Maybe Text
+</span><a href="#local-6989586621679552518"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679552518"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552517"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
+</span><a href="#local-6989586621679552517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679552516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
+</span><a href="#local-6989586621679552517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:InventoryS3BucketDestination' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Aprefix%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The account ID that owns the destination S3 bucket. If no account ID is</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- provided, the owner is not validated before exporting data.</span><span>
@@ -203,16 +203,16 @@ $sel:prefix:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552505"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552514"><span class="annot"><span class="annottext">Maybe Text
 accountId :: Maybe Text
 $sel:accountId:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679552505"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552505"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552504"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
-</span><a href="#local-6989586621679552504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552503"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
-</span><a href="#local-6989586621679552504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InventoryS3BucketDestination' :: Maybe Text
+</span><a href="#local-6989586621679552514"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679552514"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552513"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
+</span><a href="#local-6989586621679552513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679552512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
+</span><a href="#local-6989586621679552513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InventoryS3BucketDestination' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3AaccountId%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Contains the type of server-side encryption used to encrypt the</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- inventory results.</span><span>
@@ -228,16 +228,16 @@ $sel:accountId:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&g
      (Maybe InventoryEncryption)
      (Maybe InventoryEncryption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552501"><span class="annot"><span class="annottext">Maybe InventoryEncryption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552510"><span class="annot"><span class="annottext">Maybe InventoryEncryption
 encryption :: Maybe InventoryEncryption
 $sel:encryption:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; Maybe InventoryEncryption
-</span><a href="#local-6989586621679552501"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InventoryEncryption
-</span><a href="#local-6989586621679552501"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552500"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
-</span><a href="#local-6989586621679552500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552499"><span class="annot"><span class="annottext">Maybe InventoryEncryption
-</span><a href="#local-6989586621679552499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
-</span><a href="#local-6989586621679552500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:InventoryS3BucketDestination' :: Maybe InventoryEncryption
+</span><a href="#local-6989586621679552510"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InventoryEncryption
+</span><a href="#local-6989586621679552510"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552509"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
+</span><a href="#local-6989586621679552509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552508"><span class="annot"><span class="annottext">Maybe InventoryEncryption
+</span><a href="#local-6989586621679552508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
+</span><a href="#local-6989586621679552509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:InventoryS3BucketDestination' :: Maybe InventoryEncryption
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Aencryption%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InventoryEncryption
-</span><a href="#local-6989586621679552499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the bucket where inventory results</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- will be published.</span><span>
@@ -253,16 +253,16 @@ $sel:encryption:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&
      BucketName
      BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552497"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552506"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; BucketName
-</span><a href="#local-6989586621679552497"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679552497"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552496"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
-</span><a href="#local-6989586621679552496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552495"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
-</span><a href="#local-6989586621679552496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:InventoryS3BucketDestination' :: BucketName
+</span><a href="#local-6989586621679552506"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679552506"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552505"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
+</span><a href="#local-6989586621679552505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552504"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679552504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
+</span><a href="#local-6989586621679552505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:InventoryS3BucketDestination' :: BucketName
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Abucket%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | Specifies the output format of the inventory results.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#inventoryS3BucketDestination_format"><span class="hs-identifier hs-type">inventoryS3BucketDestination_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryFormat.html#InventoryFormat"><span class="hs-identifier hs-type">InventoryFormat</span></a></span><span>
@@ -277,21 +277,21 @@ $sel:bucket:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; 
      InventoryFormat
      InventoryFormat
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552493"><span class="annot"><span class="annottext">InventoryFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552502"><span class="annot"><span class="annottext">InventoryFormat
 format :: InventoryFormat
 $sel:format:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; InventoryFormat
-</span><a href="#local-6989586621679552493"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryFormat
-</span><a href="#local-6989586621679552493"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552492"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
-</span><a href="#local-6989586621679552492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552491"><span class="annot"><span class="annottext">InventoryFormat
-</span><a href="#local-6989586621679552491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
-</span><a href="#local-6989586621679552492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:InventoryS3BucketDestination' :: InventoryFormat
+</span><a href="#local-6989586621679552502"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryFormat
+</span><a href="#local-6989586621679552502"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552501"><span class="annot"><span class="annottext">s :: InventoryS3BucketDestination
+</span><a href="#local-6989586621679552501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552500"><span class="annot"><span class="annottext">InventoryFormat
+</span><a href="#local-6989586621679552500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryS3BucketDestination
+</span><a href="#local-6989586621679552501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:InventoryS3BucketDestination' :: InventoryFormat
 </span><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#%24sel%3Aformat%3AInventoryS3BucketDestination%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InventoryFormat
-</span><a href="#local-6989586621679552491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679552488"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InventoryS3BucketDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679552486"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679552497"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InventoryS3BucketDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679552495"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe InventoryEncryption
@@ -315,7 +315,7 @@ $sel:format:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; 
       -&gt; InventoryS3BucketDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,7 +333,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; BucketName -&gt; InventoryFormat -&gt; InventoryS3BucketDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,7 +347,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (BucketName -&gt; InventoryFormat -&gt; InventoryS3BucketDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InventoryEncryption)
+</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InventoryEncryption)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span class="hs-special">)</span><span>
@@ -358,7 +358,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (InventoryFormat -&gt; InventoryS3BucketDestination)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String BucketName
+</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String BucketName
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span class="hs-special">)</span><span>
@@ -367,20 +367,20 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String InventoryS3BucketDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679552486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventoryFormat
+</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InventoryFormat
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Format&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679552479"><span id="local-6989586621679552481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679552488"><span id="local-6989586621679552490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination"><span class="hs-identifier hs-type">InventoryS3BucketDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679552472"><span class="annot"><span class="annottext">toXML :: InventoryS3BucketDestination -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552466"><span id="local-6989586621679552467"><span id="local-6989586621679552468"><span id="local-6989586621679552469"><span id="local-6989586621679552470"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679552481"><span class="annot"><span class="annottext">toXML :: InventoryS3BucketDestination -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryS3BucketDestination.html#InventoryS3BucketDestination%27"><span class="hs-identifier hs-type">InventoryS3BucketDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552475"><span id="local-6989586621679552476"><span id="local-6989586621679552477"><span id="local-6989586621679552478"><span id="local-6989586621679552479"><span class="annot"><span class="annottext">Maybe Text
 Maybe InventoryEncryption
 BucketName
 InventoryFormat
@@ -394,7 +394,7 @@ $sel:bucket:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; 
 $sel:encryption:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; Maybe InventoryEncryption
 $sel:accountId:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; Maybe Text
 $sel:prefix:InventoryS3BucketDestination' :: InventoryS3BucketDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679552466"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679552475"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -402,26 +402,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552470"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552479"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679552469"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552478"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe InventoryEncryption -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe InventoryEncryption
-</span><a href="#local-6989586621679552468"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552477"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; BucketName -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679552467"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679552476"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Format&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; InventoryFormat -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">InventoryFormat
-</span><a href="#local-6989586621679552466"><span class="hs-identifier hs-var">format</span></a></span><span>
+</span><a href="#local-6989586621679552475"><span class="hs-identifier hs-var">format</span></a></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span></pre></body></html>

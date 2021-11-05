@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679237316"><span id="local-6989586621679237317"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandshakePartyType"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakePartyType.html#HandshakePartyType"><span class="hs-identifier hs-var">HandshakePartyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakePartyType%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakePartyType.html#HandshakePartyType%27"><span class="hs-identifier hs-var">HandshakePartyType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679237325"><span id="local-6989586621679237326"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HandshakePartyType"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakePartyType.html#HandshakePartyType"><span class="hs-identifier hs-var">HandshakePartyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakePartyType%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakePartyType.html#HandshakePartyType%27"><span class="hs-identifier hs-var">HandshakePartyType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHandshakePartyType"><span class="annot"><span class="annottext">HandshakePartyType -&gt; Text
 </span><a href="Network.AWS.Organizations.Types.HandshakePartyType.html#fromHandshakePartyType"><span class="hs-identifier hs-var hs-var">fromHandshakePartyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237308"><span id="local-6989586621679237310"><span id="local-6989586621679237312"><span class="annot"><span class="annottext">Int -&gt; HandshakePartyType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237317"><span id="local-6989586621679237319"><span id="local-6989586621679237321"><span class="annot"><span class="annottext">Int -&gt; HandshakePartyType -&gt; ShowS
 [HandshakePartyType] -&gt; ShowS
 HandshakePartyType -&gt; String
 (Int -&gt; HandshakePartyType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HandshakePartyType -&gt; String
 showsPrec :: Int -&gt; HandshakePartyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HandshakePartyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679237299"><span id="local-6989586621679237301"><span id="local-6989586621679237303"><span id="local-6989586621679237305"><span class="annot"><span class="annottext">ReadPrec [HandshakePartyType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679237308"><span id="local-6989586621679237310"><span id="local-6989586621679237312"><span id="local-6989586621679237314"><span class="annot"><span class="annottext">ReadPrec [HandshakePartyType]
 ReadPrec HandshakePartyType
 Int -&gt; ReadS HandshakePartyType
 ReadS [HandshakePartyType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HandshakePartyType]
 readsPrec :: Int -&gt; ReadS HandshakePartyType
 $creadsPrec :: Int -&gt; ReadS HandshakePartyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679237294"><span id="local-6989586621679237296"><span class="annot"><span class="annottext">HandshakePartyType -&gt; HandshakePartyType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679237303"><span id="local-6989586621679237305"><span class="annot"><span class="annottext">HandshakePartyType -&gt; HandshakePartyType -&gt; Bool
 (HandshakePartyType -&gt; HandshakePartyType -&gt; Bool)
 -&gt; (HandshakePartyType -&gt; HandshakePartyType -&gt; Bool)
 -&gt; Eq HandshakePartyType
@@ -83,7 +83,7 @@ $c/= :: HandshakePartyType -&gt; HandshakePartyType -&gt; Bool
 == :: HandshakePartyType -&gt; HandshakePartyType -&gt; Bool
 $c== :: HandshakePartyType -&gt; HandshakePartyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679237278"><span id="local-6989586621679237280"><span id="local-6989586621679237282"><span id="local-6989586621679237284"><span id="local-6989586621679237286"><span id="local-6989586621679237288"><span id="local-6989586621679237290"><span class="annot"><span class="annottext">Eq HandshakePartyType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679237287"><span id="local-6989586621679237289"><span id="local-6989586621679237291"><span id="local-6989586621679237293"><span id="local-6989586621679237295"><span id="local-6989586621679237297"><span id="local-6989586621679237299"><span class="annot"><span class="annottext">Eq HandshakePartyType
 Eq HandshakePartyType
 -&gt; (HandshakePartyType -&gt; HandshakePartyType -&gt; Ordering)
 -&gt; (HandshakePartyType -&gt; HandshakePartyType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. HandshakePartyType -&gt; Rep HandshakePartyType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237270"><span id="local-6989586621679237272"><span class="annot"><span class="annottext">Int -&gt; HandshakePartyType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679237279"><span id="local-6989586621679237281"><span class="annot"><span class="annottext">Int -&gt; HandshakePartyType -&gt; Int
 HandshakePartyType -&gt; Int
 (Int -&gt; HandshakePartyType -&gt; Int)
 -&gt; (HandshakePartyType -&gt; Int) -&gt; Hashable HandshakePartyType
@@ -144,53 +144,53 @@ $chash :: HandshakePartyType -&gt; Int
 hashWithSalt :: Int -&gt; HandshakePartyType -&gt; Int
 $chashWithSalt :: Int -&gt; HandshakePartyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237267"><span class="annot"><span class="annottext">HandshakePartyType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679237276"><span class="annot"><span class="annottext">HandshakePartyType -&gt; ()
 (HandshakePartyType -&gt; ()) -&gt; NFData HandshakePartyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HandshakePartyType -&gt; ()
 $crnf :: HandshakePartyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679237264"><span class="annot"><span class="annottext">Text -&gt; Either String HandshakePartyType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679237273"><span class="annot"><span class="annottext">Text -&gt; Either String HandshakePartyType
 (Text -&gt; Either String HandshakePartyType)
 -&gt; FromText HandshakePartyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HandshakePartyType
 $cfromText :: Text -&gt; Either String HandshakePartyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679237261"><span class="annot"><span class="annottext">HandshakePartyType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679237270"><span class="annot"><span class="annottext">HandshakePartyType -&gt; Text
 (HandshakePartyType -&gt; Text) -&gt; ToText HandshakePartyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HandshakePartyType -&gt; Text
 $ctoText :: HandshakePartyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237258"><span class="annot"><span class="annottext">HandshakePartyType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679237267"><span class="annot"><span class="annottext">HandshakePartyType -&gt; ByteString
 (HandshakePartyType -&gt; ByteString)
 -&gt; ToByteString HandshakePartyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HandshakePartyType -&gt; ByteString
 $ctoBS :: HandshakePartyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237255"><span class="annot"><span class="annottext">HandshakePartyType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679237264"><span class="annot"><span class="annottext">HandshakePartyType -&gt; ByteStringBuilder
 (HandshakePartyType -&gt; ByteStringBuilder)
 -&gt; ToLog HandshakePartyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HandshakePartyType -&gt; ByteStringBuilder
 $cbuild :: HandshakePartyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237252"><span class="annot"><span class="annottext">HeaderName -&gt; HandshakePartyType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679237261"><span class="annot"><span class="annottext">HeaderName -&gt; HandshakePartyType -&gt; [Header]
 (HeaderName -&gt; HandshakePartyType -&gt; [Header])
 -&gt; ToHeader HandshakePartyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HandshakePartyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HandshakePartyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237249"><span class="annot"><span class="annottext">HandshakePartyType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679237258"><span class="annot"><span class="annottext">HandshakePartyType -&gt; QueryString
 (HandshakePartyType -&gt; QueryString) -&gt; ToQuery HandshakePartyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HandshakePartyType -&gt; QueryString
 $ctoQuery :: HandshakePartyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237244"><span id="local-6989586621679237246"><span class="annot"><span class="annottext">Value -&gt; Parser [HandshakePartyType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679237253"><span id="local-6989586621679237255"><span class="annot"><span class="annottext">Value -&gt; Parser [HandshakePartyType]
 Value -&gt; Parser HandshakePartyType
 (Value -&gt; Parser HandshakePartyType)
 -&gt; (Value -&gt; Parser [HandshakePartyType])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [HandshakePartyType]
 parseJSON :: Value -&gt; Parser HandshakePartyType
 $cparseJSON :: Value -&gt; Parser HandshakePartyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237239"><span id="local-6989586621679237241"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandshakePartyType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679237248"><span id="local-6989586621679237250"><span class="annot"><span class="annottext">FromJSONKeyFunction [HandshakePartyType]
 FromJSONKeyFunction HandshakePartyType
 FromJSONKeyFunction HandshakePartyType
 -&gt; FromJSONKeyFunction [HandshakePartyType]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HandshakePartyType]
 fromJSONKey :: FromJSONKeyFunction HandshakePartyType
 $cfromJSONKey :: FromJSONKeyFunction HandshakePartyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237230"><span id="local-6989586621679237232"><span id="local-6989586621679237234"><span id="local-6989586621679237236"><span class="annot"><span class="annottext">[HandshakePartyType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679237239"><span id="local-6989586621679237241"><span id="local-6989586621679237243"><span id="local-6989586621679237245"><span class="annot"><span class="annottext">[HandshakePartyType] -&gt; Encoding
 [HandshakePartyType] -&gt; Value
 HandshakePartyType -&gt; Encoding
 HandshakePartyType -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: HandshakePartyType -&gt; Encoding
 toJSON :: HandshakePartyType -&gt; Value
 $ctoJSON :: HandshakePartyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237225"><span id="local-6989586621679237227"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandshakePartyType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679237234"><span id="local-6989586621679237236"><span class="annot"><span class="annottext">ToJSONKeyFunction [HandshakePartyType]
 ToJSONKeyFunction HandshakePartyType
 ToJSONKeyFunction HandshakePartyType
 -&gt; ToJSONKeyFunction [HandshakePartyType]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HandshakePartyType]
 toJSONKey :: ToJSONKeyFunction HandshakePartyType
 $ctoJSONKey :: ToJSONKeyFunction HandshakePartyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237222"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandshakePartyType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679237231"><span class="annot"><span class="annottext">[Node] -&gt; Either String HandshakePartyType
 ([Node] -&gt; Either String HandshakePartyType)
 -&gt; FromXML HandshakePartyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HandshakePartyType
 $cparseXML :: [Node] -&gt; Either String HandshakePartyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237219"><span class="annot"><span class="annottext">HandshakePartyType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679237228"><span class="annot"><span class="annottext">HandshakePartyType -&gt; XML
 (HandshakePartyType -&gt; XML) -&gt; ToXML HandshakePartyType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HandshakePartyType -&gt; XML

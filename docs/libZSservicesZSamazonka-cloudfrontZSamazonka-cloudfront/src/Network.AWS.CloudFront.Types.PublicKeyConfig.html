@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption&gt;.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPublicKeyConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679397810"><span id="local-6989586621679397811"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicKeyConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-var">PublicKeyConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicKeyConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-var">PublicKeyConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679397819"><span id="local-6989586621679397820"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicKeyConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-var">PublicKeyConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicKeyConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-var">PublicKeyConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A comment to describe the public key. The comment cannot be longer than</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- 128 characters.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Acomment%3APublicKeyConfig%27"><span class="annot"><span class="annottext">PublicKeyConfig -&gt; Maybe Text
@@ -48,7 +48,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AencodedKey%3APublicKeyConfig%27"><span class="annot"><span class="annottext">PublicKeyConfig -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3AencodedKey%3APublicKeyConfig%27"><span class="hs-identifier hs-var hs-var">encodedKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397801"><span id="local-6989586621679397803"><span class="annot"><span class="annottext">PublicKeyConfig -&gt; PublicKeyConfig -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397810"><span id="local-6989586621679397812"><span class="annot"><span class="annottext">PublicKeyConfig -&gt; PublicKeyConfig -&gt; Bool
 (PublicKeyConfig -&gt; PublicKeyConfig -&gt; Bool)
 -&gt; (PublicKeyConfig -&gt; PublicKeyConfig -&gt; Bool)
 -&gt; Eq PublicKeyConfig
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PublicKeyConfig -&gt; PublicKeyConfig -&gt; Bool
 == :: PublicKeyConfig -&gt; PublicKeyConfig -&gt; Bool
 $c== :: PublicKeyConfig -&gt; PublicKeyConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397792"><span id="local-6989586621679397794"><span id="local-6989586621679397796"><span id="local-6989586621679397798"><span class="annot"><span class="annottext">ReadPrec [PublicKeyConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397801"><span id="local-6989586621679397803"><span id="local-6989586621679397805"><span id="local-6989586621679397807"><span class="annot"><span class="annottext">ReadPrec [PublicKeyConfig]
 ReadPrec PublicKeyConfig
 Int -&gt; ReadS PublicKeyConfig
 ReadS [PublicKeyConfig]
@@ -77,7 +77,7 @@ readList :: ReadS [PublicKeyConfig]
 $creadList :: ReadS [PublicKeyConfig]
 readsPrec :: Int -&gt; ReadS PublicKeyConfig
 $creadsPrec :: Int -&gt; ReadS PublicKeyConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397785"><span id="local-6989586621679397787"><span id="local-6989586621679397789"><span class="annot"><span class="annottext">Int -&gt; PublicKeyConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397794"><span id="local-6989586621679397796"><span id="local-6989586621679397798"><span class="annot"><span class="annottext">Int -&gt; PublicKeyConfig -&gt; ShowS
 [PublicKeyConfig] -&gt; ShowS
 PublicKeyConfig -&gt; String
 (Int -&gt; PublicKeyConfig -&gt; ShowS)
@@ -133,12 +133,12 @@ $cfrom :: forall x. PublicKeyConfig -&gt; Rep PublicKeyConfig x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span>
 </span><span id="line-77"></span><span id="newPublicKeyConfig"><span class="annot"><span class="annottext">newPublicKeyConfig :: Text -&gt; Text -&gt; Text -&gt; PublicKeyConfig
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#newPublicKeyConfig"><span class="hs-identifier hs-var hs-var">newPublicKeyConfig</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679397779"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397779"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679397778"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397778"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679397777"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397777"><span class="hs-identifier hs-var">pEncodedKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679397788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397788"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679397787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397787"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679397786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397786"><span class="hs-identifier hs-var">pEncodedKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">PublicKeyConfig' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; PublicKeyConfig
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:PublicKeyConfig' :: Maybe Text
@@ -147,13 +147,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:callerReference:PublicKeyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3AcallerReference%3APublicKeyConfig%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397779"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397788"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:PublicKeyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3Aname%3APublicKeyConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397778"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397787"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:encodedKey:PublicKeyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3AencodedKey%3APublicKeyConfig%27"><span class="hs-identifier hs-var">encodedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397777"><span class="hs-identifier hs-var">pEncodedKey_</span></a></span><span>
+</span><a href="#local-6989586621679397786"><span class="hs-identifier hs-var">pEncodedKey_</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | A comment to describe the public key. The comment cannot be longer than</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; (PublicKeyConfig -&gt; Maybe Text -&gt; PublicKeyConfig)
 -&gt; Lens PublicKeyConfig PublicKeyConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397773"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397782"><span class="annot"><span class="annottext">Maybe Text
 comment :: Maybe Text
 $sel:comment:PublicKeyConfig' :: PublicKeyConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679397773"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397773"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397772"><span class="annot"><span class="annottext">s :: PublicKeyConfig
-</span><a href="#local-6989586621679397772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397771"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:PublicKeyConfig' :: Maybe Text
+</span><a href="#local-6989586621679397782"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397782"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397781"><span class="annot"><span class="annottext">s :: PublicKeyConfig
+</span><a href="#local-6989586621679397781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397780"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
+</span><a href="#local-6989586621679397781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:PublicKeyConfig' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3Acomment%3APublicKeyConfig%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | A string included in the request to help make sure that the request</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- can&#8217;t be replayed.</span><span>
@@ -184,16 +184,16 @@ $sel:comment:PublicKeyConfig' :: PublicKeyConfig -&gt; Maybe Text
 -&gt; (PublicKeyConfig -&gt; Text -&gt; PublicKeyConfig)
 -&gt; Lens PublicKeyConfig PublicKeyConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397769"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397778"><span class="annot"><span class="annottext">Text
 callerReference :: Text
 $sel:callerReference:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
-</span><a href="#local-6989586621679397769"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397769"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397768"><span class="annot"><span class="annottext">s :: PublicKeyConfig
-</span><a href="#local-6989586621679397768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397767"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:PublicKeyConfig' :: Text
+</span><a href="#local-6989586621679397778"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397778"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397777"><span class="annot"><span class="annottext">s :: PublicKeyConfig
+</span><a href="#local-6989586621679397777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
+</span><a href="#local-6989586621679397777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:PublicKeyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3AcallerReference%3APublicKeyConfig%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A name to help identify the public key.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#publicKeyConfig_name"><span class="hs-identifier hs-type">publicKeyConfig_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -202,16 +202,16 @@ $sel:callerReference:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
 -&gt; (PublicKeyConfig -&gt; Text -&gt; PublicKeyConfig)
 -&gt; Lens PublicKeyConfig PublicKeyConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397765"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397774"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
-</span><a href="#local-6989586621679397765"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397765"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397764"><span class="annot"><span class="annottext">s :: PublicKeyConfig
-</span><a href="#local-6989586621679397764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397763"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PublicKeyConfig' :: Text
+</span><a href="#local-6989586621679397774"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397774"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397773"><span class="annot"><span class="annottext">s :: PublicKeyConfig
+</span><a href="#local-6989586621679397773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
+</span><a href="#local-6989586621679397773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:PublicKeyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3Aname%3APublicKeyConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The public key that you can use with</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies&gt;,</span><span>
@@ -223,21 +223,21 @@ $sel:name:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
 -&gt; (PublicKeyConfig -&gt; Text -&gt; PublicKeyConfig)
 -&gt; Lens PublicKeyConfig PublicKeyConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397761"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397770"><span class="annot"><span class="annottext">Text
 encodedKey :: Text
 $sel:encodedKey:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
-</span><a href="#local-6989586621679397761"><span class="hs-identifier hs-var hs-var">encodedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397761"><span class="hs-identifier hs-var">encodedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397760"><span class="annot"><span class="annottext">s :: PublicKeyConfig
-</span><a href="#local-6989586621679397760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397759"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
-</span><a href="#local-6989586621679397760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodedKey:PublicKeyConfig' :: Text
+</span><a href="#local-6989586621679397770"><span class="hs-identifier hs-var hs-var">encodedKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397770"><span class="hs-identifier hs-var">encodedKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397769"><span class="annot"><span class="annottext">s :: PublicKeyConfig
+</span><a href="#local-6989586621679397769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397768"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKeyConfig
+</span><a href="#local-6989586621679397769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encodedKey:PublicKeyConfig' :: Text
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#%24sel%3AencodedKey%3APublicKeyConfig%27"><span class="hs-identifier hs-var">encodedKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679397756"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicKeyConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397754"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397754"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679397765"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicKeyConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397763"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; PublicKeyConfig
 </span><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-var">PublicKeyConfig'</span></a></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; PublicKeyConfig)
@@ -245,7 +245,7 @@ $sel:encodedKey:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
 -&gt; Either String (Text -&gt; Text -&gt; Text -&gt; PublicKeyConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
@@ -254,7 +254,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Text -&gt; PublicKeyConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,7 +262,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Text -&gt; PublicKeyConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,18 +270,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String PublicKeyConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397754"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncodedKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397747"><span id="local-6989586621679397749"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397756"><span id="local-6989586621679397758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig"><span class="hs-identifier hs-type">PublicKeyConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679397740"><span class="annot"><span class="annottext">toXML :: PublicKeyConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397735"><span id="local-6989586621679397736"><span id="local-6989586621679397737"><span id="local-6989586621679397738"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679397749"><span class="annot"><span class="annottext">toXML :: PublicKeyConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.PublicKeyConfig.html#PublicKeyConfig%27"><span class="hs-identifier hs-type">PublicKeyConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397744"><span id="local-6989586621679397745"><span id="local-6989586621679397746"><span id="local-6989586621679397747"><span class="annot"><span class="annottext">Maybe Text
 Text
 encodedKey :: Text
 name :: Text
@@ -291,7 +291,7 @@ $sel:encodedKey:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
 $sel:name:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
 $sel:callerReference:PublicKeyConfig' :: PublicKeyConfig -&gt; Text
 $sel:comment:PublicKeyConfig' :: PublicKeyConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679397735"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397744"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -299,21 +299,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397738"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397747"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397737"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397746"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397736"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397745"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;EncodedKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397735"><span class="hs-identifier hs-var">encodedKey</span></a></span><span>
+</span><a href="#local-6989586621679397744"><span class="hs-identifier hs-var">encodedKey</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span></pre></body></html>

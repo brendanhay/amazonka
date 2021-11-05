@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListAddons' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679274108"><span id="local-6989586621679274109"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAddons"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-var">ListAddons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAddons%27"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-var">ListAddons'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679274117"><span id="local-6989586621679274118"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAddons"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-var">ListAddons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAddons%27"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-var">ListAddons'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @ListAddonsRequest@ where @maxResults@ was used and the results exceeded</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the value of that parameter. Pagination continues from the end of the</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AclusterName%3AListAddons%27"><span class="annot"><span class="annottext">ListAddons -&gt; Text
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AclusterName%3AListAddons%27"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274100"><span id="local-6989586621679274102"><span class="annot"><span class="annottext">ListAddons -&gt; ListAddons -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274109"><span id="local-6989586621679274111"><span class="annot"><span class="annottext">ListAddons -&gt; ListAddons -&gt; Bool
 (ListAddons -&gt; ListAddons -&gt; Bool)
 -&gt; (ListAddons -&gt; ListAddons -&gt; Bool) -&gt; Eq ListAddons
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAddons -&gt; ListAddons -&gt; Bool
 == :: ListAddons -&gt; ListAddons -&gt; Bool
 $c== :: ListAddons -&gt; ListAddons -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274091"><span id="local-6989586621679274093"><span id="local-6989586621679274095"><span id="local-6989586621679274097"><span class="annot"><span class="annottext">ReadPrec [ListAddons]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274100"><span id="local-6989586621679274102"><span id="local-6989586621679274104"><span id="local-6989586621679274106"><span class="annot"><span class="annottext">ReadPrec [ListAddons]
 ReadPrec ListAddons
 Int -&gt; ReadS ListAddons
 ReadS [ListAddons]
@@ -105,7 +105,7 @@ readList :: ReadS [ListAddons]
 $creadList :: ReadS [ListAddons]
 readsPrec :: Int -&gt; ReadS ListAddons
 $creadsPrec :: Int -&gt; ReadS ListAddons
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274084"><span id="local-6989586621679274086"><span id="local-6989586621679274088"><span class="annot"><span class="annottext">Int -&gt; ListAddons -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274093"><span id="local-6989586621679274095"><span id="local-6989586621679274097"><span class="annot"><span class="annottext">Int -&gt; ListAddons -&gt; ShowS
 [ListAddons] -&gt; ShowS
 ListAddons -&gt; String
 (Int -&gt; ListAddons -&gt; ShowS)
@@ -162,8 +162,8 @@ $cfrom :: forall x. ListAddons -&gt; Rep ListAddons x
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span>
 </span><span id="line-110"></span><span id="newListAddons"><span class="annot"><span class="annottext">newListAddons :: Text -&gt; ListAddons
-</span><a href="Network.AWS.EKS.ListAddons.html#newListAddons"><span class="hs-identifier hs-var hs-var">newListAddons</span></a></span></span><span> </span><span id="local-6989586621679274079"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274079"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.ListAddons.html#newListAddons"><span class="hs-identifier hs-var hs-var">newListAddons</span></a></span></span><span> </span><span id="local-6989586621679274088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274088"><span class="hs-identifier hs-var">pClusterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">ListAddons' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListAddons
 </span><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAddons' :: Maybe Text
@@ -176,7 +176,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterName:ListAddons' :: Text
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AclusterName%3AListAddons%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274079"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span>
+</span><a href="#local-6989586621679274088"><span class="hs-identifier hs-var">pClusterName_</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The @nextToken@ value returned from a previous paginated</span><span>
@@ -193,16 +193,16 @@ forall a. Maybe a
 -&gt; (ListAddons -&gt; Maybe Text -&gt; ListAddons)
 -&gt; Lens ListAddons ListAddons (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274077"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274086"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAddons' :: ListAddons -&gt; Maybe Text
-</span><a href="#local-6989586621679274077"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274077"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274076"><span class="annot"><span class="annottext">s :: ListAddons
-</span><a href="#local-6989586621679274076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274075"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddons
-</span><a href="#local-6989586621679274076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAddons' :: Maybe Text
+</span><a href="#local-6989586621679274086"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274086"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274085"><span class="annot"><span class="annottext">s :: ListAddons
+</span><a href="#local-6989586621679274085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddons
+</span><a href="#local-6989586621679274085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAddons' :: Maybe Text
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AnextToken%3AListAddons%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The maximum number of add-on results returned by @ListAddonsRequest@ in</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- paginated output. When you use this parameter, @ListAddonsRequest@</span><span>
@@ -218,16 +218,16 @@ $sel:nextToken:ListAddons' :: ListAddons -&gt; Maybe Text
 -&gt; (ListAddons -&gt; Maybe Natural -&gt; ListAddons)
 -&gt; Lens ListAddons ListAddons (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274074"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274083"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListAddons' :: ListAddons -&gt; Maybe Natural
-</span><a href="#local-6989586621679274074"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274074"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274073"><span class="annot"><span class="annottext">s :: ListAddons
-</span><a href="#local-6989586621679274073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274072"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddons
-</span><a href="#local-6989586621679274073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAddons' :: Maybe Natural
+</span><a href="#local-6989586621679274083"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274083"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274082"><span class="annot"><span class="annottext">s :: ListAddons
+</span><a href="#local-6989586621679274082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274081"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679274081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddons
+</span><a href="#local-6989586621679274082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAddons' :: Maybe Natural
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AmaxResults%3AListAddons%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the cluster.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#listAddons_clusterName"><span class="hs-identifier hs-type">listAddons_clusterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -236,28 +236,28 @@ $sel:maxResults:ListAddons' :: ListAddons -&gt; Maybe Natural
 -&gt; (ListAddons -&gt; Text -&gt; ListAddons)
 -&gt; Lens ListAddons ListAddons Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274071"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274080"><span class="annot"><span class="annottext">Text
 clusterName :: Text
 $sel:clusterName:ListAddons' :: ListAddons -&gt; Text
-</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274070"><span class="annot"><span class="annottext">s :: ListAddons
-</span><a href="#local-6989586621679274070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274069"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddons
-</span><a href="#local-6989586621679274070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:ListAddons' :: Text
+</span><a href="#local-6989586621679274080"><span class="hs-identifier hs-var hs-var">clusterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274080"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274079"><span class="annot"><span class="annottext">s :: ListAddons
+</span><a href="#local-6989586621679274079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274078"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddons
+</span><a href="#local-6989586621679274079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterName:ListAddons' :: Text
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AclusterName%3AListAddons%27"><span class="hs-identifier hs-var">clusterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679274065"><span class="annot"><span class="annottext">page :: ListAddons -&gt; AWSResponse ListAddons -&gt; Maybe ListAddons
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679274063"><span class="annot"><span class="annottext">ListAddons
-</span><a href="#local-6989586621679274063"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679274062"><span class="annot"><span class="annottext">AWSResponse ListAddons
-</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679274074"><span class="annot"><span class="annottext">page :: ListAddons -&gt; AWSResponse ListAddons -&gt; Maybe ListAddons
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679274072"><span class="annot"><span class="annottext">ListAddons
+</span><a href="#local-6989586621679274072"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679274071"><span class="annot"><span class="annottext">AWSResponse ListAddons
+</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-146"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAddons
 ListAddonsResponse
-</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">ListAddonsResponse
 -&gt; Getting (First Text) ListAddonsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -283,7 +283,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-151"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAddons
 ListAddonsResponse
-</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">ListAddonsResponse
 -&gt; Getting (First [Text]) ListAddonsResponse [Text] -&gt; Maybe [Text]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -312,7 +312,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ListAddons
-</span><a href="#local-6989586621679274063"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679274072"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">ListAddons -&gt; (ListAddons -&gt; ListAddons) -&gt; ListAddons
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -325,7 +325,7 @@ Lens ListAddons ListAddons (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAddons
 ListAddonsResponse
-</span><a href="#local-6989586621679274062"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679274071"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ListAddonsResponse
 -&gt; Getting (First Text) ListAddonsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -345,12 +345,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679274052"><span class="annot"><span class="annottext">request :: ListAddons -&gt; Request ListAddons
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679274061"><span class="annot"><span class="annottext">request :: ListAddons -&gt; Request ListAddons
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAddons -&gt; Request ListAddons
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679274048"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679274057"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAddons
 -&gt; ClientResponse ClientBody
@@ -374,10 +374,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274045"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274045"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274044"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679274044"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274043"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274054"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274054"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274053"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274053"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274052"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAddonsResponse
 </span><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-var">ListAddonsResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAddonsResponse)
@@ -385,7 +385,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListAddonsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;addons&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListAddonsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679274052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -411,15 +411,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274045"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274054"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274034"><span id="local-6989586621679274036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274043"><span id="local-6989586621679274045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span></span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679274027"><span class="annot"><span class="annottext">toHeaders :: ListAddons -&gt; ResponseHeaders
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679274036"><span class="annot"><span class="annottext">toHeaders :: ListAddons -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAddons -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -439,8 +439,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679274021"><span class="annot"><span class="annottext">toPath :: ListAddons -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274017"><span id="local-6989586621679274018"><span id="local-6989586621679274019"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679274030"><span class="annot"><span class="annottext">toPath :: ListAddons -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274026"><span id="local-6989586621679274027"><span id="local-6989586621679274028"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 clusterName :: Text
@@ -449,7 +449,7 @@ nextToken :: Maybe Text
 $sel:clusterName:ListAddons' :: ListAddons -&gt; Text
 $sel:maxResults:ListAddons' :: ListAddons -&gt; Maybe Natural
 $sel:nextToken:ListAddons' :: ListAddons -&gt; Maybe Text
-</span><a href="#local-6989586621679274017"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274026"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -457,12 +457,12 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/clusters/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274017"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679274026"><span class="hs-identifier hs-var">clusterName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/addons&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons"><span class="hs-identifier hs-type">ListAddons</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679274013"><span class="annot"><span class="annottext">toQuery :: ListAddons -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274009"><span id="local-6989586621679274010"><span id="local-6989586621679274011"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679274022"><span class="annot"><span class="annottext">toQuery :: ListAddons -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddons%27"><span class="hs-identifier hs-type">ListAddons'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274018"><span id="local-6989586621679274019"><span id="local-6989586621679274020"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 clusterName :: Text
@@ -471,7 +471,7 @@ nextToken :: Maybe Text
 $sel:clusterName:ListAddons' :: ListAddons -&gt; Text
 $sel:maxResults:ListAddons' :: ListAddons -&gt; Maybe Natural
 $sel:nextToken:ListAddons' :: ListAddons -&gt; Maybe Text
-</span><a href="#local-6989586621679274009"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679274018"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -479,16 +479,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274011"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274020"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679274010"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679274019"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | /See:/ 'newListAddonsResponse' smart constructor.</span><span>
-</span><span id="line-202"></span><span id="local-6989586621679274006"><span id="local-6989586621679274007"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAddonsResponse"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-var">ListAddonsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAddonsResponse%27"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-var">ListAddonsResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span id="local-6989586621679274015"><span id="local-6989586621679274016"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAddonsResponse"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-var">ListAddonsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAddonsResponse%27"><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-var">ListAddonsResponse'</span></a></span></span><span>
 </span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of available add-ons.</span><span>
 </span><span id="line-204"></span><span>    </span><span id="%24sel%3Aaddons%3AListAddonsResponse%27"><span class="annot"><span class="annottext">ListAddonsResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3Aaddons%3AListAddonsResponse%27"><span class="hs-identifier hs-var hs-var">addons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -506,7 +506,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-215"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAddonsResponse%27"><span class="annot"><span class="annottext">ListAddonsResponse -&gt; Int
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AhttpStatus%3AListAddonsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273999"><span id="local-6989586621679274001"><span class="annot"><span class="annottext">ListAddonsResponse -&gt; ListAddonsResponse -&gt; Bool
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274008"><span id="local-6989586621679274010"><span class="annot"><span class="annottext">ListAddonsResponse -&gt; ListAddonsResponse -&gt; Bool
 (ListAddonsResponse -&gt; ListAddonsResponse -&gt; Bool)
 -&gt; (ListAddonsResponse -&gt; ListAddonsResponse -&gt; Bool)
 -&gt; Eq ListAddonsResponse
@@ -515,7 +515,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAddonsResponse -&gt; ListAddonsResponse -&gt; Bool
 == :: ListAddonsResponse -&gt; ListAddonsResponse -&gt; Bool
 $c== :: ListAddonsResponse -&gt; ListAddonsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273991"><span id="local-6989586621679273993"><span id="local-6989586621679273995"><span id="local-6989586621679273997"><span class="annot"><span class="annottext">ReadPrec [ListAddonsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274000"><span id="local-6989586621679274002"><span id="local-6989586621679274004"><span id="local-6989586621679274006"><span class="annot"><span class="annottext">ReadPrec [ListAddonsResponse]
 ReadPrec ListAddonsResponse
 Int -&gt; ReadS ListAddonsResponse
 ReadS [ListAddonsResponse]
@@ -535,7 +535,7 @@ readList :: ReadS [ListAddonsResponse]
 $creadList :: ReadS [ListAddonsResponse]
 readsPrec :: Int -&gt; ReadS ListAddonsResponse
 $creadsPrec :: Int -&gt; ReadS ListAddonsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273985"><span id="local-6989586621679273987"><span id="local-6989586621679273989"><span class="annot"><span class="annottext">Int -&gt; ListAddonsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273994"><span id="local-6989586621679273996"><span id="local-6989586621679273998"><span class="annot"><span class="annottext">Int -&gt; ListAddonsResponse -&gt; ShowS
 [ListAddonsResponse] -&gt; ShowS
 ListAddonsResponse -&gt; String
 (Int -&gt; ListAddonsResponse -&gt; ShowS)
@@ -586,8 +586,8 @@ $cfrom :: forall x. ListAddonsResponse -&gt; Rep ListAddonsResponse x
 </span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span>
 </span><span id="line-243"></span><span id="newListAddonsResponse"><span class="annot"><span class="annottext">newListAddonsResponse :: Int -&gt; ListAddonsResponse
-</span><a href="Network.AWS.EKS.ListAddons.html#newListAddonsResponse"><span class="hs-identifier hs-var hs-var">newListAddonsResponse</span></a></span></span><span> </span><span id="local-6989586621679273982"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.ListAddons.html#newListAddonsResponse"><span class="hs-identifier hs-var hs-var">newListAddonsResponse</span></a></span></span><span> </span><span id="local-6989586621679273991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">ListAddonsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAddonsResponse
 </span><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addons:ListAddonsResponse' :: Maybe [Text]
@@ -600,7 +600,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAddonsResponse' :: Int
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AhttpStatus%3AListAddonsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679273991"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | A list of available add-ons.</span><span>
@@ -611,16 +611,16 @@ forall a. Maybe a
 -&gt; (ListAddonsResponse -&gt; Maybe [Text] -&gt; ListAddonsResponse)
 -&gt; Lens' ListAddonsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273981"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273990"><span class="annot"><span class="annottext">Maybe [Text]
 addons :: Maybe [Text]
 $sel:addons:ListAddonsResponse' :: ListAddonsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679273981"><span class="hs-identifier hs-var hs-var">addons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273981"><span class="hs-identifier hs-var">addons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273980"><span class="annot"><span class="annottext">s :: ListAddonsResponse
-</span><a href="#local-6989586621679273980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273979"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddonsResponse
-</span><a href="#local-6989586621679273980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addons:ListAddonsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679273990"><span class="hs-identifier hs-var hs-var">addons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679273990"><span class="hs-identifier hs-var">addons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273989"><span class="annot"><span class="annottext">s :: ListAddonsResponse
+</span><a href="#local-6989586621679273989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273988"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679273988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddonsResponse
+</span><a href="#local-6989586621679273989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addons:ListAddonsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3Aaddons%3AListAddonsResponse%27"><span class="hs-identifier hs-var">addons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679273979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679273988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListAddonsResponse -&gt; f ListAddonsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -652,16 +652,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListAddonsResponse -&gt; Maybe Text -&gt; ListAddonsResponse)
 -&gt; Lens' ListAddonsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273976"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273985"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAddonsResponse' :: ListAddonsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679273976"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273976"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273975"><span class="annot"><span class="annottext">s :: ListAddonsResponse
-</span><a href="#local-6989586621679273975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273974"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddonsResponse
-</span><a href="#local-6989586621679273975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAddonsResponse' :: Maybe Text
+</span><a href="#local-6989586621679273985"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273985"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273984"><span class="annot"><span class="annottext">s :: ListAddonsResponse
+</span><a href="#local-6989586621679273984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273983"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679273983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddonsResponse
+</span><a href="#local-6989586621679273984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAddonsResponse' :: Maybe Text
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AnextToken%3AListAddonsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679273974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-266"></span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#listAddonsResponse_httpStatus"><span class="hs-identifier hs-type">listAddonsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -670,16 +670,16 @@ $sel:nextToken:ListAddonsResponse' :: ListAddonsResponse -&gt; Maybe Text
 -&gt; (ListAddonsResponse -&gt; Int -&gt; ListAddonsResponse)
 -&gt; Lens ListAddonsResponse ListAddonsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273973"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273982"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAddonsResponse' :: ListAddonsResponse -&gt; Int
-</span><a href="#local-6989586621679273973"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273973"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273972"><span class="annot"><span class="annottext">s :: ListAddonsResponse
-</span><a href="#local-6989586621679273972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273971"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddonsResponse
-</span><a href="#local-6989586621679273972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAddonsResponse' :: Int
+</span><a href="#local-6989586621679273982"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273982"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273981"><span class="annot"><span class="annottext">s :: ListAddonsResponse
+</span><a href="#local-6989586621679273981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse%27"><span class="hs-identifier hs-type">ListAddonsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273980"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679273980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAddonsResponse
+</span><a href="#local-6989586621679273981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAddonsResponse' :: Int
 </span><a href="Network.AWS.EKS.ListAddons.html#%24sel%3AhttpStatus%3AListAddonsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679273971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679273978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.ListAddons.html#ListAddonsResponse"><span class="hs-identifier hs-type">ListAddonsResponse</span></a></span></span><span>
 </span><span id="line-270"></span></pre></body></html>

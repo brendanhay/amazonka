@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Options to configure endpoint for the Elasticsearch domain.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDomainEndpointOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679302619"><span id="local-6989586621679302620"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainEndpointOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-var">DomainEndpointOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainEndpointOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-var">DomainEndpointOptions'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679302628"><span id="local-6989586621679302629"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainEndpointOptions"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-var">DomainEndpointOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainEndpointOptions%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-var">DomainEndpointOptions'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify if only HTTPS endpoint should be enabled for the Elasticsearch</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- domain.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AenforceHTTPS%3ADomainEndpointOptions%27"><span class="annot"><span class="annottext">DomainEndpointOptions -&gt; Maybe Bool
@@ -53,7 +53,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AcustomEndpointCertificateArn%3ADomainEndpointOptions%27"><span class="annot"><span class="annottext">DomainEndpointOptions -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#%24sel%3AcustomEndpointCertificateArn%3ADomainEndpointOptions%27"><span class="hs-identifier hs-var hs-var">customEndpointCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302609"><span id="local-6989586621679302611"><span class="annot"><span class="annottext">DomainEndpointOptions -&gt; DomainEndpointOptions -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302618"><span id="local-6989586621679302620"><span class="annot"><span class="annottext">DomainEndpointOptions -&gt; DomainEndpointOptions -&gt; Bool
 (DomainEndpointOptions -&gt; DomainEndpointOptions -&gt; Bool)
 -&gt; (DomainEndpointOptions -&gt; DomainEndpointOptions -&gt; Bool)
 -&gt; Eq DomainEndpointOptions
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DomainEndpointOptions -&gt; DomainEndpointOptions -&gt; Bool
 == :: DomainEndpointOptions -&gt; DomainEndpointOptions -&gt; Bool
 $c== :: DomainEndpointOptions -&gt; DomainEndpointOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302600"><span id="local-6989586621679302602"><span id="local-6989586621679302604"><span id="local-6989586621679302606"><span class="annot"><span class="annottext">ReadPrec [DomainEndpointOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302609"><span id="local-6989586621679302611"><span id="local-6989586621679302613"><span id="local-6989586621679302615"><span class="annot"><span class="annottext">ReadPrec [DomainEndpointOptions]
 ReadPrec DomainEndpointOptions
 Int -&gt; ReadS DomainEndpointOptions
 ReadS [DomainEndpointOptions]
@@ -82,7 +82,7 @@ readList :: ReadS [DomainEndpointOptions]
 $creadList :: ReadS [DomainEndpointOptions]
 readsPrec :: Int -&gt; ReadS DomainEndpointOptions
 $creadsPrec :: Int -&gt; ReadS DomainEndpointOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302593"><span id="local-6989586621679302595"><span id="local-6989586621679302597"><span class="annot"><span class="annottext">Int -&gt; DomainEndpointOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302602"><span id="local-6989586621679302604"><span id="local-6989586621679302606"><span class="annot"><span class="annottext">Int -&gt; DomainEndpointOptions -&gt; ShowS
 [DomainEndpointOptions] -&gt; ShowS
 DomainEndpointOptions -&gt; String
 (Int -&gt; DomainEndpointOptions -&gt; ShowS)
@@ -181,16 +181,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302584"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302593"><span class="annot"><span class="annottext">Maybe Bool
 enforceHTTPS :: Maybe Bool
 $sel:enforceHTTPS:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679302584"><span class="hs-identifier hs-var hs-var">enforceHTTPS</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302584"><span class="hs-identifier hs-var">enforceHTTPS</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302583"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
-</span><a href="#local-6989586621679302583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302582"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
-</span><a href="#local-6989586621679302583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enforceHTTPS:DomainEndpointOptions' :: Maybe Bool
+</span><a href="#local-6989586621679302593"><span class="hs-identifier hs-var hs-var">enforceHTTPS</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302593"><span class="hs-identifier hs-var">enforceHTTPS</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302592"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
+</span><a href="#local-6989586621679302592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302591"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
+</span><a href="#local-6989586621679302592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enforceHTTPS:DomainEndpointOptions' :: Maybe Bool
 </span><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#%24sel%3AenforceHTTPS%3ADomainEndpointOptions%27"><span class="hs-identifier hs-var">enforceHTTPS</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | Specify the TLS security policy that needs to be applied to the HTTPS</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- endpoint of Elasticsearch domain.</span><span>
@@ -212,16 +212,16 @@ $sel:enforceHTTPS:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe Bo
      (Maybe TLSSecurityPolicy)
      (Maybe TLSSecurityPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302580"><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302589"><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
 tLSSecurityPolicy :: Maybe TLSSecurityPolicy
 $sel:tLSSecurityPolicy:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe TLSSecurityPolicy
-</span><a href="#local-6989586621679302580"><span class="hs-identifier hs-var hs-var">tLSSecurityPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
-</span><a href="#local-6989586621679302580"><span class="hs-identifier hs-var">tLSSecurityPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302579"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
-</span><a href="#local-6989586621679302579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302578"><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
-</span><a href="#local-6989586621679302578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
-</span><a href="#local-6989586621679302579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tLSSecurityPolicy:DomainEndpointOptions' :: Maybe TLSSecurityPolicy
+</span><a href="#local-6989586621679302589"><span class="hs-identifier hs-var hs-var">tLSSecurityPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
+</span><a href="#local-6989586621679302589"><span class="hs-identifier hs-var">tLSSecurityPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302588"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
+</span><a href="#local-6989586621679302588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302587"><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
+</span><a href="#local-6989586621679302587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
+</span><a href="#local-6989586621679302588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tLSSecurityPolicy:DomainEndpointOptions' :: Maybe TLSSecurityPolicy
 </span><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#%24sel%3AtLSSecurityPolicy%3ADomainEndpointOptions%27"><span class="hs-identifier hs-var">tLSSecurityPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
-</span><a href="#local-6989586621679302578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Specify if custom endpoint should be enabled for the Elasticsearch</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- domain.</span><span>
@@ -236,16 +236,16 @@ $sel:tLSSecurityPolicy:DomainEndpointOptions' :: DomainEndpointOptions -&gt; May
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302576"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302585"><span class="annot"><span class="annottext">Maybe Bool
 customEndpointEnabled :: Maybe Bool
 $sel:customEndpointEnabled:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679302576"><span class="hs-identifier hs-var hs-var">customEndpointEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302576"><span class="hs-identifier hs-var">customEndpointEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302575"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
-</span><a href="#local-6989586621679302575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302574"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
-</span><a href="#local-6989586621679302575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEndpointEnabled:DomainEndpointOptions' :: Maybe Bool
+</span><a href="#local-6989586621679302585"><span class="hs-identifier hs-var hs-var">customEndpointEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302585"><span class="hs-identifier hs-var">customEndpointEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302584"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
+</span><a href="#local-6989586621679302584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302583"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679302583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
+</span><a href="#local-6989586621679302584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEndpointEnabled:DomainEndpointOptions' :: Maybe Bool
 </span><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#%24sel%3AcustomEndpointEnabled%3ADomainEndpointOptions%27"><span class="hs-identifier hs-var">customEndpointEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Specify the fully qualified domain for your custom endpoint.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#domainEndpointOptions_customEndpoint"><span class="hs-identifier hs-type">domainEndpointOptions_customEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -259,16 +259,16 @@ $sel:customEndpointEnabled:DomainEndpointOptions' :: DomainEndpointOptions -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302572"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302581"><span class="annot"><span class="annottext">Maybe Text
 customEndpoint :: Maybe Text
 $sel:customEndpoint:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679302572"><span class="hs-identifier hs-var hs-var">customEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302572"><span class="hs-identifier hs-var">customEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302571"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
-</span><a href="#local-6989586621679302571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302570"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
-</span><a href="#local-6989586621679302571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEndpoint:DomainEndpointOptions' :: Maybe Text
+</span><a href="#local-6989586621679302581"><span class="hs-identifier hs-var hs-var">customEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302581"><span class="hs-identifier hs-var">customEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302580"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
+</span><a href="#local-6989586621679302580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302579"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
+</span><a href="#local-6989586621679302580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEndpoint:DomainEndpointOptions' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#%24sel%3AcustomEndpoint%3ADomainEndpointOptions%27"><span class="hs-identifier hs-var">customEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Specify ACM certificate ARN for your custom endpoint.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#domainEndpointOptions_customEndpointCertificateArn"><span class="hs-identifier hs-type">domainEndpointOptions_customEndpointCertificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -282,19 +282,19 @@ $sel:customEndpoint:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302568"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302577"><span class="annot"><span class="annottext">Maybe Text
 customEndpointCertificateArn :: Maybe Text
 $sel:customEndpointCertificateArn:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679302568"><span class="hs-identifier hs-var hs-var">customEndpointCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302568"><span class="hs-identifier hs-var">customEndpointCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302567"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
-</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302566"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
-</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEndpointCertificateArn:DomainEndpointOptions' :: Maybe Text
+</span><a href="#local-6989586621679302577"><span class="hs-identifier hs-var hs-var">customEndpointCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302577"><span class="hs-identifier hs-var">customEndpointCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302576"><span class="annot"><span class="annottext">s :: DomainEndpointOptions
+</span><a href="#local-6989586621679302576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainEndpointOptions
+</span><a href="#local-6989586621679302576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEndpointCertificateArn:DomainEndpointOptions' :: Maybe Text
 </span><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#%24sel%3AcustomEndpointCertificateArn%3ADomainEndpointOptions%27"><span class="hs-identifier hs-var">customEndpointCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302563"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679302561"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainEndpointOptions
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302572"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679302570"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainEndpointOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DomainEndpointOptions)
@@ -304,8 +304,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DomainEndpointOptions&quot;</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302558"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302567"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe TLSSecurityPolicy
 -&gt; Maybe Bool
@@ -325,7 +325,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainEndpointOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnforceHTTPS&quot;</span></span><span class="hs-special">)</span><span>
@@ -337,7 +337,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; DomainEndpointOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TLSSecurityPolicy)
+</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TLSSecurityPolicy)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TLSSecurityPolicy&quot;</span></span><span class="hs-special">)</span><span>
@@ -347,7 +347,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; DomainEndpointOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomEndpointEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -356,7 +356,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; DomainEndpointOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomEndpoint&quot;</span></span><span class="hs-special">)</span><span>
@@ -364,19 +364,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser DomainEndpointOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302558"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679302567"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomEndpointCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302552"><span id="local-6989586621679302554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302561"><span id="local-6989586621679302563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302541"><span id="local-6989586621679302543"><span id="local-6989586621679302545"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679302539"><span class="annot"><span class="annottext">toJSON :: DomainEndpointOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302533"><span id="local-6989586621679302534"><span id="local-6989586621679302535"><span id="local-6989586621679302536"><span id="local-6989586621679302537"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302550"><span id="local-6989586621679302552"><span id="local-6989586621679302554"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions"><span class="hs-identifier hs-type">DomainEndpointOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679302548"><span class="annot"><span class="annottext">toJSON :: DomainEndpointOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainEndpointOptions.html#DomainEndpointOptions%27"><span class="hs-identifier hs-type">DomainEndpointOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302542"><span id="local-6989586621679302543"><span id="local-6989586621679302544"><span id="local-6989586621679302545"><span id="local-6989586621679302546"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Maybe TLSSecurityPolicy
 customEndpointCertificateArn :: Maybe Text
@@ -389,7 +389,7 @@ $sel:customEndpoint:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe 
 $sel:customEndpointEnabled:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe Bool
 $sel:tLSSecurityPolicy:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe TLSSecurityPolicy
 $sel:enforceHTTPS:DomainEndpointOptions' :: DomainEndpointOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679302533"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302542"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -401,7 +401,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302537"><span class="hs-identifier hs-var">enforceHTTPS</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302546"><span class="hs-identifier hs-var">enforceHTTPS</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TLSSecurityPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TLSSecurityPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -410,7 +410,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe TLSSecurityPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TLSSecurityPolicy
-</span><a href="#local-6989586621679302536"><span class="hs-identifier hs-var">tLSSecurityPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302545"><span class="hs-identifier hs-var">tLSSecurityPolicy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomEndpointEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -418,7 +418,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679302535"><span class="hs-identifier hs-var">customEndpointEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302544"><span class="hs-identifier hs-var">customEndpointEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -426,7 +426,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302534"><span class="hs-identifier hs-var">customEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302543"><span class="hs-identifier hs-var">customEndpoint</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomEndpointCertificateArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -434,7 +434,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302533"><span class="hs-identifier hs-var">customEndpointCertificateArn</span></a></span><span>
+</span><a href="#local-6989586621679302542"><span class="hs-identifier hs-var">customEndpointCertificateArn</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span></pre></body></html>

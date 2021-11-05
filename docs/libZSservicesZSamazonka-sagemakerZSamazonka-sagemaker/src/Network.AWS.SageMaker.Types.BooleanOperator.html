@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680295425"><span id="local-6989586621680295426"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BooleanOperator"><span class="annot"><a href="Network.AWS.SageMaker.Types.BooleanOperator.html#BooleanOperator"><span class="hs-identifier hs-var">BooleanOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BooleanOperator%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.BooleanOperator.html#BooleanOperator%27"><span class="hs-identifier hs-var">BooleanOperator'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680295434"><span id="local-6989586621680295435"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BooleanOperator"><span class="annot"><a href="Network.AWS.SageMaker.Types.BooleanOperator.html#BooleanOperator"><span class="hs-identifier hs-var">BooleanOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BooleanOperator%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.BooleanOperator.html#BooleanOperator%27"><span class="hs-identifier hs-var">BooleanOperator'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBooleanOperator"><span class="annot"><span class="annottext">BooleanOperator -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.BooleanOperator.html#fromBooleanOperator"><span class="hs-identifier hs-var hs-var">fromBooleanOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680295417"><span id="local-6989586621680295419"><span id="local-6989586621680295421"><span class="annot"><span class="annottext">Int -&gt; BooleanOperator -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680295426"><span id="local-6989586621680295428"><span id="local-6989586621680295430"><span class="annot"><span class="annottext">Int -&gt; BooleanOperator -&gt; ShowS
 [BooleanOperator] -&gt; ShowS
 BooleanOperator -&gt; String
 (Int -&gt; BooleanOperator -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BooleanOperator -&gt; String
 showsPrec :: Int -&gt; BooleanOperator -&gt; ShowS
 $cshowsPrec :: Int -&gt; BooleanOperator -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680295408"><span id="local-6989586621680295410"><span id="local-6989586621680295412"><span id="local-6989586621680295414"><span class="annot"><span class="annottext">ReadPrec [BooleanOperator]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680295417"><span id="local-6989586621680295419"><span id="local-6989586621680295421"><span id="local-6989586621680295423"><span class="annot"><span class="annottext">ReadPrec [BooleanOperator]
 ReadPrec BooleanOperator
 Int -&gt; ReadS BooleanOperator
 ReadS [BooleanOperator]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BooleanOperator]
 readsPrec :: Int -&gt; ReadS BooleanOperator
 $creadsPrec :: Int -&gt; ReadS BooleanOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680295403"><span id="local-6989586621680295405"><span class="annot"><span class="annottext">BooleanOperator -&gt; BooleanOperator -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680295412"><span id="local-6989586621680295414"><span class="annot"><span class="annottext">BooleanOperator -&gt; BooleanOperator -&gt; Bool
 (BooleanOperator -&gt; BooleanOperator -&gt; Bool)
 -&gt; (BooleanOperator -&gt; BooleanOperator -&gt; Bool)
 -&gt; Eq BooleanOperator
@@ -82,7 +82,7 @@ $c/= :: BooleanOperator -&gt; BooleanOperator -&gt; Bool
 == :: BooleanOperator -&gt; BooleanOperator -&gt; Bool
 $c== :: BooleanOperator -&gt; BooleanOperator -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680295387"><span id="local-6989586621680295389"><span id="local-6989586621680295391"><span id="local-6989586621680295393"><span id="local-6989586621680295395"><span id="local-6989586621680295397"><span id="local-6989586621680295399"><span class="annot"><span class="annottext">Eq BooleanOperator
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680295396"><span id="local-6989586621680295398"><span id="local-6989586621680295400"><span id="local-6989586621680295402"><span id="local-6989586621680295404"><span id="local-6989586621680295406"><span id="local-6989586621680295408"><span class="annot"><span class="annottext">Eq BooleanOperator
 Eq BooleanOperator
 -&gt; (BooleanOperator -&gt; BooleanOperator -&gt; Ordering)
 -&gt; (BooleanOperator -&gt; BooleanOperator -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. BooleanOperator -&gt; Rep BooleanOperator x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680295379"><span id="local-6989586621680295381"><span class="annot"><span class="annottext">Int -&gt; BooleanOperator -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680295388"><span id="local-6989586621680295390"><span class="annot"><span class="annottext">Int -&gt; BooleanOperator -&gt; Int
 BooleanOperator -&gt; Int
 (Int -&gt; BooleanOperator -&gt; Int)
 -&gt; (BooleanOperator -&gt; Int) -&gt; Hashable BooleanOperator
@@ -143,50 +143,50 @@ $chash :: BooleanOperator -&gt; Int
 hashWithSalt :: Int -&gt; BooleanOperator -&gt; Int
 $chashWithSalt :: Int -&gt; BooleanOperator -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680295376"><span class="annot"><span class="annottext">BooleanOperator -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680295385"><span class="annot"><span class="annottext">BooleanOperator -&gt; ()
 (BooleanOperator -&gt; ()) -&gt; NFData BooleanOperator
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BooleanOperator -&gt; ()
 $crnf :: BooleanOperator -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680295373"><span class="annot"><span class="annottext">Text -&gt; Either String BooleanOperator
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680295382"><span class="annot"><span class="annottext">Text -&gt; Either String BooleanOperator
 (Text -&gt; Either String BooleanOperator) -&gt; FromText BooleanOperator
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BooleanOperator
 $cfromText :: Text -&gt; Either String BooleanOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680295370"><span class="annot"><span class="annottext">BooleanOperator -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680295379"><span class="annot"><span class="annottext">BooleanOperator -&gt; Text
 (BooleanOperator -&gt; Text) -&gt; ToText BooleanOperator
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BooleanOperator -&gt; Text
 $ctoText :: BooleanOperator -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680295367"><span class="annot"><span class="annottext">BooleanOperator -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680295376"><span class="annot"><span class="annottext">BooleanOperator -&gt; ByteString
 (BooleanOperator -&gt; ByteString) -&gt; ToByteString BooleanOperator
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BooleanOperator -&gt; ByteString
 $ctoBS :: BooleanOperator -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680295364"><span class="annot"><span class="annottext">BooleanOperator -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680295373"><span class="annot"><span class="annottext">BooleanOperator -&gt; ByteStringBuilder
 (BooleanOperator -&gt; ByteStringBuilder) -&gt; ToLog BooleanOperator
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BooleanOperator -&gt; ByteStringBuilder
 $cbuild :: BooleanOperator -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680295361"><span class="annot"><span class="annottext">HeaderName -&gt; BooleanOperator -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680295370"><span class="annot"><span class="annottext">HeaderName -&gt; BooleanOperator -&gt; [Header]
 (HeaderName -&gt; BooleanOperator -&gt; [Header])
 -&gt; ToHeader BooleanOperator
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BooleanOperator -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BooleanOperator -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680295358"><span class="annot"><span class="annottext">BooleanOperator -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680295367"><span class="annot"><span class="annottext">BooleanOperator -&gt; QueryString
 (BooleanOperator -&gt; QueryString) -&gt; ToQuery BooleanOperator
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BooleanOperator -&gt; QueryString
 $ctoQuery :: BooleanOperator -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680295353"><span id="local-6989586621680295355"><span class="annot"><span class="annottext">Value -&gt; Parser [BooleanOperator]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680295362"><span id="local-6989586621680295364"><span class="annot"><span class="annottext">Value -&gt; Parser [BooleanOperator]
 Value -&gt; Parser BooleanOperator
 (Value -&gt; Parser BooleanOperator)
 -&gt; (Value -&gt; Parser [BooleanOperator]) -&gt; FromJSON BooleanOperator
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [BooleanOperator]
 parseJSON :: Value -&gt; Parser BooleanOperator
 $cparseJSON :: Value -&gt; Parser BooleanOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680295348"><span id="local-6989586621680295350"><span class="annot"><span class="annottext">FromJSONKeyFunction [BooleanOperator]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680295357"><span id="local-6989586621680295359"><span class="annot"><span class="annottext">FromJSONKeyFunction [BooleanOperator]
 FromJSONKeyFunction BooleanOperator
 FromJSONKeyFunction BooleanOperator
 -&gt; FromJSONKeyFunction [BooleanOperator]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BooleanOperator]
 fromJSONKey :: FromJSONKeyFunction BooleanOperator
 $cfromJSONKey :: FromJSONKeyFunction BooleanOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680295339"><span id="local-6989586621680295341"><span id="local-6989586621680295343"><span id="local-6989586621680295345"><span class="annot"><span class="annottext">[BooleanOperator] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680295348"><span id="local-6989586621680295350"><span id="local-6989586621680295352"><span id="local-6989586621680295354"><span class="annot"><span class="annottext">[BooleanOperator] -&gt; Encoding
 [BooleanOperator] -&gt; Value
 BooleanOperator -&gt; Encoding
 BooleanOperator -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: BooleanOperator -&gt; Encoding
 toJSON :: BooleanOperator -&gt; Value
 $ctoJSON :: BooleanOperator -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680295334"><span id="local-6989586621680295336"><span class="annot"><span class="annottext">ToJSONKeyFunction [BooleanOperator]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680295343"><span id="local-6989586621680295345"><span class="annot"><span class="annottext">ToJSONKeyFunction [BooleanOperator]
 ToJSONKeyFunction BooleanOperator
 ToJSONKeyFunction BooleanOperator
 -&gt; ToJSONKeyFunction [BooleanOperator] -&gt; ToJSONKey BooleanOperator
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BooleanOperator]
 toJSONKey :: ToJSONKeyFunction BooleanOperator
 $ctoJSONKey :: ToJSONKeyFunction BooleanOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680295331"><span class="annot"><span class="annottext">[Node] -&gt; Either String BooleanOperator
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680295340"><span class="annot"><span class="annottext">[Node] -&gt; Either String BooleanOperator
 ([Node] -&gt; Either String BooleanOperator)
 -&gt; FromXML BooleanOperator
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BooleanOperator
 $cparseXML :: [Node] -&gt; Either String BooleanOperator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680295328"><span class="annot"><span class="annottext">BooleanOperator -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680295337"><span class="annot"><span class="annottext">BooleanOperator -&gt; XML
 (BooleanOperator -&gt; XML) -&gt; ToXML BooleanOperator
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BooleanOperator -&gt; XML

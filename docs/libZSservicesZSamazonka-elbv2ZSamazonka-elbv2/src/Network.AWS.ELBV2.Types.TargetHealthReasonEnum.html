@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ELBV2.Types.TargetHealthReasonEnum</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ELBV2.Types.TargetHealthReasonEnum</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_InitialHealthChecking"><span class="hs-identifier">TargetHealthReasonEnum_Elb_InitialHealthChecking</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_InternalError"><span class="hs-identifier">TargetHealthReasonEnum_Elb_InternalError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_RegistrationInProgress"><span class="hs-identifier">TargetHealthReasonEnum_Elb_RegistrationInProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_DeregistrationInProgress"><span class="hs-identifier">TargetHealthReasonEnum_Target_DeregistrationInProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_FailedHealthChecks"><span class="hs-identifier">TargetHealthReasonEnum_Target_FailedHealthChecks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_HealthCheckDisabled"><span class="hs-identifier">TargetHealthReasonEnum_Target_HealthCheckDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_InvalidState"><span class="hs-identifier">TargetHealthReasonEnum_Target_InvalidState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_IpUnusable"><span class="hs-identifier">TargetHealthReasonEnum_Target_IpUnusable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_NotInUse"><span class="hs-identifier">TargetHealthReasonEnum_Target_NotInUse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_NotRegistered"><span class="hs-identifier">TargetHealthReasonEnum_Target_NotRegistered</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_ResponseCodeMismatch"><span class="hs-identifier">TargetHealthReasonEnum_Target_ResponseCodeMismatch</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_Timeout"><span class="hs-identifier">TargetHealthReasonEnum_Target_Timeout</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679254605"><span id="local-6989586621679254606"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetHealthReasonEnum"><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-var">TargetHealthReasonEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetHealthReasonEnum%27"><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-var">TargetHealthReasonEnum'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetHealthReasonEnum"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; Text
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#fromTargetHealthReasonEnum"><span class="hs-identifier hs-var hs-var">fromTargetHealthReasonEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254597"><span id="local-6989586621679254599"><span id="local-6989586621679254601"><span class="annot"><span class="annottext">Int -&gt; TargetHealthReasonEnum -&gt; ShowS
+[TargetHealthReasonEnum] -&gt; ShowS
+TargetHealthReasonEnum -&gt; String
+(Int -&gt; TargetHealthReasonEnum -&gt; ShowS)
+-&gt; (TargetHealthReasonEnum -&gt; String)
+-&gt; ([TargetHealthReasonEnum] -&gt; ShowS)
+-&gt; Show TargetHealthReasonEnum
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TargetHealthReasonEnum] -&gt; ShowS
+$cshowList :: [TargetHealthReasonEnum] -&gt; ShowS
+show :: TargetHealthReasonEnum -&gt; String
+$cshow :: TargetHealthReasonEnum -&gt; String
+showsPrec :: Int -&gt; TargetHealthReasonEnum -&gt; ShowS
+$cshowsPrec :: Int -&gt; TargetHealthReasonEnum -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679254588"><span id="local-6989586621679254590"><span id="local-6989586621679254592"><span id="local-6989586621679254594"><span class="annot"><span class="annottext">ReadPrec [TargetHealthReasonEnum]
+ReadPrec TargetHealthReasonEnum
+Int -&gt; ReadS TargetHealthReasonEnum
+ReadS [TargetHealthReasonEnum]
+(Int -&gt; ReadS TargetHealthReasonEnum)
+-&gt; ReadS [TargetHealthReasonEnum]
+-&gt; ReadPrec TargetHealthReasonEnum
+-&gt; ReadPrec [TargetHealthReasonEnum]
+-&gt; Read TargetHealthReasonEnum
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TargetHealthReasonEnum]
+$creadListPrec :: ReadPrec [TargetHealthReasonEnum]
+readPrec :: ReadPrec TargetHealthReasonEnum
+$creadPrec :: ReadPrec TargetHealthReasonEnum
+readList :: ReadS [TargetHealthReasonEnum]
+$creadList :: ReadS [TargetHealthReasonEnum]
+readsPrec :: Int -&gt; ReadS TargetHealthReasonEnum
+$creadsPrec :: Int -&gt; ReadS TargetHealthReasonEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254583"><span id="local-6989586621679254585"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+(TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
+-&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
+-&gt; Eq TargetHealthReasonEnum
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+$c/= :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+== :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+$c== :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254567"><span id="local-6989586621679254569"><span id="local-6989586621679254571"><span id="local-6989586621679254573"><span id="local-6989586621679254575"><span id="local-6989586621679254577"><span id="local-6989586621679254579"><span class="annot"><span class="annottext">Eq TargetHealthReasonEnum
+Eq TargetHealthReasonEnum
+-&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Ordering)
+-&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
+-&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
+-&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
+-&gt; (TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool)
+-&gt; (TargetHealthReasonEnum
+    -&gt; TargetHealthReasonEnum -&gt; TargetHealthReasonEnum)
+-&gt; (TargetHealthReasonEnum
+    -&gt; TargetHealthReasonEnum -&gt; TargetHealthReasonEnum)
+-&gt; Ord TargetHealthReasonEnum
+TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Ordering
+TargetHealthReasonEnum
+-&gt; TargetHealthReasonEnum -&gt; TargetHealthReasonEnum
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TargetHealthReasonEnum
+-&gt; TargetHealthReasonEnum -&gt; TargetHealthReasonEnum
+$cmin :: TargetHealthReasonEnum
+-&gt; TargetHealthReasonEnum -&gt; TargetHealthReasonEnum
+max :: TargetHealthReasonEnum
+-&gt; TargetHealthReasonEnum -&gt; TargetHealthReasonEnum
+$cmax :: TargetHealthReasonEnum
+-&gt; TargetHealthReasonEnum -&gt; TargetHealthReasonEnum
+&gt;= :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+$c&gt;= :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+&gt; :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+$c&gt; :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+&lt;= :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+$c&lt;= :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+&lt; :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+$c&lt; :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Bool
+compare :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Ordering
+$ccompare :: TargetHealthReasonEnum -&gt; TargetHealthReasonEnum -&gt; Ordering
+$cp1Ord :: Eq TargetHealthReasonEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TargetHealthReasonEnum -&gt; Rep TargetHealthReasonEnum x)
+-&gt; (forall x.
+    Rep TargetHealthReasonEnum x -&gt; TargetHealthReasonEnum)
+-&gt; Generic TargetHealthReasonEnum
+forall x. Rep TargetHealthReasonEnum x -&gt; TargetHealthReasonEnum
+forall x. TargetHealthReasonEnum -&gt; Rep TargetHealthReasonEnum x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TargetHealthReasonEnum x -&gt; TargetHealthReasonEnum
+$cfrom :: forall x. TargetHealthReasonEnum -&gt; Rep TargetHealthReasonEnum x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254559"><span id="local-6989586621679254561"><span class="annot"><span class="annottext">Int -&gt; TargetHealthReasonEnum -&gt; Int
+TargetHealthReasonEnum -&gt; Int
+(Int -&gt; TargetHealthReasonEnum -&gt; Int)
+-&gt; (TargetHealthReasonEnum -&gt; Int)
+-&gt; Hashable TargetHealthReasonEnum
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TargetHealthReasonEnum -&gt; Int
+$chash :: TargetHealthReasonEnum -&gt; Int
+hashWithSalt :: Int -&gt; TargetHealthReasonEnum -&gt; Int
+$chashWithSalt :: Int -&gt; TargetHealthReasonEnum -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254556"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ()
+(TargetHealthReasonEnum -&gt; ()) -&gt; NFData TargetHealthReasonEnum
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TargetHealthReasonEnum -&gt; ()
+$crnf :: TargetHealthReasonEnum -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254553"><span class="annot"><span class="annottext">Text -&gt; Either String TargetHealthReasonEnum
+(Text -&gt; Either String TargetHealthReasonEnum)
+-&gt; FromText TargetHealthReasonEnum
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TargetHealthReasonEnum
+$cfromText :: Text -&gt; Either String TargetHealthReasonEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254550"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; Text
+(TargetHealthReasonEnum -&gt; Text) -&gt; ToText TargetHealthReasonEnum
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TargetHealthReasonEnum -&gt; Text
+$ctoText :: TargetHealthReasonEnum -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679254547"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ByteString
+(TargetHealthReasonEnum -&gt; ByteString)
+-&gt; ToByteString TargetHealthReasonEnum
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TargetHealthReasonEnum -&gt; ByteString
+$ctoBS :: TargetHealthReasonEnum -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679254544"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; ByteStringBuilder
+(TargetHealthReasonEnum -&gt; ByteStringBuilder)
+-&gt; ToLog TargetHealthReasonEnum
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TargetHealthReasonEnum -&gt; ByteStringBuilder
+$cbuild :: TargetHealthReasonEnum -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679254541"><span class="annot"><span class="annottext">HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header]
+(HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header])
+-&gt; ToHeader TargetHealthReasonEnum
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TargetHealthReasonEnum -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679254538"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; QueryString
+(TargetHealthReasonEnum -&gt; QueryString)
+-&gt; ToQuery TargetHealthReasonEnum
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TargetHealthReasonEnum -&gt; QueryString
+$ctoQuery :: TargetHealthReasonEnum -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679254533"><span id="local-6989586621679254535"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetHealthReasonEnum]
+Value -&gt; Parser TargetHealthReasonEnum
+(Value -&gt; Parser TargetHealthReasonEnum)
+-&gt; (Value -&gt; Parser [TargetHealthReasonEnum])
+-&gt; FromJSON TargetHealthReasonEnum
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TargetHealthReasonEnum]
+$cparseJSONList :: Value -&gt; Parser [TargetHealthReasonEnum]
+parseJSON :: Value -&gt; Parser TargetHealthReasonEnum
+$cparseJSON :: Value -&gt; Parser TargetHealthReasonEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679254528"><span id="local-6989586621679254530"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetHealthReasonEnum]
+FromJSONKeyFunction TargetHealthReasonEnum
+FromJSONKeyFunction TargetHealthReasonEnum
+-&gt; FromJSONKeyFunction [TargetHealthReasonEnum]
+-&gt; FromJSONKey TargetHealthReasonEnum
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TargetHealthReasonEnum]
+$cfromJSONKeyList :: FromJSONKeyFunction [TargetHealthReasonEnum]
+fromJSONKey :: FromJSONKeyFunction TargetHealthReasonEnum
+$cfromJSONKey :: FromJSONKeyFunction TargetHealthReasonEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679254519"><span id="local-6989586621679254521"><span id="local-6989586621679254523"><span id="local-6989586621679254525"><span class="annot"><span class="annottext">[TargetHealthReasonEnum] -&gt; Encoding
+[TargetHealthReasonEnum] -&gt; Value
+TargetHealthReasonEnum -&gt; Encoding
+TargetHealthReasonEnum -&gt; Value
+(TargetHealthReasonEnum -&gt; Value)
+-&gt; (TargetHealthReasonEnum -&gt; Encoding)
+-&gt; ([TargetHealthReasonEnum] -&gt; Value)
+-&gt; ([TargetHealthReasonEnum] -&gt; Encoding)
+-&gt; ToJSON TargetHealthReasonEnum
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TargetHealthReasonEnum] -&gt; Encoding
+$ctoEncodingList :: [TargetHealthReasonEnum] -&gt; Encoding
+toJSONList :: [TargetHealthReasonEnum] -&gt; Value
+$ctoJSONList :: [TargetHealthReasonEnum] -&gt; Value
+toEncoding :: TargetHealthReasonEnum -&gt; Encoding
+$ctoEncoding :: TargetHealthReasonEnum -&gt; Encoding
+toJSON :: TargetHealthReasonEnum -&gt; Value
+$ctoJSON :: TargetHealthReasonEnum -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679254514"><span id="local-6989586621679254516"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetHealthReasonEnum]
+ToJSONKeyFunction TargetHealthReasonEnum
+ToJSONKeyFunction TargetHealthReasonEnum
+-&gt; ToJSONKeyFunction [TargetHealthReasonEnum]
+-&gt; ToJSONKey TargetHealthReasonEnum
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TargetHealthReasonEnum]
+$ctoJSONKeyList :: ToJSONKeyFunction [TargetHealthReasonEnum]
+toJSONKey :: ToJSONKeyFunction TargetHealthReasonEnum
+$ctoJSONKey :: ToJSONKeyFunction TargetHealthReasonEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679254511"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetHealthReasonEnum
+([Node] -&gt; Either String TargetHealthReasonEnum)
+-&gt; FromXML TargetHealthReasonEnum
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TargetHealthReasonEnum
+$cparseXML :: [Node] -&gt; Either String TargetHealthReasonEnum
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679254508"><span class="annot"><span class="annottext">TargetHealthReasonEnum -&gt; XML
+(TargetHealthReasonEnum -&gt; XML) -&gt; ToXML TargetHealthReasonEnum
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TargetHealthReasonEnum -&gt; XML
+$ctoXML :: TargetHealthReasonEnum -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_InitialHealthChecking"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Elb_InitialHealthChecking</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Elb_InitialHealthChecking"><span id="%24mTargetHealthReasonEnum_Elb_InitialHealthChecking"><span id="TargetHealthReasonEnum_Elb_InitialHealthChecking"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Elb_InitialHealthChecking :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Elb_InitialHealthChecking :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Elb_InitialHealthChecking"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Elb_InitialHealthChecking</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Elb.InitialHealthChecking&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_InternalError"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Elb_InternalError</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Elb_InternalError"><span id="%24mTargetHealthReasonEnum_Elb_InternalError"><span id="TargetHealthReasonEnum_Elb_InternalError"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Elb_InternalError :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Elb_InternalError :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Elb_InternalError"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Elb_InternalError</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Elb.InternalError&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_RegistrationInProgress"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Elb_RegistrationInProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Elb_RegistrationInProgress"><span id="%24mTargetHealthReasonEnum_Elb_RegistrationInProgress"><span id="TargetHealthReasonEnum_Elb_RegistrationInProgress"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Elb_RegistrationInProgress :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Elb_RegistrationInProgress :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Elb_RegistrationInProgress"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Elb_RegistrationInProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Elb.RegistrationInProgress&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_DeregistrationInProgress"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_DeregistrationInProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_DeregistrationInProgress"><span id="%24mTargetHealthReasonEnum_Target_DeregistrationInProgress"><span id="TargetHealthReasonEnum_Target_DeregistrationInProgress"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_DeregistrationInProgress :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_DeregistrationInProgress :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_DeregistrationInProgress"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_DeregistrationInProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.DeregistrationInProgress&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_FailedHealthChecks"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_FailedHealthChecks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_FailedHealthChecks"><span id="%24mTargetHealthReasonEnum_Target_FailedHealthChecks"><span id="TargetHealthReasonEnum_Target_FailedHealthChecks"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_FailedHealthChecks :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_FailedHealthChecks :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_FailedHealthChecks"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_FailedHealthChecks</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.FailedHealthChecks&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_HealthCheckDisabled"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_HealthCheckDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_HealthCheckDisabled"><span id="%24mTargetHealthReasonEnum_Target_HealthCheckDisabled"><span id="TargetHealthReasonEnum_Target_HealthCheckDisabled"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_HealthCheckDisabled :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_HealthCheckDisabled :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_HealthCheckDisabled"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_HealthCheckDisabled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.HealthCheckDisabled&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_InvalidState"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_InvalidState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_InvalidState"><span id="%24mTargetHealthReasonEnum_Target_InvalidState"><span id="TargetHealthReasonEnum_Target_InvalidState"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_InvalidState :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_InvalidState :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_InvalidState"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_InvalidState</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.InvalidState&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_IpUnusable"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_IpUnusable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_IpUnusable"><span id="%24mTargetHealthReasonEnum_Target_IpUnusable"><span id="TargetHealthReasonEnum_Target_IpUnusable"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_IpUnusable :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_IpUnusable :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_IpUnusable"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_IpUnusable</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.IpUnusable&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_NotInUse"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_NotInUse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_NotInUse"><span id="%24mTargetHealthReasonEnum_Target_NotInUse"><span id="TargetHealthReasonEnum_Target_NotInUse"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_NotInUse :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_NotInUse :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_NotInUse"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_NotInUse</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.NotInUse&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_NotRegistered"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_NotRegistered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_NotRegistered"><span id="%24mTargetHealthReasonEnum_Target_NotRegistered"><span id="TargetHealthReasonEnum_Target_NotRegistered"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_NotRegistered :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_NotRegistered :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_NotRegistered"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_NotRegistered</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.NotRegistered&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_ResponseCodeMismatch"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_ResponseCodeMismatch</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_ResponseCodeMismatch"><span id="%24mTargetHealthReasonEnum_Target_ResponseCodeMismatch"><span id="TargetHealthReasonEnum_Target_ResponseCodeMismatch"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_ResponseCodeMismatch :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_ResponseCodeMismatch :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_ResponseCodeMismatch"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_ResponseCodeMismatch</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.ResponseCodeMismatch&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_Timeout"><span class="hs-identifier hs-type">TargetHealthReasonEnum_Target_Timeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum"><span class="hs-identifier hs-type">TargetHealthReasonEnum</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetHealthReasonEnum_Target_Timeout"><span id="%24mTargetHealthReasonEnum_Target_Timeout"><span id="TargetHealthReasonEnum_Target_Timeout"><span class="annot"><span class="annottext">$bTargetHealthReasonEnum_Target_Timeout :: TargetHealthReasonEnum
+$mTargetHealthReasonEnum_Target_Timeout :: forall r.
+TargetHealthReasonEnum -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#%24bTargetHealthReasonEnum_Target_Timeout"><span class="hs-identifier hs-var hs-var hs-var">TargetHealthReasonEnum_Target_Timeout</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-identifier hs-type">TargetHealthReasonEnum'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Target.Timeout&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_InitialHealthChecking"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Elb_InitialHealthChecking</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_InternalError"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Elb_InternalError</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Elb_RegistrationInProgress"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Elb_RegistrationInProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_DeregistrationInProgress"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_DeregistrationInProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_FailedHealthChecks"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_FailedHealthChecks</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_HealthCheckDisabled"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_HealthCheckDisabled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_InvalidState"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_InvalidState</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_IpUnusable"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_IpUnusable</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_NotInUse"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_NotInUse</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_NotRegistered"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_NotRegistered</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_ResponseCodeMismatch"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_ResponseCodeMismatch</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum_Target_Timeout"><span class="hs-pragma hs-type">TargetHealthReasonEnum_Target_Timeout</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.ELBV2.Types.TargetHealthReasonEnum.html#TargetHealthReasonEnum%27"><span class="hs-pragma hs-type">TargetHealthReasonEnum'</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-121"></span></pre></body></html>

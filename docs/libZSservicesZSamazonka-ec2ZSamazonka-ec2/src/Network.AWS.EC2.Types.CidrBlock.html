@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an IPv4 CIDR block.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCidrBlock' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681092848"><span id="local-6989586621681092849"></span></span><span class="hs-keyword">data</span><span> </span><span id="CidrBlock"><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-var">CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CidrBlock%27"><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-var">CidrBlock'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681092857"><span id="local-6989586621681092858"></span></span><span class="hs-keyword">data</span><span> </span><span id="CidrBlock"><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-var">CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CidrBlock%27"><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-var">CidrBlock'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv4 CIDR block.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcidrBlock%3ACidrBlock%27"><span class="annot"><span class="annottext">CidrBlock -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.CidrBlock.html#%24sel%3AcidrBlock%3ACidrBlock%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092842"><span id="local-6989586621681092844"><span class="annot"><span class="annottext">CidrBlock -&gt; CidrBlock -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092851"><span id="local-6989586621681092853"><span class="annot"><span class="annottext">CidrBlock -&gt; CidrBlock -&gt; Bool
 (CidrBlock -&gt; CidrBlock -&gt; Bool)
 -&gt; (CidrBlock -&gt; CidrBlock -&gt; Bool) -&gt; Eq CidrBlock
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CidrBlock -&gt; CidrBlock -&gt; Bool
 == :: CidrBlock -&gt; CidrBlock -&gt; Bool
 $c== :: CidrBlock -&gt; CidrBlock -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092833"><span id="local-6989586621681092835"><span id="local-6989586621681092837"><span id="local-6989586621681092839"><span class="annot"><span class="annottext">ReadPrec [CidrBlock]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092842"><span id="local-6989586621681092844"><span id="local-6989586621681092846"><span id="local-6989586621681092848"><span class="annot"><span class="annottext">ReadPrec [CidrBlock]
 ReadPrec CidrBlock
 Int -&gt; ReadS CidrBlock
 ReadS [CidrBlock]
@@ -60,7 +60,7 @@ readList :: ReadS [CidrBlock]
 $creadList :: ReadS [CidrBlock]
 readsPrec :: Int -&gt; ReadS CidrBlock
 $creadsPrec :: Int -&gt; ReadS CidrBlock
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092826"><span id="local-6989586621681092828"><span id="local-6989586621681092830"><span class="annot"><span class="annottext">Int -&gt; CidrBlock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092835"><span id="local-6989586621681092837"><span id="local-6989586621681092839"><span class="annot"><span class="annottext">Int -&gt; CidrBlock -&gt; ShowS
 [CidrBlock] -&gt; ShowS
 CidrBlock -&gt; String
 (Int -&gt; CidrBlock -&gt; ShowS)
@@ -111,32 +111,32 @@ forall a. Maybe a
 -&gt; (CidrBlock -&gt; Maybe Text -&gt; CidrBlock)
 -&gt; Lens CidrBlock CidrBlock (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-type">CidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092817"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-type">CidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092826"><span class="annot"><span class="annottext">Maybe Text
 cidrBlock :: Maybe Text
 $sel:cidrBlock:CidrBlock' :: CidrBlock -&gt; Maybe Text
-</span><a href="#local-6989586621681092817"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681092817"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092816"><span class="annot"><span class="annottext">s :: CidrBlock
-</span><a href="#local-6989586621681092816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-type">CidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092815"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681092815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CidrBlock
-</span><a href="#local-6989586621681092816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CidrBlock' :: Maybe Text
+</span><a href="#local-6989586621681092826"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092826"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092825"><span class="annot"><span class="annottext">s :: CidrBlock
+</span><a href="#local-6989586621681092825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-type">CidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092824"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CidrBlock
+</span><a href="#local-6989586621681092825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CidrBlock' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.CidrBlock.html#%24sel%3AcidrBlock%3ACidrBlock%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681092815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681092824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681092812"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CidrBlock
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681092810"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681092810"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681092821"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CidrBlock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681092819"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; CidrBlock
 </span><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-var">CidrBlock'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CidrBlock)
 -&gt; Either String (Maybe Text) -&gt; Either String CidrBlock
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681092810"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681092819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidrBlock&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092804"><span id="local-6989586621681092806"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092813"><span id="local-6989586621681092815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span></span><span>
 </span><span id="line-61"></span></pre></body></html>

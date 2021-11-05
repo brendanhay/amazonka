@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679274076"><span id="local-6989586621679274077"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParquetCompression"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression"><span class="hs-identifier hs-var">ParquetCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParquetCompression%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression%27"><span class="hs-identifier hs-var">ParquetCompression'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679274085"><span id="local-6989586621679274086"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ParquetCompression"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression"><span class="hs-identifier hs-var">ParquetCompression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParquetCompression%27"><span class="annot"><a href="Network.AWS.Firehose.Types.ParquetCompression.html#ParquetCompression%27"><span class="hs-identifier hs-var">ParquetCompression'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromParquetCompression"><span class="annot"><span class="annottext">ParquetCompression -&gt; Text
 </span><a href="Network.AWS.Firehose.Types.ParquetCompression.html#fromParquetCompression"><span class="hs-identifier hs-var hs-var">fromParquetCompression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274068"><span id="local-6989586621679274070"><span id="local-6989586621679274072"><span class="annot"><span class="annottext">Int -&gt; ParquetCompression -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274077"><span id="local-6989586621679274079"><span id="local-6989586621679274081"><span class="annot"><span class="annottext">Int -&gt; ParquetCompression -&gt; ShowS
 [ParquetCompression] -&gt; ShowS
 ParquetCompression -&gt; String
 (Int -&gt; ParquetCompression -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ParquetCompression -&gt; String
 showsPrec :: Int -&gt; ParquetCompression -&gt; ShowS
 $cshowsPrec :: Int -&gt; ParquetCompression -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679274059"><span id="local-6989586621679274061"><span id="local-6989586621679274063"><span id="local-6989586621679274065"><span class="annot"><span class="annottext">ReadPrec [ParquetCompression]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679274068"><span id="local-6989586621679274070"><span id="local-6989586621679274072"><span id="local-6989586621679274074"><span class="annot"><span class="annottext">ReadPrec [ParquetCompression]
 ReadPrec ParquetCompression
 Int -&gt; ReadS ParquetCompression
 ReadS [ParquetCompression]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ParquetCompression]
 readsPrec :: Int -&gt; ReadS ParquetCompression
 $creadsPrec :: Int -&gt; ReadS ParquetCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274054"><span id="local-6989586621679274056"><span class="annot"><span class="annottext">ParquetCompression -&gt; ParquetCompression -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679274063"><span id="local-6989586621679274065"><span class="annot"><span class="annottext">ParquetCompression -&gt; ParquetCompression -&gt; Bool
 (ParquetCompression -&gt; ParquetCompression -&gt; Bool)
 -&gt; (ParquetCompression -&gt; ParquetCompression -&gt; Bool)
 -&gt; Eq ParquetCompression
@@ -83,7 +83,7 @@ $c/= :: ParquetCompression -&gt; ParquetCompression -&gt; Bool
 == :: ParquetCompression -&gt; ParquetCompression -&gt; Bool
 $c== :: ParquetCompression -&gt; ParquetCompression -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679274038"><span id="local-6989586621679274040"><span id="local-6989586621679274042"><span id="local-6989586621679274044"><span id="local-6989586621679274046"><span id="local-6989586621679274048"><span id="local-6989586621679274050"><span class="annot"><span class="annottext">Eq ParquetCompression
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679274047"><span id="local-6989586621679274049"><span id="local-6989586621679274051"><span id="local-6989586621679274053"><span id="local-6989586621679274055"><span id="local-6989586621679274057"><span id="local-6989586621679274059"><span class="annot"><span class="annottext">Eq ParquetCompression
 Eq ParquetCompression
 -&gt; (ParquetCompression -&gt; ParquetCompression -&gt; Ordering)
 -&gt; (ParquetCompression -&gt; ParquetCompression -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ParquetCompression -&gt; Rep ParquetCompression x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274030"><span id="local-6989586621679274032"><span class="annot"><span class="annottext">Int -&gt; ParquetCompression -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274039"><span id="local-6989586621679274041"><span class="annot"><span class="annottext">Int -&gt; ParquetCompression -&gt; Int
 ParquetCompression -&gt; Int
 (Int -&gt; ParquetCompression -&gt; Int)
 -&gt; (ParquetCompression -&gt; Int) -&gt; Hashable ParquetCompression
@@ -144,53 +144,53 @@ $chash :: ParquetCompression -&gt; Int
 hashWithSalt :: Int -&gt; ParquetCompression -&gt; Int
 $chashWithSalt :: Int -&gt; ParquetCompression -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679274027"><span class="annot"><span class="annottext">ParquetCompression -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679274036"><span class="annot"><span class="annottext">ParquetCompression -&gt; ()
 (ParquetCompression -&gt; ()) -&gt; NFData ParquetCompression
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ParquetCompression -&gt; ()
 $crnf :: ParquetCompression -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274024"><span class="annot"><span class="annottext">Text -&gt; Either String ParquetCompression
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274033"><span class="annot"><span class="annottext">Text -&gt; Either String ParquetCompression
 (Text -&gt; Either String ParquetCompression)
 -&gt; FromText ParquetCompression
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ParquetCompression
 $cfromText :: Text -&gt; Either String ParquetCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274021"><span class="annot"><span class="annottext">ParquetCompression -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274030"><span class="annot"><span class="annottext">ParquetCompression -&gt; Text
 (ParquetCompression -&gt; Text) -&gt; ToText ParquetCompression
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ParquetCompression -&gt; Text
 $ctoText :: ParquetCompression -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274018"><span class="annot"><span class="annottext">ParquetCompression -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274027"><span class="annot"><span class="annottext">ParquetCompression -&gt; ByteString
 (ParquetCompression -&gt; ByteString)
 -&gt; ToByteString ParquetCompression
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ParquetCompression -&gt; ByteString
 $ctoBS :: ParquetCompression -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274015"><span class="annot"><span class="annottext">ParquetCompression -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274024"><span class="annot"><span class="annottext">ParquetCompression -&gt; ByteStringBuilder
 (ParquetCompression -&gt; ByteStringBuilder)
 -&gt; ToLog ParquetCompression
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ParquetCompression -&gt; ByteStringBuilder
 $cbuild :: ParquetCompression -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274012"><span class="annot"><span class="annottext">HeaderName -&gt; ParquetCompression -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274021"><span class="annot"><span class="annottext">HeaderName -&gt; ParquetCompression -&gt; [Header]
 (HeaderName -&gt; ParquetCompression -&gt; [Header])
 -&gt; ToHeader ParquetCompression
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ParquetCompression -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ParquetCompression -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274009"><span class="annot"><span class="annottext">ParquetCompression -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274018"><span class="annot"><span class="annottext">ParquetCompression -&gt; QueryString
 (ParquetCompression -&gt; QueryString) -&gt; ToQuery ParquetCompression
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ParquetCompression -&gt; QueryString
 $ctoQuery :: ParquetCompression -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274004"><span id="local-6989586621679274006"><span class="annot"><span class="annottext">Value -&gt; Parser [ParquetCompression]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274013"><span id="local-6989586621679274015"><span class="annot"><span class="annottext">Value -&gt; Parser [ParquetCompression]
 Value -&gt; Parser ParquetCompression
 (Value -&gt; Parser ParquetCompression)
 -&gt; (Value -&gt; Parser [ParquetCompression])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ParquetCompression]
 parseJSON :: Value -&gt; Parser ParquetCompression
 $cparseJSON :: Value -&gt; Parser ParquetCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273999"><span id="local-6989586621679274001"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParquetCompression]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274008"><span id="local-6989586621679274010"><span class="annot"><span class="annottext">FromJSONKeyFunction [ParquetCompression]
 FromJSONKeyFunction ParquetCompression
 FromJSONKeyFunction ParquetCompression
 -&gt; FromJSONKeyFunction [ParquetCompression]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ParquetCompression]
 fromJSONKey :: FromJSONKeyFunction ParquetCompression
 $cfromJSONKey :: FromJSONKeyFunction ParquetCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273990"><span id="local-6989586621679273992"><span id="local-6989586621679273994"><span id="local-6989586621679273996"><span class="annot"><span class="annottext">[ParquetCompression] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273999"><span id="local-6989586621679274001"><span id="local-6989586621679274003"><span id="local-6989586621679274005"><span class="annot"><span class="annottext">[ParquetCompression] -&gt; Encoding
 [ParquetCompression] -&gt; Value
 ParquetCompression -&gt; Encoding
 ParquetCompression -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ParquetCompression -&gt; Encoding
 toJSON :: ParquetCompression -&gt; Value
 $ctoJSON :: ParquetCompression -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273985"><span id="local-6989586621679273987"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParquetCompression]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273994"><span id="local-6989586621679273996"><span class="annot"><span class="annottext">ToJSONKeyFunction [ParquetCompression]
 ToJSONKeyFunction ParquetCompression
 ToJSONKeyFunction ParquetCompression
 -&gt; ToJSONKeyFunction [ParquetCompression]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ParquetCompression]
 toJSONKey :: ToJSONKeyFunction ParquetCompression
 $ctoJSONKey :: ToJSONKeyFunction ParquetCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273982"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParquetCompression
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273991"><span class="annot"><span class="annottext">[Node] -&gt; Either String ParquetCompression
 ([Node] -&gt; Either String ParquetCompression)
 -&gt; FromXML ParquetCompression
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ParquetCompression
 $cparseXML :: [Node] -&gt; Either String ParquetCompression
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273979"><span class="annot"><span class="annottext">ParquetCompression -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273988"><span class="annot"><span class="annottext">ParquetCompression -&gt; XML
 (ParquetCompression -&gt; XML) -&gt; ToXML ParquetCompression
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ParquetCompression -&gt; XML

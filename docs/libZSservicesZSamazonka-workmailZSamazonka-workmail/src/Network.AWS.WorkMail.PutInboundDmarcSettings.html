@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newPutInboundDmarcSettings' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679284855"><span id="local-6989586621679284856"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInboundDmarcSettings"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-var">PutInboundDmarcSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInboundDmarcSettings%27"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-var">PutInboundDmarcSettings'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679284864"><span id="local-6989586621679284865"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInboundDmarcSettings"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-var">PutInboundDmarcSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInboundDmarcSettings%27"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-var">PutInboundDmarcSettings'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the organization that you are applying the DMARC policy to.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="annot"><span class="annottext">PutInboundDmarcSettings -&gt; Text
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="annot"><span class="annottext">PutInboundDmarcSettings -&gt; Bool
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var hs-var">enforced</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284848"><span id="local-6989586621679284850"><span class="annot"><span class="annottext">PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284857"><span id="local-6989586621679284859"><span class="annot"><span class="annottext">PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
 (PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool)
 -&gt; (PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool)
 -&gt; Eq PutInboundDmarcSettings
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
 == :: PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
 $c== :: PutInboundDmarcSettings -&gt; PutInboundDmarcSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284839"><span id="local-6989586621679284841"><span id="local-6989586621679284843"><span id="local-6989586621679284845"><span class="annot"><span class="annottext">ReadPrec [PutInboundDmarcSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284848"><span id="local-6989586621679284850"><span id="local-6989586621679284852"><span id="local-6989586621679284854"><span class="annot"><span class="annottext">ReadPrec [PutInboundDmarcSettings]
 ReadPrec PutInboundDmarcSettings
 Int -&gt; ReadS PutInboundDmarcSettings
 ReadS [PutInboundDmarcSettings]
@@ -84,7 +84,7 @@ readList :: ReadS [PutInboundDmarcSettings]
 $creadList :: ReadS [PutInboundDmarcSettings]
 readsPrec :: Int -&gt; ReadS PutInboundDmarcSettings
 $creadsPrec :: Int -&gt; ReadS PutInboundDmarcSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284832"><span id="local-6989586621679284834"><span id="local-6989586621679284836"><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284841"><span id="local-6989586621679284843"><span id="local-6989586621679284845"><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettings -&gt; ShowS
 [PutInboundDmarcSettings] -&gt; ShowS
 PutInboundDmarcSettings -&gt; String
 (Int -&gt; PutInboundDmarcSettings -&gt; ShowS)
@@ -131,19 +131,19 @@ $cfrom :: forall x. PutInboundDmarcSettings -&gt; Rep PutInboundDmarcSettings x
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span>
 </span><span id="line-75"></span><span id="newPutInboundDmarcSettings"><span class="annot"><span class="annottext">newPutInboundDmarcSettings :: Text -&gt; Bool -&gt; PutInboundDmarcSettings
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettings"><span class="hs-identifier hs-var hs-var">newPutInboundDmarcSettings</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679284827"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284827"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679284826"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679284826"><span class="hs-identifier hs-var">pEnforced_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679284836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284836"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679284835"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284835"><span class="hs-identifier hs-var">pEnforced_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">PutInboundDmarcSettings' :: Text -&gt; Bool -&gt; PutInboundDmarcSettings
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:PutInboundDmarcSettings' :: Text
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284827"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284836"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:enforced:PutInboundDmarcSettings' :: Bool
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">enforced</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679284826"><span class="hs-identifier hs-var">pEnforced_</span></a></span><span>
+</span><a href="#local-6989586621679284835"><span class="hs-identifier hs-var">pEnforced_</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The ID of the organization that you are applying the DMARC policy to.</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. PutInboundDmarcSettings -&gt; Rep PutInboundDmarcSettings x
 -&gt; (PutInboundDmarcSettings -&gt; Text -&gt; PutInboundDmarcSettings)
 -&gt; Lens PutInboundDmarcSettings PutInboundDmarcSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284823"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284832"><span class="annot"><span class="annottext">Text
 organizationId :: Text
 $sel:organizationId:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Text
-</span><a href="#local-6989586621679284823"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284823"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284822"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettings
-</span><a href="#local-6989586621679284822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettings
-</span><a href="#local-6989586621679284822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:PutInboundDmarcSettings' :: Text
+</span><a href="#local-6989586621679284832"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284832"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284831"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettings
+</span><a href="#local-6989586621679284831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettings
+</span><a href="#local-6989586621679284831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:PutInboundDmarcSettings' :: Text
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3AorganizationId%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Enforces or suspends a policy after it\'s applied.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#putInboundDmarcSettings_enforced"><span class="hs-identifier hs-type">putInboundDmarcSettings_enforced</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
@@ -173,28 +173,28 @@ $sel:organizationId:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Te
 -&gt; (PutInboundDmarcSettings -&gt; Bool -&gt; PutInboundDmarcSettings)
 -&gt; Lens PutInboundDmarcSettings PutInboundDmarcSettings Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284820"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284829"><span class="annot"><span class="annottext">Bool
 enforced :: Bool
 $sel:enforced:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Bool
-</span><a href="#local-6989586621679284820"><span class="hs-identifier hs-var hs-var">enforced</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679284820"><span class="hs-identifier hs-var">enforced</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284819"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettings
-</span><a href="#local-6989586621679284819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284818"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679284818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettings
-</span><a href="#local-6989586621679284819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enforced:PutInboundDmarcSettings' :: Bool
+</span><a href="#local-6989586621679284829"><span class="hs-identifier hs-var hs-var">enforced</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284829"><span class="hs-identifier hs-var">enforced</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284828"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettings
+</span><a href="#local-6989586621679284828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284827"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679284827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettings
+</span><a href="#local-6989586621679284828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enforced:PutInboundDmarcSettings' :: Bool
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3Aenforced%3APutInboundDmarcSettings%27"><span class="hs-identifier hs-var">enforced</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679284818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679284814"><span class="annot"><span class="annottext">request :: PutInboundDmarcSettings -&gt; Request PutInboundDmarcSettings
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679284823"><span class="annot"><span class="annottext">request :: PutInboundDmarcSettings -&gt; Request PutInboundDmarcSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; PutInboundDmarcSettings -&gt; Request PutInboundDmarcSettings
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679284810"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679284819"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutInboundDmarcSettings
 -&gt; ClientResponse ClientBody
@@ -220,10 +220,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284807"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284807"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284806"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679284806"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284805"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679284805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284816"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284816"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284815"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284815"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284814"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679284814"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettingsResponse
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutInboundDmarcSettingsResponse)
@@ -235,15 +235,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284807"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284816"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284798"><span id="local-6989586621679284800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284807"><span id="local-6989586621679284809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679284791"><span class="annot"><span class="annottext">toHeaders :: PutInboundDmarcSettings -&gt; ResponseHeaders
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679284800"><span class="annot"><span class="annottext">toHeaders :: PutInboundDmarcSettings -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutInboundDmarcSettings -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -270,15 +270,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284781"><span id="local-6989586621679284783"><span id="local-6989586621679284785"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284779"><span class="annot"><span class="annottext">toJSON :: PutInboundDmarcSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284776"><span id="local-6989586621679284777"><span class="annot"><span class="annottext">Bool
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284790"><span id="local-6989586621679284792"><span id="local-6989586621679284794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679284788"><span class="annot"><span class="annottext">toJSON :: PutInboundDmarcSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings%27"><span class="hs-identifier hs-type">PutInboundDmarcSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284785"><span id="local-6989586621679284786"><span class="annot"><span class="annottext">Bool
 Text
 enforced :: Bool
 organizationId :: Text
 $sel:enforced:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Bool
 $sel:organizationId:PutInboundDmarcSettings' :: PutInboundDmarcSettings -&gt; Text
-</span><a href="#local-6989586621679284776"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679284785"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,26 +291,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284777"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284786"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enforced&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679284776"><span class="hs-identifier hs-var">enforced</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284785"><span class="hs-identifier hs-var">enforced</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679284770"><span class="annot"><span class="annottext">toPath :: PutInboundDmarcSettings -&gt; ByteString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679284779"><span class="annot"><span class="annottext">toPath :: PutInboundDmarcSettings -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutInboundDmarcSettings -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettings"><span class="hs-identifier hs-type">PutInboundDmarcSettings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679284766"><span class="annot"><span class="annottext">toQuery :: PutInboundDmarcSettings -&gt; QueryString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679284775"><span class="annot"><span class="annottext">toQuery :: PutInboundDmarcSettings -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutInboundDmarcSettings -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,12 +318,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | /See:/ 'newPutInboundDmarcSettingsResponse' smart constructor.</span><span>
-</span><span id="line-140"></span><span id="local-6989586621679284763"><span id="local-6989586621679284764"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInboundDmarcSettingsResponse"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInboundDmarcSettingsResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span id="local-6989586621679284772"><span id="local-6989586621679284773"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutInboundDmarcSettingsResponse"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutInboundDmarcSettingsResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">PutInboundDmarcSettingsResponse'</span></a></span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse -&gt; Int
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284758"><span id="local-6989586621679284760"><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284767"><span id="local-6989586621679284769"><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse
 -&gt; PutInboundDmarcSettingsResponse -&gt; Bool
 (PutInboundDmarcSettingsResponse
  -&gt; PutInboundDmarcSettingsResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: PutInboundDmarcSettingsResponse
 -&gt; PutInboundDmarcSettingsResponse -&gt; Bool
 $c== :: PutInboundDmarcSettingsResponse
 -&gt; PutInboundDmarcSettingsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284750"><span id="local-6989586621679284752"><span id="local-6989586621679284754"><span id="local-6989586621679284756"><span class="annot"><span class="annottext">ReadPrec [PutInboundDmarcSettingsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284759"><span id="local-6989586621679284761"><span id="local-6989586621679284763"><span id="local-6989586621679284765"><span class="annot"><span class="annottext">ReadPrec [PutInboundDmarcSettingsResponse]
 ReadPrec PutInboundDmarcSettingsResponse
 Int -&gt; ReadS PutInboundDmarcSettingsResponse
 ReadS [PutInboundDmarcSettingsResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [PutInboundDmarcSettingsResponse]
 $creadList :: ReadS [PutInboundDmarcSettingsResponse]
 readsPrec :: Int -&gt; ReadS PutInboundDmarcSettingsResponse
 $creadsPrec :: Int -&gt; ReadS PutInboundDmarcSettingsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284744"><span id="local-6989586621679284746"><span id="local-6989586621679284748"><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284753"><span id="local-6989586621679284755"><span id="local-6989586621679284757"><span class="annot"><span class="annottext">Int -&gt; PutInboundDmarcSettingsResponse -&gt; ShowS
 [PutInboundDmarcSettingsResponse] -&gt; ShowS
 PutInboundDmarcSettingsResponse -&gt; String
 (Int -&gt; PutInboundDmarcSettingsResponse -&gt; ShowS)
@@ -411,14 +411,14 @@ PutInboundDmarcSettingsResponse
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newPutInboundDmarcSettingsResponse"><span class="annot"><span class="annottext">newPutInboundDmarcSettingsResponse :: Int -&gt; PutInboundDmarcSettingsResponse
-</span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettingsResponse"><span class="hs-identifier hs-var hs-var">newPutInboundDmarcSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679284741"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284741"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#newPutInboundDmarcSettingsResponse"><span class="hs-identifier hs-var hs-var">newPutInboundDmarcSettingsResponse</span></a></span></span><span> </span><span id="local-6989586621679284750"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse' :: Int -&gt; PutInboundDmarcSettingsResponse
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutInboundDmarcSettingsResponse' :: Int
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284741"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679284750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -435,18 +435,18 @@ PutInboundDmarcSettingsResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284740"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284749"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutInboundDmarcSettingsResponse' :: PutInboundDmarcSettingsResponse -&gt; Int
-</span><a href="#local-6989586621679284740"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284740"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284739"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettingsResponse
-</span><a href="#local-6989586621679284739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284738"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse
-</span><a href="#local-6989586621679284739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutInboundDmarcSettingsResponse' :: Int
+</span><a href="#local-6989586621679284749"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284749"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284748"><span class="annot"><span class="annottext">s :: PutInboundDmarcSettingsResponse
+</span><a href="#local-6989586621679284748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284747"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutInboundDmarcSettingsResponse
+</span><a href="#local-6989586621679284748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutInboundDmarcSettingsResponse' :: Int
 </span><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#%24sel%3AhttpStatus%3APutInboundDmarcSettingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679284738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679284736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679284745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.PutInboundDmarcSettings.html#PutInboundDmarcSettingsResponse"><span class="hs-identifier hs-type">PutInboundDmarcSettingsResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

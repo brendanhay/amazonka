@@ -1,0 +1,932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Backup.DescribeFramework</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the framework details for the specified @FrameworkName@.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Backup.DescribeFramework</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier">DescribeFramework</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#newDescribeFramework"><span class="hs-identifier">newDescribeFramework</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFramework_frameworkName"><span class="hs-identifier">describeFramework_frameworkName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#newDescribeFrameworkResponse"><span class="hs-identifier">newDescribeFrameworkResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_creationTime"><span class="hs-identifier">describeFrameworkResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_idempotencyToken"><span class="hs-identifier">describeFrameworkResponse_idempotencyToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkDescription"><span class="hs-identifier">describeFrameworkResponse_frameworkDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkStatus"><span class="hs-identifier">describeFrameworkResponse_frameworkStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkControls"><span class="hs-identifier">describeFrameworkResponse_frameworkControls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkArn"><span class="hs-identifier">describeFrameworkResponse_frameworkArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_deploymentStatus"><span class="hs-identifier">describeFrameworkResponse_deploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkName"><span class="hs-identifier">describeFrameworkResponse_frameworkName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_httpStatus"><span class="hs-identifier">describeFrameworkResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Backup.Types.html"><span class="hs-identifier">Network.AWS.Backup.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeFramework' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679320908"><span id="local-6989586621679320909"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFramework"><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-var">DescribeFramework</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFramework%27"><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework%27"><span class="hs-identifier hs-var">DescribeFramework'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique name of a framework.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AframeworkName%3ADescribeFramework%27"><span class="annot"><span class="annottext">DescribeFramework -&gt; Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkName%3ADescribeFramework%27"><span class="hs-identifier hs-var hs-var">frameworkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320902"><span id="local-6989586621679320904"><span class="annot"><span class="annottext">DescribeFramework -&gt; DescribeFramework -&gt; Bool
+(DescribeFramework -&gt; DescribeFramework -&gt; Bool)
+-&gt; (DescribeFramework -&gt; DescribeFramework -&gt; Bool)
+-&gt; Eq DescribeFramework
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFramework -&gt; DescribeFramework -&gt; Bool
+$c/= :: DescribeFramework -&gt; DescribeFramework -&gt; Bool
+== :: DescribeFramework -&gt; DescribeFramework -&gt; Bool
+$c== :: DescribeFramework -&gt; DescribeFramework -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320893"><span id="local-6989586621679320895"><span id="local-6989586621679320897"><span id="local-6989586621679320899"><span class="annot"><span class="annottext">ReadPrec [DescribeFramework]
+ReadPrec DescribeFramework
+Int -&gt; ReadS DescribeFramework
+ReadS [DescribeFramework]
+(Int -&gt; ReadS DescribeFramework)
+-&gt; ReadS [DescribeFramework]
+-&gt; ReadPrec DescribeFramework
+-&gt; ReadPrec [DescribeFramework]
+-&gt; Read DescribeFramework
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFramework]
+$creadListPrec :: ReadPrec [DescribeFramework]
+readPrec :: ReadPrec DescribeFramework
+$creadPrec :: ReadPrec DescribeFramework
+readList :: ReadS [DescribeFramework]
+$creadList :: ReadS [DescribeFramework]
+readsPrec :: Int -&gt; ReadS DescribeFramework
+$creadsPrec :: Int -&gt; ReadS DescribeFramework
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320886"><span id="local-6989586621679320888"><span id="local-6989586621679320890"><span class="annot"><span class="annottext">Int -&gt; DescribeFramework -&gt; ShowS
+[DescribeFramework] -&gt; ShowS
+DescribeFramework -&gt; String
+(Int -&gt; DescribeFramework -&gt; ShowS)
+-&gt; (DescribeFramework -&gt; String)
+-&gt; ([DescribeFramework] -&gt; ShowS)
+-&gt; Show DescribeFramework
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFramework] -&gt; ShowS
+$cshowList :: [DescribeFramework] -&gt; ShowS
+show :: DescribeFramework -&gt; String
+$cshow :: DescribeFramework -&gt; String
+showsPrec :: Int -&gt; DescribeFramework -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFramework -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeFramework -&gt; Rep DescribeFramework x)
+-&gt; (forall x. Rep DescribeFramework x -&gt; DescribeFramework)
+-&gt; Generic DescribeFramework
+forall x. Rep DescribeFramework x -&gt; DescribeFramework
+forall x. DescribeFramework -&gt; Rep DescribeFramework x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeFramework x -&gt; DescribeFramework
+$cfrom :: forall x. DescribeFramework -&gt; Rep DescribeFramework x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'DescribeFramework' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'frameworkName', 'describeFramework_frameworkName' - The unique name of a framework.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#newDescribeFramework"><span class="hs-identifier hs-type">newDescribeFramework</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'frameworkName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span>
+</span><span id="line-76"></span><span id="newDescribeFramework"><span class="annot"><span class="annottext">newDescribeFramework :: Text -&gt; DescribeFramework
+</span><a href="Network.AWS.Backup.DescribeFramework.html#newDescribeFramework"><span class="hs-identifier hs-var hs-var">newDescribeFramework</span></a></span></span><span> </span><span id="local-6989586621679320881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320881"><span class="hs-identifier hs-var">pFrameworkName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DescribeFramework' :: Text -&gt; DescribeFramework
+</span><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework%27"><span class="hs-identifier hs-type">DescribeFramework'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkName:DescribeFramework' :: Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkName%3ADescribeFramework%27"><span class="hs-identifier hs-var">frameworkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320881"><span class="hs-identifier hs-var">pFrameworkName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The unique name of a framework.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFramework_frameworkName"><span class="hs-identifier hs-type">describeFramework_frameworkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="describeFramework_frameworkName"><span class="annot"><span class="annottext">describeFramework_frameworkName :: (Text -&gt; f Text) -&gt; DescribeFramework -&gt; f DescribeFramework
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFramework_frameworkName"><span class="hs-identifier hs-var hs-var">describeFramework_frameworkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFramework -&gt; Text)
+-&gt; (DescribeFramework -&gt; Text -&gt; DescribeFramework)
+-&gt; Lens DescribeFramework DescribeFramework Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework%27"><span class="hs-identifier hs-type">DescribeFramework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320878"><span class="annot"><span class="annottext">Text
+frameworkName :: Text
+$sel:frameworkName:DescribeFramework' :: DescribeFramework -&gt; Text
+</span><a href="#local-6989586621679320878"><span class="hs-identifier hs-var hs-var">frameworkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320878"><span class="hs-identifier hs-var">frameworkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320877"><span class="annot"><span class="annottext">s :: DescribeFramework
+</span><a href="#local-6989586621679320877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework%27"><span class="hs-identifier hs-type">DescribeFramework'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFramework
+</span><a href="#local-6989586621679320877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkName:DescribeFramework' :: Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkName%3ADescribeFramework%27"><span class="hs-identifier hs-var">frameworkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679320872"><span class="annot"><span class="annottext">request :: DescribeFramework -&gt; Request DescribeFramework
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeFramework -&gt; Request DescribeFramework
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679320868"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeFramework
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFramework)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeFramework))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeFramework
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFramework)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679320865"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320865"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679320864"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679320864"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679320863"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [FrameworkControl]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-var">DescribeFrameworkResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [FrameworkControl]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [FrameworkControl]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [FrameworkControl]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [FrameworkControl]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdempotencyToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [FrameworkControl]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [FrameworkControl]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FrameworkDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [FrameworkControl]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [FrameworkControl]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FrameworkStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [FrameworkControl]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe [FrameworkControl])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FrameworkControl]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FrameworkControls&quot;</span></span><span>
+</span><span id="line-97"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FrameworkControl]))
+-&gt; Maybe [FrameworkControl]
+-&gt; Either String (Maybe [FrameworkControl])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FrameworkControl]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FrameworkArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeploymentStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeFrameworkResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeFrameworkResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679320863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FrameworkName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeFrameworkResponse)
+-&gt; Either String Int -&gt; Either String DescribeFrameworkResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320865"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320854"><span id="local-6989586621679320856"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679320847"><span class="annot"><span class="annottext">toHeaders :: DescribeFramework -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFramework -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-115"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-116"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679320841"><span class="annot"><span class="annottext">toPath :: DescribeFramework -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework%27"><span class="hs-identifier hs-type">DescribeFramework'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320839"><span class="annot"><span class="annottext">Text
+frameworkName :: Text
+$sel:frameworkName:DescribeFramework' :: DescribeFramework -&gt; Text
+</span><a href="#local-6989586621679320839"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/audit/frameworks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679320839"><span class="hs-identifier hs-var">frameworkName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFramework"><span class="hs-identifier hs-type">DescribeFramework</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679320835"><span class="annot"><span class="annottext">toQuery :: DescribeFramework -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeFramework -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDescribeFrameworkResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679320832"><span id="local-6989586621679320833"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFrameworkResponse"><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-var">DescribeFrameworkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFrameworkResponse%27"><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-var">DescribeFrameworkResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time that a framework is created, in Unix format and</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationTime@ is</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AcreationTime%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AcreationTime%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | A customer-chosen string that you can use to distinguish between</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- otherwise identical calls to @DescribeFrameworkOutput@. Retrying a</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- successful request with the same idempotency token results in a success</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- message with no action taken.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AidempotencyToken%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AidempotencyToken%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | An optional description of the framework.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AframeworkDescription%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkDescription%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">frameworkDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | A framework consists of one or more controls. Each control governs a</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- resource, such as backup plans, backup selections, backup vaults, or</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- recovery points. You can also turn Config recording on or off for each</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- resource. The statuses are:</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@ when recording is turned on for all resources governed by</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--     the framework.</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- -   @PARTIALLY_ACTIVE@ when recording is turned off for at least one</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--     resource governed by the framework.</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   @INACTIVE@ when recording is turned off for all resources governed</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--     by the framework.</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   @UNAVAILABLE@ when Backup is unable to validate recording status at</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     this time.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AframeworkStatus%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">frameworkStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | A list of the controls that make up the framework. Each control in the</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- list has a name, input parameters, and scope.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AframeworkControls%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe [FrameworkControl]
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkControls%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">frameworkControls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html#FrameworkControl"><span class="hs-identifier hs-type">FrameworkControl</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AframeworkArn%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkArn%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">frameworkArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The deployment status of a framework. The statuses are:</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- @CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED | FAILED@</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AdeploymentStatus%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AdeploymentStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The unique name of a framework.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AframeworkName%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkName%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">frameworkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFrameworkResponse%27"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; Int
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AhttpStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679320819"><span id="local-6989586621679320821"><span class="annot"><span class="annottext">DescribeFrameworkResponse -&gt; DescribeFrameworkResponse -&gt; Bool
+(DescribeFrameworkResponse -&gt; DescribeFrameworkResponse -&gt; Bool)
+-&gt; (DescribeFrameworkResponse -&gt; DescribeFrameworkResponse -&gt; Bool)
+-&gt; Eq DescribeFrameworkResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFrameworkResponse -&gt; DescribeFrameworkResponse -&gt; Bool
+$c/= :: DescribeFrameworkResponse -&gt; DescribeFrameworkResponse -&gt; Bool
+== :: DescribeFrameworkResponse -&gt; DescribeFrameworkResponse -&gt; Bool
+$c== :: DescribeFrameworkResponse -&gt; DescribeFrameworkResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320811"><span id="local-6989586621679320813"><span id="local-6989586621679320815"><span id="local-6989586621679320817"><span class="annot"><span class="annottext">ReadPrec [DescribeFrameworkResponse]
+ReadPrec DescribeFrameworkResponse
+Int -&gt; ReadS DescribeFrameworkResponse
+ReadS [DescribeFrameworkResponse]
+(Int -&gt; ReadS DescribeFrameworkResponse)
+-&gt; ReadS [DescribeFrameworkResponse]
+-&gt; ReadPrec DescribeFrameworkResponse
+-&gt; ReadPrec [DescribeFrameworkResponse]
+-&gt; Read DescribeFrameworkResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFrameworkResponse]
+$creadListPrec :: ReadPrec [DescribeFrameworkResponse]
+readPrec :: ReadPrec DescribeFrameworkResponse
+$creadPrec :: ReadPrec DescribeFrameworkResponse
+readList :: ReadS [DescribeFrameworkResponse]
+$creadList :: ReadS [DescribeFrameworkResponse]
+readsPrec :: Int -&gt; ReadS DescribeFrameworkResponse
+$creadsPrec :: Int -&gt; ReadS DescribeFrameworkResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679320805"><span id="local-6989586621679320807"><span id="local-6989586621679320809"><span class="annot"><span class="annottext">Int -&gt; DescribeFrameworkResponse -&gt; ShowS
+[DescribeFrameworkResponse] -&gt; ShowS
+DescribeFrameworkResponse -&gt; String
+(Int -&gt; DescribeFrameworkResponse -&gt; ShowS)
+-&gt; (DescribeFrameworkResponse -&gt; String)
+-&gt; ([DescribeFrameworkResponse] -&gt; ShowS)
+-&gt; Show DescribeFrameworkResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFrameworkResponse] -&gt; ShowS
+$cshowList :: [DescribeFrameworkResponse] -&gt; ShowS
+show :: DescribeFrameworkResponse -&gt; String
+$cshow :: DescribeFrameworkResponse -&gt; String
+showsPrec :: Int -&gt; DescribeFrameworkResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFrameworkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFrameworkResponse -&gt; Rep DescribeFrameworkResponse x)
+-&gt; (forall x.
+    Rep DescribeFrameworkResponse x -&gt; DescribeFrameworkResponse)
+-&gt; Generic DescribeFrameworkResponse
+forall x.
+Rep DescribeFrameworkResponse x -&gt; DescribeFrameworkResponse
+forall x.
+DescribeFrameworkResponse -&gt; Rep DescribeFrameworkResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFrameworkResponse x -&gt; DescribeFrameworkResponse
+$cfrom :: forall x.
+DescribeFrameworkResponse -&gt; Rep DescribeFrameworkResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'DescribeFrameworkResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'creationTime', 'describeFrameworkResponse_creationTime' - The date and time that a framework is created, in Unix format and</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationTime@ is</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'idempotencyToken', 'describeFrameworkResponse_idempotencyToken' - A customer-chosen string that you can use to distinguish between</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- otherwise identical calls to @DescribeFrameworkOutput@. Retrying a</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- successful request with the same idempotency token results in a success</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- message with no action taken.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'frameworkDescription', 'describeFrameworkResponse_frameworkDescription' - An optional description of the framework.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'frameworkStatus', 'describeFrameworkResponse_frameworkStatus' - A framework consists of one or more controls. Each control governs a</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- resource, such as backup plans, backup selections, backup vaults, or</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- recovery points. You can also turn Config recording on or off for each</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- resource. The statuses are:</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   @ACTIVE@ when recording is turned on for all resources governed by</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     the framework.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   @PARTIALLY_ACTIVE@ when recording is turned off for at least one</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     resource governed by the framework.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   @INACTIVE@ when recording is turned off for all resources governed</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--     by the framework.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -   @UNAVAILABLE@ when Backup is unable to validate recording status at</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     this time.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'frameworkControls', 'describeFrameworkResponse_frameworkControls' - A list of the controls that make up the framework. Each control in the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- list has a name, input parameters, and scope.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'frameworkArn', 'describeFrameworkResponse_frameworkArn' - An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'deploymentStatus', 'describeFrameworkResponse_deploymentStatus' - The deployment status of a framework. The statuses are:</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- @CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED | FAILED@</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'frameworkName', 'describeFrameworkResponse_frameworkName' - The unique name of a framework.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'httpStatus', 'describeFrameworkResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#newDescribeFrameworkResponse"><span class="hs-identifier hs-type">newDescribeFrameworkResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span>
+</span><span id="line-230"></span><span id="newDescribeFrameworkResponse"><span class="annot"><span class="annottext">newDescribeFrameworkResponse :: Int -&gt; DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#newDescribeFrameworkResponse"><span class="hs-identifier hs-var hs-var">newDescribeFrameworkResponse</span></a></span></span><span> </span><span id="local-6989586621679320802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">DescribeFrameworkResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [FrameworkControl]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:DescribeFrameworkResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AcreationTime%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:idempotencyToken:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AidempotencyToken%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameworkDescription:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkDescription%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameworkStatus:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameworkControls:DescribeFrameworkResponse' :: Maybe [FrameworkControl]
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkControls%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FrameworkControl]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameworkArn:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkArn%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentStatus:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AdeploymentStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:frameworkName:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkName%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFrameworkResponse' :: Int
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AhttpStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320802"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The date and time that a framework is created, in Unix format and</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Coordinated Universal Time (UTC). The value of @CreationTime@ is</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- accurate to milliseconds. For example, the value 1516925490.087</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- represents Friday, January 26, 2018 12:11:30.087 AM.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_creationTime"><span class="hs-identifier hs-type">describeFrameworkResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="describeFrameworkResponse_creationTime"><span class="annot"><span class="annottext">describeFrameworkResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_creationTime"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe POSIX)
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe POSIX -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320801"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679320801"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679320801"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320800"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320799"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679320799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeFrameworkResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AcreationTime%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679320799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DescribeFrameworkResponse
+-&gt; f DescribeFrameworkResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | A customer-chosen string that you can use to distinguish between</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- otherwise identical calls to @DescribeFrameworkOutput@. Retrying a</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- successful request with the same idempotency token results in a success</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- message with no action taken.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_idempotencyToken"><span class="hs-identifier hs-type">describeFrameworkResponse_idempotencyToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="describeFrameworkResponse_idempotencyToken"><span class="annot"><span class="annottext">describeFrameworkResponse_idempotencyToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_idempotencyToken"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_idempotencyToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe Text)
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe Text -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320795"><span class="annot"><span class="annottext">Maybe Text
+idempotencyToken :: Maybe Text
+$sel:idempotencyToken:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320795"><span class="hs-identifier hs-var hs-var">idempotencyToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320795"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320794"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320793"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idempotencyToken:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AidempotencyToken%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">idempotencyToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | An optional description of the framework.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkDescription"><span class="hs-identifier hs-type">describeFrameworkResponse_frameworkDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="describeFrameworkResponse_frameworkDescription"><span class="annot"><span class="annottext">describeFrameworkResponse_frameworkDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkDescription"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_frameworkDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe Text)
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe Text -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320792"><span class="annot"><span class="annottext">Maybe Text
+frameworkDescription :: Maybe Text
+$sel:frameworkDescription:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var hs-var">frameworkDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320792"><span class="hs-identifier hs-var">frameworkDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320791"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320790"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkDescription:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkDescription%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | A framework consists of one or more controls. Each control governs a</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- resource, such as backup plans, backup selections, backup vaults, or</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- recovery points. You can also turn Config recording on or off for each</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- resource. The statuses are:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- -   @ACTIVE@ when recording is turned on for all resources governed by</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--     the framework.</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- -   @PARTIALLY_ACTIVE@ when recording is turned off for at least one</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     resource governed by the framework.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- -   @INACTIVE@ when recording is turned off for all resources governed</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     by the framework.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   @UNAVAILABLE@ when Backup is unable to validate recording status at</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     this time.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkStatus"><span class="hs-identifier hs-type">describeFrameworkResponse_frameworkStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="describeFrameworkResponse_frameworkStatus"><span class="annot"><span class="annottext">describeFrameworkResponse_frameworkStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkStatus"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_frameworkStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe Text)
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe Text -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320789"><span class="annot"><span class="annottext">Maybe Text
+frameworkStatus :: Maybe Text
+$sel:frameworkStatus:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320789"><span class="hs-identifier hs-var hs-var">frameworkStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320789"><span class="hs-identifier hs-var">frameworkStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320788"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkStatus:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | A list of the controls that make up the framework. Each control in the</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- list has a name, input parameters, and scope.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkControls"><span class="hs-identifier hs-type">describeFrameworkResponse_frameworkControls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Backup.Types.FrameworkControl.html#FrameworkControl"><span class="hs-identifier hs-type">FrameworkControl</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="describeFrameworkResponse_frameworkControls"><span class="annot"><span class="annottext">describeFrameworkResponse_frameworkControls :: (Maybe [FrameworkControl] -&gt; f (Maybe [FrameworkControl]))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkControls"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_frameworkControls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe [FrameworkControl])
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe [FrameworkControl] -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe [FrameworkControl])
+     (Maybe [FrameworkControl])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320786"><span class="annot"><span class="annottext">Maybe [FrameworkControl]
+frameworkControls :: Maybe [FrameworkControl]
+$sel:frameworkControls:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe [FrameworkControl]
+</span><a href="#local-6989586621679320786"><span class="hs-identifier hs-var hs-var">frameworkControls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FrameworkControl]
+</span><a href="#local-6989586621679320786"><span class="hs-identifier hs-var">frameworkControls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320785"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320784"><span class="annot"><span class="annottext">Maybe [FrameworkControl]
+</span><a href="#local-6989586621679320784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkControls:DescribeFrameworkResponse' :: Maybe [FrameworkControl]
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkControls%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkControls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FrameworkControl]
+</span><a href="#local-6989586621679320784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FrameworkControl] -&gt; f (Maybe [FrameworkControl]))
+ -&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse)
+-&gt; ((Maybe [FrameworkControl] -&gt; f (Maybe [FrameworkControl]))
+    -&gt; Maybe [FrameworkControl] -&gt; f (Maybe [FrameworkControl]))
+-&gt; (Maybe [FrameworkControl] -&gt; f (Maybe [FrameworkControl]))
+-&gt; DescribeFrameworkResponse
+-&gt; f DescribeFrameworkResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FrameworkControl]
+  [FrameworkControl]
+  [FrameworkControl]
+  [FrameworkControl]
+-&gt; Iso
+     (Maybe [FrameworkControl])
+     (Maybe [FrameworkControl])
+     (Maybe [FrameworkControl])
+     (Maybe [FrameworkControl])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FrameworkControl]
+  [FrameworkControl]
+  [FrameworkControl]
+  [FrameworkControl]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | An Amazon Resource Name (ARN) that uniquely identifies a resource. The</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- format of the ARN depends on the resource type.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkArn"><span class="hs-identifier hs-type">describeFrameworkResponse_frameworkArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="describeFrameworkResponse_frameworkArn"><span class="annot"><span class="annottext">describeFrameworkResponse_frameworkArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkArn"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_frameworkArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe Text)
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe Text -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320782"><span class="annot"><span class="annottext">Maybe Text
+frameworkArn :: Maybe Text
+$sel:frameworkArn:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var hs-var">frameworkArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320782"><span class="hs-identifier hs-var">frameworkArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320781"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320780"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkArn:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkArn%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | The deployment status of a framework. The statuses are:</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- @CREATE_IN_PROGRESS | UPDATE_IN_PROGRESS | DELETE_IN_PROGRESS | COMPLETED | FAILED@</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_deploymentStatus"><span class="hs-identifier hs-type">describeFrameworkResponse_deploymentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="describeFrameworkResponse_deploymentStatus"><span class="annot"><span class="annottext">describeFrameworkResponse_deploymentStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_deploymentStatus"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_deploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe Text)
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe Text -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320779"><span class="annot"><span class="annottext">Maybe Text
+deploymentStatus :: Maybe Text
+$sel:deploymentStatus:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320779"><span class="hs-identifier hs-var hs-var">deploymentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320779"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320778"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentStatus:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AdeploymentStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">deploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The unique name of a framework.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkName"><span class="hs-identifier hs-type">describeFrameworkResponse_frameworkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="describeFrameworkResponse_frameworkName"><span class="annot"><span class="annottext">describeFrameworkResponse_frameworkName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_frameworkName"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_frameworkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Maybe Text)
+-&gt; (DescribeFrameworkResponse
+    -&gt; Maybe Text -&gt; DescribeFrameworkResponse)
+-&gt; Lens
+     DescribeFrameworkResponse
+     DescribeFrameworkResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320776"><span class="annot"><span class="annottext">Maybe Text
+frameworkName :: Maybe Text
+$sel:frameworkName:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679320776"><span class="hs-identifier hs-var hs-var">frameworkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320776"><span class="hs-identifier hs-var">frameworkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320775"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320774"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:frameworkName:DescribeFrameworkResponse' :: Maybe Text
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AframeworkName%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">frameworkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679320774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_httpStatus"><span class="hs-identifier hs-type">describeFrameworkResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-303"></span><span id="describeFrameworkResponse_httpStatus"><span class="annot"><span class="annottext">describeFrameworkResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeFrameworkResponse -&gt; f DescribeFrameworkResponse
+</span><a href="Network.AWS.Backup.DescribeFramework.html#describeFrameworkResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeFrameworkResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFrameworkResponse -&gt; Int)
+-&gt; (DescribeFrameworkResponse -&gt; Int -&gt; DescribeFrameworkResponse)
+-&gt; Lens DescribeFrameworkResponse DescribeFrameworkResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679320773"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeFrameworkResponse' :: DescribeFrameworkResponse -&gt; Int
+</span><a href="#local-6989586621679320773"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320773"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679320772"><span class="annot"><span class="annottext">s :: DescribeFrameworkResponse
+</span><a href="#local-6989586621679320772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse%27"><span class="hs-identifier hs-type">DescribeFrameworkResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679320771"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFrameworkResponse
+</span><a href="#local-6989586621679320772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFrameworkResponse' :: Int
+</span><a href="Network.AWS.Backup.DescribeFramework.html#%24sel%3AhttpStatus%3ADescribeFrameworkResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679320771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679320769"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Backup.DescribeFramework.html#DescribeFrameworkResponse"><span class="hs-identifier hs-type">DescribeFrameworkResponse</span></a></span></span><span>
+</span><span id="line-306"></span></pre></body></html>

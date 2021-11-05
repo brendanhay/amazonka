@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newSNSAction' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679275083"><span id="local-6989586621679275084"></span></span><span class="hs-keyword">data</span><span> </span><span id="SNSAction"><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-var">SNSAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SNSAction%27"><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-var">SNSAction'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679275092"><span id="local-6989586621679275093"></span></span><span class="hs-keyword">data</span><span> </span><span id="SNSAction"><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-var">SNSAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SNSAction%27"><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-var">SNSAction'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encoding to use for the email within the Amazon SNS notification.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- UTF-8 is easier to use, but may not preserve all special characters when</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- a message was encoded with a different encoding format. Base64 preserves</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AtopicArn%3ASNSAction%27"><span class="annot"><span class="annottext">SNSAction -&gt; Text
 </span><a href="Network.AWS.SES.Types.SNSAction.html#%24sel%3AtopicArn%3ASNSAction%27"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275076"><span id="local-6989586621679275078"><span class="annot"><span class="annottext">SNSAction -&gt; SNSAction -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275085"><span id="local-6989586621679275087"><span class="annot"><span class="annottext">SNSAction -&gt; SNSAction -&gt; Bool
 (SNSAction -&gt; SNSAction -&gt; Bool)
 -&gt; (SNSAction -&gt; SNSAction -&gt; Bool) -&gt; Eq SNSAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SNSAction -&gt; SNSAction -&gt; Bool
 == :: SNSAction -&gt; SNSAction -&gt; Bool
 $c== :: SNSAction -&gt; SNSAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275067"><span id="local-6989586621679275069"><span id="local-6989586621679275071"><span id="local-6989586621679275073"><span class="annot"><span class="annottext">ReadPrec [SNSAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275076"><span id="local-6989586621679275078"><span id="local-6989586621679275080"><span id="local-6989586621679275082"><span class="annot"><span class="annottext">ReadPrec [SNSAction]
 ReadPrec SNSAction
 Int -&gt; ReadS SNSAction
 ReadS [SNSAction]
@@ -90,7 +90,7 @@ readList :: ReadS [SNSAction]
 $creadList :: ReadS [SNSAction]
 readsPrec :: Int -&gt; ReadS SNSAction
 $creadsPrec :: Int -&gt; ReadS SNSAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275060"><span id="local-6989586621679275062"><span id="local-6989586621679275064"><span class="annot"><span class="annottext">Int -&gt; SNSAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275069"><span id="local-6989586621679275071"><span id="local-6989586621679275073"><span class="annot"><span class="annottext">Int -&gt; SNSAction -&gt; ShowS
 [SNSAction] -&gt; ShowS
 SNSAction -&gt; String
 (Int -&gt; SNSAction -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. SNSAction -&gt; Rep SNSAction x
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span>
 </span><span id="line-87"></span><span id="newSNSAction"><span class="annot"><span class="annottext">newSNSAction :: Text -&gt; SNSAction
-</span><a href="Network.AWS.SES.Types.SNSAction.html#newSNSAction"><span class="hs-identifier hs-var hs-var">newSNSAction</span></a></span></span><span> </span><span id="local-6989586621679275054"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275054"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.SNSAction.html#newSNSAction"><span class="hs-identifier hs-var hs-var">newSNSAction</span></a></span></span><span> </span><span id="local-6989586621679275063"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275063"><span class="hs-identifier hs-var">pTopicArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">SNSAction' :: Maybe SNSActionEncoding -&gt; Text -&gt; SNSAction
 </span><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encoding:SNSAction' :: Maybe SNSActionEncoding
@@ -148,7 +148,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:topicArn:SNSAction' :: Text
 </span><a href="Network.AWS.SES.Types.SNSAction.html#%24sel%3AtopicArn%3ASNSAction%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275054"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span>
+</span><a href="#local-6989586621679275063"><span class="hs-identifier hs-var">pTopicArn_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The encoding to use for the email within the Amazon SNS notification.</span><span>
@@ -166,16 +166,16 @@ forall a. Maybe a
      (Maybe SNSActionEncoding)
      (Maybe SNSActionEncoding)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275050"><span class="annot"><span class="annottext">Maybe SNSActionEncoding
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275059"><span class="annot"><span class="annottext">Maybe SNSActionEncoding
 encoding :: Maybe SNSActionEncoding
 $sel:encoding:SNSAction' :: SNSAction -&gt; Maybe SNSActionEncoding
-</span><a href="#local-6989586621679275050"><span class="hs-identifier hs-var hs-var">encoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSActionEncoding
-</span><a href="#local-6989586621679275050"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275049"><span class="annot"><span class="annottext">s :: SNSAction
-</span><a href="#local-6989586621679275049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275048"><span class="annot"><span class="annottext">Maybe SNSActionEncoding
-</span><a href="#local-6989586621679275048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SNSAction
-</span><a href="#local-6989586621679275049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encoding:SNSAction' :: Maybe SNSActionEncoding
+</span><a href="#local-6989586621679275059"><span class="hs-identifier hs-var hs-var">encoding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSActionEncoding
+</span><a href="#local-6989586621679275059"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275058"><span class="annot"><span class="annottext">s :: SNSAction
+</span><a href="#local-6989586621679275058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275057"><span class="annot"><span class="annottext">Maybe SNSActionEncoding
+</span><a href="#local-6989586621679275057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SNSAction
+</span><a href="#local-6989586621679275058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encoding:SNSAction' :: Maybe SNSActionEncoding
 </span><a href="Network.AWS.SES.Types.SNSAction.html#%24sel%3Aencoding%3ASNSAction%27"><span class="hs-identifier hs-var">encoding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSActionEncoding
-</span><a href="#local-6989586621679275048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- example of an Amazon SNS topic ARN is</span><span>
@@ -188,21 +188,21 @@ $sel:encoding:SNSAction' :: SNSAction -&gt; Maybe SNSActionEncoding
 -&gt; (SNSAction -&gt; Text -&gt; SNSAction)
 -&gt; Lens SNSAction SNSAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275046"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275055"><span class="annot"><span class="annottext">Text
 topicArn :: Text
 $sel:topicArn:SNSAction' :: SNSAction -&gt; Text
-</span><a href="#local-6989586621679275046"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275046"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275045"><span class="annot"><span class="annottext">s :: SNSAction
-</span><a href="#local-6989586621679275045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275044"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SNSAction
-</span><a href="#local-6989586621679275045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:SNSAction' :: Text
+</span><a href="#local-6989586621679275055"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275055"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275054"><span class="annot"><span class="annottext">s :: SNSAction
+</span><a href="#local-6989586621679275054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275053"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SNSAction
+</span><a href="#local-6989586621679275054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:SNSAction' :: Text
 </span><a href="Network.AWS.SES.Types.SNSAction.html#%24sel%3AtopicArn%3ASNSAction%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679275041"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SNSAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275039"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275039"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679275050"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SNSAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275048"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679275048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">Maybe SNSActionEncoding -&gt; Text -&gt; SNSAction
 </span><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-var">SNSAction'</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SNSActionEncoding -&gt; Text -&gt; SNSAction)
@@ -210,7 +210,7 @@ $sel:topicArn:SNSAction' :: SNSAction -&gt; Text
 -&gt; Either String (Text -&gt; SNSAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SNSActionEncoding)
+</span><a href="#local-6989586621679275048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SNSActionEncoding)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Encoding&quot;</span></span><span class="hs-special">)</span><span>
@@ -218,24 +218,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String SNSAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275039"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679275048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275032"><span id="local-6989586621679275034"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275041"><span id="local-6989586621679275043"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275029"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275038"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction"><span class="hs-identifier hs-type">SNSAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679275025"><span class="annot"><span class="annottext">toQuery :: SNSAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275022"><span id="local-6989586621679275023"><span class="annot"><span class="annottext">Maybe SNSActionEncoding
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679275034"><span class="annot"><span class="annottext">toQuery :: SNSAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.SNSAction.html#SNSAction%27"><span class="hs-identifier hs-type">SNSAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275031"><span id="local-6989586621679275032"><span class="annot"><span class="annottext">Maybe SNSActionEncoding
 Text
 topicArn :: Text
 encoding :: Maybe SNSActionEncoding
 $sel:topicArn:SNSAction' :: SNSAction -&gt; Text
 $sel:encoding:SNSAction' :: SNSAction -&gt; Maybe SNSActionEncoding
-</span><a href="#local-6989586621679275022"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275031"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -243,11 +243,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Encoding&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SNSActionEncoding -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SNSActionEncoding
-</span><a href="#local-6989586621679275023"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679275032"><span class="hs-identifier hs-var">encoding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679275022"><span class="hs-identifier hs-var">topicArn</span></a></span><span>
+</span><a href="#local-6989586621679275031"><span class="hs-identifier hs-var">topicArn</span></a></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span></pre></body></html>

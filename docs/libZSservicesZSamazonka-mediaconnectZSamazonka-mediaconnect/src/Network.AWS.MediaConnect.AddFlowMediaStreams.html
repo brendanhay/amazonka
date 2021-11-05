@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.AddFlowMediaStreams</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds media streams to an existing flow. After you add a media stream to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- a flow, you can associate it with a source and\/or an output that uses</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the ST 2110 JPEG XS or CDI protocol.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.AddFlowMediaStreams</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier">AddFlowMediaStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#newAddFlowMediaStreams"><span class="hs-identifier">newAddFlowMediaStreams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreams_flowArn"><span class="hs-identifier">addFlowMediaStreams_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreams_mediaStreams"><span class="hs-identifier">addFlowMediaStreams_mediaStreams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier">AddFlowMediaStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#newAddFlowMediaStreamsResponse"><span class="hs-identifier">newAddFlowMediaStreamsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_flowArn"><span class="hs-identifier">addFlowMediaStreamsResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_mediaStreams"><span class="hs-identifier">addFlowMediaStreamsResponse_mediaStreams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_httpStatus"><span class="hs-identifier">addFlowMediaStreamsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | A request to add media streams to the flow.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newAddFlowMediaStreams' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679279622"><span id="local-6989586621679279623"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFlowMediaStreams"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-var">AddFlowMediaStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFlowMediaStreams%27"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-var">AddFlowMediaStreams'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AflowArn%3AAddFlowMediaStreams%27"><span class="annot"><span class="annottext">AddFlowMediaStreams -&gt; Text
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AflowArn%3AAddFlowMediaStreams%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The media streams that you want to add to the flow.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmediaStreams%3AAddFlowMediaStreams%27"><span class="annot"><span class="annottext">AddFlowMediaStreams -&gt; [AddMediaStreamRequest]
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AmediaStreams%3AAddFlowMediaStreams%27"><span class="hs-identifier hs-var hs-var">mediaStreams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.AddMediaStreamRequest.html#AddMediaStreamRequest"><span class="hs-identifier hs-type">AddMediaStreamRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279615"><span id="local-6989586621679279617"><span class="annot"><span class="annottext">AddFlowMediaStreams -&gt; AddFlowMediaStreams -&gt; Bool
+(AddFlowMediaStreams -&gt; AddFlowMediaStreams -&gt; Bool)
+-&gt; (AddFlowMediaStreams -&gt; AddFlowMediaStreams -&gt; Bool)
+-&gt; Eq AddFlowMediaStreams
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddFlowMediaStreams -&gt; AddFlowMediaStreams -&gt; Bool
+$c/= :: AddFlowMediaStreams -&gt; AddFlowMediaStreams -&gt; Bool
+== :: AddFlowMediaStreams -&gt; AddFlowMediaStreams -&gt; Bool
+$c== :: AddFlowMediaStreams -&gt; AddFlowMediaStreams -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279606"><span id="local-6989586621679279608"><span id="local-6989586621679279610"><span id="local-6989586621679279612"><span class="annot"><span class="annottext">ReadPrec [AddFlowMediaStreams]
+ReadPrec AddFlowMediaStreams
+Int -&gt; ReadS AddFlowMediaStreams
+ReadS [AddFlowMediaStreams]
+(Int -&gt; ReadS AddFlowMediaStreams)
+-&gt; ReadS [AddFlowMediaStreams]
+-&gt; ReadPrec AddFlowMediaStreams
+-&gt; ReadPrec [AddFlowMediaStreams]
+-&gt; Read AddFlowMediaStreams
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddFlowMediaStreams]
+$creadListPrec :: ReadPrec [AddFlowMediaStreams]
+readPrec :: ReadPrec AddFlowMediaStreams
+$creadPrec :: ReadPrec AddFlowMediaStreams
+readList :: ReadS [AddFlowMediaStreams]
+$creadList :: ReadS [AddFlowMediaStreams]
+readsPrec :: Int -&gt; ReadS AddFlowMediaStreams
+$creadsPrec :: Int -&gt; ReadS AddFlowMediaStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279599"><span id="local-6989586621679279601"><span id="local-6989586621679279603"><span class="annot"><span class="annottext">Int -&gt; AddFlowMediaStreams -&gt; ShowS
+[AddFlowMediaStreams] -&gt; ShowS
+AddFlowMediaStreams -&gt; String
+(Int -&gt; AddFlowMediaStreams -&gt; ShowS)
+-&gt; (AddFlowMediaStreams -&gt; String)
+-&gt; ([AddFlowMediaStreams] -&gt; ShowS)
+-&gt; Show AddFlowMediaStreams
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddFlowMediaStreams] -&gt; ShowS
+$cshowList :: [AddFlowMediaStreams] -&gt; ShowS
+show :: AddFlowMediaStreams -&gt; String
+$cshow :: AddFlowMediaStreams -&gt; String
+showsPrec :: Int -&gt; AddFlowMediaStreams -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddFlowMediaStreams -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AddFlowMediaStreams -&gt; Rep AddFlowMediaStreams x)
+-&gt; (forall x. Rep AddFlowMediaStreams x -&gt; AddFlowMediaStreams)
+-&gt; Generic AddFlowMediaStreams
+forall x. Rep AddFlowMediaStreams x -&gt; AddFlowMediaStreams
+forall x. AddFlowMediaStreams -&gt; Rep AddFlowMediaStreams x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AddFlowMediaStreams x -&gt; AddFlowMediaStreams
+$cfrom :: forall x. AddFlowMediaStreams -&gt; Rep AddFlowMediaStreams x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'AddFlowMediaStreams' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'flowArn', 'addFlowMediaStreams_flowArn' - The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'mediaStreams', 'addFlowMediaStreams_mediaStreams' - The media streams that you want to add to the flow.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#newAddFlowMediaStreams"><span class="hs-identifier hs-type">newAddFlowMediaStreams</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span>
+</span><span id="line-79"></span><span id="newAddFlowMediaStreams"><span class="annot"><span class="annottext">newAddFlowMediaStreams :: Text -&gt; AddFlowMediaStreams
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#newAddFlowMediaStreams"><span class="hs-identifier hs-var hs-var">newAddFlowMediaStreams</span></a></span></span><span> </span><span id="local-6989586621679279594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279594"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">AddFlowMediaStreams' :: Text -&gt; [AddMediaStreamRequest] -&gt; AddFlowMediaStreams
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-type">AddFlowMediaStreams'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowMediaStreams' :: Text
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AflowArn%3AAddFlowMediaStreams%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279594"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStreams:AddFlowMediaStreams' :: [AddMediaStreamRequest]
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AmediaStreams%3AAddFlowMediaStreams%27"><span class="hs-identifier hs-var">mediaStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreams_flowArn"><span class="hs-identifier hs-type">addFlowMediaStreams_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="addFlowMediaStreams_flowArn"><span class="annot"><span class="annottext">addFlowMediaStreams_flowArn :: (Text -&gt; f Text) -&gt; AddFlowMediaStreams -&gt; f AddFlowMediaStreams
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreams_flowArn"><span class="hs-identifier hs-var hs-var">addFlowMediaStreams_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowMediaStreams -&gt; Text)
+-&gt; (AddFlowMediaStreams -&gt; Text -&gt; AddFlowMediaStreams)
+-&gt; Lens AddFlowMediaStreams AddFlowMediaStreams Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-type">AddFlowMediaStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279591"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:AddFlowMediaStreams' :: AddFlowMediaStreams -&gt; Text
+</span><a href="#local-6989586621679279591"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279591"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279590"><span class="annot"><span class="annottext">s :: AddFlowMediaStreams
+</span><a href="#local-6989586621679279590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-type">AddFlowMediaStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowMediaStreams
+</span><a href="#local-6989586621679279590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowMediaStreams' :: Text
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AflowArn%3AAddFlowMediaStreams%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The media streams that you want to add to the flow.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreams_mediaStreams"><span class="hs-identifier hs-type">addFlowMediaStreams_mediaStreams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.AddMediaStreamRequest.html#AddMediaStreamRequest"><span class="hs-identifier hs-type">AddMediaStreamRequest</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-91"></span><span id="addFlowMediaStreams_mediaStreams"><span class="annot"><span class="annottext">addFlowMediaStreams_mediaStreams :: ([AddMediaStreamRequest] -&gt; f [AddMediaStreamRequest])
+-&gt; AddFlowMediaStreams -&gt; f AddFlowMediaStreams
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreams_mediaStreams"><span class="hs-identifier hs-var hs-var">addFlowMediaStreams_mediaStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowMediaStreams -&gt; [AddMediaStreamRequest])
+-&gt; (AddFlowMediaStreams
+    -&gt; [AddMediaStreamRequest] -&gt; AddFlowMediaStreams)
+-&gt; Lens
+     AddFlowMediaStreams
+     AddFlowMediaStreams
+     [AddMediaStreamRequest]
+     [AddMediaStreamRequest]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-type">AddFlowMediaStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279588"><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+mediaStreams :: [AddMediaStreamRequest]
+$sel:mediaStreams:AddFlowMediaStreams' :: AddFlowMediaStreams -&gt; [AddMediaStreamRequest]
+</span><a href="#local-6989586621679279588"><span class="hs-identifier hs-var hs-var">mediaStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+</span><a href="#local-6989586621679279588"><span class="hs-identifier hs-var">mediaStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279587"><span class="annot"><span class="annottext">s :: AddFlowMediaStreams
+</span><a href="#local-6989586621679279587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-type">AddFlowMediaStreams'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279586"><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+</span><a href="#local-6989586621679279586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowMediaStreams
+</span><a href="#local-6989586621679279587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreams:AddFlowMediaStreams' :: [AddMediaStreamRequest]
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AmediaStreams%3AAddFlowMediaStreams%27"><span class="hs-identifier hs-var">mediaStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+</span><a href="#local-6989586621679279586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AddMediaStreamRequest] -&gt; f [AddMediaStreamRequest])
+ -&gt; AddFlowMediaStreams -&gt; f AddFlowMediaStreams)
+-&gt; (([AddMediaStreamRequest] -&gt; f [AddMediaStreamRequest])
+    -&gt; [AddMediaStreamRequest] -&gt; f [AddMediaStreamRequest])
+-&gt; ([AddMediaStreamRequest] -&gt; f [AddMediaStreamRequest])
+-&gt; AddFlowMediaStreams
+-&gt; f AddFlowMediaStreams
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AddMediaStreamRequest] -&gt; f [AddMediaStreamRequest])
+-&gt; [AddMediaStreamRequest] -&gt; f [AddMediaStreamRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679279580"><span class="annot"><span class="annottext">request :: AddFlowMediaStreams -&gt; Request AddFlowMediaStreams
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddFlowMediaStreams -&gt; Request AddFlowMediaStreams
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679279576"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AddFlowMediaStreams
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddFlowMediaStreams)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AddFlowMediaStreams))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AddFlowMediaStreams
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AddFlowMediaStreams)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679279572"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679279572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679279571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [MediaStream] -&gt; Int -&gt; AddFlowMediaStreamsResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">AddFlowMediaStreamsResponse'</span></a></span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [MediaStream] -&gt; Int -&gt; AddFlowMediaStreamsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [MediaStream] -&gt; Int -&gt; AddFlowMediaStreamsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [MediaStream] -&gt; Int -&gt; AddFlowMediaStreamsResponse)
+-&gt; Either String (Maybe [MediaStream])
+-&gt; Either String (Int -&gt; AddFlowMediaStreamsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [MediaStream]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaStreams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MediaStream]))
+-&gt; Maybe [MediaStream] -&gt; Either String (Maybe [MediaStream])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStream]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddFlowMediaStreamsResponse)
+-&gt; Either String Int -&gt; Either String AddFlowMediaStreamsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279562"><span id="local-6989586621679279564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679279555"><span class="annot"><span class="annottext">toHeaders :: AddFlowMediaStreams -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddFlowMediaStreams -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279545"><span id="local-6989586621679279547"><span id="local-6989586621679279549"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679279543"><span class="annot"><span class="annottext">toJSON :: AddFlowMediaStreams -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-type">AddFlowMediaStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279540"><span id="local-6989586621679279541"><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+Text
+mediaStreams :: [AddMediaStreamRequest]
+flowArn :: Text
+$sel:mediaStreams:AddFlowMediaStreams' :: AddFlowMediaStreams -&gt; [AddMediaStreamRequest]
+$sel:flowArn:AddFlowMediaStreams' :: AddFlowMediaStreams -&gt; Text
+</span><a href="#local-6989586621679279540"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaStreams&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AddMediaStreamRequest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+</span><a href="#local-6989586621679279540"><span class="hs-identifier hs-var">mediaStreams</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679279534"><span class="annot"><span class="annottext">toPath :: AddFlowMediaStreams -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams%27"><span class="hs-identifier hs-type">AddFlowMediaStreams'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279531"><span id="local-6989586621679279532"><span class="annot"><span class="annottext">[AddMediaStreamRequest]
+Text
+mediaStreams :: [AddMediaStreamRequest]
+flowArn :: Text
+$sel:mediaStreams:AddFlowMediaStreams' :: AddFlowMediaStreams -&gt; [AddMediaStreamRequest]
+$sel:flowArn:AddFlowMediaStreams' :: AddFlowMediaStreams -&gt; Text
+</span><a href="#local-6989586621679279531"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279532"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/mediaStreams&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreams"><span class="hs-identifier hs-type">AddFlowMediaStreams</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679279527"><span class="annot"><span class="annottext">toQuery :: AddFlowMediaStreams -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddFlowMediaStreams -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newAddFlowMediaStreamsResponse' smart constructor.</span><span>
+</span><span id="line-138"></span><span id="local-6989586621679279524"><span id="local-6989586621679279525"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFlowMediaStreamsResponse"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-var">AddFlowMediaStreamsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFlowMediaStreamsResponse%27"><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">AddFlowMediaStreamsResponse'</span></a></span></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that you added media streams to.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AflowArn%3AAddFlowMediaStreamsResponse%27"><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AflowArn%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The media streams that you added to the flow.</span><span>
+</span><span id="line-142"></span><span>    </span><span id="%24sel%3AmediaStreams%3AAddFlowMediaStreamsResponse%27"><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse -&gt; Maybe [MediaStream]
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AmediaStreams%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var hs-var">mediaStreams</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStream.html#MediaStream"><span class="hs-identifier hs-type">MediaStream</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddFlowMediaStreamsResponse%27"><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse -&gt; Int
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AhttpStatus%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279517"><span id="local-6989586621679279519"><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse -&gt; AddFlowMediaStreamsResponse -&gt; Bool
+(AddFlowMediaStreamsResponse
+ -&gt; AddFlowMediaStreamsResponse -&gt; Bool)
+-&gt; (AddFlowMediaStreamsResponse
+    -&gt; AddFlowMediaStreamsResponse -&gt; Bool)
+-&gt; Eq AddFlowMediaStreamsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AddFlowMediaStreamsResponse -&gt; AddFlowMediaStreamsResponse -&gt; Bool
+$c/= :: AddFlowMediaStreamsResponse -&gt; AddFlowMediaStreamsResponse -&gt; Bool
+== :: AddFlowMediaStreamsResponse -&gt; AddFlowMediaStreamsResponse -&gt; Bool
+$c== :: AddFlowMediaStreamsResponse -&gt; AddFlowMediaStreamsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279509"><span id="local-6989586621679279511"><span id="local-6989586621679279513"><span id="local-6989586621679279515"><span class="annot"><span class="annottext">ReadPrec [AddFlowMediaStreamsResponse]
+ReadPrec AddFlowMediaStreamsResponse
+Int -&gt; ReadS AddFlowMediaStreamsResponse
+ReadS [AddFlowMediaStreamsResponse]
+(Int -&gt; ReadS AddFlowMediaStreamsResponse)
+-&gt; ReadS [AddFlowMediaStreamsResponse]
+-&gt; ReadPrec AddFlowMediaStreamsResponse
+-&gt; ReadPrec [AddFlowMediaStreamsResponse]
+-&gt; Read AddFlowMediaStreamsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AddFlowMediaStreamsResponse]
+$creadListPrec :: ReadPrec [AddFlowMediaStreamsResponse]
+readPrec :: ReadPrec AddFlowMediaStreamsResponse
+$creadPrec :: ReadPrec AddFlowMediaStreamsResponse
+readList :: ReadS [AddFlowMediaStreamsResponse]
+$creadList :: ReadS [AddFlowMediaStreamsResponse]
+readsPrec :: Int -&gt; ReadS AddFlowMediaStreamsResponse
+$creadsPrec :: Int -&gt; ReadS AddFlowMediaStreamsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279503"><span id="local-6989586621679279505"><span id="local-6989586621679279507"><span class="annot"><span class="annottext">Int -&gt; AddFlowMediaStreamsResponse -&gt; ShowS
+[AddFlowMediaStreamsResponse] -&gt; ShowS
+AddFlowMediaStreamsResponse -&gt; String
+(Int -&gt; AddFlowMediaStreamsResponse -&gt; ShowS)
+-&gt; (AddFlowMediaStreamsResponse -&gt; String)
+-&gt; ([AddFlowMediaStreamsResponse] -&gt; ShowS)
+-&gt; Show AddFlowMediaStreamsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AddFlowMediaStreamsResponse] -&gt; ShowS
+$cshowList :: [AddFlowMediaStreamsResponse] -&gt; ShowS
+show :: AddFlowMediaStreamsResponse -&gt; String
+$cshow :: AddFlowMediaStreamsResponse -&gt; String
+showsPrec :: Int -&gt; AddFlowMediaStreamsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AddFlowMediaStreamsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AddFlowMediaStreamsResponse -&gt; Rep AddFlowMediaStreamsResponse x)
+-&gt; (forall x.
+    Rep AddFlowMediaStreamsResponse x -&gt; AddFlowMediaStreamsResponse)
+-&gt; Generic AddFlowMediaStreamsResponse
+forall x.
+Rep AddFlowMediaStreamsResponse x -&gt; AddFlowMediaStreamsResponse
+forall x.
+AddFlowMediaStreamsResponse -&gt; Rep AddFlowMediaStreamsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AddFlowMediaStreamsResponse x -&gt; AddFlowMediaStreamsResponse
+$cfrom :: forall x.
+AddFlowMediaStreamsResponse -&gt; Rep AddFlowMediaStreamsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Create a value of 'AddFlowMediaStreamsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'flowArn', 'addFlowMediaStreamsResponse_flowArn' - The ARN of the flow that you added media streams to.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'mediaStreams', 'addFlowMediaStreamsResponse_mediaStreams' - The media streams that you added to the flow.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'httpStatus', 'addFlowMediaStreamsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#newAddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">newAddFlowMediaStreamsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span>
+</span><span id="line-165"></span><span id="newAddFlowMediaStreamsResponse"><span class="annot"><span class="annottext">newAddFlowMediaStreamsResponse :: Int -&gt; AddFlowMediaStreamsResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#newAddFlowMediaStreamsResponse"><span class="hs-identifier hs-var hs-var">newAddFlowMediaStreamsResponse</span></a></span></span><span> </span><span id="local-6989586621679279500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse' :: Maybe Text
+-&gt; Maybe [MediaStream] -&gt; Int -&gt; AddFlowMediaStreamsResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse'</span></a></span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowMediaStreamsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AflowArn%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStreams:AddFlowMediaStreamsResponse' :: Maybe [MediaStream]
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AmediaStreams%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">mediaStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStream]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddFlowMediaStreamsResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AhttpStatus%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279500"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The ARN of the flow that you added media streams to.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_flowArn"><span class="hs-identifier hs-type">addFlowMediaStreamsResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="addFlowMediaStreamsResponse_flowArn"><span class="annot"><span class="annottext">addFlowMediaStreamsResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddFlowMediaStreamsResponse -&gt; f AddFlowMediaStreamsResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_flowArn"><span class="hs-identifier hs-var hs-var">addFlowMediaStreamsResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowMediaStreamsResponse -&gt; Maybe Text)
+-&gt; (AddFlowMediaStreamsResponse
+    -&gt; Maybe Text -&gt; AddFlowMediaStreamsResponse)
+-&gt; Lens
+     AddFlowMediaStreamsResponse
+     AddFlowMediaStreamsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279499"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:AddFlowMediaStreamsResponse' :: AddFlowMediaStreamsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679279499"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279499"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279498"><span class="annot"><span class="annottext">s :: AddFlowMediaStreamsResponse
+</span><a href="#local-6989586621679279498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279497"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse
+</span><a href="#local-6989586621679279498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:AddFlowMediaStreamsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AflowArn%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The media streams that you added to the flow.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_mediaStreams"><span class="hs-identifier hs-type">addFlowMediaStreamsResponse_mediaStreams</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.MediaStream.html#MediaStream"><span class="hs-identifier hs-type">MediaStream</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="addFlowMediaStreamsResponse_mediaStreams"><span class="annot"><span class="annottext">addFlowMediaStreamsResponse_mediaStreams :: (Maybe [MediaStream] -&gt; f (Maybe [MediaStream]))
+-&gt; AddFlowMediaStreamsResponse -&gt; f AddFlowMediaStreamsResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_mediaStreams"><span class="hs-identifier hs-var hs-var">addFlowMediaStreamsResponse_mediaStreams</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowMediaStreamsResponse -&gt; Maybe [MediaStream])
+-&gt; (AddFlowMediaStreamsResponse
+    -&gt; Maybe [MediaStream] -&gt; AddFlowMediaStreamsResponse)
+-&gt; Lens
+     AddFlowMediaStreamsResponse
+     AddFlowMediaStreamsResponse
+     (Maybe [MediaStream])
+     (Maybe [MediaStream])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279496"><span class="annot"><span class="annottext">Maybe [MediaStream]
+mediaStreams :: Maybe [MediaStream]
+$sel:mediaStreams:AddFlowMediaStreamsResponse' :: AddFlowMediaStreamsResponse -&gt; Maybe [MediaStream]
+</span><a href="#local-6989586621679279496"><span class="hs-identifier hs-var hs-var">mediaStreams</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStream]
+</span><a href="#local-6989586621679279496"><span class="hs-identifier hs-var">mediaStreams</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279495"><span class="annot"><span class="annottext">s :: AddFlowMediaStreamsResponse
+</span><a href="#local-6989586621679279495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279494"><span class="annot"><span class="annottext">Maybe [MediaStream]
+</span><a href="#local-6989586621679279494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse
+</span><a href="#local-6989586621679279495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreams:AddFlowMediaStreamsResponse' :: Maybe [MediaStream]
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AmediaStreams%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">mediaStreams</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStream]
+</span><a href="#local-6989586621679279494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MediaStream] -&gt; f (Maybe [MediaStream]))
+ -&gt; AddFlowMediaStreamsResponse -&gt; f AddFlowMediaStreamsResponse)
+-&gt; ((Maybe [MediaStream] -&gt; f (Maybe [MediaStream]))
+    -&gt; Maybe [MediaStream] -&gt; f (Maybe [MediaStream]))
+-&gt; (Maybe [MediaStream] -&gt; f (Maybe [MediaStream]))
+-&gt; AddFlowMediaStreamsResponse
+-&gt; f AddFlowMediaStreamsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MediaStream] [MediaStream] [MediaStream] [MediaStream]
+-&gt; Iso
+     (Maybe [MediaStream])
+     (Maybe [MediaStream])
+     (Maybe [MediaStream])
+     (Maybe [MediaStream])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MediaStream] [MediaStream] [MediaStream] [MediaStream]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_httpStatus"><span class="hs-identifier hs-type">addFlowMediaStreamsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="addFlowMediaStreamsResponse_httpStatus"><span class="annot"><span class="annottext">addFlowMediaStreamsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AddFlowMediaStreamsResponse -&gt; f AddFlowMediaStreamsResponse
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#addFlowMediaStreamsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">addFlowMediaStreamsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddFlowMediaStreamsResponse -&gt; Int)
+-&gt; (AddFlowMediaStreamsResponse
+    -&gt; Int -&gt; AddFlowMediaStreamsResponse)
+-&gt; Lens
+     AddFlowMediaStreamsResponse AddFlowMediaStreamsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279492"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AddFlowMediaStreamsResponse' :: AddFlowMediaStreamsResponse -&gt; Int
+</span><a href="#local-6989586621679279492"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279492"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279491"><span class="annot"><span class="annottext">s :: AddFlowMediaStreamsResponse
+</span><a href="#local-6989586621679279491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279490"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFlowMediaStreamsResponse
+</span><a href="#local-6989586621679279491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddFlowMediaStreamsResponse' :: Int
+</span><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#%24sel%3AhttpStatus%3AAddFlowMediaStreamsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679279490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.AddFlowMediaStreams.html#AddFlowMediaStreamsResponse"><span class="hs-identifier hs-type">AddFlowMediaStreamsResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

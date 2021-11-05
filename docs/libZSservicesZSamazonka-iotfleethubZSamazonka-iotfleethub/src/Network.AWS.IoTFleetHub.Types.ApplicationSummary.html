@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTFleetHub.Types.ApplicationSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTFleetHub.Types.ApplicationSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html"><span class="hs-identifier">Network.AWS.IoTFleetHub.Types.ApplicationState</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A summary of information about a AWS IoT Device Management web</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Fleet Hub for AWS IoT Device Management is in public preview and is</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- subject to change.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newApplicationSummary' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679149572"><span id="local-6989586621679149573"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationSummary"><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-var">ApplicationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationSummary%27"><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-var">ApplicationSummary'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An optional description of the web application.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AapplicationDescription%3AApplicationSummary%27"><span class="annot"><span class="annottext">ApplicationSummary -&gt; Maybe Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationDescription%3AApplicationSummary%27"><span class="hs-identifier hs-var hs-var">applicationDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The current state of the web application.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AapplicationState%3AApplicationSummary%27"><span class="annot"><span class="annottext">ApplicationSummary -&gt; Maybe ApplicationState
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationState%3AApplicationSummary%27"><span class="hs-identifier hs-var hs-var">applicationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date (in Unix epoch time) when the web application was created.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AapplicationCreationDate%3AApplicationSummary%27"><span class="annot"><span class="annottext">ApplicationSummary -&gt; Maybe Integer
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationCreationDate%3AApplicationSummary%27"><span class="hs-identifier hs-var hs-var">applicationCreationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date (in Unix epoch time) when the web application was last updated.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AapplicationLastUpdateDate%3AApplicationSummary%27"><span class="annot"><span class="annottext">ApplicationSummary -&gt; Maybe Integer
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationLastUpdateDate%3AApplicationSummary%27"><span class="hs-identifier hs-var hs-var">applicationLastUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The unique Id of the web application.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AapplicationId%3AApplicationSummary%27"><span class="annot"><span class="annottext">ApplicationSummary -&gt; Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationId%3AApplicationSummary%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the web application.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AapplicationName%3AApplicationSummary%27"><span class="annot"><span class="annottext">ApplicationSummary -&gt; Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationName%3AApplicationSummary%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The URL of the web application.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AapplicationUrl%3AApplicationSummary%27"><span class="annot"><span class="annottext">ApplicationSummary -&gt; Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationUrl%3AApplicationSummary%27"><span class="hs-identifier hs-var hs-var">applicationUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679149560"><span id="local-6989586621679149562"><span class="annot"><span class="annottext">ApplicationSummary -&gt; ApplicationSummary -&gt; Bool
+(ApplicationSummary -&gt; ApplicationSummary -&gt; Bool)
+-&gt; (ApplicationSummary -&gt; ApplicationSummary -&gt; Bool)
+-&gt; Eq ApplicationSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationSummary -&gt; ApplicationSummary -&gt; Bool
+$c/= :: ApplicationSummary -&gt; ApplicationSummary -&gt; Bool
+== :: ApplicationSummary -&gt; ApplicationSummary -&gt; Bool
+$c== :: ApplicationSummary -&gt; ApplicationSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149551"><span id="local-6989586621679149553"><span id="local-6989586621679149555"><span id="local-6989586621679149557"><span class="annot"><span class="annottext">ReadPrec [ApplicationSummary]
+ReadPrec ApplicationSummary
+Int -&gt; ReadS ApplicationSummary
+ReadS [ApplicationSummary]
+(Int -&gt; ReadS ApplicationSummary)
+-&gt; ReadS [ApplicationSummary]
+-&gt; ReadPrec ApplicationSummary
+-&gt; ReadPrec [ApplicationSummary]
+-&gt; Read ApplicationSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationSummary]
+$creadListPrec :: ReadPrec [ApplicationSummary]
+readPrec :: ReadPrec ApplicationSummary
+$creadPrec :: ReadPrec ApplicationSummary
+readList :: ReadS [ApplicationSummary]
+$creadList :: ReadS [ApplicationSummary]
+readsPrec :: Int -&gt; ReadS ApplicationSummary
+$creadsPrec :: Int -&gt; ReadS ApplicationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679149544"><span id="local-6989586621679149546"><span id="local-6989586621679149548"><span class="annot"><span class="annottext">Int -&gt; ApplicationSummary -&gt; ShowS
+[ApplicationSummary] -&gt; ShowS
+ApplicationSummary -&gt; String
+(Int -&gt; ApplicationSummary -&gt; ShowS)
+-&gt; (ApplicationSummary -&gt; String)
+-&gt; ([ApplicationSummary] -&gt; ShowS)
+-&gt; Show ApplicationSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationSummary] -&gt; ShowS
+$cshowList :: [ApplicationSummary] -&gt; ShowS
+show :: ApplicationSummary -&gt; String
+$cshow :: ApplicationSummary -&gt; String
+showsPrec :: Int -&gt; ApplicationSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApplicationSummary -&gt; Rep ApplicationSummary x)
+-&gt; (forall x. Rep ApplicationSummary x -&gt; ApplicationSummary)
+-&gt; Generic ApplicationSummary
+forall x. Rep ApplicationSummary x -&gt; ApplicationSummary
+forall x. ApplicationSummary -&gt; Rep ApplicationSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApplicationSummary x -&gt; ApplicationSummary
+$cfrom :: forall x. ApplicationSummary -&gt; Rep ApplicationSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'ApplicationSummary' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'applicationDescription', 'applicationSummary_applicationDescription' - An optional description of the web application.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'applicationState', 'applicationSummary_applicationState' - The current state of the web application.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'applicationCreationDate', 'applicationSummary_applicationCreationDate' - The date (in Unix epoch time) when the web application was created.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'applicationLastUpdateDate', 'applicationSummary_applicationLastUpdateDate' - The date (in Unix epoch time) when the web application was last updated.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'applicationId', 'applicationSummary_applicationId' - The unique Id of the web application.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'applicationName', 'applicationSummary_applicationName' - The name of the web application.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'applicationUrl', 'applicationSummary_applicationUrl' - The URL of the web application.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#newApplicationSummary"><span class="hs-identifier hs-type">newApplicationSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'applicationName'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'applicationUrl'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span>
+</span><span id="line-81"></span><span id="newApplicationSummary"><span class="annot"><span class="annottext">newApplicationSummary :: Text -&gt; Text -&gt; Text -&gt; ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#newApplicationSummary"><span class="hs-identifier hs-var hs-var">newApplicationSummary</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679149538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149538"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679149537"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149537"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679149536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149536"><span class="hs-identifier hs-var">pApplicationUrl_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">ApplicationSummary' :: Maybe Text
+-&gt; Maybe ApplicationState
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationDescription:ApplicationSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationDescription%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationState:ApplicationSummary' :: Maybe ApplicationState
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationState%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationCreationDate:ApplicationSummary' :: Maybe Integer
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationCreationDate%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationCreationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationLastUpdateDate:ApplicationSummary' :: Maybe Integer
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationLastUpdateDate%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationLastUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:ApplicationSummary' :: Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationId%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149538"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationName:ApplicationSummary' :: Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationName%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149537"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationUrl:ApplicationSummary' :: Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationUrl%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149536"><span class="hs-identifier hs-var">pApplicationUrl_</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | An optional description of the web application.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationDescription"><span class="hs-identifier hs-type">applicationSummary_applicationDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="applicationSummary_applicationDescription"><span class="annot"><span class="annottext">applicationSummary_applicationDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationSummary -&gt; f ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationDescription"><span class="hs-identifier hs-var hs-var">applicationSummary_applicationDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationSummary -&gt; Maybe Text)
+-&gt; (ApplicationSummary -&gt; Maybe Text -&gt; ApplicationSummary)
+-&gt; Lens
+     ApplicationSummary ApplicationSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149532"><span class="annot"><span class="annottext">Maybe Text
+applicationDescription :: Maybe Text
+$sel:applicationDescription:ApplicationSummary' :: ApplicationSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679149532"><span class="hs-identifier hs-var hs-var">applicationDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149532"><span class="hs-identifier hs-var">applicationDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149531"><span class="annot"><span class="annottext">s :: ApplicationSummary
+</span><a href="#local-6989586621679149531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149530"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679149531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationDescription:ApplicationSummary' :: Maybe Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationDescription%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679149530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The current state of the web application.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationState"><span class="hs-identifier hs-type">applicationSummary_applicationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationState.html#ApplicationState"><span class="hs-identifier hs-type">ApplicationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="applicationSummary_applicationState"><span class="annot"><span class="annottext">applicationSummary_applicationState :: (Maybe ApplicationState -&gt; f (Maybe ApplicationState))
+-&gt; ApplicationSummary -&gt; f ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationState"><span class="hs-identifier hs-var hs-var">applicationSummary_applicationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationSummary -&gt; Maybe ApplicationState)
+-&gt; (ApplicationSummary
+    -&gt; Maybe ApplicationState -&gt; ApplicationSummary)
+-&gt; Lens
+     ApplicationSummary
+     ApplicationSummary
+     (Maybe ApplicationState)
+     (Maybe ApplicationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149528"><span class="annot"><span class="annottext">Maybe ApplicationState
+applicationState :: Maybe ApplicationState
+$sel:applicationState:ApplicationSummary' :: ApplicationSummary -&gt; Maybe ApplicationState
+</span><a href="#local-6989586621679149528"><span class="hs-identifier hs-var hs-var">applicationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationState
+</span><a href="#local-6989586621679149528"><span class="hs-identifier hs-var">applicationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149527"><span class="annot"><span class="annottext">s :: ApplicationSummary
+</span><a href="#local-6989586621679149527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149526"><span class="annot"><span class="annottext">Maybe ApplicationState
+</span><a href="#local-6989586621679149526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679149527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationState:ApplicationSummary' :: Maybe ApplicationState
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationState%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationState
+</span><a href="#local-6989586621679149526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The date (in Unix epoch time) when the web application was created.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationCreationDate"><span class="hs-identifier hs-type">applicationSummary_applicationCreationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="applicationSummary_applicationCreationDate"><span class="annot"><span class="annottext">applicationSummary_applicationCreationDate :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ApplicationSummary -&gt; f ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationCreationDate"><span class="hs-identifier hs-var hs-var">applicationSummary_applicationCreationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationSummary -&gt; Maybe Integer)
+-&gt; (ApplicationSummary -&gt; Maybe Integer -&gt; ApplicationSummary)
+-&gt; Lens
+     ApplicationSummary
+     ApplicationSummary
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149524"><span class="annot"><span class="annottext">Maybe Integer
+applicationCreationDate :: Maybe Integer
+$sel:applicationCreationDate:ApplicationSummary' :: ApplicationSummary -&gt; Maybe Integer
+</span><a href="#local-6989586621679149524"><span class="hs-identifier hs-var hs-var">applicationCreationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679149524"><span class="hs-identifier hs-var">applicationCreationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149523"><span class="annot"><span class="annottext">s :: ApplicationSummary
+</span><a href="#local-6989586621679149523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149522"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679149522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679149523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationCreationDate:ApplicationSummary' :: Maybe Integer
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationCreationDate%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationCreationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679149522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The date (in Unix epoch time) when the web application was last updated.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationLastUpdateDate"><span class="hs-identifier hs-type">applicationSummary_applicationLastUpdateDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="applicationSummary_applicationLastUpdateDate"><span class="annot"><span class="annottext">applicationSummary_applicationLastUpdateDate :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ApplicationSummary -&gt; f ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationLastUpdateDate"><span class="hs-identifier hs-var hs-var">applicationSummary_applicationLastUpdateDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationSummary -&gt; Maybe Integer)
+-&gt; (ApplicationSummary -&gt; Maybe Integer -&gt; ApplicationSummary)
+-&gt; Lens
+     ApplicationSummary
+     ApplicationSummary
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149520"><span class="annot"><span class="annottext">Maybe Integer
+applicationLastUpdateDate :: Maybe Integer
+$sel:applicationLastUpdateDate:ApplicationSummary' :: ApplicationSummary -&gt; Maybe Integer
+</span><a href="#local-6989586621679149520"><span class="hs-identifier hs-var hs-var">applicationLastUpdateDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679149520"><span class="hs-identifier hs-var">applicationLastUpdateDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149519"><span class="annot"><span class="annottext">s :: ApplicationSummary
+</span><a href="#local-6989586621679149519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149518"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679149518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679149519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationLastUpdateDate:ApplicationSummary' :: Maybe Integer
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationLastUpdateDate%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationLastUpdateDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679149518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The unique Id of the web application.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationId"><span class="hs-identifier hs-type">applicationSummary_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="applicationSummary_applicationId"><span class="annot"><span class="annottext">applicationSummary_applicationId :: (Text -&gt; f Text) -&gt; ApplicationSummary -&gt; f ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationId"><span class="hs-identifier hs-var hs-var">applicationSummary_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationSummary -&gt; Text)
+-&gt; (ApplicationSummary -&gt; Text -&gt; ApplicationSummary)
+-&gt; Lens ApplicationSummary ApplicationSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149516"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:ApplicationSummary' :: ApplicationSummary -&gt; Text
+</span><a href="#local-6989586621679149516"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149516"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149515"><span class="annot"><span class="annottext">s :: ApplicationSummary
+</span><a href="#local-6989586621679149515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149514"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679149515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ApplicationSummary' :: Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationId%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the web application.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationName"><span class="hs-identifier hs-type">applicationSummary_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="applicationSummary_applicationName"><span class="annot"><span class="annottext">applicationSummary_applicationName :: (Text -&gt; f Text) -&gt; ApplicationSummary -&gt; f ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationName"><span class="hs-identifier hs-var hs-var">applicationSummary_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationSummary -&gt; Text)
+-&gt; (ApplicationSummary -&gt; Text -&gt; ApplicationSummary)
+-&gt; Lens ApplicationSummary ApplicationSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149512"><span class="annot"><span class="annottext">Text
+applicationName :: Text
+$sel:applicationName:ApplicationSummary' :: ApplicationSummary -&gt; Text
+</span><a href="#local-6989586621679149512"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149512"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149511"><span class="annot"><span class="annottext">s :: ApplicationSummary
+</span><a href="#local-6989586621679149511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149510"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679149511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:ApplicationSummary' :: Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationName%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The URL of the web application.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationUrl"><span class="hs-identifier hs-type">applicationSummary_applicationUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="applicationSummary_applicationUrl"><span class="annot"><span class="annottext">applicationSummary_applicationUrl :: (Text -&gt; f Text) -&gt; ApplicationSummary -&gt; f ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#applicationSummary_applicationUrl"><span class="hs-identifier hs-var hs-var">applicationSummary_applicationUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationSummary -&gt; Text)
+-&gt; (ApplicationSummary -&gt; Text -&gt; ApplicationSummary)
+-&gt; Lens ApplicationSummary ApplicationSummary Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679149508"><span class="annot"><span class="annottext">Text
+applicationUrl :: Text
+$sel:applicationUrl:ApplicationSummary' :: ApplicationSummary -&gt; Text
+</span><a href="#local-6989586621679149508"><span class="hs-identifier hs-var hs-var">applicationUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149508"><span class="hs-identifier hs-var">applicationUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679149507"><span class="annot"><span class="annottext">s :: ApplicationSummary
+</span><a href="#local-6989586621679149507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-type">ApplicationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679149506"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationSummary
+</span><a href="#local-6989586621679149507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationUrl:ApplicationSummary' :: Text
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#%24sel%3AapplicationUrl%3AApplicationSummary%27"><span class="hs-identifier hs-var">applicationUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679149506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149503"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679149501"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ApplicationSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ApplicationSummary)
+-&gt; Value
+-&gt; Parser ApplicationSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ApplicationSummary&quot;</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679149498"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ApplicationState
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ApplicationSummary
+</span><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary%27"><span class="hs-identifier hs-var">ApplicationSummary'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ApplicationState
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ApplicationSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ApplicationState
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ApplicationSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ApplicationState
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ApplicationSummary)
+-&gt; Parser (Maybe ApplicationState)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer -&gt; Text -&gt; Text -&gt; Text -&gt; ApplicationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ApplicationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer -&gt; Text -&gt; Text -&gt; Text -&gt; ApplicationSummary)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer -&gt; Text -&gt; Text -&gt; Text -&gt; ApplicationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationCreationDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer -&gt; Text -&gt; Text -&gt; Text -&gt; ApplicationSummary)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; ApplicationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationLastUpdateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; ApplicationSummary)
+-&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; ApplicationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ApplicationSummary)
+-&gt; Parser Text -&gt; Parser (Text -&gt; ApplicationSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ApplicationSummary)
+-&gt; Parser Text -&gt; Parser ApplicationSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679149498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149491"><span id="local-6989586621679149493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679149488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTFleetHub.Types.ApplicationSummary.html#ApplicationSummary"><span class="hs-identifier hs-type">ApplicationSummary</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

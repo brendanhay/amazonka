@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680318332"><span id="local-6989586621680318333"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelPackageGroupSortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy"><span class="hs-identifier hs-var">ModelPackageGroupSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageGroupSortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy%27"><span class="hs-identifier hs-var">ModelPackageGroupSortBy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680318341"><span id="local-6989586621680318342"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelPackageGroupSortBy"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy"><span class="hs-identifier hs-var">ModelPackageGroupSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelPackageGroupSortBy%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSortBy.html#ModelPackageGroupSortBy%27"><span class="hs-identifier hs-var">ModelPackageGroupSortBy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelPackageGroupSortBy"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ModelPackageGroupSortBy.html#fromModelPackageGroupSortBy"><span class="hs-identifier hs-var hs-var">fromModelPackageGroupSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680318324"><span id="local-6989586621680318326"><span id="local-6989586621680318328"><span class="annot"><span class="annottext">Int -&gt; ModelPackageGroupSortBy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680318333"><span id="local-6989586621680318335"><span id="local-6989586621680318337"><span class="annot"><span class="annottext">Int -&gt; ModelPackageGroupSortBy -&gt; ShowS
 [ModelPackageGroupSortBy] -&gt; ShowS
 ModelPackageGroupSortBy -&gt; String
 (Int -&gt; ModelPackageGroupSortBy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ModelPackageGroupSortBy -&gt; String
 showsPrec :: Int -&gt; ModelPackageGroupSortBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; ModelPackageGroupSortBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680318315"><span id="local-6989586621680318317"><span id="local-6989586621680318319"><span id="local-6989586621680318321"><span class="annot"><span class="annottext">ReadPrec [ModelPackageGroupSortBy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680318324"><span id="local-6989586621680318326"><span id="local-6989586621680318328"><span id="local-6989586621680318330"><span class="annot"><span class="annottext">ReadPrec [ModelPackageGroupSortBy]
 ReadPrec ModelPackageGroupSortBy
 Int -&gt; ReadS ModelPackageGroupSortBy
 ReadS [ModelPackageGroupSortBy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ModelPackageGroupSortBy]
 readsPrec :: Int -&gt; ReadS ModelPackageGroupSortBy
 $creadsPrec :: Int -&gt; ReadS ModelPackageGroupSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680318310"><span id="local-6989586621680318312"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680318319"><span id="local-6989586621680318321"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
 (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
 -&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
 -&gt; Eq ModelPackageGroupSortBy
@@ -82,7 +82,7 @@ $c/= :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
 == :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
 $c== :: ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680318294"><span id="local-6989586621680318296"><span id="local-6989586621680318298"><span id="local-6989586621680318300"><span id="local-6989586621680318302"><span id="local-6989586621680318304"><span id="local-6989586621680318306"><span class="annot"><span class="annottext">Eq ModelPackageGroupSortBy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680318303"><span id="local-6989586621680318305"><span id="local-6989586621680318307"><span id="local-6989586621680318309"><span id="local-6989586621680318311"><span id="local-6989586621680318313"><span id="local-6989586621680318315"><span class="annot"><span class="annottext">Eq ModelPackageGroupSortBy
 Eq ModelPackageGroupSortBy
 -&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Ordering)
 -&gt; (ModelPackageGroupSortBy -&gt; ModelPackageGroupSortBy -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ModelPackageGroupSortBy -&gt; Rep ModelPackageGroupSortBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680318286"><span id="local-6989586621680318288"><span class="annot"><span class="annottext">Int -&gt; ModelPackageGroupSortBy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680318295"><span id="local-6989586621680318297"><span class="annot"><span class="annottext">Int -&gt; ModelPackageGroupSortBy -&gt; Int
 ModelPackageGroupSortBy -&gt; Int
 (Int -&gt; ModelPackageGroupSortBy -&gt; Int)
 -&gt; (ModelPackageGroupSortBy -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: ModelPackageGroupSortBy -&gt; Int
 hashWithSalt :: Int -&gt; ModelPackageGroupSortBy -&gt; Int
 $chashWithSalt :: Int -&gt; ModelPackageGroupSortBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680318283"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680318292"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ()
 (ModelPackageGroupSortBy -&gt; ()) -&gt; NFData ModelPackageGroupSortBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ModelPackageGroupSortBy -&gt; ()
 $crnf :: ModelPackageGroupSortBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680318280"><span class="annot"><span class="annottext">Text -&gt; Either String ModelPackageGroupSortBy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680318289"><span class="annot"><span class="annottext">Text -&gt; Either String ModelPackageGroupSortBy
 (Text -&gt; Either String ModelPackageGroupSortBy)
 -&gt; FromText ModelPackageGroupSortBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ModelPackageGroupSortBy
 $cfromText :: Text -&gt; Either String ModelPackageGroupSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680318277"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680318286"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; Text
 (ModelPackageGroupSortBy -&gt; Text) -&gt; ToText ModelPackageGroupSortBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ModelPackageGroupSortBy -&gt; Text
 $ctoText :: ModelPackageGroupSortBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680318274"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680318283"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ByteString
 (ModelPackageGroupSortBy -&gt; ByteString)
 -&gt; ToByteString ModelPackageGroupSortBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ModelPackageGroupSortBy -&gt; ByteString
 $ctoBS :: ModelPackageGroupSortBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680318271"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680318280"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; ByteStringBuilder
 (ModelPackageGroupSortBy -&gt; ByteStringBuilder)
 -&gt; ToLog ModelPackageGroupSortBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ModelPackageGroupSortBy -&gt; ByteStringBuilder
 $cbuild :: ModelPackageGroupSortBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680318268"><span class="annot"><span class="annottext">HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680318277"><span class="annot"><span class="annottext">HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header]
 (HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header])
 -&gt; ToHeader ModelPackageGroupSortBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ModelPackageGroupSortBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680318265"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680318274"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; QueryString
 (ModelPackageGroupSortBy -&gt; QueryString)
 -&gt; ToQuery ModelPackageGroupSortBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ModelPackageGroupSortBy -&gt; QueryString
 $ctoQuery :: ModelPackageGroupSortBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680318260"><span id="local-6989586621680318262"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelPackageGroupSortBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680318269"><span id="local-6989586621680318271"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelPackageGroupSortBy]
 Value -&gt; Parser ModelPackageGroupSortBy
 (Value -&gt; Parser ModelPackageGroupSortBy)
 -&gt; (Value -&gt; Parser [ModelPackageGroupSortBy])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [ModelPackageGroupSortBy]
 parseJSON :: Value -&gt; Parser ModelPackageGroupSortBy
 $cparseJSON :: Value -&gt; Parser ModelPackageGroupSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680318255"><span id="local-6989586621680318257"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelPackageGroupSortBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680318264"><span id="local-6989586621680318266"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelPackageGroupSortBy]
 FromJSONKeyFunction ModelPackageGroupSortBy
 FromJSONKeyFunction ModelPackageGroupSortBy
 -&gt; FromJSONKeyFunction [ModelPackageGroupSortBy]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ModelPackageGroupSortBy]
 fromJSONKey :: FromJSONKeyFunction ModelPackageGroupSortBy
 $cfromJSONKey :: FromJSONKeyFunction ModelPackageGroupSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680318246"><span id="local-6989586621680318248"><span id="local-6989586621680318250"><span id="local-6989586621680318252"><span class="annot"><span class="annottext">[ModelPackageGroupSortBy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680318255"><span id="local-6989586621680318257"><span id="local-6989586621680318259"><span id="local-6989586621680318261"><span class="annot"><span class="annottext">[ModelPackageGroupSortBy] -&gt; Encoding
 [ModelPackageGroupSortBy] -&gt; Value
 ModelPackageGroupSortBy -&gt; Encoding
 ModelPackageGroupSortBy -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: ModelPackageGroupSortBy -&gt; Encoding
 toJSON :: ModelPackageGroupSortBy -&gt; Value
 $ctoJSON :: ModelPackageGroupSortBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680318241"><span id="local-6989586621680318243"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelPackageGroupSortBy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680318250"><span id="local-6989586621680318252"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelPackageGroupSortBy]
 ToJSONKeyFunction ModelPackageGroupSortBy
 ToJSONKeyFunction ModelPackageGroupSortBy
 -&gt; ToJSONKeyFunction [ModelPackageGroupSortBy]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ModelPackageGroupSortBy]
 toJSONKey :: ToJSONKeyFunction ModelPackageGroupSortBy
 $ctoJSONKey :: ToJSONKeyFunction ModelPackageGroupSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680318238"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelPackageGroupSortBy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680318247"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelPackageGroupSortBy
 ([Node] -&gt; Either String ModelPackageGroupSortBy)
 -&gt; FromXML ModelPackageGroupSortBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ModelPackageGroupSortBy
 $cparseXML :: [Node] -&gt; Either String ModelPackageGroupSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680318235"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680318244"><span class="annot"><span class="annottext">ModelPackageGroupSortBy -&gt; XML
 (ModelPackageGroupSortBy -&gt; XML) -&gt; ToXML ModelPackageGroupSortBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ModelPackageGroupSortBy -&gt; XML

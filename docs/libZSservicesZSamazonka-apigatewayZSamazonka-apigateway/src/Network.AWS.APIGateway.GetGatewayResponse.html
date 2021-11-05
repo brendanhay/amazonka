@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- RestApi.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newGetGatewayResponse' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679382151"><span id="local-6989586621679382152"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGatewayResponse"><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-var">GetGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGatewayResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-var">GetGatewayResponse'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679382160"><span id="local-6989586621679382161"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGatewayResponse"><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-var">GetGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGatewayResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-var">GetGatewayResponse'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3ArestApiId%3AGetGatewayResponse%27"><span class="annot"><span class="annottext">GetGatewayResponse -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#%24sel%3ArestApiId%3AGetGatewayResponse%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AresponseType%3AGetGatewayResponse%27"><span class="annot"><span class="annottext">GetGatewayResponse -&gt; GatewayResponseType
 </span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#%24sel%3AresponseType%3AGetGatewayResponse%27"><span class="hs-identifier hs-var hs-var">responseType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.GatewayResponseType.html#GatewayResponseType"><span class="hs-identifier hs-type">GatewayResponseType</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382144"><span id="local-6989586621679382146"><span class="annot"><span class="annottext">GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382153"><span id="local-6989586621679382155"><span class="annot"><span class="annottext">GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
 (GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool)
 -&gt; (GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool)
 -&gt; Eq GetGatewayResponse
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
 == :: GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
 $c== :: GetGatewayResponse -&gt; GetGatewayResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382135"><span id="local-6989586621679382137"><span id="local-6989586621679382139"><span id="local-6989586621679382141"><span class="annot"><span class="annottext">ReadPrec [GetGatewayResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382144"><span id="local-6989586621679382146"><span id="local-6989586621679382148"><span id="local-6989586621679382150"><span class="annot"><span class="annottext">ReadPrec [GetGatewayResponse]
 ReadPrec GetGatewayResponse
 Int -&gt; ReadS GetGatewayResponse
 ReadS [GetGatewayResponse]
@@ -94,7 +94,7 @@ readList :: ReadS [GetGatewayResponse]
 $creadList :: ReadS [GetGatewayResponse]
 readsPrec :: Int -&gt; ReadS GetGatewayResponse
 $creadsPrec :: Int -&gt; ReadS GetGatewayResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382128"><span id="local-6989586621679382130"><span id="local-6989586621679382132"><span class="annot"><span class="annottext">Int -&gt; GetGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382137"><span id="local-6989586621679382139"><span id="local-6989586621679382141"><span class="annot"><span class="annottext">Int -&gt; GetGatewayResponse -&gt; ShowS
 [GetGatewayResponse] -&gt; ShowS
 GetGatewayResponse -&gt; String
 (Int -&gt; GetGatewayResponse -&gt; ShowS)
@@ -140,17 +140,17 @@ $cfrom :: forall x. GetGatewayResponse -&gt; Rep GetGatewayResponse x
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.GatewayResponseType.html#GatewayResponseType"><span class="hs-identifier hs-type">GatewayResponseType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span>
 </span><span id="line-87"></span><span id="newGetGatewayResponse"><span class="annot"><span class="annottext">newGetGatewayResponse :: Text -&gt; GatewayResponseType -&gt; GetGatewayResponse
-</span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#newGetGatewayResponse"><span class="hs-identifier hs-var hs-var">newGetGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679382123"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382123"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679382122"><span class="annot"><span class="annottext">GatewayResponseType
-</span><a href="#local-6989586621679382122"><span class="hs-identifier hs-var">pResponseType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#newGetGatewayResponse"><span class="hs-identifier hs-var hs-var">newGetGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679382132"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382132"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679382131"><span class="annot"><span class="annottext">GatewayResponseType
+</span><a href="#local-6989586621679382131"><span class="hs-identifier hs-var">pResponseType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">GetGatewayResponse' :: Text -&gt; GatewayResponseType -&gt; GetGatewayResponse
 </span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:restApiId:GetGatewayResponse' :: Text
 </span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#%24sel%3ArestApiId%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382123"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679382132"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseType:GetGatewayResponse' :: GatewayResponseType
 </span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#%24sel%3AresponseType%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">responseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayResponseType
-</span><a href="#local-6989586621679382122"><span class="hs-identifier hs-var">pResponseType_</span></a></span><span>
+</span><a href="#local-6989586621679382131"><span class="hs-identifier hs-var">pResponseType_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. GetGatewayResponse -&gt; Rep GetGatewayResponse x
 -&gt; (GetGatewayResponse -&gt; Text -&gt; GetGatewayResponse)
 -&gt; Lens GetGatewayResponse GetGatewayResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382119"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382128"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:GetGatewayResponse' :: GetGatewayResponse -&gt; Text
-</span><a href="#local-6989586621679382119"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382119"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382118"><span class="annot"><span class="annottext">s :: GetGatewayResponse
-</span><a href="#local-6989586621679382118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382117"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGatewayResponse
-</span><a href="#local-6989586621679382118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetGatewayResponse' :: Text
+</span><a href="#local-6989586621679382128"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382128"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382127"><span class="annot"><span class="annottext">s :: GetGatewayResponse
+</span><a href="#local-6989586621679382127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382126"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGatewayResponse
+</span><a href="#local-6989586621679382127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetGatewayResponse' :: Text
 </span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#%24sel%3ArestApiId%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | [Required]</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
@@ -186,25 +186,25 @@ $sel:restApiId:GetGatewayResponse' :: GetGatewayResponse -&gt; Text
      GatewayResponseType
      GatewayResponseType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382116"><span class="annot"><span class="annottext">GatewayResponseType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382125"><span class="annot"><span class="annottext">GatewayResponseType
 responseType :: GatewayResponseType
 $sel:responseType:GetGatewayResponse' :: GetGatewayResponse -&gt; GatewayResponseType
-</span><a href="#local-6989586621679382116"><span class="hs-identifier hs-var hs-var">responseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayResponseType
-</span><a href="#local-6989586621679382116"><span class="hs-identifier hs-var">responseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382115"><span class="annot"><span class="annottext">s :: GetGatewayResponse
-</span><a href="#local-6989586621679382115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382114"><span class="annot"><span class="annottext">GatewayResponseType
-</span><a href="#local-6989586621679382114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGatewayResponse
-</span><a href="#local-6989586621679382115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseType:GetGatewayResponse' :: GatewayResponseType
+</span><a href="#local-6989586621679382125"><span class="hs-identifier hs-var hs-var">responseType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GatewayResponseType
+</span><a href="#local-6989586621679382125"><span class="hs-identifier hs-var">responseType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382124"><span class="annot"><span class="annottext">s :: GetGatewayResponse
+</span><a href="#local-6989586621679382124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382123"><span class="annot"><span class="annottext">GatewayResponseType
+</span><a href="#local-6989586621679382123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGatewayResponse
+</span><a href="#local-6989586621679382124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseType:GetGatewayResponse' :: GatewayResponseType
 </span><a href="Network.AWS.APIGateway.GetGatewayResponse.html#%24sel%3AresponseType%3AGetGatewayResponse%27"><span class="hs-identifier hs-var">responseType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GatewayResponseType
-</span><a href="#local-6989586621679382114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.GatewayResponse.html#GatewayResponse"><span class="hs-identifier hs-type">GatewayResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679382110"><span class="annot"><span class="annottext">request :: GetGatewayResponse -&gt; Request GetGatewayResponse
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679382119"><span class="annot"><span class="annottext">request :: GetGatewayResponse -&gt; Request GetGatewayResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGatewayResponse -&gt; Request GetGatewayResponse
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679382106"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679382115"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGatewayResponse
 -&gt; ClientResponse ClientBody
@@ -230,20 +230,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382103"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382103"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382102"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679382102"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382101"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String GatewayResponse
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382112"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382112"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382111"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679382111"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382110"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String GatewayResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382101"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382110"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382096"><span id="local-6989586621679382098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382105"><span id="local-6989586621679382107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679382089"><span class="annot"><span class="annottext">toHeaders :: GetGatewayResponse -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679382098"><span class="annot"><span class="annottext">toHeaders :: GetGatewayResponse -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGatewayResponse -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,14 +261,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679382083"><span class="annot"><span class="annottext">toPath :: GetGatewayResponse -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382080"><span id="local-6989586621679382081"><span class="annot"><span class="annottext">Text
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679382092"><span class="annot"><span class="annottext">toPath :: GetGatewayResponse -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse%27"><span class="hs-identifier hs-type">GetGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382089"><span id="local-6989586621679382090"><span class="annot"><span class="annottext">Text
 GatewayResponseType
 responseType :: GatewayResponseType
 restApiId :: Text
 $sel:responseType:GetGatewayResponse' :: GetGatewayResponse -&gt; GatewayResponseType
 $sel:restApiId:GetGatewayResponse' :: GetGatewayResponse -&gt; Text
-</span><a href="#local-6989586621679382080"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382089"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -277,17 +277,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382081"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679382090"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/gatewayresponses/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">GatewayResponseType -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">GatewayResponseType
-</span><a href="#local-6989586621679382080"><span class="hs-identifier hs-var">responseType</span></a></span><span>
+</span><a href="#local-6989586621679382089"><span class="hs-identifier hs-var">responseType</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetGatewayResponse.html#GetGatewayResponse"><span class="hs-identifier hs-type">GetGatewayResponse</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679382076"><span class="annot"><span class="annottext">toQuery :: GetGatewayResponse -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679382085"><span class="annot"><span class="annottext">toQuery :: GetGatewayResponse -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGatewayResponse -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString

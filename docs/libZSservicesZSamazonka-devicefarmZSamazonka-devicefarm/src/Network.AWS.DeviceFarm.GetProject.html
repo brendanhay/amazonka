@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Represents a request to the get project operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetProject' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679383257"><span id="local-6989586621679383258"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProject"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-var">GetProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProject%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-var">GetProject'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679383266"><span id="local-6989586621679383267"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProject"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-var">GetProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProject%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-var">GetProject'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The project\'s ARN.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3AGetProject%27"><span class="annot"><span class="annottext">GetProject -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3Aarn%3AGetProject%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383251"><span id="local-6989586621679383253"><span class="annot"><span class="annottext">GetProject -&gt; GetProject -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383260"><span id="local-6989586621679383262"><span class="annot"><span class="annottext">GetProject -&gt; GetProject -&gt; Bool
 (GetProject -&gt; GetProject -&gt; Bool)
 -&gt; (GetProject -&gt; GetProject -&gt; Bool) -&gt; Eq GetProject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetProject -&gt; GetProject -&gt; Bool
 == :: GetProject -&gt; GetProject -&gt; Bool
 $c== :: GetProject -&gt; GetProject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383242"><span id="local-6989586621679383244"><span id="local-6989586621679383246"><span id="local-6989586621679383248"><span class="annot"><span class="annottext">ReadPrec [GetProject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383251"><span id="local-6989586621679383253"><span id="local-6989586621679383255"><span id="local-6989586621679383257"><span class="annot"><span class="annottext">ReadPrec [GetProject]
 ReadPrec GetProject
 Int -&gt; ReadS GetProject
 ReadS [GetProject]
@@ -82,7 +82,7 @@ readList :: ReadS [GetProject]
 $creadList :: ReadS [GetProject]
 readsPrec :: Int -&gt; ReadS GetProject
 $creadsPrec :: Int -&gt; ReadS GetProject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383235"><span id="local-6989586621679383237"><span id="local-6989586621679383239"><span class="annot"><span class="annottext">Int -&gt; GetProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383244"><span id="local-6989586621679383246"><span id="local-6989586621679383248"><span class="annot"><span class="annottext">Int -&gt; GetProject -&gt; ShowS
 [GetProject] -&gt; ShowS
 GetProject -&gt; String
 (Int -&gt; GetProject -&gt; ShowS)
@@ -121,11 +121,11 @@ $cfrom :: forall x. GetProject -&gt; Rep GetProject x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetProject"><span class="annot"><span class="annottext">newGetProject :: Text -&gt; GetProject
-</span><a href="Network.AWS.DeviceFarm.GetProject.html#newGetProject"><span class="hs-identifier hs-var hs-var">newGetProject</span></a></span></span><span> </span><span id="local-6989586621679383230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383230"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetProject' :: Text -&gt; GetProject
+</span><a href="Network.AWS.DeviceFarm.GetProject.html#newGetProject"><span class="hs-identifier hs-var hs-var">newGetProject</span></a></span></span><span> </span><span id="local-6989586621679383239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383239"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetProject' :: Text -&gt; GetProject
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-type">GetProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetProject' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3Aarn%3AGetProject%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383230"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679383239"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The project\'s ARN.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#getProject_arn"><span class="hs-identifier hs-type">getProject_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,25 +134,25 @@ $cfrom :: forall x. GetProject -&gt; Rep GetProject x
 -&gt; (GetProject -&gt; Text -&gt; GetProject)
 -&gt; Lens GetProject GetProject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-type">GetProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383227"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-type">GetProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383236"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetProject' :: GetProject -&gt; Text
-</span><a href="#local-6989586621679383227"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383227"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383226"><span class="annot"><span class="annottext">s :: GetProject
-</span><a href="#local-6989586621679383226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-type">GetProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383225"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProject
-</span><a href="#local-6989586621679383226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetProject' :: Text
+</span><a href="#local-6989586621679383236"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383236"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383235"><span class="annot"><span class="annottext">s :: GetProject
+</span><a href="#local-6989586621679383235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-type">GetProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383234"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProject
+</span><a href="#local-6989586621679383235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetProject' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3Aarn%3AGetProject%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679383221"><span class="annot"><span class="annottext">request :: GetProject -&gt; Request GetProject
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679383230"><span class="annot"><span class="annottext">request :: GetProject -&gt; Request GetProject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetProject -&gt; Request GetProject
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383217"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679383226"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetProject
 -&gt; ClientResponse ClientBody
@@ -176,10 +176,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383214"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383214"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383213"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679383213"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383212"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383212"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383223"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383223"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383222"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679383222"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383221"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Project -&gt; Int -&gt; GetProjectResponse
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-var">GetProjectResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Project -&gt; Int -&gt; GetProjectResponse)
@@ -187,7 +187,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetProjectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383212"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Project)
+</span><a href="#local-6989586621679383221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Project)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;project&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383214"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383223"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383204"><span id="local-6989586621679383206"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383213"><span id="local-6989586621679383215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679383197"><span class="annot"><span class="annottext">toHeaders :: GetProject -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679383206"><span class="annot"><span class="annottext">toHeaders :: GetProject -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetProject -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -234,12 +234,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383187"><span id="local-6989586621679383189"><span id="local-6989586621679383191"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679383185"><span class="annot"><span class="annottext">toJSON :: GetProject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-type">GetProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383183"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383196"><span id="local-6989586621679383198"><span id="local-6989586621679383200"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679383194"><span class="annot"><span class="annottext">toJSON :: GetProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject%27"><span class="hs-identifier hs-type">GetProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383192"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetProject' :: GetProject -&gt; Text
-</span><a href="#local-6989586621679383183"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383192"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,18 +251,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383183"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679383192"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679383177"><span class="annot"><span class="annottext">toPath :: GetProject -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679383186"><span class="annot"><span class="annottext">toPath :: GetProject -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetProject -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProject"><span class="hs-identifier hs-type">GetProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679383173"><span class="annot"><span class="annottext">toQuery :: GetProject -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679383182"><span class="annot"><span class="annottext">toQuery :: GetProject -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetProject -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -272,7 +272,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span class="hs-comment">-- | Represents the result of a get project request.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- /See:/ 'newGetProjectResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679383170"><span id="local-6989586621679383171"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProjectResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-var">GetProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProjectResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-var">GetProjectResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679383179"><span id="local-6989586621679383180"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetProjectResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-var">GetProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetProjectResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-var">GetProjectResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The project to get information about.</span><span>
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3Aproject%3AGetProjectResponse%27"><span class="annot"><span class="annottext">GetProjectResponse -&gt; Maybe Project
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3Aproject%3AGetProjectResponse%27"><span class="hs-identifier hs-var hs-var">project</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Project.html#Project"><span class="hs-identifier hs-type">Project</span></a></span><span class="hs-special">,</span><span>
@@ -280,7 +280,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetProjectResponse%27"><span class="annot"><span class="annottext">GetProjectResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3AhttpStatus%3AGetProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383164"><span id="local-6989586621679383166"><span class="annot"><span class="annottext">GetProjectResponse -&gt; GetProjectResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383173"><span id="local-6989586621679383175"><span class="annot"><span class="annottext">GetProjectResponse -&gt; GetProjectResponse -&gt; Bool
 (GetProjectResponse -&gt; GetProjectResponse -&gt; Bool)
 -&gt; (GetProjectResponse -&gt; GetProjectResponse -&gt; Bool)
 -&gt; Eq GetProjectResponse
@@ -289,7 +289,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetProjectResponse -&gt; GetProjectResponse -&gt; Bool
 == :: GetProjectResponse -&gt; GetProjectResponse -&gt; Bool
 $c== :: GetProjectResponse -&gt; GetProjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383156"><span id="local-6989586621679383158"><span id="local-6989586621679383160"><span id="local-6989586621679383162"><span class="annot"><span class="annottext">ReadPrec [GetProjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383165"><span id="local-6989586621679383167"><span id="local-6989586621679383169"><span id="local-6989586621679383171"><span class="annot"><span class="annottext">ReadPrec [GetProjectResponse]
 ReadPrec GetProjectResponse
 Int -&gt; ReadS GetProjectResponse
 ReadS [GetProjectResponse]
@@ -309,7 +309,7 @@ readList :: ReadS [GetProjectResponse]
 $creadList :: ReadS [GetProjectResponse]
 readsPrec :: Int -&gt; ReadS GetProjectResponse
 $creadsPrec :: Int -&gt; ReadS GetProjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383150"><span id="local-6989586621679383152"><span id="local-6989586621679383154"><span class="annot"><span class="annottext">Int -&gt; GetProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383159"><span id="local-6989586621679383161"><span id="local-6989586621679383163"><span class="annot"><span class="annottext">Int -&gt; GetProjectResponse -&gt; ShowS
 [GetProjectResponse] -&gt; ShowS
 GetProjectResponse -&gt; String
 (Int -&gt; GetProjectResponse -&gt; ShowS)
@@ -351,8 +351,8 @@ $cfrom :: forall x. GetProjectResponse -&gt; Rep GetProjectResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newGetProjectResponse"><span class="annot"><span class="annottext">newGetProjectResponse :: Int -&gt; GetProjectResponse
-</span><a href="Network.AWS.DeviceFarm.GetProject.html#newGetProjectResponse"><span class="hs-identifier hs-var hs-var">newGetProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679383147"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383147"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.GetProject.html#newGetProjectResponse"><span class="hs-identifier hs-var hs-var">newGetProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679383156"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">GetProjectResponse' :: Maybe Project -&gt; Int -&gt; GetProjectResponse
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:project:GetProjectResponse' :: Maybe Project
@@ -361,7 +361,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetProjectResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3AhttpStatus%3AGetProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383147"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679383156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The project to get information about.</span><span>
@@ -376,16 +376,16 @@ forall a. Maybe a
      (Maybe Project)
      (Maybe Project)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383146"><span class="annot"><span class="annottext">Maybe Project
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383155"><span class="annot"><span class="annottext">Maybe Project
 project :: Maybe Project
 $sel:project:GetProjectResponse' :: GetProjectResponse -&gt; Maybe Project
-</span><a href="#local-6989586621679383146"><span class="hs-identifier hs-var hs-var">project</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Project
-</span><a href="#local-6989586621679383146"><span class="hs-identifier hs-var">project</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383145"><span class="annot"><span class="annottext">s :: GetProjectResponse
-</span><a href="#local-6989586621679383145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383144"><span class="annot"><span class="annottext">Maybe Project
-</span><a href="#local-6989586621679383144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProjectResponse
-</span><a href="#local-6989586621679383145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:project:GetProjectResponse' :: Maybe Project
+</span><a href="#local-6989586621679383155"><span class="hs-identifier hs-var hs-var">project</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Project
+</span><a href="#local-6989586621679383155"><span class="hs-identifier hs-var">project</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383154"><span class="annot"><span class="annottext">s :: GetProjectResponse
+</span><a href="#local-6989586621679383154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383153"><span class="annot"><span class="annottext">Maybe Project
+</span><a href="#local-6989586621679383153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProjectResponse
+</span><a href="#local-6989586621679383154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:project:GetProjectResponse' :: Maybe Project
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3Aproject%3AGetProjectResponse%27"><span class="hs-identifier hs-var">project</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Project
-</span><a href="#local-6989586621679383144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#getProjectResponse_httpStatus"><span class="hs-identifier hs-type">getProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -394,16 +394,16 @@ $sel:project:GetProjectResponse' :: GetProjectResponse -&gt; Maybe Project
 -&gt; (GetProjectResponse -&gt; Int -&gt; GetProjectResponse)
 -&gt; Lens GetProjectResponse GetProjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383143"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383152"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetProjectResponse' :: GetProjectResponse -&gt; Int
-</span><a href="#local-6989586621679383143"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383143"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383142"><span class="annot"><span class="annottext">s :: GetProjectResponse
-</span><a href="#local-6989586621679383142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383141"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProjectResponse
-</span><a href="#local-6989586621679383142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetProjectResponse' :: Int
+</span><a href="#local-6989586621679383152"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383152"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383151"><span class="annot"><span class="annottext">s :: GetProjectResponse
+</span><a href="#local-6989586621679383151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse%27"><span class="hs-identifier hs-type">GetProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetProjectResponse
+</span><a href="#local-6989586621679383151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetProjectResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetProject.html#%24sel%3AhttpStatus%3AGetProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383139"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetProject.html#GetProjectResponse"><span class="hs-identifier hs-type">GetProjectResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

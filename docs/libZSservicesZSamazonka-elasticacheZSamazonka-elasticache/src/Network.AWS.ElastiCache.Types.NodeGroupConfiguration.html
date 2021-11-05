@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- @ReplicaAvailabilityZones@, @ReplicaCount@.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNodeGroupConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679401704"><span id="local-6989586621679401705"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeGroupConfiguration"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-var">NodeGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeGroupConfiguration%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-var">NodeGroupConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679401713"><span id="local-6989586621679401714"></span></span><span class="hs-keyword">data</span><span> </span><span id="NodeGroupConfiguration"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-var">NodeGroupConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NodeGroupConfiguration%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-var">NodeGroupConfiguration'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that specifies the keyspace for a particular node group.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Keyspaces range from 0 to 16,383. The string is in the format</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- @startkey-endkey@.</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AnodeGroupId%3ANodeGroupConfiguration%27"><span class="annot"><span class="annottext">NodeGroupConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3AnodeGroupId%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401692"><span id="local-6989586621679401694"><span class="annot"><span class="annottext">NodeGroupConfiguration -&gt; NodeGroupConfiguration -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401701"><span id="local-6989586621679401703"><span class="annot"><span class="annottext">NodeGroupConfiguration -&gt; NodeGroupConfiguration -&gt; Bool
 (NodeGroupConfiguration -&gt; NodeGroupConfiguration -&gt; Bool)
 -&gt; (NodeGroupConfiguration -&gt; NodeGroupConfiguration -&gt; Bool)
 -&gt; Eq NodeGroupConfiguration
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NodeGroupConfiguration -&gt; NodeGroupConfiguration -&gt; Bool
 == :: NodeGroupConfiguration -&gt; NodeGroupConfiguration -&gt; Bool
 $c== :: NodeGroupConfiguration -&gt; NodeGroupConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401683"><span id="local-6989586621679401685"><span id="local-6989586621679401687"><span id="local-6989586621679401689"><span class="annot"><span class="annottext">ReadPrec [NodeGroupConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401692"><span id="local-6989586621679401694"><span id="local-6989586621679401696"><span id="local-6989586621679401698"><span class="annot"><span class="annottext">ReadPrec [NodeGroupConfiguration]
 ReadPrec NodeGroupConfiguration
 Int -&gt; ReadS NodeGroupConfiguration
 ReadS [NodeGroupConfiguration]
@@ -88,7 +88,7 @@ readList :: ReadS [NodeGroupConfiguration]
 $creadList :: ReadS [NodeGroupConfiguration]
 readsPrec :: Int -&gt; ReadS NodeGroupConfiguration
 $creadsPrec :: Int -&gt; ReadS NodeGroupConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401676"><span id="local-6989586621679401678"><span id="local-6989586621679401680"><span class="annot"><span class="annottext">Int -&gt; NodeGroupConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401685"><span id="local-6989586621679401687"><span id="local-6989586621679401689"><span class="annot"><span class="annottext">Int -&gt; NodeGroupConfiguration -&gt; ShowS
 [NodeGroupConfiguration] -&gt; ShowS
 NodeGroupConfiguration -&gt; String
 (Int -&gt; NodeGroupConfiguration -&gt; ShowS)
@@ -203,16 +203,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401667"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401676"><span class="annot"><span class="annottext">Maybe Text
 slots :: Maybe Text
 $sel:slots:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679401667"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401667"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401666"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
-</span><a href="#local-6989586621679401666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401665"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
-</span><a href="#local-6989586621679401666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:NodeGroupConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679401676"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401676"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401675"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
+</span><a href="#local-6989586621679401675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401674"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
+</span><a href="#local-6989586621679401675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:NodeGroupConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3Aslots%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The outpost ARN of the node replicas.</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#nodeGroupConfiguration_replicaOutpostArns"><span class="hs-identifier hs-type">nodeGroupConfiguration_replicaOutpostArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -227,16 +227,16 @@ $sel:slots:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401663"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401672"><span class="annot"><span class="annottext">Maybe [Text]
 replicaOutpostArns :: Maybe [Text]
 $sel:replicaOutpostArns:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679401663"><span class="hs-identifier hs-var hs-var">replicaOutpostArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401663"><span class="hs-identifier hs-var">replicaOutpostArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401662"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
-</span><a href="#local-6989586621679401662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401661"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
-</span><a href="#local-6989586621679401662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaOutpostArns:NodeGroupConfiguration' :: Maybe [Text]
+</span><a href="#local-6989586621679401672"><span class="hs-identifier hs-var hs-var">replicaOutpostArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679401672"><span class="hs-identifier hs-var">replicaOutpostArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401671"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
+</span><a href="#local-6989586621679401671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401670"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679401670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
+</span><a href="#local-6989586621679401671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaOutpostArns:NodeGroupConfiguration' :: Maybe [Text]
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3AreplicaOutpostArns%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var">replicaOutpostArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679401670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; NodeGroupConfiguration -&gt; f NodeGroupConfiguration)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -265,16 +265,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401656"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401665"><span class="annot"><span class="annottext">Maybe Int
 replicaCount :: Maybe Int
 $sel:replicaCount:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Int
-</span><a href="#local-6989586621679401656"><span class="hs-identifier hs-var hs-var">replicaCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679401656"><span class="hs-identifier hs-var">replicaCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401655"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
-</span><a href="#local-6989586621679401655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401654"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679401654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
-</span><a href="#local-6989586621679401655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaCount:NodeGroupConfiguration' :: Maybe Int
+</span><a href="#local-6989586621679401665"><span class="hs-identifier hs-var hs-var">replicaCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679401665"><span class="hs-identifier hs-var">replicaCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401664"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
+</span><a href="#local-6989586621679401664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401663"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679401663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
+</span><a href="#local-6989586621679401664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaCount:NodeGroupConfiguration' :: Maybe Int
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3AreplicaCount%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var">replicaCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679401654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The Availability Zone where the primary node of this node group (shard)</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- is launched.</span><span>
@@ -289,16 +289,16 @@ $sel:replicaCount:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401652"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401661"><span class="annot"><span class="annottext">Maybe Text
 primaryAvailabilityZone :: Maybe Text
 $sel:primaryAvailabilityZone:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679401652"><span class="hs-identifier hs-var hs-var">primaryAvailabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401652"><span class="hs-identifier hs-var">primaryAvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401651"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
-</span><a href="#local-6989586621679401651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401650"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
-</span><a href="#local-6989586621679401651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryAvailabilityZone:NodeGroupConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var hs-var">primaryAvailabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401661"><span class="hs-identifier hs-var">primaryAvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401660"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
+</span><a href="#local-6989586621679401660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
+</span><a href="#local-6989586621679401660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryAvailabilityZone:NodeGroupConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3AprimaryAvailabilityZone%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var">primaryAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | A list of Availability Zones to be used for the read replicas. The</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- number of Availability Zones in this list must match the value of</span><span>
@@ -315,16 +315,16 @@ $sel:primaryAvailabilityZone:NodeGroupConfiguration' :: NodeGroupConfiguration -
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401648"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401657"><span class="annot"><span class="annottext">Maybe [Text]
 replicaAvailabilityZones :: Maybe [Text]
 $sel:replicaAvailabilityZones:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679401648"><span class="hs-identifier hs-var hs-var">replicaAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401648"><span class="hs-identifier hs-var">replicaAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401647"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
-</span><a href="#local-6989586621679401647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401646"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
-</span><a href="#local-6989586621679401647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaAvailabilityZones:NodeGroupConfiguration' :: Maybe [Text]
+</span><a href="#local-6989586621679401657"><span class="hs-identifier hs-var hs-var">replicaAvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679401657"><span class="hs-identifier hs-var">replicaAvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401656"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
+</span><a href="#local-6989586621679401656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401655"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679401655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
+</span><a href="#local-6989586621679401656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicaAvailabilityZones:NodeGroupConfiguration' :: Maybe [Text]
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3AreplicaAvailabilityZones%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var">replicaAvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679401655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; NodeGroupConfiguration -&gt; f NodeGroupConfiguration)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -353,16 +353,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401644"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401653"><span class="annot"><span class="annottext">Maybe Text
 primaryOutpostArn :: Maybe Text
 $sel:primaryOutpostArn:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679401644"><span class="hs-identifier hs-var hs-var">primaryOutpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401644"><span class="hs-identifier hs-var">primaryOutpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401643"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
-</span><a href="#local-6989586621679401643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401642"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
-</span><a href="#local-6989586621679401643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryOutpostArn:NodeGroupConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679401653"><span class="hs-identifier hs-var hs-var">primaryOutpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401653"><span class="hs-identifier hs-var">primaryOutpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401652"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
+</span><a href="#local-6989586621679401652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401651"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
+</span><a href="#local-6989586621679401652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryOutpostArn:NodeGroupConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3AprimaryOutpostArn%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var">primaryOutpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied</span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- id for the node group these configuration values apply to.</span><span>
@@ -377,21 +377,21 @@ $sel:primaryOutpostArn:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401640"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401649"><span class="annot"><span class="annottext">Maybe Text
 nodeGroupId :: Maybe Text
 $sel:nodeGroupId:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679401640"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401640"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401639"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
-</span><a href="#local-6989586621679401639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401638"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
-</span><a href="#local-6989586621679401639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeGroupConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679401649"><span class="hs-identifier hs-var hs-var">nodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401649"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401648"><span class="annot"><span class="annottext">s :: NodeGroupConfiguration
+</span><a href="#local-6989586621679401648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401647"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NodeGroupConfiguration
+</span><a href="#local-6989586621679401648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeGroupId:NodeGroupConfiguration' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#%24sel%3AnodeGroupId%3ANodeGroupConfiguration%27"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679401635"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NodeGroupConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401633"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679401644"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NodeGroupConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401642"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe Int
@@ -421,7 +421,7 @@ $sel:nodeGroupId:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe T
       -&gt; NodeGroupConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Slots&quot;</span></span><span class="hs-special">)</span><span>
@@ -445,7 +445,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; NodeGroupConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicaOutpostArns&quot;</span></span><span>
@@ -486,7 +486,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; NodeGroupConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicaCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -504,7 +504,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Text -&gt; NodeGroupConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrimaryAvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
@@ -517,7 +517,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; NodeGroupConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicaAvailabilityZones&quot;</span></span><span>
@@ -545,7 +545,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Maybe Text -&gt; NodeGroupConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrimaryOutpostArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -554,18 +554,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String NodeGroupConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeGroupId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401624"><span id="local-6989586621679401626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401633"><span id="local-6989586621679401635"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration"><span class="hs-identifier hs-type">NodeGroupConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679401617"><span class="annot"><span class="annottext">toQuery :: NodeGroupConfiguration -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401609"><span id="local-6989586621679401610"><span id="local-6989586621679401611"><span id="local-6989586621679401612"><span id="local-6989586621679401613"><span id="local-6989586621679401614"><span id="local-6989586621679401615"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679401626"><span class="annot"><span class="annottext">toQuery :: NodeGroupConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.NodeGroupConfiguration.html#NodeGroupConfiguration%27"><span class="hs-identifier hs-type">NodeGroupConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401618"><span id="local-6989586621679401619"><span id="local-6989586621679401620"><span id="local-6989586621679401621"><span id="local-6989586621679401622"><span id="local-6989586621679401623"><span id="local-6989586621679401624"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 nodeGroupId :: Maybe Text
@@ -582,7 +582,7 @@ $sel:primaryAvailabilityZone:NodeGroupConfiguration' :: NodeGroupConfiguration -
 $sel:replicaCount:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Int
 $sel:replicaOutpostArns:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe [Text]
 $sel:slots:NodeGroupConfiguration' :: NodeGroupConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679401609"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679401618"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -590,7 +590,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Slots&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401615"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401624"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicaOutpostArns&quot;</span></span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -607,19 +607,19 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401614"><span class="hs-identifier hs-var">replicaOutpostArns</span></a></span><span>
+</span><a href="#local-6989586621679401623"><span class="hs-identifier hs-var">replicaOutpostArns</span></a></span><span>
 </span><span id="line-164"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicaCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679401613"><span class="hs-identifier hs-var">replicaCount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401622"><span class="hs-identifier hs-var">replicaCount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrimaryAvailabilityZone&quot;</span></span><span>
 </span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401612"><span class="hs-identifier hs-var">primaryAvailabilityZone</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401621"><span class="hs-identifier hs-var">primaryAvailabilityZone</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicaAvailabilityZones&quot;</span></span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -636,17 +636,17 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-171"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679401611"><span class="hs-identifier hs-var">replicaAvailabilityZones</span></a></span><span>
+</span><a href="#local-6989586621679401620"><span class="hs-identifier hs-var">replicaAvailabilityZones</span></a></span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PrimaryOutpostArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401610"><span class="hs-identifier hs-var">primaryOutpostArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401619"><span class="hs-identifier hs-var">primaryOutpostArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NodeGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401609"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span>
+</span><a href="#local-6989586621679401618"><span class="hs-identifier hs-var">nodeGroupId</span></a></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span></pre></body></html>

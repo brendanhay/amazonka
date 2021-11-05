@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679274091"><span id="local-6989586621679274092"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedactionType"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionType.html#RedactionType"><span class="hs-identifier hs-var">RedactionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactionType%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionType.html#RedactionType%27"><span class="hs-identifier hs-var">RedactionType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679274100"><span id="local-6989586621679274101"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RedactionType"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionType.html#RedactionType"><span class="hs-identifier hs-var">RedactionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactionType%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.RedactionType.html#RedactionType%27"><span class="hs-identifier hs-var">RedactionType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRedactionType"><span class="annot"><span class="annottext">RedactionType -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.RedactionType.html#fromRedactionType"><span class="hs-identifier hs-var hs-var">fromRedactionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274083"><span id="local-6989586621679274085"><span id="local-6989586621679274087"><span class="annot"><span class="annottext">Int -&gt; RedactionType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274092"><span id="local-6989586621679274094"><span id="local-6989586621679274096"><span class="annot"><span class="annottext">Int -&gt; RedactionType -&gt; ShowS
 [RedactionType] -&gt; ShowS
 RedactionType -&gt; String
 (Int -&gt; RedactionType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: RedactionType -&gt; String
 showsPrec :: Int -&gt; RedactionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; RedactionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679274074"><span id="local-6989586621679274076"><span id="local-6989586621679274078"><span id="local-6989586621679274080"><span class="annot"><span class="annottext">ReadPrec [RedactionType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679274083"><span id="local-6989586621679274085"><span id="local-6989586621679274087"><span id="local-6989586621679274089"><span class="annot"><span class="annottext">ReadPrec [RedactionType]
 ReadPrec RedactionType
 Int -&gt; ReadS RedactionType
 ReadS [RedactionType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [RedactionType]
 readsPrec :: Int -&gt; ReadS RedactionType
 $creadsPrec :: Int -&gt; ReadS RedactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679274069"><span id="local-6989586621679274071"><span class="annot"><span class="annottext">RedactionType -&gt; RedactionType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679274078"><span id="local-6989586621679274080"><span class="annot"><span class="annottext">RedactionType -&gt; RedactionType -&gt; Bool
 (RedactionType -&gt; RedactionType -&gt; Bool)
 -&gt; (RedactionType -&gt; RedactionType -&gt; Bool) -&gt; Eq RedactionType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: RedactionType -&gt; RedactionType -&gt; Bool
 == :: RedactionType -&gt; RedactionType -&gt; Bool
 $c== :: RedactionType -&gt; RedactionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679274053"><span id="local-6989586621679274055"><span id="local-6989586621679274057"><span id="local-6989586621679274059"><span id="local-6989586621679274061"><span id="local-6989586621679274063"><span id="local-6989586621679274065"><span class="annot"><span class="annottext">Eq RedactionType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679274062"><span id="local-6989586621679274064"><span id="local-6989586621679274066"><span id="local-6989586621679274068"><span id="local-6989586621679274070"><span id="local-6989586621679274072"><span id="local-6989586621679274074"><span class="annot"><span class="annottext">Eq RedactionType
 Eq RedactionType
 -&gt; (RedactionType -&gt; RedactionType -&gt; Ordering)
 -&gt; (RedactionType -&gt; RedactionType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. RedactionType -&gt; Rep RedactionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274045"><span id="local-6989586621679274047"><span class="annot"><span class="annottext">Int -&gt; RedactionType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679274054"><span id="local-6989586621679274056"><span class="annot"><span class="annottext">Int -&gt; RedactionType -&gt; Int
 RedactionType -&gt; Int
 (Int -&gt; RedactionType -&gt; Int)
 -&gt; (RedactionType -&gt; Int) -&gt; Hashable RedactionType
@@ -141,49 +141,49 @@ $chash :: RedactionType -&gt; Int
 hashWithSalt :: Int -&gt; RedactionType -&gt; Int
 $chashWithSalt :: Int -&gt; RedactionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679274042"><span class="annot"><span class="annottext">RedactionType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679274051"><span class="annot"><span class="annottext">RedactionType -&gt; ()
 (RedactionType -&gt; ()) -&gt; NFData RedactionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RedactionType -&gt; ()
 $crnf :: RedactionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679274039"><span class="annot"><span class="annottext">Text -&gt; Either String RedactionType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679274048"><span class="annot"><span class="annottext">Text -&gt; Either String RedactionType
 (Text -&gt; Either String RedactionType) -&gt; FromText RedactionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RedactionType
 $cfromText :: Text -&gt; Either String RedactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679274036"><span class="annot"><span class="annottext">RedactionType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679274045"><span class="annot"><span class="annottext">RedactionType -&gt; Text
 (RedactionType -&gt; Text) -&gt; ToText RedactionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RedactionType -&gt; Text
 $ctoText :: RedactionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274033"><span class="annot"><span class="annottext">RedactionType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679274042"><span class="annot"><span class="annottext">RedactionType -&gt; ByteString
 (RedactionType -&gt; ByteString) -&gt; ToByteString RedactionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RedactionType -&gt; ByteString
 $ctoBS :: RedactionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274030"><span class="annot"><span class="annottext">RedactionType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679274039"><span class="annot"><span class="annottext">RedactionType -&gt; ByteStringBuilder
 (RedactionType -&gt; ByteStringBuilder) -&gt; ToLog RedactionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RedactionType -&gt; ByteStringBuilder
 $cbuild :: RedactionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274027"><span class="annot"><span class="annottext">HeaderName -&gt; RedactionType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679274036"><span class="annot"><span class="annottext">HeaderName -&gt; RedactionType -&gt; [Header]
 (HeaderName -&gt; RedactionType -&gt; [Header]) -&gt; ToHeader RedactionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RedactionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RedactionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274024"><span class="annot"><span class="annottext">RedactionType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679274033"><span class="annot"><span class="annottext">RedactionType -&gt; QueryString
 (RedactionType -&gt; QueryString) -&gt; ToQuery RedactionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RedactionType -&gt; QueryString
 $ctoQuery :: RedactionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274019"><span id="local-6989586621679274021"><span class="annot"><span class="annottext">Value -&gt; Parser [RedactionType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679274028"><span id="local-6989586621679274030"><span class="annot"><span class="annottext">Value -&gt; Parser [RedactionType]
 Value -&gt; Parser RedactionType
 (Value -&gt; Parser RedactionType)
 -&gt; (Value -&gt; Parser [RedactionType]) -&gt; FromJSON RedactionType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [RedactionType]
 parseJSON :: Value -&gt; Parser RedactionType
 $cparseJSON :: Value -&gt; Parser RedactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274014"><span id="local-6989586621679274016"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedactionType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679274023"><span id="local-6989586621679274025"><span class="annot"><span class="annottext">FromJSONKeyFunction [RedactionType]
 FromJSONKeyFunction RedactionType
 FromJSONKeyFunction RedactionType
 -&gt; FromJSONKeyFunction [RedactionType] -&gt; FromJSONKey RedactionType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RedactionType]
 fromJSONKey :: FromJSONKeyFunction RedactionType
 $cfromJSONKey :: FromJSONKeyFunction RedactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274005"><span id="local-6989586621679274007"><span id="local-6989586621679274009"><span id="local-6989586621679274011"><span class="annot"><span class="annottext">[RedactionType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679274014"><span id="local-6989586621679274016"><span id="local-6989586621679274018"><span id="local-6989586621679274020"><span class="annot"><span class="annottext">[RedactionType] -&gt; Encoding
 [RedactionType] -&gt; Value
 RedactionType -&gt; Encoding
 RedactionType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: RedactionType -&gt; Encoding
 toJSON :: RedactionType -&gt; Value
 $ctoJSON :: RedactionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274000"><span id="local-6989586621679274002"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedactionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679274009"><span id="local-6989586621679274011"><span class="annot"><span class="annottext">ToJSONKeyFunction [RedactionType]
 ToJSONKeyFunction RedactionType
 ToJSONKeyFunction RedactionType
 -&gt; ToJSONKeyFunction [RedactionType] -&gt; ToJSONKey RedactionType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RedactionType]
 toJSONKey :: ToJSONKeyFunction RedactionType
 $ctoJSONKey :: ToJSONKeyFunction RedactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273997"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedactionType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679274006"><span class="annot"><span class="annottext">[Node] -&gt; Either String RedactionType
 ([Node] -&gt; Either String RedactionType) -&gt; FromXML RedactionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RedactionType
 $cparseXML :: [Node] -&gt; Either String RedactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273994"><span class="annot"><span class="annottext">RedactionType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679274003"><span class="annot"><span class="annottext">RedactionType -&gt; XML
 (RedactionType -&gt; XML) -&gt; ToXML RedactionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RedactionType -&gt; XML

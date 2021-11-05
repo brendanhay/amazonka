@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newStopQueryExecution' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679220859"><span id="local-6989586621679220860"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopQueryExecution"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-var">StopQueryExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopQueryExecution%27"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-var">StopQueryExecution'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679220868"><span id="local-6989586621679220869"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopQueryExecution"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-var">StopQueryExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopQueryExecution%27"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-var">StopQueryExecution'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the query execution to stop.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AqueryExecutionId%3AStopQueryExecution%27"><span class="annot"><span class="annottext">StopQueryExecution -&gt; Text
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#%24sel%3AqueryExecutionId%3AStopQueryExecution%27"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220853"><span id="local-6989586621679220855"><span class="annot"><span class="annottext">StopQueryExecution -&gt; StopQueryExecution -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220862"><span id="local-6989586621679220864"><span class="annot"><span class="annottext">StopQueryExecution -&gt; StopQueryExecution -&gt; Bool
 (StopQueryExecution -&gt; StopQueryExecution -&gt; Bool)
 -&gt; (StopQueryExecution -&gt; StopQueryExecution -&gt; Bool)
 -&gt; Eq StopQueryExecution
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopQueryExecution -&gt; StopQueryExecution -&gt; Bool
 == :: StopQueryExecution -&gt; StopQueryExecution -&gt; Bool
 $c== :: StopQueryExecution -&gt; StopQueryExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220844"><span id="local-6989586621679220846"><span id="local-6989586621679220848"><span id="local-6989586621679220850"><span class="annot"><span class="annottext">ReadPrec [StopQueryExecution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220853"><span id="local-6989586621679220855"><span id="local-6989586621679220857"><span id="local-6989586621679220859"><span class="annot"><span class="annottext">ReadPrec [StopQueryExecution]
 ReadPrec StopQueryExecution
 Int -&gt; ReadS StopQueryExecution
 ReadS [StopQueryExecution]
@@ -85,7 +85,7 @@ readList :: ReadS [StopQueryExecution]
 $creadList :: ReadS [StopQueryExecution]
 readsPrec :: Int -&gt; ReadS StopQueryExecution
 $creadsPrec :: Int -&gt; ReadS StopQueryExecution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220837"><span id="local-6989586621679220839"><span id="local-6989586621679220841"><span class="annot"><span class="annottext">Int -&gt; StopQueryExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220846"><span id="local-6989586621679220848"><span id="local-6989586621679220850"><span class="annot"><span class="annottext">Int -&gt; StopQueryExecution -&gt; ShowS
 [StopQueryExecution] -&gt; ShowS
 StopQueryExecution -&gt; String
 (Int -&gt; StopQueryExecution -&gt; ShowS)
@@ -125,14 +125,14 @@ $cfrom :: forall x. StopQueryExecution -&gt; Rep StopQueryExecution x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span>
 </span><span id="line-73"></span><span id="newStopQueryExecution"><span class="annot"><span class="annottext">newStopQueryExecution :: Text -&gt; StopQueryExecution
-</span><a href="Network.AWS.Athena.StopQueryExecution.html#newStopQueryExecution"><span class="hs-identifier hs-var hs-var">newStopQueryExecution</span></a></span></span><span> </span><span id="local-6989586621679220832"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220832"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.StopQueryExecution.html#newStopQueryExecution"><span class="hs-identifier hs-var hs-var">newStopQueryExecution</span></a></span></span><span> </span><span id="local-6989586621679220841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220841"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">StopQueryExecution' :: Text -&gt; StopQueryExecution
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-type">StopQueryExecution'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryExecutionId:StopQueryExecution' :: Text
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#%24sel%3AqueryExecutionId%3AStopQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220832"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span><span>
+</span><a href="#local-6989586621679220841"><span class="hs-identifier hs-var">pQueryExecutionId_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The unique ID of the query execution to stop.</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. StopQueryExecution -&gt; Rep StopQueryExecution x
 -&gt; (StopQueryExecution -&gt; Text -&gt; StopQueryExecution)
 -&gt; Lens StopQueryExecution StopQueryExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-type">StopQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220829"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-type">StopQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220838"><span class="annot"><span class="annottext">Text
 queryExecutionId :: Text
 $sel:queryExecutionId:StopQueryExecution' :: StopQueryExecution -&gt; Text
-</span><a href="#local-6989586621679220829"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220829"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220828"><span class="annot"><span class="annottext">s :: StopQueryExecution
-</span><a href="#local-6989586621679220828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-type">StopQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220827"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopQueryExecution
-</span><a href="#local-6989586621679220828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionId:StopQueryExecution' :: Text
+</span><a href="#local-6989586621679220838"><span class="hs-identifier hs-var hs-var">queryExecutionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220838"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220837"><span class="annot"><span class="annottext">s :: StopQueryExecution
+</span><a href="#local-6989586621679220837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-type">StopQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopQueryExecution
+</span><a href="#local-6989586621679220837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionId:StopQueryExecution' :: Text
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#%24sel%3AqueryExecutionId%3AStopQueryExecution%27"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-type">StopQueryExecutionResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679220823"><span class="annot"><span class="annottext">request :: StopQueryExecution -&gt; Request StopQueryExecution
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679220832"><span class="annot"><span class="annottext">request :: StopQueryExecution -&gt; Request StopQueryExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopQueryExecution -&gt; Request StopQueryExecution
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679220819"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679220828"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopQueryExecution
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220816"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220816"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679220815"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679220815"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679220814"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679220814"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220825"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220825"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679220824"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679220824"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679220823"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679220823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopQueryExecutionResponse
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-var">StopQueryExecutionResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopQueryExecutionResponse)
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220816"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220825"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220807"><span id="local-6989586621679220809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220816"><span id="local-6989586621679220818"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679220800"><span class="annot"><span class="annottext">toHeaders :: StopQueryExecution -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679220809"><span class="annot"><span class="annottext">toHeaders :: StopQueryExecution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopQueryExecution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220790"><span id="local-6989586621679220792"><span id="local-6989586621679220794"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679220788"><span class="annot"><span class="annottext">toJSON :: StopQueryExecution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-type">StopQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220786"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220799"><span id="local-6989586621679220801"><span id="local-6989586621679220803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679220797"><span class="annot"><span class="annottext">toJSON :: StopQueryExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution%27"><span class="hs-identifier hs-type">StopQueryExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220795"><span class="annot"><span class="annottext">Text
 queryExecutionId :: Text
 $sel:queryExecutionId:StopQueryExecution' :: StopQueryExecution -&gt; Text
-</span><a href="#local-6989586621679220786"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679220795"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,19 +255,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;QueryExecutionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220786"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220795"><span class="hs-identifier hs-var">queryExecutionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679220780"><span class="annot"><span class="annottext">toPath :: StopQueryExecution -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679220789"><span class="annot"><span class="annottext">toPath :: StopQueryExecution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopQueryExecution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecution"><span class="hs-identifier hs-type">StopQueryExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679220776"><span class="annot"><span class="annottext">toQuery :: StopQueryExecution -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679220785"><span class="annot"><span class="annottext">toQuery :: StopQueryExecution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopQueryExecution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -275,12 +275,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newStopQueryExecutionResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679220773"><span id="local-6989586621679220774"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopQueryExecutionResponse"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-var">StopQueryExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopQueryExecutionResponse%27"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-var">StopQueryExecutionResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679220782"><span id="local-6989586621679220783"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopQueryExecutionResponse"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-var">StopQueryExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopQueryExecutionResponse%27"><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-var">StopQueryExecutionResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopQueryExecutionResponse%27"><span class="annot"><span class="annottext">StopQueryExecutionResponse -&gt; Int
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#%24sel%3AhttpStatus%3AStopQueryExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220768"><span id="local-6989586621679220770"><span class="annot"><span class="annottext">StopQueryExecutionResponse -&gt; StopQueryExecutionResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220777"><span id="local-6989586621679220779"><span class="annot"><span class="annottext">StopQueryExecutionResponse -&gt; StopQueryExecutionResponse -&gt; Bool
 (StopQueryExecutionResponse -&gt; StopQueryExecutionResponse -&gt; Bool)
 -&gt; (StopQueryExecutionResponse
     -&gt; StopQueryExecutionResponse -&gt; Bool)
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopQueryExecutionResponse -&gt; StopQueryExecutionResponse -&gt; Bool
 == :: StopQueryExecutionResponse -&gt; StopQueryExecutionResponse -&gt; Bool
 $c== :: StopQueryExecutionResponse -&gt; StopQueryExecutionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220760"><span id="local-6989586621679220762"><span id="local-6989586621679220764"><span id="local-6989586621679220766"><span class="annot"><span class="annottext">ReadPrec [StopQueryExecutionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220769"><span id="local-6989586621679220771"><span id="local-6989586621679220773"><span id="local-6989586621679220775"><span class="annot"><span class="annottext">ReadPrec [StopQueryExecutionResponse]
 ReadPrec StopQueryExecutionResponse
 Int -&gt; ReadS StopQueryExecutionResponse
 ReadS [StopQueryExecutionResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [StopQueryExecutionResponse]
 $creadList :: ReadS [StopQueryExecutionResponse]
 readsPrec :: Int -&gt; ReadS StopQueryExecutionResponse
 $creadsPrec :: Int -&gt; ReadS StopQueryExecutionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220754"><span id="local-6989586621679220756"><span id="local-6989586621679220758"><span class="annot"><span class="annottext">Int -&gt; StopQueryExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220763"><span id="local-6989586621679220765"><span id="local-6989586621679220767"><span class="annot"><span class="annottext">Int -&gt; StopQueryExecutionResponse -&gt; ShowS
 [StopQueryExecutionResponse] -&gt; ShowS
 StopQueryExecutionResponse -&gt; String
 (Int -&gt; StopQueryExecutionResponse -&gt; ShowS)
@@ -356,14 +356,14 @@ StopQueryExecutionResponse -&gt; Rep StopQueryExecutionResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-type">StopQueryExecutionResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newStopQueryExecutionResponse"><span class="annot"><span class="annottext">newStopQueryExecutionResponse :: Int -&gt; StopQueryExecutionResponse
-</span><a href="Network.AWS.Athena.StopQueryExecution.html#newStopQueryExecutionResponse"><span class="hs-identifier hs-var hs-var">newStopQueryExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679220751"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220751"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.StopQueryExecution.html#newStopQueryExecutionResponse"><span class="hs-identifier hs-var hs-var">newStopQueryExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679220760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">StopQueryExecutionResponse' :: Int -&gt; StopQueryExecutionResponse
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-type">StopQueryExecutionResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopQueryExecutionResponse' :: Int
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#%24sel%3AhttpStatus%3AStopQueryExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220751"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679220760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -376,16 +376,16 @@ StopQueryExecutionResponse -&gt; Rep StopQueryExecutionResponse x
 -&gt; Lens
      StopQueryExecutionResponse StopQueryExecutionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-type">StopQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220750"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-type">StopQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220759"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopQueryExecutionResponse' :: StopQueryExecutionResponse -&gt; Int
-</span><a href="#local-6989586621679220750"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220750"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220749"><span class="annot"><span class="annottext">s :: StopQueryExecutionResponse
-</span><a href="#local-6989586621679220749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-type">StopQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220748"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopQueryExecutionResponse
-</span><a href="#local-6989586621679220749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopQueryExecutionResponse' :: Int
+</span><a href="#local-6989586621679220759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220758"><span class="annot"><span class="annottext">s :: StopQueryExecutionResponse
+</span><a href="#local-6989586621679220758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse%27"><span class="hs-identifier hs-type">StopQueryExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220757"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679220757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopQueryExecutionResponse
+</span><a href="#local-6989586621679220758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopQueryExecutionResponse' :: Int
 </span><a href="Network.AWS.Athena.StopQueryExecution.html#%24sel%3AhttpStatus%3AStopQueryExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679220748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-type">StopQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-type">StopQueryExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-type">StopQueryExecutionResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.StopQueryExecution.html#StopQueryExecutionResponse"><span class="hs-identifier hs-type">StopQueryExecutionResponse</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

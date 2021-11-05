@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeElasticLoadBalancers' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679389306"><span id="local-6989586621679389307"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeElasticLoadBalancers"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-var">DescribeElasticLoadBalancers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeElasticLoadBalancers%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-var">DescribeElasticLoadBalancers'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679389315"><span id="local-6989586621679389316"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeElasticLoadBalancers"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-var">DescribeElasticLoadBalancers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeElasticLoadBalancers%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-var">DescribeElasticLoadBalancers'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of layer IDs. The action describes the Elastic Load Balancing</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- instances for the specified layers.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AlayerIds%3ADescribeElasticLoadBalancers%27"><span class="annot"><span class="annottext">DescribeElasticLoadBalancers -&gt; Maybe [Text]
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AstackId%3ADescribeElasticLoadBalancers%27"><span class="annot"><span class="annottext">DescribeElasticLoadBalancers -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#%24sel%3AstackId%3ADescribeElasticLoadBalancers%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389299"><span id="local-6989586621679389301"><span class="annot"><span class="annottext">DescribeElasticLoadBalancers
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389308"><span id="local-6989586621679389310"><span class="annot"><span class="annottext">DescribeElasticLoadBalancers
 -&gt; DescribeElasticLoadBalancers -&gt; Bool
 (DescribeElasticLoadBalancers
  -&gt; DescribeElasticLoadBalancers -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: DescribeElasticLoadBalancers
 -&gt; DescribeElasticLoadBalancers -&gt; Bool
 $c== :: DescribeElasticLoadBalancers
 -&gt; DescribeElasticLoadBalancers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389290"><span id="local-6989586621679389292"><span id="local-6989586621679389294"><span id="local-6989586621679389296"><span class="annot"><span class="annottext">ReadPrec [DescribeElasticLoadBalancers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389299"><span id="local-6989586621679389301"><span id="local-6989586621679389303"><span id="local-6989586621679389305"><span class="annot"><span class="annottext">ReadPrec [DescribeElasticLoadBalancers]
 ReadPrec DescribeElasticLoadBalancers
 Int -&gt; ReadS DescribeElasticLoadBalancers
 ReadS [DescribeElasticLoadBalancers]
@@ -102,7 +102,7 @@ readList :: ReadS [DescribeElasticLoadBalancers]
 $creadList :: ReadS [DescribeElasticLoadBalancers]
 readsPrec :: Int -&gt; ReadS DescribeElasticLoadBalancers
 $creadsPrec :: Int -&gt; ReadS DescribeElasticLoadBalancers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389283"><span id="local-6989586621679389285"><span id="local-6989586621679389287"><span class="annot"><span class="annottext">Int -&gt; DescribeElasticLoadBalancers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389292"><span id="local-6989586621679389294"><span id="local-6989586621679389296"><span class="annot"><span class="annottext">Int -&gt; DescribeElasticLoadBalancers -&gt; ShowS
 [DescribeElasticLoadBalancers] -&gt; ShowS
 DescribeElasticLoadBalancers -&gt; String
 (Int -&gt; DescribeElasticLoadBalancers -&gt; ShowS)
@@ -178,16 +178,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389276"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389285"><span class="annot"><span class="annottext">Maybe [Text]
 layerIds :: Maybe [Text]
 $sel:layerIds:DescribeElasticLoadBalancers' :: DescribeElasticLoadBalancers -&gt; Maybe [Text]
-</span><a href="#local-6989586621679389276"><span class="hs-identifier hs-var hs-var">layerIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389276"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389275"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancers
-</span><a href="#local-6989586621679389275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389274"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancers
-</span><a href="#local-6989586621679389275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerIds:DescribeElasticLoadBalancers' :: Maybe [Text]
+</span><a href="#local-6989586621679389285"><span class="hs-identifier hs-var hs-var">layerIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389285"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389284"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancers
+</span><a href="#local-6989586621679389284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389283"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679389283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancers
+</span><a href="#local-6989586621679389284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerIds:DescribeElasticLoadBalancers' :: Maybe [Text]
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#%24sel%3AlayerIds%3ADescribeElasticLoadBalancers%27"><span class="hs-identifier hs-var">layerIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679389283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeElasticLoadBalancers -&gt; f DescribeElasticLoadBalancers)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -218,22 +218,22 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389270"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389279"><span class="annot"><span class="annottext">Maybe Text
 stackId :: Maybe Text
 $sel:stackId:DescribeElasticLoadBalancers' :: DescribeElasticLoadBalancers -&gt; Maybe Text
-</span><a href="#local-6989586621679389270"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389270"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389269"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancers
-</span><a href="#local-6989586621679389269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389268"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancers
-</span><a href="#local-6989586621679389269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeElasticLoadBalancers' :: Maybe Text
+</span><a href="#local-6989586621679389279"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389279"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389278"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancers
+</span><a href="#local-6989586621679389278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679389277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancers
+</span><a href="#local-6989586621679389278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeElasticLoadBalancers' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#%24sel%3AstackId%3ADescribeElasticLoadBalancers%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679389264"><span class="annot"><span class="annottext">request :: DescribeElasticLoadBalancers
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679389273"><span class="annot"><span class="annottext">request :: DescribeElasticLoadBalancers
 -&gt; Request DescribeElasticLoadBalancers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeElasticLoadBalancers
@@ -241,7 +241,7 @@ $sel:stackId:DescribeElasticLoadBalancers' :: DescribeElasticLoadBalancers -&gt;
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389260"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679389269"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeElasticLoadBalancers
 -&gt; ClientResponse ClientBody
@@ -267,10 +267,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389257"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389257"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389256"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679389256"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389255"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389255"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679389266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679389265"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679389265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679389264"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
 -&gt; Int -&gt; DescribeElasticLoadBalancersResponse
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-var">DescribeElasticLoadBalancersResponse'</span></a></span><span>
@@ -280,7 +280,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeElasticLoadBalancersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679389255"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679389264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ElasticLoadBalancer]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -302,17 +302,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389257"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679389246"><span id="local-6989586621679389248"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679389255"><span id="local-6989586621679389257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679389239"><span class="annot"><span class="annottext">toHeaders :: DescribeElasticLoadBalancers -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679389248"><span class="annot"><span class="annottext">toHeaders :: DescribeElasticLoadBalancers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeElasticLoadBalancers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -339,15 +339,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389229"><span id="local-6989586621679389231"><span id="local-6989586621679389233"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679389227"><span class="annot"><span class="annottext">toJSON :: DescribeElasticLoadBalancers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389224"><span id="local-6989586621679389225"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679389238"><span id="local-6989586621679389240"><span id="local-6989586621679389242"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679389236"><span class="annot"><span class="annottext">toJSON :: DescribeElasticLoadBalancers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389233"><span id="local-6989586621679389234"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 stackId :: Maybe Text
 layerIds :: Maybe [Text]
 $sel:stackId:DescribeElasticLoadBalancers' :: DescribeElasticLoadBalancers -&gt; Maybe Text
 $sel:layerIds:DescribeElasticLoadBalancers' :: DescribeElasticLoadBalancers -&gt; Maybe [Text]
-</span><a href="#local-6989586621679389224"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679389233"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -359,26 +359,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679389225"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679389234"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679389224"><span class="hs-identifier hs-var">stackId</span></a></span><span>
+</span><a href="#local-6989586621679389233"><span class="hs-identifier hs-var">stackId</span></a></span><span>
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389218"><span class="annot"><span class="annottext">toPath :: DescribeElasticLoadBalancers -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679389227"><span class="annot"><span class="annottext">toPath :: DescribeElasticLoadBalancers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeElasticLoadBalancers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancers"><span class="hs-identifier hs-type">DescribeElasticLoadBalancers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679389214"><span class="annot"><span class="annottext">toQuery :: DescribeElasticLoadBalancers -&gt; QueryString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679389223"><span class="annot"><span class="annottext">toQuery :: DescribeElasticLoadBalancers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeElasticLoadBalancers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -388,7 +388,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-152"></span><span class="hs-comment">-- | Contains the response to a @DescribeElasticLoadBalancers@ request.</span><span>
 </span><span id="line-153"></span><span class="hs-comment">--</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- /See:/ 'newDescribeElasticLoadBalancersResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679389211"><span id="local-6989586621679389212"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeElasticLoadBalancersResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-var">DescribeElasticLoadBalancersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeElasticLoadBalancersResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-var">DescribeElasticLoadBalancersResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679389220"><span id="local-6989586621679389221"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeElasticLoadBalancersResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-var">DescribeElasticLoadBalancersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeElasticLoadBalancersResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-var">DescribeElasticLoadBalancersResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @ElasticLoadBalancer@ objects that describe the specified</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- Elastic Load Balancing instances.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AelasticLoadBalancers%3ADescribeElasticLoadBalancersResponse%27"><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse -&gt; Maybe [ElasticLoadBalancer]
@@ -397,7 +397,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeElasticLoadBalancersResponse%27"><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#%24sel%3AhttpStatus%3ADescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389205"><span id="local-6989586621679389207"><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679389214"><span id="local-6989586621679389216"><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse
 -&gt; DescribeElasticLoadBalancersResponse -&gt; Bool
 (DescribeElasticLoadBalancersResponse
  -&gt; DescribeElasticLoadBalancersResponse -&gt; Bool)
@@ -413,7 +413,7 @@ $c/= :: DescribeElasticLoadBalancersResponse
 -&gt; DescribeElasticLoadBalancersResponse -&gt; Bool
 $c== :: DescribeElasticLoadBalancersResponse
 -&gt; DescribeElasticLoadBalancersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389197"><span id="local-6989586621679389199"><span id="local-6989586621679389201"><span id="local-6989586621679389203"><span class="annot"><span class="annottext">ReadPrec [DescribeElasticLoadBalancersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389206"><span id="local-6989586621679389208"><span id="local-6989586621679389210"><span id="local-6989586621679389212"><span class="annot"><span class="annottext">ReadPrec [DescribeElasticLoadBalancersResponse]
 ReadPrec DescribeElasticLoadBalancersResponse
 Int -&gt; ReadS DescribeElasticLoadBalancersResponse
 ReadS [DescribeElasticLoadBalancersResponse]
@@ -433,7 +433,7 @@ readList :: ReadS [DescribeElasticLoadBalancersResponse]
 $creadList :: ReadS [DescribeElasticLoadBalancersResponse]
 readsPrec :: Int -&gt; ReadS DescribeElasticLoadBalancersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeElasticLoadBalancersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389191"><span id="local-6989586621679389193"><span id="local-6989586621679389195"><span class="annot"><span class="annottext">Int -&gt; DescribeElasticLoadBalancersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679389200"><span id="local-6989586621679389202"><span id="local-6989586621679389204"><span class="annot"><span class="annottext">Int -&gt; DescribeElasticLoadBalancersResponse -&gt; ShowS
 [DescribeElasticLoadBalancersResponse] -&gt; ShowS
 DescribeElasticLoadBalancersResponse -&gt; String
 (Int -&gt; DescribeElasticLoadBalancersResponse -&gt; ShowS)
@@ -488,8 +488,8 @@ DescribeElasticLoadBalancersResponse
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse</span></a></span><span>
 </span><span id="line-180"></span><span id="newDescribeElasticLoadBalancersResponse"><span class="annot"><span class="annottext">newDescribeElasticLoadBalancersResponse :: Int -&gt; DescribeElasticLoadBalancersResponse
-</span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#newDescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-var hs-var">newDescribeElasticLoadBalancersResponse</span></a></span></span><span> </span><span id="local-6989586621679389188"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389188"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#newDescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-var hs-var">newDescribeElasticLoadBalancersResponse</span></a></span></span><span> </span><span id="local-6989586621679389197"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse' :: Maybe [ElasticLoadBalancer]
 -&gt; Int -&gt; DescribeElasticLoadBalancersResponse
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span>
@@ -500,7 +500,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeElasticLoadBalancersResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#%24sel%3AhttpStatus%3ADescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389188"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679389197"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | A list of @ElasticLoadBalancer@ objects that describe the specified</span><span>
@@ -520,16 +520,16 @@ forall a. Maybe a
      (Maybe [ElasticLoadBalancer])
      (Maybe [ElasticLoadBalancer])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389187"><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389196"><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
 elasticLoadBalancers :: Maybe [ElasticLoadBalancer]
 $sel:elasticLoadBalancers:DescribeElasticLoadBalancersResponse' :: DescribeElasticLoadBalancersResponse -&gt; Maybe [ElasticLoadBalancer]
-</span><a href="#local-6989586621679389187"><span class="hs-identifier hs-var hs-var">elasticLoadBalancers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
-</span><a href="#local-6989586621679389187"><span class="hs-identifier hs-var">elasticLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389186"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancersResponse
-</span><a href="#local-6989586621679389186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389185"><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
-</span><a href="#local-6989586621679389185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse
-</span><a href="#local-6989586621679389186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticLoadBalancers:DescribeElasticLoadBalancersResponse' :: Maybe [ElasticLoadBalancer]
+</span><a href="#local-6989586621679389196"><span class="hs-identifier hs-var hs-var">elasticLoadBalancers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
+</span><a href="#local-6989586621679389196"><span class="hs-identifier hs-var">elasticLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389195"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancersResponse
+</span><a href="#local-6989586621679389195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389194"><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
+</span><a href="#local-6989586621679389194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse
+</span><a href="#local-6989586621679389195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticLoadBalancers:DescribeElasticLoadBalancersResponse' :: Maybe [ElasticLoadBalancer]
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#%24sel%3AelasticLoadBalancers%3ADescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-var">elasticLoadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ElasticLoadBalancer]
-</span><a href="#local-6989586621679389185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ElasticLoadBalancer] -&gt; f (Maybe [ElasticLoadBalancer]))
+</span><a href="#local-6989586621679389194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ElasticLoadBalancer] -&gt; f (Maybe [ElasticLoadBalancer]))
  -&gt; DescribeElasticLoadBalancersResponse
  -&gt; f DescribeElasticLoadBalancersResponse)
 -&gt; ((Maybe [ElasticLoadBalancer]
@@ -574,18 +574,18 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389184"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679389193"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeElasticLoadBalancersResponse' :: DescribeElasticLoadBalancersResponse -&gt; Int
-</span><a href="#local-6989586621679389184"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389184"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389183"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancersResponse
-</span><a href="#local-6989586621679389183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389182"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse
-</span><a href="#local-6989586621679389183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeElasticLoadBalancersResponse' :: Int
+</span><a href="#local-6989586621679389193"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389193"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679389192"><span class="annot"><span class="annottext">s :: DescribeElasticLoadBalancersResponse
+</span><a href="#local-6989586621679389192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679389191"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679389191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeElasticLoadBalancersResponse
+</span><a href="#local-6989586621679389192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeElasticLoadBalancersResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#%24sel%3AhttpStatus%3ADescribeElasticLoadBalancersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679389182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679389191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679389180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679389189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeElasticLoadBalancers.html#DescribeElasticLoadBalancersResponse"><span class="hs-identifier hs-type">DescribeElasticLoadBalancersResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateEndpoint' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679367604"><span id="local-6989586621679367605"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpoint"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-var">UpdateEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpoint%27"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-var">UpdateEndpoint'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679367613"><span id="local-6989586621679367614"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpoint"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-var">UpdateEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpoint%27"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-var">UpdateEndpoint'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the new model to use when updating an existing endpoint.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdesiredModelArn%3AUpdateEndpoint%27"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AdesiredModelArn%3AUpdateEndpoint%27"><span class="hs-identifier hs-var hs-var">desiredModelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AendpointArn%3AUpdateEndpoint%27"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; Text
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AendpointArn%3AUpdateEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367595"><span id="local-6989586621679367597"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367604"><span id="local-6989586621679367606"><span class="annot"><span class="annottext">UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
 (UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool)
 -&gt; (UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool) -&gt; Eq UpdateEndpoint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
 == :: UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
 $c== :: UpdateEndpoint -&gt; UpdateEndpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367586"><span id="local-6989586621679367588"><span id="local-6989586621679367590"><span id="local-6989586621679367592"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367595"><span id="local-6989586621679367597"><span id="local-6989586621679367599"><span id="local-6989586621679367601"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpoint]
 ReadPrec UpdateEndpoint
 Int -&gt; ReadS UpdateEndpoint
 ReadS [UpdateEndpoint]
@@ -94,7 +94,7 @@ readList :: ReadS [UpdateEndpoint]
 $creadList :: ReadS [UpdateEndpoint]
 readsPrec :: Int -&gt; ReadS UpdateEndpoint
 $creadsPrec :: Int -&gt; ReadS UpdateEndpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367579"><span id="local-6989586621679367581"><span id="local-6989586621679367583"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367588"><span id="local-6989586621679367590"><span id="local-6989586621679367592"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpoint -&gt; ShowS
 [UpdateEndpoint] -&gt; ShowS
 UpdateEndpoint -&gt; String
 (Int -&gt; UpdateEndpoint -&gt; ShowS)
@@ -143,8 +143,8 @@ $cfrom :: forall x. UpdateEndpoint -&gt; Rep UpdateEndpoint x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span>
 </span><span id="line-89"></span><span id="newUpdateEndpoint"><span class="annot"><span class="annottext">newUpdateEndpoint :: Text -&gt; UpdateEndpoint
-</span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#newUpdateEndpoint"><span class="hs-identifier hs-var hs-var">newUpdateEndpoint</span></a></span></span><span> </span><span id="local-6989586621679367574"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679367574"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#newUpdateEndpoint"><span class="hs-identifier hs-var hs-var">newUpdateEndpoint</span></a></span></span><span> </span><span id="local-6989586621679367583"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367583"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">UpdateEndpoint' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; UpdateEndpoint
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:desiredModelArn:UpdateEndpoint' :: Maybe Text
@@ -161,7 +161,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointArn:UpdateEndpoint' :: Text
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AendpointArn%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679367574"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span>
+</span><a href="#local-6989586621679367583"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The ARN of the new model to use when updating an existing endpoint.</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
 -&gt; (UpdateEndpoint -&gt; Maybe Text -&gt; UpdateEndpoint)
 -&gt; Lens UpdateEndpoint UpdateEndpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367571"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367580"><span class="annot"><span class="annottext">Maybe Text
 desiredModelArn :: Maybe Text
 $sel:desiredModelArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679367571"><span class="hs-identifier hs-var hs-var">desiredModelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367571"><span class="hs-identifier hs-var">desiredModelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367570"><span class="annot"><span class="annottext">s :: UpdateEndpoint
-</span><a href="#local-6989586621679367570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367569"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
-</span><a href="#local-6989586621679367570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredModelArn:UpdateEndpoint' :: Maybe Text
+</span><a href="#local-6989586621679367580"><span class="hs-identifier hs-var hs-var">desiredModelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367580"><span class="hs-identifier hs-var">desiredModelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367579"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621679367579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621679367579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredModelArn:UpdateEndpoint' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AdesiredModelArn%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">desiredModelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The desired number of inference units to be used by the model using this</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- endpoint. Each inference unit represents of a throughput of 100</span><span>
@@ -194,16 +194,16 @@ $sel:desiredModelArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Text
 -&gt; Lens
      UpdateEndpoint UpdateEndpoint (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367568"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367577"><span class="annot"><span class="annottext">Maybe Natural
 desiredInferenceUnits :: Maybe Natural
 $sel:desiredInferenceUnits:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Natural
-</span><a href="#local-6989586621679367568"><span class="hs-identifier hs-var hs-var">desiredInferenceUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367568"><span class="hs-identifier hs-var">desiredInferenceUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367567"><span class="annot"><span class="annottext">s :: UpdateEndpoint
-</span><a href="#local-6989586621679367567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367566"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
-</span><a href="#local-6989586621679367567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredInferenceUnits:UpdateEndpoint' :: Maybe Natural
+</span><a href="#local-6989586621679367577"><span class="hs-identifier hs-var hs-var">desiredInferenceUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679367577"><span class="hs-identifier hs-var">desiredInferenceUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367576"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621679367576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367575"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679367575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621679367576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredInferenceUnits:UpdateEndpoint' :: Maybe Natural
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AdesiredInferenceUnits%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">desiredInferenceUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Data access role ARN to use in case the new model is encrypted with a</span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- customer CMK.</span><span>
@@ -214,16 +214,16 @@ $sel:desiredInferenceUnits:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Natural
 -&gt; (UpdateEndpoint -&gt; Maybe Text -&gt; UpdateEndpoint)
 -&gt; Lens UpdateEndpoint UpdateEndpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367565"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367574"><span class="annot"><span class="annottext">Maybe Text
 desiredDataAccessRoleArn :: Maybe Text
 $sel:desiredDataAccessRoleArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679367565"><span class="hs-identifier hs-var hs-var">desiredDataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367565"><span class="hs-identifier hs-var">desiredDataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367564"><span class="annot"><span class="annottext">s :: UpdateEndpoint
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367563"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
-</span><a href="#local-6989586621679367564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredDataAccessRoleArn:UpdateEndpoint' :: Maybe Text
+</span><a href="#local-6989586621679367574"><span class="hs-identifier hs-var hs-var">desiredDataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367574"><span class="hs-identifier hs-var">desiredDataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367573"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621679367573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621679367573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredDataAccessRoleArn:UpdateEndpoint' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AdesiredDataAccessRoleArn%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">desiredDataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the endpoint being updated.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#updateEndpoint_endpointArn"><span class="hs-identifier hs-type">updateEndpoint_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -232,27 +232,27 @@ $sel:desiredDataAccessRoleArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Text
 -&gt; (UpdateEndpoint -&gt; Text -&gt; UpdateEndpoint)
 -&gt; Lens UpdateEndpoint UpdateEndpoint Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367562"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367571"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Text
-</span><a href="#local-6989586621679367562"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679367562"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367561"><span class="annot"><span class="annottext">s :: UpdateEndpoint
-</span><a href="#local-6989586621679367561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367560"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679367560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
-</span><a href="#local-6989586621679367561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:UpdateEndpoint' :: Text
+</span><a href="#local-6989586621679367571"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367571"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367570"><span class="annot"><span class="annottext">s :: UpdateEndpoint
+</span><a href="#local-6989586621679367570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367569"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679367569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpoint
+</span><a href="#local-6989586621679367570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:UpdateEndpoint' :: Text
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AendpointArn%3AUpdateEndpoint%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679367560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679367556"><span class="annot"><span class="annottext">request :: UpdateEndpoint -&gt; Request UpdateEndpoint
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679367565"><span class="annot"><span class="annottext">request :: UpdateEndpoint -&gt; Request UpdateEndpoint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateEndpoint -&gt; Request UpdateEndpoint
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679367552"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679367561"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateEndpoint
 -&gt; ClientResponse ClientBody
@@ -276,10 +276,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367549"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367549"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679367548"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679367548"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679367547"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679367547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367558"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367558"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679367557"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679367557"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679367556"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679367556"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateEndpointResponse
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-var">UpdateEndpointResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateEndpointResponse)
@@ -290,15 +290,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367549"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367558"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367540"><span id="local-6989586621679367542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367549"><span id="local-6989586621679367551"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679367533"><span class="annot"><span class="annottext">toHeaders :: UpdateEndpoint -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679367542"><span class="annot"><span class="annottext">toHeaders :: UpdateEndpoint -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateEndpoint -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -325,9 +325,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367523"><span id="local-6989586621679367525"><span id="local-6989586621679367527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679367521"><span class="annot"><span class="annottext">toJSON :: UpdateEndpoint -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367516"><span id="local-6989586621679367517"><span id="local-6989586621679367518"><span id="local-6989586621679367519"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367532"><span id="local-6989586621679367534"><span id="local-6989586621679367536"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679367530"><span class="annot"><span class="annottext">toJSON :: UpdateEndpoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint%27"><span class="hs-identifier hs-type">UpdateEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367525"><span id="local-6989586621679367526"><span id="local-6989586621679367527"><span id="local-6989586621679367528"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 endpointArn :: Text
@@ -338,7 +338,7 @@ $sel:endpointArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Text
 $sel:desiredDataAccessRoleArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Text
 $sel:desiredInferenceUnits:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Natural
 $sel:desiredModelArn:UpdateEndpoint' :: UpdateEndpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679367516"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367525"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -351,7 +351,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367519"><span class="hs-identifier hs-var">desiredModelArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367528"><span class="hs-identifier hs-var">desiredModelArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DesiredInferenceUnits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -359,7 +359,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367518"><span class="hs-identifier hs-var">desiredInferenceUnits</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367527"><span class="hs-identifier hs-var">desiredInferenceUnits</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DesiredDataAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -367,26 +367,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367517"><span class="hs-identifier hs-var">desiredDataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367526"><span class="hs-identifier hs-var">desiredDataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679367516"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367525"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679367510"><span class="annot"><span class="annottext">toPath :: UpdateEndpoint -&gt; ByteString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679367519"><span class="annot"><span class="annottext">toPath :: UpdateEndpoint -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateEndpoint -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpoint"><span class="hs-identifier hs-type">UpdateEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679367506"><span class="annot"><span class="annottext">toQuery :: UpdateEndpoint -&gt; QueryString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679367515"><span class="annot"><span class="annottext">toQuery :: UpdateEndpoint -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateEndpoint -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -394,12 +394,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newUpdateEndpointResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679367503"><span id="local-6989586621679367504"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpointResponse"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-var">UpdateEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpointResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-var">UpdateEndpointResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679367512"><span id="local-6989586621679367513"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpointResponse"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-var">UpdateEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpointResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-var">UpdateEndpointResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="annot"><span class="annottext">UpdateEndpointResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367498"><span id="local-6989586621679367500"><span class="annot"><span class="annottext">UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367507"><span id="local-6989586621679367509"><span class="annot"><span class="annottext">UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
 (UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool)
 -&gt; (UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool)
 -&gt; Eq UpdateEndpointResponse
@@ -408,7 +408,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
 == :: UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
 $c== :: UpdateEndpointResponse -&gt; UpdateEndpointResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367490"><span id="local-6989586621679367492"><span id="local-6989586621679367494"><span id="local-6989586621679367496"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpointResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367499"><span id="local-6989586621679367501"><span id="local-6989586621679367503"><span id="local-6989586621679367505"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpointResponse]
 ReadPrec UpdateEndpointResponse
 Int -&gt; ReadS UpdateEndpointResponse
 ReadS [UpdateEndpointResponse]
@@ -428,7 +428,7 @@ readList :: ReadS [UpdateEndpointResponse]
 $creadList :: ReadS [UpdateEndpointResponse]
 readsPrec :: Int -&gt; ReadS UpdateEndpointResponse
 $creadsPrec :: Int -&gt; ReadS UpdateEndpointResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367484"><span id="local-6989586621679367486"><span id="local-6989586621679367488"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367493"><span id="local-6989586621679367495"><span id="local-6989586621679367497"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpointResponse -&gt; ShowS
 [UpdateEndpointResponse] -&gt; ShowS
 UpdateEndpointResponse -&gt; String
 (Int -&gt; UpdateEndpointResponse -&gt; ShowS)
@@ -469,12 +469,12 @@ $cfrom :: forall x. UpdateEndpointResponse -&gt; Rep UpdateEndpointResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newUpdateEndpointResponse"><span class="annot"><span class="annottext">newUpdateEndpointResponse :: Int -&gt; UpdateEndpointResponse
-</span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#newUpdateEndpointResponse"><span class="hs-identifier hs-var hs-var">newUpdateEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679367481"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367481"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#newUpdateEndpointResponse"><span class="hs-identifier hs-var hs-var">newUpdateEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679367490"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">UpdateEndpointResponse' :: Int -&gt; UpdateEndpointResponse
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEndpointResponse' :: Int
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367481"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679367490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#updateEndpointResponse_httpStatus"><span class="hs-identifier hs-type">updateEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -484,16 +484,16 @@ $cfrom :: forall x. UpdateEndpointResponse -&gt; Rep UpdateEndpointResponse x
 -&gt; (UpdateEndpointResponse -&gt; Int -&gt; UpdateEndpointResponse)
 -&gt; Lens UpdateEndpointResponse UpdateEndpointResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367480"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367489"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateEndpointResponse' :: UpdateEndpointResponse -&gt; Int
-</span><a href="#local-6989586621679367480"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367480"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367479"><span class="annot"><span class="annottext">s :: UpdateEndpointResponse
-</span><a href="#local-6989586621679367479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367478"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointResponse
-</span><a href="#local-6989586621679367479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEndpointResponse' :: Int
+</span><a href="#local-6989586621679367489"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367489"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367488"><span class="annot"><span class="annottext">s :: UpdateEndpointResponse
+</span><a href="#local-6989586621679367488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse%27"><span class="hs-identifier hs-type">UpdateEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367487"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointResponse
+</span><a href="#local-6989586621679367488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEndpointResponse' :: Int
 </span><a href="Network.AWS.Comprehend.UpdateEndpoint.html#%24sel%3AhttpStatus%3AUpdateEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.UpdateEndpoint.html#UpdateEndpointResponse"><span class="hs-identifier hs-type">UpdateEndpointResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

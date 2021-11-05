@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newSearchIndex' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679813968"><span id="local-6989586621679813969"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchIndex"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-var">SearchIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchIndex%27"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-var">SearchIndex'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679813977"><span id="local-6989586621679813978"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchIndex"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-var">SearchIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchIndex%27"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-var">SearchIndex'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The query version.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AqueryVersion%3ASearchIndex%27"><span class="annot"><span class="annottext">SearchIndex -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AqueryVersion%3ASearchIndex%27"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AqueryString%3ASearchIndex%27"><span class="annot"><span class="annottext">SearchIndex -&gt; Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AqueryString%3ASearchIndex%27"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813958"><span id="local-6989586621679813960"><span class="annot"><span class="annottext">SearchIndex -&gt; SearchIndex -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813967"><span id="local-6989586621679813969"><span class="annot"><span class="annottext">SearchIndex -&gt; SearchIndex -&gt; Bool
 (SearchIndex -&gt; SearchIndex -&gt; Bool)
 -&gt; (SearchIndex -&gt; SearchIndex -&gt; Bool) -&gt; Eq SearchIndex
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchIndex -&gt; SearchIndex -&gt; Bool
 == :: SearchIndex -&gt; SearchIndex -&gt; Bool
 $c== :: SearchIndex -&gt; SearchIndex -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813949"><span id="local-6989586621679813951"><span id="local-6989586621679813953"><span id="local-6989586621679813955"><span class="annot"><span class="annottext">ReadPrec [SearchIndex]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813958"><span id="local-6989586621679813960"><span id="local-6989586621679813962"><span id="local-6989586621679813964"><span class="annot"><span class="annottext">ReadPrec [SearchIndex]
 ReadPrec SearchIndex
 Int -&gt; ReadS SearchIndex
 ReadS [SearchIndex]
@@ -103,7 +103,7 @@ readList :: ReadS [SearchIndex]
 $creadList :: ReadS [SearchIndex]
 readsPrec :: Int -&gt; ReadS SearchIndex
 $creadsPrec :: Int -&gt; ReadS SearchIndex
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813942"><span id="local-6989586621679813944"><span id="local-6989586621679813946"><span class="annot"><span class="annottext">Int -&gt; SearchIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813951"><span id="local-6989586621679813953"><span id="local-6989586621679813955"><span class="annot"><span class="annottext">Int -&gt; SearchIndex -&gt; ShowS
 [SearchIndex] -&gt; ShowS
 SearchIndex -&gt; String
 (Int -&gt; SearchIndex -&gt; ShowS)
@@ -152,8 +152,8 @@ $cfrom :: forall x. SearchIndex -&gt; Rep SearchIndex x
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span>
 </span><span id="line-97"></span><span id="newSearchIndex"><span class="annot"><span class="annottext">newSearchIndex :: Text -&gt; SearchIndex
-</span><a href="Network.AWS.IoT.SearchIndex.html#newSearchIndex"><span class="hs-identifier hs-var hs-var">newSearchIndex</span></a></span></span><span> </span><span id="local-6989586621679813937"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679813937"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.SearchIndex.html#newSearchIndex"><span class="hs-identifier hs-var hs-var">newSearchIndex</span></a></span></span><span> </span><span id="local-6989586621679813946"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813946"><span class="hs-identifier hs-var">pQueryString_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">SearchIndex' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; SearchIndex
 </span><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span>
@@ -175,7 +175,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryString:SearchIndex' :: Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AqueryString%3ASearchIndex%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679813937"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
+</span><a href="#local-6989586621679813946"><span class="hs-identifier hs-var">pQueryString_</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The query version.</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
 -&gt; (SearchIndex -&gt; Maybe Text -&gt; SearchIndex)
 -&gt; Lens SearchIndex SearchIndex (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813934"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813943"><span class="annot"><span class="annottext">Maybe Text
 queryVersion :: Maybe Text
 $sel:queryVersion:SearchIndex' :: SearchIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679813934"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813934"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813933"><span class="annot"><span class="annottext">s :: SearchIndex
-</span><a href="#local-6989586621679813933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813932"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
-</span><a href="#local-6989586621679813933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryVersion:SearchIndex' :: Maybe Text
+</span><a href="#local-6989586621679813943"><span class="hs-identifier hs-var hs-var">queryVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813943"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813942"><span class="annot"><span class="annottext">s :: SearchIndex
+</span><a href="#local-6989586621679813942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813941"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
+</span><a href="#local-6989586621679813942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryVersion:SearchIndex' :: Maybe Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AqueryVersion%3ASearchIndex%27"><span class="hs-identifier hs-var">queryVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The token used to get the next set of results, or @null@ if there are no</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- additional results.</span><span>
@@ -204,16 +204,16 @@ $sel:queryVersion:SearchIndex' :: SearchIndex -&gt; Maybe Text
 -&gt; (SearchIndex -&gt; Maybe Text -&gt; SearchIndex)
 -&gt; Lens SearchIndex SearchIndex (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813931"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813940"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchIndex' :: SearchIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679813931"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813931"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813930"><span class="annot"><span class="annottext">s :: SearchIndex
-</span><a href="#local-6989586621679813930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813929"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
-</span><a href="#local-6989586621679813930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchIndex' :: Maybe Text
+</span><a href="#local-6989586621679813940"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813940"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813939"><span class="annot"><span class="annottext">s :: SearchIndex
+</span><a href="#local-6989586621679813939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813938"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
+</span><a href="#local-6989586621679813939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchIndex' :: Maybe Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AnextToken%3ASearchIndex%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#searchIndex_maxResults"><span class="hs-identifier hs-type">searchIndex_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -223,16 +223,16 @@ $sel:nextToken:SearchIndex' :: SearchIndex -&gt; Maybe Text
 -&gt; (SearchIndex -&gt; Maybe Natural -&gt; SearchIndex)
 -&gt; Lens SearchIndex SearchIndex (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813928"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813937"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:SearchIndex' :: SearchIndex -&gt; Maybe Natural
-</span><a href="#local-6989586621679813928"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679813928"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813927"><span class="annot"><span class="annottext">s :: SearchIndex
-</span><a href="#local-6989586621679813927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813926"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679813926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
-</span><a href="#local-6989586621679813927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchIndex' :: Maybe Natural
+</span><a href="#local-6989586621679813937"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679813937"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813936"><span class="annot"><span class="annottext">s :: SearchIndex
+</span><a href="#local-6989586621679813936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813935"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679813935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
+</span><a href="#local-6989586621679813936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchIndex' :: Maybe Natural
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AmaxResults%3ASearchIndex%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679813926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The search index name.</span><span>
 </span><span id="line-120"></span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#searchIndex_indexName"><span class="hs-identifier hs-type">searchIndex_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -241,16 +241,16 @@ $sel:maxResults:SearchIndex' :: SearchIndex -&gt; Maybe Natural
 -&gt; (SearchIndex -&gt; Maybe Text -&gt; SearchIndex)
 -&gt; Lens SearchIndex SearchIndex (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813925"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813934"><span class="annot"><span class="annottext">Maybe Text
 indexName :: Maybe Text
 $sel:indexName:SearchIndex' :: SearchIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679813925"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813925"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813924"><span class="annot"><span class="annottext">s :: SearchIndex
-</span><a href="#local-6989586621679813924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813923"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
-</span><a href="#local-6989586621679813924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:SearchIndex' :: Maybe Text
+</span><a href="#local-6989586621679813934"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813934"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813933"><span class="annot"><span class="annottext">s :: SearchIndex
+</span><a href="#local-6989586621679813933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813932"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
+</span><a href="#local-6989586621679813933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:SearchIndex' :: Maybe Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AindexName%3ASearchIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The search query string.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#searchIndex_queryString"><span class="hs-identifier hs-type">searchIndex_queryString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -259,25 +259,25 @@ $sel:indexName:SearchIndex' :: SearchIndex -&gt; Maybe Text
 -&gt; (SearchIndex -&gt; Text -&gt; SearchIndex)
 -&gt; Lens SearchIndex SearchIndex Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813922"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813931"><span class="annot"><span class="annottext">Text
 queryString :: Text
 $sel:queryString:SearchIndex' :: SearchIndex -&gt; Text
-</span><a href="#local-6989586621679813922"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679813922"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813921"><span class="annot"><span class="annottext">s :: SearchIndex
-</span><a href="#local-6989586621679813921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813920"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679813920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
-</span><a href="#local-6989586621679813921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:SearchIndex' :: Text
+</span><a href="#local-6989586621679813931"><span class="hs-identifier hs-var hs-var">queryString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813931"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813930"><span class="annot"><span class="annottext">s :: SearchIndex
+</span><a href="#local-6989586621679813930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813929"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndex
+</span><a href="#local-6989586621679813930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryString:SearchIndex' :: Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AqueryString%3ASearchIndex%27"><span class="hs-identifier hs-var">queryString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679813920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679813916"><span class="annot"><span class="annottext">request :: SearchIndex -&gt; Request SearchIndex
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679813925"><span class="annot"><span class="annottext">request :: SearchIndex -&gt; Request SearchIndex
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchIndex -&gt; Request SearchIndex
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679813912"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679813921"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SearchIndex
 -&gt; ClientResponse ClientBody
@@ -301,10 +301,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679813909"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813909"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679813908"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679813908"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679813907"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813907"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679813918"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679813918"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679813917"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679813917"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679813916"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679813916"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
 -&gt; Maybe Text
 -&gt; Maybe [ThingDocument]
@@ -322,7 +322,7 @@ MonadResource m =&gt;
      (Maybe Text -&gt; Maybe [ThingDocument] -&gt; Int -&gt; SearchIndexResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679813916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ThingGroupDocument]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -341,7 +341,7 @@ forall a. Monoid a =&gt; a
      String (Maybe [ThingDocument] -&gt; Int -&gt; SearchIndexResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679813916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -350,7 +350,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; SearchIndexResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813907"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ThingDocument]))
+</span><a href="#local-6989586621679813916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ThingDocument]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;things&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ThingDocument]))
@@ -367,24 +367,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813909"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813918"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813898"><span id="local-6989586621679813900"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813907"><span id="local-6989586621679813909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679813891"><span class="annot"><span class="annottext">toHeaders :: SearchIndex -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679813900"><span class="annot"><span class="annottext">toHeaders :: SearchIndex -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchIndex -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813882"><span id="local-6989586621679813884"><span id="local-6989586621679813886"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679813880"><span class="annot"><span class="annottext">toJSON :: SearchIndex -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813874"><span id="local-6989586621679813875"><span id="local-6989586621679813876"><span id="local-6989586621679813877"><span id="local-6989586621679813878"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813891"><span id="local-6989586621679813893"><span id="local-6989586621679813895"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679813889"><span class="annot"><span class="annottext">toJSON :: SearchIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex%27"><span class="hs-identifier hs-type">SearchIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813883"><span id="local-6989586621679813884"><span id="local-6989586621679813885"><span id="local-6989586621679813886"><span id="local-6989586621679813887"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 queryString :: Text
@@ -397,7 +397,7 @@ $sel:indexName:SearchIndex' :: SearchIndex -&gt; Maybe Text
 $sel:maxResults:SearchIndex' :: SearchIndex -&gt; Maybe Natural
 $sel:nextToken:SearchIndex' :: SearchIndex -&gt; Maybe Text
 $sel:queryVersion:SearchIndex' :: SearchIndex -&gt; Maybe Text
-</span><a href="#local-6989586621679813874"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679813883"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -409,47 +409,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813878"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679813887"><span class="hs-identifier hs-var">queryVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813877"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679813886"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679813876"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679813885"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;indexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813875"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679813884"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queryString&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679813874"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813883"><span class="hs-identifier hs-var">queryString</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679813868"><span class="annot"><span class="annottext">toPath :: SearchIndex -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679813877"><span class="annot"><span class="annottext">toPath :: SearchIndex -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SearchIndex -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/indices/search&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndex"><span class="hs-identifier hs-type">SearchIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679813864"><span class="annot"><span class="annottext">toQuery :: SearchIndex -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679813873"><span class="annot"><span class="annottext">toQuery :: SearchIndex -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchIndex -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -457,7 +457,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newSearchIndexResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679813861"><span id="local-6989586621679813862"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchIndexResponse"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-var">SearchIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchIndexResponse%27"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-var">SearchIndexResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679813870"><span id="local-6989586621679813871"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchIndexResponse"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-var">SearchIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchIndexResponse%27"><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-var">SearchIndexResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The thing groups that match the search query.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3AthingGroups%3ASearchIndexResponse%27"><span class="annot"><span class="annottext">SearchIndexResponse -&gt; Maybe [ThingGroupDocument]
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AthingGroups%3ASearchIndexResponse%27"><span class="hs-identifier hs-var hs-var">thingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingGroupDocument.html#ThingGroupDocument"><span class="hs-identifier hs-type">ThingGroupDocument</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -472,7 +472,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASearchIndexResponse%27"><span class="annot"><span class="annottext">SearchIndexResponse -&gt; Int
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AhttpStatus%3ASearchIndexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813853"><span id="local-6989586621679813855"><span class="annot"><span class="annottext">SearchIndexResponse -&gt; SearchIndexResponse -&gt; Bool
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813862"><span id="local-6989586621679813864"><span class="annot"><span class="annottext">SearchIndexResponse -&gt; SearchIndexResponse -&gt; Bool
 (SearchIndexResponse -&gt; SearchIndexResponse -&gt; Bool)
 -&gt; (SearchIndexResponse -&gt; SearchIndexResponse -&gt; Bool)
 -&gt; Eq SearchIndexResponse
@@ -481,7 +481,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SearchIndexResponse -&gt; SearchIndexResponse -&gt; Bool
 == :: SearchIndexResponse -&gt; SearchIndexResponse -&gt; Bool
 $c== :: SearchIndexResponse -&gt; SearchIndexResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813845"><span id="local-6989586621679813847"><span id="local-6989586621679813849"><span id="local-6989586621679813851"><span class="annot"><span class="annottext">ReadPrec [SearchIndexResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813854"><span id="local-6989586621679813856"><span id="local-6989586621679813858"><span id="local-6989586621679813860"><span class="annot"><span class="annottext">ReadPrec [SearchIndexResponse]
 ReadPrec SearchIndexResponse
 Int -&gt; ReadS SearchIndexResponse
 ReadS [SearchIndexResponse]
@@ -501,7 +501,7 @@ readList :: ReadS [SearchIndexResponse]
 $creadList :: ReadS [SearchIndexResponse]
 readsPrec :: Int -&gt; ReadS SearchIndexResponse
 $creadsPrec :: Int -&gt; ReadS SearchIndexResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813839"><span id="local-6989586621679813841"><span id="local-6989586621679813843"><span class="annot"><span class="annottext">Int -&gt; SearchIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813848"><span id="local-6989586621679813850"><span id="local-6989586621679813852"><span class="annot"><span class="annottext">Int -&gt; SearchIndexResponse -&gt; ShowS
 [SearchIndexResponse] -&gt; ShowS
 SearchIndexResponse -&gt; String
 (Int -&gt; SearchIndexResponse -&gt; ShowS)
@@ -548,8 +548,8 @@ $cfrom :: forall x. SearchIndexResponse -&gt; Rep SearchIndexResponse x
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span>
 </span><span id="line-199"></span><span id="newSearchIndexResponse"><span class="annot"><span class="annottext">newSearchIndexResponse :: Int -&gt; SearchIndexResponse
-</span><a href="Network.AWS.IoT.SearchIndex.html#newSearchIndexResponse"><span class="hs-identifier hs-var hs-var">newSearchIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679813836"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.SearchIndex.html#newSearchIndexResponse"><span class="hs-identifier hs-var hs-var">newSearchIndexResponse</span></a></span></span><span> </span><span id="local-6989586621679813845"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679813845"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">SearchIndexResponse' :: Maybe [ThingGroupDocument]
 -&gt; Maybe Text
 -&gt; Maybe [ThingDocument]
@@ -570,7 +570,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SearchIndexResponse' :: Int
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AhttpStatus%3ASearchIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813836"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679813845"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The thing groups that match the search query.</span><span>
@@ -586,16 +586,16 @@ forall a. Maybe a
      (Maybe [ThingGroupDocument])
      (Maybe [ThingGroupDocument])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813835"><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813844"><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
 thingGroups :: Maybe [ThingGroupDocument]
 $sel:thingGroups:SearchIndexResponse' :: SearchIndexResponse -&gt; Maybe [ThingGroupDocument]
-</span><a href="#local-6989586621679813835"><span class="hs-identifier hs-var hs-var">thingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
-</span><a href="#local-6989586621679813835"><span class="hs-identifier hs-var">thingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813834"><span class="annot"><span class="annottext">s :: SearchIndexResponse
-</span><a href="#local-6989586621679813834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813833"><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
-</span><a href="#local-6989586621679813833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
-</span><a href="#local-6989586621679813834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroups:SearchIndexResponse' :: Maybe [ThingGroupDocument]
+</span><a href="#local-6989586621679813844"><span class="hs-identifier hs-var hs-var">thingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
+</span><a href="#local-6989586621679813844"><span class="hs-identifier hs-var">thingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813843"><span class="annot"><span class="annottext">s :: SearchIndexResponse
+</span><a href="#local-6989586621679813843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813842"><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
+</span><a href="#local-6989586621679813842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
+</span><a href="#local-6989586621679813843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingGroups:SearchIndexResponse' :: Maybe [ThingGroupDocument]
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AthingGroups%3ASearchIndexResponse%27"><span class="hs-identifier hs-var">thingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ThingGroupDocument]
-</span><a href="#local-6989586621679813833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ThingGroupDocument] -&gt; f (Maybe [ThingGroupDocument]))
+</span><a href="#local-6989586621679813842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ThingGroupDocument] -&gt; f (Maybe [ThingGroupDocument]))
  -&gt; SearchIndexResponse -&gt; f SearchIndexResponse)
 -&gt; ((Maybe [ThingGroupDocument] -&gt; f (Maybe [ThingGroupDocument]))
     -&gt; Maybe [ThingGroupDocument] -&gt; f (Maybe [ThingGroupDocument]))
@@ -634,16 +634,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; Lens
      SearchIndexResponse SearchIndexResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813829"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813838"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:SearchIndexResponse' :: SearchIndexResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679813829"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813829"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813828"><span class="annot"><span class="annottext">s :: SearchIndexResponse
-</span><a href="#local-6989586621679813828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813827"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
-</span><a href="#local-6989586621679813828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchIndexResponse' :: Maybe Text
+</span><a href="#local-6989586621679813838"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813838"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813837"><span class="annot"><span class="annottext">s :: SearchIndexResponse
+</span><a href="#local-6989586621679813837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813836"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679813836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
+</span><a href="#local-6989586621679813837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchIndexResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AnextToken%3ASearchIndexResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The things that match the search query.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#searchIndexResponse_things"><span class="hs-identifier hs-type">searchIndexResponse_things</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.ThingDocument.html#ThingDocument"><span class="hs-identifier hs-type">ThingDocument</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -658,16 +658,16 @@ $sel:nextToken:SearchIndexResponse' :: SearchIndexResponse -&gt; Maybe Text
      (Maybe [ThingDocument])
      (Maybe [ThingDocument])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813826"><span class="annot"><span class="annottext">Maybe [ThingDocument]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813835"><span class="annot"><span class="annottext">Maybe [ThingDocument]
 things :: Maybe [ThingDocument]
 $sel:things:SearchIndexResponse' :: SearchIndexResponse -&gt; Maybe [ThingDocument]
-</span><a href="#local-6989586621679813826"><span class="hs-identifier hs-var hs-var">things</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ThingDocument]
-</span><a href="#local-6989586621679813826"><span class="hs-identifier hs-var">things</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813825"><span class="annot"><span class="annottext">s :: SearchIndexResponse
-</span><a href="#local-6989586621679813825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813824"><span class="annot"><span class="annottext">Maybe [ThingDocument]
-</span><a href="#local-6989586621679813824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
-</span><a href="#local-6989586621679813825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:things:SearchIndexResponse' :: Maybe [ThingDocument]
+</span><a href="#local-6989586621679813835"><span class="hs-identifier hs-var hs-var">things</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ThingDocument]
+</span><a href="#local-6989586621679813835"><span class="hs-identifier hs-var">things</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813834"><span class="annot"><span class="annottext">s :: SearchIndexResponse
+</span><a href="#local-6989586621679813834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813833"><span class="annot"><span class="annottext">Maybe [ThingDocument]
+</span><a href="#local-6989586621679813833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
+</span><a href="#local-6989586621679813834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:things:SearchIndexResponse' :: Maybe [ThingDocument]
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3Athings%3ASearchIndexResponse%27"><span class="hs-identifier hs-var">things</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ThingDocument]
-</span><a href="#local-6989586621679813824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ThingDocument] -&gt; f (Maybe [ThingDocument]))
+</span><a href="#local-6989586621679813833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ThingDocument] -&gt; f (Maybe [ThingDocument]))
  -&gt; SearchIndexResponse -&gt; f SearchIndexResponse)
 -&gt; ((Maybe [ThingDocument] -&gt; f (Maybe [ThingDocument]))
     -&gt; Maybe [ThingDocument] -&gt; f (Maybe [ThingDocument]))
@@ -697,16 +697,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (SearchIndexResponse -&gt; Int -&gt; SearchIndexResponse)
 -&gt; Lens SearchIndexResponse SearchIndexResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813823"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813832"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:SearchIndexResponse' :: SearchIndexResponse -&gt; Int
-</span><a href="#local-6989586621679813823"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813823"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813822"><span class="annot"><span class="annottext">s :: SearchIndexResponse
-</span><a href="#local-6989586621679813822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813821"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
-</span><a href="#local-6989586621679813822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchIndexResponse' :: Int
+</span><a href="#local-6989586621679813832"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679813832"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813831"><span class="annot"><span class="annottext">s :: SearchIndexResponse
+</span><a href="#local-6989586621679813831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse%27"><span class="hs-identifier hs-type">SearchIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679813830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchIndexResponse
+</span><a href="#local-6989586621679813831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SearchIndexResponse' :: Int
 </span><a href="Network.AWS.IoT.SearchIndex.html#%24sel%3AhttpStatus%3ASearchIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813819"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.SearchIndex.html#SearchIndexResponse"><span class="hs-identifier hs-type">SearchIndexResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

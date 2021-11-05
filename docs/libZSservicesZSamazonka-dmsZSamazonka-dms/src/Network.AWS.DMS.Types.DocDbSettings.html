@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides information that defines a DocumentDB endpoint.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDocDbSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679434290"><span id="local-6989586621679434291"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocDbSettings"><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-var">DocDbSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocDbSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-var">DocDbSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679434299"><span id="local-6989586621679434300"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocDbSettings"><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-var">DocDbSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocDbSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-var">DocDbSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the server on the DocumentDB source endpoint.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AserverName%3ADocDbSettings%27"><span class="annot"><span class="annottext">DocDbSettings -&gt; Maybe Text
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AserverName%3ADocDbSettings%27"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -92,7 +92,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3Aport%3ADocDbSettings%27"><span class="annot"><span class="annottext">DocDbSettings -&gt; Maybe Int
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3Aport%3ADocDbSettings%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434274"><span id="local-6989586621679434276"><span class="annot"><span class="annottext">DocDbSettings -&gt; DocDbSettings -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434283"><span id="local-6989586621679434285"><span class="annot"><span class="annottext">DocDbSettings -&gt; DocDbSettings -&gt; Bool
 (DocDbSettings -&gt; DocDbSettings -&gt; Bool)
 -&gt; (DocDbSettings -&gt; DocDbSettings -&gt; Bool) -&gt; Eq DocDbSettings
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocDbSettings -&gt; DocDbSettings -&gt; Bool
 == :: DocDbSettings -&gt; DocDbSettings -&gt; Bool
 $c== :: DocDbSettings -&gt; DocDbSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434267"><span id="local-6989586621679434269"><span id="local-6989586621679434271"><span class="annot"><span class="annottext">Int -&gt; DocDbSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434276"><span id="local-6989586621679434278"><span id="local-6989586621679434280"><span class="annot"><span class="annottext">Int -&gt; DocDbSettings -&gt; ShowS
 [DocDbSettings] -&gt; ShowS
 DocDbSettings -&gt; String
 (Int -&gt; DocDbSettings -&gt; ShowS)
@@ -255,16 +255,16 @@ forall a. Maybe a
 -&gt; (DocDbSettings -&gt; Maybe Text -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434258"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434267"><span class="annot"><span class="annottext">Maybe Text
 serverName :: Maybe Text
 $sel:serverName:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679434258"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434258"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434257"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434256"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:DocDbSettings' :: Maybe Text
+</span><a href="#local-6989586621679434267"><span class="hs-identifier hs-var hs-var">serverName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434267"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434266"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434265"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverName:DocDbSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AserverName%3ADocDbSettings%27"><span class="hs-identifier hs-var">serverName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- as the trusted entity and grants the required permissions to access the</span><span>
@@ -286,16 +286,16 @@ $sel:serverName:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
 -&gt; (DocDbSettings -&gt; Maybe Text -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434254"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434263"><span class="annot"><span class="annottext">Maybe Text
 secretsManagerAccessRoleArn :: Maybe Text
 $sel:secretsManagerAccessRoleArn:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679434254"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434254"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434253"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434252"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:DocDbSettings' :: Maybe Text
+</span><a href="#local-6989586621679434263"><span class="hs-identifier hs-var hs-var">secretsManagerAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434263"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434262"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434261"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerAccessRoleArn:DocDbSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AsecretsManagerAccessRoleArn%3ADocDbSettings%27"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The user name you use to access the DocumentDB source endpoint.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#docDbSettings_username"><span class="hs-identifier hs-type">docDbSettings_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -304,16 +304,16 @@ $sel:secretsManagerAccessRoleArn:DocDbSettings' :: DocDbSettings -&gt; Maybe Tex
 -&gt; (DocDbSettings -&gt; Maybe Text -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434250"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434259"><span class="annot"><span class="annottext">Maybe Text
 username :: Maybe Text
 $sel:username:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679434250"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434250"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434249"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434248"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:DocDbSettings' :: Maybe Text
+</span><a href="#local-6989586621679434259"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434259"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434258"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434257"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:DocDbSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3Ausername%3ADocDbSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The KMS key identifier that is used to encrypt the content on the</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- replication instance. If you don\'t specify a value for the @KmsKeyId@</span><span>
@@ -327,16 +327,16 @@ $sel:username:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
 -&gt; (DocDbSettings -&gt; Maybe Text -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434246"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434255"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679434246"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434246"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434245"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434244"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:DocDbSettings' :: Maybe Text
+</span><a href="#local-6989586621679434255"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434255"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434254"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434253"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:DocDbSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AkmsKeyId%3ADocDbSettings%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The password for the user account you use to access the DocumentDB</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- source endpoint.</span><span>
@@ -350,16 +350,16 @@ $sel:kmsKeyId:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434242"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434251"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 password :: Maybe (Sensitive Text)
 $sel:password:DocDbSettings' :: DocDbSettings -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679434242"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679434242"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434241"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434240"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679434240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:DocDbSettings' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679434251"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679434251"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434250"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434249"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679434249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:DocDbSettings' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3Apassword%3ADocDbSettings%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679434240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679434249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DocDbSettings -&gt; f DocDbSettings)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -395,16 +395,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe NestingLevelValue)
      (Maybe NestingLevelValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434235"><span class="annot"><span class="annottext">Maybe NestingLevelValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434244"><span class="annot"><span class="annottext">Maybe NestingLevelValue
 nestingLevel :: Maybe NestingLevelValue
 $sel:nestingLevel:DocDbSettings' :: DocDbSettings -&gt; Maybe NestingLevelValue
-</span><a href="#local-6989586621679434235"><span class="hs-identifier hs-var hs-var">nestingLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
-</span><a href="#local-6989586621679434235"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434234"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434233"><span class="annot"><span class="annottext">Maybe NestingLevelValue
-</span><a href="#local-6989586621679434233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nestingLevel:DocDbSettings' :: Maybe NestingLevelValue
+</span><a href="#local-6989586621679434244"><span class="hs-identifier hs-var hs-var">nestingLevel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
+</span><a href="#local-6989586621679434244"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434243"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434242"><span class="annot"><span class="annottext">Maybe NestingLevelValue
+</span><a href="#local-6989586621679434242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nestingLevel:DocDbSettings' :: Maybe NestingLevelValue
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AnestingLevel%3ADocDbSettings%27"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
-</span><a href="#local-6989586621679434233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The database name on the DocumentDB source endpoint.</span><span>
 </span><span id="line-209"></span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#docDbSettings_databaseName"><span class="hs-identifier hs-type">docDbSettings_databaseName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -413,16 +413,16 @@ $sel:nestingLevel:DocDbSettings' :: DocDbSettings -&gt; Maybe NestingLevelValue
 -&gt; (DocDbSettings -&gt; Maybe Text -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434231"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434240"><span class="annot"><span class="annottext">Maybe Text
 databaseName :: Maybe Text
 $sel:databaseName:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679434231"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434231"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434230"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434229"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DocDbSettings' :: Maybe Text
+</span><a href="#local-6989586621679434240"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434240"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434239"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434238"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:DocDbSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AdatabaseName%3ADocDbSettings%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Indicates the number of documents to preview to determine the document</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- organization. Use this setting when @NestingLevel@ is set to @\&quot;one\&quot;@.</span><span>
@@ -434,16 +434,16 @@ $sel:databaseName:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
 -&gt; (DocDbSettings -&gt; Maybe Int -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434227"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434236"><span class="annot"><span class="annottext">Maybe Int
 docsToInvestigate :: Maybe Int
 $sel:docsToInvestigate:DocDbSettings' :: DocDbSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679434227"><span class="hs-identifier hs-var hs-var">docsToInvestigate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434227"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434226"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434225"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:docsToInvestigate:DocDbSettings' :: Maybe Int
+</span><a href="#local-6989586621679434236"><span class="hs-identifier hs-var hs-var">docsToInvestigate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679434236"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434235"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434234"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679434234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:docsToInvestigate:DocDbSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AdocsToInvestigate%3ADocDbSettings%27"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The full ARN, partial ARN, or friendly name of the</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- @SecretsManagerSecret@ that contains the DocumentDB endpoint connection</span><span>
@@ -454,16 +454,16 @@ $sel:docsToInvestigate:DocDbSettings' :: DocDbSettings -&gt; Maybe Int
 -&gt; (DocDbSettings -&gt; Maybe Text -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434223"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434232"><span class="annot"><span class="annottext">Maybe Text
 secretsManagerSecretId :: Maybe Text
 $sel:secretsManagerSecretId:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679434223"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434223"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434222"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434221"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:DocDbSettings' :: Maybe Text
+</span><a href="#local-6989586621679434232"><span class="hs-identifier hs-var hs-var">secretsManagerSecretId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434232"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434231"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434230"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretsManagerSecretId:DocDbSettings' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AsecretsManagerSecretId%3ADocDbSettings%27"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | Specifies the document ID. Use this setting when @NestingLevel@ is set</span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- to @\&quot;none\&quot;@.</span><span>
@@ -475,16 +475,16 @@ $sel:secretsManagerSecretId:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
 -&gt; (DocDbSettings -&gt; Maybe Bool -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434219"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434228"><span class="annot"><span class="annottext">Maybe Bool
 extractDocId :: Maybe Bool
 $sel:extractDocId:DocDbSettings' :: DocDbSettings -&gt; Maybe Bool
-</span><a href="#local-6989586621679434219"><span class="hs-identifier hs-var hs-var">extractDocId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679434219"><span class="hs-identifier hs-var">extractDocId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434218"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434217"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679434217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extractDocId:DocDbSettings' :: Maybe Bool
+</span><a href="#local-6989586621679434228"><span class="hs-identifier hs-var hs-var">extractDocId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679434228"><span class="hs-identifier hs-var">extractDocId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434227"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434226"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679434226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extractDocId:DocDbSettings' :: Maybe Bool
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3AextractDocId%3ADocDbSettings%27"><span class="hs-identifier hs-var">extractDocId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679434217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | The port value for the DocumentDB source endpoint.</span><span>
 </span><span id="line-233"></span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#docDbSettings_port"><span class="hs-identifier hs-type">docDbSettings_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -493,19 +493,19 @@ $sel:extractDocId:DocDbSettings' :: DocDbSettings -&gt; Maybe Bool
 -&gt; (DocDbSettings -&gt; Maybe Int -&gt; DocDbSettings)
 -&gt; Lens DocDbSettings DocDbSettings (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434215"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434224"><span class="annot"><span class="annottext">Maybe Int
 port :: Maybe Int
 $sel:port:DocDbSettings' :: DocDbSettings -&gt; Maybe Int
-</span><a href="#local-6989586621679434215"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434215"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434214"><span class="annot"><span class="annottext">s :: DocDbSettings
-</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434213"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
-</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:DocDbSettings' :: Maybe Int
+</span><a href="#local-6989586621679434224"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679434224"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434223"><span class="annot"><span class="annottext">s :: DocDbSettings
+</span><a href="#local-6989586621679434223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434222"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679434222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocDbSettings
+</span><a href="#local-6989586621679434223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:DocDbSettings' :: Maybe Int
 </span><a href="Network.AWS.DMS.Types.DocDbSettings.html#%24sel%3Aport%3ADocDbSettings%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434210"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679434208"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocDbSettings
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434219"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679434217"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocDbSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocDbSettings)
@@ -515,8 +515,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocDbSettings&quot;</span></span><span>
-</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434205"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434214"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -557,7 +557,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServerName&quot;</span></span><span class="hs-special">)</span><span>
@@ -587,7 +587,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -615,7 +615,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
@@ -641,7 +641,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -665,7 +665,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span class="hs-special">)</span><span>
@@ -687,7 +687,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NestingLevelValue)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NestingLevelValue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NestingLevel&quot;</span></span><span class="hs-special">)</span><span>
@@ -704,7 +704,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span class="hs-special">)</span><span>
@@ -715,7 +715,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocsToInvestigate&quot;</span></span><span class="hs-special">)</span><span>
@@ -724,7 +724,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool -&gt; Maybe Int -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span class="hs-special">)</span><span>
@@ -732,7 +732,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Int -&gt; DocDbSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExtractDocId&quot;</span></span><span class="hs-special">)</span><span>
@@ -740,19 +740,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser DocDbSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679434214"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434199"><span id="local-6989586621679434201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434208"><span id="local-6989586621679434210"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span></span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434205"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434188"><span id="local-6989586621679434190"><span id="local-6989586621679434192"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679434186"><span class="annot"><span class="annottext">toJSON :: DocDbSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434174"><span id="local-6989586621679434175"><span id="local-6989586621679434176"><span id="local-6989586621679434177"><span id="local-6989586621679434178"><span id="local-6989586621679434179"><span id="local-6989586621679434180"><span id="local-6989586621679434181"><span id="local-6989586621679434182"><span id="local-6989586621679434183"><span id="local-6989586621679434184"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434197"><span id="local-6989586621679434199"><span id="local-6989586621679434201"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings"><span class="hs-identifier hs-type">DocDbSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679434195"><span class="annot"><span class="annottext">toJSON :: DocDbSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DocDbSettings.html#DocDbSettings%27"><span class="hs-identifier hs-type">DocDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434183"><span id="local-6989586621679434184"><span id="local-6989586621679434185"><span id="local-6989586621679434186"><span id="local-6989586621679434187"><span id="local-6989586621679434188"><span id="local-6989586621679434189"><span id="local-6989586621679434190"><span id="local-6989586621679434191"><span id="local-6989586621679434192"><span id="local-6989586621679434193"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe Text
 Maybe (Sensitive Text)
@@ -779,7 +779,7 @@ $sel:kmsKeyId:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
 $sel:username:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
 $sel:secretsManagerAccessRoleArn:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
 $sel:serverName:DocDbSettings' :: DocDbSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679434174"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679434183"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-261"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-262"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -791,7 +791,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434184"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434193"><span class="hs-identifier hs-var">serverName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -799,28 +799,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434183"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434192"><span class="hs-identifier hs-var">secretsManagerAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434182"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434191"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434181"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434190"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679434180"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434189"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NestingLevel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NestingLevelValue -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -828,14 +828,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NestingLevelValue -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NestingLevelValue
-</span><a href="#local-6989586621679434179"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434188"><span class="hs-identifier hs-var">nestingLevel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434178"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434187"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-271"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocsToInvestigate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -843,7 +843,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-272"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434177"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434186"><span class="hs-identifier hs-var">docsToInvestigate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-273"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretsManagerSecretId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -851,21 +851,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-274"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434176"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434185"><span class="hs-identifier hs-var">secretsManagerSecretId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-275"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExtractDocId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679434175"><span class="hs-identifier hs-var">extractDocId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434184"><span class="hs-identifier hs-var">extractDocId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Port&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679434174"><span class="hs-identifier hs-var">port</span></a></span><span>
+</span><a href="#local-6989586621679434183"><span class="hs-identifier hs-var">port</span></a></span><span>
 </span><span id="line-277"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-278"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span></pre></body></html>

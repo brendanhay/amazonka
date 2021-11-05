@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newListContactFlows' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679416769"><span id="local-6989586621679416770"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContactFlows"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-var">ListContactFlows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContactFlows%27"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-var">ListContactFlows'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679416778"><span id="local-6989586621679416779"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContactFlows"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-var">ListContactFlows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContactFlows%27"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-var">ListContactFlows'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of contact flow.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AcontactFlowTypes%3AListContactFlows%27"><span class="annot"><span class="annottext">ListContactFlows -&gt; Maybe [ContactFlowType]
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AcontactFlowTypes%3AListContactFlows%27"><span class="hs-identifier hs-var hs-var">contactFlowTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowType.html#ContactFlowType"><span class="hs-identifier hs-type">ContactFlowType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AinstanceId%3AListContactFlows%27"><span class="annot"><span class="annottext">ListContactFlows -&gt; Text
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AinstanceId%3AListContactFlows%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416760"><span id="local-6989586621679416762"><span class="annot"><span class="annottext">ListContactFlows -&gt; ListContactFlows -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416769"><span id="local-6989586621679416771"><span class="annot"><span class="annottext">ListContactFlows -&gt; ListContactFlows -&gt; Bool
 (ListContactFlows -&gt; ListContactFlows -&gt; Bool)
 -&gt; (ListContactFlows -&gt; ListContactFlows -&gt; Bool)
 -&gt; Eq ListContactFlows
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListContactFlows -&gt; ListContactFlows -&gt; Bool
 == :: ListContactFlows -&gt; ListContactFlows -&gt; Bool
 $c== :: ListContactFlows -&gt; ListContactFlows -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416751"><span id="local-6989586621679416753"><span id="local-6989586621679416755"><span id="local-6989586621679416757"><span class="annot"><span class="annottext">ReadPrec [ListContactFlows]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416760"><span id="local-6989586621679416762"><span id="local-6989586621679416764"><span id="local-6989586621679416766"><span class="annot"><span class="annottext">ReadPrec [ListContactFlows]
 ReadPrec ListContactFlows
 Int -&gt; ReadS ListContactFlows
 ReadS [ListContactFlows]
@@ -107,7 +107,7 @@ readList :: ReadS [ListContactFlows]
 $creadList :: ReadS [ListContactFlows]
 readsPrec :: Int -&gt; ReadS ListContactFlows
 $creadsPrec :: Int -&gt; ReadS ListContactFlows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416744"><span id="local-6989586621679416746"><span id="local-6989586621679416748"><span class="annot"><span class="annottext">Int -&gt; ListContactFlows -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416753"><span id="local-6989586621679416755"><span id="local-6989586621679416757"><span class="annot"><span class="annottext">Int -&gt; ListContactFlows -&gt; ShowS
 [ListContactFlows] -&gt; ShowS
 ListContactFlows -&gt; String
 (Int -&gt; ListContactFlows -&gt; ShowS)
@@ -156,8 +156,8 @@ $cfrom :: forall x. ListContactFlows -&gt; Rep ListContactFlows x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span>
 </span><span id="line-101"></span><span id="newListContactFlows"><span class="annot"><span class="annottext">newListContactFlows :: Text -&gt; ListContactFlows
-</span><a href="Network.AWS.Connect.ListContactFlows.html#newListContactFlows"><span class="hs-identifier hs-var hs-var">newListContactFlows</span></a></span></span><span> </span><span id="local-6989586621679416739"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416739"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.ListContactFlows.html#newListContactFlows"><span class="hs-identifier hs-var hs-var">newListContactFlows</span></a></span></span><span> </span><span id="local-6989586621679416748"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416748"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">ListContactFlows' :: Maybe [ContactFlowType]
 -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListContactFlows
 </span><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span>
@@ -176,7 +176,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListContactFlows' :: Text
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AinstanceId%3AListContactFlows%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416739"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679416748"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The type of contact flow.</span><span>
@@ -192,16 +192,16 @@ forall a. Maybe a
      (Maybe [ContactFlowType])
      (Maybe [ContactFlowType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416737"><span class="annot"><span class="annottext">Maybe [ContactFlowType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416746"><span class="annot"><span class="annottext">Maybe [ContactFlowType]
 contactFlowTypes :: Maybe [ContactFlowType]
 $sel:contactFlowTypes:ListContactFlows' :: ListContactFlows -&gt; Maybe [ContactFlowType]
-</span><a href="#local-6989586621679416737"><span class="hs-identifier hs-var hs-var">contactFlowTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactFlowType]
-</span><a href="#local-6989586621679416737"><span class="hs-identifier hs-var">contactFlowTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416736"><span class="annot"><span class="annottext">s :: ListContactFlows
-</span><a href="#local-6989586621679416736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416735"><span class="annot"><span class="annottext">Maybe [ContactFlowType]
-</span><a href="#local-6989586621679416735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
-</span><a href="#local-6989586621679416736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowTypes:ListContactFlows' :: Maybe [ContactFlowType]
+</span><a href="#local-6989586621679416746"><span class="hs-identifier hs-var hs-var">contactFlowTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactFlowType]
+</span><a href="#local-6989586621679416746"><span class="hs-identifier hs-var">contactFlowTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416745"><span class="annot"><span class="annottext">s :: ListContactFlows
+</span><a href="#local-6989586621679416745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416744"><span class="annot"><span class="annottext">Maybe [ContactFlowType]
+</span><a href="#local-6989586621679416744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
+</span><a href="#local-6989586621679416745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowTypes:ListContactFlows' :: Maybe [ContactFlowType]
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AcontactFlowTypes%3AListContactFlows%27"><span class="hs-identifier hs-var">contactFlowTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactFlowType]
-</span><a href="#local-6989586621679416735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactFlowType] -&gt; f (Maybe [ContactFlowType]))
+</span><a href="#local-6989586621679416744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactFlowType] -&gt; f (Maybe [ContactFlowType]))
  -&gt; ListContactFlows -&gt; f ListContactFlows)
 -&gt; ((Maybe [ContactFlowType] -&gt; f (Maybe [ContactFlowType]))
     -&gt; Maybe [ContactFlowType] -&gt; f (Maybe [ContactFlowType]))
@@ -240,16 +240,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ListContactFlows -&gt; Maybe Text -&gt; ListContactFlows)
 -&gt; Lens ListContactFlows ListContactFlows (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416731"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416740"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListContactFlows' :: ListContactFlows -&gt; Maybe Text
-</span><a href="#local-6989586621679416731"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416731"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416730"><span class="annot"><span class="annottext">s :: ListContactFlows
-</span><a href="#local-6989586621679416730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416729"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
-</span><a href="#local-6989586621679416730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContactFlows' :: Maybe Text
+</span><a href="#local-6989586621679416740"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416740"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416739"><span class="annot"><span class="annottext">s :: ListContactFlows
+</span><a href="#local-6989586621679416739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416738"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
+</span><a href="#local-6989586621679416739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContactFlows' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AnextToken%3AListContactFlows%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#listContactFlows_maxResults"><span class="hs-identifier hs-type">listContactFlows_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -260,16 +260,16 @@ $sel:nextToken:ListContactFlows' :: ListContactFlows -&gt; Maybe Text
 -&gt; Lens
      ListContactFlows ListContactFlows (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416728"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416737"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListContactFlows' :: ListContactFlows -&gt; Maybe Natural
-</span><a href="#local-6989586621679416728"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416728"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416727"><span class="annot"><span class="annottext">s :: ListContactFlows
-</span><a href="#local-6989586621679416727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416726"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
-</span><a href="#local-6989586621679416727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListContactFlows' :: Maybe Natural
+</span><a href="#local-6989586621679416737"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679416737"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416736"><span class="annot"><span class="annottext">s :: ListContactFlows
+</span><a href="#local-6989586621679416736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416735"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679416735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
+</span><a href="#local-6989586621679416736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListContactFlows' :: Maybe Natural
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AmaxResults%3AListContactFlows%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -279,29 +279,29 @@ $sel:maxResults:ListContactFlows' :: ListContactFlows -&gt; Maybe Natural
 -&gt; (ListContactFlows -&gt; Text -&gt; ListContactFlows)
 -&gt; Lens ListContactFlows ListContactFlows Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416725"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416734"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:ListContactFlows' :: ListContactFlows -&gt; Text
-</span><a href="#local-6989586621679416725"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416725"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416724"><span class="annot"><span class="annottext">s :: ListContactFlows
-</span><a href="#local-6989586621679416724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416723"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
-</span><a href="#local-6989586621679416724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListContactFlows' :: Text
+</span><a href="#local-6989586621679416734"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416734"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416733"><span class="annot"><span class="annottext">s :: ListContactFlows
+</span><a href="#local-6989586621679416733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlows
+</span><a href="#local-6989586621679416733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListContactFlows' :: Text
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AinstanceId%3AListContactFlows%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679416719"><span class="annot"><span class="annottext">page :: ListContactFlows
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679416728"><span class="annot"><span class="annottext">page :: ListContactFlows
 -&gt; AWSResponse ListContactFlows -&gt; Maybe ListContactFlows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416717"><span class="annot"><span class="annottext">ListContactFlows
-</span><a href="#local-6989586621679416717"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416716"><span class="annot"><span class="annottext">AWSResponse ListContactFlows
-</span><a href="#local-6989586621679416716"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679416726"><span class="annot"><span class="annottext">ListContactFlows
+</span><a href="#local-6989586621679416726"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679416725"><span class="annot"><span class="annottext">AWSResponse ListContactFlows
+</span><a href="#local-6989586621679416725"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListContactFlows
 ListContactFlowsResponse
-</span><a href="#local-6989586621679416716"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416725"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">ListContactFlowsResponse
 -&gt; Getting (First Text) ListContactFlowsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -330,7 +330,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListContactFlows
 ListContactFlowsResponse
-</span><a href="#local-6989586621679416716"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416725"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">ListContactFlowsResponse
 -&gt; Getting
      (First [ContactFlowSummary])
@@ -376,7 +376,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ListContactFlows
-</span><a href="#local-6989586621679416717"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679416726"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ListContactFlows
 -&gt; (ListContactFlows -&gt; ListContactFlows) -&gt; ListContactFlows
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -390,7 +390,7 @@ Lens ListContactFlows ListContactFlows (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListContactFlows
 ListContactFlowsResponse
-</span><a href="#local-6989586621679416716"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679416725"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">ListContactFlowsResponse
 -&gt; Getting (First Text) ListContactFlowsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -415,12 +415,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679416707"><span class="annot"><span class="annottext">request :: ListContactFlows -&gt; Request ListContactFlows
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679416716"><span class="annot"><span class="annottext">request :: ListContactFlows -&gt; Request ListContactFlows
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListContactFlows -&gt; Request ListContactFlows
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679416703"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679416712"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListContactFlows
 -&gt; ClientResponse ClientBody
@@ -444,10 +444,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416700"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416700"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416699"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416699"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416698"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416709"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416709"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416708"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416708"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679416707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListContactFlowsResponse
 </span><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-var">ListContactFlowsResponse'</span></a></span><span>
@@ -457,7 +457,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; ListContactFlowsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679416707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ContactFlowSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -475,7 +475,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; ListContactFlowsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679416698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -487,15 +487,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416700"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416709"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416689"><span id="local-6989586621679416691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416698"><span id="local-6989586621679416700"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span></span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416695"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679416682"><span class="annot"><span class="annottext">toHeaders :: ListContactFlows -&gt; ResponseHeaders
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679416691"><span class="annot"><span class="annottext">toHeaders :: ListContactFlows -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListContactFlows -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -515,8 +515,32 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679416676"><span class="annot"><span class="annottext">toPath :: ListContactFlows -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416671"><span id="local-6989586621679416672"><span id="local-6989586621679416673"><span id="local-6989586621679416674"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679416685"><span class="annot"><span class="annottext">toPath :: ListContactFlows -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416680"><span id="local-6989586621679416681"><span id="local-6989586621679416682"><span id="local-6989586621679416683"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [ContactFlowType]
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+contactFlowTypes :: Maybe [ContactFlowType]
+$sel:instanceId:ListContactFlows' :: ListContactFlows -&gt; Text
+$sel:maxResults:ListContactFlows' :: ListContactFlows -&gt; Maybe Natural
+$sel:nextToken:ListContactFlows' :: ListContactFlows -&gt; Maybe Text
+$sel:contactFlowTypes:ListContactFlows' :: ListContactFlows -&gt; Maybe [ContactFlowType]
+</span><a href="#local-6989586621679416680"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/contact-flows-summary/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416680"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679416676"><span class="annot"><span class="annottext">toQuery :: ListContactFlows -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416671"><span id="local-6989586621679416672"><span id="local-6989586621679416673"><span id="local-6989586621679416674"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [ContactFlowType]
 Maybe Text
 Text
@@ -529,30 +553,6 @@ $sel:maxResults:ListContactFlows' :: ListContactFlows -&gt; Maybe Natural
 $sel:nextToken:ListContactFlows' :: ListContactFlows -&gt; Maybe Text
 $sel:contactFlowTypes:ListContactFlows' :: ListContactFlows -&gt; Maybe [ContactFlowType]
 </span><a href="#local-6989586621679416671"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
-forall a. Monoid a =&gt; [a] -&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-185"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;/contact-flows-summary/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
-forall a. ToByteString a =&gt; a -&gt; ByteString
-</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416671"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows"><span class="hs-identifier hs-type">ListContactFlows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679416667"><span class="annot"><span class="annottext">toQuery :: ListContactFlows -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlows%27"><span class="hs-identifier hs-type">ListContactFlows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416662"><span id="local-6989586621679416663"><span id="local-6989586621679416664"><span id="local-6989586621679416665"><span class="annot"><span class="annottext">Maybe Natural
-Maybe [ContactFlowType]
-Maybe Text
-Text
-instanceId :: Text
-maxResults :: Maybe Natural
-nextToken :: Maybe Text
-contactFlowTypes :: Maybe [ContactFlowType]
-$sel:instanceId:ListContactFlows' :: ListContactFlows -&gt; Text
-$sel:maxResults:ListContactFlows' :: ListContactFlows -&gt; Maybe Natural
-$sel:nextToken:ListContactFlows' :: ListContactFlows -&gt; Maybe Text
-$sel:contactFlowTypes:ListContactFlows' :: ListContactFlows -&gt; Maybe [ContactFlowType]
-</span><a href="#local-6989586621679416662"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -573,22 +573,22 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [ContactFlowType] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContactFlowType]
-</span><a href="#local-6989586621679416665"><span class="hs-identifier hs-var">contactFlowTypes</span></a></span><span>
+</span><a href="#local-6989586621679416674"><span class="hs-identifier hs-var">contactFlowTypes</span></a></span><span>
 </span><span id="line-194"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416664"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679416673"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679416663"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679416672"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | /See:/ 'newListContactFlowsResponse' smart constructor.</span><span>
-</span><span id="line-200"></span><span id="local-6989586621679416658"><span id="local-6989586621679416659"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContactFlowsResponse"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-var">ListContactFlowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContactFlowsResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-var">ListContactFlowsResponse'</span></a></span></span><span>
+</span><span id="line-200"></span><span id="local-6989586621679416667"><span id="local-6989586621679416668"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListContactFlowsResponse"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-var">ListContactFlowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListContactFlowsResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-var">ListContactFlowsResponse'</span></a></span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the contact flows.</span><span>
 </span><span id="line-202"></span><span>    </span><span id="%24sel%3AcontactFlowSummaryList%3AListContactFlowsResponse%27"><span class="annot"><span class="annottext">ListContactFlowsResponse -&gt; Maybe [ContactFlowSummary]
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AcontactFlowSummaryList%3AListContactFlowsResponse%27"><span class="hs-identifier hs-var hs-var">contactFlowSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.ContactFlowSummary.html#ContactFlowSummary"><span class="hs-identifier hs-type">ContactFlowSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -600,7 +600,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-207"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListContactFlowsResponse%27"><span class="annot"><span class="annottext">ListContactFlowsResponse -&gt; Int
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AhttpStatus%3AListContactFlowsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416651"><span id="local-6989586621679416653"><span class="annot"><span class="annottext">ListContactFlowsResponse -&gt; ListContactFlowsResponse -&gt; Bool
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416660"><span id="local-6989586621679416662"><span class="annot"><span class="annottext">ListContactFlowsResponse -&gt; ListContactFlowsResponse -&gt; Bool
 (ListContactFlowsResponse -&gt; ListContactFlowsResponse -&gt; Bool)
 -&gt; (ListContactFlowsResponse -&gt; ListContactFlowsResponse -&gt; Bool)
 -&gt; Eq ListContactFlowsResponse
@@ -609,7 +609,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListContactFlowsResponse -&gt; ListContactFlowsResponse -&gt; Bool
 == :: ListContactFlowsResponse -&gt; ListContactFlowsResponse -&gt; Bool
 $c== :: ListContactFlowsResponse -&gt; ListContactFlowsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416643"><span id="local-6989586621679416645"><span id="local-6989586621679416647"><span id="local-6989586621679416649"><span class="annot"><span class="annottext">ReadPrec [ListContactFlowsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416652"><span id="local-6989586621679416654"><span id="local-6989586621679416656"><span id="local-6989586621679416658"><span class="annot"><span class="annottext">ReadPrec [ListContactFlowsResponse]
 ReadPrec ListContactFlowsResponse
 Int -&gt; ReadS ListContactFlowsResponse
 ReadS [ListContactFlowsResponse]
@@ -629,7 +629,7 @@ readList :: ReadS [ListContactFlowsResponse]
 $creadList :: ReadS [ListContactFlowsResponse]
 readsPrec :: Int -&gt; ReadS ListContactFlowsResponse
 $creadsPrec :: Int -&gt; ReadS ListContactFlowsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416637"><span id="local-6989586621679416639"><span id="local-6989586621679416641"><span class="annot"><span class="annottext">Int -&gt; ListContactFlowsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416646"><span id="local-6989586621679416648"><span id="local-6989586621679416650"><span class="annot"><span class="annottext">Int -&gt; ListContactFlowsResponse -&gt; ShowS
 [ListContactFlowsResponse] -&gt; ShowS
 ListContactFlowsResponse -&gt; String
 (Int -&gt; ListContactFlowsResponse -&gt; ShowS)
@@ -680,8 +680,8 @@ ListContactFlowsResponse -&gt; Rep ListContactFlowsResponse x
 </span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-228"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span>
 </span><span id="line-229"></span><span id="newListContactFlowsResponse"><span class="annot"><span class="annottext">newListContactFlowsResponse :: Int -&gt; ListContactFlowsResponse
-</span><a href="Network.AWS.Connect.ListContactFlows.html#newListContactFlowsResponse"><span class="hs-identifier hs-var hs-var">newListContactFlowsResponse</span></a></span></span><span> </span><span id="local-6989586621679416634"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416634"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.ListContactFlows.html#newListContactFlowsResponse"><span class="hs-identifier hs-var hs-var">newListContactFlowsResponse</span></a></span></span><span> </span><span id="local-6989586621679416643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>  </span><span class="annot"><span class="annottext">ListContactFlowsResponse' :: Maybe [ContactFlowSummary]
 -&gt; Maybe Text -&gt; Int -&gt; ListContactFlowsResponse
 </span><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span>
@@ -696,7 +696,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListContactFlowsResponse' :: Int
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AhttpStatus%3AListContactFlowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416634"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679416643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | Information about the contact flows.</span><span>
@@ -708,16 +708,16 @@ forall a. Maybe a
     -&gt; Maybe [ContactFlowSummary] -&gt; ListContactFlowsResponse)
 -&gt; Lens' ListContactFlowsResponse (Maybe [ContactFlowSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416633"><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416642"><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
 contactFlowSummaryList :: Maybe [ContactFlowSummary]
 $sel:contactFlowSummaryList:ListContactFlowsResponse' :: ListContactFlowsResponse -&gt; Maybe [ContactFlowSummary]
-</span><a href="#local-6989586621679416633"><span class="hs-identifier hs-var hs-var">contactFlowSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
-</span><a href="#local-6989586621679416633"><span class="hs-identifier hs-var">contactFlowSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416632"><span class="annot"><span class="annottext">s :: ListContactFlowsResponse
-</span><a href="#local-6989586621679416632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416631"><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
-</span><a href="#local-6989586621679416631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlowsResponse
-</span><a href="#local-6989586621679416632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowSummaryList:ListContactFlowsResponse' :: Maybe [ContactFlowSummary]
+</span><a href="#local-6989586621679416642"><span class="hs-identifier hs-var hs-var">contactFlowSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
+</span><a href="#local-6989586621679416642"><span class="hs-identifier hs-var">contactFlowSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416641"><span class="annot"><span class="annottext">s :: ListContactFlowsResponse
+</span><a href="#local-6989586621679416641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416640"><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
+</span><a href="#local-6989586621679416640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlowsResponse
+</span><a href="#local-6989586621679416641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactFlowSummaryList:ListContactFlowsResponse' :: Maybe [ContactFlowSummary]
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AcontactFlowSummaryList%3AListContactFlowsResponse%27"><span class="hs-identifier hs-var">contactFlowSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContactFlowSummary]
-</span><a href="#local-6989586621679416631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactFlowSummary] -&gt; f (Maybe [ContactFlowSummary]))
+</span><a href="#local-6989586621679416640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContactFlowSummary] -&gt; f (Maybe [ContactFlowSummary]))
  -&gt; ListContactFlowsResponse -&gt; f ListContactFlowsResponse)
 -&gt; ((Maybe [ContactFlowSummary] -&gt; f (Maybe [ContactFlowSummary]))
     -&gt; Maybe [ContactFlowSummary] -&gt; f (Maybe [ContactFlowSummary]))
@@ -756,16 +756,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
     -&gt; Maybe Text -&gt; ListContactFlowsResponse)
 -&gt; Lens' ListContactFlowsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416630"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416639"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListContactFlowsResponse' :: ListContactFlowsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679416630"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416630"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416629"><span class="annot"><span class="annottext">s :: ListContactFlowsResponse
-</span><a href="#local-6989586621679416629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416628"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlowsResponse
-</span><a href="#local-6989586621679416629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContactFlowsResponse' :: Maybe Text
+</span><a href="#local-6989586621679416639"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416639"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416638"><span class="annot"><span class="annottext">s :: ListContactFlowsResponse
+</span><a href="#local-6989586621679416638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlowsResponse
+</span><a href="#local-6989586621679416638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListContactFlowsResponse' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AnextToken%3AListContactFlowsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-247"></span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#listContactFlowsResponse_httpStatus"><span class="hs-identifier hs-type">listContactFlowsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -775,16 +775,16 @@ $sel:nextToken:ListContactFlowsResponse' :: ListContactFlowsResponse -&gt; Maybe
 -&gt; (ListContactFlowsResponse -&gt; Int -&gt; ListContactFlowsResponse)
 -&gt; Lens ListContactFlowsResponse ListContactFlowsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416627"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416636"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListContactFlowsResponse' :: ListContactFlowsResponse -&gt; Int
-</span><a href="#local-6989586621679416627"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416627"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416626"><span class="annot"><span class="annottext">s :: ListContactFlowsResponse
-</span><a href="#local-6989586621679416626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416625"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlowsResponse
-</span><a href="#local-6989586621679416626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListContactFlowsResponse' :: Int
+</span><a href="#local-6989586621679416636"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416636"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416635"><span class="annot"><span class="annottext">s :: ListContactFlowsResponse
+</span><a href="#local-6989586621679416635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse%27"><span class="hs-identifier hs-type">ListContactFlowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416634"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListContactFlowsResponse
+</span><a href="#local-6989586621679416635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListContactFlowsResponse' :: Int
 </span><a href="Network.AWS.Connect.ListContactFlows.html#%24sel%3AhttpStatus%3AListContactFlowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span></span><span>
+</span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListContactFlows.html#ListContactFlowsResponse"><span class="hs-identifier hs-type">ListContactFlowsResponse</span></a></span></span><span>
 </span><span id="line-251"></span></pre></body></html>

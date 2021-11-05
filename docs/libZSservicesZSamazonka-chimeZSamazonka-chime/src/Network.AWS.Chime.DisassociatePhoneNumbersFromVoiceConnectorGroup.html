@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Disassociates the specified phone numbers from the specified Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Chime Voice Connector group.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#newDisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier">newDisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId"><span class="hs-identifier">disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers"><span class="hs-identifier">disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier">newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors"><span class="hs-identifier">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus"><span class="hs-identifier">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Chime.Types.html"><span class="hs-identifier">Network.AWS.Chime.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDisassociatePhoneNumbersFromVoiceConnectorGroup' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679543855"><span id="local-6989586621679543856"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-var">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-var">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AvoiceConnectorGroupId%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Text
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroupId%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-var hs-var">voiceConnectorGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Ae164PhoneNumbers%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; [Sensitive Text]
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3Ae164PhoneNumbers%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-var hs-var">e164PhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543848"><span id="local-6989586621679543850"><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Bool
+(DisassociatePhoneNumbersFromVoiceConnectorGroup
+ -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Bool)
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroup
+    -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Bool)
+-&gt; Eq DisassociatePhoneNumbersFromVoiceConnectorGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Bool
+$c/= :: DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Bool
+== :: DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Bool
+$c== :: DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543841"><span id="local-6989586621679543843"><span id="local-6989586621679543845"><span class="annot"><span class="annottext">Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; ShowS
+[DisassociatePhoneNumbersFromVoiceConnectorGroup] -&gt; ShowS
+DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; String
+(Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; ShowS)
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; String)
+-&gt; ([DisassociatePhoneNumbersFromVoiceConnectorGroup] -&gt; ShowS)
+-&gt; Show DisassociatePhoneNumbersFromVoiceConnectorGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociatePhoneNumbersFromVoiceConnectorGroup] -&gt; ShowS
+$cshowList :: [DisassociatePhoneNumbersFromVoiceConnectorGroup] -&gt; ShowS
+show :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; String
+$cshow :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; String
+showsPrec :: Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociatePhoneNumbersFromVoiceConnectorGroup
+ -&gt; Rep DisassociatePhoneNumbersFromVoiceConnectorGroup x)
+-&gt; (forall x.
+    Rep DisassociatePhoneNumbersFromVoiceConnectorGroup x
+    -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup)
+-&gt; Generic DisassociatePhoneNumbersFromVoiceConnectorGroup
+forall x.
+Rep DisassociatePhoneNumbersFromVoiceConnectorGroup x
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+forall x.
+DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; Rep DisassociatePhoneNumbersFromVoiceConnectorGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociatePhoneNumbersFromVoiceConnectorGroup x
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+$cfrom :: forall x.
+DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; Rep DisassociatePhoneNumbersFromVoiceConnectorGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DisassociatePhoneNumbersFromVoiceConnectorGroup' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'voiceConnectorGroupId', 'disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId' - The Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'e164PhoneNumbers', 'disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers' - List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#newDisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">newDisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'voiceConnectorGroupId'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span>
+</span><span id="line-75"></span><span id="newDisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="annot"><span class="annottext">newDisassociatePhoneNumbersFromVoiceConnectorGroup :: Text -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#newDisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-var hs-var">newDisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679543836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543836"><span class="hs-identifier hs-var">pVoiceConnectorGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroup' :: Text
+-&gt; [Sensitive Text]
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:voiceConnectorGroupId:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: Text
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroupId%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543836"><span class="hs-identifier hs-var">pVoiceConnectorGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:e164PhoneNumbers:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: [Sensitive Text]
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3Ae164PhoneNumbers%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">[Sensitive Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Chime Voice Connector group ID.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId"><span class="hs-identifier hs-type">disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId"><span class="annot"><span class="annottext">disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId :: (Text -&gt; f Text)
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId"><span class="hs-identifier hs-var hs-var">disassociatePhoneNumbersFromVoiceConnectorGroup_voiceConnectorGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Text)
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroup
+    -&gt; Text -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup)
+-&gt; Lens
+     DisassociatePhoneNumbersFromVoiceConnectorGroup
+     DisassociatePhoneNumbersFromVoiceConnectorGroup
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543833"><span class="annot"><span class="annottext">Text
+voiceConnectorGroupId :: Text
+$sel:voiceConnectorGroupId:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Text
+</span><a href="#local-6989586621679543833"><span class="hs-identifier hs-var hs-var">voiceConnectorGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543833"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543832"><span class="annot"><span class="annottext">s :: DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="#local-6989586621679543832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="#local-6989586621679543832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceConnectorGroupId:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: Text
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AvoiceConnectorGroupId%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers"><span class="hs-identifier hs-type">disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span id="disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers"><span class="annot"><span class="annottext">disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers :: ([Text] -&gt; f [Text])
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers"><span class="hs-identifier hs-var hs-var">disassociatePhoneNumbersFromVoiceConnectorGroup_e164PhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociatePhoneNumbersFromVoiceConnectorGroup
+ -&gt; [Sensitive Text])
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroup
+    -&gt; [Sensitive Text]
+    -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup)
+-&gt; Lens
+     DisassociatePhoneNumbersFromVoiceConnectorGroup
+     DisassociatePhoneNumbersFromVoiceConnectorGroup
+     [Sensitive Text]
+     [Sensitive Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543830"><span class="annot"><span class="annottext">[Sensitive Text]
+e164PhoneNumbers :: [Sensitive Text]
+$sel:e164PhoneNumbers:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; [Sensitive Text]
+</span><a href="#local-6989586621679543830"><span class="hs-identifier hs-var hs-var">e164PhoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679543830"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543829"><span class="annot"><span class="annottext">s :: DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="#local-6989586621679543829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543828"><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679543828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><a href="#local-6989586621679543829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:e164PhoneNumbers:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: [Sensitive Text]
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3Ae164PhoneNumbers%3ADisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679543828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Sensitive Text] -&gt; f [Sensitive Text])
+ -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+ -&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroup)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679543822"><span class="annot"><span class="annottext">request :: DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; Request DisassociatePhoneNumbersFromVoiceConnectorGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; Request DisassociatePhoneNumbersFromVoiceConnectorGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679543818"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociatePhoneNumbersFromVoiceConnectorGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String
+      (AWSResponse DisassociatePhoneNumbersFromVoiceConnectorGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DisassociatePhoneNumbersFromVoiceConnectorGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679543815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543815"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679543814"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679543814"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679543813"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679543813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PhoneNumberError]
+-&gt; Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PhoneNumberError]
+ -&gt; Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+-&gt; Either String (Maybe [PhoneNumberError])
+-&gt; Either
+     String
+     (Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679543813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PhoneNumberError]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumberErrors&quot;</span></span><span>
+</span><span id="line-106"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PhoneNumberError]))
+-&gt; Maybe [PhoneNumberError]
+-&gt; Either String (Maybe [PhoneNumberError])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumberError]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-107"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+-&gt; Either String Int
+-&gt; Either
+     String DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543815"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679543804"><span id="local-6989586621679543806"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679543801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679543797"><span class="annot"><span class="annottext">toHeaders :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup
+-&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679543788"><span id="local-6989586621679543790"><span id="local-6989586621679543792"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span></span></span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679543786"><span class="annot"><span class="annottext">toJSON :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543783"><span id="local-6989586621679543784"><span class="annot"><span class="annottext">[Sensitive Text]
+Text
+e164PhoneNumbers :: [Sensitive Text]
+voiceConnectorGroupId :: Text
+$sel:e164PhoneNumbers:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; [Sensitive Text]
+$sel:voiceConnectorGroupId:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Text
+</span><a href="#local-6989586621679543783"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-134"></span><span>                </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;E164PhoneNumbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Sensitive Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679543783"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679543777"><span class="annot"><span class="annottext">toPath :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543774"><span id="local-6989586621679543775"><span class="annot"><span class="annottext">[Sensitive Text]
+Text
+e164PhoneNumbers :: [Sensitive Text]
+voiceConnectorGroupId :: Text
+$sel:e164PhoneNumbers:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; [Sensitive Text]
+$sel:voiceConnectorGroupId:DisassociatePhoneNumbersFromVoiceConnectorGroup' :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; Text
+</span><a href="#local-6989586621679543774"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/voice-connector-groups/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679543775"><span class="hs-identifier hs-var">voiceConnectorGroupId</span></a></span><span>
+</span><span id="line-147"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroup"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroup</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679543770"><span class="annot"><span class="annottext">toQuery :: DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">QueryString
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;operation=disassociate-phone-numbers&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679543767"><span id="local-6989586621679543768"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-var">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the action fails for one or more of the phone numbers in the request,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- a list of the phone numbers is returned, along with error codes and</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- error messages.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AphoneNumberErrors%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; Maybe [PhoneNumberError]
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AphoneNumberErrors%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var hs-var">phoneNumberErrors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberError.html#PhoneNumberError"><span class="hs-identifier hs-type">PhoneNumberError</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Int
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AhttpStatus%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679543761"><span id="local-6989586621679543763"><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Bool
+(DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Bool)
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+    -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Bool)
+-&gt; Eq DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Bool
+$c/= :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Bool
+== :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Bool
+$c== :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543753"><span id="local-6989586621679543755"><span id="local-6989586621679543757"><span id="local-6989586621679543759"><span class="annot"><span class="annottext">ReadPrec [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+ReadPrec DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+Int
+-&gt; ReadS DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ReadS [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+(Int
+ -&gt; ReadS DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+-&gt; ReadS [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+-&gt; ReadPrec DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; ReadPrec
+     [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+-&gt; Read DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+$creadListPrec :: ReadPrec [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+readPrec :: ReadPrec DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+$creadPrec :: ReadPrec DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+readList :: ReadS [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+$creadList :: ReadS [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+readsPrec :: Int
+-&gt; ReadS DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+$creadsPrec :: Int
+-&gt; ReadS DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679543746"><span id="local-6989586621679543748"><span id="local-6989586621679543750"><span class="annot"><span class="annottext">Int
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; ShowS
+[DisassociatePhoneNumbersFromVoiceConnectorGroupResponse] -&gt; ShowS
+DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; String
+(Int
+ -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ -&gt; ShowS)
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+    -&gt; String)
+-&gt; ([DisassociatePhoneNumbersFromVoiceConnectorGroupResponse]
+    -&gt; ShowS)
+-&gt; Show DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse] -&gt; ShowS
+$cshowList :: [DisassociatePhoneNumbersFromVoiceConnectorGroupResponse] -&gt; ShowS
+show :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; String
+$cshow :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; String
+showsPrec :: Int
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ -&gt; Rep DisassociatePhoneNumbersFromVoiceConnectorGroupResponse x)
+-&gt; (forall x.
+    Rep DisassociatePhoneNumbersFromVoiceConnectorGroupResponse x
+    -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+-&gt; Generic DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+forall x.
+Rep DisassociatePhoneNumbersFromVoiceConnectorGroupResponse x
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+forall x.
+DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; Rep DisassociatePhoneNumbersFromVoiceConnectorGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisassociatePhoneNumbersFromVoiceConnectorGroupResponse x
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+$cfrom :: forall x.
+DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; Rep DisassociatePhoneNumbersFromVoiceConnectorGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'phoneNumberErrors', 'disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors' - If the action fails for one or more of the phone numbers in the request,</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- a list of the phone numbers is returned, along with error codes and</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- error messages.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span>
+</span><span id="line-187"></span><span id="newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="annot"><span class="annottext">newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse :: Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-var hs-var">newDisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679543743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' :: Maybe [PhoneNumberError]
+-&gt; Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'</span></a></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumberErrors:DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' :: Maybe [PhoneNumberError]
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AphoneNumberErrors%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">phoneNumberErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PhoneNumberError]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' :: Int
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AhttpStatus%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | If the action fails for one or more of the phone numbers in the request,</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- a list of the phone numbers is returned, along with error codes and</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- error messages.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors"><span class="hs-identifier hs-type">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Chime.Types.PhoneNumberError.html#PhoneNumberError"><span class="hs-identifier hs-type">PhoneNumberError</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors"><span class="annot"><span class="annottext">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors :: (Maybe [PhoneNumberError] -&gt; f (Maybe [PhoneNumberError]))
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors"><span class="hs-identifier hs-var hs-var">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_phoneNumberErrors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ -&gt; Maybe [PhoneNumberError])
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+    -&gt; Maybe [PhoneNumberError]
+    -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+-&gt; Lens
+     DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+     DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+     (Maybe [PhoneNumberError])
+     (Maybe [PhoneNumberError])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543742"><span class="annot"><span class="annottext">Maybe [PhoneNumberError]
+phoneNumberErrors :: Maybe [PhoneNumberError]
+$sel:phoneNumberErrors:DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; Maybe [PhoneNumberError]
+</span><a href="#local-6989586621679543742"><span class="hs-identifier hs-var hs-var">phoneNumberErrors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumberError]
+</span><a href="#local-6989586621679543742"><span class="hs-identifier hs-var">phoneNumberErrors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543741"><span class="annot"><span class="annottext">s :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679543741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543740"><span class="annot"><span class="annottext">Maybe [PhoneNumberError]
+</span><a href="#local-6989586621679543740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679543741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberErrors:DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' :: Maybe [PhoneNumberError]
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AphoneNumberErrors%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">phoneNumberErrors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumberError]
+</span><a href="#local-6989586621679543740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhoneNumberError] -&gt; f (Maybe [PhoneNumberError]))
+ -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+ -&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+-&gt; ((Maybe [PhoneNumberError] -&gt; f (Maybe [PhoneNumberError]))
+    -&gt; Maybe [PhoneNumberError] -&gt; f (Maybe [PhoneNumberError]))
+-&gt; (Maybe [PhoneNumberError] -&gt; f (Maybe [PhoneNumberError]))
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PhoneNumberError]
+  [PhoneNumberError]
+  [PhoneNumberError]
+  [PhoneNumberError]
+-&gt; Iso
+     (Maybe [PhoneNumberError])
+     (Maybe [PhoneNumberError])
+     (Maybe [PhoneNumberError])
+     (Maybe [PhoneNumberError])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PhoneNumberError]
+  [PhoneNumberError]
+  [PhoneNumberError]
+  [PhoneNumberError]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus"><span class="hs-identifier hs-type">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus"><span class="annot"><span class="annottext">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+-&gt; f DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disassociatePhoneNumbersFromVoiceConnectorGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Int)
+-&gt; (DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+    -&gt; Int -&gt; DisassociatePhoneNumbersFromVoiceConnectorGroupResponse)
+-&gt; Lens
+     DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+     DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679543738"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse -&gt; Int
+</span><a href="#local-6989586621679543738"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543738"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679543737"><span class="annot"><span class="annottext">s :: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679543737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679543736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
+</span><a href="#local-6989586621679543737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisassociatePhoneNumbersFromVoiceConnectorGroupResponse' :: Int
+</span><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#%24sel%3AhttpStatus%3ADisassociatePhoneNumbersFromVoiceConnectorGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679543736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679543734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Network.AWS.Chime.DisassociatePhoneNumbersFromVoiceConnectorGroup.html#DisassociatePhoneNumbersFromVoiceConnectorGroupResponse"><span class="hs-identifier hs-type">DisassociatePhoneNumbersFromVoiceConnectorGroupResponse</span></a></span></span><span>
+</span><span id="line-209"></span></pre></body></html>

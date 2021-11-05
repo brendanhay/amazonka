@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Settings for the action to set pause state of a channel.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPauseStateScheduleActionSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679911076"><span id="local-6989586621679911077"></span></span><span class="hs-keyword">data</span><span> </span><span id="PauseStateScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-var">PauseStateScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PauseStateScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-var">PauseStateScheduleActionSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679911085"><span id="local-6989586621679911086"></span></span><span class="hs-keyword">data</span><span> </span><span id="PauseStateScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-var">PauseStateScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PauseStateScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-var">PauseStateScheduleActionSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Apipelines%3APauseStateScheduleActionSettings%27"><span class="annot"><span class="annottext">PauseStateScheduleActionSettings
 -&gt; Maybe [PipelinePauseStateSettings]
 </span><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#%24sel%3Apipelines%3APauseStateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">pipelines</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PipelinePauseStateSettings.html#PipelinePauseStateSettings"><span class="hs-identifier hs-type">PipelinePauseStateSettings</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911070"><span id="local-6989586621679911072"><span class="annot"><span class="annottext">PauseStateScheduleActionSettings
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679911079"><span id="local-6989586621679911081"><span class="annot"><span class="annottext">PauseStateScheduleActionSettings
 -&gt; PauseStateScheduleActionSettings -&gt; Bool
 (PauseStateScheduleActionSettings
  -&gt; PauseStateScheduleActionSettings -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: PauseStateScheduleActionSettings
 -&gt; PauseStateScheduleActionSettings -&gt; Bool
 $c== :: PauseStateScheduleActionSettings
 -&gt; PauseStateScheduleActionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911061"><span id="local-6989586621679911063"><span id="local-6989586621679911065"><span id="local-6989586621679911067"><span class="annot"><span class="annottext">ReadPrec [PauseStateScheduleActionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911070"><span id="local-6989586621679911072"><span id="local-6989586621679911074"><span id="local-6989586621679911076"><span class="annot"><span class="annottext">ReadPrec [PauseStateScheduleActionSettings]
 ReadPrec PauseStateScheduleActionSettings
 Int -&gt; ReadS PauseStateScheduleActionSettings
 ReadS [PauseStateScheduleActionSettings]
@@ -68,7 +68,7 @@ readList :: ReadS [PauseStateScheduleActionSettings]
 $creadList :: ReadS [PauseStateScheduleActionSettings]
 readsPrec :: Int -&gt; ReadS PauseStateScheduleActionSettings
 $creadsPrec :: Int -&gt; ReadS PauseStateScheduleActionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911054"><span id="local-6989586621679911056"><span id="local-6989586621679911058"><span class="annot"><span class="annottext">Int -&gt; PauseStateScheduleActionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679911063"><span id="local-6989586621679911065"><span id="local-6989586621679911067"><span class="annot"><span class="annottext">Int -&gt; PauseStateScheduleActionSettings -&gt; ShowS
 [PauseStateScheduleActionSettings] -&gt; ShowS
 PauseStateScheduleActionSettings -&gt; String
 (Int -&gt; PauseStateScheduleActionSettings -&gt; ShowS)
@@ -146,17 +146,17 @@ forall a. Maybe a
      (Maybe [PipelinePauseStateSettings])
      (Maybe [PipelinePauseStateSettings])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911045"><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911054"><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
 pipelines :: Maybe [PipelinePauseStateSettings]
 $sel:pipelines:PauseStateScheduleActionSettings' :: PauseStateScheduleActionSettings
 -&gt; Maybe [PipelinePauseStateSettings]
-</span><a href="#local-6989586621679911045"><span class="hs-identifier hs-var hs-var">pipelines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
-</span><a href="#local-6989586621679911045"><span class="hs-identifier hs-var">pipelines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911044"><span class="annot"><span class="annottext">s :: PauseStateScheduleActionSettings
-</span><a href="#local-6989586621679911044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911043"><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
-</span><a href="#local-6989586621679911043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseStateScheduleActionSettings
-</span><a href="#local-6989586621679911044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelines:PauseStateScheduleActionSettings' :: Maybe [PipelinePauseStateSettings]
+</span><a href="#local-6989586621679911054"><span class="hs-identifier hs-var hs-var">pipelines</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
+</span><a href="#local-6989586621679911054"><span class="hs-identifier hs-var">pipelines</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679911053"><span class="annot"><span class="annottext">s :: PauseStateScheduleActionSettings
+</span><a href="#local-6989586621679911053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679911052"><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
+</span><a href="#local-6989586621679911052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PauseStateScheduleActionSettings
+</span><a href="#local-6989586621679911053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelines:PauseStateScheduleActionSettings' :: Maybe [PipelinePauseStateSettings]
 </span><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#%24sel%3Apipelines%3APauseStateScheduleActionSettings%27"><span class="hs-identifier hs-var">pipelines</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
-</span><a href="#local-6989586621679911043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelinePauseStateSettings]
+</span><a href="#local-6989586621679911052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PipelinePauseStateSettings]
   -&gt; f (Maybe [PipelinePauseStateSettings]))
  -&gt; PauseStateScheduleActionSettings
  -&gt; f PauseStateScheduleActionSettings)
@@ -191,10 +191,10 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679911037"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679911046"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679911035"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PauseStateScheduleActionSettings
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679911044"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PauseStateScheduleActionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PauseStateScheduleActionSettings)
@@ -204,8 +204,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PauseStateScheduleActionSettings&quot;</span></span><span>
-</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679911032"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679911041"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
 -&gt; PauseStateScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-var">PauseStateScheduleActionSettings'</span></a></span><span>
@@ -215,7 +215,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser PauseStateScheduleActionSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679911032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679911041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [PipelinePauseStateSettings]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -229,20 +229,20 @@ forall a. Monoid a =&gt; a
 </span><span id="line-66"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679911025"><span id="local-6989586621679911027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679911034"><span id="local-6989586621679911036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679911022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679911031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911014"><span id="local-6989586621679911016"><span id="local-6989586621679911018"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679911012"><span class="annot"><span class="annottext">toJSON :: PauseStateScheduleActionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911010"><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679911023"><span id="local-6989586621679911025"><span id="local-6989586621679911027"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679911021"><span class="annot"><span class="annottext">toJSON :: PauseStateScheduleActionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings.html#PauseStateScheduleActionSettings%27"><span class="hs-identifier hs-type">PauseStateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679911019"><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
 pipelines :: Maybe [PipelinePauseStateSettings]
 $sel:pipelines:PauseStateScheduleActionSettings' :: PauseStateScheduleActionSettings
 -&gt; Maybe [PipelinePauseStateSettings]
-</span><a href="#local-6989586621679911010"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679911019"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,6 +255,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [PipelinePauseStateSettings] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PipelinePauseStateSettings]
-</span><a href="#local-6989586621679911010"><span class="hs-identifier hs-var">pipelines</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679911019"><span class="hs-identifier hs-var">pipelines</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

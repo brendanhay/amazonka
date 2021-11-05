@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDeleteProduct' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679425211"><span id="local-6989586621679425212"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProduct"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-var">DeleteProduct</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProduct%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-var">DeleteProduct'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679425220"><span id="local-6989586621679425221"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProduct"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-var">DeleteProduct</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProduct%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-var">DeleteProduct'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Aid%3ADeleteProduct%27"><span class="annot"><span class="annottext">DeleteProduct -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#%24sel%3Aid%3ADeleteProduct%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425204"><span id="local-6989586621679425206"><span class="annot"><span class="annottext">DeleteProduct -&gt; DeleteProduct -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425213"><span id="local-6989586621679425215"><span class="annot"><span class="annottext">DeleteProduct -&gt; DeleteProduct -&gt; Bool
 (DeleteProduct -&gt; DeleteProduct -&gt; Bool)
 -&gt; (DeleteProduct -&gt; DeleteProduct -&gt; Bool) -&gt; Eq DeleteProduct
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteProduct -&gt; DeleteProduct -&gt; Bool
 == :: DeleteProduct -&gt; DeleteProduct -&gt; Bool
 $c== :: DeleteProduct -&gt; DeleteProduct -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425195"><span id="local-6989586621679425197"><span id="local-6989586621679425199"><span id="local-6989586621679425201"><span class="annot"><span class="annottext">ReadPrec [DeleteProduct]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425204"><span id="local-6989586621679425206"><span id="local-6989586621679425208"><span id="local-6989586621679425210"><span class="annot"><span class="annottext">ReadPrec [DeleteProduct]
 ReadPrec DeleteProduct
 Int -&gt; ReadS DeleteProduct
 ReadS [DeleteProduct]
@@ -94,7 +94,7 @@ readList :: ReadS [DeleteProduct]
 $creadList :: ReadS [DeleteProduct]
 readsPrec :: Int -&gt; ReadS DeleteProduct
 $creadsPrec :: Int -&gt; ReadS DeleteProduct
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425188"><span id="local-6989586621679425190"><span id="local-6989586621679425192"><span class="annot"><span class="annottext">Int -&gt; DeleteProduct -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425197"><span id="local-6989586621679425199"><span id="local-6989586621679425201"><span class="annot"><span class="annottext">Int -&gt; DeleteProduct -&gt; ShowS
 [DeleteProduct] -&gt; ShowS
 DeleteProduct -&gt; String
 (Int -&gt; DeleteProduct -&gt; ShowS)
@@ -142,8 +142,8 @@ $cfrom :: forall x. DeleteProduct -&gt; Rep DeleteProduct x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span>
 </span><span id="line-90"></span><span id="newDeleteProduct"><span class="annot"><span class="annottext">newDeleteProduct :: Text -&gt; DeleteProduct
-</span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#newDeleteProduct"><span class="hs-identifier hs-var hs-var">newDeleteProduct</span></a></span></span><span> </span><span id="local-6989586621679425183"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425183"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#newDeleteProduct"><span class="hs-identifier hs-var hs-var">newDeleteProduct</span></a></span></span><span> </span><span id="local-6989586621679425192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425192"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DeleteProduct' :: Maybe Text -&gt; Text -&gt; DeleteProduct
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceptLanguage:DeleteProduct' :: Maybe Text
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DeleteProduct' :: Text
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#%24sel%3Aid%3ADeleteProduct%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425183"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679425192"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The language code.</span><span>
@@ -168,16 +168,16 @@ forall a. Maybe a
 -&gt; (DeleteProduct -&gt; Maybe Text -&gt; DeleteProduct)
 -&gt; Lens DeleteProduct DeleteProduct (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425180"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425189"><span class="annot"><span class="annottext">Maybe Text
 acceptLanguage :: Maybe Text
 $sel:acceptLanguage:DeleteProduct' :: DeleteProduct -&gt; Maybe Text
-</span><a href="#local-6989586621679425180"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425180"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425179"><span class="annot"><span class="annottext">s :: DeleteProduct
-</span><a href="#local-6989586621679425179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProduct
-</span><a href="#local-6989586621679425179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:DeleteProduct' :: Maybe Text
+</span><a href="#local-6989586621679425189"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425189"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425188"><span class="annot"><span class="annottext">s :: DeleteProduct
+</span><a href="#local-6989586621679425188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProduct
+</span><a href="#local-6989586621679425188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:DeleteProduct' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#%24sel%3AacceptLanguage%3ADeleteProduct%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The product identifier.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#deleteProduct_id"><span class="hs-identifier hs-type">deleteProduct_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -186,27 +186,27 @@ $sel:acceptLanguage:DeleteProduct' :: DeleteProduct -&gt; Maybe Text
 -&gt; (DeleteProduct -&gt; Text -&gt; DeleteProduct)
 -&gt; Lens DeleteProduct DeleteProduct Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425177"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425186"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:DeleteProduct' :: DeleteProduct -&gt; Text
-</span><a href="#local-6989586621679425177"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425177"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425176"><span class="annot"><span class="annottext">s :: DeleteProduct
-</span><a href="#local-6989586621679425176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425175"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProduct
-</span><a href="#local-6989586621679425176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteProduct' :: Text
+</span><a href="#local-6989586621679425186"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425186"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425185"><span class="annot"><span class="annottext">s :: DeleteProduct
+</span><a href="#local-6989586621679425185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425184"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679425184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProduct
+</span><a href="#local-6989586621679425185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteProduct' :: Text
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#%24sel%3Aid%3ADeleteProduct%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-type">DeleteProductResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679425171"><span class="annot"><span class="annottext">request :: DeleteProduct -&gt; Request DeleteProduct
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679425180"><span class="annot"><span class="annottext">request :: DeleteProduct -&gt; Request DeleteProduct
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteProduct -&gt; Request DeleteProduct
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679425167"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679425176"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteProduct
 -&gt; ClientResponse ClientBody
@@ -230,10 +230,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425164"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425164"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425163"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679425163"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425162"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679425162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425173"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425173"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425172"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679425172"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425171"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679425171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteProductResponse
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-var">DeleteProductResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteProductResponse)
@@ -244,15 +244,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425164"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425173"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425155"><span id="local-6989586621679425157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425164"><span id="local-6989586621679425166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679425148"><span class="annot"><span class="annottext">toHeaders :: DeleteProduct -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679425157"><span class="annot"><span class="annottext">toHeaders :: DeleteProduct -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteProduct -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -279,15 +279,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425138"><span id="local-6989586621679425140"><span id="local-6989586621679425142"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679425136"><span class="annot"><span class="annottext">toJSON :: DeleteProduct -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425133"><span id="local-6989586621679425134"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425147"><span id="local-6989586621679425149"><span id="local-6989586621679425151"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679425145"><span class="annot"><span class="annottext">toJSON :: DeleteProduct -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct%27"><span class="hs-identifier hs-type">DeleteProduct'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425142"><span id="local-6989586621679425143"><span class="annot"><span class="annottext">Maybe Text
 Text
 id :: Text
 acceptLanguage :: Maybe Text
 $sel:id:DeleteProduct' :: DeleteProduct -&gt; Text
 $sel:acceptLanguage:DeleteProduct' :: DeleteProduct -&gt; Maybe Text
-</span><a href="#local-6989586621679425133"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679425142"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,26 +300,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425134"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425143"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679425133"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425142"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679425127"><span class="annot"><span class="annottext">toPath :: DeleteProduct -&gt; ByteString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679425136"><span class="annot"><span class="annottext">toPath :: DeleteProduct -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteProduct -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProduct"><span class="hs-identifier hs-type">DeleteProduct</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679425123"><span class="annot"><span class="annottext">toQuery :: DeleteProduct -&gt; QueryString
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679425132"><span class="annot"><span class="annottext">toQuery :: DeleteProduct -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteProduct -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -327,12 +327,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newDeleteProductResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679425120"><span id="local-6989586621679425121"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProductResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-var">DeleteProductResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProductResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-var">DeleteProductResponse'</span></a></span></span><span>
+</span><span id="line-158"></span><span id="local-6989586621679425129"><span id="local-6989586621679425130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProductResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-var">DeleteProductResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProductResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-var">DeleteProductResponse'</span></a></span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteProductResponse%27"><span class="annot"><span class="annottext">DeleteProductResponse -&gt; Int
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#%24sel%3AhttpStatus%3ADeleteProductResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425115"><span id="local-6989586621679425117"><span class="annot"><span class="annottext">DeleteProductResponse -&gt; DeleteProductResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425124"><span id="local-6989586621679425126"><span class="annot"><span class="annottext">DeleteProductResponse -&gt; DeleteProductResponse -&gt; Bool
 (DeleteProductResponse -&gt; DeleteProductResponse -&gt; Bool)
 -&gt; (DeleteProductResponse -&gt; DeleteProductResponse -&gt; Bool)
 -&gt; Eq DeleteProductResponse
@@ -341,7 +341,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteProductResponse -&gt; DeleteProductResponse -&gt; Bool
 == :: DeleteProductResponse -&gt; DeleteProductResponse -&gt; Bool
 $c== :: DeleteProductResponse -&gt; DeleteProductResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425107"><span id="local-6989586621679425109"><span id="local-6989586621679425111"><span id="local-6989586621679425113"><span class="annot"><span class="annottext">ReadPrec [DeleteProductResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425116"><span id="local-6989586621679425118"><span id="local-6989586621679425120"><span id="local-6989586621679425122"><span class="annot"><span class="annottext">ReadPrec [DeleteProductResponse]
 ReadPrec DeleteProductResponse
 Int -&gt; ReadS DeleteProductResponse
 ReadS [DeleteProductResponse]
@@ -361,7 +361,7 @@ readList :: ReadS [DeleteProductResponse]
 $creadList :: ReadS [DeleteProductResponse]
 readsPrec :: Int -&gt; ReadS DeleteProductResponse
 $creadsPrec :: Int -&gt; ReadS DeleteProductResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425101"><span id="local-6989586621679425103"><span id="local-6989586621679425105"><span class="annot"><span class="annottext">Int -&gt; DeleteProductResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425110"><span id="local-6989586621679425112"><span id="local-6989586621679425114"><span class="annot"><span class="annottext">Int -&gt; DeleteProductResponse -&gt; ShowS
 [DeleteProductResponse] -&gt; ShowS
 DeleteProductResponse -&gt; String
 (Int -&gt; DeleteProductResponse -&gt; ShowS)
@@ -401,12 +401,12 @@ $cfrom :: forall x. DeleteProductResponse -&gt; Rep DeleteProductResponse x
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-type">DeleteProductResponse</span></a></span><span>
 </span><span id="line-177"></span><span id="newDeleteProductResponse"><span class="annot"><span class="annottext">newDeleteProductResponse :: Int -&gt; DeleteProductResponse
-</span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#newDeleteProductResponse"><span class="hs-identifier hs-var hs-var">newDeleteProductResponse</span></a></span></span><span> </span><span id="local-6989586621679425098"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#newDeleteProductResponse"><span class="hs-identifier hs-var hs-var">newDeleteProductResponse</span></a></span></span><span> </span><span id="local-6989586621679425107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">DeleteProductResponse' :: Int -&gt; DeleteProductResponse
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-type">DeleteProductResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProductResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#%24sel%3AhttpStatus%3ADeleteProductResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425098"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679425107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#deleteProductResponse_httpStatus"><span class="hs-identifier hs-type">deleteProductResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-type">DeleteProductResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -415,16 +415,16 @@ $cfrom :: forall x. DeleteProductResponse -&gt; Rep DeleteProductResponse x
 -&gt; (DeleteProductResponse -&gt; Int -&gt; DeleteProductResponse)
 -&gt; Lens DeleteProductResponse DeleteProductResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-type">DeleteProductResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425097"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-type">DeleteProductResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425106"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteProductResponse' :: DeleteProductResponse -&gt; Int
-</span><a href="#local-6989586621679425097"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425097"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425096"><span class="annot"><span class="annottext">s :: DeleteProductResponse
-</span><a href="#local-6989586621679425096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-type">DeleteProductResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425095"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProductResponse
-</span><a href="#local-6989586621679425096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProductResponse' :: Int
+</span><a href="#local-6989586621679425106"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425106"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425105"><span class="annot"><span class="annottext">s :: DeleteProductResponse
+</span><a href="#local-6989586621679425105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse%27"><span class="hs-identifier hs-type">DeleteProductResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProductResponse
+</span><a href="#local-6989586621679425105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProductResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#%24sel%3AhttpStatus%3ADeleteProductResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-type">DeleteProductResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-type">DeleteProductResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-type">DeleteProductResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.DeleteProduct.html#DeleteProductResponse"><span class="hs-identifier hs-type">DeleteProductResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

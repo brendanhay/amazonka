@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the public access policies that apply to the S3 bucket.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPublicAccess' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679298880"><span id="local-6989586621679298881"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicAccess"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-var">PublicAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicAccess%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-var">PublicAccess'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679298889"><span id="local-6989586621679298890"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicAccess"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-var">PublicAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicAccess%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-var">PublicAccess'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains information about how permissions are configured for the S3</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- bucket.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApermissionConfiguration%3APublicAccess%27"><span class="annot"><span class="annottext">PublicAccess -&gt; Maybe PermissionConfiguration
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AeffectivePermission%3APublicAccess%27"><span class="annot"><span class="annottext">PublicAccess -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#%24sel%3AeffectivePermission%3APublicAccess%27"><span class="hs-identifier hs-var hs-var">effectivePermission</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298873"><span id="local-6989586621679298875"><span class="annot"><span class="annottext">PublicAccess -&gt; PublicAccess -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679298882"><span id="local-6989586621679298884"><span class="annot"><span class="annottext">PublicAccess -&gt; PublicAccess -&gt; Bool
 (PublicAccess -&gt; PublicAccess -&gt; Bool)
 -&gt; (PublicAccess -&gt; PublicAccess -&gt; Bool) -&gt; Eq PublicAccess
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PublicAccess -&gt; PublicAccess -&gt; Bool
 == :: PublicAccess -&gt; PublicAccess -&gt; Bool
 $c== :: PublicAccess -&gt; PublicAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298864"><span id="local-6989586621679298866"><span id="local-6989586621679298868"><span id="local-6989586621679298870"><span class="annot"><span class="annottext">ReadPrec [PublicAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298873"><span id="local-6989586621679298875"><span id="local-6989586621679298877"><span id="local-6989586621679298879"><span class="annot"><span class="annottext">ReadPrec [PublicAccess]
 ReadPrec PublicAccess
 Int -&gt; ReadS PublicAccess
 ReadS [PublicAccess]
@@ -65,7 +65,7 @@ readList :: ReadS [PublicAccess]
 $creadList :: ReadS [PublicAccess]
 readsPrec :: Int -&gt; ReadS PublicAccess
 $creadsPrec :: Int -&gt; ReadS PublicAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298857"><span id="local-6989586621679298859"><span id="local-6989586621679298861"><span class="annot"><span class="annottext">Int -&gt; PublicAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679298866"><span id="local-6989586621679298868"><span id="local-6989586621679298870"><span class="annot"><span class="annottext">Int -&gt; PublicAccess -&gt; ShowS
 [PublicAccess] -&gt; ShowS
 PublicAccess -&gt; String
 (Int -&gt; PublicAccess -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
      (Maybe PermissionConfiguration)
      (Maybe PermissionConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298848"><span class="annot"><span class="annottext">Maybe PermissionConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298857"><span class="annot"><span class="annottext">Maybe PermissionConfiguration
 permissionConfiguration :: Maybe PermissionConfiguration
 $sel:permissionConfiguration:PublicAccess' :: PublicAccess -&gt; Maybe PermissionConfiguration
-</span><a href="#local-6989586621679298848"><span class="hs-identifier hs-var hs-var">permissionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionConfiguration
-</span><a href="#local-6989586621679298848"><span class="hs-identifier hs-var">permissionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298847"><span class="annot"><span class="annottext">s :: PublicAccess
-</span><a href="#local-6989586621679298847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298846"><span class="annot"><span class="annottext">Maybe PermissionConfiguration
-</span><a href="#local-6989586621679298846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccess
-</span><a href="#local-6989586621679298847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionConfiguration:PublicAccess' :: Maybe PermissionConfiguration
+</span><a href="#local-6989586621679298857"><span class="hs-identifier hs-var hs-var">permissionConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionConfiguration
+</span><a href="#local-6989586621679298857"><span class="hs-identifier hs-var">permissionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298856"><span class="annot"><span class="annottext">s :: PublicAccess
+</span><a href="#local-6989586621679298856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298855"><span class="annot"><span class="annottext">Maybe PermissionConfiguration
+</span><a href="#local-6989586621679298855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccess
+</span><a href="#local-6989586621679298856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionConfiguration:PublicAccess' :: Maybe PermissionConfiguration
 </span><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#%24sel%3ApermissionConfiguration%3APublicAccess%27"><span class="hs-identifier hs-var">permissionConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionConfiguration
-</span><a href="#local-6989586621679298846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Describes the effective permission on this bucket after factoring all</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- attached policies.</span><span>
@@ -154,19 +154,19 @@ $sel:permissionConfiguration:PublicAccess' :: PublicAccess -&gt; Maybe Permissio
 -&gt; (PublicAccess -&gt; Maybe Text -&gt; PublicAccess)
 -&gt; Lens PublicAccess PublicAccess (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298844"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679298853"><span class="annot"><span class="annottext">Maybe Text
 effectivePermission :: Maybe Text
 $sel:effectivePermission:PublicAccess' :: PublicAccess -&gt; Maybe Text
-</span><a href="#local-6989586621679298844"><span class="hs-identifier hs-var hs-var">effectivePermission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298844"><span class="hs-identifier hs-var">effectivePermission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298843"><span class="annot"><span class="annottext">s :: PublicAccess
-</span><a href="#local-6989586621679298843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298842"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccess
-</span><a href="#local-6989586621679298843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectivePermission:PublicAccess' :: Maybe Text
+</span><a href="#local-6989586621679298853"><span class="hs-identifier hs-var hs-var">effectivePermission</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298853"><span class="hs-identifier hs-var">effectivePermission</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679298852"><span class="annot"><span class="annottext">s :: PublicAccess
+</span><a href="#local-6989586621679298852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-type">PublicAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679298851"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679298851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccess
+</span><a href="#local-6989586621679298852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectivePermission:PublicAccess' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#%24sel%3AeffectivePermission%3APublicAccess%27"><span class="hs-identifier hs-var">effectivePermission</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679298842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679298851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298839"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679298837"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PublicAccess
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298848"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679298846"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PublicAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PublicAccess) -&gt; Value -&gt; Parser PublicAccess
@@ -174,8 +174,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PublicAccess&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298834"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298834"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679298843"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679298843"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe PermissionConfiguration -&gt; Maybe Text -&gt; PublicAccess
 </span><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess%27"><span class="hs-identifier hs-var">PublicAccess'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PermissionConfiguration -&gt; Maybe Text -&gt; PublicAccess)
@@ -183,7 +183,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; PublicAccess)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PermissionConfiguration)
+</span><a href="#local-6989586621679298843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PermissionConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;permissionConfiguration&quot;</span></span><span class="hs-special">)</span><span>
@@ -191,13 +191,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser PublicAccess
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679298834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679298843"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;effectivePermission&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298828"><span id="local-6989586621679298830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298837"><span id="local-6989586621679298839"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679298834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.PublicAccess.html#PublicAccess"><span class="hs-identifier hs-type">PublicAccess</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

@@ -1,0 +1,1219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.MediaPackageVOD.CreatePackagingConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new MediaPackage VOD PackagingConfiguration resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaPackageVOD.CreatePackagingConfiguration</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#newCreatePackagingConfiguration"><span class="hs-identifier">newCreatePackagingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_hlsPackage"><span class="hs-identifier">createPackagingConfiguration_hlsPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_dashPackage"><span class="hs-identifier">createPackagingConfiguration_dashPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_mssPackage"><span class="hs-identifier">createPackagingConfiguration_mssPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_cmafPackage"><span class="hs-identifier">createPackagingConfiguration_cmafPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_tags"><span class="hs-identifier">createPackagingConfiguration_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_id"><span class="hs-identifier">createPackagingConfiguration_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_packagingGroupId"><span class="hs-identifier">createPackagingConfiguration_packagingGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#newCreatePackagingConfigurationResponse"><span class="hs-identifier">newCreatePackagingConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_hlsPackage"><span class="hs-identifier">createPackagingConfigurationResponse_hlsPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_arn"><span class="hs-identifier">createPackagingConfigurationResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_packagingGroupId"><span class="hs-identifier">createPackagingConfigurationResponse_packagingGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_dashPackage"><span class="hs-identifier">createPackagingConfigurationResponse_dashPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_mssPackage"><span class="hs-identifier">createPackagingConfigurationResponse_mssPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_id"><span class="hs-identifier">createPackagingConfigurationResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_cmafPackage"><span class="hs-identifier">createPackagingConfigurationResponse_cmafPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_tags"><span class="hs-identifier">createPackagingConfigurationResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_httpStatus"><span class="hs-identifier">createPackagingConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.html"><span class="hs-identifier">Network.AWS.MediaPackageVOD.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A new MediaPackage VOD PackagingConfiguration resource configuration.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- /See:/ 'newCreatePackagingConfiguration' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679200699"><span id="local-6989586621679200700"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePackagingConfiguration"><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-var">CreatePackagingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePackagingConfiguration%27"><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-var">CreatePackagingConfiguration'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AhlsPackage%3ACreatePackagingConfiguration%27"><span class="annot"><span class="annottext">CreatePackagingConfiguration -&gt; Maybe HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhlsPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var hs-var">hlsPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AdashPackage%3ACreatePackagingConfiguration%27"><span class="annot"><span class="annottext">CreatePackagingConfiguration -&gt; Maybe DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AdashPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var hs-var">dashPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmssPackage%3ACreatePackagingConfiguration%27"><span class="annot"><span class="annottext">CreatePackagingConfiguration -&gt; Maybe MssPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AmssPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var hs-var">mssPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AcmafPackage%3ACreatePackagingConfiguration%27"><span class="annot"><span class="annottext">CreatePackagingConfiguration -&gt; Maybe CmafPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AcmafPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var hs-var">cmafPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Atags%3ACreatePackagingConfiguration%27"><span class="annot"><span class="annottext">CreatePackagingConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Atags%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The ID of the PackagingConfiguration.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aid%3ACreatePackagingConfiguration%27"><span class="annot"><span class="annottext">CreatePackagingConfiguration -&gt; Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aid%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The ID of a PackagingGroup.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3ApackagingGroupId%3ACreatePackagingConfiguration%27"><span class="annot"><span class="annottext">CreatePackagingConfiguration -&gt; Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3ApackagingGroupId%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200687"><span id="local-6989586621679200689"><span class="annot"><span class="annottext">CreatePackagingConfiguration
+-&gt; CreatePackagingConfiguration -&gt; Bool
+(CreatePackagingConfiguration
+ -&gt; CreatePackagingConfiguration -&gt; Bool)
+-&gt; (CreatePackagingConfiguration
+    -&gt; CreatePackagingConfiguration -&gt; Bool)
+-&gt; Eq CreatePackagingConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePackagingConfiguration
+-&gt; CreatePackagingConfiguration -&gt; Bool
+$c/= :: CreatePackagingConfiguration
+-&gt; CreatePackagingConfiguration -&gt; Bool
+== :: CreatePackagingConfiguration
+-&gt; CreatePackagingConfiguration -&gt; Bool
+$c== :: CreatePackagingConfiguration
+-&gt; CreatePackagingConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200678"><span id="local-6989586621679200680"><span id="local-6989586621679200682"><span id="local-6989586621679200684"><span class="annot"><span class="annottext">ReadPrec [CreatePackagingConfiguration]
+ReadPrec CreatePackagingConfiguration
+Int -&gt; ReadS CreatePackagingConfiguration
+ReadS [CreatePackagingConfiguration]
+(Int -&gt; ReadS CreatePackagingConfiguration)
+-&gt; ReadS [CreatePackagingConfiguration]
+-&gt; ReadPrec CreatePackagingConfiguration
+-&gt; ReadPrec [CreatePackagingConfiguration]
+-&gt; Read CreatePackagingConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePackagingConfiguration]
+$creadListPrec :: ReadPrec [CreatePackagingConfiguration]
+readPrec :: ReadPrec CreatePackagingConfiguration
+$creadPrec :: ReadPrec CreatePackagingConfiguration
+readList :: ReadS [CreatePackagingConfiguration]
+$creadList :: ReadS [CreatePackagingConfiguration]
+readsPrec :: Int -&gt; ReadS CreatePackagingConfiguration
+$creadsPrec :: Int -&gt; ReadS CreatePackagingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200671"><span id="local-6989586621679200673"><span id="local-6989586621679200675"><span class="annot"><span class="annottext">Int -&gt; CreatePackagingConfiguration -&gt; ShowS
+[CreatePackagingConfiguration] -&gt; ShowS
+CreatePackagingConfiguration -&gt; String
+(Int -&gt; CreatePackagingConfiguration -&gt; ShowS)
+-&gt; (CreatePackagingConfiguration -&gt; String)
+-&gt; ([CreatePackagingConfiguration] -&gt; ShowS)
+-&gt; Show CreatePackagingConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePackagingConfiguration] -&gt; ShowS
+$cshowList :: [CreatePackagingConfiguration] -&gt; ShowS
+show :: CreatePackagingConfiguration -&gt; String
+$cshow :: CreatePackagingConfiguration -&gt; String
+showsPrec :: Int -&gt; CreatePackagingConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePackagingConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreatePackagingConfiguration -&gt; Rep CreatePackagingConfiguration x)
+-&gt; (forall x.
+    Rep CreatePackagingConfiguration x -&gt; CreatePackagingConfiguration)
+-&gt; Generic CreatePackagingConfiguration
+forall x.
+Rep CreatePackagingConfiguration x -&gt; CreatePackagingConfiguration
+forall x.
+CreatePackagingConfiguration -&gt; Rep CreatePackagingConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreatePackagingConfiguration x -&gt; CreatePackagingConfiguration
+$cfrom :: forall x.
+CreatePackagingConfiguration -&gt; Rep CreatePackagingConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'CreatePackagingConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'hlsPackage', 'createPackagingConfiguration_hlsPackage' - Undocumented member.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'dashPackage', 'createPackagingConfiguration_dashPackage' - Undocumented member.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'mssPackage', 'createPackagingConfiguration_mssPackage' - Undocumented member.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'cmafPackage', 'createPackagingConfiguration_cmafPackage' - Undocumented member.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'tags', 'createPackagingConfiguration_tags' - Undocumented member.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'id', 'createPackagingConfiguration_id' - The ID of the PackagingConfiguration.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'packagingGroupId', 'createPackagingConfiguration_packagingGroupId' - The ID of a PackagingGroup.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#newCreatePackagingConfiguration"><span class="hs-identifier hs-type">newCreatePackagingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'packagingGroupId'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span>
+</span><span id="line-105"></span><span id="newCreatePackagingConfiguration"><span class="annot"><span class="annottext">newCreatePackagingConfiguration :: Text -&gt; Text -&gt; CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#newCreatePackagingConfiguration"><span class="hs-identifier hs-var hs-var">newCreatePackagingConfiguration</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679200666"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200666"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679200665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200665"><span class="hs-identifier hs-var">pPackagingGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">CreatePackagingConfiguration' :: Maybe HlsPackage
+-&gt; Maybe DashPackage
+-&gt; Maybe MssPackage
+-&gt; Maybe CmafPackage
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hlsPackage:CreatePackagingConfiguration' :: Maybe HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhlsPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe HlsPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:dashPackage:CreatePackagingConfiguration' :: Maybe DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AdashPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">dashPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:mssPackage:CreatePackagingConfiguration' :: Maybe MssPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AmssPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">mssPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:cmafPackage:CreatePackagingConfiguration' :: Maybe CmafPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AcmafPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreatePackagingConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Atags%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:CreatePackagingConfiguration' :: Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aid%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200666"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:packagingGroupId:CreatePackagingConfiguration' :: Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3ApackagingGroupId%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200665"><span class="hs-identifier hs-var">pPackagingGroupId_</span></a></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_hlsPackage"><span class="hs-identifier hs-type">createPackagingConfiguration_hlsPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="createPackagingConfiguration_hlsPackage"><span class="annot"><span class="annottext">createPackagingConfiguration_hlsPackage :: (Maybe HlsPackage -&gt; f (Maybe HlsPackage))
+-&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_hlsPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfiguration_hlsPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfiguration -&gt; Maybe HlsPackage)
+-&gt; (CreatePackagingConfiguration
+    -&gt; Maybe HlsPackage -&gt; CreatePackagingConfiguration)
+-&gt; Lens
+     CreatePackagingConfiguration
+     CreatePackagingConfiguration
+     (Maybe HlsPackage)
+     (Maybe HlsPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200662"><span class="annot"><span class="annottext">Maybe HlsPackage
+hlsPackage :: Maybe HlsPackage
+$sel:hlsPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe HlsPackage
+</span><a href="#local-6989586621679200662"><span class="hs-identifier hs-var hs-var">hlsPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679200662"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200661"><span class="annot"><span class="annottext">s :: CreatePackagingConfiguration
+</span><a href="#local-6989586621679200661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200660"><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679200660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfiguration
+</span><a href="#local-6989586621679200661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsPackage:CreatePackagingConfiguration' :: Maybe HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhlsPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679200660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_dashPackage"><span class="hs-identifier hs-type">createPackagingConfiguration_dashPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="createPackagingConfiguration_dashPackage"><span class="annot"><span class="annottext">createPackagingConfiguration_dashPackage :: (Maybe DashPackage -&gt; f (Maybe DashPackage))
+-&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_dashPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfiguration_dashPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfiguration -&gt; Maybe DashPackage)
+-&gt; (CreatePackagingConfiguration
+    -&gt; Maybe DashPackage -&gt; CreatePackagingConfiguration)
+-&gt; Lens
+     CreatePackagingConfiguration
+     CreatePackagingConfiguration
+     (Maybe DashPackage)
+     (Maybe DashPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200659"><span class="annot"><span class="annottext">Maybe DashPackage
+dashPackage :: Maybe DashPackage
+$sel:dashPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe DashPackage
+</span><a href="#local-6989586621679200659"><span class="hs-identifier hs-var hs-var">dashPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679200659"><span class="hs-identifier hs-var">dashPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200658"><span class="annot"><span class="annottext">s :: CreatePackagingConfiguration
+</span><a href="#local-6989586621679200658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200657"><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679200657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfiguration
+</span><a href="#local-6989586621679200658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashPackage:CreatePackagingConfiguration' :: Maybe DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AdashPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">dashPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679200657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_mssPackage"><span class="hs-identifier hs-type">createPackagingConfiguration_mssPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="createPackagingConfiguration_mssPackage"><span class="annot"><span class="annottext">createPackagingConfiguration_mssPackage :: (Maybe MssPackage -&gt; f (Maybe MssPackage))
+-&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_mssPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfiguration_mssPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfiguration -&gt; Maybe MssPackage)
+-&gt; (CreatePackagingConfiguration
+    -&gt; Maybe MssPackage -&gt; CreatePackagingConfiguration)
+-&gt; Lens
+     CreatePackagingConfiguration
+     CreatePackagingConfiguration
+     (Maybe MssPackage)
+     (Maybe MssPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200656"><span class="annot"><span class="annottext">Maybe MssPackage
+mssPackage :: Maybe MssPackage
+$sel:mssPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe MssPackage
+</span><a href="#local-6989586621679200656"><span class="hs-identifier hs-var hs-var">mssPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679200656"><span class="hs-identifier hs-var">mssPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200655"><span class="annot"><span class="annottext">s :: CreatePackagingConfiguration
+</span><a href="#local-6989586621679200655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200654"><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679200654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfiguration
+</span><a href="#local-6989586621679200655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mssPackage:CreatePackagingConfiguration' :: Maybe MssPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AmssPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">mssPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679200654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_cmafPackage"><span class="hs-identifier hs-type">createPackagingConfiguration_cmafPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="createPackagingConfiguration_cmafPackage"><span class="annot"><span class="annottext">createPackagingConfiguration_cmafPackage :: (Maybe CmafPackage -&gt; f (Maybe CmafPackage))
+-&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_cmafPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfiguration_cmafPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfiguration -&gt; Maybe CmafPackage)
+-&gt; (CreatePackagingConfiguration
+    -&gt; Maybe CmafPackage -&gt; CreatePackagingConfiguration)
+-&gt; Lens
+     CreatePackagingConfiguration
+     CreatePackagingConfiguration
+     (Maybe CmafPackage)
+     (Maybe CmafPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200653"><span class="annot"><span class="annottext">Maybe CmafPackage
+cmafPackage :: Maybe CmafPackage
+$sel:cmafPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe CmafPackage
+</span><a href="#local-6989586621679200653"><span class="hs-identifier hs-var hs-var">cmafPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679200653"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200652"><span class="annot"><span class="annottext">s :: CreatePackagingConfiguration
+</span><a href="#local-6989586621679200652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200651"><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679200651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfiguration
+</span><a href="#local-6989586621679200652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cmafPackage:CreatePackagingConfiguration' :: Maybe CmafPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AcmafPackage%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679200651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_tags"><span class="hs-identifier hs-type">createPackagingConfiguration_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="createPackagingConfiguration_tags"><span class="annot"><span class="annottext">createPackagingConfiguration_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_tags"><span class="hs-identifier hs-var hs-var">createPackagingConfiguration_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfiguration -&gt; Maybe (HashMap Text Text))
+-&gt; (CreatePackagingConfiguration
+    -&gt; Maybe (HashMap Text Text) -&gt; CreatePackagingConfiguration)
+-&gt; Lens
+     CreatePackagingConfiguration
+     CreatePackagingConfiguration
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200650"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200650"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200650"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200649"><span class="annot"><span class="annottext">s :: CreatePackagingConfiguration
+</span><a href="#local-6989586621679200649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200648"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfiguration
+</span><a href="#local-6989586621679200649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePackagingConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Atags%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePackagingConfiguration
+-&gt; f CreatePackagingConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The ID of the PackagingConfiguration.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_id"><span class="hs-identifier hs-type">createPackagingConfiguration_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="createPackagingConfiguration_id"><span class="annot"><span class="annottext">createPackagingConfiguration_id :: (Text -&gt; f Text)
+-&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_id"><span class="hs-identifier hs-var hs-var">createPackagingConfiguration_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfiguration -&gt; Text)
+-&gt; (CreatePackagingConfiguration
+    -&gt; Text -&gt; CreatePackagingConfiguration)
+-&gt; Lens
+     CreatePackagingConfiguration CreatePackagingConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200644"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Text
+</span><a href="#local-6989586621679200644"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200644"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200643"><span class="annot"><span class="annottext">s :: CreatePackagingConfiguration
+</span><a href="#local-6989586621679200643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200642"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfiguration
+</span><a href="#local-6989586621679200643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreatePackagingConfiguration' :: Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aid%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The ID of a PackagingGroup.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_packagingGroupId"><span class="hs-identifier hs-type">createPackagingConfiguration_packagingGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-145"></span><span id="createPackagingConfiguration_packagingGroupId"><span class="annot"><span class="annottext">createPackagingConfiguration_packagingGroupId :: (Text -&gt; f Text)
+-&gt; CreatePackagingConfiguration -&gt; f CreatePackagingConfiguration
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfiguration_packagingGroupId"><span class="hs-identifier hs-var hs-var">createPackagingConfiguration_packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfiguration -&gt; Text)
+-&gt; (CreatePackagingConfiguration
+    -&gt; Text -&gt; CreatePackagingConfiguration)
+-&gt; Lens
+     CreatePackagingConfiguration CreatePackagingConfiguration Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200641"><span class="annot"><span class="annottext">Text
+packagingGroupId :: Text
+$sel:packagingGroupId:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Text
+</span><a href="#local-6989586621679200641"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200641"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200640"><span class="annot"><span class="annottext">s :: CreatePackagingConfiguration
+</span><a href="#local-6989586621679200640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfiguration
+</span><a href="#local-6989586621679200640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packagingGroupId:CreatePackagingConfiguration' :: Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3ApackagingGroupId%3ACreatePackagingConfiguration%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679200635"><span class="annot"><span class="annottext">request :: CreatePackagingConfiguration
+-&gt; Request CreatePackagingConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreatePackagingConfiguration
+-&gt; Request CreatePackagingConfiguration
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.MediaPackageVOD.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679200631"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreatePackagingConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePackagingConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreatePackagingConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreatePackagingConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePackagingConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200628"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200628"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200627"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200627"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200626"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe HlsPackage
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DashPackage
+-&gt; Maybe MssPackage
+-&gt; Maybe Text
+-&gt; Maybe CmafPackage
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">CreatePackagingConfigurationResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HlsPackage
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe DashPackage
+ -&gt; Maybe MssPackage
+ -&gt; Maybe Text
+ -&gt; Maybe CmafPackage
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe HlsPackage)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HlsPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packagingGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe DashPackage)
+-&gt; Either
+     String
+     (Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DashPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe MssPackage)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MssPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mssPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe CmafPackage
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CmafPackage
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe CmafPackage)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Int -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CmafPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cmafPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Int -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; CreatePackagingConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreatePackagingConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either String CreatePackagingConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200628"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679200617"><span id="local-6989586621679200619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679200610"><span class="annot"><span class="annottext">toHeaders :: CreatePackagingConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePackagingConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-180"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200600"><span id="local-6989586621679200602"><span id="local-6989586621679200604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679200598"><span class="annot"><span class="annottext">toJSON :: CreatePackagingConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration%27"><span class="hs-identifier hs-type">CreatePackagingConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200590"><span id="local-6989586621679200591"><span id="local-6989586621679200592"><span id="local-6989586621679200593"><span id="local-6989586621679200594"><span id="local-6989586621679200595"><span id="local-6989586621679200596"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+Maybe MssPackage
+Maybe HlsPackage
+Maybe CmafPackage
+Maybe DashPackage
+Text
+packagingGroupId :: Text
+id :: Text
+tags :: Maybe (HashMap Text Text)
+cmafPackage :: Maybe CmafPackage
+mssPackage :: Maybe MssPackage
+dashPackage :: Maybe DashPackage
+hlsPackage :: Maybe HlsPackage
+$sel:packagingGroupId:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Text
+$sel:id:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Text
+$sel:tags:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe (HashMap Text Text)
+$sel:cmafPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe CmafPackage
+$sel:mssPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe MssPackage
+$sel:dashPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe DashPackage
+$sel:hlsPackage:CreatePackagingConfiguration' :: CreatePackagingConfiguration -&gt; Maybe HlsPackage
+</span><a href="#local-6989586621679200590"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsPackage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsPackage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HlsPackage -&gt; Pair) -&gt; Maybe HlsPackage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679200596"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashPackage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DashPackage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DashPackage -&gt; Pair) -&gt; Maybe DashPackage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679200595"><span class="hs-identifier hs-var">dashPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mssPackage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MssPackage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MssPackage -&gt; Pair) -&gt; Maybe MssPackage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679200594"><span class="hs-identifier hs-var">mssPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cmafPackage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CmafPackage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CmafPackage -&gt; Pair) -&gt; Maybe CmafPackage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679200593"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200592"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200591"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-195"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packagingGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200590"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621679200584"><span class="annot"><span class="annottext">toPath :: CreatePackagingConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePackagingConfiguration -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/packaging_configurations&quot;</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfiguration"><span class="hs-identifier hs-type">CreatePackagingConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679200580"><span class="annot"><span class="annottext">toQuery :: CreatePackagingConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePackagingConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | /See:/ 'newCreatePackagingConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-206"></span><span id="local-6989586621679200577"><span id="local-6989586621679200578"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePackagingConfigurationResponse"><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-var">CreatePackagingConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePackagingConfigurationResponse%27"><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">CreatePackagingConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AhlsPackage%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhlsPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">hlsPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The ARN of the PackagingConfiguration.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3Aarn%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aarn%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The ID of a PackagingGroup.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3ApackagingGroupId%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3ApackagingGroupId%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AdashPackage%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AdashPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">dashPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AmssPackage%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe MssPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AmssPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">mssPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | The ID of the PackagingConfiguration.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3Aid%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aid%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AcmafPackage%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe CmafPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AcmafPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">cmafPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3Atags%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Atags%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePackagingConfigurationResponse%27"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhttpStatus%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200564"><span id="local-6989586621679200566"><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+-&gt; CreatePackagingConfigurationResponse -&gt; Bool
+(CreatePackagingConfigurationResponse
+ -&gt; CreatePackagingConfigurationResponse -&gt; Bool)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; CreatePackagingConfigurationResponse -&gt; Bool)
+-&gt; Eq CreatePackagingConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePackagingConfigurationResponse
+-&gt; CreatePackagingConfigurationResponse -&gt; Bool
+$c/= :: CreatePackagingConfigurationResponse
+-&gt; CreatePackagingConfigurationResponse -&gt; Bool
+== :: CreatePackagingConfigurationResponse
+-&gt; CreatePackagingConfigurationResponse -&gt; Bool
+$c== :: CreatePackagingConfigurationResponse
+-&gt; CreatePackagingConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200556"><span id="local-6989586621679200558"><span id="local-6989586621679200560"><span id="local-6989586621679200562"><span class="annot"><span class="annottext">ReadPrec [CreatePackagingConfigurationResponse]
+ReadPrec CreatePackagingConfigurationResponse
+Int -&gt; ReadS CreatePackagingConfigurationResponse
+ReadS [CreatePackagingConfigurationResponse]
+(Int -&gt; ReadS CreatePackagingConfigurationResponse)
+-&gt; ReadS [CreatePackagingConfigurationResponse]
+-&gt; ReadPrec CreatePackagingConfigurationResponse
+-&gt; ReadPrec [CreatePackagingConfigurationResponse]
+-&gt; Read CreatePackagingConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreatePackagingConfigurationResponse]
+$creadListPrec :: ReadPrec [CreatePackagingConfigurationResponse]
+readPrec :: ReadPrec CreatePackagingConfigurationResponse
+$creadPrec :: ReadPrec CreatePackagingConfigurationResponse
+readList :: ReadS [CreatePackagingConfigurationResponse]
+$creadList :: ReadS [CreatePackagingConfigurationResponse]
+readsPrec :: Int -&gt; ReadS CreatePackagingConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS CreatePackagingConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200550"><span id="local-6989586621679200552"><span id="local-6989586621679200554"><span class="annot"><span class="annottext">Int -&gt; CreatePackagingConfigurationResponse -&gt; ShowS
+[CreatePackagingConfigurationResponse] -&gt; ShowS
+CreatePackagingConfigurationResponse -&gt; String
+(Int -&gt; CreatePackagingConfigurationResponse -&gt; ShowS)
+-&gt; (CreatePackagingConfigurationResponse -&gt; String)
+-&gt; ([CreatePackagingConfigurationResponse] -&gt; ShowS)
+-&gt; Show CreatePackagingConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePackagingConfigurationResponse] -&gt; ShowS
+$cshowList :: [CreatePackagingConfigurationResponse] -&gt; ShowS
+show :: CreatePackagingConfigurationResponse -&gt; String
+$cshow :: CreatePackagingConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; CreatePackagingConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePackagingConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreatePackagingConfigurationResponse
+ -&gt; Rep CreatePackagingConfigurationResponse x)
+-&gt; (forall x.
+    Rep CreatePackagingConfigurationResponse x
+    -&gt; CreatePackagingConfigurationResponse)
+-&gt; Generic CreatePackagingConfigurationResponse
+forall x.
+Rep CreatePackagingConfigurationResponse x
+-&gt; CreatePackagingConfigurationResponse
+forall x.
+CreatePackagingConfigurationResponse
+-&gt; Rep CreatePackagingConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreatePackagingConfigurationResponse x
+-&gt; CreatePackagingConfigurationResponse
+$cfrom :: forall x.
+CreatePackagingConfigurationResponse
+-&gt; Rep CreatePackagingConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- Create a value of 'CreatePackagingConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- 'hlsPackage', 'createPackagingConfigurationResponse_hlsPackage' - Undocumented member.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'arn', 'createPackagingConfigurationResponse_arn' - The ARN of the PackagingConfiguration.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'packagingGroupId', 'createPackagingConfigurationResponse_packagingGroupId' - The ID of a PackagingGroup.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'dashPackage', 'createPackagingConfigurationResponse_dashPackage' - Undocumented member.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'mssPackage', 'createPackagingConfigurationResponse_mssPackage' - Undocumented member.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'id', 'createPackagingConfigurationResponse_id' - The ID of the PackagingConfiguration.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'cmafPackage', 'createPackagingConfigurationResponse_cmafPackage' - Undocumented member.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'tags', 'createPackagingConfigurationResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'httpStatus', 'createPackagingConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#newCreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">newCreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span>
+</span><span id="line-252"></span><span id="newCreatePackagingConfigurationResponse"><span class="annot"><span class="annottext">newCreatePackagingConfigurationResponse :: Int -&gt; CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#newCreatePackagingConfigurationResponse"><span class="hs-identifier hs-var hs-var">newCreatePackagingConfigurationResponse</span></a></span></span><span> </span><span id="local-6989586621679200547"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200547"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse' :: Maybe HlsPackage
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe DashPackage
+-&gt; Maybe MssPackage
+-&gt; Maybe Text
+-&gt; Maybe CmafPackage
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hlsPackage:CreatePackagingConfigurationResponse' :: Maybe HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhlsPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">Maybe HlsPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CreatePackagingConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aarn%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:packagingGroupId:CreatePackagingConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3ApackagingGroupId%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashPackage:CreatePackagingConfigurationResponse' :: Maybe DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AdashPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">dashPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><span class="annottext">$sel:mssPackage:CreatePackagingConfigurationResponse' :: Maybe MssPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AmssPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">mssPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CreatePackagingConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aid%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>      </span><span class="annot"><span class="annottext">$sel:cmafPackage:CreatePackagingConfigurationResponse' :: Maybe CmafPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AcmafPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreatePackagingConfigurationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Atags%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePackagingConfigurationResponse' :: Int
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhttpStatus%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200547"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_hlsPackage"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_hlsPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="createPackagingConfigurationResponse_hlsPackage"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_hlsPackage :: (Maybe HlsPackage -&gt; f (Maybe HlsPackage))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_hlsPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_hlsPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe HlsPackage)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe HlsPackage -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe HlsPackage)
+     (Maybe HlsPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200546"><span class="annot"><span class="annottext">Maybe HlsPackage
+hlsPackage :: Maybe HlsPackage
+$sel:hlsPackage:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe HlsPackage
+</span><a href="#local-6989586621679200546"><span class="hs-identifier hs-var hs-var">hlsPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679200546"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200545"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200544"><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679200544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsPackage:CreatePackagingConfigurationResponse' :: Maybe HlsPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhlsPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679200544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The ARN of the PackagingConfiguration.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_arn"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="createPackagingConfigurationResponse_arn"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_arn"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe Text)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe Text -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200543"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679200543"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200543"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200542"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreatePackagingConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aarn%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | The ID of a PackagingGroup.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_packagingGroupId"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_packagingGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="createPackagingConfigurationResponse_packagingGroupId"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_packagingGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_packagingGroupId"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe Text)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe Text -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200540"><span class="annot"><span class="annottext">Maybe Text
+packagingGroupId :: Maybe Text
+$sel:packagingGroupId:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679200540"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200540"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200539"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packagingGroupId:CreatePackagingConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3ApackagingGroupId%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_dashPackage"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_dashPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="createPackagingConfigurationResponse_dashPackage"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_dashPackage :: (Maybe DashPackage -&gt; f (Maybe DashPackage))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_dashPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_dashPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe DashPackage)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe DashPackage -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe DashPackage)
+     (Maybe DashPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200537"><span class="annot"><span class="annottext">Maybe DashPackage
+dashPackage :: Maybe DashPackage
+$sel:dashPackage:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe DashPackage
+</span><a href="#local-6989586621679200537"><span class="hs-identifier hs-var hs-var">dashPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679200537"><span class="hs-identifier hs-var">dashPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200536"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200535"><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679200535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashPackage:CreatePackagingConfigurationResponse' :: Maybe DashPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AdashPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">dashPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679200535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_mssPackage"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_mssPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="createPackagingConfigurationResponse_mssPackage"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_mssPackage :: (Maybe MssPackage -&gt; f (Maybe MssPackage))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_mssPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_mssPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe MssPackage)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe MssPackage -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe MssPackage)
+     (Maybe MssPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200534"><span class="annot"><span class="annottext">Maybe MssPackage
+mssPackage :: Maybe MssPackage
+$sel:mssPackage:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe MssPackage
+</span><a href="#local-6989586621679200534"><span class="hs-identifier hs-var hs-var">mssPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679200534"><span class="hs-identifier hs-var">mssPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200533"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200532"><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679200532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mssPackage:CreatePackagingConfigurationResponse' :: Maybe MssPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AmssPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">mssPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679200532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The ID of the PackagingConfiguration.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_id"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span id="createPackagingConfigurationResponse_id"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_id"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe Text)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe Text -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200531"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679200531"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200531"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200530"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200529"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CreatePackagingConfigurationResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Aid%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_cmafPackage"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_cmafPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span id="createPackagingConfigurationResponse_cmafPackage"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_cmafPackage :: (Maybe CmafPackage -&gt; f (Maybe CmafPackage))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_cmafPackage"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_cmafPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe CmafPackage)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe CmafPackage -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe CmafPackage)
+     (Maybe CmafPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200528"><span class="annot"><span class="annottext">Maybe CmafPackage
+cmafPackage :: Maybe CmafPackage
+$sel:cmafPackage:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe CmafPackage
+</span><a href="#local-6989586621679200528"><span class="hs-identifier hs-var hs-var">cmafPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679200528"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200527"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200526"><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679200526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cmafPackage:CreatePackagingConfigurationResponse' :: Maybe CmafPackage
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AcmafPackage%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679200526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_tags"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="createPackagingConfigurationResponse_tags"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_tags"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Maybe (HashMap Text Text)
+    -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200525"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200525"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200525"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200524"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200523"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreatePackagingConfigurationResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3Atags%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679200523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreatePackagingConfigurationResponse
+ -&gt; f CreatePackagingConfigurationResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">createPackagingConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-300"></span><span id="createPackagingConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">createPackagingConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreatePackagingConfigurationResponse
+-&gt; f CreatePackagingConfigurationResponse
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#createPackagingConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createPackagingConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePackagingConfigurationResponse -&gt; Int)
+-&gt; (CreatePackagingConfigurationResponse
+    -&gt; Int -&gt; CreatePackagingConfigurationResponse)
+-&gt; Lens
+     CreatePackagingConfigurationResponse
+     CreatePackagingConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200522"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreatePackagingConfigurationResponse' :: CreatePackagingConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679200522"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200522"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200521"><span class="annot"><span class="annottext">s :: CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePackagingConfigurationResponse
+</span><a href="#local-6989586621679200521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePackagingConfigurationResponse' :: Int
+</span><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#%24sel%3AhttpStatus%3ACreatePackagingConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-303"></span><span>  </span><span id="local-6989586621679200518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.html#CreatePackagingConfigurationResponse"><span class="hs-identifier hs-type">CreatePackagingConfigurationResponse</span></a></span></span><span>
+</span><span id="line-305"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateWebhook' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679394558"><span id="local-6989586621679394559"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWebhook"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-var">UpdateWebhook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWebhook%27"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-var">UpdateWebhook'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679394567"><span id="local-6989586621679394568"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWebhook"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-var">UpdateWebhook</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWebhook%27"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-var">UpdateWebhook'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A regular expression used to determine which repository branches are</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- built when a webhook is triggered. If the name of a branch matches the</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- regular expression, then it is built. If @branchFilter@ is empty, then</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AprojectName%3AUpdateWebhook%27"><span class="annot"><span class="annottext">UpdateWebhook -&gt; Text
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AprojectName%3AUpdateWebhook%27"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394548"><span id="local-6989586621679394550"><span class="annot"><span class="annottext">UpdateWebhook -&gt; UpdateWebhook -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394557"><span id="local-6989586621679394559"><span class="annot"><span class="annottext">UpdateWebhook -&gt; UpdateWebhook -&gt; Bool
 (UpdateWebhook -&gt; UpdateWebhook -&gt; Bool)
 -&gt; (UpdateWebhook -&gt; UpdateWebhook -&gt; Bool) -&gt; Eq UpdateWebhook
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWebhook -&gt; UpdateWebhook -&gt; Bool
 == :: UpdateWebhook -&gt; UpdateWebhook -&gt; Bool
 $c== :: UpdateWebhook -&gt; UpdateWebhook -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394539"><span id="local-6989586621679394541"><span id="local-6989586621679394543"><span id="local-6989586621679394545"><span class="annot"><span class="annottext">ReadPrec [UpdateWebhook]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394548"><span id="local-6989586621679394550"><span id="local-6989586621679394552"><span id="local-6989586621679394554"><span class="annot"><span class="annottext">ReadPrec [UpdateWebhook]
 ReadPrec UpdateWebhook
 Int -&gt; ReadS UpdateWebhook
 ReadS [UpdateWebhook]
@@ -107,7 +107,7 @@ readList :: ReadS [UpdateWebhook]
 $creadList :: ReadS [UpdateWebhook]
 readsPrec :: Int -&gt; ReadS UpdateWebhook
 $creadsPrec :: Int -&gt; ReadS UpdateWebhook
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394532"><span id="local-6989586621679394534"><span id="local-6989586621679394536"><span class="annot"><span class="annottext">Int -&gt; UpdateWebhook -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394541"><span id="local-6989586621679394543"><span id="local-6989586621679394545"><span class="annot"><span class="annottext">Int -&gt; UpdateWebhook -&gt; ShowS
 [UpdateWebhook] -&gt; ShowS
 UpdateWebhook -&gt; String
 (Int -&gt; UpdateWebhook -&gt; ShowS)
@@ -164,8 +164,8 @@ $cfrom :: forall x. UpdateWebhook -&gt; Rep UpdateWebhook x
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span>
 </span><span id="line-109"></span><span id="newUpdateWebhook"><span class="annot"><span class="annottext">newUpdateWebhook :: Text -&gt; UpdateWebhook
-</span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#newUpdateWebhook"><span class="hs-identifier hs-var hs-var">newUpdateWebhook</span></a></span></span><span> </span><span id="local-6989586621679394527"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394527"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#newUpdateWebhook"><span class="hs-identifier hs-var hs-var">newUpdateWebhook</span></a></span></span><span> </span><span id="local-6989586621679394536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394536"><span class="hs-identifier hs-var">pProjectName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">UpdateWebhook' :: Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe [[WebhookFilter]]
@@ -191,7 +191,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectName:UpdateWebhook' :: Text
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AprojectName%3AUpdateWebhook%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394527"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span>
+</span><a href="#local-6989586621679394536"><span class="hs-identifier hs-var">pProjectName_</span></a></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A regular expression used to determine which repository branches are</span><span>
@@ -206,16 +206,16 @@ forall a. Maybe a
 -&gt; (UpdateWebhook -&gt; Maybe Text -&gt; UpdateWebhook)
 -&gt; Lens UpdateWebhook UpdateWebhook (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394524"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394533"><span class="annot"><span class="annottext">Maybe Text
 branchFilter :: Maybe Text
 $sel:branchFilter:UpdateWebhook' :: UpdateWebhook -&gt; Maybe Text
-</span><a href="#local-6989586621679394524"><span class="hs-identifier hs-var hs-var">branchFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394524"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394523"><span class="annot"><span class="annottext">s :: UpdateWebhook
-</span><a href="#local-6989586621679394523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394522"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
-</span><a href="#local-6989586621679394523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchFilter:UpdateWebhook' :: Maybe Text
+</span><a href="#local-6989586621679394533"><span class="hs-identifier hs-var hs-var">branchFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394533"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394532"><span class="annot"><span class="annottext">s :: UpdateWebhook
+</span><a href="#local-6989586621679394532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394531"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679394531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
+</span><a href="#local-6989586621679394532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchFilter:UpdateWebhook' :: Maybe Text
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AbranchFilter%3AUpdateWebhook%27"><span class="hs-identifier hs-var">branchFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | A boolean value that specifies whether the associated GitHub</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- repository\'s secret token should be updated. If you use Bitbucket for</span><span>
@@ -226,16 +226,16 @@ $sel:branchFilter:UpdateWebhook' :: UpdateWebhook -&gt; Maybe Text
 -&gt; (UpdateWebhook -&gt; Maybe Bool -&gt; UpdateWebhook)
 -&gt; Lens UpdateWebhook UpdateWebhook (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394521"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394530"><span class="annot"><span class="annottext">Maybe Bool
 rotateSecret :: Maybe Bool
 $sel:rotateSecret:UpdateWebhook' :: UpdateWebhook -&gt; Maybe Bool
-</span><a href="#local-6989586621679394521"><span class="hs-identifier hs-var hs-var">rotateSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679394521"><span class="hs-identifier hs-var">rotateSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394520"><span class="annot"><span class="annottext">s :: UpdateWebhook
-</span><a href="#local-6989586621679394520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394519"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679394519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
-</span><a href="#local-6989586621679394520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rotateSecret:UpdateWebhook' :: Maybe Bool
+</span><a href="#local-6989586621679394530"><span class="hs-identifier hs-var hs-var">rotateSecret</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394530"><span class="hs-identifier hs-var">rotateSecret</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394529"><span class="annot"><span class="annottext">s :: UpdateWebhook
+</span><a href="#local-6989586621679394529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394528"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
+</span><a href="#local-6989586621679394529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rotateSecret:UpdateWebhook' :: Maybe Bool
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3ArotateSecret%3AUpdateWebhook%27"><span class="hs-identifier hs-var">rotateSecret</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679394519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | An array of arrays of @WebhookFilter@ objects used to determine if a</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- webhook event can trigger a build. A filter group must contain at least</span><span>
@@ -251,16 +251,16 @@ $sel:rotateSecret:UpdateWebhook' :: UpdateWebhook -&gt; Maybe Bool
      (Maybe [[WebhookFilter]])
      (Maybe [[WebhookFilter]])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394518"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394527"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
 filterGroups :: Maybe [[WebhookFilter]]
 $sel:filterGroups:UpdateWebhook' :: UpdateWebhook -&gt; Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679394518"><span class="hs-identifier hs-var hs-var">filterGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679394518"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394517"><span class="annot"><span class="annottext">s :: UpdateWebhook
-</span><a href="#local-6989586621679394517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394516"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679394516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
-</span><a href="#local-6989586621679394517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterGroups:UpdateWebhook' :: Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679394527"><span class="hs-identifier hs-var hs-var">filterGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679394527"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394526"><span class="annot"><span class="annottext">s :: UpdateWebhook
+</span><a href="#local-6989586621679394526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394525"><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
+</span><a href="#local-6989586621679394525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
+</span><a href="#local-6989586621679394526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterGroups:UpdateWebhook' :: Maybe [[WebhookFilter]]
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AfilterGroups%3AUpdateWebhook%27"><span class="hs-identifier hs-var">filterGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679394516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
+</span><a href="#local-6989586621679394525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
  -&gt; UpdateWebhook -&gt; f UpdateWebhook)
 -&gt; ((Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
     -&gt; Maybe [[WebhookFilter]] -&gt; f (Maybe [[WebhookFilter]]))
@@ -301,16 +301,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe WebhookBuildType)
      (Maybe WebhookBuildType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394512"><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394521"><span class="annot"><span class="annottext">Maybe WebhookBuildType
 buildType :: Maybe WebhookBuildType
 $sel:buildType:UpdateWebhook' :: UpdateWebhook -&gt; Maybe WebhookBuildType
-</span><a href="#local-6989586621679394512"><span class="hs-identifier hs-var hs-var">buildType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679394512"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394511"><span class="annot"><span class="annottext">s :: UpdateWebhook
-</span><a href="#local-6989586621679394511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394510"><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679394510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
-</span><a href="#local-6989586621679394511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildType:UpdateWebhook' :: Maybe WebhookBuildType
+</span><a href="#local-6989586621679394521"><span class="hs-identifier hs-var hs-var">buildType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><a href="#local-6989586621679394521"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394520"><span class="annot"><span class="annottext">s :: UpdateWebhook
+</span><a href="#local-6989586621679394520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394519"><span class="annot"><span class="annottext">Maybe WebhookBuildType
+</span><a href="#local-6989586621679394519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
+</span><a href="#local-6989586621679394520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildType:UpdateWebhook' :: Maybe WebhookBuildType
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AbuildType%3AUpdateWebhook%27"><span class="hs-identifier hs-var">buildType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679394510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The name of the CodeBuild project.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#updateWebhook_projectName"><span class="hs-identifier hs-type">updateWebhook_projectName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -319,27 +319,27 @@ $sel:buildType:UpdateWebhook' :: UpdateWebhook -&gt; Maybe WebhookBuildType
 -&gt; (UpdateWebhook -&gt; Text -&gt; UpdateWebhook)
 -&gt; Lens UpdateWebhook UpdateWebhook Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394509"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394518"><span class="annot"><span class="annottext">Text
 projectName :: Text
 $sel:projectName:UpdateWebhook' :: UpdateWebhook -&gt; Text
-</span><a href="#local-6989586621679394509"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394509"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394508"><span class="annot"><span class="annottext">s :: UpdateWebhook
-</span><a href="#local-6989586621679394508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394507"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
-</span><a href="#local-6989586621679394508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:UpdateWebhook' :: Text
+</span><a href="#local-6989586621679394518"><span class="hs-identifier hs-var hs-var">projectName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394518"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394517"><span class="annot"><span class="annottext">s :: UpdateWebhook
+</span><a href="#local-6989586621679394517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679394516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhook
+</span><a href="#local-6989586621679394517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectName:UpdateWebhook' :: Text
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AprojectName%3AUpdateWebhook%27"><span class="hs-identifier hs-var">projectName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679394503"><span class="annot"><span class="annottext">request :: UpdateWebhook -&gt; Request UpdateWebhook
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679394512"><span class="annot"><span class="annottext">request :: UpdateWebhook -&gt; Request UpdateWebhook
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateWebhook -&gt; Request UpdateWebhook
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679394499"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679394508"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateWebhook
 -&gt; ClientResponse ClientBody
@@ -363,10 +363,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394496"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394496"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394495"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679394495"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394494"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394494"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394505"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394505"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679394504"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679394504"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679394503"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Webhook -&gt; Int -&gt; UpdateWebhookResponse
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-var">UpdateWebhookResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Webhook -&gt; Int -&gt; UpdateWebhookResponse)
@@ -374,7 +374,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateWebhookResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679394494"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Webhook)
+</span><a href="#local-6989586621679394503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Webhook)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;webhook&quot;</span></span><span class="hs-special">)</span><span>
@@ -386,15 +386,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394496"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394505"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394486"><span id="local-6989586621679394488"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394495"><span id="local-6989586621679394497"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span></span></span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394492"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679394479"><span class="annot"><span class="annottext">toHeaders :: UpdateWebhook -&gt; ResponseHeaders
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679394488"><span class="annot"><span class="annottext">toHeaders :: UpdateWebhook -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateWebhook -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -421,9 +421,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-176"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394469"><span id="local-6989586621679394471"><span id="local-6989586621679394473"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679394467"><span class="annot"><span class="annottext">toJSON :: UpdateWebhook -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394461"><span id="local-6989586621679394462"><span id="local-6989586621679394463"><span id="local-6989586621679394464"><span id="local-6989586621679394465"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394478"><span id="local-6989586621679394480"><span id="local-6989586621679394482"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679394476"><span class="annot"><span class="annottext">toJSON :: UpdateWebhook -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook%27"><span class="hs-identifier hs-type">UpdateWebhook'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394470"><span id="local-6989586621679394471"><span id="local-6989586621679394472"><span id="local-6989586621679394473"><span id="local-6989586621679394474"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [[WebhookFilter]]
 Maybe Text
 Maybe WebhookBuildType
@@ -438,7 +438,7 @@ $sel:buildType:UpdateWebhook' :: UpdateWebhook -&gt; Maybe WebhookBuildType
 $sel:filterGroups:UpdateWebhook' :: UpdateWebhook -&gt; Maybe [[WebhookFilter]]
 $sel:rotateSecret:UpdateWebhook' :: UpdateWebhook -&gt; Maybe Bool
 $sel:branchFilter:UpdateWebhook' :: UpdateWebhook -&gt; Maybe Text
-</span><a href="#local-6989586621679394461"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679394470"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -450,14 +450,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679394465"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394474"><span class="hs-identifier hs-var">branchFilter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rotateSecret&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679394464"><span class="hs-identifier hs-var">rotateSecret</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394473"><span class="hs-identifier hs-var">rotateSecret</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [[WebhookFilter]] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -465,33 +465,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [[WebhookFilter]] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [[WebhookFilter]]
-</span><a href="#local-6989586621679394463"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394472"><span class="hs-identifier hs-var">filterGroups</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;buildType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WebhookBuildType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(WebhookBuildType -&gt; Pair) -&gt; Maybe WebhookBuildType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WebhookBuildType
-</span><a href="#local-6989586621679394462"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394471"><span class="hs-identifier hs-var">buildType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679394461"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394470"><span class="hs-identifier hs-var">projectName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679394455"><span class="annot"><span class="annottext">toPath :: UpdateWebhook -&gt; ByteString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679394464"><span class="annot"><span class="annottext">toPath :: UpdateWebhook -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateWebhook -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhook"><span class="hs-identifier hs-type">UpdateWebhook</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679394451"><span class="annot"><span class="annottext">toQuery :: UpdateWebhook -&gt; QueryString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679394460"><span class="annot"><span class="annottext">toQuery :: UpdateWebhook -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateWebhook -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -499,7 +499,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newUpdateWebhookResponse' smart constructor.</span><span>
-</span><span id="line-198"></span><span id="local-6989586621679394448"><span id="local-6989586621679394449"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWebhookResponse"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-var">UpdateWebhookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWebhookResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-var">UpdateWebhookResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span id="local-6989586621679394457"><span id="local-6989586621679394458"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWebhookResponse"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-var">UpdateWebhookResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWebhookResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-var">UpdateWebhookResponse'</span></a></span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a repository\'s webhook that is associated with a</span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-comment">-- project in CodeBuild.</span><span>
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3Awebhook%3AUpdateWebhookResponse%27"><span class="annot"><span class="annottext">UpdateWebhookResponse -&gt; Maybe Webhook
@@ -508,7 +508,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-203"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateWebhookResponse%27"><span class="annot"><span class="annottext">UpdateWebhookResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AhttpStatus%3AUpdateWebhookResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394442"><span id="local-6989586621679394444"><span class="annot"><span class="annottext">UpdateWebhookResponse -&gt; UpdateWebhookResponse -&gt; Bool
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394451"><span id="local-6989586621679394453"><span class="annot"><span class="annottext">UpdateWebhookResponse -&gt; UpdateWebhookResponse -&gt; Bool
 (UpdateWebhookResponse -&gt; UpdateWebhookResponse -&gt; Bool)
 -&gt; (UpdateWebhookResponse -&gt; UpdateWebhookResponse -&gt; Bool)
 -&gt; Eq UpdateWebhookResponse
@@ -517,7 +517,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateWebhookResponse -&gt; UpdateWebhookResponse -&gt; Bool
 == :: UpdateWebhookResponse -&gt; UpdateWebhookResponse -&gt; Bool
 $c== :: UpdateWebhookResponse -&gt; UpdateWebhookResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394434"><span id="local-6989586621679394436"><span id="local-6989586621679394438"><span id="local-6989586621679394440"><span class="annot"><span class="annottext">ReadPrec [UpdateWebhookResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394443"><span id="local-6989586621679394445"><span id="local-6989586621679394447"><span id="local-6989586621679394449"><span class="annot"><span class="annottext">ReadPrec [UpdateWebhookResponse]
 ReadPrec UpdateWebhookResponse
 Int -&gt; ReadS UpdateWebhookResponse
 ReadS [UpdateWebhookResponse]
@@ -537,7 +537,7 @@ readList :: ReadS [UpdateWebhookResponse]
 $creadList :: ReadS [UpdateWebhookResponse]
 readsPrec :: Int -&gt; ReadS UpdateWebhookResponse
 $creadsPrec :: Int -&gt; ReadS UpdateWebhookResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394428"><span id="local-6989586621679394430"><span id="local-6989586621679394432"><span class="annot"><span class="annottext">Int -&gt; UpdateWebhookResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394437"><span id="local-6989586621679394439"><span id="local-6989586621679394441"><span class="annot"><span class="annottext">Int -&gt; UpdateWebhookResponse -&gt; ShowS
 [UpdateWebhookResponse] -&gt; ShowS
 UpdateWebhookResponse -&gt; String
 (Int -&gt; UpdateWebhookResponse -&gt; ShowS)
@@ -580,8 +580,8 @@ $cfrom :: forall x. UpdateWebhookResponse -&gt; Rep UpdateWebhookResponse x
 </span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span><span>
 </span><span id="line-223"></span><span id="newUpdateWebhookResponse"><span class="annot"><span class="annottext">newUpdateWebhookResponse :: Int -&gt; UpdateWebhookResponse
-</span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#newUpdateWebhookResponse"><span class="hs-identifier hs-var hs-var">newUpdateWebhookResponse</span></a></span></span><span> </span><span id="local-6989586621679394425"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394425"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#newUpdateWebhookResponse"><span class="hs-identifier hs-var hs-var">newUpdateWebhookResponse</span></a></span></span><span> </span><span id="local-6989586621679394434"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">UpdateWebhookResponse' :: Maybe Webhook -&gt; Int -&gt; UpdateWebhookResponse
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span>
 </span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:webhook:UpdateWebhookResponse' :: Maybe Webhook
@@ -590,7 +590,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWebhookResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AhttpStatus%3AUpdateWebhookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394425"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679394434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | Information about a repository\'s webhook that is associated with a</span><span>
@@ -607,16 +607,16 @@ forall a. Maybe a
      (Maybe Webhook)
      (Maybe Webhook)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394424"><span class="annot"><span class="annottext">Maybe Webhook
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394433"><span class="annot"><span class="annottext">Maybe Webhook
 webhook :: Maybe Webhook
 $sel:webhook:UpdateWebhookResponse' :: UpdateWebhookResponse -&gt; Maybe Webhook
-</span><a href="#local-6989586621679394424"><span class="hs-identifier hs-var hs-var">webhook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Webhook
-</span><a href="#local-6989586621679394424"><span class="hs-identifier hs-var">webhook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394423"><span class="annot"><span class="annottext">s :: UpdateWebhookResponse
-</span><a href="#local-6989586621679394423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394422"><span class="annot"><span class="annottext">Maybe Webhook
-</span><a href="#local-6989586621679394422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhookResponse
-</span><a href="#local-6989586621679394423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webhook:UpdateWebhookResponse' :: Maybe Webhook
+</span><a href="#local-6989586621679394433"><span class="hs-identifier hs-var hs-var">webhook</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Webhook
+</span><a href="#local-6989586621679394433"><span class="hs-identifier hs-var">webhook</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394432"><span class="annot"><span class="annottext">s :: UpdateWebhookResponse
+</span><a href="#local-6989586621679394432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394431"><span class="annot"><span class="annottext">Maybe Webhook
+</span><a href="#local-6989586621679394431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhookResponse
+</span><a href="#local-6989586621679394432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webhook:UpdateWebhookResponse' :: Maybe Webhook
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3Awebhook%3AUpdateWebhookResponse%27"><span class="hs-identifier hs-var">webhook</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Webhook
-</span><a href="#local-6989586621679394422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-235"></span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#updateWebhookResponse_httpStatus"><span class="hs-identifier hs-type">updateWebhookResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -625,16 +625,16 @@ $sel:webhook:UpdateWebhookResponse' :: UpdateWebhookResponse -&gt; Maybe Webhook
 -&gt; (UpdateWebhookResponse -&gt; Int -&gt; UpdateWebhookResponse)
 -&gt; Lens UpdateWebhookResponse UpdateWebhookResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394421"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394430"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateWebhookResponse' :: UpdateWebhookResponse -&gt; Int
-</span><a href="#local-6989586621679394421"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394421"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394420"><span class="annot"><span class="annottext">s :: UpdateWebhookResponse
-</span><a href="#local-6989586621679394420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394419"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhookResponse
-</span><a href="#local-6989586621679394420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWebhookResponse' :: Int
+</span><a href="#local-6989586621679394430"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394430"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394429"><span class="annot"><span class="annottext">s :: UpdateWebhookResponse
+</span><a href="#local-6989586621679394429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse%27"><span class="hs-identifier hs-type">UpdateWebhookResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394428"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679394428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWebhookResponse
+</span><a href="#local-6989586621679394429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWebhookResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.UpdateWebhook.html#%24sel%3AhttpStatus%3AUpdateWebhookResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679394419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-237"></span><span>
-</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394417"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.UpdateWebhook.html#UpdateWebhookResponse"><span class="hs-identifier hs-type">UpdateWebhookResponse</span></a></span></span><span>
 </span><span id="line-239"></span></pre></body></html>

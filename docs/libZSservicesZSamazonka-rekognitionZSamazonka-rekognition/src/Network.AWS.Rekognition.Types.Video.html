@@ -29,19 +29,19 @@
 </span><span id="line-29"></span><span class="hs-comment">-- for analysis. The supported file formats are .mp4, .mov and .avi.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newVideo' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679334974"><span id="local-6989586621679334975"></span></span><span class="hs-keyword">data</span><span> </span><span id="Video"><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-var">Video</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Video%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-var">Video'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679334983"><span id="local-6989586621679334984"></span></span><span class="hs-keyword">data</span><span> </span><span id="Video"><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-var">Video</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Video%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-var">Video'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 bucket name and file name for the video.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3As3Object%3AVideo%27"><span class="annot"><span class="annottext">Video -&gt; Maybe S3Object
 </span><a href="Network.AWS.Rekognition.Types.Video.html#%24sel%3As3Object%3AVideo%27"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.S3Object.html#S3Object"><span class="hs-identifier hs-type">S3Object</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334968"><span id="local-6989586621679334970"><span class="annot"><span class="annottext">Video -&gt; Video -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679334977"><span id="local-6989586621679334979"><span class="annot"><span class="annottext">Video -&gt; Video -&gt; Bool
 (Video -&gt; Video -&gt; Bool) -&gt; (Video -&gt; Video -&gt; Bool) -&gt; Eq Video
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Video -&gt; Video -&gt; Bool
 $c/= :: Video -&gt; Video -&gt; Bool
 == :: Video -&gt; Video -&gt; Bool
 $c== :: Video -&gt; Video -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334959"><span id="local-6989586621679334961"><span id="local-6989586621679334963"><span id="local-6989586621679334965"><span class="annot"><span class="annottext">ReadPrec [Video]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334968"><span id="local-6989586621679334970"><span id="local-6989586621679334972"><span id="local-6989586621679334974"><span class="annot"><span class="annottext">ReadPrec [Video]
 ReadPrec Video
 Int -&gt; ReadS Video
 ReadS [Video]
@@ -61,7 +61,7 @@ readList :: ReadS [Video]
 $creadList :: ReadS [Video]
 readsPrec :: Int -&gt; ReadS Video
 $creadsPrec :: Int -&gt; ReadS Video
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334952"><span id="local-6989586621679334954"><span id="local-6989586621679334956"><span class="annot"><span class="annottext">Int -&gt; Video -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679334961"><span id="local-6989586621679334963"><span id="local-6989586621679334965"><span class="annot"><span class="annottext">Int -&gt; Video -&gt; ShowS
 [Video] -&gt; ShowS
 Video -&gt; String
 (Int -&gt; Video -&gt; ShowS)
@@ -109,27 +109,27 @@ forall a. Maybe a
 -&gt; (Video -&gt; Maybe S3Object -&gt; Video)
 -&gt; Lens Video Video (Maybe S3Object) (Maybe S3Object)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-type">Video'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334943"><span class="annot"><span class="annottext">Maybe S3Object
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-type">Video'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334952"><span class="annot"><span class="annottext">Maybe S3Object
 s3Object :: Maybe S3Object
 $sel:s3Object:Video' :: Video -&gt; Maybe S3Object
-</span><a href="#local-6989586621679334943"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679334943"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334942"><span class="annot"><span class="annottext">s :: Video
-</span><a href="#local-6989586621679334942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-type">Video'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334941"><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679334941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Video
-</span><a href="#local-6989586621679334942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Video' :: Maybe S3Object
+</span><a href="#local-6989586621679334952"><span class="hs-identifier hs-var hs-var">s3Object</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679334952"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679334951"><span class="annot"><span class="annottext">s :: Video
+</span><a href="#local-6989586621679334951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-type">Video'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679334950"><span class="annot"><span class="annottext">Maybe S3Object
+</span><a href="#local-6989586621679334950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Video
+</span><a href="#local-6989586621679334951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Object:Video' :: Maybe S3Object
 </span><a href="Network.AWS.Rekognition.Types.Video.html#%24sel%3As3Object%3AVideo%27"><span class="hs-identifier hs-var">s3Object</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679334941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679334950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334937"><span id="local-6989586621679334939"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334946"><span id="local-6989586621679334948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334934"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334926"><span id="local-6989586621679334928"><span id="local-6989586621679334930"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679334924"><span class="annot"><span class="annottext">toJSON :: Video -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-type">Video'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334922"><span class="annot"><span class="annottext">Maybe S3Object
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679334935"><span id="local-6989586621679334937"><span id="local-6989586621679334939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video"><span class="hs-identifier hs-type">Video</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679334933"><span class="annot"><span class="annottext">toJSON :: Video -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Video.html#Video%27"><span class="hs-identifier hs-type">Video'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679334931"><span class="annot"><span class="annottext">Maybe S3Object
 s3Object :: Maybe S3Object
 $sel:s3Object:Video' :: Video -&gt; Maybe S3Object
-</span><a href="#local-6989586621679334922"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679334931"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -141,6 +141,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3Object -&gt; Pair) -&gt; Maybe S3Object -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3Object
-</span><a href="#local-6989586621679334922"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679334931"><span class="hs-identifier hs-var">s3Object</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span></pre></body></html>

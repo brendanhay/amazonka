@@ -44,10 +44,10 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDescribeEndpoints' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679393116"><span id="local-6989586621679393117"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpoints"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-var">DescribeEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpoints%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-var">DescribeEndpoints'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679393125"><span id="local-6989586621679393126"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpoints"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-var">DescribeEndpoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpoints%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints%27"><span class="hs-identifier hs-var">DescribeEndpoints'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393111"><span id="local-6989586621679393113"><span class="annot"><span class="annottext">DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393120"><span id="local-6989586621679393122"><span class="annot"><span class="annottext">DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
 (DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool)
 -&gt; (DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool)
 -&gt; Eq DescribeEndpoints
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
 == :: DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
 $c== :: DescribeEndpoints -&gt; DescribeEndpoints -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393102"><span id="local-6989586621679393104"><span id="local-6989586621679393106"><span id="local-6989586621679393108"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpoints]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393111"><span id="local-6989586621679393113"><span id="local-6989586621679393115"><span id="local-6989586621679393117"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpoints]
 ReadPrec DescribeEndpoints
 Int -&gt; ReadS DescribeEndpoints
 ReadS [DescribeEndpoints]
@@ -76,7 +76,7 @@ readList :: ReadS [DescribeEndpoints]
 $creadList :: ReadS [DescribeEndpoints]
 readsPrec :: Int -&gt; ReadS DescribeEndpoints
 $creadsPrec :: Int -&gt; ReadS DescribeEndpoints
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393095"><span id="local-6989586621679393097"><span id="local-6989586621679393099"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpoints -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393104"><span id="local-6989586621679393106"><span id="local-6989586621679393108"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpoints -&gt; ShowS
 [DescribeEndpoints] -&gt; ShowS
 DescribeEndpoints -&gt; String
 (Int -&gt; DescribeEndpoints -&gt; ShowS)
@@ -116,12 +116,12 @@ $cfrom :: forall x. DescribeEndpoints -&gt; Rep DescribeEndpoints x
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-62"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679393087"><span class="annot"><span class="annottext">request :: DescribeEndpoints -&gt; Request DescribeEndpoints
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679393096"><span class="annot"><span class="annottext">request :: DescribeEndpoints -&gt; Request DescribeEndpoints
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeEndpoints -&gt; Request DescribeEndpoints
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679393083"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679393092"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeEndpoints
 -&gt; ClientResponse ClientBody
@@ -147,10 +147,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393080"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393080"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393079"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393079"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393078"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393078"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393089"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393089"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393088"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393088"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393087"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [Endpoint] -&gt; DescribeEndpointsResponse
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointsResponse'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [Endpoint] -&gt; DescribeEndpointsResponse)
@@ -162,13 +162,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393080"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393089"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Endpoint] -&gt; DescribeEndpointsResponse)
 -&gt; Either String [Endpoint]
 -&gt; Either String DescribeEndpointsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Endpoint])
+</span><a href="#local-6989586621679393087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Endpoint])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Endpoints&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Endpoint])
@@ -179,12 +179,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393069"><span id="local-6989586621679393071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393078"><span id="local-6989586621679393080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679393062"><span class="annot"><span class="annottext">toHeaders :: DescribeEndpoints -&gt; ResponseHeaders
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679393071"><span class="annot"><span class="annottext">toHeaders :: DescribeEndpoints -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeEndpoints -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -211,8 +211,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393052"><span id="local-6989586621679393054"><span id="local-6989586621679393056"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679393050"><span class="annot"><span class="annottext">toJSON :: DescribeEndpoints -&gt; Value
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393061"><span id="local-6989586621679393063"><span id="local-6989586621679393065"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679393059"><span class="annot"><span class="annottext">toJSON :: DescribeEndpoints -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeEndpoints -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -221,14 +221,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679393045"><span class="annot"><span class="annottext">toPath :: DescribeEndpoints -&gt; ByteString
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679393054"><span class="annot"><span class="annottext">toPath :: DescribeEndpoints -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeEndpoints -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpoints"><span class="hs-identifier hs-type">DescribeEndpoints</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679393041"><span class="annot"><span class="annottext">toQuery :: DescribeEndpoints -&gt; QueryString
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679393050"><span class="annot"><span class="annottext">toQuery :: DescribeEndpoints -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeEndpoints -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -236,7 +236,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | /See:/ 'newDescribeEndpointsResponse' smart constructor.</span><span>
-</span><span id="line-102"></span><span id="local-6989586621679393038"><span id="local-6989586621679393039"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-var">DescribeEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointsResponse'</span></a></span></span><span>
+</span><span id="line-102"></span><span id="local-6989586621679393047"><span id="local-6989586621679393048"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeEndpointsResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-var">DescribeEndpointsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeEndpointsResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-var">DescribeEndpointsResponse'</span></a></span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -244,7 +244,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3Aendpoints%3ADescribeEndpointsResponse%27"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; [Endpoint]
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#%24sel%3Aendpoints%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393032"><span id="local-6989586621679393034"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393041"><span id="local-6989586621679393043"><span class="annot"><span class="annottext">DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
 (DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool)
 -&gt; (DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool)
 -&gt; Eq DescribeEndpointsResponse
@@ -253,7 +253,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
 == :: DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
 $c== :: DescribeEndpointsResponse -&gt; DescribeEndpointsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393024"><span id="local-6989586621679393026"><span id="local-6989586621679393028"><span id="local-6989586621679393030"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393033"><span id="local-6989586621679393035"><span id="local-6989586621679393037"><span id="local-6989586621679393039"><span class="annot"><span class="annottext">ReadPrec [DescribeEndpointsResponse]
 ReadPrec DescribeEndpointsResponse
 Int -&gt; ReadS DescribeEndpointsResponse
 ReadS [DescribeEndpointsResponse]
@@ -273,7 +273,7 @@ readList :: ReadS [DescribeEndpointsResponse]
 $creadList :: ReadS [DescribeEndpointsResponse]
 readsPrec :: Int -&gt; ReadS DescribeEndpointsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeEndpointsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393018"><span id="local-6989586621679393020"><span id="local-6989586621679393022"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393027"><span id="local-6989586621679393029"><span id="local-6989586621679393031"><span class="annot"><span class="annottext">Int -&gt; DescribeEndpointsResponse -&gt; ShowS
 [DescribeEndpointsResponse] -&gt; ShowS
 DescribeEndpointsResponse -&gt; String
 (Int -&gt; DescribeEndpointsResponse -&gt; ShowS)
@@ -321,14 +321,14 @@ DescribeEndpointsResponse -&gt; Rep DescribeEndpointsResponse x
 </span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span>
 </span><span id="line-125"></span><span id="newDescribeEndpointsResponse"><span class="annot"><span class="annottext">newDescribeEndpointsResponse :: Int -&gt; DescribeEndpointsResponse
-</span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#newDescribeEndpointsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679393015"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#newDescribeEndpointsResponse"><span class="hs-identifier hs-var hs-var">newDescribeEndpointsResponse</span></a></span></span><span> </span><span id="local-6989586621679393024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">DescribeEndpointsResponse' :: Int -&gt; [Endpoint] -&gt; DescribeEndpointsResponse
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679393024"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoints:DescribeEndpointsResponse' :: [Endpoint]
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#%24sel%3Aendpoints%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">endpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Endpoint]
 forall a. Monoid a =&gt; a
@@ -343,16 +343,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DescribeEndpointsResponse -&gt; Int -&gt; DescribeEndpointsResponse)
 -&gt; Lens DescribeEndpointsResponse DescribeEndpointsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393012"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393021"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeEndpointsResponse' :: DescribeEndpointsResponse -&gt; Int
-</span><a href="#local-6989586621679393012"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393012"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393011"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
-</span><a href="#local-6989586621679393011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393010"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
-</span><a href="#local-6989586621679393011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointsResponse' :: Int
+</span><a href="#local-6989586621679393021"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393021"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393020"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
+</span><a href="#local-6989586621679393020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393019"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
+</span><a href="#local-6989586621679393020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeEndpointsResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#%24sel%3AhttpStatus%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | List of endpoints.</span><span>
 </span><span id="line-137"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#describeEndpointsResponse_endpoints"><span class="hs-identifier hs-type">describeEndpointsResponse_endpoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">]</span><span>
@@ -367,16 +367,16 @@ $sel:httpStatus:DescribeEndpointsResponse' :: DescribeEndpointsResponse -&gt; In
      [Endpoint]
      [Endpoint]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393009"><span class="annot"><span class="annottext">[Endpoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393018"><span class="annot"><span class="annottext">[Endpoint]
 endpoints :: [Endpoint]
 $sel:endpoints:DescribeEndpointsResponse' :: DescribeEndpointsResponse -&gt; [Endpoint]
-</span><a href="#local-6989586621679393009"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Endpoint]
-</span><a href="#local-6989586621679393009"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393008"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
-</span><a href="#local-6989586621679393008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393007"><span class="annot"><span class="annottext">[Endpoint]
-</span><a href="#local-6989586621679393007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
-</span><a href="#local-6989586621679393008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:DescribeEndpointsResponse' :: [Endpoint]
+</span><a href="#local-6989586621679393018"><span class="hs-identifier hs-var hs-var">endpoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Endpoint]
+</span><a href="#local-6989586621679393018"><span class="hs-identifier hs-var">endpoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393017"><span class="annot"><span class="annottext">s :: DescribeEndpointsResponse
+</span><a href="#local-6989586621679393017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse%27"><span class="hs-identifier hs-type">DescribeEndpointsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393016"><span class="annot"><span class="annottext">[Endpoint]
+</span><a href="#local-6989586621679393016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeEndpointsResponse
+</span><a href="#local-6989586621679393017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoints:DescribeEndpointsResponse' :: [Endpoint]
 </span><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#%24sel%3Aendpoints%3ADescribeEndpointsResponse%27"><span class="hs-identifier hs-var">endpoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Endpoint]
-</span><a href="#local-6989586621679393007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Endpoint] -&gt; f [Endpoint])
+</span><a href="#local-6989586621679393016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Endpoint] -&gt; f [Endpoint])
  -&gt; DescribeEndpointsResponse -&gt; f DescribeEndpointsResponse)
 -&gt; (([Endpoint] -&gt; f [Endpoint]) -&gt; [Endpoint] -&gt; f [Endpoint])
 -&gt; ([Endpoint] -&gt; f [Endpoint])
@@ -387,5 +387,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeEndpoints.html#DescribeEndpointsResponse"><span class="hs-identifier hs-type">DescribeEndpointsResponse</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

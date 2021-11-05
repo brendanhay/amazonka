@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- Priority configurations are part of a GameSessionQueue.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newPriorityConfiguration' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679439066"><span id="local-6989586621679439067"></span></span><span class="hs-keyword">data</span><span> </span><span id="PriorityConfiguration"><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-var">PriorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriorityConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-var">PriorityConfiguration'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679439075"><span id="local-6989586621679439076"></span></span><span class="hs-keyword">data</span><span> </span><span id="PriorityConfiguration"><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-var">PriorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriorityConfiguration%27"><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-var">PriorityConfiguration'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The recommended sequence to use when prioritizing where to place new</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- game sessions. Each type can only be listed once.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AlocationOrder%3APriorityConfiguration%27"><span class="annot"><span class="annottext">PriorityConfiguration -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#%24sel%3AlocationOrder%3APriorityConfiguration%27"><span class="hs-identifier hs-var hs-var">locationOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439059"><span id="local-6989586621679439061"><span class="annot"><span class="annottext">PriorityConfiguration -&gt; PriorityConfiguration -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439068"><span id="local-6989586621679439070"><span class="annot"><span class="annottext">PriorityConfiguration -&gt; PriorityConfiguration -&gt; Bool
 (PriorityConfiguration -&gt; PriorityConfiguration -&gt; Bool)
 -&gt; (PriorityConfiguration -&gt; PriorityConfiguration -&gt; Bool)
 -&gt; Eq PriorityConfiguration
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PriorityConfiguration -&gt; PriorityConfiguration -&gt; Bool
 == :: PriorityConfiguration -&gt; PriorityConfiguration -&gt; Bool
 $c== :: PriorityConfiguration -&gt; PriorityConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439050"><span id="local-6989586621679439052"><span id="local-6989586621679439054"><span id="local-6989586621679439056"><span class="annot"><span class="annottext">ReadPrec [PriorityConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439059"><span id="local-6989586621679439061"><span id="local-6989586621679439063"><span id="local-6989586621679439065"><span class="annot"><span class="annottext">ReadPrec [PriorityConfiguration]
 ReadPrec PriorityConfiguration
 Int -&gt; ReadS PriorityConfiguration
 ReadS [PriorityConfiguration]
@@ -104,7 +104,7 @@ readList :: ReadS [PriorityConfiguration]
 $creadList :: ReadS [PriorityConfiguration]
 readsPrec :: Int -&gt; ReadS PriorityConfiguration
 $creadsPrec :: Int -&gt; ReadS PriorityConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439043"><span id="local-6989586621679439045"><span id="local-6989586621679439047"><span class="annot"><span class="annottext">Int -&gt; PriorityConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439052"><span id="local-6989586621679439054"><span id="local-6989586621679439056"><span class="annot"><span class="annottext">Int -&gt; PriorityConfiguration -&gt; ShowS
 [PriorityConfiguration] -&gt; ShowS
 PriorityConfiguration -&gt; String
 (Int -&gt; PriorityConfiguration -&gt; ShowS)
@@ -206,16 +206,16 @@ forall a. Maybe a
      (Maybe (NonEmpty PriorityType))
      (Maybe (NonEmpty PriorityType))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439034"><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439043"><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
 priorityOrder :: Maybe (NonEmpty PriorityType)
 $sel:priorityOrder:PriorityConfiguration' :: PriorityConfiguration -&gt; Maybe (NonEmpty PriorityType)
-</span><a href="#local-6989586621679439034"><span class="hs-identifier hs-var hs-var">priorityOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
-</span><a href="#local-6989586621679439034"><span class="hs-identifier hs-var">priorityOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439033"><span class="annot"><span class="annottext">s :: PriorityConfiguration
-</span><a href="#local-6989586621679439033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439032"><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
-</span><a href="#local-6989586621679439032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriorityConfiguration
-</span><a href="#local-6989586621679439033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priorityOrder:PriorityConfiguration' :: Maybe (NonEmpty PriorityType)
+</span><a href="#local-6989586621679439043"><span class="hs-identifier hs-var hs-var">priorityOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
+</span><a href="#local-6989586621679439043"><span class="hs-identifier hs-var">priorityOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439042"><span class="annot"><span class="annottext">s :: PriorityConfiguration
+</span><a href="#local-6989586621679439042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439041"><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
+</span><a href="#local-6989586621679439041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriorityConfiguration
+</span><a href="#local-6989586621679439042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priorityOrder:PriorityConfiguration' :: Maybe (NonEmpty PriorityType)
 </span><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#%24sel%3ApriorityOrder%3APriorityConfiguration%27"><span class="hs-identifier hs-var">priorityOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
-</span><a href="#local-6989586621679439032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty PriorityType)
+</span><a href="#local-6989586621679439041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty PriorityType)
   -&gt; f (Maybe (NonEmpty PriorityType)))
  -&gt; PriorityConfiguration -&gt; f PriorityConfiguration)
 -&gt; ((Maybe (NonEmpty PriorityType)
@@ -264,16 +264,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439027"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439036"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 locationOrder :: Maybe (NonEmpty Text)
 $sel:locationOrder:PriorityConfiguration' :: PriorityConfiguration -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679439027"><span class="hs-identifier hs-var hs-var">locationOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679439027"><span class="hs-identifier hs-var">locationOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439026"><span class="annot"><span class="annottext">s :: PriorityConfiguration
-</span><a href="#local-6989586621679439026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439025"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679439025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriorityConfiguration
-</span><a href="#local-6989586621679439026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationOrder:PriorityConfiguration' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679439036"><span class="hs-identifier hs-var hs-var">locationOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679439036"><span class="hs-identifier hs-var">locationOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439035"><span class="annot"><span class="annottext">s :: PriorityConfiguration
+</span><a href="#local-6989586621679439035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439034"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679439034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriorityConfiguration
+</span><a href="#local-6989586621679439035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationOrder:PriorityConfiguration' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#%24sel%3AlocationOrder%3APriorityConfiguration%27"><span class="hs-identifier hs-var">locationOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679439025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679439034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; PriorityConfiguration -&gt; f PriorityConfiguration)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -296,8 +296,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679439020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PriorityConfiguration
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679439029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PriorityConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PriorityConfiguration)
@@ -307,8 +307,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PriorityConfiguration&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439017"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439026"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
 -&gt; Maybe (NonEmpty Text) -&gt; PriorityConfiguration
 </span><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-var">PriorityConfiguration'</span></a></span><span>
@@ -318,7 +318,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe (NonEmpty Text) -&gt; PriorityConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty PriorityType))
+</span><a href="#local-6989586621679439026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty PriorityType))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PriorityOrder&quot;</span></span><span class="hs-special">)</span><span>
@@ -326,25 +326,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (NonEmpty Text)) -&gt; Parser PriorityConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679439026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocationOrder&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439011"><span id="local-6989586621679439013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439020"><span id="local-6989586621679439022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439000"><span id="local-6989586621679439002"><span id="local-6989586621679439004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679438998"><span class="annot"><span class="annottext">toJSON :: PriorityConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679438995"><span id="local-6989586621679438996"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439009"><span id="local-6989586621679439011"><span id="local-6989586621679439013"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679439007"><span class="annot"><span class="annottext">toJSON :: PriorityConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration%27"><span class="hs-identifier hs-type">PriorityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439004"><span id="local-6989586621679439005"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 Maybe (NonEmpty PriorityType)
 locationOrder :: Maybe (NonEmpty Text)
 priorityOrder :: Maybe (NonEmpty PriorityType)
 $sel:locationOrder:PriorityConfiguration' :: PriorityConfiguration -&gt; Maybe (NonEmpty Text)
 $sel:priorityOrder:PriorityConfiguration' :: PriorityConfiguration -&gt; Maybe (NonEmpty PriorityType)
-</span><a href="#local-6989586621679438995"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679439004"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -357,14 +357,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty PriorityType) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty PriorityType)
-</span><a href="#local-6989586621679438996"><span class="hs-identifier hs-var">priorityOrder</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679439005"><span class="hs-identifier hs-var">priorityOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocationOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679438995"><span class="hs-identifier hs-var">locationOrder</span></a></span><span>
+</span><a href="#local-6989586621679439004"><span class="hs-identifier hs-var">locationOrder</span></a></span><span>
 </span><span id="line-162"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span></pre></body></html>

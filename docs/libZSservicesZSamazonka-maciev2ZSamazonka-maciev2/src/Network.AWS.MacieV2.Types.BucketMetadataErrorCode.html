@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MacieV2.Types.BucketMetadataErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MacieV2.Types.BucketMetadataErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode"><span class="hs-identifier">BucketMetadataErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode_ACCESS_DENIED"><span class="hs-identifier">BucketMetadataErrorCode_ACCESS_DENIED</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | The error code for an error that prevented Amazon Macie from retrieving</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- and processing information about an S3 bucket and the bucket\'s objects.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679384739"><span id="local-6989586621679384740"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketMetadataErrorCode"><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode"><span class="hs-identifier hs-var">BucketMetadataErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketMetadataErrorCode%27"><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode%27"><span class="hs-identifier hs-var">BucketMetadataErrorCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBucketMetadataErrorCode"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; Text
+</span><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#fromBucketMetadataErrorCode"><span class="hs-identifier hs-var hs-var">fromBucketMetadataErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679384731"><span id="local-6989586621679384733"><span id="local-6989586621679384735"><span class="annot"><span class="annottext">Int -&gt; BucketMetadataErrorCode -&gt; ShowS
+[BucketMetadataErrorCode] -&gt; ShowS
+BucketMetadataErrorCode -&gt; String
+(Int -&gt; BucketMetadataErrorCode -&gt; ShowS)
+-&gt; (BucketMetadataErrorCode -&gt; String)
+-&gt; ([BucketMetadataErrorCode] -&gt; ShowS)
+-&gt; Show BucketMetadataErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BucketMetadataErrorCode] -&gt; ShowS
+$cshowList :: [BucketMetadataErrorCode] -&gt; ShowS
+show :: BucketMetadataErrorCode -&gt; String
+$cshow :: BucketMetadataErrorCode -&gt; String
+showsPrec :: Int -&gt; BucketMetadataErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; BucketMetadataErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679384722"><span id="local-6989586621679384724"><span id="local-6989586621679384726"><span id="local-6989586621679384728"><span class="annot"><span class="annottext">ReadPrec [BucketMetadataErrorCode]
+ReadPrec BucketMetadataErrorCode
+Int -&gt; ReadS BucketMetadataErrorCode
+ReadS [BucketMetadataErrorCode]
+(Int -&gt; ReadS BucketMetadataErrorCode)
+-&gt; ReadS [BucketMetadataErrorCode]
+-&gt; ReadPrec BucketMetadataErrorCode
+-&gt; ReadPrec [BucketMetadataErrorCode]
+-&gt; Read BucketMetadataErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BucketMetadataErrorCode]
+$creadListPrec :: ReadPrec [BucketMetadataErrorCode]
+readPrec :: ReadPrec BucketMetadataErrorCode
+$creadPrec :: ReadPrec BucketMetadataErrorCode
+readList :: ReadS [BucketMetadataErrorCode]
+$creadList :: ReadS [BucketMetadataErrorCode]
+readsPrec :: Int -&gt; ReadS BucketMetadataErrorCode
+$creadsPrec :: Int -&gt; ReadS BucketMetadataErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679384717"><span id="local-6989586621679384719"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+(BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool)
+-&gt; (BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool)
+-&gt; Eq BucketMetadataErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+$c/= :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+== :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+$c== :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679384701"><span id="local-6989586621679384703"><span id="local-6989586621679384705"><span id="local-6989586621679384707"><span id="local-6989586621679384709"><span id="local-6989586621679384711"><span id="local-6989586621679384713"><span class="annot"><span class="annottext">Eq BucketMetadataErrorCode
+Eq BucketMetadataErrorCode
+-&gt; (BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Ordering)
+-&gt; (BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool)
+-&gt; (BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool)
+-&gt; (BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool)
+-&gt; (BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool)
+-&gt; (BucketMetadataErrorCode
+    -&gt; BucketMetadataErrorCode -&gt; BucketMetadataErrorCode)
+-&gt; (BucketMetadataErrorCode
+    -&gt; BucketMetadataErrorCode -&gt; BucketMetadataErrorCode)
+-&gt; Ord BucketMetadataErrorCode
+BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Ordering
+BucketMetadataErrorCode
+-&gt; BucketMetadataErrorCode -&gt; BucketMetadataErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BucketMetadataErrorCode
+-&gt; BucketMetadataErrorCode -&gt; BucketMetadataErrorCode
+$cmin :: BucketMetadataErrorCode
+-&gt; BucketMetadataErrorCode -&gt; BucketMetadataErrorCode
+max :: BucketMetadataErrorCode
+-&gt; BucketMetadataErrorCode -&gt; BucketMetadataErrorCode
+$cmax :: BucketMetadataErrorCode
+-&gt; BucketMetadataErrorCode -&gt; BucketMetadataErrorCode
+&gt;= :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+$c&gt;= :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+&gt; :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+$c&gt; :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+&lt;= :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+$c&lt;= :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+&lt; :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+$c&lt; :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Bool
+compare :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Ordering
+$ccompare :: BucketMetadataErrorCode -&gt; BucketMetadataErrorCode -&gt; Ordering
+$cp1Ord :: Eq BucketMetadataErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ BucketMetadataErrorCode -&gt; Rep BucketMetadataErrorCode x)
+-&gt; (forall x.
+    Rep BucketMetadataErrorCode x -&gt; BucketMetadataErrorCode)
+-&gt; Generic BucketMetadataErrorCode
+forall x. Rep BucketMetadataErrorCode x -&gt; BucketMetadataErrorCode
+forall x. BucketMetadataErrorCode -&gt; Rep BucketMetadataErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BucketMetadataErrorCode x -&gt; BucketMetadataErrorCode
+$cfrom :: forall x. BucketMetadataErrorCode -&gt; Rep BucketMetadataErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679384693"><span id="local-6989586621679384695"><span class="annot"><span class="annottext">Int -&gt; BucketMetadataErrorCode -&gt; Int
+BucketMetadataErrorCode -&gt; Int
+(Int -&gt; BucketMetadataErrorCode -&gt; Int)
+-&gt; (BucketMetadataErrorCode -&gt; Int)
+-&gt; Hashable BucketMetadataErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BucketMetadataErrorCode -&gt; Int
+$chash :: BucketMetadataErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; BucketMetadataErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; BucketMetadataErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679384690"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; ()
+(BucketMetadataErrorCode -&gt; ()) -&gt; NFData BucketMetadataErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BucketMetadataErrorCode -&gt; ()
+$crnf :: BucketMetadataErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679384687"><span class="annot"><span class="annottext">Text -&gt; Either String BucketMetadataErrorCode
+(Text -&gt; Either String BucketMetadataErrorCode)
+-&gt; FromText BucketMetadataErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BucketMetadataErrorCode
+$cfromText :: Text -&gt; Either String BucketMetadataErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679384684"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; Text
+(BucketMetadataErrorCode -&gt; Text) -&gt; ToText BucketMetadataErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BucketMetadataErrorCode -&gt; Text
+$ctoText :: BucketMetadataErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679384681"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; ByteString
+(BucketMetadataErrorCode -&gt; ByteString)
+-&gt; ToByteString BucketMetadataErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BucketMetadataErrorCode -&gt; ByteString
+$ctoBS :: BucketMetadataErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679384678"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; ByteStringBuilder
+(BucketMetadataErrorCode -&gt; ByteStringBuilder)
+-&gt; ToLog BucketMetadataErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BucketMetadataErrorCode -&gt; ByteStringBuilder
+$cbuild :: BucketMetadataErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679384675"><span class="annot"><span class="annottext">HeaderName -&gt; BucketMetadataErrorCode -&gt; [Header]
+(HeaderName -&gt; BucketMetadataErrorCode -&gt; [Header])
+-&gt; ToHeader BucketMetadataErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BucketMetadataErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BucketMetadataErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679384672"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; QueryString
+(BucketMetadataErrorCode -&gt; QueryString)
+-&gt; ToQuery BucketMetadataErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BucketMetadataErrorCode -&gt; QueryString
+$ctoQuery :: BucketMetadataErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679384667"><span id="local-6989586621679384669"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketMetadataErrorCode]
+Value -&gt; Parser BucketMetadataErrorCode
+(Value -&gt; Parser BucketMetadataErrorCode)
+-&gt; (Value -&gt; Parser [BucketMetadataErrorCode])
+-&gt; FromJSON BucketMetadataErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BucketMetadataErrorCode]
+$cparseJSONList :: Value -&gt; Parser [BucketMetadataErrorCode]
+parseJSON :: Value -&gt; Parser BucketMetadataErrorCode
+$cparseJSON :: Value -&gt; Parser BucketMetadataErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679384662"><span id="local-6989586621679384664"><span class="annot"><span class="annottext">FromJSONKeyFunction [BucketMetadataErrorCode]
+FromJSONKeyFunction BucketMetadataErrorCode
+FromJSONKeyFunction BucketMetadataErrorCode
+-&gt; FromJSONKeyFunction [BucketMetadataErrorCode]
+-&gt; FromJSONKey BucketMetadataErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BucketMetadataErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [BucketMetadataErrorCode]
+fromJSONKey :: FromJSONKeyFunction BucketMetadataErrorCode
+$cfromJSONKey :: FromJSONKeyFunction BucketMetadataErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679384653"><span id="local-6989586621679384655"><span id="local-6989586621679384657"><span id="local-6989586621679384659"><span class="annot"><span class="annottext">[BucketMetadataErrorCode] -&gt; Encoding
+[BucketMetadataErrorCode] -&gt; Value
+BucketMetadataErrorCode -&gt; Encoding
+BucketMetadataErrorCode -&gt; Value
+(BucketMetadataErrorCode -&gt; Value)
+-&gt; (BucketMetadataErrorCode -&gt; Encoding)
+-&gt; ([BucketMetadataErrorCode] -&gt; Value)
+-&gt; ([BucketMetadataErrorCode] -&gt; Encoding)
+-&gt; ToJSON BucketMetadataErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BucketMetadataErrorCode] -&gt; Encoding
+$ctoEncodingList :: [BucketMetadataErrorCode] -&gt; Encoding
+toJSONList :: [BucketMetadataErrorCode] -&gt; Value
+$ctoJSONList :: [BucketMetadataErrorCode] -&gt; Value
+toEncoding :: BucketMetadataErrorCode -&gt; Encoding
+$ctoEncoding :: BucketMetadataErrorCode -&gt; Encoding
+toJSON :: BucketMetadataErrorCode -&gt; Value
+$ctoJSON :: BucketMetadataErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679384648"><span id="local-6989586621679384650"><span class="annot"><span class="annottext">ToJSONKeyFunction [BucketMetadataErrorCode]
+ToJSONKeyFunction BucketMetadataErrorCode
+ToJSONKeyFunction BucketMetadataErrorCode
+-&gt; ToJSONKeyFunction [BucketMetadataErrorCode]
+-&gt; ToJSONKey BucketMetadataErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BucketMetadataErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [BucketMetadataErrorCode]
+toJSONKey :: ToJSONKeyFunction BucketMetadataErrorCode
+$ctoJSONKey :: ToJSONKeyFunction BucketMetadataErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679384645"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketMetadataErrorCode
+([Node] -&gt; Either String BucketMetadataErrorCode)
+-&gt; FromXML BucketMetadataErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BucketMetadataErrorCode
+$cparseXML :: [Node] -&gt; Either String BucketMetadataErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679384642"><span class="annot"><span class="annottext">BucketMetadataErrorCode -&gt; XML
+(BucketMetadataErrorCode -&gt; XML) -&gt; ToXML BucketMetadataErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BucketMetadataErrorCode -&gt; XML
+$ctoXML :: BucketMetadataErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode_ACCESS_DENIED"><span class="hs-identifier hs-type">BucketMetadataErrorCode_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode"><span class="hs-identifier hs-type">BucketMetadataErrorCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBucketMetadataErrorCode_ACCESS_DENIED"><span id="%24mBucketMetadataErrorCode_ACCESS_DENIED"><span id="BucketMetadataErrorCode_ACCESS_DENIED"><span class="annot"><span class="annottext">$bBucketMetadataErrorCode_ACCESS_DENIED :: BucketMetadataErrorCode
+$mBucketMetadataErrorCode_ACCESS_DENIED :: forall r.
+BucketMetadataErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#%24bBucketMetadataErrorCode_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">BucketMetadataErrorCode_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode%27"><span class="hs-identifier hs-type">BucketMetadataErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode_ACCESS_DENIED"><span class="hs-pragma hs-type">BucketMetadataErrorCode_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.MacieV2.Types.BucketMetadataErrorCode.html#BucketMetadataErrorCode%27"><span class="hs-pragma hs-type">BucketMetadataErrorCode'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

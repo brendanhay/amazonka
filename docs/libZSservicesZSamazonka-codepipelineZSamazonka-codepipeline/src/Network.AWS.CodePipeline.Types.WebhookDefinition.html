@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Represents information about a webhook and its definition.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newWebhookDefinition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679284470"><span id="local-6989586621679284471"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebhookDefinition"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-var">WebhookDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookDefinition%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-var">WebhookDefinition'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679284479"><span id="local-6989586621679284480"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebhookDefinition"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-var">WebhookDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookDefinition%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-var">WebhookDefinition'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the webhook.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AWebhookDefinition%27"><span class="annot"><span class="annottext">WebhookDefinition -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3Aname%3AWebhookDefinition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AauthenticationConfiguration%3AWebhookDefinition%27"><span class="annot"><span class="annottext">WebhookDefinition -&gt; WebhookAuthConfiguration
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3AauthenticationConfiguration%3AWebhookDefinition%27"><span class="hs-identifier hs-var hs-var">authenticationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284459"><span id="local-6989586621679284461"><span class="annot"><span class="annottext">WebhookDefinition -&gt; WebhookDefinition -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284468"><span id="local-6989586621679284470"><span class="annot"><span class="annottext">WebhookDefinition -&gt; WebhookDefinition -&gt; Bool
 (WebhookDefinition -&gt; WebhookDefinition -&gt; Bool)
 -&gt; (WebhookDefinition -&gt; WebhookDefinition -&gt; Bool)
 -&gt; Eq WebhookDefinition
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WebhookDefinition -&gt; WebhookDefinition -&gt; Bool
 == :: WebhookDefinition -&gt; WebhookDefinition -&gt; Bool
 $c== :: WebhookDefinition -&gt; WebhookDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284450"><span id="local-6989586621679284452"><span id="local-6989586621679284454"><span id="local-6989586621679284456"><span class="annot"><span class="annottext">ReadPrec [WebhookDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284459"><span id="local-6989586621679284461"><span id="local-6989586621679284463"><span id="local-6989586621679284465"><span class="annot"><span class="annottext">ReadPrec [WebhookDefinition]
 ReadPrec WebhookDefinition
 Int -&gt; ReadS WebhookDefinition
 ReadS [WebhookDefinition]
@@ -97,7 +97,7 @@ readList :: ReadS [WebhookDefinition]
 $creadList :: ReadS [WebhookDefinition]
 readsPrec :: Int -&gt; ReadS WebhookDefinition
 $creadsPrec :: Int -&gt; ReadS WebhookDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284443"><span id="local-6989586621679284445"><span id="local-6989586621679284447"><span class="annot"><span class="annottext">Int -&gt; WebhookDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284452"><span id="local-6989586621679284454"><span id="local-6989586621679284456"><span class="annot"><span class="annottext">Int -&gt; WebhookDefinition -&gt; ShowS
 [WebhookDefinition] -&gt; ShowS
 WebhookDefinition -&gt; String
 (Int -&gt; WebhookDefinition -&gt; ShowS)
@@ -180,16 +180,16 @@ $cfrom :: forall x. WebhookDefinition -&gt; Rep WebhookDefinition x
 -&gt; WebhookAuthConfiguration
 -&gt; WebhookDefinition
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#newWebhookDefinition"><span class="hs-identifier hs-var hs-var">newWebhookDefinition</span></a></span></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679284437"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284437"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679284436"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284436"><span class="hs-identifier hs-var">pTargetPipeline_</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679284435"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284435"><span class="hs-identifier hs-var">pTargetAction_</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679284434"><span class="annot"><span class="annottext">WebhookAuthenticationType
-</span><a href="#local-6989586621679284434"><span class="hs-identifier hs-var">pAuthentication_</span></a></span></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679284433"><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679284433"><span class="hs-identifier hs-var">pAuthenticationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679284446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284446"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679284445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284445"><span class="hs-identifier hs-var">pTargetPipeline_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679284444"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284444"><span class="hs-identifier hs-var">pTargetAction_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679284443"><span class="annot"><span class="annottext">WebhookAuthenticationType
+</span><a href="#local-6989586621679284443"><span class="hs-identifier hs-var">pAuthentication_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679284442"><span class="annot"><span class="annottext">WebhookAuthConfiguration
+</span><a href="#local-6989586621679284442"><span class="hs-identifier hs-var">pAuthenticationConfiguration_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">WebhookDefinition' :: Text
 -&gt; Text
 -&gt; Text
@@ -200,24 +200,24 @@ $cfrom :: forall x. WebhookDefinition -&gt; Rep WebhookDefinition x
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:WebhookDefinition' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3Aname%3AWebhookDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284437"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284446"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetPipeline:WebhookDefinition' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3AtargetPipeline%3AWebhookDefinition%27"><span class="hs-identifier hs-var">targetPipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284436"><span class="hs-identifier hs-var">pTargetPipeline_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284445"><span class="hs-identifier hs-var">pTargetPipeline_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:targetAction:WebhookDefinition' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3AtargetAction%3AWebhookDefinition%27"><span class="hs-identifier hs-var">targetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284435"><span class="hs-identifier hs-var">pTargetAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284444"><span class="hs-identifier hs-var">pTargetAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:filters:WebhookDefinition' :: [WebhookFilterRule]
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3Afilters%3AWebhookDefinition%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[WebhookFilterRule]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:authentication:WebhookDefinition' :: WebhookAuthenticationType
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3Aauthentication%3AWebhookDefinition%27"><span class="hs-identifier hs-var">authentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WebhookAuthenticationType
-</span><a href="#local-6989586621679284434"><span class="hs-identifier hs-var">pAuthentication_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284443"><span class="hs-identifier hs-var">pAuthentication_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:authenticationConfiguration:WebhookDefinition' :: WebhookAuthConfiguration
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3AauthenticationConfiguration%3AWebhookDefinition%27"><span class="hs-identifier hs-var">authenticationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679284433"><span class="hs-identifier hs-var">pAuthenticationConfiguration_</span></a></span><span>
+</span><a href="#local-6989586621679284442"><span class="hs-identifier hs-var">pAuthenticationConfiguration_</span></a></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The name of the webhook.</span><span>
@@ -227,16 +227,16 @@ forall a. Monoid a =&gt; a
 -&gt; (WebhookDefinition -&gt; Text -&gt; WebhookDefinition)
 -&gt; Lens WebhookDefinition WebhookDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284429"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284438"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:WebhookDefinition' :: WebhookDefinition -&gt; Text
-</span><a href="#local-6989586621679284429"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284429"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284428"><span class="annot"><span class="annottext">s :: WebhookDefinition
-</span><a href="#local-6989586621679284428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284427"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
-</span><a href="#local-6989586621679284428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WebhookDefinition' :: Text
+</span><a href="#local-6989586621679284438"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284438"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284437"><span class="annot"><span class="annottext">s :: WebhookDefinition
+</span><a href="#local-6989586621679284437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
+</span><a href="#local-6989586621679284437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:WebhookDefinition' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3Aname%3AWebhookDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The name of the pipeline you want to connect to the webhook.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#webhookDefinition_targetPipeline"><span class="hs-identifier hs-type">webhookDefinition_targetPipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,16 +245,16 @@ $sel:name:WebhookDefinition' :: WebhookDefinition -&gt; Text
 -&gt; (WebhookDefinition -&gt; Text -&gt; WebhookDefinition)
 -&gt; Lens WebhookDefinition WebhookDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284425"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284434"><span class="annot"><span class="annottext">Text
 targetPipeline :: Text
 $sel:targetPipeline:WebhookDefinition' :: WebhookDefinition -&gt; Text
-</span><a href="#local-6989586621679284425"><span class="hs-identifier hs-var hs-var">targetPipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284425"><span class="hs-identifier hs-var">targetPipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284424"><span class="annot"><span class="annottext">s :: WebhookDefinition
-</span><a href="#local-6989586621679284424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284423"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
-</span><a href="#local-6989586621679284424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPipeline:WebhookDefinition' :: Text
+</span><a href="#local-6989586621679284434"><span class="hs-identifier hs-var hs-var">targetPipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284434"><span class="hs-identifier hs-var">targetPipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284433"><span class="annot"><span class="annottext">s :: WebhookDefinition
+</span><a href="#local-6989586621679284433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284432"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
+</span><a href="#local-6989586621679284433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetPipeline:WebhookDefinition' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3AtargetPipeline%3AWebhookDefinition%27"><span class="hs-identifier hs-var">targetPipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The name of the action in a pipeline you want to connect to the webhook.</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- The action must be from the source (first) stage of the pipeline.</span><span>
@@ -264,16 +264,16 @@ $sel:targetPipeline:WebhookDefinition' :: WebhookDefinition -&gt; Text
 -&gt; (WebhookDefinition -&gt; Text -&gt; WebhookDefinition)
 -&gt; Lens WebhookDefinition WebhookDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284421"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284430"><span class="annot"><span class="annottext">Text
 targetAction :: Text
 $sel:targetAction:WebhookDefinition' :: WebhookDefinition -&gt; Text
-</span><a href="#local-6989586621679284421"><span class="hs-identifier hs-var hs-var">targetAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284421"><span class="hs-identifier hs-var">targetAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284420"><span class="annot"><span class="annottext">s :: WebhookDefinition
-</span><a href="#local-6989586621679284420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284419"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
-</span><a href="#local-6989586621679284420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetAction:WebhookDefinition' :: Text
+</span><a href="#local-6989586621679284430"><span class="hs-identifier hs-var hs-var">targetAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284430"><span class="hs-identifier hs-var">targetAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284429"><span class="annot"><span class="annottext">s :: WebhookDefinition
+</span><a href="#local-6989586621679284429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
+</span><a href="#local-6989586621679284429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetAction:WebhookDefinition' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3AtargetAction%3AWebhookDefinition%27"><span class="hs-identifier hs-var">targetAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | A list of rules applied to the body\/payload sent in the POST request to</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- a webhook URL. All defined rules must pass for the request to be</span><span>
@@ -289,16 +289,16 @@ $sel:targetAction:WebhookDefinition' :: WebhookDefinition -&gt; Text
      [WebhookFilterRule]
      [WebhookFilterRule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284417"><span class="annot"><span class="annottext">[WebhookFilterRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284426"><span class="annot"><span class="annottext">[WebhookFilterRule]
 filters :: [WebhookFilterRule]
 $sel:filters:WebhookDefinition' :: WebhookDefinition -&gt; [WebhookFilterRule]
-</span><a href="#local-6989586621679284417"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[WebhookFilterRule]
-</span><a href="#local-6989586621679284417"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284416"><span class="annot"><span class="annottext">s :: WebhookDefinition
-</span><a href="#local-6989586621679284416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284415"><span class="annot"><span class="annottext">[WebhookFilterRule]
-</span><a href="#local-6989586621679284415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
-</span><a href="#local-6989586621679284416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:WebhookDefinition' :: [WebhookFilterRule]
+</span><a href="#local-6989586621679284426"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[WebhookFilterRule]
+</span><a href="#local-6989586621679284426"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284425"><span class="annot"><span class="annottext">s :: WebhookDefinition
+</span><a href="#local-6989586621679284425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284424"><span class="annot"><span class="annottext">[WebhookFilterRule]
+</span><a href="#local-6989586621679284424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
+</span><a href="#local-6989586621679284425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:WebhookDefinition' :: [WebhookFilterRule]
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3Afilters%3AWebhookDefinition%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[WebhookFilterRule]
-</span><a href="#local-6989586621679284415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([WebhookFilterRule] -&gt; f [WebhookFilterRule])
+</span><a href="#local-6989586621679284424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([WebhookFilterRule] -&gt; f [WebhookFilterRule])
  -&gt; WebhookDefinition -&gt; f WebhookDefinition)
 -&gt; (([WebhookFilterRule] -&gt; f [WebhookFilterRule])
     -&gt; [WebhookFilterRule] -&gt; f [WebhookFilterRule])
@@ -336,16 +336,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      WebhookAuthenticationType
      WebhookAuthenticationType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284411"><span class="annot"><span class="annottext">WebhookAuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284420"><span class="annot"><span class="annottext">WebhookAuthenticationType
 authentication :: WebhookAuthenticationType
 $sel:authentication:WebhookDefinition' :: WebhookDefinition -&gt; WebhookAuthenticationType
-</span><a href="#local-6989586621679284411"><span class="hs-identifier hs-var hs-var">authentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthenticationType
-</span><a href="#local-6989586621679284411"><span class="hs-identifier hs-var">authentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284410"><span class="annot"><span class="annottext">s :: WebhookDefinition
-</span><a href="#local-6989586621679284410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284409"><span class="annot"><span class="annottext">WebhookAuthenticationType
-</span><a href="#local-6989586621679284409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
-</span><a href="#local-6989586621679284410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authentication:WebhookDefinition' :: WebhookAuthenticationType
+</span><a href="#local-6989586621679284420"><span class="hs-identifier hs-var hs-var">authentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthenticationType
+</span><a href="#local-6989586621679284420"><span class="hs-identifier hs-var">authentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284419"><span class="annot"><span class="annottext">s :: WebhookDefinition
+</span><a href="#local-6989586621679284419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284418"><span class="annot"><span class="annottext">WebhookAuthenticationType
+</span><a href="#local-6989586621679284418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
+</span><a href="#local-6989586621679284419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authentication:WebhookDefinition' :: WebhookAuthenticationType
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3Aauthentication%3AWebhookDefinition%27"><span class="hs-identifier hs-var">authentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WebhookAuthenticationType
-</span><a href="#local-6989586621679284409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | Properties that configure the authentication applied to incoming webhook</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- trigger requests. The required properties depend on the authentication</span><span>
@@ -364,19 +364,19 @@ $sel:authentication:WebhookDefinition' :: WebhookDefinition -&gt; WebhookAuthent
      WebhookAuthConfiguration
      WebhookAuthConfiguration
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284407"><span class="annot"><span class="annottext">WebhookAuthConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284416"><span class="annot"><span class="annottext">WebhookAuthConfiguration
 authenticationConfiguration :: WebhookAuthConfiguration
 $sel:authenticationConfiguration:WebhookDefinition' :: WebhookDefinition -&gt; WebhookAuthConfiguration
-</span><a href="#local-6989586621679284407"><span class="hs-identifier hs-var hs-var">authenticationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679284407"><span class="hs-identifier hs-var">authenticationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284406"><span class="annot"><span class="annottext">s :: WebhookDefinition
-</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284405"><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679284405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
-</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationConfiguration:WebhookDefinition' :: WebhookAuthConfiguration
+</span><a href="#local-6989586621679284416"><span class="hs-identifier hs-var hs-var">authenticationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
+</span><a href="#local-6989586621679284416"><span class="hs-identifier hs-var">authenticationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284415"><span class="annot"><span class="annottext">s :: WebhookDefinition
+</span><a href="#local-6989586621679284415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284414"><span class="annot"><span class="annottext">WebhookAuthConfiguration
+</span><a href="#local-6989586621679284414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookDefinition
+</span><a href="#local-6989586621679284415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationConfiguration:WebhookDefinition' :: WebhookAuthConfiguration
 </span><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#%24sel%3AauthenticationConfiguration%3AWebhookDefinition%27"><span class="hs-identifier hs-var">authenticationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679284405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284402"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679284400"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebhookDefinition
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284411"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679284409"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebhookDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WebhookDefinition)
@@ -386,8 +386,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WebhookDefinition&quot;</span></span><span>
-</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284397"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679284397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284406"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; Text
 -&gt; Text
@@ -413,7 +413,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; WebhookDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679284397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -433,7 +433,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; WebhookDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679284397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetPipeline&quot;</span></span><span class="hs-special">)</span><span>
@@ -451,7 +451,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; WebhookDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679284397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetAction&quot;</span></span><span class="hs-special">)</span><span>
@@ -466,7 +466,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; WebhookAuthConfiguration -&gt; WebhookDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679284397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [WebhookFilterRule])
+</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [WebhookFilterRule])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [WebhookFilterRule])
@@ -482,7 +482,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (WebhookAuthConfiguration -&gt; WebhookDefinition)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679284397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WebhookAuthenticationType
+</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WebhookAuthenticationType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authentication&quot;</span></span><span class="hs-special">)</span><span>
@@ -490,19 +490,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser WebhookAuthConfiguration -&gt; Parser WebhookDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679284397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WebhookAuthConfiguration
+</span><a href="#local-6989586621679284406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser WebhookAuthConfiguration
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;authenticationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284389"><span id="local-6989586621679284391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284398"><span id="local-6989586621679284400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span></span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284378"><span id="local-6989586621679284380"><span id="local-6989586621679284382"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679284376"><span class="annot"><span class="annottext">toJSON :: WebhookDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284369"><span id="local-6989586621679284370"><span id="local-6989586621679284371"><span id="local-6989586621679284372"><span id="local-6989586621679284373"><span id="local-6989586621679284374"><span class="annot"><span class="annottext">[WebhookFilterRule]
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284387"><span id="local-6989586621679284389"><span id="local-6989586621679284391"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition"><span class="hs-identifier hs-type">WebhookDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679284385"><span class="annot"><span class="annottext">toJSON :: WebhookDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookDefinition.html#WebhookDefinition%27"><span class="hs-identifier hs-type">WebhookDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284378"><span id="local-6989586621679284379"><span id="local-6989586621679284380"><span id="local-6989586621679284381"><span id="local-6989586621679284382"><span id="local-6989586621679284383"><span class="annot"><span class="annottext">[WebhookFilterRule]
 Text
 WebhookAuthConfiguration
 WebhookAuthenticationType
@@ -518,7 +518,7 @@ $sel:filters:WebhookDefinition' :: WebhookDefinition -&gt; [WebhookFilterRule]
 $sel:targetAction:WebhookDefinition' :: WebhookDefinition -&gt; Text
 $sel:targetPipeline:WebhookDefinition' :: WebhookDefinition -&gt; Text
 $sel:name:WebhookDefinition' :: WebhookDefinition -&gt; Text
-</span><a href="#local-6989586621679284369"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679284378"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -530,7 +530,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284374"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284383"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -538,21 +538,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;targetPipeline&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284373"><span class="hs-identifier hs-var">targetPipeline</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284382"><span class="hs-identifier hs-var">targetPipeline</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679284372"><span class="hs-identifier hs-var">targetAction</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284381"><span class="hs-identifier hs-var">targetAction</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [WebhookFilterRule] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[WebhookFilterRule]
-</span><a href="#local-6989586621679284371"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284380"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -560,7 +560,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WebhookAuthenticationType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WebhookAuthenticationType
-</span><a href="#local-6989586621679284370"><span class="hs-identifier hs-var">authentication</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284379"><span class="hs-identifier hs-var">authentication</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -569,7 +569,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-207"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; WebhookAuthConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679284369"><span class="hs-identifier hs-var">authenticationConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679284378"><span class="hs-identifier hs-var">authenticationConfiguration</span></a></span><span>
 </span><span id="line-208"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>

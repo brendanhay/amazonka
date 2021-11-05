@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.html"><span class="hs-identifier">Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The details of an Elastic Inference Accelerator.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newElasticInferenceAccelerator' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679147284"><span id="local-6989586621679147285"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticInferenceAccelerator"><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-var">ElasticInferenceAccelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticInferenceAccelerator%27"><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">ElasticInferenceAccelerator'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AacceleratorType%3AElasticInferenceAccelerator%27"><span class="annot"><span class="annottext">ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorType%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var hs-var">acceleratorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ID of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AacceleratorId%3AElasticInferenceAccelerator%27"><span class="annot"><span class="annottext">ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorId%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var hs-var">acceleratorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ARN of the resource that the Elastic Inference Accelerator is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- attached to.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AattachedResource%3AElasticInferenceAccelerator%27"><span class="annot"><span class="annottext">ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AattachedResource%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var hs-var">attachedResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The health of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AacceleratorHealth%3AElasticInferenceAccelerator%27"><span class="annot"><span class="annottext">ElasticInferenceAccelerator
+-&gt; Maybe ElasticInferenceAcceleratorHealth
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorHealth%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var hs-var">acceleratorHealth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.html#ElasticInferenceAcceleratorHealth"><span class="hs-identifier hs-type">ElasticInferenceAcceleratorHealth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The availability zone where the Elastic Inference Accelerator is</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- present.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AElasticInferenceAccelerator%27"><span class="annot"><span class="annottext">ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AavailabilityZone%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679147274"><span id="local-6989586621679147276"><span class="annot"><span class="annottext">ElasticInferenceAccelerator -&gt; ElasticInferenceAccelerator -&gt; Bool
+(ElasticInferenceAccelerator
+ -&gt; ElasticInferenceAccelerator -&gt; Bool)
+-&gt; (ElasticInferenceAccelerator
+    -&gt; ElasticInferenceAccelerator -&gt; Bool)
+-&gt; Eq ElasticInferenceAccelerator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ElasticInferenceAccelerator -&gt; ElasticInferenceAccelerator -&gt; Bool
+$c/= :: ElasticInferenceAccelerator -&gt; ElasticInferenceAccelerator -&gt; Bool
+== :: ElasticInferenceAccelerator -&gt; ElasticInferenceAccelerator -&gt; Bool
+$c== :: ElasticInferenceAccelerator -&gt; ElasticInferenceAccelerator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147265"><span id="local-6989586621679147267"><span id="local-6989586621679147269"><span id="local-6989586621679147271"><span class="annot"><span class="annottext">ReadPrec [ElasticInferenceAccelerator]
+ReadPrec ElasticInferenceAccelerator
+Int -&gt; ReadS ElasticInferenceAccelerator
+ReadS [ElasticInferenceAccelerator]
+(Int -&gt; ReadS ElasticInferenceAccelerator)
+-&gt; ReadS [ElasticInferenceAccelerator]
+-&gt; ReadPrec ElasticInferenceAccelerator
+-&gt; ReadPrec [ElasticInferenceAccelerator]
+-&gt; Read ElasticInferenceAccelerator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ElasticInferenceAccelerator]
+$creadListPrec :: ReadPrec [ElasticInferenceAccelerator]
+readPrec :: ReadPrec ElasticInferenceAccelerator
+$creadPrec :: ReadPrec ElasticInferenceAccelerator
+readList :: ReadS [ElasticInferenceAccelerator]
+$creadList :: ReadS [ElasticInferenceAccelerator]
+readsPrec :: Int -&gt; ReadS ElasticInferenceAccelerator
+$creadsPrec :: Int -&gt; ReadS ElasticInferenceAccelerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147258"><span id="local-6989586621679147260"><span id="local-6989586621679147262"><span class="annot"><span class="annottext">Int -&gt; ElasticInferenceAccelerator -&gt; ShowS
+[ElasticInferenceAccelerator] -&gt; ShowS
+ElasticInferenceAccelerator -&gt; String
+(Int -&gt; ElasticInferenceAccelerator -&gt; ShowS)
+-&gt; (ElasticInferenceAccelerator -&gt; String)
+-&gt; ([ElasticInferenceAccelerator] -&gt; ShowS)
+-&gt; Show ElasticInferenceAccelerator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ElasticInferenceAccelerator] -&gt; ShowS
+$cshowList :: [ElasticInferenceAccelerator] -&gt; ShowS
+show :: ElasticInferenceAccelerator -&gt; String
+$cshow :: ElasticInferenceAccelerator -&gt; String
+showsPrec :: Int -&gt; ElasticInferenceAccelerator -&gt; ShowS
+$cshowsPrec :: Int -&gt; ElasticInferenceAccelerator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ElasticInferenceAccelerator -&gt; Rep ElasticInferenceAccelerator x)
+-&gt; (forall x.
+    Rep ElasticInferenceAccelerator x -&gt; ElasticInferenceAccelerator)
+-&gt; Generic ElasticInferenceAccelerator
+forall x.
+Rep ElasticInferenceAccelerator x -&gt; ElasticInferenceAccelerator
+forall x.
+ElasticInferenceAccelerator -&gt; Rep ElasticInferenceAccelerator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ElasticInferenceAccelerator x -&gt; ElasticInferenceAccelerator
+$cfrom :: forall x.
+ElasticInferenceAccelerator -&gt; Rep ElasticInferenceAccelerator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'ElasticInferenceAccelerator' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'acceleratorType', 'elasticInferenceAccelerator_acceleratorType' - The type of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'acceleratorId', 'elasticInferenceAccelerator_acceleratorId' - The ID of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'attachedResource', 'elasticInferenceAccelerator_attachedResource' - The ARN of the resource that the Elastic Inference Accelerator is</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- attached to.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'acceleratorHealth', 'elasticInferenceAccelerator_acceleratorHealth' - The health of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'availabilityZone', 'elasticInferenceAccelerator_availabilityZone' - The availability zone where the Elastic Inference Accelerator is</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- present.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#newElasticInferenceAccelerator"><span class="hs-identifier hs-type">newElasticInferenceAccelerator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span>
+</span><span id="line-67"></span><span id="newElasticInferenceAccelerator"><span class="annot"><span class="annottext">newElasticInferenceAccelerator :: ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#newElasticInferenceAccelerator"><span class="hs-identifier hs-var hs-var">newElasticInferenceAccelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ElasticInferenceAccelerator' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ElasticInferenceAcceleratorHealth
+-&gt; Maybe Text
+-&gt; ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceleratorType:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorType%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceleratorId:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorId%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">acceleratorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachedResource:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AattachedResource%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">attachedResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceleratorHealth:ElasticInferenceAccelerator' :: Maybe ElasticInferenceAcceleratorHealth
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorHealth%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">acceleratorHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticInferenceAcceleratorHealth
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AavailabilityZone%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The type of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_acceleratorType"><span class="hs-identifier hs-type">elasticInferenceAccelerator_acceleratorType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="elasticInferenceAccelerator_acceleratorType"><span class="annot"><span class="annottext">elasticInferenceAccelerator_acceleratorType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticInferenceAccelerator -&gt; f ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_acceleratorType"><span class="hs-identifier hs-var hs-var">elasticInferenceAccelerator_acceleratorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticInferenceAccelerator -&gt; Maybe Text)
+-&gt; (ElasticInferenceAccelerator
+    -&gt; Maybe Text -&gt; ElasticInferenceAccelerator)
+-&gt; Lens
+     ElasticInferenceAccelerator
+     ElasticInferenceAccelerator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147249"><span class="annot"><span class="annottext">Maybe Text
+acceleratorType :: Maybe Text
+$sel:acceleratorType:ElasticInferenceAccelerator' :: ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="#local-6989586621679147249"><span class="hs-identifier hs-var hs-var">acceleratorType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147249"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147248"><span class="annot"><span class="annottext">s :: ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorType:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorType%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">acceleratorType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The ID of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_acceleratorId"><span class="hs-identifier hs-type">elasticInferenceAccelerator_acceleratorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="elasticInferenceAccelerator_acceleratorId"><span class="annot"><span class="annottext">elasticInferenceAccelerator_acceleratorId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticInferenceAccelerator -&gt; f ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_acceleratorId"><span class="hs-identifier hs-var hs-var">elasticInferenceAccelerator_acceleratorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticInferenceAccelerator -&gt; Maybe Text)
+-&gt; (ElasticInferenceAccelerator
+    -&gt; Maybe Text -&gt; ElasticInferenceAccelerator)
+-&gt; Lens
+     ElasticInferenceAccelerator
+     ElasticInferenceAccelerator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147245"><span class="annot"><span class="annottext">Maybe Text
+acceleratorId :: Maybe Text
+$sel:acceleratorId:ElasticInferenceAccelerator' :: ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="#local-6989586621679147245"><span class="hs-identifier hs-var hs-var">acceleratorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147245"><span class="hs-identifier hs-var">acceleratorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147244"><span class="annot"><span class="annottext">s :: ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147243"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorId:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorId%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">acceleratorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ARN of the resource that the Elastic Inference Accelerator is</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- attached to.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_attachedResource"><span class="hs-identifier hs-type">elasticInferenceAccelerator_attachedResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="elasticInferenceAccelerator_attachedResource"><span class="annot"><span class="annottext">elasticInferenceAccelerator_attachedResource :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticInferenceAccelerator -&gt; f ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_attachedResource"><span class="hs-identifier hs-var hs-var">elasticInferenceAccelerator_attachedResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticInferenceAccelerator -&gt; Maybe Text)
+-&gt; (ElasticInferenceAccelerator
+    -&gt; Maybe Text -&gt; ElasticInferenceAccelerator)
+-&gt; Lens
+     ElasticInferenceAccelerator
+     ElasticInferenceAccelerator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147241"><span class="annot"><span class="annottext">Maybe Text
+attachedResource :: Maybe Text
+$sel:attachedResource:ElasticInferenceAccelerator' :: ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="#local-6989586621679147241"><span class="hs-identifier hs-var hs-var">attachedResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147241"><span class="hs-identifier hs-var">attachedResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147240"><span class="annot"><span class="annottext">s :: ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147239"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachedResource:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AattachedResource%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">attachedResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The health of the Elastic Inference Accelerator.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_acceleratorHealth"><span class="hs-identifier hs-type">elasticInferenceAccelerator_acceleratorHealth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.html#ElasticInferenceAcceleratorHealth"><span class="hs-identifier hs-type">ElasticInferenceAcceleratorHealth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="elasticInferenceAccelerator_acceleratorHealth"><span class="annot"><span class="annottext">elasticInferenceAccelerator_acceleratorHealth :: (Maybe ElasticInferenceAcceleratorHealth
+ -&gt; f (Maybe ElasticInferenceAcceleratorHealth))
+-&gt; ElasticInferenceAccelerator -&gt; f ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_acceleratorHealth"><span class="hs-identifier hs-var hs-var">elasticInferenceAccelerator_acceleratorHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticInferenceAccelerator
+ -&gt; Maybe ElasticInferenceAcceleratorHealth)
+-&gt; (ElasticInferenceAccelerator
+    -&gt; Maybe ElasticInferenceAcceleratorHealth
+    -&gt; ElasticInferenceAccelerator)
+-&gt; Lens
+     ElasticInferenceAccelerator
+     ElasticInferenceAccelerator
+     (Maybe ElasticInferenceAcceleratorHealth)
+     (Maybe ElasticInferenceAcceleratorHealth)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147237"><span class="annot"><span class="annottext">Maybe ElasticInferenceAcceleratorHealth
+acceleratorHealth :: Maybe ElasticInferenceAcceleratorHealth
+$sel:acceleratorHealth:ElasticInferenceAccelerator' :: ElasticInferenceAccelerator
+-&gt; Maybe ElasticInferenceAcceleratorHealth
+</span><a href="#local-6989586621679147237"><span class="hs-identifier hs-var hs-var">acceleratorHealth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticInferenceAcceleratorHealth
+</span><a href="#local-6989586621679147237"><span class="hs-identifier hs-var">acceleratorHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147236"><span class="annot"><span class="annottext">s :: ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147235"><span class="annot"><span class="annottext">Maybe ElasticInferenceAcceleratorHealth
+</span><a href="#local-6989586621679147235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceleratorHealth:ElasticInferenceAccelerator' :: Maybe ElasticInferenceAcceleratorHealth
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AacceleratorHealth%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">acceleratorHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ElasticInferenceAcceleratorHealth
+</span><a href="#local-6989586621679147235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The availability zone where the Elastic Inference Accelerator is</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- present.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_availabilityZone"><span class="hs-identifier hs-type">elasticInferenceAccelerator_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="elasticInferenceAccelerator_availabilityZone"><span class="annot"><span class="annottext">elasticInferenceAccelerator_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ElasticInferenceAccelerator -&gt; f ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#elasticInferenceAccelerator_availabilityZone"><span class="hs-identifier hs-var hs-var">elasticInferenceAccelerator_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticInferenceAccelerator -&gt; Maybe Text)
+-&gt; (ElasticInferenceAccelerator
+    -&gt; Maybe Text -&gt; ElasticInferenceAccelerator)
+-&gt; Lens
+     ElasticInferenceAccelerator
+     ElasticInferenceAccelerator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147233"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:ElasticInferenceAccelerator' :: ElasticInferenceAccelerator -&gt; Maybe Text
+</span><a href="#local-6989586621679147233"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147233"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147232"><span class="annot"><span class="annottext">s :: ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-type">ElasticInferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147231"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticInferenceAccelerator
+</span><a href="#local-6989586621679147232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ElasticInferenceAccelerator' :: Maybe Text
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#%24sel%3AavailabilityZone%3AElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147228"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679147226"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ElasticInferenceAccelerator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ElasticInferenceAccelerator)
+-&gt; Value
+-&gt; Parser ElasticInferenceAccelerator
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ElasticInferenceAccelerator&quot;</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679147223"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679147223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ElasticInferenceAcceleratorHealth
+-&gt; Maybe Text
+-&gt; ElasticInferenceAccelerator
+</span><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator%27"><span class="hs-identifier hs-var">ElasticInferenceAccelerator'</span></a></span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ElasticInferenceAcceleratorHealth
+ -&gt; Maybe Text
+ -&gt; ElasticInferenceAccelerator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ElasticInferenceAcceleratorHealth
+      -&gt; Maybe Text
+      -&gt; ElasticInferenceAccelerator)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679147223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;acceleratorType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ElasticInferenceAcceleratorHealth
+   -&gt; Maybe Text
+   -&gt; ElasticInferenceAccelerator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ElasticInferenceAcceleratorHealth
+      -&gt; Maybe Text
+      -&gt; ElasticInferenceAccelerator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679147223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;acceleratorId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ElasticInferenceAcceleratorHealth
+   -&gt; Maybe Text
+   -&gt; ElasticInferenceAccelerator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ElasticInferenceAcceleratorHealth
+      -&gt; Maybe Text -&gt; ElasticInferenceAccelerator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679147223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attachedResource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ElasticInferenceAcceleratorHealth
+   -&gt; Maybe Text -&gt; ElasticInferenceAccelerator)
+-&gt; Parser (Maybe ElasticInferenceAcceleratorHealth)
+-&gt; Parser (Maybe Text -&gt; ElasticInferenceAccelerator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679147223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ElasticInferenceAcceleratorHealth)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;acceleratorHealth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ElasticInferenceAccelerator)
+-&gt; Parser (Maybe Text) -&gt; Parser ElasticInferenceAccelerator
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679147223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147217"><span id="local-6989586621679147219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.html#ElasticInferenceAccelerator"><span class="hs-identifier hs-type">ElasticInferenceAccelerator</span></a></span></span><span>
+</span><span id="line-115"></span></pre></body></html>

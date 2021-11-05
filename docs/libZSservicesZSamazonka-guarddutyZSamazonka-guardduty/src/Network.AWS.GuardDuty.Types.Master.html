@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the administrator account and invitation.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMaster' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679297629"><span id="local-6989586621679297630"></span></span><span class="hs-keyword">data</span><span> </span><span id="Master"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-var">Master</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Master%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-var">Master'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679297638"><span id="local-6989586621679297639"></span></span><span class="hs-keyword">data</span><span> </span><span id="Master"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-var">Master</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Master%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-var">Master'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp when the invitation was sent.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AinvitedAt%3AMaster%27"><span class="annot"><span class="annottext">Master -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Master.html#%24sel%3AinvitedAt%3AMaster%27"><span class="hs-identifier hs-var hs-var">invitedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AaccountId%3AMaster%27"><span class="annot"><span class="annottext">Master -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Master.html#%24sel%3AaccountId%3AMaster%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297620"><span id="local-6989586621679297622"><span class="annot"><span class="annottext">Master -&gt; Master -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297629"><span id="local-6989586621679297631"><span class="annot"><span class="annottext">Master -&gt; Master -&gt; Bool
 (Master -&gt; Master -&gt; Bool)
 -&gt; (Master -&gt; Master -&gt; Bool) -&gt; Eq Master
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Master -&gt; Master -&gt; Bool
 == :: Master -&gt; Master -&gt; Bool
 $c== :: Master -&gt; Master -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297611"><span id="local-6989586621679297613"><span id="local-6989586621679297615"><span id="local-6989586621679297617"><span class="annot"><span class="annottext">ReadPrec [Master]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297620"><span id="local-6989586621679297622"><span id="local-6989586621679297624"><span id="local-6989586621679297626"><span class="annot"><span class="annottext">ReadPrec [Master]
 ReadPrec Master
 Int -&gt; ReadS Master
 ReadS [Master]
@@ -70,7 +70,7 @@ readList :: ReadS [Master]
 $creadList :: ReadS [Master]
 readsPrec :: Int -&gt; ReadS Master
 $creadsPrec :: Int -&gt; ReadS Master
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297604"><span id="local-6989586621679297606"><span id="local-6989586621679297608"><span class="annot"><span class="annottext">Int -&gt; Master -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297613"><span id="local-6989586621679297615"><span id="local-6989586621679297617"><span class="annot"><span class="annottext">Int -&gt; Master -&gt; ShowS
 [Master] -&gt; ShowS
 Master -&gt; String
 (Int -&gt; Master -&gt; ShowS)
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (Master -&gt; Maybe Text -&gt; Master)
 -&gt; Lens Master Master (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297595"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297604"><span class="annot"><span class="annottext">Maybe Text
 invitedAt :: Maybe Text
 $sel:invitedAt:Master' :: Master -&gt; Maybe Text
-</span><a href="#local-6989586621679297595"><span class="hs-identifier hs-var hs-var">invitedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297595"><span class="hs-identifier hs-var">invitedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297594"><span class="annot"><span class="annottext">s :: Master
-</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297593"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitedAt:Master' :: Maybe Text
+</span><a href="#local-6989586621679297604"><span class="hs-identifier hs-var hs-var">invitedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297604"><span class="hs-identifier hs-var">invitedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297603"><span class="annot"><span class="annottext">s :: Master
+</span><a href="#local-6989586621679297603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
+</span><a href="#local-6989586621679297603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitedAt:Master' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Master.html#%24sel%3AinvitedAt%3AMaster%27"><span class="hs-identifier hs-var">invitedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The status of the relationship between the administrator and member</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- accounts.</span><span>
@@ -160,16 +160,16 @@ $sel:invitedAt:Master' :: Master -&gt; Maybe Text
 -&gt; (Master -&gt; Maybe Text -&gt; Master)
 -&gt; Lens Master Master (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297591"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297600"><span class="annot"><span class="annottext">Maybe Text
 relationshipStatus :: Maybe Text
 $sel:relationshipStatus:Master' :: Master -&gt; Maybe Text
-</span><a href="#local-6989586621679297591"><span class="hs-identifier hs-var hs-var">relationshipStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297591"><span class="hs-identifier hs-var">relationshipStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297590"><span class="annot"><span class="annottext">s :: Master
-</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297589"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationshipStatus:Master' :: Maybe Text
+</span><a href="#local-6989586621679297600"><span class="hs-identifier hs-var hs-var">relationshipStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297600"><span class="hs-identifier hs-var">relationshipStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297599"><span class="annot"><span class="annottext">s :: Master
+</span><a href="#local-6989586621679297599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297598"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
+</span><a href="#local-6989586621679297599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationshipStatus:Master' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Master.html#%24sel%3ArelationshipStatus%3AMaster%27"><span class="hs-identifier hs-var">relationshipStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The value used to validate the administrator account to the member</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- account.</span><span>
@@ -179,16 +179,16 @@ $sel:relationshipStatus:Master' :: Master -&gt; Maybe Text
 -&gt; (Master -&gt; Maybe Text -&gt; Master)
 -&gt; Lens Master Master (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297587"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297596"><span class="annot"><span class="annottext">Maybe Text
 invitationId :: Maybe Text
 $sel:invitationId:Master' :: Master -&gt; Maybe Text
-</span><a href="#local-6989586621679297587"><span class="hs-identifier hs-var hs-var">invitationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297587"><span class="hs-identifier hs-var">invitationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297586"><span class="annot"><span class="annottext">s :: Master
-</span><a href="#local-6989586621679297586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297585"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679297586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitationId:Master' :: Maybe Text
+</span><a href="#local-6989586621679297596"><span class="hs-identifier hs-var hs-var">invitationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297596"><span class="hs-identifier hs-var">invitationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297595"><span class="annot"><span class="annottext">s :: Master
+</span><a href="#local-6989586621679297595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297594"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
+</span><a href="#local-6989586621679297595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitationId:Master' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Master.html#%24sel%3AinvitationId%3AMaster%27"><span class="hs-identifier hs-var">invitationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The ID of the account used as the administrator account.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#master_accountId"><span class="hs-identifier hs-type">master_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -197,27 +197,27 @@ $sel:invitationId:Master' :: Master -&gt; Maybe Text
 -&gt; (Master -&gt; Maybe Text -&gt; Master)
 -&gt; Lens Master Master (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297583"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297592"><span class="annot"><span class="annottext">Maybe Text
 accountId :: Maybe Text
 $sel:accountId:Master' :: Master -&gt; Maybe Text
-</span><a href="#local-6989586621679297583"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297583"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297582"><span class="annot"><span class="annottext">s :: Master
-</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297581"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:Master' :: Maybe Text
+</span><a href="#local-6989586621679297592"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297592"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297591"><span class="annot"><span class="annottext">s :: Master
+</span><a href="#local-6989586621679297591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-type">Master'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297590"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
+</span><a href="#local-6989586621679297591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:Master' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Master.html#%24sel%3AaccountId%3AMaster%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297578"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679297576"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Master
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297587"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679297585"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Master
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Master) -&gt; Value -&gt; Parser Master
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Master&quot;</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297573"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297582"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Master
 </span><a href="Network.AWS.GuardDuty.Types.Master.html#Master%27"><span class="hs-identifier hs-var">Master'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Master)
@@ -225,7 +225,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Master)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;invitedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -234,7 +234,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Master)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;relationshipStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,7 +242,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Master)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;invitationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -250,13 +250,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Master
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accountId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297567"><span id="local-6989586621679297569"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297576"><span id="local-6989586621679297578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

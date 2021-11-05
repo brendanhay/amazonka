@@ -99,7 +99,7 @@
 </span><span id="line-99"></span><span class="hs-comment">-- | The TransferDomain request includes the following elements.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- /See:/ 'newTransferDomain' smart constructor.</span><span>
-</span><span id="line-102"></span><span id="local-6989586621679211855"><span id="local-6989586621679211856"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferDomain"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-var">TransferDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferDomain%27"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-var">TransferDomain'</span></a></span></span><span>
+</span><span id="line-102"></span><span id="local-6989586621679211864"><span id="local-6989586621679211865"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferDomain"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-var">TransferDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferDomain%27"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-var">TransferDomain'</span></a></span></span><span>
 </span><span id="line-103"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
@@ -182,7 +182,7 @@
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AtechContact%3ATransferDomain%27"><span class="annot"><span class="annottext">TransferDomain -&gt; Sensitive ContactDetail
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AtechContact%3ATransferDomain%27"><span class="hs-identifier hs-var hs-var">techContact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ContactDetail.html#ContactDetail"><span class="hs-identifier hs-type">ContactDetail</span></a></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211838"><span id="local-6989586621679211840"><span class="annot"><span class="annottext">TransferDomain -&gt; TransferDomain -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211847"><span id="local-6989586621679211849"><span class="annot"><span class="annottext">TransferDomain -&gt; TransferDomain -&gt; Bool
 (TransferDomain -&gt; TransferDomain -&gt; Bool)
 -&gt; (TransferDomain -&gt; TransferDomain -&gt; Bool) -&gt; Eq TransferDomain
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -190,7 +190,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransferDomain -&gt; TransferDomain -&gt; Bool
 == :: TransferDomain -&gt; TransferDomain -&gt; Bool
 $c== :: TransferDomain -&gt; TransferDomain -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211831"><span id="local-6989586621679211833"><span id="local-6989586621679211835"><span class="annot"><span class="annottext">Int -&gt; TransferDomain -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211840"><span id="local-6989586621679211842"><span id="local-6989586621679211844"><span class="annot"><span class="annottext">Int -&gt; TransferDomain -&gt; ShowS
 [TransferDomain] -&gt; ShowS
 TransferDomain -&gt; String
 (Int -&gt; TransferDomain -&gt; ShowS)
@@ -311,16 +311,16 @@ $cfrom :: forall x. TransferDomain -&gt; Rep TransferDomain x
 -&gt; ContactDetail
 -&gt; TransferDomain
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#newTransferDomain"><span class="hs-identifier hs-var hs-var">newTransferDomain</span></a></span></span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679211826"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211826"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
-</span><span id="line-265"></span><span>  </span><span id="local-6989586621679211825"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679211825"><span class="hs-identifier hs-var">pDurationInYears_</span></a></span></span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679211824"><span class="annot"><span class="annottext">ContactDetail
-</span><a href="#local-6989586621679211824"><span class="hs-identifier hs-var">pAdminContact_</span></a></span></span><span>
-</span><span id="line-267"></span><span>  </span><span id="local-6989586621679211823"><span class="annot"><span class="annottext">ContactDetail
-</span><a href="#local-6989586621679211823"><span class="hs-identifier hs-var">pRegistrantContact_</span></a></span></span><span>
-</span><span id="line-268"></span><span>  </span><span id="local-6989586621679211822"><span class="annot"><span class="annottext">ContactDetail
-</span><a href="#local-6989586621679211822"><span class="hs-identifier hs-var">pTechContact_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679211835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211835"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
+</span><span id="line-265"></span><span>  </span><span id="local-6989586621679211834"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679211834"><span class="hs-identifier hs-var">pDurationInYears_</span></a></span></span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679211833"><span class="annot"><span class="annottext">ContactDetail
+</span><a href="#local-6989586621679211833"><span class="hs-identifier hs-var">pAdminContact_</span></a></span></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679211832"><span class="annot"><span class="annottext">ContactDetail
+</span><a href="#local-6989586621679211832"><span class="hs-identifier hs-var">pRegistrantContact_</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679211831"><span class="annot"><span class="annottext">ContactDetail
+</span><a href="#local-6989586621679211831"><span class="hs-identifier hs-var">pTechContact_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">TransferDomain' :: Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Bool
@@ -366,10 +366,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainName:TransferDomain' :: Text
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AdomainName%3ATransferDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211826"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211835"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>        </span><span class="annot"><span class="annottext">$sel:durationInYears:TransferDomain' :: Natural
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AdurationInYears%3ATransferDomain%27"><span class="hs-identifier hs-var">durationInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679211825"><span class="hs-identifier hs-var">pDurationInYears_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211834"><span class="hs-identifier hs-var">pDurationInYears_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-280"></span><span>        </span><span class="annot"><span class="annottext">$sel:adminContact:TransferDomain' :: Sensitive ContactDetail
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AadminContact%3ATransferDomain%27"><span class="hs-identifier hs-var">adminContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ContactDetail (Identity ContactDetail)
 -&gt; Tagged
@@ -381,7 +381,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; ContactDetail -&gt; Sensitive ContactDetail
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ContactDetail
-</span><a href="#local-6989586621679211824"><span class="hs-identifier hs-var">pAdminContact_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211833"><span class="hs-identifier hs-var">pAdminContact_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>        </span><span class="annot"><span class="annottext">$sel:registrantContact:TransferDomain' :: Sensitive ContactDetail
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AregistrantContact%3ATransferDomain%27"><span class="hs-identifier hs-var">registrantContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">Tagged ContactDetail (Identity ContactDetail)
@@ -394,7 +394,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; ContactDetail -&gt; Sensitive ContactDetail
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ContactDetail
-</span><a href="#local-6989586621679211823"><span class="hs-identifier hs-var">pRegistrantContact_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211832"><span class="hs-identifier hs-var">pRegistrantContact_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-283"></span><span>        </span><span class="annot"><span class="annottext">$sel:techContact:TransferDomain' :: Sensitive ContactDetail
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AtechContact%3ATransferDomain%27"><span class="hs-identifier hs-var">techContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ContactDetail (Identity ContactDetail)
 -&gt; Tagged
@@ -406,7 +406,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; ContactDetail -&gt; Sensitive ContactDetail
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ContactDetail
-</span><a href="#local-6989586621679211822"><span class="hs-identifier hs-var">pTechContact_</span></a></span><span>
+</span><a href="#local-6989586621679211831"><span class="hs-identifier hs-var">pTechContact_</span></a></span><span>
 </span><span id="line-284"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
@@ -424,16 +424,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (TransferDomain -&gt; Maybe Bool -&gt; TransferDomain)
 -&gt; Lens TransferDomain TransferDomain (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211817"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211826"><span class="annot"><span class="annottext">Maybe Bool
 privacyProtectTechContact :: Maybe Bool
 $sel:privacyProtectTechContact:TransferDomain' :: TransferDomain -&gt; Maybe Bool
-</span><a href="#local-6989586621679211817"><span class="hs-identifier hs-var hs-var">privacyProtectTechContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211817"><span class="hs-identifier hs-var">privacyProtectTechContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211816"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211815"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privacyProtectTechContact:TransferDomain' :: Maybe Bool
+</span><a href="#local-6989586621679211826"><span class="hs-identifier hs-var hs-var">privacyProtectTechContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211826"><span class="hs-identifier hs-var">privacyProtectTechContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211825"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211824"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privacyProtectTechContact:TransferDomain' :: Maybe Bool
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AprivacyProtectTechContact%3ATransferDomain%27"><span class="hs-identifier hs-var">privacyProtectTechContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>
 </span><span id="line-297"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-298"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
@@ -450,16 +450,16 @@ $sel:privacyProtectTechContact:TransferDomain' :: TransferDomain -&gt; Maybe Boo
 -&gt; (TransferDomain -&gt; Maybe Bool -&gt; TransferDomain)
 -&gt; Lens TransferDomain TransferDomain (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211814"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211823"><span class="annot"><span class="annottext">Maybe Bool
 privacyProtectRegistrantContact :: Maybe Bool
 $sel:privacyProtectRegistrantContact:TransferDomain' :: TransferDomain -&gt; Maybe Bool
-</span><a href="#local-6989586621679211814"><span class="hs-identifier hs-var hs-var">privacyProtectRegistrantContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211814"><span class="hs-identifier hs-var">privacyProtectRegistrantContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211813"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211812"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privacyProtectRegistrantContact:TransferDomain' :: Maybe Bool
+</span><a href="#local-6989586621679211823"><span class="hs-identifier hs-var hs-var">privacyProtectRegistrantContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211823"><span class="hs-identifier hs-var">privacyProtectRegistrantContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211822"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211821"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privacyProtectRegistrantContact:TransferDomain' :: Maybe Bool
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AprivacyProtectRegistrantContact%3ATransferDomain%27"><span class="hs-identifier hs-var">privacyProtectRegistrantContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | Indicates whether the domain will be automatically renewed (true) or not</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- (false). Autorenewal only takes effect after the account is charged.</span><span>
@@ -472,16 +472,16 @@ $sel:privacyProtectRegistrantContact:TransferDomain' :: TransferDomain -&gt; May
 -&gt; (TransferDomain -&gt; Maybe Bool -&gt; TransferDomain)
 -&gt; Lens TransferDomain TransferDomain (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211811"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211820"><span class="annot"><span class="annottext">Maybe Bool
 autoRenew :: Maybe Bool
 $sel:autoRenew:TransferDomain' :: TransferDomain -&gt; Maybe Bool
-</span><a href="#local-6989586621679211811"><span class="hs-identifier hs-var hs-var">autoRenew</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211811"><span class="hs-identifier hs-var">autoRenew</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211810"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211809"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoRenew:TransferDomain' :: Maybe Bool
+</span><a href="#local-6989586621679211820"><span class="hs-identifier hs-var hs-var">autoRenew</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211820"><span class="hs-identifier hs-var">autoRenew</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211819"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211818"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoRenew:TransferDomain' :: Maybe Bool
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AautoRenew%3ATransferDomain%27"><span class="hs-identifier hs-var">autoRenew</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-314"></span><span>
 </span><span id="line-315"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-316"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
@@ -498,16 +498,16 @@ $sel:autoRenew:TransferDomain' :: TransferDomain -&gt; Maybe Bool
 -&gt; (TransferDomain -&gt; Maybe Bool -&gt; TransferDomain)
 -&gt; Lens TransferDomain TransferDomain (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211808"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211817"><span class="annot"><span class="annottext">Maybe Bool
 privacyProtectAdminContact :: Maybe Bool
 $sel:privacyProtectAdminContact:TransferDomain' :: TransferDomain -&gt; Maybe Bool
-</span><a href="#local-6989586621679211808"><span class="hs-identifier hs-var hs-var">privacyProtectAdminContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211808"><span class="hs-identifier hs-var">privacyProtectAdminContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211807"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211806"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privacyProtectAdminContact:TransferDomain' :: Maybe Bool
+</span><a href="#local-6989586621679211817"><span class="hs-identifier hs-var hs-var">privacyProtectAdminContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211817"><span class="hs-identifier hs-var">privacyProtectAdminContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211816"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211815"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679211815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privacyProtectAdminContact:TransferDomain' :: Maybe Bool
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AprivacyProtectAdminContact%3ATransferDomain%27"><span class="hs-identifier hs-var">privacyProtectAdminContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
 </span><span id="line-327"></span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#transferDomain_idnLangCode"><span class="hs-identifier hs-type">transferDomain_idnLangCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -517,16 +517,16 @@ $sel:privacyProtectAdminContact:TransferDomain' :: TransferDomain -&gt; Maybe Bo
 -&gt; (TransferDomain -&gt; Maybe Text -&gt; TransferDomain)
 -&gt; Lens TransferDomain TransferDomain (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211805"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211814"><span class="annot"><span class="annottext">Maybe Text
 idnLangCode :: Maybe Text
 $sel:idnLangCode:TransferDomain' :: TransferDomain -&gt; Maybe Text
-</span><a href="#local-6989586621679211805"><span class="hs-identifier hs-var hs-var">idnLangCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211805"><span class="hs-identifier hs-var">idnLangCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211804"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211803"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idnLangCode:TransferDomain' :: Maybe Text
+</span><a href="#local-6989586621679211814"><span class="hs-identifier hs-var hs-var">idnLangCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211814"><span class="hs-identifier hs-var">idnLangCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211813"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211812"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679211812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idnLangCode:TransferDomain' :: Maybe Text
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AidnLangCode%3ATransferDomain%27"><span class="hs-identifier hs-var">idnLangCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-329"></span><span>
 </span><span id="line-330"></span><span class="hs-comment">-- | The authorization code for the domain. You get this value from the</span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- current registrar.</span><span>
@@ -541,16 +541,16 @@ $sel:idnLangCode:TransferDomain' :: TransferDomain -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211802"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211811"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 authCode :: Maybe (Sensitive Text)
 $sel:authCode:TransferDomain' :: TransferDomain -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679211802"><span class="hs-identifier hs-var hs-var">authCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679211802"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211801"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211800"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679211800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authCode:TransferDomain' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679211811"><span class="hs-identifier hs-var hs-var">authCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679211811"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211810"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211809"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679211809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authCode:TransferDomain' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AauthCode%3ATransferDomain%27"><span class="hs-identifier hs-var">authCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679211800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679211809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; TransferDomain -&gt; f TransferDomain)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -583,16 +583,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe [Nameserver])
      (Maybe [Nameserver])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211797"><span class="annot"><span class="annottext">Maybe [Nameserver]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211806"><span class="annot"><span class="annottext">Maybe [Nameserver]
 nameservers :: Maybe [Nameserver]
 $sel:nameservers:TransferDomain' :: TransferDomain -&gt; Maybe [Nameserver]
-</span><a href="#local-6989586621679211797"><span class="hs-identifier hs-var hs-var">nameservers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Nameserver]
-</span><a href="#local-6989586621679211797"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211796"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211795"><span class="annot"><span class="annottext">Maybe [Nameserver]
-</span><a href="#local-6989586621679211795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameservers:TransferDomain' :: Maybe [Nameserver]
+</span><a href="#local-6989586621679211806"><span class="hs-identifier hs-var hs-var">nameservers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Nameserver]
+</span><a href="#local-6989586621679211806"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211805"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211804"><span class="annot"><span class="annottext">Maybe [Nameserver]
+</span><a href="#local-6989586621679211804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameservers:TransferDomain' :: Maybe [Nameserver]
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3Anameservers%3ATransferDomain%27"><span class="hs-identifier hs-var">nameservers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Nameserver]
-</span><a href="#local-6989586621679211795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Nameserver] -&gt; f (Maybe [Nameserver]))
+</span><a href="#local-6989586621679211804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Nameserver] -&gt; f (Maybe [Nameserver]))
  -&gt; TransferDomain -&gt; f TransferDomain)
 -&gt; ((Maybe [Nameserver] -&gt; f (Maybe [Nameserver]))
     -&gt; Maybe [Nameserver] -&gt; f (Maybe [Nameserver]))
@@ -636,16 +636,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (TransferDomain -&gt; Text -&gt; TransferDomain)
 -&gt; Lens TransferDomain TransferDomain Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211793"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211802"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:TransferDomain' :: TransferDomain -&gt; Text
-</span><a href="#local-6989586621679211793"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211793"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211792"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211791"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:TransferDomain' :: Text
+</span><a href="#local-6989586621679211802"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211802"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211801"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211800"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:TransferDomain' :: Text
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AdomainName%3ATransferDomain%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-358"></span><span>
 </span><span id="line-359"></span><span class="hs-comment">-- | The number of years that you want to register the domain for. Domains</span><span>
 </span><span id="line-360"></span><span class="hs-comment">-- are registered for a minimum of one year. The maximum period depends on</span><span>
@@ -658,16 +658,16 @@ $sel:domainName:TransferDomain' :: TransferDomain -&gt; Text
 -&gt; (TransferDomain -&gt; Natural -&gt; TransferDomain)
 -&gt; Lens TransferDomain TransferDomain Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211790"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211799"><span class="annot"><span class="annottext">Natural
 durationInYears :: Natural
 $sel:durationInYears:TransferDomain' :: TransferDomain -&gt; Natural
-</span><a href="#local-6989586621679211790"><span class="hs-identifier hs-var hs-var">durationInYears</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679211790"><span class="hs-identifier hs-var">durationInYears</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211789"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211788"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679211788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInYears:TransferDomain' :: Natural
+</span><a href="#local-6989586621679211799"><span class="hs-identifier hs-var hs-var">durationInYears</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679211799"><span class="hs-identifier hs-var">durationInYears</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211798"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211797"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679211797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInYears:TransferDomain' :: Natural
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AdurationInYears%3ATransferDomain%27"><span class="hs-identifier hs-var">durationInYears</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679211788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-366"></span><span>
 </span><span id="line-367"></span><span class="hs-comment">-- | Provides detailed contact information.</span><span>
 </span><span id="line-368"></span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#transferDomain_adminContact"><span class="hs-identifier hs-type">transferDomain_adminContact</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.ContactDetail.html#ContactDetail"><span class="hs-identifier hs-type">ContactDetail</span></a></span><span>
@@ -681,16 +681,16 @@ $sel:durationInYears:TransferDomain' :: TransferDomain -&gt; Natural
      (Sensitive ContactDetail)
      (Sensitive ContactDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211787"><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211796"><span class="annot"><span class="annottext">Sensitive ContactDetail
 adminContact :: Sensitive ContactDetail
 $sel:adminContact:TransferDomain' :: TransferDomain -&gt; Sensitive ContactDetail
-</span><a href="#local-6989586621679211787"><span class="hs-identifier hs-var hs-var">adminContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211787"><span class="hs-identifier hs-var">adminContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211786"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211785"><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminContact:TransferDomain' :: Sensitive ContactDetail
+</span><a href="#local-6989586621679211796"><span class="hs-identifier hs-var hs-var">adminContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><a href="#local-6989586621679211796"><span class="hs-identifier hs-var">adminContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211795"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211794"><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><a href="#local-6989586621679211794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminContact:TransferDomain' :: Sensitive ContactDetail
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AadminContact%3ATransferDomain%27"><span class="hs-identifier hs-var">adminContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
+</span><a href="#local-6989586621679211794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
  -&gt; TransferDomain -&gt; f TransferDomain)
 -&gt; ((ContactDetail -&gt; f ContactDetail)
     -&gt; Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
@@ -715,16 +715,16 @@ forall a. Iso' (Sensitive a) a
      (Sensitive ContactDetail)
      (Sensitive ContactDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211784"><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211793"><span class="annot"><span class="annottext">Sensitive ContactDetail
 registrantContact :: Sensitive ContactDetail
 $sel:registrantContact:TransferDomain' :: TransferDomain -&gt; Sensitive ContactDetail
-</span><a href="#local-6989586621679211784"><span class="hs-identifier hs-var hs-var">registrantContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211784"><span class="hs-identifier hs-var">registrantContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211783"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211782"><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrantContact:TransferDomain' :: Sensitive ContactDetail
+</span><a href="#local-6989586621679211793"><span class="hs-identifier hs-var hs-var">registrantContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><a href="#local-6989586621679211793"><span class="hs-identifier hs-var">registrantContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211792"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211791"><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><a href="#local-6989586621679211791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrantContact:TransferDomain' :: Sensitive ContactDetail
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AregistrantContact%3ATransferDomain%27"><span class="hs-identifier hs-var">registrantContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
+</span><a href="#local-6989586621679211791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
  -&gt; TransferDomain -&gt; f TransferDomain)
 -&gt; ((ContactDetail -&gt; f ContactDetail)
     -&gt; Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
@@ -749,16 +749,16 @@ forall a. Iso' (Sensitive a) a
      (Sensitive ContactDetail)
      (Sensitive ContactDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211781"><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211790"><span class="annot"><span class="annottext">Sensitive ContactDetail
 techContact :: Sensitive ContactDetail
 $sel:techContact:TransferDomain' :: TransferDomain -&gt; Sensitive ContactDetail
-</span><a href="#local-6989586621679211781"><span class="hs-identifier hs-var hs-var">techContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211781"><span class="hs-identifier hs-var">techContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211780"><span class="annot"><span class="annottext">s :: TransferDomain
-</span><a href="#local-6989586621679211780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211779"><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
-</span><a href="#local-6989586621679211780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:techContact:TransferDomain' :: Sensitive ContactDetail
+</span><a href="#local-6989586621679211790"><span class="hs-identifier hs-var hs-var">techContact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><a href="#local-6989586621679211790"><span class="hs-identifier hs-var">techContact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211789"><span class="annot"><span class="annottext">s :: TransferDomain
+</span><a href="#local-6989586621679211789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211788"><span class="annot"><span class="annottext">Sensitive ContactDetail
+</span><a href="#local-6989586621679211788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomain
+</span><a href="#local-6989586621679211789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:techContact:TransferDomain' :: Sensitive ContactDetail
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AtechContact%3ATransferDomain%27"><span class="hs-identifier hs-var">techContact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
+</span><a href="#local-6989586621679211788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
  -&gt; TransferDomain -&gt; f TransferDomain)
 -&gt; ((ContactDetail -&gt; f ContactDetail)
     -&gt; Sensitive ContactDetail -&gt; f (Sensitive ContactDetail))
@@ -775,12 +775,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-380"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-381"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-382"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span><span>
-</span><span id="line-383"></span><span>  </span><span id="local-6989586621679211775"><span class="annot"><span class="annottext">request :: TransferDomain -&gt; Request TransferDomain
+</span><span id="line-383"></span><span>  </span><span id="local-6989586621679211784"><span class="annot"><span class="annottext">request :: TransferDomain -&gt; Request TransferDomain
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TransferDomain -&gt; Request TransferDomain
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-384"></span><span>  </span><span id="local-6989586621679211771"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-384"></span><span>  </span><span id="local-6989586621679211780"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TransferDomain
 -&gt; ClientResponse ClientBody
@@ -804,10 +804,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-386"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211768"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679211768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679211767"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679211767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679211766"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679211777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211777"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679211776"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679211776"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679211775"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679211775"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-387"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; TransferDomainResponse
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-var">TransferDomainResponse'</span></a></span><span>
 </span><span id="line-388"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; TransferDomainResponse)
@@ -819,23 +819,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679211768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211777"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-389"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; TransferDomainResponse)
 -&gt; Either String Text -&gt; Either String TransferDomainResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679211766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679211775"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-390"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-391"></span><span>
-</span><span id="line-392"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211758"><span id="local-6989586621679211760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span></span></span><span>
+</span><span id="line-392"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211767"><span id="local-6989586621679211769"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span></span></span><span>
 </span><span id="line-393"></span><span>
-</span><span id="line-394"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span></span><span>
+</span><span id="line-394"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211764"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span></span><span>
 </span><span id="line-395"></span><span>
 </span><span id="line-396"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-397"></span><span>  </span><span id="local-6989586621679211751"><span class="annot"><span class="annottext">toHeaders :: TransferDomain -&gt; ResponseHeaders
+</span><span id="line-397"></span><span>  </span><span id="local-6989586621679211760"><span class="annot"><span class="annottext">toHeaders :: TransferDomain -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-398"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TransferDomain -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -862,9 +862,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-408"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-409"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-410"></span><span>
-</span><span id="line-411"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211741"><span id="local-6989586621679211743"><span id="local-6989586621679211745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-412"></span><span>  </span><span id="local-6989586621679211739"><span class="annot"><span class="annottext">toJSON :: TransferDomain -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211726"><span id="local-6989586621679211727"><span id="local-6989586621679211728"><span id="local-6989586621679211729"><span id="local-6989586621679211730"><span id="local-6989586621679211731"><span id="local-6989586621679211732"><span id="local-6989586621679211733"><span id="local-6989586621679211734"><span id="local-6989586621679211735"><span id="local-6989586621679211736"><span id="local-6989586621679211737"><span class="annot"><span class="annottext">Natural
+</span><span id="line-411"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211750"><span id="local-6989586621679211752"><span id="local-6989586621679211754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-412"></span><span>  </span><span id="local-6989586621679211748"><span class="annot"><span class="annottext">toJSON :: TransferDomain -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain%27"><span class="hs-identifier hs-type">TransferDomain'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211735"><span id="local-6989586621679211736"><span id="local-6989586621679211737"><span id="local-6989586621679211738"><span id="local-6989586621679211739"><span id="local-6989586621679211740"><span id="local-6989586621679211741"><span id="local-6989586621679211742"><span id="local-6989586621679211743"><span id="local-6989586621679211744"><span id="local-6989586621679211745"><span id="local-6989586621679211746"><span class="annot"><span class="annottext">Natural
 Maybe Bool
 Maybe [Nameserver]
 Maybe Text
@@ -895,7 +895,7 @@ $sel:privacyProtectAdminContact:TransferDomain' :: TransferDomain -&gt; Maybe Bo
 $sel:autoRenew:TransferDomain' :: TransferDomain -&gt; Maybe Bool
 $sel:privacyProtectRegistrantContact:TransferDomain' :: TransferDomain -&gt; Maybe Bool
 $sel:privacyProtectTechContact:TransferDomain' :: TransferDomain -&gt; Maybe Bool
-</span><a href="#local-6989586621679211726"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679211735"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-413"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-414"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -908,7 +908,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-416"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211737"><span class="hs-identifier hs-var">privacyProtectTechContact</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211746"><span class="hs-identifier hs-var">privacyProtectTechContact</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-417"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrivacyProtectRegistrantContact&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -916,14 +916,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-418"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211736"><span class="hs-identifier hs-var">privacyProtectRegistrantContact</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211745"><span class="hs-identifier hs-var">privacyProtectRegistrantContact</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-419"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoRenew&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211735"><span class="hs-identifier hs-var">autoRenew</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211744"><span class="hs-identifier hs-var">autoRenew</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-420"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrivacyProtectAdminContact&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -931,35 +931,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-421"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679211734"><span class="hs-identifier hs-var">privacyProtectAdminContact</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211743"><span class="hs-identifier hs-var">privacyProtectAdminContact</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-422"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IdnLangCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679211733"><span class="hs-identifier hs-var">idnLangCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211742"><span class="hs-identifier hs-var">idnLangCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-423"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AuthCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679211732"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211741"><span class="hs-identifier hs-var">authCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-424"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Nameservers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Nameserver] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Nameserver] -&gt; Pair) -&gt; Maybe [Nameserver] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Nameserver]
-</span><a href="#local-6989586621679211731"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211740"><span class="hs-identifier hs-var">nameservers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-425"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211730"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211739"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-426"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -967,14 +967,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DurationInYears&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679211729"><span class="hs-identifier hs-var">durationInYears</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211738"><span class="hs-identifier hs-var">durationInYears</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AdminContact&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive ContactDetail -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211728"><span class="hs-identifier hs-var">adminContact</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211737"><span class="hs-identifier hs-var">adminContact</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-429"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -982,26 +982,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RegistrantContact&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive ContactDetail -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211727"><span class="hs-identifier hs-var">registrantContact</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211736"><span class="hs-identifier hs-var">registrantContact</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-431"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TechContact&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive ContactDetail -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive ContactDetail
-</span><a href="#local-6989586621679211726"><span class="hs-identifier hs-var">techContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211735"><span class="hs-identifier hs-var">techContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-432"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-433"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-434"></span><span>
 </span><span id="line-435"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-436"></span><span>  </span><span id="local-6989586621679211720"><span class="annot"><span class="annottext">toPath :: TransferDomain -&gt; ByteString
+</span><span id="line-436"></span><span>  </span><span id="local-6989586621679211729"><span class="annot"><span class="annottext">toPath :: TransferDomain -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TransferDomain -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-437"></span><span>
 </span><span id="line-438"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomain"><span class="hs-identifier hs-type">TransferDomain</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-439"></span><span>  </span><span id="local-6989586621679211716"><span class="annot"><span class="annottext">toQuery :: TransferDomain -&gt; QueryString
+</span><span id="line-439"></span><span>  </span><span id="local-6989586621679211725"><span class="annot"><span class="annottext">toQuery :: TransferDomain -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TransferDomain -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -1011,7 +1011,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-441"></span><span class="hs-comment">-- | The TransferDomain response includes the following element.</span><span>
 </span><span id="line-442"></span><span class="hs-comment">--</span><span>
 </span><span id="line-443"></span><span class="hs-comment">-- /See:/ 'newTransferDomainResponse' smart constructor.</span><span>
-</span><span id="line-444"></span><span id="local-6989586621679211713"><span id="local-6989586621679211714"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferDomainResponse"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-var">TransferDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferDomainResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-var">TransferDomainResponse'</span></a></span></span><span>
+</span><span id="line-444"></span><span id="local-6989586621679211722"><span id="local-6989586621679211723"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransferDomainResponse"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-var">TransferDomainResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferDomainResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-var">TransferDomainResponse'</span></a></span></span><span>
 </span><span id="line-445"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-446"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATransferDomainResponse%27"><span class="annot"><span class="annottext">TransferDomainResponse -&gt; Int
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AhttpStatus%3ATransferDomainResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -1021,7 +1021,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-450"></span><span>    </span><span id="%24sel%3AoperationId%3ATransferDomainResponse%27"><span class="annot"><span class="annottext">TransferDomainResponse -&gt; Text
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AoperationId%3ATransferDomainResponse%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-451"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-452"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211707"><span id="local-6989586621679211709"><span class="annot"><span class="annottext">TransferDomainResponse -&gt; TransferDomainResponse -&gt; Bool
+</span><span id="line-452"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679211716"><span id="local-6989586621679211718"><span class="annot"><span class="annottext">TransferDomainResponse -&gt; TransferDomainResponse -&gt; Bool
 (TransferDomainResponse -&gt; TransferDomainResponse -&gt; Bool)
 -&gt; (TransferDomainResponse -&gt; TransferDomainResponse -&gt; Bool)
 -&gt; Eq TransferDomainResponse
@@ -1030,7 +1030,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransferDomainResponse -&gt; TransferDomainResponse -&gt; Bool
 == :: TransferDomainResponse -&gt; TransferDomainResponse -&gt; Bool
 $c== :: TransferDomainResponse -&gt; TransferDomainResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211699"><span id="local-6989586621679211701"><span id="local-6989586621679211703"><span id="local-6989586621679211705"><span class="annot"><span class="annottext">ReadPrec [TransferDomainResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211708"><span id="local-6989586621679211710"><span id="local-6989586621679211712"><span id="local-6989586621679211714"><span class="annot"><span class="annottext">ReadPrec [TransferDomainResponse]
 ReadPrec TransferDomainResponse
 Int -&gt; ReadS TransferDomainResponse
 ReadS [TransferDomainResponse]
@@ -1050,7 +1050,7 @@ readList :: ReadS [TransferDomainResponse]
 $creadList :: ReadS [TransferDomainResponse]
 readsPrec :: Int -&gt; ReadS TransferDomainResponse
 $creadsPrec :: Int -&gt; ReadS TransferDomainResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211692"><span id="local-6989586621679211694"><span id="local-6989586621679211696"><span class="annot"><span class="annottext">Int -&gt; TransferDomainResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679211701"><span id="local-6989586621679211703"><span id="local-6989586621679211705"><span class="annot"><span class="annottext">Int -&gt; TransferDomainResponse -&gt; ShowS
 [TransferDomainResponse] -&gt; ShowS
 TransferDomainResponse -&gt; String
 (Int -&gt; TransferDomainResponse -&gt; ShowS)
@@ -1097,17 +1097,17 @@ $cfrom :: forall x. TransferDomainResponse -&gt; Rep TransferDomainResponse x
 </span><span id="line-471"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-472"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span><span>
 </span><span id="line-473"></span><span id="newTransferDomainResponse"><span class="annot"><span class="annottext">newTransferDomainResponse :: Int -&gt; Text -&gt; TransferDomainResponse
-</span><a href="Network.AWS.Route53Domains.TransferDomain.html#newTransferDomainResponse"><span class="hs-identifier hs-var hs-var">newTransferDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679211689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679211689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679211688"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211688"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53Domains.TransferDomain.html#newTransferDomainResponse"><span class="hs-identifier hs-var hs-var">newTransferDomainResponse</span></a></span></span><span> </span><span id="local-6989586621679211698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679211697"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211697"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-474"></span><span>  </span><span class="annot"><span class="annottext">TransferDomainResponse' :: Int -&gt; Text -&gt; TransferDomainResponse
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span>
 </span><span id="line-475"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:TransferDomainResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AhttpStatus%3ATransferDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679211689"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679211698"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-476"></span><span>      </span><span class="annot"><span class="annottext">$sel:operationId:TransferDomainResponse' :: Text
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AoperationId%3ATransferDomainResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211688"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
+</span><a href="#local-6989586621679211697"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
 </span><span id="line-477"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-478"></span><span>
 </span><span id="line-479"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -1118,16 +1118,16 @@ $cfrom :: forall x. TransferDomainResponse -&gt; Rep TransferDomainResponse x
 -&gt; (TransferDomainResponse -&gt; Int -&gt; TransferDomainResponse)
 -&gt; Lens TransferDomainResponse TransferDomainResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211687"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211696"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TransferDomainResponse' :: TransferDomainResponse -&gt; Int
-</span><a href="#local-6989586621679211687"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679211687"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211686"><span class="annot"><span class="annottext">s :: TransferDomainResponse
-</span><a href="#local-6989586621679211686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211685"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679211685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomainResponse
-</span><a href="#local-6989586621679211686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TransferDomainResponse' :: Int
+</span><a href="#local-6989586621679211696"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211696"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211695"><span class="annot"><span class="annottext">s :: TransferDomainResponse
+</span><a href="#local-6989586621679211695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211694"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679211694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomainResponse
+</span><a href="#local-6989586621679211695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TransferDomainResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AhttpStatus%3ATransferDomainResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679211685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-482"></span><span>
 </span><span id="line-483"></span><span class="hs-comment">-- | Identifier for tracking the progress of the request. To query the</span><span>
 </span><span id="line-484"></span><span class="hs-comment">-- operation status, use</span><span>
@@ -1139,16 +1139,16 @@ $sel:httpStatus:TransferDomainResponse' :: TransferDomainResponse -&gt; Int
 -&gt; (TransferDomainResponse -&gt; Text -&gt; TransferDomainResponse)
 -&gt; Lens TransferDomainResponse TransferDomainResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211684"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679211693"><span class="annot"><span class="annottext">Text
 operationId :: Text
 $sel:operationId:TransferDomainResponse' :: TransferDomainResponse -&gt; Text
-</span><a href="#local-6989586621679211684"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211684"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211683"><span class="annot"><span class="annottext">s :: TransferDomainResponse
-</span><a href="#local-6989586621679211683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211682"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomainResponse
-</span><a href="#local-6989586621679211683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:TransferDomainResponse' :: Text
+</span><a href="#local-6989586621679211693"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211693"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679211692"><span class="annot"><span class="annottext">s :: TransferDomainResponse
+</span><a href="#local-6989586621679211692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse%27"><span class="hs-identifier hs-type">TransferDomainResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679211691"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679211691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransferDomainResponse
+</span><a href="#local-6989586621679211692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:TransferDomainResponse' :: Text
 </span><a href="Network.AWS.Route53Domains.TransferDomain.html#%24sel%3AoperationId%3ATransferDomainResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679211682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679211691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-488"></span><span>
-</span><span id="line-489"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span></span><span>
+</span><span id="line-489"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679211689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.TransferDomain.html#TransferDomainResponse"><span class="hs-identifier hs-type">TransferDomainResponse</span></a></span></span><span>
 </span><span id="line-490"></span></pre></body></html>

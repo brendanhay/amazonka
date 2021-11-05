@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeAssessmentTargets' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679257406"><span id="local-6989586621679257407"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssessmentTargets"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-var">DescribeAssessmentTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssessmentTargets%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-var">DescribeAssessmentTargets'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679257415"><span id="local-6989586621679257416"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssessmentTargets"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-var">DescribeAssessmentTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssessmentTargets%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-var">DescribeAssessmentTargets'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARNs that specifies the assessment targets that you want to</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- describe.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AassessmentTargetArns%3ADescribeAssessmentTargets%27"><span class="annot"><span class="annottext">DescribeAssessmentTargets -&gt; NonEmpty Text
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AassessmentTargetArns%3ADescribeAssessmentTargets%27"><span class="hs-identifier hs-var hs-var">assessmentTargetArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257400"><span id="local-6989586621679257402"><span class="annot"><span class="annottext">DescribeAssessmentTargets -&gt; DescribeAssessmentTargets -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257409"><span id="local-6989586621679257411"><span class="annot"><span class="annottext">DescribeAssessmentTargets -&gt; DescribeAssessmentTargets -&gt; Bool
 (DescribeAssessmentTargets -&gt; DescribeAssessmentTargets -&gt; Bool)
 -&gt; (DescribeAssessmentTargets -&gt; DescribeAssessmentTargets -&gt; Bool)
 -&gt; Eq DescribeAssessmentTargets
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAssessmentTargets -&gt; DescribeAssessmentTargets -&gt; Bool
 == :: DescribeAssessmentTargets -&gt; DescribeAssessmentTargets -&gt; Bool
 $c== :: DescribeAssessmentTargets -&gt; DescribeAssessmentTargets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257391"><span id="local-6989586621679257393"><span id="local-6989586621679257395"><span id="local-6989586621679257397"><span class="annot"><span class="annottext">ReadPrec [DescribeAssessmentTargets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257400"><span id="local-6989586621679257402"><span id="local-6989586621679257404"><span id="local-6989586621679257406"><span class="annot"><span class="annottext">ReadPrec [DescribeAssessmentTargets]
 ReadPrec DescribeAssessmentTargets
 Int -&gt; ReadS DescribeAssessmentTargets
 ReadS [DescribeAssessmentTargets]
@@ -84,7 +84,7 @@ readList :: ReadS [DescribeAssessmentTargets]
 $creadList :: ReadS [DescribeAssessmentTargets]
 readsPrec :: Int -&gt; ReadS DescribeAssessmentTargets
 $creadsPrec :: Int -&gt; ReadS DescribeAssessmentTargets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257384"><span id="local-6989586621679257386"><span id="local-6989586621679257388"><span class="annot"><span class="annottext">Int -&gt; DescribeAssessmentTargets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257393"><span id="local-6989586621679257395"><span id="local-6989586621679257397"><span class="annot"><span class="annottext">Int -&gt; DescribeAssessmentTargets -&gt; ShowS
 [DescribeAssessmentTargets] -&gt; ShowS
 DescribeAssessmentTargets -&gt; String
 (Int -&gt; DescribeAssessmentTargets -&gt; ShowS)
@@ -131,8 +131,8 @@ DescribeAssessmentTargets -&gt; Rep DescribeAssessmentTargets x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span><span>
 </span><span id="line-73"></span><span id="newDescribeAssessmentTargets"><span class="annot"><span class="annottext">newDescribeAssessmentTargets :: NonEmpty Text -&gt; DescribeAssessmentTargets
-</span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#newDescribeAssessmentTargets"><span class="hs-identifier hs-var hs-var">newDescribeAssessmentTargets</span></a></span></span><span> </span><span id="local-6989586621679257379"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679257379"><span class="hs-identifier hs-var">pAssessmentTargetArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#newDescribeAssessmentTargets"><span class="hs-identifier hs-var hs-var">newDescribeAssessmentTargets</span></a></span></span><span> </span><span id="local-6989586621679257388"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679257388"><span class="hs-identifier hs-var">pAssessmentTargetArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DescribeAssessmentTargets' :: NonEmpty Text -&gt; DescribeAssessmentTargets
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-type">DescribeAssessmentTargets'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assessmentTargetArns:DescribeAssessmentTargets' :: NonEmpty Text
@@ -145,7 +145,7 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679257379"><span class="hs-identifier hs-var">pAssessmentTargetArns_</span></a></span><span>
+</span><a href="#local-6989586621679257388"><span class="hs-identifier hs-var">pAssessmentTargetArns_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The ARNs that specifies the assessment targets that you want to</span><span>
@@ -162,16 +162,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-type">DescribeAssessmentTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257374"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-type">DescribeAssessmentTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257383"><span class="annot"><span class="annottext">NonEmpty Text
 assessmentTargetArns :: NonEmpty Text
 $sel:assessmentTargetArns:DescribeAssessmentTargets' :: DescribeAssessmentTargets -&gt; NonEmpty Text
-</span><a href="#local-6989586621679257374"><span class="hs-identifier hs-var hs-var">assessmentTargetArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679257374"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257373"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargets
-</span><a href="#local-6989586621679257373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-type">DescribeAssessmentTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257372"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679257372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargets
-</span><a href="#local-6989586621679257373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargetArns:DescribeAssessmentTargets' :: NonEmpty Text
+</span><a href="#local-6989586621679257383"><span class="hs-identifier hs-var hs-var">assessmentTargetArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679257383"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257382"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargets
+</span><a href="#local-6989586621679257382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-type">DescribeAssessmentTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257381"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679257381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargets
+</span><a href="#local-6989586621679257382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargetArns:DescribeAssessmentTargets' :: NonEmpty Text
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AassessmentTargetArns%3ADescribeAssessmentTargets%27"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679257372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679257381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DescribeAssessmentTargets -&gt; f DescribeAssessmentTargets)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -188,13 +188,13 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679257367"><span class="annot"><span class="annottext">request :: DescribeAssessmentTargets -&gt; Request DescribeAssessmentTargets
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679257376"><span class="annot"><span class="annottext">request :: DescribeAssessmentTargets -&gt; Request DescribeAssessmentTargets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeAssessmentTargets -&gt; Request DescribeAssessmentTargets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679257363"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679257372"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAssessmentTargets
 -&gt; ClientResponse ClientBody
@@ -220,10 +220,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257360"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257360"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257359"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679257359"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257358"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257358"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257369"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257368"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679257368"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257367"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257367"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; [AssessmentTarget]
 -&gt; HashMap Text FailedItemDetails
@@ -245,7 +245,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257360"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257369"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([AssessmentTarget]
@@ -258,7 +258,7 @@ forall a. Enum a =&gt; a -&gt; Int
       -&gt; DescribeAssessmentTargetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [AssessmentTarget])
+</span><a href="#local-6989586621679257367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [AssessmentTarget])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;assessmentTargets&quot;</span></span><span>
@@ -277,7 +277,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String DescribeAssessmentTargetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257358"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (HashMap Text FailedItemDetails))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -290,12 +290,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257349"><span id="local-6989586621679257351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257358"><span id="local-6989586621679257360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679257342"><span class="annot"><span class="annottext">toHeaders :: DescribeAssessmentTargets -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679257351"><span class="annot"><span class="annottext">toHeaders :: DescribeAssessmentTargets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAssessmentTargets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -322,12 +322,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257332"><span id="local-6989586621679257334"><span id="local-6989586621679257336"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679257330"><span class="annot"><span class="annottext">toJSON :: DescribeAssessmentTargets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-type">DescribeAssessmentTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257328"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257341"><span id="local-6989586621679257343"><span id="local-6989586621679257345"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679257339"><span class="annot"><span class="annottext">toJSON :: DescribeAssessmentTargets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets%27"><span class="hs-identifier hs-type">DescribeAssessmentTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257337"><span class="annot"><span class="annottext">NonEmpty Text
 assessmentTargetArns :: NonEmpty Text
 $sel:assessmentTargetArns:DescribeAssessmentTargets' :: DescribeAssessmentTargets -&gt; NonEmpty Text
-</span><a href="#local-6989586621679257328"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679257337"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -341,20 +341,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-125"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679257328"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span>
+</span><a href="#local-6989586621679257337"><span class="hs-identifier hs-var">assessmentTargetArns</span></a></span><span>
 </span><span id="line-126"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679257322"><span class="annot"><span class="annottext">toPath :: DescribeAssessmentTargets -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679257331"><span class="annot"><span class="annottext">toPath :: DescribeAssessmentTargets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAssessmentTargets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargets"><span class="hs-identifier hs-type">DescribeAssessmentTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679257318"><span class="annot"><span class="annottext">toQuery :: DescribeAssessmentTargets -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679257327"><span class="annot"><span class="annottext">toQuery :: DescribeAssessmentTargets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAssessmentTargets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -362,7 +362,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newDescribeAssessmentTargetsResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679257315"><span id="local-6989586621679257316"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssessmentTargetsResponse"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-var">DescribeAssessmentTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssessmentTargetsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var">DescribeAssessmentTargetsResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679257324"><span id="local-6989586621679257325"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAssessmentTargetsResponse"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-var">DescribeAssessmentTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAssessmentTargetsResponse%27"><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var">DescribeAssessmentTargetsResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAssessmentTargetsResponse%27"><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse -&gt; Int
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AhttpStatus%3ADescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -374,7 +374,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AfailedItems%3ADescribeAssessmentTargetsResponse%27"><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse -&gt; HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AfailedItems%3ADescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FailedItemDetails.html#FailedItemDetails"><span class="hs-identifier hs-type">FailedItemDetails</span></a></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257308"><span id="local-6989586621679257310"><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257317"><span id="local-6989586621679257319"><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
 -&gt; DescribeAssessmentTargetsResponse -&gt; Bool
 (DescribeAssessmentTargetsResponse
  -&gt; DescribeAssessmentTargetsResponse -&gt; Bool)
@@ -390,7 +390,7 @@ $c/= :: DescribeAssessmentTargetsResponse
 -&gt; DescribeAssessmentTargetsResponse -&gt; Bool
 $c== :: DescribeAssessmentTargetsResponse
 -&gt; DescribeAssessmentTargetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257300"><span id="local-6989586621679257302"><span id="local-6989586621679257304"><span id="local-6989586621679257306"><span class="annot"><span class="annottext">ReadPrec [DescribeAssessmentTargetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257309"><span id="local-6989586621679257311"><span id="local-6989586621679257313"><span id="local-6989586621679257315"><span class="annot"><span class="annottext">ReadPrec [DescribeAssessmentTargetsResponse]
 ReadPrec DescribeAssessmentTargetsResponse
 Int -&gt; ReadS DescribeAssessmentTargetsResponse
 ReadS [DescribeAssessmentTargetsResponse]
@@ -410,7 +410,7 @@ readList :: ReadS [DescribeAssessmentTargetsResponse]
 $creadList :: ReadS [DescribeAssessmentTargetsResponse]
 readsPrec :: Int -&gt; ReadS DescribeAssessmentTargetsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAssessmentTargetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257294"><span id="local-6989586621679257296"><span id="local-6989586621679257298"><span class="annot"><span class="annottext">Int -&gt; DescribeAssessmentTargetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257303"><span id="local-6989586621679257305"><span id="local-6989586621679257307"><span class="annot"><span class="annottext">Int -&gt; DescribeAssessmentTargetsResponse -&gt; ShowS
 [DescribeAssessmentTargetsResponse] -&gt; ShowS
 DescribeAssessmentTargetsResponse -&gt; String
 (Int -&gt; DescribeAssessmentTargetsResponse -&gt; ShowS)
@@ -467,8 +467,8 @@ DescribeAssessmentTargetsResponse
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newDescribeAssessmentTargetsResponse"><span class="annot"><span class="annottext">newDescribeAssessmentTargetsResponse :: Int -&gt; DescribeAssessmentTargetsResponse
-</span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#newDescribeAssessmentTargetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAssessmentTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679257291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#newDescribeAssessmentTargetsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAssessmentTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679257300"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse' :: Int
 -&gt; [AssessmentTarget]
 -&gt; HashMap Text FailedItemDetails
@@ -477,7 +477,7 @@ DescribeAssessmentTargetsResponse
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAssessmentTargetsResponse' :: Int
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AhttpStatus%3ADescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257291"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679257300"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:assessmentTargets:DescribeAssessmentTargetsResponse' :: [AssessmentTarget]
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AassessmentTargets%3ADescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var">assessmentTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssessmentTarget]
 forall a. Monoid a =&gt; a
@@ -502,16 +502,16 @@ forall a. Monoid a =&gt; a
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257290"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257299"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAssessmentTargetsResponse' :: DescribeAssessmentTargetsResponse -&gt; Int
-</span><a href="#local-6989586621679257290"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257290"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257289"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargetsResponse
-</span><a href="#local-6989586621679257289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
-</span><a href="#local-6989586621679257289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAssessmentTargetsResponse' :: Int
+</span><a href="#local-6989586621679257299"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257299"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257298"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargetsResponse
+</span><a href="#local-6989586621679257298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257297"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
+</span><a href="#local-6989586621679257298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAssessmentTargetsResponse' :: Int
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AhttpStatus%3ADescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679257288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | Information about the assessment targets.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#describeAssessmentTargetsResponse_assessmentTargets"><span class="hs-identifier hs-type">describeAssessmentTargetsResponse_assessmentTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentTarget.html#AssessmentTarget"><span class="hs-identifier hs-type">AssessmentTarget</span></a></span><span class="hs-special">]</span><span>
@@ -527,16 +527,16 @@ $sel:httpStatus:DescribeAssessmentTargetsResponse' :: DescribeAssessmentTargetsR
      [AssessmentTarget]
      [AssessmentTarget]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257287"><span class="annot"><span class="annottext">[AssessmentTarget]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257296"><span class="annot"><span class="annottext">[AssessmentTarget]
 assessmentTargets :: [AssessmentTarget]
 $sel:assessmentTargets:DescribeAssessmentTargetsResponse' :: DescribeAssessmentTargetsResponse -&gt; [AssessmentTarget]
-</span><a href="#local-6989586621679257287"><span class="hs-identifier hs-var hs-var">assessmentTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssessmentTarget]
-</span><a href="#local-6989586621679257287"><span class="hs-identifier hs-var">assessmentTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257286"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargetsResponse
-</span><a href="#local-6989586621679257286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257285"><span class="annot"><span class="annottext">[AssessmentTarget]
-</span><a href="#local-6989586621679257285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
-</span><a href="#local-6989586621679257286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargets:DescribeAssessmentTargetsResponse' :: [AssessmentTarget]
+</span><a href="#local-6989586621679257296"><span class="hs-identifier hs-var hs-var">assessmentTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[AssessmentTarget]
+</span><a href="#local-6989586621679257296"><span class="hs-identifier hs-var">assessmentTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257295"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargetsResponse
+</span><a href="#local-6989586621679257295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257294"><span class="annot"><span class="annottext">[AssessmentTarget]
+</span><a href="#local-6989586621679257294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
+</span><a href="#local-6989586621679257295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assessmentTargets:DescribeAssessmentTargetsResponse' :: [AssessmentTarget]
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AassessmentTargets%3ADescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var">assessmentTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[AssessmentTarget]
-</span><a href="#local-6989586621679257285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssessmentTarget] -&gt; f [AssessmentTarget])
+</span><a href="#local-6989586621679257294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([AssessmentTarget] -&gt; f [AssessmentTarget])
  -&gt; DescribeAssessmentTargetsResponse
  -&gt; f DescribeAssessmentTargetsResponse)
 -&gt; (([AssessmentTarget] -&gt; f [AssessmentTarget])
@@ -568,16 +568,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
      (HashMap Text FailedItemDetails)
      (HashMap Text FailedItemDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257284"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257293"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
 failedItems :: HashMap Text FailedItemDetails
 $sel:failedItems:DescribeAssessmentTargetsResponse' :: DescribeAssessmentTargetsResponse -&gt; HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679257284"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679257284"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257283"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargetsResponse
-</span><a href="#local-6989586621679257283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257282"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679257282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
-</span><a href="#local-6989586621679257283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:DescribeAssessmentTargetsResponse' :: HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679257293"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679257293"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257292"><span class="annot"><span class="annottext">s :: DescribeAssessmentTargetsResponse
+</span><a href="#local-6989586621679257292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257291"><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679257291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAssessmentTargetsResponse
+</span><a href="#local-6989586621679257292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:DescribeAssessmentTargetsResponse' :: HashMap Text FailedItemDetails
 </span><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#%24sel%3AfailedItems%3ADescribeAssessmentTargetsResponse%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text FailedItemDetails
-</span><a href="#local-6989586621679257282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
+</span><a href="#local-6989586621679257291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text FailedItemDetails
   -&gt; f (HashMap Text FailedItemDetails))
  -&gt; DescribeAssessmentTargetsResponse
  -&gt; f DescribeAssessmentTargetsResponse)
@@ -598,6 +598,6 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679257280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679257289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.Inspector.DescribeAssessmentTargets.html#DescribeAssessmentTargetsResponse"><span class="hs-identifier hs-type">DescribeAssessmentTargetsResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

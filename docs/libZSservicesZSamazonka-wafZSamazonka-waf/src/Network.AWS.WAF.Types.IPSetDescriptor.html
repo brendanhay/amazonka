@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- range (in CIDR format) that web requests originate from.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newIPSetDescriptor' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679301679"><span id="local-6989586621679301680"></span></span><span class="hs-keyword">data</span><span> </span><span id="IPSetDescriptor"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-var">IPSetDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IPSetDescriptor%27"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-var">IPSetDescriptor'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679301688"><span id="local-6989586621679301689"></span></span><span class="hs-keyword">data</span><span> </span><span id="IPSetDescriptor"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-var">IPSetDescriptor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IPSetDescriptor%27"><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-var">IPSetDescriptor'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify @IPV4@ or @IPV6@.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Atype%27%3AIPSetDescriptor%27"><span class="annot"><span class="annottext">IPSetDescriptor -&gt; IPSetDescriptorType
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#%24sel%3Atype%27%3AIPSetDescriptor%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptorType.html#IPSetDescriptorType"><span class="hs-identifier hs-type">IPSetDescriptorType</span></a></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Avalue%3AIPSetDescriptor%27"><span class="annot"><span class="annottext">IPSetDescriptor -&gt; Text
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#%24sel%3Avalue%3AIPSetDescriptor%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301672"><span id="local-6989586621679301674"><span class="annot"><span class="annottext">IPSetDescriptor -&gt; IPSetDescriptor -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679301681"><span id="local-6989586621679301683"><span class="annot"><span class="annottext">IPSetDescriptor -&gt; IPSetDescriptor -&gt; Bool
 (IPSetDescriptor -&gt; IPSetDescriptor -&gt; Bool)
 -&gt; (IPSetDescriptor -&gt; IPSetDescriptor -&gt; Bool)
 -&gt; Eq IPSetDescriptor
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IPSetDescriptor -&gt; IPSetDescriptor -&gt; Bool
 == :: IPSetDescriptor -&gt; IPSetDescriptor -&gt; Bool
 $c== :: IPSetDescriptor -&gt; IPSetDescriptor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301663"><span id="local-6989586621679301665"><span id="local-6989586621679301667"><span id="local-6989586621679301669"><span class="annot"><span class="annottext">ReadPrec [IPSetDescriptor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301672"><span id="local-6989586621679301674"><span id="local-6989586621679301676"><span id="local-6989586621679301678"><span class="annot"><span class="annottext">ReadPrec [IPSetDescriptor]
 ReadPrec IPSetDescriptor
 Int -&gt; ReadS IPSetDescriptor
 ReadS [IPSetDescriptor]
@@ -96,7 +96,7 @@ readList :: ReadS [IPSetDescriptor]
 $creadList :: ReadS [IPSetDescriptor]
 readsPrec :: Int -&gt; ReadS IPSetDescriptor
 $creadsPrec :: Int -&gt; ReadS IPSetDescriptor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301656"><span id="local-6989586621679301658"><span id="local-6989586621679301660"><span class="annot"><span class="annottext">Int -&gt; IPSetDescriptor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679301665"><span id="local-6989586621679301667"><span id="local-6989586621679301669"><span class="annot"><span class="annottext">Int -&gt; IPSetDescriptor -&gt; ShowS
 [IPSetDescriptor] -&gt; ShowS
 IPSetDescriptor -&gt; String
 (Int -&gt; IPSetDescriptor -&gt; ShowS)
@@ -162,15 +162,15 @@ $cfrom :: forall x. IPSetDescriptor -&gt; Rep IPSetDescriptor x
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span>
 </span><span id="line-109"></span><span id="newIPSetDescriptor"><span class="annot"><span class="annottext">newIPSetDescriptor :: IPSetDescriptorType -&gt; Text -&gt; IPSetDescriptor
-</span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#newIPSetDescriptor"><span class="hs-identifier hs-var hs-var">newIPSetDescriptor</span></a></span></span><span> </span><span id="local-6989586621679301650"><span class="annot"><span class="annottext">IPSetDescriptorType
-</span><a href="#local-6989586621679301650"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679301649"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679301649"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#newIPSetDescriptor"><span class="hs-identifier hs-var hs-var">newIPSetDescriptor</span></a></span></span><span> </span><span id="local-6989586621679301659"><span class="annot"><span class="annottext">IPSetDescriptorType
+</span><a href="#local-6989586621679301659"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679301658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301658"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">IPSetDescriptor' :: IPSetDescriptorType -&gt; Text -&gt; IPSetDescriptor
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':IPSetDescriptor' :: IPSetDescriptorType
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#%24sel%3Atype%27%3AIPSetDescriptor%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptorType
-</span><a href="#local-6989586621679301650"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:IPSetDescriptor' :: Text
+</span><a href="#local-6989586621679301659"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:IPSetDescriptor' :: Text
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#%24sel%3Avalue%3AIPSetDescriptor%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679301649"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679301658"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | Specify @IPV4@ or @IPV6@.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#iPSetDescriptor_type"><span class="hs-identifier hs-type">iPSetDescriptor_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptorType.html#IPSetDescriptorType"><span class="hs-identifier hs-type">IPSetDescriptorType</span></a></span><span>
@@ -184,16 +184,16 @@ $cfrom :: forall x. IPSetDescriptor -&gt; Rep IPSetDescriptor x
      IPSetDescriptorType
      IPSetDescriptorType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301645"><span class="annot"><span class="annottext">IPSetDescriptorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301654"><span class="annot"><span class="annottext">IPSetDescriptorType
 type' :: IPSetDescriptorType
 $sel:type':IPSetDescriptor' :: IPSetDescriptor -&gt; IPSetDescriptorType
-</span><a href="#local-6989586621679301645"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptorType
-</span><a href="#local-6989586621679301645"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301644"><span class="annot"><span class="annottext">s :: IPSetDescriptor
-</span><a href="#local-6989586621679301644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301643"><span class="annot"><span class="annottext">IPSetDescriptorType
-</span><a href="#local-6989586621679301643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':IPSetDescriptor' :: IPSetDescriptorType
+</span><a href="#local-6989586621679301654"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptorType
+</span><a href="#local-6989586621679301654"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301653"><span class="annot"><span class="annottext">s :: IPSetDescriptor
+</span><a href="#local-6989586621679301653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301652"><span class="annot"><span class="annottext">IPSetDescriptorType
+</span><a href="#local-6989586621679301652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
+</span><a href="#local-6989586621679301653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':IPSetDescriptor' :: IPSetDescriptorType
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#%24sel%3Atype%27%3AIPSetDescriptor%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptorType
-</span><a href="#local-6989586621679301643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | Specify an IPv4 address by using CIDR notation. For example:</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
@@ -224,19 +224,19 @@ $sel:type':IPSetDescriptor' :: IPSetDescriptor -&gt; IPSetDescriptorType
 -&gt; (IPSetDescriptor -&gt; Text -&gt; IPSetDescriptor)
 -&gt; Lens IPSetDescriptor IPSetDescriptor Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301641"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301650"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:IPSetDescriptor' :: IPSetDescriptor -&gt; Text
-</span><a href="#local-6989586621679301641"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679301641"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301640"><span class="annot"><span class="annottext">s :: IPSetDescriptor
-</span><a href="#local-6989586621679301640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301639"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679301639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
-</span><a href="#local-6989586621679301640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:IPSetDescriptor' :: Text
+</span><a href="#local-6989586621679301650"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301650"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679301649"><span class="annot"><span class="annottext">s :: IPSetDescriptor
+</span><a href="#local-6989586621679301649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679301648"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679301648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPSetDescriptor
+</span><a href="#local-6989586621679301649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:IPSetDescriptor' :: Text
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#%24sel%3Avalue%3AIPSetDescriptor%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679301639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301636"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679301634"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IPSetDescriptor
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301645"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679301643"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IPSetDescriptor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IPSetDescriptor)
@@ -246,40 +246,40 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IPSetDescriptor&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301631"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679301640"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679301640"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">IPSetDescriptorType -&gt; Text -&gt; IPSetDescriptor
 </span><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-var">IPSetDescriptor'</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(IPSetDescriptorType -&gt; Text -&gt; IPSetDescriptor)
 -&gt; Parser IPSetDescriptorType -&gt; Parser (Text -&gt; IPSetDescriptor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser IPSetDescriptorType
+</span><a href="#local-6989586621679301640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser IPSetDescriptorType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; IPSetDescriptor)
 -&gt; Parser Text -&gt; Parser IPSetDescriptor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679301631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679301640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301625"><span id="local-6989586621679301627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301634"><span id="local-6989586621679301636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301614"><span id="local-6989586621679301616"><span id="local-6989586621679301618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679301612"><span class="annot"><span class="annottext">toJSON :: IPSetDescriptor -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301609"><span id="local-6989586621679301610"><span class="annot"><span class="annottext">Text
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679301623"><span id="local-6989586621679301625"><span id="local-6989586621679301627"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor"><span class="hs-identifier hs-type">IPSetDescriptor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679301621"><span class="annot"><span class="annottext">toJSON :: IPSetDescriptor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.IPSetDescriptor.html#IPSetDescriptor%27"><span class="hs-identifier hs-type">IPSetDescriptor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679301618"><span id="local-6989586621679301619"><span class="annot"><span class="annottext">Text
 IPSetDescriptorType
 value :: Text
 type' :: IPSetDescriptorType
 $sel:value:IPSetDescriptor' :: IPSetDescriptor -&gt; Text
 $sel:type':IPSetDescriptor' :: IPSetDescriptor -&gt; IPSetDescriptorType
-</span><a href="#local-6989586621679301609"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679301618"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -291,14 +291,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IPSetDescriptorType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">IPSetDescriptorType
-</span><a href="#local-6989586621679301610"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679301619"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679301609"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679301618"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span></pre></body></html>

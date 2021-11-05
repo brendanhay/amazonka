@@ -25,11 +25,11 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newBlobAttributeValue' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621681089230"><span id="local-6989586621681089231"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlobAttributeValue"><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-var">BlobAttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlobAttributeValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-var">BlobAttributeValue'</span></a></span></span><span>
+</span><span id="line-28"></span><span id="local-6989586621681089239"><span id="local-6989586621681089240"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlobAttributeValue"><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-var">BlobAttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlobAttributeValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-var">BlobAttributeValue'</span></a></span></span><span>
 </span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Avalue%3ABlobAttributeValue%27"><span class="annot"><span class="annottext">BlobAttributeValue -&gt; Maybe Base64
 </span><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#%24sel%3Avalue%3ABlobAttributeValue%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681089224"><span id="local-6989586621681089226"><span class="annot"><span class="annottext">BlobAttributeValue -&gt; BlobAttributeValue -&gt; Bool
+</span><span id="line-31"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681089233"><span id="local-6989586621681089235"><span class="annot"><span class="annottext">BlobAttributeValue -&gt; BlobAttributeValue -&gt; Bool
 (BlobAttributeValue -&gt; BlobAttributeValue -&gt; Bool)
 -&gt; (BlobAttributeValue -&gt; BlobAttributeValue -&gt; Bool)
 -&gt; Eq BlobAttributeValue
@@ -38,7 +38,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BlobAttributeValue -&gt; BlobAttributeValue -&gt; Bool
 == :: BlobAttributeValue -&gt; BlobAttributeValue -&gt; Bool
 $c== :: BlobAttributeValue -&gt; BlobAttributeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681089215"><span id="local-6989586621681089217"><span id="local-6989586621681089219"><span id="local-6989586621681089221"><span class="annot"><span class="annottext">ReadPrec [BlobAttributeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681089224"><span id="local-6989586621681089226"><span id="local-6989586621681089228"><span id="local-6989586621681089230"><span class="annot"><span class="annottext">ReadPrec [BlobAttributeValue]
 ReadPrec BlobAttributeValue
 Int -&gt; ReadS BlobAttributeValue
 ReadS [BlobAttributeValue]
@@ -58,7 +58,7 @@ readList :: ReadS [BlobAttributeValue]
 $creadList :: ReadS [BlobAttributeValue]
 readsPrec :: Int -&gt; ReadS BlobAttributeValue
 $creadsPrec :: Int -&gt; ReadS BlobAttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681089208"><span id="local-6989586621681089210"><span id="local-6989586621681089212"><span class="annot"><span class="annottext">Int -&gt; BlobAttributeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681089217"><span id="local-6989586621681089219"><span id="local-6989586621681089221"><span class="annot"><span class="annottext">Int -&gt; BlobAttributeValue -&gt; ShowS
 [BlobAttributeValue] -&gt; ShowS
 BlobAttributeValue -&gt; String
 (Int -&gt; BlobAttributeValue -&gt; ShowS)
@@ -120,16 +120,16 @@ forall a. Maybe a
 -&gt; Lens
      BlobAttributeValue BlobAttributeValue (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-type">BlobAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681089199"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-type">BlobAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681089208"><span class="annot"><span class="annottext">Maybe Base64
 value :: Maybe Base64
 $sel:value:BlobAttributeValue' :: BlobAttributeValue -&gt; Maybe Base64
-</span><a href="#local-6989586621681089199"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621681089199"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681089198"><span class="annot"><span class="annottext">s :: BlobAttributeValue
-</span><a href="#local-6989586621681089198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-type">BlobAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681089197"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621681089197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobAttributeValue
-</span><a href="#local-6989586621681089198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:BlobAttributeValue' :: Maybe Base64
+</span><a href="#local-6989586621681089208"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621681089208"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681089207"><span class="annot"><span class="annottext">s :: BlobAttributeValue
+</span><a href="#local-6989586621681089207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-type">BlobAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681089206"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621681089206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlobAttributeValue
+</span><a href="#local-6989586621681089207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:BlobAttributeValue' :: Maybe Base64
 </span><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#%24sel%3Avalue%3ABlobAttributeValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621681089197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-type">BlobAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621681089206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-type">BlobAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; BlobAttributeValue -&gt; f BlobAttributeValue)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -147,21 +147,21 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681089190"><span id="local-6989586621681089192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-type">BlobAttributeValue</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681089199"><span id="local-6989586621681089201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-type">BlobAttributeValue</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681089187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-type">BlobAttributeValue</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681089196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-type">BlobAttributeValue</span></a></span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue"><span class="hs-identifier hs-type">BlobAttributeValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621681089183"><span class="annot"><span class="annottext">toQuery :: BlobAttributeValue -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-type">BlobAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681089181"><span class="annot"><span class="annottext">Maybe Base64
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621681089192"><span class="annot"><span class="annottext">toQuery :: BlobAttributeValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BlobAttributeValue.html#BlobAttributeValue%27"><span class="hs-identifier hs-type">BlobAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681089190"><span class="annot"><span class="annottext">Maybe Base64
 value :: Maybe Base64
 $sel:value:BlobAttributeValue' :: BlobAttributeValue -&gt; Maybe Base64
-</span><a href="#local-6989586621681089181"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681089190"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Base64 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621681089181"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681089190"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span></pre></body></html>

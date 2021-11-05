@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about a returned public key.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPublicKey' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679195817"><span id="local-6989586621679195818"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicKey"><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-var">PublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicKey%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-var">PublicKey'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679195826"><span id="local-6989586621679195827"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicKey"><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-var">PublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicKey%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-var">PublicKey'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fingerprint of the public key.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Afingerprint%3APublicKey%27"><span class="annot"><span class="annottext">PublicKey -&gt; Maybe Text
 </span><a href="Network.AWS.CloudTrail.Types.PublicKey.html#%24sel%3Afingerprint%3APublicKey%27"><span class="hs-identifier hs-var hs-var">fingerprint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AvalidityStartTime%3APublicKey%27"><span class="annot"><span class="annottext">PublicKey -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudTrail.Types.PublicKey.html#%24sel%3AvalidityStartTime%3APublicKey%27"><span class="hs-identifier hs-var hs-var">validityStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195808"><span id="local-6989586621679195810"><span class="annot"><span class="annottext">PublicKey -&gt; PublicKey -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195817"><span id="local-6989586621679195819"><span class="annot"><span class="annottext">PublicKey -&gt; PublicKey -&gt; Bool
 (PublicKey -&gt; PublicKey -&gt; Bool)
 -&gt; (PublicKey -&gt; PublicKey -&gt; Bool) -&gt; Eq PublicKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PublicKey -&gt; PublicKey -&gt; Bool
 == :: PublicKey -&gt; PublicKey -&gt; Bool
 $c== :: PublicKey -&gt; PublicKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195799"><span id="local-6989586621679195801"><span id="local-6989586621679195803"><span id="local-6989586621679195805"><span class="annot"><span class="annottext">ReadPrec [PublicKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195808"><span id="local-6989586621679195810"><span id="local-6989586621679195812"><span id="local-6989586621679195814"><span class="annot"><span class="annottext">ReadPrec [PublicKey]
 ReadPrec PublicKey
 Int -&gt; ReadS PublicKey
 ReadS [PublicKey]
@@ -68,7 +68,7 @@ readList :: ReadS [PublicKey]
 $creadList :: ReadS [PublicKey]
 readsPrec :: Int -&gt; ReadS PublicKey
 $creadsPrec :: Int -&gt; ReadS PublicKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195792"><span id="local-6989586621679195794"><span id="local-6989586621679195796"><span class="annot"><span class="annottext">Int -&gt; PublicKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195801"><span id="local-6989586621679195803"><span id="local-6989586621679195805"><span class="annot"><span class="annottext">Int -&gt; PublicKey -&gt; ShowS
 [PublicKey] -&gt; ShowS
 PublicKey -&gt; String
 (Int -&gt; PublicKey -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
 -&gt; (PublicKey -&gt; Maybe Text -&gt; PublicKey)
 -&gt; Lens PublicKey PublicKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195783"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195792"><span class="annot"><span class="annottext">Maybe Text
 fingerprint :: Maybe Text
 $sel:fingerprint:PublicKey' :: PublicKey -&gt; Maybe Text
-</span><a href="#local-6989586621679195783"><span class="hs-identifier hs-var hs-var">fingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195783"><span class="hs-identifier hs-var">fingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195782"><span class="annot"><span class="annottext">s :: PublicKey
-</span><a href="#local-6989586621679195782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195781"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
-</span><a href="#local-6989586621679195782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fingerprint:PublicKey' :: Maybe Text
+</span><a href="#local-6989586621679195792"><span class="hs-identifier hs-var hs-var">fingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195792"><span class="hs-identifier hs-var">fingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195791"><span class="annot"><span class="annottext">s :: PublicKey
+</span><a href="#local-6989586621679195791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195790"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679195790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
+</span><a href="#local-6989586621679195791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fingerprint:PublicKey' :: Maybe Text
 </span><a href="Network.AWS.CloudTrail.Types.PublicKey.html#%24sel%3Afingerprint%3APublicKey%27"><span class="hs-identifier hs-var">fingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679195781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ending time of validity of the public key.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#publicKey_validityEndTime"><span class="hs-identifier hs-type">publicKey_validityEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -162,16 +162,16 @@ $sel:fingerprint:PublicKey' :: PublicKey -&gt; Maybe Text
 -&gt; (PublicKey -&gt; Maybe POSIX -&gt; PublicKey)
 -&gt; Lens PublicKey PublicKey (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195779"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195788"><span class="annot"><span class="annottext">Maybe POSIX
 validityEndTime :: Maybe POSIX
 $sel:validityEndTime:PublicKey' :: PublicKey -&gt; Maybe POSIX
-</span><a href="#local-6989586621679195779"><span class="hs-identifier hs-var hs-var">validityEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679195779"><span class="hs-identifier hs-var">validityEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195778"><span class="annot"><span class="annottext">s :: PublicKey
-</span><a href="#local-6989586621679195778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195777"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679195777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
-</span><a href="#local-6989586621679195778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validityEndTime:PublicKey' :: Maybe POSIX
+</span><a href="#local-6989586621679195788"><span class="hs-identifier hs-var hs-var">validityEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679195788"><span class="hs-identifier hs-var">validityEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195787"><span class="annot"><span class="annottext">s :: PublicKey
+</span><a href="#local-6989586621679195787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195786"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679195786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
+</span><a href="#local-6989586621679195787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validityEndTime:PublicKey' :: Maybe POSIX
 </span><a href="Network.AWS.CloudTrail.Types.PublicKey.html#%24sel%3AvalidityEndTime%3APublicKey%27"><span class="hs-identifier hs-var">validityEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679195777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; PublicKey -&gt; f PublicKey)
+</span><a href="#local-6989586621679195786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; PublicKey -&gt; f PublicKey)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -199,16 +199,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (PublicKey -&gt; Maybe Base64 -&gt; PublicKey)
 -&gt; Lens PublicKey PublicKey (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195772"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195781"><span class="annot"><span class="annottext">Maybe Base64
 value :: Maybe Base64
 $sel:value:PublicKey' :: PublicKey -&gt; Maybe Base64
-</span><a href="#local-6989586621679195772"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679195772"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195771"><span class="annot"><span class="annottext">s :: PublicKey
-</span><a href="#local-6989586621679195771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195770"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679195770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
-</span><a href="#local-6989586621679195771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PublicKey' :: Maybe Base64
+</span><a href="#local-6989586621679195781"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679195781"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195780"><span class="annot"><span class="annottext">s :: PublicKey
+</span><a href="#local-6989586621679195780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195779"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679195779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
+</span><a href="#local-6989586621679195780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PublicKey' :: Maybe Base64
 </span><a href="Network.AWS.CloudTrail.Types.PublicKey.html#%24sel%3Avalue%3APublicKey%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679195770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; PublicKey -&gt; f PublicKey)
+</span><a href="#local-6989586621679195779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64)) -&gt; PublicKey -&gt; f PublicKey)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
 -&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
@@ -232,16 +232,16 @@ Iso' Base64 ByteString
 -&gt; (PublicKey -&gt; Maybe POSIX -&gt; PublicKey)
 -&gt; Lens PublicKey PublicKey (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195767"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195776"><span class="annot"><span class="annottext">Maybe POSIX
 validityStartTime :: Maybe POSIX
 $sel:validityStartTime:PublicKey' :: PublicKey -&gt; Maybe POSIX
-</span><a href="#local-6989586621679195767"><span class="hs-identifier hs-var hs-var">validityStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679195767"><span class="hs-identifier hs-var">validityStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195766"><span class="annot"><span class="annottext">s :: PublicKey
-</span><a href="#local-6989586621679195766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195765"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679195765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
-</span><a href="#local-6989586621679195766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validityStartTime:PublicKey' :: Maybe POSIX
+</span><a href="#local-6989586621679195776"><span class="hs-identifier hs-var hs-var">validityStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679195776"><span class="hs-identifier hs-var">validityStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195775"><span class="annot"><span class="annottext">s :: PublicKey
+</span><a href="#local-6989586621679195775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-type">PublicKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195774"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679195774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicKey
+</span><a href="#local-6989586621679195775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validityStartTime:PublicKey' :: Maybe POSIX
 </span><a href="Network.AWS.CloudTrail.Types.PublicKey.html#%24sel%3AvalidityStartTime%3APublicKey%27"><span class="hs-identifier hs-var">validityStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679195765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; PublicKey -&gt; f PublicKey)
+</span><a href="#local-6989586621679195774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; PublicKey -&gt; f PublicKey)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -257,16 +257,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195762"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679195760"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PublicKey
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195771"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679195769"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PublicKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser PublicKey) -&gt; Value -&gt; Parser PublicKey
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PublicKey&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195757"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679195757"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679195766"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679195766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe POSIX -&gt; Maybe Base64 -&gt; Maybe POSIX -&gt; PublicKey
 </span><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey%27"><span class="hs-identifier hs-var">PublicKey'</span></a></span><span>
@@ -276,7 +276,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe POSIX -&gt; Maybe Base64 -&gt; Maybe POSIX -&gt; PublicKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679195757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679195766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Fingerprint&quot;</span></span><span class="hs-special">)</span><span>
@@ -285,7 +285,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Base64 -&gt; Maybe POSIX -&gt; PublicKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679195757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679195766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidityEndTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -293,7 +293,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Base64) -&gt; Parser (Maybe POSIX -&gt; PublicKey)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679195757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
+</span><a href="#local-6989586621679195766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
@@ -301,13 +301,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe POSIX) -&gt; Parser PublicKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679195757"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679195766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidityStartTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195751"><span id="local-6989586621679195753"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195760"><span id="local-6989586621679195762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195748"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudTrail.Types.PublicKey.html#PublicKey"><span class="hs-identifier hs-type">PublicKey</span></a></span></span><span>
 </span><span id="line-105"></span></pre></body></html>

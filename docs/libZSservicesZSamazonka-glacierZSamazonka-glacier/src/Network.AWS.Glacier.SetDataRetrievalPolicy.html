@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | SetDataRetrievalPolicy input.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newSetDataRetrievalPolicy' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679220409"><span id="local-6989586621679220410"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDataRetrievalPolicy"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-var">SetDataRetrievalPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDataRetrievalPolicy%27"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-var">SetDataRetrievalPolicy'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679220418"><span id="local-6989586621679220419"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDataRetrievalPolicy"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-var">SetDataRetrievalPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDataRetrievalPolicy%27"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-var">SetDataRetrievalPolicy'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data retrieval policy in JSON format.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Apolicy%3ASetDataRetrievalPolicy%27"><span class="annot"><span class="annottext">SetDataRetrievalPolicy -&gt; Maybe DataRetrievalPolicy
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#%24sel%3Apolicy%3ASetDataRetrievalPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.DataRetrievalPolicy.html#DataRetrievalPolicy"><span class="hs-identifier hs-type">DataRetrievalPolicy</span></a></span><span class="hs-special">,</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AaccountId%3ASetDataRetrievalPolicy%27"><span class="annot"><span class="annottext">SetDataRetrievalPolicy -&gt; Text
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#%24sel%3AaccountId%3ASetDataRetrievalPolicy%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220402"><span id="local-6989586621679220404"><span class="annot"><span class="annottext">SetDataRetrievalPolicy -&gt; SetDataRetrievalPolicy -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220411"><span id="local-6989586621679220413"><span class="annot"><span class="annottext">SetDataRetrievalPolicy -&gt; SetDataRetrievalPolicy -&gt; Bool
 (SetDataRetrievalPolicy -&gt; SetDataRetrievalPolicy -&gt; Bool)
 -&gt; (SetDataRetrievalPolicy -&gt; SetDataRetrievalPolicy -&gt; Bool)
 -&gt; Eq SetDataRetrievalPolicy
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetDataRetrievalPolicy -&gt; SetDataRetrievalPolicy -&gt; Bool
 == :: SetDataRetrievalPolicy -&gt; SetDataRetrievalPolicy -&gt; Bool
 $c== :: SetDataRetrievalPolicy -&gt; SetDataRetrievalPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220393"><span id="local-6989586621679220395"><span id="local-6989586621679220397"><span id="local-6989586621679220399"><span class="annot"><span class="annottext">ReadPrec [SetDataRetrievalPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220402"><span id="local-6989586621679220404"><span id="local-6989586621679220406"><span id="local-6989586621679220408"><span class="annot"><span class="annottext">ReadPrec [SetDataRetrievalPolicy]
 ReadPrec SetDataRetrievalPolicy
 Int -&gt; ReadS SetDataRetrievalPolicy
 ReadS [SetDataRetrievalPolicy]
@@ -96,7 +96,7 @@ readList :: ReadS [SetDataRetrievalPolicy]
 $creadList :: ReadS [SetDataRetrievalPolicy]
 readsPrec :: Int -&gt; ReadS SetDataRetrievalPolicy
 $creadsPrec :: Int -&gt; ReadS SetDataRetrievalPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220386"><span id="local-6989586621679220388"><span id="local-6989586621679220390"><span class="annot"><span class="annottext">Int -&gt; SetDataRetrievalPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220395"><span id="local-6989586621679220397"><span id="local-6989586621679220399"><span class="annot"><span class="annottext">Int -&gt; SetDataRetrievalPolicy -&gt; ShowS
 [SetDataRetrievalPolicy] -&gt; ShowS
 SetDataRetrievalPolicy -&gt; String
 (Int -&gt; SetDataRetrievalPolicy -&gt; ShowS)
@@ -144,8 +144,8 @@ $cfrom :: forall x. SetDataRetrievalPolicy -&gt; Rep SetDataRetrievalPolicy x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span>
 </span><span id="line-90"></span><span id="newSetDataRetrievalPolicy"><span class="annot"><span class="annottext">newSetDataRetrievalPolicy :: Text -&gt; SetDataRetrievalPolicy
-</span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#newSetDataRetrievalPolicy"><span class="hs-identifier hs-var hs-var">newSetDataRetrievalPolicy</span></a></span></span><span> </span><span id="local-6989586621679220381"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220381"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#newSetDataRetrievalPolicy"><span class="hs-identifier hs-var hs-var">newSetDataRetrievalPolicy</span></a></span></span><span> </span><span id="local-6989586621679220390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220390"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">SetDataRetrievalPolicy' :: Maybe DataRetrievalPolicy -&gt; Text -&gt; SetDataRetrievalPolicy
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:SetDataRetrievalPolicy' :: Maybe DataRetrievalPolicy
@@ -154,7 +154,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:SetDataRetrievalPolicy' :: Text
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#%24sel%3AaccountId%3ASetDataRetrievalPolicy%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220381"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span>
+</span><a href="#local-6989586621679220390"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The data retrieval policy in JSON format.</span><span>
@@ -170,16 +170,16 @@ forall a. Maybe a
      (Maybe DataRetrievalPolicy)
      (Maybe DataRetrievalPolicy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220378"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220387"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
 policy :: Maybe DataRetrievalPolicy
 $sel:policy:SetDataRetrievalPolicy' :: SetDataRetrievalPolicy -&gt; Maybe DataRetrievalPolicy
-</span><a href="#local-6989586621679220378"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
-</span><a href="#local-6989586621679220378"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220377"><span class="annot"><span class="annottext">s :: SetDataRetrievalPolicy
-</span><a href="#local-6989586621679220377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220376"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
-</span><a href="#local-6989586621679220376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDataRetrievalPolicy
-</span><a href="#local-6989586621679220377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:SetDataRetrievalPolicy' :: Maybe DataRetrievalPolicy
+</span><a href="#local-6989586621679220387"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
+</span><a href="#local-6989586621679220387"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220386"><span class="annot"><span class="annottext">s :: SetDataRetrievalPolicy
+</span><a href="#local-6989586621679220386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220385"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
+</span><a href="#local-6989586621679220385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDataRetrievalPolicy
+</span><a href="#local-6989586621679220386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:SetDataRetrievalPolicy' :: Maybe DataRetrievalPolicy
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#%24sel%3Apolicy%3ASetDataRetrievalPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
-</span><a href="#local-6989586621679220376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
@@ -194,22 +194,22 @@ $sel:policy:SetDataRetrievalPolicy' :: SetDataRetrievalPolicy -&gt; Maybe DataRe
 -&gt; (SetDataRetrievalPolicy -&gt; Text -&gt; SetDataRetrievalPolicy)
 -&gt; Lens SetDataRetrievalPolicy SetDataRetrievalPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220375"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220384"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:SetDataRetrievalPolicy' :: SetDataRetrievalPolicy -&gt; Text
-</span><a href="#local-6989586621679220375"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220375"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220374"><span class="annot"><span class="annottext">s :: SetDataRetrievalPolicy
-</span><a href="#local-6989586621679220374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220373"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDataRetrievalPolicy
-</span><a href="#local-6989586621679220374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:SetDataRetrievalPolicy' :: Text
+</span><a href="#local-6989586621679220384"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220384"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220383"><span class="annot"><span class="annottext">s :: SetDataRetrievalPolicy
+</span><a href="#local-6989586621679220383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220382"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetDataRetrievalPolicy
+</span><a href="#local-6989586621679220383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:SetDataRetrievalPolicy' :: Text
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#%24sel%3AaccountId%3ASetDataRetrievalPolicy%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse"><span class="hs-identifier hs-type">SetDataRetrievalPolicyResponse</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679220369"><span class="annot"><span class="annottext">request :: SetDataRetrievalPolicy -&gt; Request SetDataRetrievalPolicy
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679220378"><span class="annot"><span class="annottext">request :: SetDataRetrievalPolicy -&gt; Request SetDataRetrievalPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ByteString
 -&gt; Request SetDataRetrievalPolicy -&gt; Request SetDataRetrievalPolicy
@@ -226,7 +226,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679220362"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679220371"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetDataRetrievalPolicy
 -&gt; ClientResponse ClientBody
@@ -253,27 +253,27 @@ AWSResponse a
 SetDataRetrievalPolicyResponse
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse%27"><span class="hs-identifier hs-var">SetDataRetrievalPolicyResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220355"><span id="local-6989586621679220357"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220364"><span id="local-6989586621679220366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679220348"><span class="annot"><span class="annottext">toHeaders :: SetDataRetrievalPolicy -&gt; [Header]
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679220357"><span class="annot"><span class="annottext">toHeaders :: SetDataRetrievalPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetDataRetrievalPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220339"><span id="local-6989586621679220341"><span id="local-6989586621679220343"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679220337"><span class="annot"><span class="annottext">toJSON :: SetDataRetrievalPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220334"><span id="local-6989586621679220335"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220348"><span id="local-6989586621679220350"><span id="local-6989586621679220352"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679220346"><span class="annot"><span class="annottext">toJSON :: SetDataRetrievalPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220343"><span id="local-6989586621679220344"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
 Text
 accountId :: Text
 policy :: Maybe DataRetrievalPolicy
 $sel:accountId:SetDataRetrievalPolicy' :: SetDataRetrievalPolicy -&gt; Text
 $sel:policy:SetDataRetrievalPolicy' :: SetDataRetrievalPolicy -&gt; Maybe DataRetrievalPolicy
-</span><a href="#local-6989586621679220334"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679220343"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -286,18 +286,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DataRetrievalPolicy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
-</span><a href="#local-6989586621679220335"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679220344"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679220327"><span class="annot"><span class="annottext">toPath :: SetDataRetrievalPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220324"><span id="local-6989586621679220325"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679220336"><span class="annot"><span class="annottext">toPath :: SetDataRetrievalPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy%27"><span class="hs-identifier hs-type">SetDataRetrievalPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220333"><span id="local-6989586621679220334"><span class="annot"><span class="annottext">Maybe DataRetrievalPolicy
 Text
 accountId :: Text
 policy :: Maybe DataRetrievalPolicy
 $sel:accountId:SetDataRetrievalPolicy' :: SetDataRetrievalPolicy -&gt; Text
 $sel:policy:SetDataRetrievalPolicy' :: SetDataRetrievalPolicy -&gt; Maybe DataRetrievalPolicy
-</span><a href="#local-6989586621679220324"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679220333"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -306,13 +306,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220324"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679220333"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/policies/data-retrieval&quot;</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicy"><span class="hs-identifier hs-type">SetDataRetrievalPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679220320"><span class="annot"><span class="annottext">toQuery :: SetDataRetrievalPolicy -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679220329"><span class="annot"><span class="annottext">toQuery :: SetDataRetrievalPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetDataRetrievalPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -320,10 +320,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newSetDataRetrievalPolicyResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679220317"><span id="local-6989586621679220318"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDataRetrievalPolicyResponse"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse"><span class="hs-identifier hs-var">SetDataRetrievalPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDataRetrievalPolicyResponse%27"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse%27"><span class="hs-identifier hs-var">SetDataRetrievalPolicyResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679220326"><span id="local-6989586621679220327"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetDataRetrievalPolicyResponse"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse"><span class="hs-identifier hs-var">SetDataRetrievalPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetDataRetrievalPolicyResponse%27"><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse%27"><span class="hs-identifier hs-var">SetDataRetrievalPolicyResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220313"><span id="local-6989586621679220315"><span class="annot"><span class="annottext">SetDataRetrievalPolicyResponse
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220322"><span id="local-6989586621679220324"><span class="annot"><span class="annottext">SetDataRetrievalPolicyResponse
 -&gt; SetDataRetrievalPolicyResponse -&gt; Bool
 (SetDataRetrievalPolicyResponse
  -&gt; SetDataRetrievalPolicyResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: SetDataRetrievalPolicyResponse
 -&gt; SetDataRetrievalPolicyResponse -&gt; Bool
 $c== :: SetDataRetrievalPolicyResponse
 -&gt; SetDataRetrievalPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220305"><span id="local-6989586621679220307"><span id="local-6989586621679220309"><span id="local-6989586621679220311"><span class="annot"><span class="annottext">ReadPrec [SetDataRetrievalPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220314"><span id="local-6989586621679220316"><span id="local-6989586621679220318"><span id="local-6989586621679220320"><span class="annot"><span class="annottext">ReadPrec [SetDataRetrievalPolicyResponse]
 ReadPrec SetDataRetrievalPolicyResponse
 Int -&gt; ReadS SetDataRetrievalPolicyResponse
 ReadS [SetDataRetrievalPolicyResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [SetDataRetrievalPolicyResponse]
 $creadList :: ReadS [SetDataRetrievalPolicyResponse]
 readsPrec :: Int -&gt; ReadS SetDataRetrievalPolicyResponse
 $creadsPrec :: Int -&gt; ReadS SetDataRetrievalPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220299"><span id="local-6989586621679220301"><span id="local-6989586621679220303"><span class="annot"><span class="annottext">Int -&gt; SetDataRetrievalPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220308"><span id="local-6989586621679220310"><span id="local-6989586621679220312"><span class="annot"><span class="annottext">Int -&gt; SetDataRetrievalPolicyResponse -&gt; ShowS
 [SetDataRetrievalPolicyResponse] -&gt; ShowS
 SetDataRetrievalPolicyResponse -&gt; String
 (Int -&gt; SetDataRetrievalPolicyResponse -&gt; ShowS)
@@ -409,6 +409,6 @@ SetDataRetrievalPolicyResponse
 </span><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse%27"><span class="hs-identifier hs-var">SetDataRetrievalPolicyResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679220295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679220304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.SetDataRetrievalPolicy.html#SetDataRetrievalPolicyResponse"><span class="hs-identifier hs-type">SetDataRetrievalPolicyResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679611729"><span id="local-6989586621679611730"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceHealthReason"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthReason.html#InstanceHealthReason"><span class="hs-identifier hs-var">InstanceHealthReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceHealthReason%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthReason.html#InstanceHealthReason%27"><span class="hs-identifier hs-var">InstanceHealthReason'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679611738"><span id="local-6989586621679611739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceHealthReason"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthReason.html#InstanceHealthReason"><span class="hs-identifier hs-var">InstanceHealthReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceHealthReason%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceHealthReason.html#InstanceHealthReason%27"><span class="hs-identifier hs-var">InstanceHealthReason'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceHealthReason"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.InstanceHealthReason.html#fromInstanceHealthReason"><span class="hs-identifier hs-var hs-var">fromInstanceHealthReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611721"><span id="local-6989586621679611723"><span id="local-6989586621679611725"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthReason -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611730"><span id="local-6989586621679611732"><span id="local-6989586621679611734"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthReason -&gt; ShowS
 [InstanceHealthReason] -&gt; ShowS
 InstanceHealthReason -&gt; String
 (Int -&gt; InstanceHealthReason -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: InstanceHealthReason -&gt; String
 showsPrec :: Int -&gt; InstanceHealthReason -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceHealthReason -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679611712"><span id="local-6989586621679611714"><span id="local-6989586621679611716"><span id="local-6989586621679611718"><span class="annot"><span class="annottext">ReadPrec [InstanceHealthReason]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679611721"><span id="local-6989586621679611723"><span id="local-6989586621679611725"><span id="local-6989586621679611727"><span class="annot"><span class="annottext">ReadPrec [InstanceHealthReason]
 ReadPrec InstanceHealthReason
 Int -&gt; ReadS InstanceHealthReason
 ReadS [InstanceHealthReason]
@@ -81,7 +81,7 @@ $creadList :: ReadS [InstanceHealthReason]
 readsPrec :: Int -&gt; ReadS InstanceHealthReason
 $creadsPrec :: Int -&gt; ReadS InstanceHealthReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679611707"><span id="local-6989586621679611709"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679611716"><span id="local-6989586621679611718"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool
 (InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool)
 -&gt; (InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool)
 -&gt; Eq InstanceHealthReason
@@ -91,7 +91,7 @@ $c/= :: InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool
 == :: InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool
 $c== :: InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679611691"><span id="local-6989586621679611693"><span id="local-6989586621679611695"><span id="local-6989586621679611697"><span id="local-6989586621679611699"><span id="local-6989586621679611701"><span id="local-6989586621679611703"><span class="annot"><span class="annottext">Eq InstanceHealthReason
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679611700"><span id="local-6989586621679611702"><span id="local-6989586621679611704"><span id="local-6989586621679611706"><span id="local-6989586621679611708"><span id="local-6989586621679611710"><span id="local-6989586621679611712"><span class="annot"><span class="annottext">Eq InstanceHealthReason
 Eq InstanceHealthReason
 -&gt; (InstanceHealthReason -&gt; InstanceHealthReason -&gt; Ordering)
 -&gt; (InstanceHealthReason -&gt; InstanceHealthReason -&gt; Bool)
@@ -149,7 +149,7 @@ $cfrom :: forall x. InstanceHealthReason -&gt; Rep InstanceHealthReason x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611683"><span id="local-6989586621679611685"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthReason -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611692"><span id="local-6989586621679611694"><span class="annot"><span class="annottext">Int -&gt; InstanceHealthReason -&gt; Int
 InstanceHealthReason -&gt; Int
 (Int -&gt; InstanceHealthReason -&gt; Int)
 -&gt; (InstanceHealthReason -&gt; Int) -&gt; Hashable InstanceHealthReason
@@ -159,54 +159,54 @@ $chash :: InstanceHealthReason -&gt; Int
 hashWithSalt :: Int -&gt; InstanceHealthReason -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceHealthReason -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679611680"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679611689"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; ()
 (InstanceHealthReason -&gt; ()) -&gt; NFData InstanceHealthReason
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceHealthReason -&gt; ()
 $crnf :: InstanceHealthReason -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679611677"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceHealthReason
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679611686"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceHealthReason
 (Text -&gt; Either String InstanceHealthReason)
 -&gt; FromText InstanceHealthReason
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceHealthReason
 $cfromText :: Text -&gt; Either String InstanceHealthReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679611674"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679611683"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; Text
 (InstanceHealthReason -&gt; Text) -&gt; ToText InstanceHealthReason
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceHealthReason -&gt; Text
 $ctoText :: InstanceHealthReason -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679611671"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679611680"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; ByteString
 (InstanceHealthReason -&gt; ByteString)
 -&gt; ToByteString InstanceHealthReason
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceHealthReason -&gt; ByteString
 $ctoBS :: InstanceHealthReason -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679611668"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679611677"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; ByteStringBuilder
 (InstanceHealthReason -&gt; ByteStringBuilder)
 -&gt; ToLog InstanceHealthReason
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceHealthReason -&gt; ByteStringBuilder
 $cbuild :: InstanceHealthReason -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679611665"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceHealthReason -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679611674"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceHealthReason -&gt; [Header]
 (HeaderName -&gt; InstanceHealthReason -&gt; [Header])
 -&gt; ToHeader InstanceHealthReason
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceHealthReason -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceHealthReason -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679611662"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679611671"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; QueryString
 (InstanceHealthReason -&gt; QueryString)
 -&gt; ToQuery InstanceHealthReason
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceHealthReason -&gt; QueryString
 $ctoQuery :: InstanceHealthReason -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679611657"><span id="local-6989586621679611659"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceHealthReason]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679611666"><span id="local-6989586621679611668"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceHealthReason]
 Value -&gt; Parser InstanceHealthReason
 (Value -&gt; Parser InstanceHealthReason)
 -&gt; (Value -&gt; Parser [InstanceHealthReason])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceHealthReason]
 parseJSON :: Value -&gt; Parser InstanceHealthReason
 $cparseJSON :: Value -&gt; Parser InstanceHealthReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679611652"><span id="local-6989586621679611654"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceHealthReason]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679611661"><span id="local-6989586621679611663"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceHealthReason]
 FromJSONKeyFunction InstanceHealthReason
 FromJSONKeyFunction InstanceHealthReason
 -&gt; FromJSONKeyFunction [InstanceHealthReason]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceHealthReason]
 fromJSONKey :: FromJSONKeyFunction InstanceHealthReason
 $cfromJSONKey :: FromJSONKeyFunction InstanceHealthReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679611643"><span id="local-6989586621679611645"><span id="local-6989586621679611647"><span id="local-6989586621679611649"><span class="annot"><span class="annottext">[InstanceHealthReason] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679611652"><span id="local-6989586621679611654"><span id="local-6989586621679611656"><span id="local-6989586621679611658"><span class="annot"><span class="annottext">[InstanceHealthReason] -&gt; Encoding
 [InstanceHealthReason] -&gt; Value
 InstanceHealthReason -&gt; Encoding
 InstanceHealthReason -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: InstanceHealthReason -&gt; Encoding
 toJSON :: InstanceHealthReason -&gt; Value
 $ctoJSON :: InstanceHealthReason -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679611638"><span id="local-6989586621679611640"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceHealthReason]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679611647"><span id="local-6989586621679611649"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceHealthReason]
 ToJSONKeyFunction InstanceHealthReason
 ToJSONKeyFunction InstanceHealthReason
 -&gt; ToJSONKeyFunction [InstanceHealthReason]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceHealthReason]
 toJSONKey :: ToJSONKeyFunction InstanceHealthReason
 $ctoJSONKey :: ToJSONKeyFunction InstanceHealthReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679611635"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceHealthReason
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679611644"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceHealthReason
 ([Node] -&gt; Either String InstanceHealthReason)
 -&gt; FromXML InstanceHealthReason
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceHealthReason
 $cparseXML :: [Node] -&gt; Either String InstanceHealthReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679611632"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679611641"><span class="annot"><span class="annottext">InstanceHealthReason -&gt; XML
 (InstanceHealthReason -&gt; XML) -&gt; ToXML InstanceHealthReason
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceHealthReason -&gt; XML

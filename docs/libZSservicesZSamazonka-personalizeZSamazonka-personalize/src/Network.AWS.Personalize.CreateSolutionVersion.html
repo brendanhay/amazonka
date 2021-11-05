@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.CreateSolutionVersion</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Trains or retrains an active solution. A solution is created using the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- CreateSolution operation and must be in the ACTIVE state before calling</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @CreateSolutionVersion@. A new version of the solution is created every</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- time you call this operation.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- __Status__</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- A solution version can be in one of the following states:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   CREATE PENDING</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   CREATE IN_PROGRESS</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- -   ACTIVE</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   CREATE FAILED</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   CREATE STOPPING</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- -   CREATE STOPPED</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- To get the status of the version, call DescribeSolutionVersion. Wait</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- until the status shows as ACTIVE before calling @CreateCampaign@.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- If the status shows as CREATE FAILED, the response includes a</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- @failureReason@ key, which describes why the job failed.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- __Related APIs__</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- -   ListSolutionVersions</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- -   DescribeSolutionVersion</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- -   ListSolutions</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- -   CreateSolution</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- -   DescribeSolution</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- -   DeleteSolution</span><span>
+</span><span id="line-63"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.CreateSolutionVersion</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier">CreateSolutionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#newCreateSolutionVersion"><span class="hs-identifier">newCreateSolutionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersion_trainingMode"><span class="hs-identifier">createSolutionVersion_trainingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersion_solutionArn"><span class="hs-identifier">createSolutionVersion_solutionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier">CreateSolutionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#newCreateSolutionVersionResponse"><span class="hs-identifier">newCreateSolutionVersionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersionResponse_solutionVersionArn"><span class="hs-identifier">createSolutionVersionResponse_solutionVersionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersionResponse_httpStatus"><span class="hs-identifier">createSolutionVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.html"><span class="hs-identifier">Network.AWS.Personalize.Types</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | /See:/ 'newCreateSolutionVersion' smart constructor.</span><span>
+</span><span id="line-90"></span><span id="local-6989586621679283510"><span id="local-6989586621679283511"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSolutionVersion"><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-var">CreateSolutionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSolutionVersion%27"><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion%27"><span class="hs-identifier hs-var">CreateSolutionVersion'</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scope of training to be performed when creating the solution</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- version. The @FULL@ option trains the solution version based on the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- entirety of the input solution\'s training data, while the @UPDATE@</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- option processes only the data that has changed in comparison to the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- input solution. Choose @UPDATE@ when you want to incrementally update</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- your solution version instead of creating an entirely new one.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- The @UPDATE@ option can only be used when you already have an active</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- solution version created from the input solution using the @FULL@ option</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- and the input solution was trained with the</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html User-Personalization&gt;</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- recipe or the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html HRNN-Coldstart&gt;</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- recipe.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AtrainingMode%3ACreateSolutionVersion%27"><span class="annot"><span class="annottext">CreateSolutionVersion -&gt; Maybe TrainingMode
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AtrainingMode%3ACreateSolutionVersion%27"><span class="hs-identifier hs-var hs-var">trainingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.TrainingMode.html#TrainingMode"><span class="hs-identifier hs-type">TrainingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the solution containing the training</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- configuration information.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AsolutionArn%3ACreateSolutionVersion%27"><span class="annot"><span class="annottext">CreateSolutionVersion -&gt; Text
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AsolutionArn%3ACreateSolutionVersion%27"><span class="hs-identifier hs-var hs-var">solutionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283503"><span id="local-6989586621679283505"><span class="annot"><span class="annottext">CreateSolutionVersion -&gt; CreateSolutionVersion -&gt; Bool
+(CreateSolutionVersion -&gt; CreateSolutionVersion -&gt; Bool)
+-&gt; (CreateSolutionVersion -&gt; CreateSolutionVersion -&gt; Bool)
+-&gt; Eq CreateSolutionVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSolutionVersion -&gt; CreateSolutionVersion -&gt; Bool
+$c/= :: CreateSolutionVersion -&gt; CreateSolutionVersion -&gt; Bool
+== :: CreateSolutionVersion -&gt; CreateSolutionVersion -&gt; Bool
+$c== :: CreateSolutionVersion -&gt; CreateSolutionVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283494"><span id="local-6989586621679283496"><span id="local-6989586621679283498"><span id="local-6989586621679283500"><span class="annot"><span class="annottext">ReadPrec [CreateSolutionVersion]
+ReadPrec CreateSolutionVersion
+Int -&gt; ReadS CreateSolutionVersion
+ReadS [CreateSolutionVersion]
+(Int -&gt; ReadS CreateSolutionVersion)
+-&gt; ReadS [CreateSolutionVersion]
+-&gt; ReadPrec CreateSolutionVersion
+-&gt; ReadPrec [CreateSolutionVersion]
+-&gt; Read CreateSolutionVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSolutionVersion]
+$creadListPrec :: ReadPrec [CreateSolutionVersion]
+readPrec :: ReadPrec CreateSolutionVersion
+$creadPrec :: ReadPrec CreateSolutionVersion
+readList :: ReadS [CreateSolutionVersion]
+$creadList :: ReadS [CreateSolutionVersion]
+readsPrec :: Int -&gt; ReadS CreateSolutionVersion
+$creadsPrec :: Int -&gt; ReadS CreateSolutionVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283487"><span id="local-6989586621679283489"><span id="local-6989586621679283491"><span class="annot"><span class="annottext">Int -&gt; CreateSolutionVersion -&gt; ShowS
+[CreateSolutionVersion] -&gt; ShowS
+CreateSolutionVersion -&gt; String
+(Int -&gt; CreateSolutionVersion -&gt; ShowS)
+-&gt; (CreateSolutionVersion -&gt; String)
+-&gt; ([CreateSolutionVersion] -&gt; ShowS)
+-&gt; Show CreateSolutionVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSolutionVersion] -&gt; ShowS
+$cshowList :: [CreateSolutionVersion] -&gt; ShowS
+show :: CreateSolutionVersion -&gt; String
+$cshow :: CreateSolutionVersion -&gt; String
+showsPrec :: Int -&gt; CreateSolutionVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSolutionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSolutionVersion -&gt; Rep CreateSolutionVersion x)
+-&gt; (forall x. Rep CreateSolutionVersion x -&gt; CreateSolutionVersion)
+-&gt; Generic CreateSolutionVersion
+forall x. Rep CreateSolutionVersion x -&gt; CreateSolutionVersion
+forall x. CreateSolutionVersion -&gt; Rep CreateSolutionVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSolutionVersion x -&gt; CreateSolutionVersion
+$cfrom :: forall x. CreateSolutionVersion -&gt; Rep CreateSolutionVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'CreateSolutionVersion' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'trainingMode', 'createSolutionVersion_trainingMode' - The scope of training to be performed when creating the solution</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- version. The @FULL@ option trains the solution version based on the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- entirety of the input solution\'s training data, while the @UPDATE@</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- option processes only the data that has changed in comparison to the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- input solution. Choose @UPDATE@ when you want to incrementally update</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- your solution version instead of creating an entirely new one.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The @UPDATE@ option can only be used when you already have an active</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- solution version created from the input solution using the @FULL@ option</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- and the input solution was trained with the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html User-Personalization&gt;</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- recipe or the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html HRNN-Coldstart&gt;</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- recipe.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'solutionArn', 'createSolutionVersion_solutionArn' - The Amazon Resource Name (ARN) of the solution containing the training</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- configuration information.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#newCreateSolutionVersion"><span class="hs-identifier hs-type">newCreateSolutionVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'solutionArn'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span>
+</span><span id="line-141"></span><span id="newCreateSolutionVersion"><span class="annot"><span class="annottext">newCreateSolutionVersion :: Text -&gt; CreateSolutionVersion
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#newCreateSolutionVersion"><span class="hs-identifier hs-var hs-var">newCreateSolutionVersion</span></a></span></span><span> </span><span id="local-6989586621679283482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283482"><span class="hs-identifier hs-var">pSolutionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">CreateSolutionVersion' :: Maybe TrainingMode -&gt; Text -&gt; CreateSolutionVersion
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion%27"><span class="hs-identifier hs-type">CreateSolutionVersion'</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trainingMode:CreateSolutionVersion' :: Maybe TrainingMode
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AtrainingMode%3ACreateSolutionVersion%27"><span class="hs-identifier hs-var">trainingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Maybe TrainingMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:solutionArn:CreateSolutionVersion' :: Text
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AsolutionArn%3ACreateSolutionVersion%27"><span class="hs-identifier hs-var">solutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283482"><span class="hs-identifier hs-var">pSolutionArn_</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The scope of training to be performed when creating the solution</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- version. The @FULL@ option trains the solution version based on the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- entirety of the input solution\'s training data, while the @UPDATE@</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- option processes only the data that has changed in comparison to the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- input solution. Choose @UPDATE@ when you want to incrementally update</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- your solution version instead of creating an entirely new one.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- The @UPDATE@ option can only be used when you already have an active</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- solution version created from the input solution using the @FULL@ option</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- and the input solution was trained with the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html User-Personalization&gt;</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- recipe or the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html HRNN-Coldstart&gt;</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- recipe.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersion_trainingMode"><span class="hs-identifier hs-type">createSolutionVersion_trainingMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.TrainingMode.html#TrainingMode"><span class="hs-identifier hs-type">TrainingMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="createSolutionVersion_trainingMode"><span class="annot"><span class="annottext">createSolutionVersion_trainingMode :: (Maybe TrainingMode -&gt; f (Maybe TrainingMode))
+-&gt; CreateSolutionVersion -&gt; f CreateSolutionVersion
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersion_trainingMode"><span class="hs-identifier hs-var hs-var">createSolutionVersion_trainingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSolutionVersion -&gt; Maybe TrainingMode)
+-&gt; (CreateSolutionVersion
+    -&gt; Maybe TrainingMode -&gt; CreateSolutionVersion)
+-&gt; Lens
+     CreateSolutionVersion
+     CreateSolutionVersion
+     (Maybe TrainingMode)
+     (Maybe TrainingMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion%27"><span class="hs-identifier hs-type">CreateSolutionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283479"><span class="annot"><span class="annottext">Maybe TrainingMode
+trainingMode :: Maybe TrainingMode
+$sel:trainingMode:CreateSolutionVersion' :: CreateSolutionVersion -&gt; Maybe TrainingMode
+</span><a href="#local-6989586621679283479"><span class="hs-identifier hs-var hs-var">trainingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingMode
+</span><a href="#local-6989586621679283479"><span class="hs-identifier hs-var">trainingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283478"><span class="annot"><span class="annottext">s :: CreateSolutionVersion
+</span><a href="#local-6989586621679283478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion%27"><span class="hs-identifier hs-type">CreateSolutionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283477"><span class="annot"><span class="annottext">Maybe TrainingMode
+</span><a href="#local-6989586621679283477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSolutionVersion
+</span><a href="#local-6989586621679283478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingMode:CreateSolutionVersion' :: Maybe TrainingMode
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AtrainingMode%3ACreateSolutionVersion%27"><span class="hs-identifier hs-var">trainingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrainingMode
+</span><a href="#local-6989586621679283477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the solution containing the training</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- configuration information.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersion_solutionArn"><span class="hs-identifier hs-type">createSolutionVersion_solutionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-168"></span><span id="createSolutionVersion_solutionArn"><span class="annot"><span class="annottext">createSolutionVersion_solutionArn :: (Text -&gt; f Text)
+-&gt; CreateSolutionVersion -&gt; f CreateSolutionVersion
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersion_solutionArn"><span class="hs-identifier hs-var hs-var">createSolutionVersion_solutionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSolutionVersion -&gt; Text)
+-&gt; (CreateSolutionVersion -&gt; Text -&gt; CreateSolutionVersion)
+-&gt; Lens CreateSolutionVersion CreateSolutionVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion%27"><span class="hs-identifier hs-type">CreateSolutionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283476"><span class="annot"><span class="annottext">Text
+solutionArn :: Text
+$sel:solutionArn:CreateSolutionVersion' :: CreateSolutionVersion -&gt; Text
+</span><a href="#local-6989586621679283476"><span class="hs-identifier hs-var hs-var">solutionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283476"><span class="hs-identifier hs-var">solutionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283475"><span class="annot"><span class="annottext">s :: CreateSolutionVersion
+</span><a href="#local-6989586621679283475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion%27"><span class="hs-identifier hs-type">CreateSolutionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283474"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSolutionVersion
+</span><a href="#local-6989586621679283475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:solutionArn:CreateSolutionVersion' :: Text
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AsolutionArn%3ACreateSolutionVersion%27"><span class="hs-identifier hs-var">solutionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-172"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-type">CreateSolutionVersionResponse</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679283470"><span class="annot"><span class="annottext">request :: CreateSolutionVersion -&gt; Request CreateSolutionVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSolutionVersion -&gt; Request CreateSolutionVersion
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Personalize.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679283466"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSolutionVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSolutionVersion)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateSolutionVersion))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSolutionVersion
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateSolutionVersion)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283463"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283462"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283462"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283461"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateSolutionVersionResponse
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse%27"><span class="hs-identifier hs-var">CreateSolutionVersionResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateSolutionVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateSolutionVersionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;solutionVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateSolutionVersionResponse)
+-&gt; Either String Int -&gt; Either String CreateSolutionVersionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283463"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283453"><span id="local-6989586621679283455"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679283446"><span class="annot"><span class="annottext">toHeaders :: CreateSolutionVersion -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSolutionVersion -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonPersonalize.CreateSolutionVersion&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-193"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-194"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-198"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283436"><span id="local-6989586621679283438"><span id="local-6989586621679283440"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679283434"><span class="annot"><span class="annottext">toJSON :: CreateSolutionVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion%27"><span class="hs-identifier hs-type">CreateSolutionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283431"><span id="local-6989586621679283432"><span class="annot"><span class="annottext">Maybe TrainingMode
+Text
+solutionArn :: Text
+trainingMode :: Maybe TrainingMode
+$sel:solutionArn:CreateSolutionVersion' :: CreateSolutionVersion -&gt; Text
+$sel:trainingMode:CreateSolutionVersion' :: CreateSolutionVersion -&gt; Maybe TrainingMode
+</span><a href="#local-6989586621679283431"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-206"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trainingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrainingMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TrainingMode -&gt; Pair) -&gt; Maybe TrainingMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrainingMode
+</span><a href="#local-6989586621679283432"><span class="hs-identifier hs-var">trainingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;solutionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283431"><span class="hs-identifier hs-var">solutionArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679283425"><span class="annot"><span class="annottext">toPath :: CreateSolutionVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateSolutionVersion -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersion"><span class="hs-identifier hs-type">CreateSolutionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679283421"><span class="annot"><span class="annottext">toQuery :: CreateSolutionVersion -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSolutionVersion -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | /See:/ 'newCreateSolutionVersionResponse' smart constructor.</span><span>
+</span><span id="line-218"></span><span id="local-6989586621679283418"><span id="local-6989586621679283419"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSolutionVersionResponse"><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-var">CreateSolutionVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSolutionVersionResponse%27"><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse%27"><span class="hs-identifier hs-var">CreateSolutionVersionResponse'</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the new solution version.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AsolutionVersionArn%3ACreateSolutionVersionResponse%27"><span class="annot"><span class="annottext">CreateSolutionVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AsolutionVersionArn%3ACreateSolutionVersionResponse%27"><span class="hs-identifier hs-var hs-var">solutionVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSolutionVersionResponse%27"><span class="annot"><span class="annottext">CreateSolutionVersionResponse -&gt; Int
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AhttpStatus%3ACreateSolutionVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283412"><span id="local-6989586621679283414"><span class="annot"><span class="annottext">CreateSolutionVersionResponse
+-&gt; CreateSolutionVersionResponse -&gt; Bool
+(CreateSolutionVersionResponse
+ -&gt; CreateSolutionVersionResponse -&gt; Bool)
+-&gt; (CreateSolutionVersionResponse
+    -&gt; CreateSolutionVersionResponse -&gt; Bool)
+-&gt; Eq CreateSolutionVersionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSolutionVersionResponse
+-&gt; CreateSolutionVersionResponse -&gt; Bool
+$c/= :: CreateSolutionVersionResponse
+-&gt; CreateSolutionVersionResponse -&gt; Bool
+== :: CreateSolutionVersionResponse
+-&gt; CreateSolutionVersionResponse -&gt; Bool
+$c== :: CreateSolutionVersionResponse
+-&gt; CreateSolutionVersionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283404"><span id="local-6989586621679283406"><span id="local-6989586621679283408"><span id="local-6989586621679283410"><span class="annot"><span class="annottext">ReadPrec [CreateSolutionVersionResponse]
+ReadPrec CreateSolutionVersionResponse
+Int -&gt; ReadS CreateSolutionVersionResponse
+ReadS [CreateSolutionVersionResponse]
+(Int -&gt; ReadS CreateSolutionVersionResponse)
+-&gt; ReadS [CreateSolutionVersionResponse]
+-&gt; ReadPrec CreateSolutionVersionResponse
+-&gt; ReadPrec [CreateSolutionVersionResponse]
+-&gt; Read CreateSolutionVersionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSolutionVersionResponse]
+$creadListPrec :: ReadPrec [CreateSolutionVersionResponse]
+readPrec :: ReadPrec CreateSolutionVersionResponse
+$creadPrec :: ReadPrec CreateSolutionVersionResponse
+readList :: ReadS [CreateSolutionVersionResponse]
+$creadList :: ReadS [CreateSolutionVersionResponse]
+readsPrec :: Int -&gt; ReadS CreateSolutionVersionResponse
+$creadsPrec :: Int -&gt; ReadS CreateSolutionVersionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283398"><span id="local-6989586621679283400"><span id="local-6989586621679283402"><span class="annot"><span class="annottext">Int -&gt; CreateSolutionVersionResponse -&gt; ShowS
+[CreateSolutionVersionResponse] -&gt; ShowS
+CreateSolutionVersionResponse -&gt; String
+(Int -&gt; CreateSolutionVersionResponse -&gt; ShowS)
+-&gt; (CreateSolutionVersionResponse -&gt; String)
+-&gt; ([CreateSolutionVersionResponse] -&gt; ShowS)
+-&gt; Show CreateSolutionVersionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSolutionVersionResponse] -&gt; ShowS
+$cshowList :: [CreateSolutionVersionResponse] -&gt; ShowS
+show :: CreateSolutionVersionResponse -&gt; String
+$cshow :: CreateSolutionVersionResponse -&gt; String
+showsPrec :: Int -&gt; CreateSolutionVersionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSolutionVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateSolutionVersionResponse
+ -&gt; Rep CreateSolutionVersionResponse x)
+-&gt; (forall x.
+    Rep CreateSolutionVersionResponse x
+    -&gt; CreateSolutionVersionResponse)
+-&gt; Generic CreateSolutionVersionResponse
+forall x.
+Rep CreateSolutionVersionResponse x
+-&gt; CreateSolutionVersionResponse
+forall x.
+CreateSolutionVersionResponse
+-&gt; Rep CreateSolutionVersionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateSolutionVersionResponse x
+-&gt; CreateSolutionVersionResponse
+$cfrom :: forall x.
+CreateSolutionVersionResponse
+-&gt; Rep CreateSolutionVersionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Create a value of 'CreateSolutionVersionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'solutionVersionArn', 'createSolutionVersionResponse_solutionVersionArn' - The ARN of the new solution version.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'httpStatus', 'createSolutionVersionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#newCreateSolutionVersionResponse"><span class="hs-identifier hs-type">newCreateSolutionVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-type">CreateSolutionVersionResponse</span></a></span><span>
+</span><span id="line-241"></span><span id="newCreateSolutionVersionResponse"><span class="annot"><span class="annottext">newCreateSolutionVersionResponse :: Int -&gt; CreateSolutionVersionResponse
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#newCreateSolutionVersionResponse"><span class="hs-identifier hs-var hs-var">newCreateSolutionVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679283395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>  </span><span class="annot"><span class="annottext">CreateSolutionVersionResponse' :: Maybe Text -&gt; Int -&gt; CreateSolutionVersionResponse
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse%27"><span class="hs-identifier hs-type">CreateSolutionVersionResponse'</span></a></span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:solutionVersionArn:CreateSolutionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AsolutionVersionArn%3ACreateSolutionVersionResponse%27"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSolutionVersionResponse' :: Int
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AhttpStatus%3ACreateSolutionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283395"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The ARN of the new solution version.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersionResponse_solutionVersionArn"><span class="hs-identifier hs-type">createSolutionVersionResponse_solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-type">CreateSolutionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="createSolutionVersionResponse_solutionVersionArn"><span class="annot"><span class="annottext">createSolutionVersionResponse_solutionVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateSolutionVersionResponse -&gt; f CreateSolutionVersionResponse
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersionResponse_solutionVersionArn"><span class="hs-identifier hs-var hs-var">createSolutionVersionResponse_solutionVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSolutionVersionResponse -&gt; Maybe Text)
+-&gt; (CreateSolutionVersionResponse
+    -&gt; Maybe Text -&gt; CreateSolutionVersionResponse)
+-&gt; Lens
+     CreateSolutionVersionResponse
+     CreateSolutionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse%27"><span class="hs-identifier hs-type">CreateSolutionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283394"><span class="annot"><span class="annottext">Maybe Text
+solutionVersionArn :: Maybe Text
+$sel:solutionVersionArn:CreateSolutionVersionResponse' :: CreateSolutionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679283394"><span class="hs-identifier hs-var hs-var">solutionVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283394"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283393"><span class="annot"><span class="annottext">s :: CreateSolutionVersionResponse
+</span><a href="#local-6989586621679283393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse%27"><span class="hs-identifier hs-type">CreateSolutionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283392"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSolutionVersionResponse
+</span><a href="#local-6989586621679283393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:solutionVersionArn:CreateSolutionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AsolutionVersionArn%3ACreateSolutionVersionResponse%27"><span class="hs-identifier hs-var">solutionVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-type">CreateSolutionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersionResponse_httpStatus"><span class="hs-identifier hs-type">createSolutionVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-type">CreateSolutionVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-254"></span><span id="createSolutionVersionResponse_httpStatus"><span class="annot"><span class="annottext">createSolutionVersionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateSolutionVersionResponse -&gt; f CreateSolutionVersionResponse
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#createSolutionVersionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSolutionVersionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSolutionVersionResponse -&gt; Int)
+-&gt; (CreateSolutionVersionResponse
+    -&gt; Int -&gt; CreateSolutionVersionResponse)
+-&gt; Lens
+     CreateSolutionVersionResponse CreateSolutionVersionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse%27"><span class="hs-identifier hs-type">CreateSolutionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283391"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSolutionVersionResponse' :: CreateSolutionVersionResponse -&gt; Int
+</span><a href="#local-6989586621679283391"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283391"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283390"><span class="annot"><span class="annottext">s :: CreateSolutionVersionResponse
+</span><a href="#local-6989586621679283390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse%27"><span class="hs-identifier hs-type">CreateSolutionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283389"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSolutionVersionResponse
+</span><a href="#local-6989586621679283390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSolutionVersionResponse' :: Int
+</span><a href="Network.AWS.Personalize.CreateSolutionVersion.html#%24sel%3AhttpStatus%3ACreateSolutionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-type">CreateSolutionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283387"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.CreateSolutionVersion.html#CreateSolutionVersionResponse"><span class="hs-identifier hs-type">CreateSolutionVersionResponse</span></a></span></span><span>
+</span><span id="line-257"></span></pre></body></html>

@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679298843"><span id="local-6989586621679298844"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PackageStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageStatus.html#PackageStatus"><span class="hs-identifier hs-var">PackageStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageStatus.html#PackageStatus%27"><span class="hs-identifier hs-var">PackageStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679298852"><span id="local-6989586621679298853"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PackageStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageStatus.html#PackageStatus"><span class="hs-identifier hs-var">PackageStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PackageStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.PackageStatus.html#PackageStatus%27"><span class="hs-identifier hs-var">PackageStatus'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPackageStatus"><span class="annot"><span class="annottext">PackageStatus -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.PackageStatus.html#fromPackageStatus"><span class="hs-identifier hs-var hs-var">fromPackageStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298835"><span id="local-6989586621679298837"><span id="local-6989586621679298839"><span class="annot"><span class="annottext">Int -&gt; PackageStatus -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298844"><span id="local-6989586621679298846"><span id="local-6989586621679298848"><span class="annot"><span class="annottext">Int -&gt; PackageStatus -&gt; ShowS
 [PackageStatus] -&gt; ShowS
 PackageStatus -&gt; String
 (Int -&gt; PackageStatus -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: PackageStatus -&gt; String
 showsPrec :: Int -&gt; PackageStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; PackageStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298826"><span id="local-6989586621679298828"><span id="local-6989586621679298830"><span id="local-6989586621679298832"><span class="annot"><span class="annottext">ReadPrec [PackageStatus]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298835"><span id="local-6989586621679298837"><span id="local-6989586621679298839"><span id="local-6989586621679298841"><span class="annot"><span class="annottext">ReadPrec [PackageStatus]
 ReadPrec PackageStatus
 Int -&gt; ReadS PackageStatus
 ReadS [PackageStatus]
@@ -78,7 +78,7 @@ $creadList :: ReadS [PackageStatus]
 readsPrec :: Int -&gt; ReadS PackageStatus
 $creadsPrec :: Int -&gt; ReadS PackageStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298821"><span id="local-6989586621679298823"><span class="annot"><span class="annottext">PackageStatus -&gt; PackageStatus -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298830"><span id="local-6989586621679298832"><span class="annot"><span class="annottext">PackageStatus -&gt; PackageStatus -&gt; Bool
 (PackageStatus -&gt; PackageStatus -&gt; Bool)
 -&gt; (PackageStatus -&gt; PackageStatus -&gt; Bool) -&gt; Eq PackageStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ $c/= :: PackageStatus -&gt; PackageStatus -&gt; Bool
 == :: PackageStatus -&gt; PackageStatus -&gt; Bool
 $c== :: PackageStatus -&gt; PackageStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298805"><span id="local-6989586621679298807"><span id="local-6989586621679298809"><span id="local-6989586621679298811"><span id="local-6989586621679298813"><span id="local-6989586621679298815"><span id="local-6989586621679298817"><span class="annot"><span class="annottext">Eq PackageStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298814"><span id="local-6989586621679298816"><span id="local-6989586621679298818"><span id="local-6989586621679298820"><span id="local-6989586621679298822"><span id="local-6989586621679298824"><span id="local-6989586621679298826"><span class="annot"><span class="annottext">Eq PackageStatus
 Eq PackageStatus
 -&gt; (PackageStatus -&gt; PackageStatus -&gt; Ordering)
 -&gt; (PackageStatus -&gt; PackageStatus -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. PackageStatus -&gt; Rep PackageStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298797"><span id="local-6989586621679298799"><span class="annot"><span class="annottext">Int -&gt; PackageStatus -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298806"><span id="local-6989586621679298808"><span class="annot"><span class="annottext">Int -&gt; PackageStatus -&gt; Int
 PackageStatus -&gt; Int
 (Int -&gt; PackageStatus -&gt; Int)
 -&gt; (PackageStatus -&gt; Int) -&gt; Hashable PackageStatus
@@ -148,49 +148,49 @@ $chash :: PackageStatus -&gt; Int
 hashWithSalt :: Int -&gt; PackageStatus -&gt; Int
 $chashWithSalt :: Int -&gt; PackageStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298794"><span class="annot"><span class="annottext">PackageStatus -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298803"><span class="annot"><span class="annottext">PackageStatus -&gt; ()
 (PackageStatus -&gt; ()) -&gt; NFData PackageStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PackageStatus -&gt; ()
 $crnf :: PackageStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298791"><span class="annot"><span class="annottext">Text -&gt; Either String PackageStatus
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298800"><span class="annot"><span class="annottext">Text -&gt; Either String PackageStatus
 (Text -&gt; Either String PackageStatus) -&gt; FromText PackageStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PackageStatus
 $cfromText :: Text -&gt; Either String PackageStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298788"><span class="annot"><span class="annottext">PackageStatus -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298797"><span class="annot"><span class="annottext">PackageStatus -&gt; Text
 (PackageStatus -&gt; Text) -&gt; ToText PackageStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PackageStatus -&gt; Text
 $ctoText :: PackageStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298785"><span class="annot"><span class="annottext">PackageStatus -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298794"><span class="annot"><span class="annottext">PackageStatus -&gt; ByteString
 (PackageStatus -&gt; ByteString) -&gt; ToByteString PackageStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PackageStatus -&gt; ByteString
 $ctoBS :: PackageStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298782"><span class="annot"><span class="annottext">PackageStatus -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298791"><span class="annot"><span class="annottext">PackageStatus -&gt; ByteStringBuilder
 (PackageStatus -&gt; ByteStringBuilder) -&gt; ToLog PackageStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PackageStatus -&gt; ByteStringBuilder
 $cbuild :: PackageStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298779"><span class="annot"><span class="annottext">HeaderName -&gt; PackageStatus -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298788"><span class="annot"><span class="annottext">HeaderName -&gt; PackageStatus -&gt; [Header]
 (HeaderName -&gt; PackageStatus -&gt; [Header]) -&gt; ToHeader PackageStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PackageStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PackageStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298776"><span class="annot"><span class="annottext">PackageStatus -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298785"><span class="annot"><span class="annottext">PackageStatus -&gt; QueryString
 (PackageStatus -&gt; QueryString) -&gt; ToQuery PackageStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PackageStatus -&gt; QueryString
 $ctoQuery :: PackageStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298771"><span id="local-6989586621679298773"><span class="annot"><span class="annottext">Value -&gt; Parser [PackageStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679298780"><span id="local-6989586621679298782"><span class="annot"><span class="annottext">Value -&gt; Parser [PackageStatus]
 Value -&gt; Parser PackageStatus
 (Value -&gt; Parser PackageStatus)
 -&gt; (Value -&gt; Parser [PackageStatus]) -&gt; FromJSON PackageStatus
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [PackageStatus]
 parseJSON :: Value -&gt; Parser PackageStatus
 $cparseJSON :: Value -&gt; Parser PackageStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298766"><span id="local-6989586621679298768"><span class="annot"><span class="annottext">FromJSONKeyFunction [PackageStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679298775"><span id="local-6989586621679298777"><span class="annot"><span class="annottext">FromJSONKeyFunction [PackageStatus]
 FromJSONKeyFunction PackageStatus
 FromJSONKeyFunction PackageStatus
 -&gt; FromJSONKeyFunction [PackageStatus] -&gt; FromJSONKey PackageStatus
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PackageStatus]
 fromJSONKey :: FromJSONKeyFunction PackageStatus
 $cfromJSONKey :: FromJSONKeyFunction PackageStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679298757"><span id="local-6989586621679298759"><span id="local-6989586621679298761"><span id="local-6989586621679298763"><span class="annot"><span class="annottext">[PackageStatus] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679298766"><span id="local-6989586621679298768"><span id="local-6989586621679298770"><span id="local-6989586621679298772"><span class="annot"><span class="annottext">[PackageStatus] -&gt; Encoding
 [PackageStatus] -&gt; Value
 PackageStatus -&gt; Encoding
 PackageStatus -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: PackageStatus -&gt; Encoding
 toJSON :: PackageStatus -&gt; Value
 $ctoJSON :: PackageStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679298752"><span id="local-6989586621679298754"><span class="annot"><span class="annottext">ToJSONKeyFunction [PackageStatus]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679298761"><span id="local-6989586621679298763"><span class="annot"><span class="annottext">ToJSONKeyFunction [PackageStatus]
 ToJSONKeyFunction PackageStatus
 ToJSONKeyFunction PackageStatus
 -&gt; ToJSONKeyFunction [PackageStatus] -&gt; ToJSONKey PackageStatus
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PackageStatus]
 toJSONKey :: ToJSONKeyFunction PackageStatus
 $ctoJSONKey :: ToJSONKeyFunction PackageStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679298749"><span class="annot"><span class="annottext">[Node] -&gt; Either String PackageStatus
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679298758"><span class="annot"><span class="annottext">[Node] -&gt; Either String PackageStatus
 ([Node] -&gt; Either String PackageStatus) -&gt; FromXML PackageStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PackageStatus
 $cparseXML :: [Node] -&gt; Either String PackageStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679298746"><span class="annot"><span class="annottext">PackageStatus -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679298755"><span class="annot"><span class="annottext">PackageStatus -&gt; XML
 (PackageStatus -&gt; XML) -&gt; ToXML PackageStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PackageStatus -&gt; XML

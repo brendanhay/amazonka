@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newCopyImage' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679302820"><span id="local-6989586621679302821"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyImage"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-var">CopyImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyImage%27"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-var">CopyImage'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679302829"><span id="local-6989586621679302830"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyImage"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-var">CopyImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyImage%27"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-var">CopyImage'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The description that the image will have when it is copied to the</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- destination.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdestinationImageDescription%3ACopyImage%27"><span class="annot"><span class="annottext">CopyImage -&gt; Maybe Text
@@ -68,7 +68,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AdestinationRegion%3ACopyImage%27"><span class="annot"><span class="annottext">CopyImage -&gt; Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationRegion%3ACopyImage%27"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302811"><span id="local-6989586621679302813"><span class="annot"><span class="annottext">CopyImage -&gt; CopyImage -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302820"><span id="local-6989586621679302822"><span class="annot"><span class="annottext">CopyImage -&gt; CopyImage -&gt; Bool
 (CopyImage -&gt; CopyImage -&gt; Bool)
 -&gt; (CopyImage -&gt; CopyImage -&gt; Bool) -&gt; Eq CopyImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyImage -&gt; CopyImage -&gt; Bool
 == :: CopyImage -&gt; CopyImage -&gt; Bool
 $c== :: CopyImage -&gt; CopyImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302802"><span id="local-6989586621679302804"><span id="local-6989586621679302806"><span id="local-6989586621679302808"><span class="annot"><span class="annottext">ReadPrec [CopyImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302811"><span id="local-6989586621679302813"><span id="local-6989586621679302815"><span id="local-6989586621679302817"><span class="annot"><span class="annottext">ReadPrec [CopyImage]
 ReadPrec CopyImage
 Int -&gt; ReadS CopyImage
 ReadS [CopyImage]
@@ -96,7 +96,7 @@ readList :: ReadS [CopyImage]
 $creadList :: ReadS [CopyImage]
 readsPrec :: Int -&gt; ReadS CopyImage
 $creadsPrec :: Int -&gt; ReadS CopyImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302795"><span id="local-6989586621679302797"><span id="local-6989586621679302799"><span class="annot"><span class="annottext">Int -&gt; CopyImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302804"><span id="local-6989586621679302806"><span id="local-6989586621679302808"><span class="annot"><span class="annottext">Int -&gt; CopyImage -&gt; ShowS
 [CopyImage] -&gt; ShowS
 CopyImage -&gt; String
 (Int -&gt; CopyImage -&gt; ShowS)
@@ -148,12 +148,12 @@ $cfrom :: forall x. CopyImage -&gt; Rep CopyImage x
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span>
 </span><span id="line-94"></span><span id="newCopyImage"><span class="annot"><span class="annottext">newCopyImage :: Text -&gt; Text -&gt; Text -&gt; CopyImage
 </span><a href="Network.AWS.AppStream.CopyImage.html#newCopyImage"><span class="hs-identifier hs-var hs-var">newCopyImage</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679302790"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302790"><span class="hs-identifier hs-var">pSourceImageName_</span></a></span></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679302789"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">pDestinationImageName_</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679302788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302788"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679302799"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302799"><span class="hs-identifier hs-var">pSourceImageName_</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679302798"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">pDestinationImageName_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679302797"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302797"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">CopyImage' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; CopyImage
 </span><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationImageDescription:CopyImage' :: Maybe Text
@@ -163,13 +163,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceImageName:CopyImage' :: Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AsourceImageName%3ACopyImage%27"><span class="hs-identifier hs-var">sourceImageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302790"><span class="hs-identifier hs-var">pSourceImageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302799"><span class="hs-identifier hs-var">pSourceImageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationImageName:CopyImage' :: Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationImageName%3ACopyImage%27"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">pDestinationImageName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302798"><span class="hs-identifier hs-var">pDestinationImageName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationRegion:CopyImage' :: Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationRegion%3ACopyImage%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302788"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span><span>
+</span><a href="#local-6989586621679302797"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The description that the image will have when it is copied to the</span><span>
@@ -180,16 +180,16 @@ forall a. Maybe a
 -&gt; (CopyImage -&gt; Maybe Text -&gt; CopyImage)
 -&gt; Lens CopyImage CopyImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302785"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302794"><span class="annot"><span class="annottext">Maybe Text
 destinationImageDescription :: Maybe Text
 $sel:destinationImageDescription:CopyImage' :: CopyImage -&gt; Maybe Text
-</span><a href="#local-6989586621679302785"><span class="hs-identifier hs-var hs-var">destinationImageDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302785"><span class="hs-identifier hs-var">destinationImageDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302784"><span class="annot"><span class="annottext">s :: CopyImage
-</span><a href="#local-6989586621679302784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302783"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
-</span><a href="#local-6989586621679302784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationImageDescription:CopyImage' :: Maybe Text
+</span><a href="#local-6989586621679302794"><span class="hs-identifier hs-var hs-var">destinationImageDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302794"><span class="hs-identifier hs-var">destinationImageDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302793"><span class="annot"><span class="annottext">s :: CopyImage
+</span><a href="#local-6989586621679302793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302792"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
+</span><a href="#local-6989586621679302793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationImageDescription:CopyImage' :: Maybe Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationImageDescription%3ACopyImage%27"><span class="hs-identifier hs-var">destinationImageDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The name of the image to copy.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#copyImage_sourceImageName"><span class="hs-identifier hs-type">copyImage_sourceImageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,16 +198,16 @@ $sel:destinationImageDescription:CopyImage' :: CopyImage -&gt; Maybe Text
 -&gt; (CopyImage -&gt; Text -&gt; CopyImage)
 -&gt; Lens CopyImage CopyImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302782"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302791"><span class="annot"><span class="annottext">Text
 sourceImageName :: Text
 $sel:sourceImageName:CopyImage' :: CopyImage -&gt; Text
-</span><a href="#local-6989586621679302782"><span class="hs-identifier hs-var hs-var">sourceImageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302782"><span class="hs-identifier hs-var">sourceImageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302781"><span class="annot"><span class="annottext">s :: CopyImage
-</span><a href="#local-6989586621679302781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302780"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
-</span><a href="#local-6989586621679302781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageName:CopyImage' :: Text
+</span><a href="#local-6989586621679302791"><span class="hs-identifier hs-var hs-var">sourceImageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302791"><span class="hs-identifier hs-var">sourceImageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302790"><span class="annot"><span class="annottext">s :: CopyImage
+</span><a href="#local-6989586621679302790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
+</span><a href="#local-6989586621679302790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageName:CopyImage' :: Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AsourceImageName%3ACopyImage%27"><span class="hs-identifier hs-var">sourceImageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | The name that the image will have when it is copied to the destination.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#copyImage_destinationImageName"><span class="hs-identifier hs-type">copyImage_destinationImageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -216,16 +216,16 @@ $sel:sourceImageName:CopyImage' :: CopyImage -&gt; Text
 -&gt; (CopyImage -&gt; Text -&gt; CopyImage)
 -&gt; Lens CopyImage CopyImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302779"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302788"><span class="annot"><span class="annottext">Text
 destinationImageName :: Text
 $sel:destinationImageName:CopyImage' :: CopyImage -&gt; Text
-</span><a href="#local-6989586621679302779"><span class="hs-identifier hs-var hs-var">destinationImageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302779"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302778"><span class="annot"><span class="annottext">s :: CopyImage
-</span><a href="#local-6989586621679302778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302777"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
-</span><a href="#local-6989586621679302778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationImageName:CopyImage' :: Text
+</span><a href="#local-6989586621679302788"><span class="hs-identifier hs-var hs-var">destinationImageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302788"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302787"><span class="annot"><span class="annottext">s :: CopyImage
+</span><a href="#local-6989586621679302787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
+</span><a href="#local-6989586621679302787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationImageName:CopyImage' :: Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationImageName%3ACopyImage%27"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The destination region to which the image will be copied. This parameter</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- is required, even if you are copying an image within the same region.</span><span>
@@ -235,25 +235,25 @@ $sel:destinationImageName:CopyImage' :: CopyImage -&gt; Text
 -&gt; (CopyImage -&gt; Text -&gt; CopyImage)
 -&gt; Lens CopyImage CopyImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302776"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302785"><span class="annot"><span class="annottext">Text
 destinationRegion :: Text
 $sel:destinationRegion:CopyImage' :: CopyImage -&gt; Text
-</span><a href="#local-6989586621679302776"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302776"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302775"><span class="annot"><span class="annottext">s :: CopyImage
-</span><a href="#local-6989586621679302775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302774"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
-</span><a href="#local-6989586621679302775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRegion:CopyImage' :: Text
+</span><a href="#local-6989586621679302785"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302785"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302784"><span class="annot"><span class="annottext">s :: CopyImage
+</span><a href="#local-6989586621679302784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302783"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679302783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImage
+</span><a href="#local-6989586621679302784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRegion:CopyImage' :: Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationRegion%3ACopyImage%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679302770"><span class="annot"><span class="annottext">request :: CopyImage -&gt; Request CopyImage
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679302779"><span class="annot"><span class="annottext">request :: CopyImage -&gt; Request CopyImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CopyImage -&gt; Request CopyImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679302766"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679302775"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CopyImage
 -&gt; ClientResponse ClientBody
@@ -277,10 +277,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302763"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302763"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302762"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679302762"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302761"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679302772"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302772"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679302771"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679302771"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679302770"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679302770"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CopyImageResponse
 </span><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-var">CopyImageResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CopyImageResponse)
@@ -288,7 +288,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CopyImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679302761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679302770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DestinationImageName&quot;</span></span><span class="hs-special">)</span><span>
@@ -300,15 +300,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302763"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302772"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302753"><span id="local-6989586621679302755"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302762"><span id="local-6989586621679302764"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span></span></span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302759"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679302746"><span class="annot"><span class="annottext">toHeaders :: CopyImage -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679302755"><span class="annot"><span class="annottext">toHeaders :: CopyImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CopyImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -335,9 +335,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302736"><span id="local-6989586621679302738"><span id="local-6989586621679302740"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679302734"><span class="annot"><span class="annottext">toJSON :: CopyImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302729"><span id="local-6989586621679302730"><span id="local-6989586621679302731"><span id="local-6989586621679302732"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302745"><span id="local-6989586621679302747"><span id="local-6989586621679302749"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679302743"><span class="annot"><span class="annottext">toJSON :: CopyImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage%27"><span class="hs-identifier hs-type">CopyImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302738"><span id="local-6989586621679302739"><span id="local-6989586621679302740"><span id="local-6989586621679302741"><span class="annot"><span class="annottext">Maybe Text
 Text
 destinationRegion :: Text
 destinationImageName :: Text
@@ -347,7 +347,7 @@ $sel:destinationRegion:CopyImage' :: CopyImage -&gt; Text
 $sel:destinationImageName:CopyImage' :: CopyImage -&gt; Text
 $sel:sourceImageName:CopyImage' :: CopyImage -&gt; Text
 $sel:destinationImageDescription:CopyImage' :: CopyImage -&gt; Maybe Text
-</span><a href="#local-6989586621679302729"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679302738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,7 +360,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-159"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302732"><span class="hs-identifier hs-var">destinationImageDescription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302741"><span class="hs-identifier hs-var">destinationImageDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -368,7 +368,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SourceImageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302731"><span class="hs-identifier hs-var">sourceImageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679302740"><span class="hs-identifier hs-var">sourceImageName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -377,7 +377,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-164"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302730"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span>
+</span><a href="#local-6989586621679302739"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span>
 </span><span id="line-165"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -386,19 +386,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DestinationRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679302729"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302738"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679302723"><span class="annot"><span class="annottext">toPath :: CopyImage -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679302732"><span class="annot"><span class="annottext">toPath :: CopyImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CopyImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImage"><span class="hs-identifier hs-type">CopyImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679302719"><span class="annot"><span class="annottext">toQuery :: CopyImage -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679302728"><span class="annot"><span class="annottext">toQuery :: CopyImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CopyImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -406,7 +406,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newCopyImageResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621679302716"><span id="local-6989586621679302717"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyImageResponse"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-var">CopyImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyImageResponse%27"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-var">CopyImageResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621679302725"><span id="local-6989586621679302726"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyImageResponse"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-var">CopyImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyImageResponse%27"><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-var">CopyImageResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the destination image.</span><span>
 </span><span id="line-180"></span><span>    </span><span id="%24sel%3AdestinationImageName%3ACopyImageResponse%27"><span class="annot"><span class="annottext">CopyImageResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationImageName%3ACopyImageResponse%27"><span class="hs-identifier hs-var hs-var">destinationImageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -414,7 +414,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACopyImageResponse%27"><span class="annot"><span class="annottext">CopyImageResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AhttpStatus%3ACopyImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302710"><span id="local-6989586621679302712"><span class="annot"><span class="annottext">CopyImageResponse -&gt; CopyImageResponse -&gt; Bool
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679302719"><span id="local-6989586621679302721"><span class="annot"><span class="annottext">CopyImageResponse -&gt; CopyImageResponse -&gt; Bool
 (CopyImageResponse -&gt; CopyImageResponse -&gt; Bool)
 -&gt; (CopyImageResponse -&gt; CopyImageResponse -&gt; Bool)
 -&gt; Eq CopyImageResponse
@@ -423,7 +423,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyImageResponse -&gt; CopyImageResponse -&gt; Bool
 == :: CopyImageResponse -&gt; CopyImageResponse -&gt; Bool
 $c== :: CopyImageResponse -&gt; CopyImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302702"><span id="local-6989586621679302704"><span id="local-6989586621679302706"><span id="local-6989586621679302708"><span class="annot"><span class="annottext">ReadPrec [CopyImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302711"><span id="local-6989586621679302713"><span id="local-6989586621679302715"><span id="local-6989586621679302717"><span class="annot"><span class="annottext">ReadPrec [CopyImageResponse]
 ReadPrec CopyImageResponse
 Int -&gt; ReadS CopyImageResponse
 ReadS [CopyImageResponse]
@@ -443,7 +443,7 @@ readList :: ReadS [CopyImageResponse]
 $creadList :: ReadS [CopyImageResponse]
 readsPrec :: Int -&gt; ReadS CopyImageResponse
 $creadsPrec :: Int -&gt; ReadS CopyImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302696"><span id="local-6989586621679302698"><span id="local-6989586621679302700"><span class="annot"><span class="annottext">Int -&gt; CopyImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679302705"><span id="local-6989586621679302707"><span id="local-6989586621679302709"><span class="annot"><span class="annottext">Int -&gt; CopyImageResponse -&gt; ShowS
 [CopyImageResponse] -&gt; ShowS
 CopyImageResponse -&gt; String
 (Int -&gt; CopyImageResponse -&gt; ShowS)
@@ -485,8 +485,8 @@ $cfrom :: forall x. CopyImageResponse -&gt; Rep CopyImageResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newCopyImageResponse"><span class="annot"><span class="annottext">newCopyImageResponse :: Int -&gt; CopyImageResponse
-</span><a href="Network.AWS.AppStream.CopyImage.html#newCopyImageResponse"><span class="hs-identifier hs-var hs-var">newCopyImageResponse</span></a></span></span><span> </span><span id="local-6989586621679302693"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.CopyImage.html#newCopyImageResponse"><span class="hs-identifier hs-var hs-var">newCopyImageResponse</span></a></span></span><span> </span><span id="local-6989586621679302702"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302702"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">CopyImageResponse' :: Maybe Text -&gt; Int -&gt; CopyImageResponse
 </span><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationImageName:CopyImageResponse' :: Maybe Text
@@ -496,7 +496,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CopyImageResponse' :: Int
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AhttpStatus%3ACopyImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679302702"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The name of the destination image.</span><span>
@@ -508,16 +508,16 @@ forall a. Maybe a
 -&gt; Lens
      CopyImageResponse CopyImageResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302692"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302701"><span class="annot"><span class="annottext">Maybe Text
 destinationImageName :: Maybe Text
 $sel:destinationImageName:CopyImageResponse' :: CopyImageResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679302692"><span class="hs-identifier hs-var hs-var">destinationImageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302692"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302691"><span class="annot"><span class="annottext">s :: CopyImageResponse
-</span><a href="#local-6989586621679302691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302690"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImageResponse
-</span><a href="#local-6989586621679302691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationImageName:CopyImageResponse' :: Maybe Text
+</span><a href="#local-6989586621679302701"><span class="hs-identifier hs-var hs-var">destinationImageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302701"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302700"><span class="annot"><span class="annottext">s :: CopyImageResponse
+</span><a href="#local-6989586621679302700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679302699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImageResponse
+</span><a href="#local-6989586621679302700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationImageName:CopyImageResponse' :: Maybe Text
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AdestinationImageName%3ACopyImageResponse%27"><span class="hs-identifier hs-var">destinationImageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#copyImageResponse_httpStatus"><span class="hs-identifier hs-type">copyImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -526,16 +526,16 @@ $sel:destinationImageName:CopyImageResponse' :: CopyImageResponse -&gt; Maybe Te
 -&gt; (CopyImageResponse -&gt; Int -&gt; CopyImageResponse)
 -&gt; Lens CopyImageResponse CopyImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302689"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302698"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CopyImageResponse' :: CopyImageResponse -&gt; Int
-</span><a href="#local-6989586621679302689"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302689"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302688"><span class="annot"><span class="annottext">s :: CopyImageResponse
-</span><a href="#local-6989586621679302688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302687"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImageResponse
-</span><a href="#local-6989586621679302688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyImageResponse' :: Int
+</span><a href="#local-6989586621679302698"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302698"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302697"><span class="annot"><span class="annottext">s :: CopyImageResponse
+</span><a href="#local-6989586621679302697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse%27"><span class="hs-identifier hs-type">CopyImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302696"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679302696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyImageResponse
+</span><a href="#local-6989586621679302697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyImageResponse' :: Int
 </span><a href="Network.AWS.AppStream.CopyImage.html#%24sel%3AhttpStatus%3ACopyImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679302687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679302696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.CopyImage.html#CopyImageResponse"><span class="hs-identifier hs-type">CopyImageResponse</span></a></span></span><span>
 </span><span id="line-217"></span></pre></body></html>

@@ -35,14 +35,14 @@
 </span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency Certificate Transparency Logging&gt;.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newCertificateOptions' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679187297"><span id="local-6989586621679187298"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateOptions"><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-var">CertificateOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateOptions%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-var">CertificateOptions'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679187306"><span id="local-6989586621679187307"></span></span><span class="hs-keyword">data</span><span> </span><span id="CertificateOptions"><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-var">CertificateOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CertificateOptions%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-var">CertificateOptions'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can opt out of certificate transparency logging by specifying the</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @DISABLED@ option. Opt in by specifying @ENABLED@.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AcertificateTransparencyLoggingPreference%3ACertificateOptions%27"><span class="annot"><span class="annottext">CertificateOptions
 -&gt; Maybe CertificateTransparencyLoggingPreference
 </span><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#%24sel%3AcertificateTransparencyLoggingPreference%3ACertificateOptions%27"><span class="hs-identifier hs-var hs-var">certificateTransparencyLoggingPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference.html#CertificateTransparencyLoggingPreference"><span class="hs-identifier hs-type">CertificateTransparencyLoggingPreference</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187291"><span id="local-6989586621679187293"><span class="annot"><span class="annottext">CertificateOptions -&gt; CertificateOptions -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187300"><span id="local-6989586621679187302"><span class="annot"><span class="annottext">CertificateOptions -&gt; CertificateOptions -&gt; Bool
 (CertificateOptions -&gt; CertificateOptions -&gt; Bool)
 -&gt; (CertificateOptions -&gt; CertificateOptions -&gt; Bool)
 -&gt; Eq CertificateOptions
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CertificateOptions -&gt; CertificateOptions -&gt; Bool
 == :: CertificateOptions -&gt; CertificateOptions -&gt; Bool
 $c== :: CertificateOptions -&gt; CertificateOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187282"><span id="local-6989586621679187284"><span id="local-6989586621679187286"><span id="local-6989586621679187288"><span class="annot"><span class="annottext">ReadPrec [CertificateOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187291"><span id="local-6989586621679187293"><span id="local-6989586621679187295"><span id="local-6989586621679187297"><span class="annot"><span class="annottext">ReadPrec [CertificateOptions]
 ReadPrec CertificateOptions
 Int -&gt; ReadS CertificateOptions
 ReadS [CertificateOptions]
@@ -71,7 +71,7 @@ readList :: ReadS [CertificateOptions]
 $creadList :: ReadS [CertificateOptions]
 readsPrec :: Int -&gt; ReadS CertificateOptions
 $creadsPrec :: Int -&gt; ReadS CertificateOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187275"><span id="local-6989586621679187277"><span id="local-6989586621679187279"><span class="annot"><span class="annottext">Int -&gt; CertificateOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187284"><span id="local-6989586621679187286"><span id="local-6989586621679187288"><span class="annot"><span class="annottext">Int -&gt; CertificateOptions -&gt; ShowS
 [CertificateOptions] -&gt; ShowS
 CertificateOptions -&gt; String
 (Int -&gt; CertificateOptions -&gt; ShowS)
@@ -138,20 +138,20 @@ forall a. Maybe a
      (Maybe CertificateTransparencyLoggingPreference)
      (Maybe CertificateTransparencyLoggingPreference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-type">CertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187266"><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-type">CertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187275"><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
 certificateTransparencyLoggingPreference :: Maybe CertificateTransparencyLoggingPreference
 $sel:certificateTransparencyLoggingPreference:CertificateOptions' :: CertificateOptions
 -&gt; Maybe CertificateTransparencyLoggingPreference
-</span><a href="#local-6989586621679187266"><span class="hs-identifier hs-var hs-var">certificateTransparencyLoggingPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
-</span><a href="#local-6989586621679187266"><span class="hs-identifier hs-var">certificateTransparencyLoggingPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187265"><span class="annot"><span class="annottext">s :: CertificateOptions
-</span><a href="#local-6989586621679187265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-type">CertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187264"><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
-</span><a href="#local-6989586621679187264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateOptions
-</span><a href="#local-6989586621679187265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateTransparencyLoggingPreference:CertificateOptions' :: Maybe CertificateTransparencyLoggingPreference
+</span><a href="#local-6989586621679187275"><span class="hs-identifier hs-var hs-var">certificateTransparencyLoggingPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
+</span><a href="#local-6989586621679187275"><span class="hs-identifier hs-var">certificateTransparencyLoggingPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187274"><span class="annot"><span class="annottext">s :: CertificateOptions
+</span><a href="#local-6989586621679187274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-type">CertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187273"><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
+</span><a href="#local-6989586621679187273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CertificateOptions
+</span><a href="#local-6989586621679187274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateTransparencyLoggingPreference:CertificateOptions' :: Maybe CertificateTransparencyLoggingPreference
 </span><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#%24sel%3AcertificateTransparencyLoggingPreference%3ACertificateOptions%27"><span class="hs-identifier hs-var">certificateTransparencyLoggingPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
-</span><a href="#local-6989586621679187264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679187273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187261"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679187259"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CertificateOptions
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187270"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679187268"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CertificateOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CertificateOptions)
@@ -161,8 +161,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CertificateOptions&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187256"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187256"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187265"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
 -&gt; CertificateOptions
 </span><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-var">CertificateOptions'</span></a></span><span>
@@ -172,7 +172,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser CertificateOptions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679187256"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><a href="#local-6989586621679187265"><span class="hs-identifier hs-var">x</span></a></span><span>
 </span><span id="line-75"></span><span>                            </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe CertificateTransparencyLoggingPreference)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
@@ -181,17 +181,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span id="line-76"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187250"><span id="local-6989586621679187252"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187259"><span id="local-6989586621679187261"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187239"><span id="local-6989586621679187241"><span id="local-6989586621679187243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679187237"><span class="annot"><span class="annottext">toJSON :: CertificateOptions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-type">CertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187235"><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187248"><span id="local-6989586621679187250"><span id="local-6989586621679187252"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions"><span class="hs-identifier hs-type">CertificateOptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679187246"><span class="annot"><span class="annottext">toJSON :: CertificateOptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManager.Types.CertificateOptions.html#CertificateOptions%27"><span class="hs-identifier hs-type">CertificateOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187244"><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
 certificateTransparencyLoggingPreference :: Maybe CertificateTransparencyLoggingPreference
 $sel:certificateTransparencyLoggingPreference:CertificateOptions' :: CertificateOptions
 -&gt; Maybe CertificateTransparencyLoggingPreference
-</span><a href="#local-6989586621679187235"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679187244"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -205,7 +205,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CertificateTransparencyLoggingPreference -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CertificateTransparencyLoggingPreference
-</span><a href="#local-6989586621679187235"><span class="hs-identifier hs-var">certificateTransparencyLoggingPreference</span></a></span><span>
+</span><a href="#local-6989586621679187244"><span class="hs-identifier hs-var">certificateTransparencyLoggingPreference</span></a></span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

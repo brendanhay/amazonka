@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.Panorama.ListDevicesJobs</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a list of jobs.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Panorama.ListDevicesJobs</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier">ListDevicesJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#newListDevicesJobs"><span class="hs-identifier">newListDevicesJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_nextToken"><span class="hs-identifier">listDevicesJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_deviceId"><span class="hs-identifier">listDevicesJobs_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_maxResults"><span class="hs-identifier">listDevicesJobs_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier">ListDevicesJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#newListDevicesJobsResponse"><span class="hs-identifier">newListDevicesJobsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_nextToken"><span class="hs-identifier">listDevicesJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_deviceJobs"><span class="hs-identifier">listDevicesJobsResponse_deviceJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_httpStatus"><span class="hs-identifier">listDevicesJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.Types.html"><span class="hs-identifier">Network.AWS.Panorama.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListDevicesJobs' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679263180"><span id="local-6989586621679263181"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDevicesJobs"><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-var">ListDevicesJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDevicesJobs%27"><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-var">ListDevicesJobs'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListDevicesJobs%27"><span class="annot"><span class="annottext">ListDevicesJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AnextToken%3AListDevicesJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Filter results by the job\'s target device ID.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdeviceId%3AListDevicesJobs%27"><span class="annot"><span class="annottext">ListDevicesJobs -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AdeviceId%3AListDevicesJobs%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of device jobs to return in one page of results.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDevicesJobs%27"><span class="annot"><span class="annottext">ListDevicesJobs -&gt; Maybe Natural
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AmaxResults%3AListDevicesJobs%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263172"><span id="local-6989586621679263174"><span class="annot"><span class="annottext">ListDevicesJobs -&gt; ListDevicesJobs -&gt; Bool
+(ListDevicesJobs -&gt; ListDevicesJobs -&gt; Bool)
+-&gt; (ListDevicesJobs -&gt; ListDevicesJobs -&gt; Bool)
+-&gt; Eq ListDevicesJobs
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDevicesJobs -&gt; ListDevicesJobs -&gt; Bool
+$c/= :: ListDevicesJobs -&gt; ListDevicesJobs -&gt; Bool
+== :: ListDevicesJobs -&gt; ListDevicesJobs -&gt; Bool
+$c== :: ListDevicesJobs -&gt; ListDevicesJobs -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263163"><span id="local-6989586621679263165"><span id="local-6989586621679263167"><span id="local-6989586621679263169"><span class="annot"><span class="annottext">ReadPrec [ListDevicesJobs]
+ReadPrec ListDevicesJobs
+Int -&gt; ReadS ListDevicesJobs
+ReadS [ListDevicesJobs]
+(Int -&gt; ReadS ListDevicesJobs)
+-&gt; ReadS [ListDevicesJobs]
+-&gt; ReadPrec ListDevicesJobs
+-&gt; ReadPrec [ListDevicesJobs]
+-&gt; Read ListDevicesJobs
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDevicesJobs]
+$creadListPrec :: ReadPrec [ListDevicesJobs]
+readPrec :: ReadPrec ListDevicesJobs
+$creadPrec :: ReadPrec ListDevicesJobs
+readList :: ReadS [ListDevicesJobs]
+$creadList :: ReadS [ListDevicesJobs]
+readsPrec :: Int -&gt; ReadS ListDevicesJobs
+$creadsPrec :: Int -&gt; ReadS ListDevicesJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263156"><span id="local-6989586621679263158"><span id="local-6989586621679263160"><span class="annot"><span class="annottext">Int -&gt; ListDevicesJobs -&gt; ShowS
+[ListDevicesJobs] -&gt; ShowS
+ListDevicesJobs -&gt; String
+(Int -&gt; ListDevicesJobs -&gt; ShowS)
+-&gt; (ListDevicesJobs -&gt; String)
+-&gt; ([ListDevicesJobs] -&gt; ShowS)
+-&gt; Show ListDevicesJobs
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDevicesJobs] -&gt; ShowS
+$cshowList :: [ListDevicesJobs] -&gt; ShowS
+show :: ListDevicesJobs -&gt; String
+$cshow :: ListDevicesJobs -&gt; String
+showsPrec :: Int -&gt; ListDevicesJobs -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDevicesJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDevicesJobs -&gt; Rep ListDevicesJobs x)
+-&gt; (forall x. Rep ListDevicesJobs x -&gt; ListDevicesJobs)
+-&gt; Generic ListDevicesJobs
+forall x. Rep ListDevicesJobs x -&gt; ListDevicesJobs
+forall x. ListDevicesJobs -&gt; Rep ListDevicesJobs x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDevicesJobs x -&gt; ListDevicesJobs
+$cfrom :: forall x. ListDevicesJobs -&gt; Rep ListDevicesJobs x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'ListDevicesJobs' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'nextToken', 'listDevicesJobs_nextToken' - Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'deviceId', 'listDevicesJobs_deviceId' - Filter results by the job\'s target device ID.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'maxResults', 'listDevicesJobs_maxResults' - The maximum number of device jobs to return in one page of results.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#newListDevicesJobs"><span class="hs-identifier hs-type">newListDevicesJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span>
+</span><span id="line-80"></span><span id="newListDevicesJobs"><span class="annot"><span class="annottext">newListDevicesJobs :: ListDevicesJobs
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#newListDevicesJobs"><span class="hs-identifier hs-var hs-var">newListDevicesJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListDevicesJobs' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListDevicesJobs
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDevicesJobs' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AnextToken%3AListDevicesJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceId:ListDevicesJobs' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AdeviceId%3AListDevicesJobs%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListDevicesJobs' :: Maybe Natural
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AmaxResults%3AListDevicesJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | Specify the pagination token from a previous request to retrieve the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- next page of results.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_nextToken"><span class="hs-identifier hs-type">listDevicesJobs_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="listDevicesJobs_nextToken"><span class="annot"><span class="annottext">listDevicesJobs_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDevicesJobs -&gt; f ListDevicesJobs
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_nextToken"><span class="hs-identifier hs-var hs-var">listDevicesJobs_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicesJobs -&gt; Maybe Text)
+-&gt; (ListDevicesJobs -&gt; Maybe Text -&gt; ListDevicesJobs)
+-&gt; Lens ListDevicesJobs ListDevicesJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263149"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDevicesJobs' :: ListDevicesJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679263149"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263149"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263148"><span class="annot"><span class="annottext">s :: ListDevicesJobs
+</span><a href="#local-6989586621679263148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicesJobs
+</span><a href="#local-6989586621679263148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDevicesJobs' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AnextToken%3AListDevicesJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Filter results by the job\'s target device ID.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_deviceId"><span class="hs-identifier hs-type">listDevicesJobs_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listDevicesJobs_deviceId"><span class="annot"><span class="annottext">listDevicesJobs_deviceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDevicesJobs -&gt; f ListDevicesJobs
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_deviceId"><span class="hs-identifier hs-var hs-var">listDevicesJobs_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicesJobs -&gt; Maybe Text)
+-&gt; (ListDevicesJobs -&gt; Maybe Text -&gt; ListDevicesJobs)
+-&gt; Lens ListDevicesJobs ListDevicesJobs (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263146"><span class="annot"><span class="annottext">Maybe Text
+deviceId :: Maybe Text
+$sel:deviceId:ListDevicesJobs' :: ListDevicesJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679263146"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263146"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263145"><span class="annot"><span class="annottext">s :: ListDevicesJobs
+</span><a href="#local-6989586621679263145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263144"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicesJobs
+</span><a href="#local-6989586621679263145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:ListDevicesJobs' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AdeviceId%3AListDevicesJobs%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of device jobs to return in one page of results.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_maxResults"><span class="hs-identifier hs-type">listDevicesJobs_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listDevicesJobs_maxResults"><span class="annot"><span class="annottext">listDevicesJobs_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListDevicesJobs -&gt; f ListDevicesJobs
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobs_maxResults"><span class="hs-identifier hs-var hs-var">listDevicesJobs_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicesJobs -&gt; Maybe Natural)
+-&gt; (ListDevicesJobs -&gt; Maybe Natural -&gt; ListDevicesJobs)
+-&gt; Lens
+     ListDevicesJobs ListDevicesJobs (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263143"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListDevicesJobs' :: ListDevicesJobs -&gt; Maybe Natural
+</span><a href="#local-6989586621679263143"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679263143"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263142"><span class="annot"><span class="annottext">s :: ListDevicesJobs
+</span><a href="#local-6989586621679263142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263141"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679263141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicesJobs
+</span><a href="#local-6989586621679263142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDevicesJobs' :: Maybe Natural
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AmaxResults%3AListDevicesJobs%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679263141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679263137"><span class="annot"><span class="annottext">request :: ListDevicesJobs -&gt; Request ListDevicesJobs
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDevicesJobs -&gt; Request ListDevicesJobs
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.Panorama.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679263133"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDevicesJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDevicesJobs)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDevicesJobs))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDevicesJobs
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListDevicesJobs)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679263129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679263129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679263128"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [DeviceJob] -&gt; Int -&gt; ListDevicesJobsResponse
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-var">ListDevicesJobsResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [DeviceJob] -&gt; Int -&gt; ListDevicesJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [DeviceJob] -&gt; Int -&gt; ListDevicesJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [DeviceJob] -&gt; Int -&gt; ListDevicesJobsResponse)
+-&gt; Either String (Maybe [DeviceJob])
+-&gt; Either String (Int -&gt; ListDevicesJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DeviceJob]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceJobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DeviceJob]))
+-&gt; Maybe [DeviceJob] -&gt; Either String (Maybe [DeviceJob])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceJob]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDevicesJobsResponse)
+-&gt; Either String Int -&gt; Either String ListDevicesJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263130"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263119"><span id="local-6989586621679263121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679263112"><span class="annot"><span class="annottext">toHeaders :: ListDevicesJobs -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDevicesJobs -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679263106"><span class="annot"><span class="annottext">toPath :: ListDevicesJobs -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDevicesJobs -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/jobs&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs"><span class="hs-identifier hs-type">ListDevicesJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679263102"><span class="annot"><span class="annottext">toQuery :: ListDevicesJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobs%27"><span class="hs-identifier hs-type">ListDevicesJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263098"><span id="local-6989586621679263099"><span id="local-6989586621679263100"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+deviceId :: Maybe Text
+nextToken :: Maybe Text
+$sel:maxResults:ListDevicesJobs' :: ListDevicesJobs -&gt; Maybe Natural
+$sel:deviceId:ListDevicesJobs' :: ListDevicesJobs -&gt; Maybe Text
+$sel:nextToken:ListDevicesJobs' :: ListDevicesJobs -&gt; Maybe Text
+</span><a href="#local-6989586621679263098"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263100"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263099"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679263098"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newListDevicesJobsResponse' smart constructor.</span><span>
+</span><span id="line-141"></span><span id="local-6989586621679263095"><span id="local-6989586621679263096"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDevicesJobsResponse"><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-var">ListDevicesJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDevicesJobsResponse%27"><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-var">ListDevicesJobsResponse'</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AnextToken%3AListDevicesJobsResponse%27"><span class="annot"><span class="annottext">ListDevicesJobsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AnextToken%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | A list of jobs.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AdeviceJobs%3AListDevicesJobsResponse%27"><span class="annot"><span class="annottext">ListDevicesJobsResponse -&gt; Maybe [DeviceJob]
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AdeviceJobs%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var hs-var">deviceJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.DeviceJob.html#DeviceJob"><span class="hs-identifier hs-type">DeviceJob</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDevicesJobsResponse%27"><span class="annot"><span class="annottext">ListDevicesJobsResponse -&gt; Int
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AhttpStatus%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263088"><span id="local-6989586621679263090"><span class="annot"><span class="annottext">ListDevicesJobsResponse -&gt; ListDevicesJobsResponse -&gt; Bool
+(ListDevicesJobsResponse -&gt; ListDevicesJobsResponse -&gt; Bool)
+-&gt; (ListDevicesJobsResponse -&gt; ListDevicesJobsResponse -&gt; Bool)
+-&gt; Eq ListDevicesJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDevicesJobsResponse -&gt; ListDevicesJobsResponse -&gt; Bool
+$c/= :: ListDevicesJobsResponse -&gt; ListDevicesJobsResponse -&gt; Bool
+== :: ListDevicesJobsResponse -&gt; ListDevicesJobsResponse -&gt; Bool
+$c== :: ListDevicesJobsResponse -&gt; ListDevicesJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263080"><span id="local-6989586621679263082"><span id="local-6989586621679263084"><span id="local-6989586621679263086"><span class="annot"><span class="annottext">ReadPrec [ListDevicesJobsResponse]
+ReadPrec ListDevicesJobsResponse
+Int -&gt; ReadS ListDevicesJobsResponse
+ReadS [ListDevicesJobsResponse]
+(Int -&gt; ReadS ListDevicesJobsResponse)
+-&gt; ReadS [ListDevicesJobsResponse]
+-&gt; ReadPrec ListDevicesJobsResponse
+-&gt; ReadPrec [ListDevicesJobsResponse]
+-&gt; Read ListDevicesJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDevicesJobsResponse]
+$creadListPrec :: ReadPrec [ListDevicesJobsResponse]
+readPrec :: ReadPrec ListDevicesJobsResponse
+$creadPrec :: ReadPrec ListDevicesJobsResponse
+readList :: ReadS [ListDevicesJobsResponse]
+$creadList :: ReadS [ListDevicesJobsResponse]
+readsPrec :: Int -&gt; ReadS ListDevicesJobsResponse
+$creadsPrec :: Int -&gt; ReadS ListDevicesJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263074"><span id="local-6989586621679263076"><span id="local-6989586621679263078"><span class="annot"><span class="annottext">Int -&gt; ListDevicesJobsResponse -&gt; ShowS
+[ListDevicesJobsResponse] -&gt; ShowS
+ListDevicesJobsResponse -&gt; String
+(Int -&gt; ListDevicesJobsResponse -&gt; ShowS)
+-&gt; (ListDevicesJobsResponse -&gt; String)
+-&gt; ([ListDevicesJobsResponse] -&gt; ShowS)
+-&gt; Show ListDevicesJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDevicesJobsResponse] -&gt; ShowS
+$cshowList :: [ListDevicesJobsResponse] -&gt; ShowS
+show :: ListDevicesJobsResponse -&gt; String
+$cshow :: ListDevicesJobsResponse -&gt; String
+showsPrec :: Int -&gt; ListDevicesJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDevicesJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDevicesJobsResponse -&gt; Rep ListDevicesJobsResponse x)
+-&gt; (forall x.
+    Rep ListDevicesJobsResponse x -&gt; ListDevicesJobsResponse)
+-&gt; Generic ListDevicesJobsResponse
+forall x. Rep ListDevicesJobsResponse x -&gt; ListDevicesJobsResponse
+forall x. ListDevicesJobsResponse -&gt; Rep ListDevicesJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDevicesJobsResponse x -&gt; ListDevicesJobsResponse
+$cfrom :: forall x. ListDevicesJobsResponse -&gt; Rep ListDevicesJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Create a value of 'ListDevicesJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'nextToken', 'listDevicesJobsResponse_nextToken' - A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'deviceJobs', 'listDevicesJobsResponse_deviceJobs' - A list of jobs.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'httpStatus', 'listDevicesJobsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#newListDevicesJobsResponse"><span class="hs-identifier hs-type">newListDevicesJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span>
+</span><span id="line-168"></span><span id="newListDevicesJobsResponse"><span class="annot"><span class="annottext">newListDevicesJobsResponse :: Int -&gt; ListDevicesJobsResponse
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#newListDevicesJobsResponse"><span class="hs-identifier hs-var hs-var">newListDevicesJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679263071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263071"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">ListDevicesJobsResponse' :: Maybe Text -&gt; Maybe [DeviceJob] -&gt; Int -&gt; ListDevicesJobsResponse
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-type">ListDevicesJobsResponse'</span></a></span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDevicesJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AnextToken%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceJobs:ListDevicesJobsResponse' :: Maybe [DeviceJob]
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AdeviceJobs%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var">deviceJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceJob]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDevicesJobsResponse' :: Int
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AhttpStatus%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263071"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | A pagination token that\'s included if more results are available.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_nextToken"><span class="hs-identifier hs-type">listDevicesJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="listDevicesJobsResponse_nextToken"><span class="annot"><span class="annottext">listDevicesJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDevicesJobsResponse -&gt; f ListDevicesJobsResponse
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDevicesJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicesJobsResponse -&gt; Maybe Text)
+-&gt; (ListDevicesJobsResponse
+    -&gt; Maybe Text -&gt; ListDevicesJobsResponse)
+-&gt; Lens
+     ListDevicesJobsResponse
+     ListDevicesJobsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-type">ListDevicesJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263070"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDevicesJobsResponse' :: ListDevicesJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679263070"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263070"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263069"><span class="annot"><span class="annottext">s :: ListDevicesJobsResponse
+</span><a href="#local-6989586621679263069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-type">ListDevicesJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263068"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicesJobsResponse
+</span><a href="#local-6989586621679263069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDevicesJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AnextToken%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | A list of jobs.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_deviceJobs"><span class="hs-identifier hs-type">listDevicesJobsResponse_deviceJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Panorama.Types.DeviceJob.html#DeviceJob"><span class="hs-identifier hs-type">DeviceJob</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="listDevicesJobsResponse_deviceJobs"><span class="annot"><span class="annottext">listDevicesJobsResponse_deviceJobs :: (Maybe [DeviceJob] -&gt; f (Maybe [DeviceJob]))
+-&gt; ListDevicesJobsResponse -&gt; f ListDevicesJobsResponse
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_deviceJobs"><span class="hs-identifier hs-var hs-var">listDevicesJobsResponse_deviceJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicesJobsResponse -&gt; Maybe [DeviceJob])
+-&gt; (ListDevicesJobsResponse
+    -&gt; Maybe [DeviceJob] -&gt; ListDevicesJobsResponse)
+-&gt; Lens
+     ListDevicesJobsResponse
+     ListDevicesJobsResponse
+     (Maybe [DeviceJob])
+     (Maybe [DeviceJob])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-type">ListDevicesJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263067"><span class="annot"><span class="annottext">Maybe [DeviceJob]
+deviceJobs :: Maybe [DeviceJob]
+$sel:deviceJobs:ListDevicesJobsResponse' :: ListDevicesJobsResponse -&gt; Maybe [DeviceJob]
+</span><a href="#local-6989586621679263067"><span class="hs-identifier hs-var hs-var">deviceJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceJob]
+</span><a href="#local-6989586621679263067"><span class="hs-identifier hs-var">deviceJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263066"><span class="annot"><span class="annottext">s :: ListDevicesJobsResponse
+</span><a href="#local-6989586621679263066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-type">ListDevicesJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263065"><span class="annot"><span class="annottext">Maybe [DeviceJob]
+</span><a href="#local-6989586621679263065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicesJobsResponse
+</span><a href="#local-6989586621679263066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceJobs:ListDevicesJobsResponse' :: Maybe [DeviceJob]
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AdeviceJobs%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var">deviceJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DeviceJob]
+</span><a href="#local-6989586621679263065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DeviceJob] -&gt; f (Maybe [DeviceJob]))
+ -&gt; ListDevicesJobsResponse -&gt; f ListDevicesJobsResponse)
+-&gt; ((Maybe [DeviceJob] -&gt; f (Maybe [DeviceJob]))
+    -&gt; Maybe [DeviceJob] -&gt; f (Maybe [DeviceJob]))
+-&gt; (Maybe [DeviceJob] -&gt; f (Maybe [DeviceJob]))
+-&gt; ListDevicesJobsResponse
+-&gt; f ListDevicesJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DeviceJob] [DeviceJob] [DeviceJob] [DeviceJob]
+-&gt; Iso
+     (Maybe [DeviceJob])
+     (Maybe [DeviceJob])
+     (Maybe [DeviceJob])
+     (Maybe [DeviceJob])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [DeviceJob] [DeviceJob] [DeviceJob] [DeviceJob]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_httpStatus"><span class="hs-identifier hs-type">listDevicesJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-186"></span><span id="listDevicesJobsResponse_httpStatus"><span class="annot"><span class="annottext">listDevicesJobsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListDevicesJobsResponse -&gt; f ListDevicesJobsResponse
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#listDevicesJobsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listDevicesJobsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDevicesJobsResponse -&gt; Int)
+-&gt; (ListDevicesJobsResponse -&gt; Int -&gt; ListDevicesJobsResponse)
+-&gt; Lens ListDevicesJobsResponse ListDevicesJobsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-type">ListDevicesJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263061"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListDevicesJobsResponse' :: ListDevicesJobsResponse -&gt; Int
+</span><a href="#local-6989586621679263061"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263061"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263060"><span class="annot"><span class="annottext">s :: ListDevicesJobsResponse
+</span><a href="#local-6989586621679263060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse%27"><span class="hs-identifier hs-type">ListDevicesJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263059"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDevicesJobsResponse
+</span><a href="#local-6989586621679263060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDevicesJobsResponse' :: Int
+</span><a href="Network.AWS.Panorama.ListDevicesJobs.html#%24sel%3AhttpStatus%3AListDevicesJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Panorama.ListDevicesJobs.html#ListDevicesJobsResponse"><span class="hs-identifier hs-type">ListDevicesJobsResponse</span></a></span></span><span>
+</span><span id="line-189"></span></pre></body></html>

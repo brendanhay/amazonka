@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTEvents.Types.AlarmAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTEvents.Types.AlarmAction</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.DynamoDBAction</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBv2Action.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.DynamoDBv2Action</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.FirehoseAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.FirehoseAction</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotEventsAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.IotEventsAction</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotSiteWiseAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.IotSiteWiseAction</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotTopicPublishAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.IotTopicPublishAction</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.LambdaAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.LambdaAction</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SNSTopicPublishAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.SNSTopicPublishAction</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SqsAction.html"><span class="hs-identifier">Network.AWS.IoTEvents.Types.SqsAction</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- | Specifies one of the following actions to receive notifications when the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- alarm state changes.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newAlarmAction' smart constructor.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679245653"><span id="local-6989586621679245654"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlarmAction"><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-var">AlarmAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlarmAction%27"><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-var">AlarmAction'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AiotTopicPublish%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe IotTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotTopicPublish%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">iotTopicPublish</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotTopicPublishAction.html#IotTopicPublishAction"><span class="hs-identifier hs-type">IotTopicPublishAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdynamoDBv2%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe DynamoDBv2Action
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AdynamoDBv2%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">dynamoDBv2</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Asns%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe SNSTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Asns%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SNSTopicPublishAction.html#SNSTopicPublishAction"><span class="hs-identifier hs-type">SNSTopicPublishAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdynamoDB%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe DynamoDBAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AdynamoDB%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">dynamoDB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBAction.html#DynamoDBAction"><span class="hs-identifier hs-type">DynamoDBAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Afirehose%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe FirehoseAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Afirehose%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.FirehoseAction.html#FirehoseAction"><span class="hs-identifier hs-type">FirehoseAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AiotSiteWise%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe IotSiteWiseAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotSiteWise%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">iotSiteWise</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotSiteWiseAction.html#IotSiteWiseAction"><span class="hs-identifier hs-type">IotSiteWiseAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Alambda%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe LambdaAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Alambda%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AiotEvents%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe IotEventsAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotEvents%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">iotEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Asqs%3AAlarmAction%27"><span class="annot"><span class="annottext">AlarmAction -&gt; Maybe SqsAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Asqs%3AAlarmAction%27"><span class="hs-identifier hs-var hs-var">sqs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245639"><span id="local-6989586621679245641"><span class="annot"><span class="annottext">AlarmAction -&gt; AlarmAction -&gt; Bool
+(AlarmAction -&gt; AlarmAction -&gt; Bool)
+-&gt; (AlarmAction -&gt; AlarmAction -&gt; Bool) -&gt; Eq AlarmAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlarmAction -&gt; AlarmAction -&gt; Bool
+$c/= :: AlarmAction -&gt; AlarmAction -&gt; Bool
+== :: AlarmAction -&gt; AlarmAction -&gt; Bool
+$c== :: AlarmAction -&gt; AlarmAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245630"><span id="local-6989586621679245632"><span id="local-6989586621679245634"><span id="local-6989586621679245636"><span class="annot"><span class="annottext">ReadPrec [AlarmAction]
+ReadPrec AlarmAction
+Int -&gt; ReadS AlarmAction
+ReadS [AlarmAction]
+(Int -&gt; ReadS AlarmAction)
+-&gt; ReadS [AlarmAction]
+-&gt; ReadPrec AlarmAction
+-&gt; ReadPrec [AlarmAction]
+-&gt; Read AlarmAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlarmAction]
+$creadListPrec :: ReadPrec [AlarmAction]
+readPrec :: ReadPrec AlarmAction
+$creadPrec :: ReadPrec AlarmAction
+readList :: ReadS [AlarmAction]
+$creadList :: ReadS [AlarmAction]
+readsPrec :: Int -&gt; ReadS AlarmAction
+$creadsPrec :: Int -&gt; ReadS AlarmAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245623"><span id="local-6989586621679245625"><span id="local-6989586621679245627"><span class="annot"><span class="annottext">Int -&gt; AlarmAction -&gt; ShowS
+[AlarmAction] -&gt; ShowS
+AlarmAction -&gt; String
+(Int -&gt; AlarmAction -&gt; ShowS)
+-&gt; (AlarmAction -&gt; String)
+-&gt; ([AlarmAction] -&gt; ShowS)
+-&gt; Show AlarmAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlarmAction] -&gt; ShowS
+$cshowList :: [AlarmAction] -&gt; ShowS
+show :: AlarmAction -&gt; String
+$cshow :: AlarmAction -&gt; String
+showsPrec :: Int -&gt; AlarmAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlarmAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AlarmAction -&gt; Rep AlarmAction x)
+-&gt; (forall x. Rep AlarmAction x -&gt; AlarmAction)
+-&gt; Generic AlarmAction
+forall x. Rep AlarmAction x -&gt; AlarmAction
+forall x. AlarmAction -&gt; Rep AlarmAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlarmAction x -&gt; AlarmAction
+$cfrom :: forall x. AlarmAction -&gt; Rep AlarmAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'AlarmAction' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'iotTopicPublish', 'alarmAction_iotTopicPublish' - Undocumented member.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'dynamoDBv2', 'alarmAction_dynamoDBv2' - Undocumented member.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'sns', 'alarmAction_sns' - Undocumented member.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'dynamoDB', 'alarmAction_dynamoDB' - Undocumented member.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'firehose', 'alarmAction_firehose' - Undocumented member.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'iotSiteWise', 'alarmAction_iotSiteWise' - Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'lambda', 'alarmAction_lambda' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'iotEvents', 'alarmAction_iotEvents' - Undocumented member.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'sqs', 'alarmAction_sqs' - Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#newAlarmAction"><span class="hs-identifier hs-type">newAlarmAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span>
+</span><span id="line-79"></span><span id="newAlarmAction"><span class="annot"><span class="annottext">newAlarmAction :: AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#newAlarmAction"><span class="hs-identifier hs-var hs-var">newAlarmAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">AlarmAction' :: Maybe IotTopicPublishAction
+-&gt; Maybe DynamoDBv2Action
+-&gt; Maybe SNSTopicPublishAction
+-&gt; Maybe DynamoDBAction
+-&gt; Maybe FirehoseAction
+-&gt; Maybe IotSiteWiseAction
+-&gt; Maybe LambdaAction
+-&gt; Maybe IotEventsAction
+-&gt; Maybe SqsAction
+-&gt; AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iotTopicPublish:AlarmAction' :: Maybe IotTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotTopicPublish%3AAlarmAction%27"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamoDBv2:AlarmAction' :: Maybe DynamoDBv2Action
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AdynamoDBv2%3AAlarmAction%27"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:sns:AlarmAction' :: Maybe SNSTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Asns%3AAlarmAction%27"><span class="hs-identifier hs-var">sns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamoDB:AlarmAction' :: Maybe DynamoDBAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AdynamoDB%3AAlarmAction%27"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:firehose:AlarmAction' :: Maybe FirehoseAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Afirehose%3AAlarmAction%27"><span class="hs-identifier hs-var">firehose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotSiteWise:AlarmAction' :: Maybe IotSiteWiseAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotSiteWise%3AAlarmAction%27"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambda:AlarmAction' :: Maybe LambdaAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Alambda%3AAlarmAction%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:iotEvents:AlarmAction' :: Maybe IotEventsAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotEvents%3AAlarmAction%27"><span class="hs-identifier hs-var">iotEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:sqs:AlarmAction' :: Maybe SqsAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Asqs%3AAlarmAction%27"><span class="hs-identifier hs-var">sqs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_iotTopicPublish"><span class="hs-identifier hs-type">alarmAction_iotTopicPublish</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotTopicPublishAction.html#IotTopicPublishAction"><span class="hs-identifier hs-type">IotTopicPublishAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="alarmAction_iotTopicPublish"><span class="annot"><span class="annottext">alarmAction_iotTopicPublish :: (Maybe IotTopicPublishAction -&gt; f (Maybe IotTopicPublishAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_iotTopicPublish"><span class="hs-identifier hs-var hs-var">alarmAction_iotTopicPublish</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe IotTopicPublishAction)
+-&gt; (AlarmAction -&gt; Maybe IotTopicPublishAction -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction
+     AlarmAction
+     (Maybe IotTopicPublishAction)
+     (Maybe IotTopicPublishAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245614"><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+iotTopicPublish :: Maybe IotTopicPublishAction
+$sel:iotTopicPublish:AlarmAction' :: AlarmAction -&gt; Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245614"><span class="hs-identifier hs-var hs-var">iotTopicPublish</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245614"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245613"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245612"><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotTopicPublish:AlarmAction' :: Maybe IotTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotTopicPublish%3AAlarmAction%27"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_dynamoDBv2"><span class="hs-identifier hs-type">alarmAction_dynamoDBv2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBv2Action.html#DynamoDBv2Action"><span class="hs-identifier hs-type">DynamoDBv2Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="alarmAction_dynamoDBv2"><span class="annot"><span class="annottext">alarmAction_dynamoDBv2 :: (Maybe DynamoDBv2Action -&gt; f (Maybe DynamoDBv2Action))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_dynamoDBv2"><span class="hs-identifier hs-var hs-var">alarmAction_dynamoDBv2</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe DynamoDBv2Action)
+-&gt; (AlarmAction -&gt; Maybe DynamoDBv2Action -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction
+     AlarmAction
+     (Maybe DynamoDBv2Action)
+     (Maybe DynamoDBv2Action)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245610"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+dynamoDBv2 :: Maybe DynamoDBv2Action
+$sel:dynamoDBv2:AlarmAction' :: AlarmAction -&gt; Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245610"><span class="hs-identifier hs-var hs-var">dynamoDBv2</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245610"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245609"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245608"><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDBv2:AlarmAction' :: Maybe DynamoDBv2Action
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AdynamoDBv2%3AAlarmAction%27"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_sns"><span class="hs-identifier hs-type">alarmAction_sns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SNSTopicPublishAction.html#SNSTopicPublishAction"><span class="hs-identifier hs-type">SNSTopicPublishAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="alarmAction_sns"><span class="annot"><span class="annottext">alarmAction_sns :: (Maybe SNSTopicPublishAction -&gt; f (Maybe SNSTopicPublishAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_sns"><span class="hs-identifier hs-var hs-var">alarmAction_sns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe SNSTopicPublishAction)
+-&gt; (AlarmAction -&gt; Maybe SNSTopicPublishAction -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction
+     AlarmAction
+     (Maybe SNSTopicPublishAction)
+     (Maybe SNSTopicPublishAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245606"><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+sns :: Maybe SNSTopicPublishAction
+$sel:sns:AlarmAction' :: AlarmAction -&gt; Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245606"><span class="hs-identifier hs-var hs-var">sns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245606"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245605"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245604"><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sns:AlarmAction' :: Maybe SNSTopicPublishAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Asns%3AAlarmAction%27"><span class="hs-identifier hs-var">sns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_dynamoDB"><span class="hs-identifier hs-type">alarmAction_dynamoDB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.DynamoDBAction.html#DynamoDBAction"><span class="hs-identifier hs-type">DynamoDBAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="alarmAction_dynamoDB"><span class="annot"><span class="annottext">alarmAction_dynamoDB :: (Maybe DynamoDBAction -&gt; f (Maybe DynamoDBAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_dynamoDB"><span class="hs-identifier hs-var hs-var">alarmAction_dynamoDB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe DynamoDBAction)
+-&gt; (AlarmAction -&gt; Maybe DynamoDBAction -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction
+     AlarmAction
+     (Maybe DynamoDBAction)
+     (Maybe DynamoDBAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245602"><span class="annot"><span class="annottext">Maybe DynamoDBAction
+dynamoDB :: Maybe DynamoDBAction
+$sel:dynamoDB:AlarmAction' :: AlarmAction -&gt; Maybe DynamoDBAction
+</span><a href="#local-6989586621679245602"><span class="hs-identifier hs-var hs-var">dynamoDB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245602"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245601"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245600"><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDB:AlarmAction' :: Maybe DynamoDBAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AdynamoDB%3AAlarmAction%27"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_firehose"><span class="hs-identifier hs-type">alarmAction_firehose</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.FirehoseAction.html#FirehoseAction"><span class="hs-identifier hs-type">FirehoseAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="alarmAction_firehose"><span class="annot"><span class="annottext">alarmAction_firehose :: (Maybe FirehoseAction -&gt; f (Maybe FirehoseAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_firehose"><span class="hs-identifier hs-var hs-var">alarmAction_firehose</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe FirehoseAction)
+-&gt; (AlarmAction -&gt; Maybe FirehoseAction -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction
+     AlarmAction
+     (Maybe FirehoseAction)
+     (Maybe FirehoseAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245598"><span class="annot"><span class="annottext">Maybe FirehoseAction
+firehose :: Maybe FirehoseAction
+$sel:firehose:AlarmAction' :: AlarmAction -&gt; Maybe FirehoseAction
+</span><a href="#local-6989586621679245598"><span class="hs-identifier hs-var hs-var">firehose</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245598"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245597"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245596"><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firehose:AlarmAction' :: Maybe FirehoseAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Afirehose%3AAlarmAction%27"><span class="hs-identifier hs-var">firehose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_iotSiteWise"><span class="hs-identifier hs-type">alarmAction_iotSiteWise</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotSiteWiseAction.html#IotSiteWiseAction"><span class="hs-identifier hs-type">IotSiteWiseAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="alarmAction_iotSiteWise"><span class="annot"><span class="annottext">alarmAction_iotSiteWise :: (Maybe IotSiteWiseAction -&gt; f (Maybe IotSiteWiseAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_iotSiteWise"><span class="hs-identifier hs-var hs-var">alarmAction_iotSiteWise</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe IotSiteWiseAction)
+-&gt; (AlarmAction -&gt; Maybe IotSiteWiseAction -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction
+     AlarmAction
+     (Maybe IotSiteWiseAction)
+     (Maybe IotSiteWiseAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245594"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+iotSiteWise :: Maybe IotSiteWiseAction
+$sel:iotSiteWise:AlarmAction' :: AlarmAction -&gt; Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245594"><span class="hs-identifier hs-var hs-var">iotSiteWise</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245594"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245593"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245592"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotSiteWise:AlarmAction' :: Maybe IotSiteWiseAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotSiteWise%3AAlarmAction%27"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_lambda"><span class="hs-identifier hs-type">alarmAction_lambda</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.LambdaAction.html#LambdaAction"><span class="hs-identifier hs-type">LambdaAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="alarmAction_lambda"><span class="annot"><span class="annottext">alarmAction_lambda :: (Maybe LambdaAction -&gt; f (Maybe LambdaAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_lambda"><span class="hs-identifier hs-var hs-var">alarmAction_lambda</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe LambdaAction)
+-&gt; (AlarmAction -&gt; Maybe LambdaAction -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction AlarmAction (Maybe LambdaAction) (Maybe LambdaAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245590"><span class="annot"><span class="annottext">Maybe LambdaAction
+lambda :: Maybe LambdaAction
+$sel:lambda:AlarmAction' :: AlarmAction -&gt; Maybe LambdaAction
+</span><a href="#local-6989586621679245590"><span class="hs-identifier hs-var hs-var">lambda</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245590"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245589"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245588"><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambda:AlarmAction' :: Maybe LambdaAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Alambda%3AAlarmAction%27"><span class="hs-identifier hs-var">lambda</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_iotEvents"><span class="hs-identifier hs-type">alarmAction_iotEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.IotEventsAction.html#IotEventsAction"><span class="hs-identifier hs-type">IotEventsAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="alarmAction_iotEvents"><span class="annot"><span class="annottext">alarmAction_iotEvents :: (Maybe IotEventsAction -&gt; f (Maybe IotEventsAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_iotEvents"><span class="hs-identifier hs-var hs-var">alarmAction_iotEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe IotEventsAction)
+-&gt; (AlarmAction -&gt; Maybe IotEventsAction -&gt; AlarmAction)
+-&gt; Lens
+     AlarmAction
+     AlarmAction
+     (Maybe IotEventsAction)
+     (Maybe IotEventsAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245586"><span class="annot"><span class="annottext">Maybe IotEventsAction
+iotEvents :: Maybe IotEventsAction
+$sel:iotEvents:AlarmAction' :: AlarmAction -&gt; Maybe IotEventsAction
+</span><a href="#local-6989586621679245586"><span class="hs-identifier hs-var hs-var">iotEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245586"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245585"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245584"><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iotEvents:AlarmAction' :: Maybe IotEventsAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3AiotEvents%3AAlarmAction%27"><span class="hs-identifier hs-var">iotEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_sqs"><span class="hs-identifier hs-type">alarmAction_sqs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.SqsAction.html#SqsAction"><span class="hs-identifier hs-type">SqsAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="alarmAction_sqs"><span class="annot"><span class="annottext">alarmAction_sqs :: (Maybe SqsAction -&gt; f (Maybe SqsAction))
+-&gt; AlarmAction -&gt; f AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#alarmAction_sqs"><span class="hs-identifier hs-var hs-var">alarmAction_sqs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AlarmAction -&gt; Maybe SqsAction)
+-&gt; (AlarmAction -&gt; Maybe SqsAction -&gt; AlarmAction)
+-&gt; Lens AlarmAction AlarmAction (Maybe SqsAction) (Maybe SqsAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245582"><span class="annot"><span class="annottext">Maybe SqsAction
+sqs :: Maybe SqsAction
+$sel:sqs:AlarmAction' :: AlarmAction -&gt; Maybe SqsAction
+</span><a href="#local-6989586621679245582"><span class="hs-identifier hs-var hs-var">sqs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245582"><span class="hs-identifier hs-var">sqs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245581"><span class="annot"><span class="annottext">s :: AlarmAction
+</span><a href="#local-6989586621679245581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245580"><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlarmAction
+</span><a href="#local-6989586621679245581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sqs:AlarmAction' :: Maybe SqsAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#%24sel%3Asqs%3AAlarmAction%27"><span class="hs-identifier hs-var">sqs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245577"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679245575"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlarmAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AlarmAction) -&gt; Value -&gt; Parser AlarmAction
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AlarmAction&quot;</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245572"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+-&gt; Maybe DynamoDBv2Action
+-&gt; Maybe SNSTopicPublishAction
+-&gt; Maybe DynamoDBAction
+-&gt; Maybe FirehoseAction
+-&gt; Maybe IotSiteWiseAction
+-&gt; Maybe LambdaAction
+-&gt; Maybe IotEventsAction
+-&gt; Maybe SqsAction
+-&gt; AlarmAction
+</span><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-var">AlarmAction'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IotTopicPublishAction
+ -&gt; Maybe DynamoDBv2Action
+ -&gt; Maybe SNSTopicPublishAction
+ -&gt; Maybe DynamoDBAction
+ -&gt; Maybe FirehoseAction
+ -&gt; Maybe IotSiteWiseAction
+ -&gt; Maybe LambdaAction
+ -&gt; Maybe IotEventsAction
+ -&gt; Maybe SqsAction
+ -&gt; AlarmAction)
+-&gt; Parser (Maybe IotTopicPublishAction)
+-&gt; Parser
+     (Maybe DynamoDBv2Action
+      -&gt; Maybe SNSTopicPublishAction
+      -&gt; Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotTopicPublishAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotTopicPublish&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DynamoDBv2Action
+   -&gt; Maybe SNSTopicPublishAction
+   -&gt; Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; AlarmAction)
+-&gt; Parser (Maybe DynamoDBv2Action)
+-&gt; Parser
+     (Maybe SNSTopicPublishAction
+      -&gt; Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBv2Action)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDBv2&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SNSTopicPublishAction
+   -&gt; Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; AlarmAction)
+-&gt; Parser (Maybe SNSTopicPublishAction)
+-&gt; Parser
+     (Maybe DynamoDBAction
+      -&gt; Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SNSTopicPublishAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sns&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DynamoDBAction
+   -&gt; Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; AlarmAction)
+-&gt; Parser (Maybe DynamoDBAction)
+-&gt; Parser
+     (Maybe FirehoseAction
+      -&gt; Maybe IotSiteWiseAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DynamoDBAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDB&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe FirehoseAction
+   -&gt; Maybe IotSiteWiseAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; AlarmAction)
+-&gt; Parser (Maybe FirehoseAction)
+-&gt; Parser
+     (Maybe IotSiteWiseAction
+      -&gt; Maybe LambdaAction
+      -&gt; Maybe IotEventsAction
+      -&gt; Maybe SqsAction
+      -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FirehoseAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;firehose&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IotSiteWiseAction
+   -&gt; Maybe LambdaAction
+   -&gt; Maybe IotEventsAction
+   -&gt; Maybe SqsAction
+   -&gt; AlarmAction)
+-&gt; Parser (Maybe IotSiteWiseAction)
+-&gt; Parser
+     (Maybe LambdaAction
+      -&gt; Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotSiteWiseAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotSiteWise&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe LambdaAction
+   -&gt; Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; AlarmAction)
+-&gt; Parser (Maybe LambdaAction)
+-&gt; Parser (Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LambdaAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambda&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe IotEventsAction -&gt; Maybe SqsAction -&gt; AlarmAction)
+-&gt; Parser (Maybe IotEventsAction)
+-&gt; Parser (Maybe SqsAction -&gt; AlarmAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IotEventsAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotEvents&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SqsAction -&gt; AlarmAction)
+-&gt; Parser (Maybe SqsAction) -&gt; Parser AlarmAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245572"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SqsAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sqs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245566"><span id="local-6989586621679245568"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245563"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245555"><span id="local-6989586621679245557"><span id="local-6989586621679245559"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction"><span class="hs-identifier hs-type">AlarmAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679245553"><span class="annot"><span class="annottext">toJSON :: AlarmAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTEvents.Types.AlarmAction.html#AlarmAction%27"><span class="hs-identifier hs-type">AlarmAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245543"><span id="local-6989586621679245544"><span id="local-6989586621679245545"><span id="local-6989586621679245546"><span id="local-6989586621679245547"><span id="local-6989586621679245548"><span id="local-6989586621679245549"><span id="local-6989586621679245550"><span id="local-6989586621679245551"><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+Maybe LambdaAction
+Maybe IotTopicPublishAction
+Maybe IotEventsAction
+Maybe FirehoseAction
+Maybe DynamoDBv2Action
+Maybe DynamoDBAction
+Maybe SNSTopicPublishAction
+Maybe SqsAction
+sqs :: Maybe SqsAction
+iotEvents :: Maybe IotEventsAction
+lambda :: Maybe LambdaAction
+iotSiteWise :: Maybe IotSiteWiseAction
+firehose :: Maybe FirehoseAction
+dynamoDB :: Maybe DynamoDBAction
+sns :: Maybe SNSTopicPublishAction
+dynamoDBv2 :: Maybe DynamoDBv2Action
+iotTopicPublish :: Maybe IotTopicPublishAction
+$sel:sqs:AlarmAction' :: AlarmAction -&gt; Maybe SqsAction
+$sel:iotEvents:AlarmAction' :: AlarmAction -&gt; Maybe IotEventsAction
+$sel:lambda:AlarmAction' :: AlarmAction -&gt; Maybe LambdaAction
+$sel:iotSiteWise:AlarmAction' :: AlarmAction -&gt; Maybe IotSiteWiseAction
+$sel:firehose:AlarmAction' :: AlarmAction -&gt; Maybe FirehoseAction
+$sel:dynamoDB:AlarmAction' :: AlarmAction -&gt; Maybe DynamoDBAction
+$sel:sns:AlarmAction' :: AlarmAction -&gt; Maybe SNSTopicPublishAction
+$sel:dynamoDBv2:AlarmAction' :: AlarmAction -&gt; Maybe DynamoDBv2Action
+$sel:iotTopicPublish:AlarmAction' :: AlarmAction -&gt; Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245543"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotTopicPublish&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotTopicPublishAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(IotTopicPublishAction -&gt; Pair)
+-&gt; Maybe IotTopicPublishAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotTopicPublishAction
+</span><a href="#local-6989586621679245551"><span class="hs-identifier hs-var">iotTopicPublish</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDBv2&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynamoDBv2Action -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DynamoDBv2Action -&gt; Pair) -&gt; Maybe DynamoDBv2Action -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBv2Action
+</span><a href="#local-6989586621679245550"><span class="hs-identifier hs-var">dynamoDBv2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SNSTopicPublishAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SNSTopicPublishAction -&gt; Pair)
+-&gt; Maybe SNSTopicPublishAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SNSTopicPublishAction
+</span><a href="#local-6989586621679245549"><span class="hs-identifier hs-var">sns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dynamoDB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DynamoDBAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DynamoDBAction -&gt; Pair) -&gt; Maybe DynamoDBAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DynamoDBAction
+</span><a href="#local-6989586621679245548"><span class="hs-identifier hs-var">dynamoDB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;firehose&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FirehoseAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FirehoseAction -&gt; Pair) -&gt; Maybe FirehoseAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FirehoseAction
+</span><a href="#local-6989586621679245547"><span class="hs-identifier hs-var">firehose</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotSiteWise&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotSiteWiseAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IotSiteWiseAction -&gt; Pair)
+-&gt; Maybe IotSiteWiseAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotSiteWiseAction
+</span><a href="#local-6989586621679245546"><span class="hs-identifier hs-var">iotSiteWise</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lambda&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaAction -&gt; Pair) -&gt; Maybe LambdaAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAction
+</span><a href="#local-6989586621679245545"><span class="hs-identifier hs-var">lambda</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iotEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IotEventsAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(IotEventsAction -&gt; Pair) -&gt; Maybe IotEventsAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe IotEventsAction
+</span><a href="#local-6989586621679245544"><span class="hs-identifier hs-var">iotEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sqs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SqsAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SqsAction -&gt; Pair) -&gt; Maybe SqsAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SqsAction
+</span><a href="#local-6989586621679245543"><span class="hs-identifier hs-var">sqs</span></a></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span></pre></body></html>

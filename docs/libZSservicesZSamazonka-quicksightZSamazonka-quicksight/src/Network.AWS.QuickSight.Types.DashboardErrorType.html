@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.DashboardErrorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.DashboardErrorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier">DashboardErrorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_ACCESS_DENIED"><span class="hs-identifier">DashboardErrorType_ACCESS_DENIED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH"><span class="hs-identifier">DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_REPLACEMENT_MISSING"><span class="hs-identifier">DashboardErrorType_COLUMN_REPLACEMENT_MISSING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_TYPE_MISMATCH"><span class="hs-identifier">DashboardErrorType_COLUMN_TYPE_MISMATCH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_DATA_SET_NOT_FOUND"><span class="hs-identifier">DashboardErrorType_DATA_SET_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_INTERNAL_FAILURE"><span class="hs-identifier">DashboardErrorType_INTERNAL_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_NOT_FOUND"><span class="hs-identifier">DashboardErrorType_PARAMETER_NOT_FOUND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_TYPE_INVALID"><span class="hs-identifier">DashboardErrorType_PARAMETER_TYPE_INVALID</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE"><span class="hs-identifier">DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_SOURCE_NOT_FOUND"><span class="hs-identifier">DashboardErrorType_SOURCE_NOT_FOUND</span></a></span><span>
+</span><span id="line-33"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679551621"><span id="local-6989586621679551622"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashboardErrorType"><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-var">DashboardErrorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashboardErrorType%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-var">DashboardErrorType'</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDashboardErrorType"><span class="annot"><span class="annottext">DashboardErrorType -&gt; Text
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#fromDashboardErrorType"><span class="hs-identifier hs-var hs-var">fromDashboardErrorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679551613"><span id="local-6989586621679551615"><span id="local-6989586621679551617"><span class="annot"><span class="annottext">Int -&gt; DashboardErrorType -&gt; ShowS
+[DashboardErrorType] -&gt; ShowS
+DashboardErrorType -&gt; String
+(Int -&gt; DashboardErrorType -&gt; ShowS)
+-&gt; (DashboardErrorType -&gt; String)
+-&gt; ([DashboardErrorType] -&gt; ShowS)
+-&gt; Show DashboardErrorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DashboardErrorType] -&gt; ShowS
+$cshowList :: [DashboardErrorType] -&gt; ShowS
+show :: DashboardErrorType -&gt; String
+$cshow :: DashboardErrorType -&gt; String
+showsPrec :: Int -&gt; DashboardErrorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; DashboardErrorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679551604"><span id="local-6989586621679551606"><span id="local-6989586621679551608"><span id="local-6989586621679551610"><span class="annot"><span class="annottext">ReadPrec [DashboardErrorType]
+ReadPrec DashboardErrorType
+Int -&gt; ReadS DashboardErrorType
+ReadS [DashboardErrorType]
+(Int -&gt; ReadS DashboardErrorType)
+-&gt; ReadS [DashboardErrorType]
+-&gt; ReadPrec DashboardErrorType
+-&gt; ReadPrec [DashboardErrorType]
+-&gt; Read DashboardErrorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DashboardErrorType]
+$creadListPrec :: ReadPrec [DashboardErrorType]
+readPrec :: ReadPrec DashboardErrorType
+$creadPrec :: ReadPrec DashboardErrorType
+readList :: ReadS [DashboardErrorType]
+$creadList :: ReadS [DashboardErrorType]
+readsPrec :: Int -&gt; ReadS DashboardErrorType
+$creadsPrec :: Int -&gt; ReadS DashboardErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679551599"><span id="local-6989586621679551601"><span class="annot"><span class="annottext">DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+(DashboardErrorType -&gt; DashboardErrorType -&gt; Bool)
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; Bool)
+-&gt; Eq DashboardErrorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+$c/= :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+== :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+$c== :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679551583"><span id="local-6989586621679551585"><span id="local-6989586621679551587"><span id="local-6989586621679551589"><span id="local-6989586621679551591"><span id="local-6989586621679551593"><span id="local-6989586621679551595"><span class="annot"><span class="annottext">Eq DashboardErrorType
+Eq DashboardErrorType
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; Ordering)
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; Bool)
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; Bool)
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; Bool)
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; Bool)
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; DashboardErrorType)
+-&gt; (DashboardErrorType -&gt; DashboardErrorType -&gt; DashboardErrorType)
+-&gt; Ord DashboardErrorType
+DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+DashboardErrorType -&gt; DashboardErrorType -&gt; Ordering
+DashboardErrorType -&gt; DashboardErrorType -&gt; DashboardErrorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DashboardErrorType -&gt; DashboardErrorType -&gt; DashboardErrorType
+$cmin :: DashboardErrorType -&gt; DashboardErrorType -&gt; DashboardErrorType
+max :: DashboardErrorType -&gt; DashboardErrorType -&gt; DashboardErrorType
+$cmax :: DashboardErrorType -&gt; DashboardErrorType -&gt; DashboardErrorType
+&gt;= :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+$c&gt;= :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+&gt; :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+$c&gt; :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+&lt;= :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+$c&lt;= :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+&lt; :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+$c&lt; :: DashboardErrorType -&gt; DashboardErrorType -&gt; Bool
+compare :: DashboardErrorType -&gt; DashboardErrorType -&gt; Ordering
+$ccompare :: DashboardErrorType -&gt; DashboardErrorType -&gt; Ordering
+$cp1Ord :: Eq DashboardErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DashboardErrorType -&gt; Rep DashboardErrorType x)
+-&gt; (forall x. Rep DashboardErrorType x -&gt; DashboardErrorType)
+-&gt; Generic DashboardErrorType
+forall x. Rep DashboardErrorType x -&gt; DashboardErrorType
+forall x. DashboardErrorType -&gt; Rep DashboardErrorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DashboardErrorType x -&gt; DashboardErrorType
+$cfrom :: forall x. DashboardErrorType -&gt; Rep DashboardErrorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679551575"><span id="local-6989586621679551577"><span class="annot"><span class="annottext">Int -&gt; DashboardErrorType -&gt; Int
+DashboardErrorType -&gt; Int
+(Int -&gt; DashboardErrorType -&gt; Int)
+-&gt; (DashboardErrorType -&gt; Int) -&gt; Hashable DashboardErrorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DashboardErrorType -&gt; Int
+$chash :: DashboardErrorType -&gt; Int
+hashWithSalt :: Int -&gt; DashboardErrorType -&gt; Int
+$chashWithSalt :: Int -&gt; DashboardErrorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679551572"><span class="annot"><span class="annottext">DashboardErrorType -&gt; ()
+(DashboardErrorType -&gt; ()) -&gt; NFData DashboardErrorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DashboardErrorType -&gt; ()
+$crnf :: DashboardErrorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679551569"><span class="annot"><span class="annottext">Text -&gt; Either String DashboardErrorType
+(Text -&gt; Either String DashboardErrorType)
+-&gt; FromText DashboardErrorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DashboardErrorType
+$cfromText :: Text -&gt; Either String DashboardErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679551566"><span class="annot"><span class="annottext">DashboardErrorType -&gt; Text
+(DashboardErrorType -&gt; Text) -&gt; ToText DashboardErrorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DashboardErrorType -&gt; Text
+$ctoText :: DashboardErrorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679551563"><span class="annot"><span class="annottext">DashboardErrorType -&gt; ByteString
+(DashboardErrorType -&gt; ByteString)
+-&gt; ToByteString DashboardErrorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DashboardErrorType -&gt; ByteString
+$ctoBS :: DashboardErrorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679551560"><span class="annot"><span class="annottext">DashboardErrorType -&gt; ByteStringBuilder
+(DashboardErrorType -&gt; ByteStringBuilder)
+-&gt; ToLog DashboardErrorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DashboardErrorType -&gt; ByteStringBuilder
+$cbuild :: DashboardErrorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679551557"><span class="annot"><span class="annottext">HeaderName -&gt; DashboardErrorType -&gt; [Header]
+(HeaderName -&gt; DashboardErrorType -&gt; [Header])
+-&gt; ToHeader DashboardErrorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DashboardErrorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DashboardErrorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679551554"><span class="annot"><span class="annottext">DashboardErrorType -&gt; QueryString
+(DashboardErrorType -&gt; QueryString) -&gt; ToQuery DashboardErrorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DashboardErrorType -&gt; QueryString
+$ctoQuery :: DashboardErrorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679551549"><span id="local-6989586621679551551"><span class="annot"><span class="annottext">Value -&gt; Parser [DashboardErrorType]
+Value -&gt; Parser DashboardErrorType
+(Value -&gt; Parser DashboardErrorType)
+-&gt; (Value -&gt; Parser [DashboardErrorType])
+-&gt; FromJSON DashboardErrorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DashboardErrorType]
+$cparseJSONList :: Value -&gt; Parser [DashboardErrorType]
+parseJSON :: Value -&gt; Parser DashboardErrorType
+$cparseJSON :: Value -&gt; Parser DashboardErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679551544"><span id="local-6989586621679551546"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashboardErrorType]
+FromJSONKeyFunction DashboardErrorType
+FromJSONKeyFunction DashboardErrorType
+-&gt; FromJSONKeyFunction [DashboardErrorType]
+-&gt; FromJSONKey DashboardErrorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DashboardErrorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [DashboardErrorType]
+fromJSONKey :: FromJSONKeyFunction DashboardErrorType
+$cfromJSONKey :: FromJSONKeyFunction DashboardErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679551535"><span id="local-6989586621679551537"><span id="local-6989586621679551539"><span id="local-6989586621679551541"><span class="annot"><span class="annottext">[DashboardErrorType] -&gt; Encoding
+[DashboardErrorType] -&gt; Value
+DashboardErrorType -&gt; Encoding
+DashboardErrorType -&gt; Value
+(DashboardErrorType -&gt; Value)
+-&gt; (DashboardErrorType -&gt; Encoding)
+-&gt; ([DashboardErrorType] -&gt; Value)
+-&gt; ([DashboardErrorType] -&gt; Encoding)
+-&gt; ToJSON DashboardErrorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DashboardErrorType] -&gt; Encoding
+$ctoEncodingList :: [DashboardErrorType] -&gt; Encoding
+toJSONList :: [DashboardErrorType] -&gt; Value
+$ctoJSONList :: [DashboardErrorType] -&gt; Value
+toEncoding :: DashboardErrorType -&gt; Encoding
+$ctoEncoding :: DashboardErrorType -&gt; Encoding
+toJSON :: DashboardErrorType -&gt; Value
+$ctoJSON :: DashboardErrorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679551530"><span id="local-6989586621679551532"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashboardErrorType]
+ToJSONKeyFunction DashboardErrorType
+ToJSONKeyFunction DashboardErrorType
+-&gt; ToJSONKeyFunction [DashboardErrorType]
+-&gt; ToJSONKey DashboardErrorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DashboardErrorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [DashboardErrorType]
+toJSONKey :: ToJSONKeyFunction DashboardErrorType
+$ctoJSONKey :: ToJSONKeyFunction DashboardErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679551527"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashboardErrorType
+([Node] -&gt; Either String DashboardErrorType)
+-&gt; FromXML DashboardErrorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DashboardErrorType
+$cparseXML :: [Node] -&gt; Either String DashboardErrorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679551524"><span class="annot"><span class="annottext">DashboardErrorType -&gt; XML
+(DashboardErrorType -&gt; XML) -&gt; ToXML DashboardErrorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DashboardErrorType -&gt; XML
+$ctoXML :: DashboardErrorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_ACCESS_DENIED"><span class="hs-identifier hs-type">DashboardErrorType_ACCESS_DENIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_ACCESS_DENIED"><span id="%24mDashboardErrorType_ACCESS_DENIED"><span id="DashboardErrorType_ACCESS_DENIED"><span class="annot"><span class="annottext">$bDashboardErrorType_ACCESS_DENIED :: DashboardErrorType
+$mDashboardErrorType_ACCESS_DENIED :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_ACCESS_DENIED"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_ACCESS_DENIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCESS_DENIED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH"><span class="hs-identifier hs-type">DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH"><span id="%24mDashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH"><span id="DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH"><span class="annot"><span class="annottext">$bDashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH :: DashboardErrorType
+$mDashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COLUMN_GEOGRAPHIC_ROLE_MISMATCH&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_REPLACEMENT_MISSING"><span class="hs-identifier hs-type">DashboardErrorType_COLUMN_REPLACEMENT_MISSING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_COLUMN_REPLACEMENT_MISSING"><span id="%24mDashboardErrorType_COLUMN_REPLACEMENT_MISSING"><span id="DashboardErrorType_COLUMN_REPLACEMENT_MISSING"><span class="annot"><span class="annottext">$bDashboardErrorType_COLUMN_REPLACEMENT_MISSING :: DashboardErrorType
+$mDashboardErrorType_COLUMN_REPLACEMENT_MISSING :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_COLUMN_REPLACEMENT_MISSING"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_COLUMN_REPLACEMENT_MISSING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COLUMN_REPLACEMENT_MISSING&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_TYPE_MISMATCH"><span class="hs-identifier hs-type">DashboardErrorType_COLUMN_TYPE_MISMATCH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_COLUMN_TYPE_MISMATCH"><span id="%24mDashboardErrorType_COLUMN_TYPE_MISMATCH"><span id="DashboardErrorType_COLUMN_TYPE_MISMATCH"><span class="annot"><span class="annottext">$bDashboardErrorType_COLUMN_TYPE_MISMATCH :: DashboardErrorType
+$mDashboardErrorType_COLUMN_TYPE_MISMATCH :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_COLUMN_TYPE_MISMATCH"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_COLUMN_TYPE_MISMATCH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COLUMN_TYPE_MISMATCH&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_DATA_SET_NOT_FOUND"><span class="hs-identifier hs-type">DashboardErrorType_DATA_SET_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_DATA_SET_NOT_FOUND"><span id="%24mDashboardErrorType_DATA_SET_NOT_FOUND"><span id="DashboardErrorType_DATA_SET_NOT_FOUND"><span class="annot"><span class="annottext">$bDashboardErrorType_DATA_SET_NOT_FOUND :: DashboardErrorType
+$mDashboardErrorType_DATA_SET_NOT_FOUND :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_DATA_SET_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_DATA_SET_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATA_SET_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_INTERNAL_FAILURE"><span class="hs-identifier hs-type">DashboardErrorType_INTERNAL_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_INTERNAL_FAILURE"><span id="%24mDashboardErrorType_INTERNAL_FAILURE"><span id="DashboardErrorType_INTERNAL_FAILURE"><span class="annot"><span class="annottext">$bDashboardErrorType_INTERNAL_FAILURE :: DashboardErrorType
+$mDashboardErrorType_INTERNAL_FAILURE :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_INTERNAL_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_INTERNAL_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_FAILURE&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_NOT_FOUND"><span class="hs-identifier hs-type">DashboardErrorType_PARAMETER_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_PARAMETER_NOT_FOUND"><span id="%24mDashboardErrorType_PARAMETER_NOT_FOUND"><span id="DashboardErrorType_PARAMETER_NOT_FOUND"><span class="annot"><span class="annottext">$bDashboardErrorType_PARAMETER_NOT_FOUND :: DashboardErrorType
+$mDashboardErrorType_PARAMETER_NOT_FOUND :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_PARAMETER_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_PARAMETER_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARAMETER_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_TYPE_INVALID"><span class="hs-identifier hs-type">DashboardErrorType_PARAMETER_TYPE_INVALID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_PARAMETER_TYPE_INVALID"><span id="%24mDashboardErrorType_PARAMETER_TYPE_INVALID"><span id="DashboardErrorType_PARAMETER_TYPE_INVALID"><span class="annot"><span class="annottext">$bDashboardErrorType_PARAMETER_TYPE_INVALID :: DashboardErrorType
+$mDashboardErrorType_PARAMETER_TYPE_INVALID :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_PARAMETER_TYPE_INVALID"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_PARAMETER_TYPE_INVALID</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARAMETER_TYPE_INVALID&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE"><span class="hs-identifier hs-type">DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE"><span id="%24mDashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE"><span id="DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE"><span class="annot"><span class="annottext">$bDashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE :: DashboardErrorType
+$mDashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PARAMETER_VALUE_INCOMPATIBLE&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_SOURCE_NOT_FOUND"><span class="hs-identifier hs-type">DashboardErrorType_SOURCE_NOT_FOUND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType"><span class="hs-identifier hs-type">DashboardErrorType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDashboardErrorType_SOURCE_NOT_FOUND"><span id="%24mDashboardErrorType_SOURCE_NOT_FOUND"><span id="DashboardErrorType_SOURCE_NOT_FOUND"><span class="annot"><span class="annottext">$bDashboardErrorType_SOURCE_NOT_FOUND :: DashboardErrorType
+$mDashboardErrorType_SOURCE_NOT_FOUND :: forall r. DashboardErrorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#%24bDashboardErrorType_SOURCE_NOT_FOUND"><span class="hs-identifier hs-var hs-var hs-var">DashboardErrorType_SOURCE_NOT_FOUND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-identifier hs-type">DashboardErrorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SOURCE_NOT_FOUND&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_ACCESS_DENIED"><span class="hs-pragma hs-type">DashboardErrorType_ACCESS_DENIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH"><span class="hs-pragma hs-type">DashboardErrorType_COLUMN_GEOGRAPHIC_ROLE_MISMATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_REPLACEMENT_MISSING"><span class="hs-pragma hs-type">DashboardErrorType_COLUMN_REPLACEMENT_MISSING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_COLUMN_TYPE_MISMATCH"><span class="hs-pragma hs-type">DashboardErrorType_COLUMN_TYPE_MISMATCH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_DATA_SET_NOT_FOUND"><span class="hs-pragma hs-type">DashboardErrorType_DATA_SET_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_INTERNAL_FAILURE"><span class="hs-pragma hs-type">DashboardErrorType_INTERNAL_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_NOT_FOUND"><span class="hs-pragma hs-type">DashboardErrorType_PARAMETER_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_TYPE_INVALID"><span class="hs-pragma hs-type">DashboardErrorType_PARAMETER_TYPE_INVALID</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE"><span class="hs-pragma hs-type">DashboardErrorType_PARAMETER_VALUE_INCOMPATIBLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType_SOURCE_NOT_FOUND"><span class="hs-pragma hs-type">DashboardErrorType_SOURCE_NOT_FOUND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.DashboardErrorType.html#DashboardErrorType%27"><span class="hs-pragma hs-type">DashboardErrorType'</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-111"></span></pre></body></html>

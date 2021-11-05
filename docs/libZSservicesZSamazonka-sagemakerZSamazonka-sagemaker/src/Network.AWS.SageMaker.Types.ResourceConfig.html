@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- volumes, to use for model training.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680349195"><span id="local-6989586621680349196"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-var">ResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-var">ResourceConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680349204"><span id="local-6989586621680349205"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-var">ResourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-var">ResourceConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- data on the storage volume attached to the ML compute instance(s) that</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- run the training job.</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3AvolumeSizeInGB%3AResourceConfig%27"><span class="annot"><span class="annottext">ResourceConfig -&gt; Natural
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AvolumeSizeInGB%3AResourceConfig%27"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680349186"><span id="local-6989586621680349188"><span class="annot"><span class="annottext">ResourceConfig -&gt; ResourceConfig -&gt; Bool
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680349195"><span id="local-6989586621680349197"><span class="annot"><span class="annottext">ResourceConfig -&gt; ResourceConfig -&gt; Bool
 (ResourceConfig -&gt; ResourceConfig -&gt; Bool)
 -&gt; (ResourceConfig -&gt; ResourceConfig -&gt; Bool) -&gt; Eq ResourceConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceConfig -&gt; ResourceConfig -&gt; Bool
 == :: ResourceConfig -&gt; ResourceConfig -&gt; Bool
 $c== :: ResourceConfig -&gt; ResourceConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349177"><span id="local-6989586621680349179"><span id="local-6989586621680349181"><span id="local-6989586621680349183"><span class="annot"><span class="annottext">ReadPrec [ResourceConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349186"><span id="local-6989586621680349188"><span id="local-6989586621680349190"><span id="local-6989586621680349192"><span class="annot"><span class="annottext">ReadPrec [ResourceConfig]
 ReadPrec ResourceConfig
 Int -&gt; ReadS ResourceConfig
 ReadS [ResourceConfig]
@@ -114,7 +114,7 @@ readList :: ReadS [ResourceConfig]
 $creadList :: ReadS [ResourceConfig]
 readsPrec :: Int -&gt; ReadS ResourceConfig
 $creadsPrec :: Int -&gt; ReadS ResourceConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349170"><span id="local-6989586621680349172"><span id="local-6989586621680349174"><span class="annot"><span class="annottext">Int -&gt; ResourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680349179"><span id="local-6989586621680349181"><span id="local-6989586621680349183"><span class="annot"><span class="annottext">Int -&gt; ResourceConfig -&gt; ShowS
 [ResourceConfig] -&gt; ShowS
 ResourceConfig -&gt; String
 (Int -&gt; ResourceConfig -&gt; ShowS)
@@ -209,12 +209,12 @@ $cfrom :: forall x. ResourceConfig -&gt; Rep ResourceConfig x
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span>
 </span><span id="line-154"></span><span id="newResourceConfig"><span class="annot"><span class="annottext">newResourceConfig :: TrainingInstanceType -&gt; Natural -&gt; Natural -&gt; ResourceConfig
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#newResourceConfig"><span class="hs-identifier hs-var hs-var">newResourceConfig</span></a></span></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621680349164"><span class="annot"><span class="annottext">TrainingInstanceType
-</span><a href="#local-6989586621680349164"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621680349163"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349163"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621680349162"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349162"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621680349173"><span class="annot"><span class="annottext">TrainingInstanceType
+</span><a href="#local-6989586621680349173"><span class="hs-identifier hs-var">pInstanceType_</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621680349172"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680349172"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621680349171"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680349171"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResourceConfig' :: Maybe Text
 -&gt; TrainingInstanceType -&gt; Natural -&gt; Natural -&gt; ResourceConfig
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span>
@@ -224,13 +224,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceType:ResourceConfig' :: TrainingInstanceType
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AinstanceType%3AResourceConfig%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingInstanceType
-</span><a href="#local-6989586621680349164"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349173"><span class="hs-identifier hs-var">pInstanceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceCount:ResourceConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AinstanceCount%3AResourceConfig%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349163"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349172"><span class="hs-identifier hs-var">pInstanceCount_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ResourceConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AvolumeSizeInGB%3AResourceConfig%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349162"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span><span>
+</span><a href="#local-6989586621680349171"><span class="hs-identifier hs-var">pVolumeSizeInGB_</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt</span><span>
@@ -264,16 +264,16 @@ forall a. Maybe a
 -&gt; (ResourceConfig -&gt; Maybe Text -&gt; ResourceConfig)
 -&gt; Lens ResourceConfig ResourceConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349158"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349167"><span class="annot"><span class="annottext">Maybe Text
 volumeKmsKeyId :: Maybe Text
 $sel:volumeKmsKeyId:ResourceConfig' :: ResourceConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680349158"><span class="hs-identifier hs-var hs-var">volumeKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680349158"><span class="hs-identifier hs-var">volumeKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349157"><span class="annot"><span class="annottext">s :: ResourceConfig
-</span><a href="#local-6989586621680349157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349156"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680349156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeKmsKeyId:ResourceConfig' :: Maybe Text
+</span><a href="#local-6989586621680349167"><span class="hs-identifier hs-var hs-var">volumeKmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680349167"><span class="hs-identifier hs-var">volumeKmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349166"><span class="annot"><span class="annottext">s :: ResourceConfig
+</span><a href="#local-6989586621680349166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680349165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
+</span><a href="#local-6989586621680349166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeKmsKeyId:ResourceConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AvolumeKmsKeyId%3AResourceConfig%27"><span class="hs-identifier hs-var">volumeKmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680349156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The ML compute instance type.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#resourceConfig_instanceType"><span class="hs-identifier hs-type">resourceConfig_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingInstanceType.html#TrainingInstanceType"><span class="hs-identifier hs-type">TrainingInstanceType</span></a></span><span>
@@ -287,16 +287,16 @@ $sel:volumeKmsKeyId:ResourceConfig' :: ResourceConfig -&gt; Maybe Text
      TrainingInstanceType
      TrainingInstanceType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349154"><span class="annot"><span class="annottext">TrainingInstanceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349163"><span class="annot"><span class="annottext">TrainingInstanceType
 instanceType :: TrainingInstanceType
 $sel:instanceType:ResourceConfig' :: ResourceConfig -&gt; TrainingInstanceType
-</span><a href="#local-6989586621680349154"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingInstanceType
-</span><a href="#local-6989586621680349154"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349153"><span class="annot"><span class="annottext">s :: ResourceConfig
-</span><a href="#local-6989586621680349153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349152"><span class="annot"><span class="annottext">TrainingInstanceType
-</span><a href="#local-6989586621680349152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ResourceConfig' :: TrainingInstanceType
+</span><a href="#local-6989586621680349163"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingInstanceType
+</span><a href="#local-6989586621680349163"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349162"><span class="annot"><span class="annottext">s :: ResourceConfig
+</span><a href="#local-6989586621680349162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349161"><span class="annot"><span class="annottext">TrainingInstanceType
+</span><a href="#local-6989586621680349161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
+</span><a href="#local-6989586621680349162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ResourceConfig' :: TrainingInstanceType
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AinstanceType%3AResourceConfig%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingInstanceType
-</span><a href="#local-6989586621680349152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The number of ML compute instances to use. For distributed training,</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- provide a value greater than 1.</span><span>
@@ -306,16 +306,16 @@ $sel:instanceType:ResourceConfig' :: ResourceConfig -&gt; TrainingInstanceType
 -&gt; (ResourceConfig -&gt; Natural -&gt; ResourceConfig)
 -&gt; Lens ResourceConfig ResourceConfig Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349150"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349159"><span class="annot"><span class="annottext">Natural
 instanceCount :: Natural
 $sel:instanceCount:ResourceConfig' :: ResourceConfig -&gt; Natural
-</span><a href="#local-6989586621680349150"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349150"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349149"><span class="annot"><span class="annottext">s :: ResourceConfig
-</span><a href="#local-6989586621680349149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349148"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:ResourceConfig' :: Natural
+</span><a href="#local-6989586621680349159"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680349159"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349158"><span class="annot"><span class="annottext">s :: ResourceConfig
+</span><a href="#local-6989586621680349158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349157"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680349157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
+</span><a href="#local-6989586621680349158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:ResourceConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AinstanceCount%3AResourceConfig%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-comment">-- | The size of the ML storage volume that you want to provision.</span><span>
 </span><span id="line-202"></span><span class="hs-comment">--</span><span>
@@ -344,19 +344,19 @@ $sel:instanceCount:ResourceConfig' :: ResourceConfig -&gt; Natural
 -&gt; (ResourceConfig -&gt; Natural -&gt; ResourceConfig)
 -&gt; Lens ResourceConfig ResourceConfig Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349146"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349155"><span class="annot"><span class="annottext">Natural
 volumeSizeInGB :: Natural
 $sel:volumeSizeInGB:ResourceConfig' :: ResourceConfig -&gt; Natural
-</span><a href="#local-6989586621680349146"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349146"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349145"><span class="annot"><span class="annottext">s :: ResourceConfig
-</span><a href="#local-6989586621680349145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349144"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
-</span><a href="#local-6989586621680349145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ResourceConfig' :: Natural
+</span><a href="#local-6989586621680349155"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680349155"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680349154"><span class="annot"><span class="annottext">s :: ResourceConfig
+</span><a href="#local-6989586621680349154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680349153"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621680349153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceConfig
+</span><a href="#local-6989586621680349154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ResourceConfig' :: Natural
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#%24sel%3AvolumeSizeInGB%3AResourceConfig%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349141"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621680349139"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceConfig
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349150"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621680349148"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-227"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceConfig)
@@ -366,8 +366,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceConfig&quot;</span></span><span>
-</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680349136"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349136"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680349145"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680349145"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; TrainingInstanceType -&gt; Natural -&gt; Natural -&gt; ResourceConfig
 </span><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-var">ResourceConfig'</span></a></span><span>
@@ -378,7 +378,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (TrainingInstanceType -&gt; Natural -&gt; Natural -&gt; ResourceConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680349145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeKmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -388,7 +388,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Natural -&gt; Natural -&gt; ResourceConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingInstanceType
+</span><a href="#local-6989586621680349145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TrainingInstanceType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -396,7 +396,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; ResourceConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621680349145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -404,19 +404,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser ResourceConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680349136"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621680349145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349129"><span id="local-6989586621680349131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349138"><span id="local-6989586621680349140"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span></span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349118"><span id="local-6989586621680349120"><span id="local-6989586621680349122"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621680349116"><span class="annot"><span class="annottext">toJSON :: ResourceConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349111"><span id="local-6989586621680349112"><span id="local-6989586621680349113"><span id="local-6989586621680349114"><span class="annot"><span class="annottext">Natural
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680349127"><span id="local-6989586621680349129"><span id="local-6989586621680349131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig"><span class="hs-identifier hs-type">ResourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621680349125"><span class="annot"><span class="annottext">toJSON :: ResourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceConfig.html#ResourceConfig%27"><span class="hs-identifier hs-type">ResourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680349120"><span id="local-6989586621680349121"><span id="local-6989586621680349122"><span id="local-6989586621680349123"><span class="annot"><span class="annottext">Natural
 Maybe Text
 TrainingInstanceType
 volumeSizeInGB :: Natural
@@ -427,7 +427,7 @@ $sel:volumeSizeInGB:ResourceConfig' :: ResourceConfig -&gt; Natural
 $sel:instanceCount:ResourceConfig' :: ResourceConfig -&gt; Natural
 $sel:instanceType:ResourceConfig' :: ResourceConfig -&gt; TrainingInstanceType
 $sel:volumeKmsKeyId:ResourceConfig' :: ResourceConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680349111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680349120"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -440,21 +440,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680349114"><span class="hs-identifier hs-var">volumeKmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349123"><span class="hs-identifier hs-var">volumeKmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrainingInstanceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TrainingInstanceType
-</span><a href="#local-6989586621680349113"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349122"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349112"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680349121"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -462,7 +462,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621680349111"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680349120"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-252"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span></pre></body></html>

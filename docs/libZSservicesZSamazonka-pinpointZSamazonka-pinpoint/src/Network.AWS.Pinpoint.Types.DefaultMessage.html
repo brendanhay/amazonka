@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the default message for all channels.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDefaultMessage' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679594871"><span id="local-6989586621679594872"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-var">DefaultMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-var">DefaultMessage'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679594880"><span id="local-6989586621679594881"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-var">DefaultMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-var">DefaultMessage'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default message variables to use in the message. You can override</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- these default variables with individual address variables.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Asubstitutions%3ADefaultMessage%27"><span class="annot"><span class="annottext">DefaultMessage -&gt; Maybe (HashMap Text [Text])
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Abody%3ADefaultMessage%27"><span class="annot"><span class="annottext">DefaultMessage -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#%24sel%3Abody%3ADefaultMessage%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679594864"><span id="local-6989586621679594866"><span class="annot"><span class="annottext">DefaultMessage -&gt; DefaultMessage -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679594873"><span id="local-6989586621679594875"><span class="annot"><span class="annottext">DefaultMessage -&gt; DefaultMessage -&gt; Bool
 (DefaultMessage -&gt; DefaultMessage -&gt; Bool)
 -&gt; (DefaultMessage -&gt; DefaultMessage -&gt; Bool) -&gt; Eq DefaultMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DefaultMessage -&gt; DefaultMessage -&gt; Bool
 == :: DefaultMessage -&gt; DefaultMessage -&gt; Bool
 $c== :: DefaultMessage -&gt; DefaultMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594855"><span id="local-6989586621679594857"><span id="local-6989586621679594859"><span id="local-6989586621679594861"><span class="annot"><span class="annottext">ReadPrec [DefaultMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594864"><span id="local-6989586621679594866"><span id="local-6989586621679594868"><span id="local-6989586621679594870"><span class="annot"><span class="annottext">ReadPrec [DefaultMessage]
 ReadPrec DefaultMessage
 Int -&gt; ReadS DefaultMessage
 ReadS [DefaultMessage]
@@ -63,7 +63,7 @@ readList :: ReadS [DefaultMessage]
 $creadList :: ReadS [DefaultMessage]
 readsPrec :: Int -&gt; ReadS DefaultMessage
 $creadsPrec :: Int -&gt; ReadS DefaultMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594848"><span id="local-6989586621679594850"><span id="local-6989586621679594852"><span class="annot"><span class="annottext">Int -&gt; DefaultMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679594857"><span id="local-6989586621679594859"><span id="local-6989586621679594861"><span class="annot"><span class="annottext">Int -&gt; DefaultMessage -&gt; ShowS
 [DefaultMessage] -&gt; ShowS
 DefaultMessage -&gt; String
 (Int -&gt; DefaultMessage -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe (HashMap Text [Text]))
      (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594839"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594848"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 substitutions :: Maybe (HashMap Text [Text])
 $sel:substitutions:DefaultMessage' :: DefaultMessage -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679594839"><span class="hs-identifier hs-var hs-var">substitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679594839"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679594838"><span class="annot"><span class="annottext">s :: DefaultMessage
-</span><a href="#local-6989586621679594838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679594837"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679594837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultMessage
-</span><a href="#local-6989586621679594838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:substitutions:DefaultMessage' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679594848"><span class="hs-identifier hs-var hs-var">substitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679594848"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679594847"><span class="annot"><span class="annottext">s :: DefaultMessage
+</span><a href="#local-6989586621679594847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679594846"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679594846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultMessage
+</span><a href="#local-6989586621679594847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:substitutions:DefaultMessage' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#%24sel%3Asubstitutions%3ADefaultMessage%27"><span class="hs-identifier hs-var">substitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679594837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679594846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; DefaultMessage -&gt; f DefaultMessage)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -178,30 +178,30 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (DefaultMessage -&gt; Maybe Text -&gt; DefaultMessage)
 -&gt; Lens DefaultMessage DefaultMessage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594832"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594841"><span class="annot"><span class="annottext">Maybe Text
 body :: Maybe Text
 $sel:body:DefaultMessage' :: DefaultMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679594832"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679594832"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679594831"><span class="annot"><span class="annottext">s :: DefaultMessage
-</span><a href="#local-6989586621679594831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679594830"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679594830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultMessage
-</span><a href="#local-6989586621679594831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:DefaultMessage' :: Maybe Text
+</span><a href="#local-6989586621679594841"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679594841"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679594840"><span class="annot"><span class="annottext">s :: DefaultMessage
+</span><a href="#local-6989586621679594840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679594839"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679594839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultMessage
+</span><a href="#local-6989586621679594840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:DefaultMessage' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#%24sel%3Abody%3ADefaultMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679594830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679594839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594826"><span id="local-6989586621679594828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594835"><span id="local-6989586621679594837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594815"><span id="local-6989586621679594817"><span id="local-6989586621679594819"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679594813"><span class="annot"><span class="annottext">toJSON :: DefaultMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594810"><span id="local-6989586621679594811"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679594824"><span id="local-6989586621679594826"><span id="local-6989586621679594828"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage"><span class="hs-identifier hs-type">DefaultMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679594822"><span class="annot"><span class="annottext">toJSON :: DefaultMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.DefaultMessage.html#DefaultMessage%27"><span class="hs-identifier hs-type">DefaultMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679594819"><span id="local-6989586621679594820"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text [Text])
 body :: Maybe Text
 substitutions :: Maybe (HashMap Text [Text])
 $sel:body:DefaultMessage' :: DefaultMessage -&gt; Maybe Text
 $sel:substitutions:DefaultMessage' :: DefaultMessage -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679594810"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679594819"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -214,14 +214,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679594811"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679594820"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679594810"><span class="hs-identifier hs-var">body</span></a></span><span>
+</span><a href="#local-6989586621679594819"><span class="hs-identifier hs-var">body</span></a></span><span>
 </span><span id="line-77"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

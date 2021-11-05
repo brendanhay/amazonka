@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the association.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAssociationOverview' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679787374"><span id="local-6989586621679787375"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationOverview"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-var">AssociationOverview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationOverview%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-var">AssociationOverview'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679787383"><span id="local-6989586621679787384"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationOverview"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-var">AssociationOverview</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationOverview%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-var">AssociationOverview'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A detailed status of the association.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AdetailedStatus%3AAssociationOverview%27"><span class="annot"><span class="annottext">AssociationOverview -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationOverview.html#%24sel%3AdetailedStatus%3AAssociationOverview%27"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AassociationStatusAggregatedCount%3AAssociationOverview%27"><span class="annot"><span class="annottext">AssociationOverview -&gt; Maybe (HashMap Text Int)
 </span><a href="Network.AWS.SSM.Types.AssociationOverview.html#%24sel%3AassociationStatusAggregatedCount%3AAssociationOverview%27"><span class="hs-identifier hs-var hs-var">associationStatusAggregatedCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679787366"><span id="local-6989586621679787368"><span class="annot"><span class="annottext">AssociationOverview -&gt; AssociationOverview -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679787375"><span id="local-6989586621679787377"><span class="annot"><span class="annottext">AssociationOverview -&gt; AssociationOverview -&gt; Bool
 (AssociationOverview -&gt; AssociationOverview -&gt; Bool)
 -&gt; (AssociationOverview -&gt; AssociationOverview -&gt; Bool)
 -&gt; Eq AssociationOverview
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociationOverview -&gt; AssociationOverview -&gt; Bool
 == :: AssociationOverview -&gt; AssociationOverview -&gt; Bool
 $c== :: AssociationOverview -&gt; AssociationOverview -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787357"><span id="local-6989586621679787359"><span id="local-6989586621679787361"><span id="local-6989586621679787363"><span class="annot"><span class="annottext">ReadPrec [AssociationOverview]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787366"><span id="local-6989586621679787368"><span id="local-6989586621679787370"><span id="local-6989586621679787372"><span class="annot"><span class="annottext">ReadPrec [AssociationOverview]
 ReadPrec AssociationOverview
 Int -&gt; ReadS AssociationOverview
 ReadS [AssociationOverview]
@@ -69,7 +69,7 @@ readList :: ReadS [AssociationOverview]
 $creadList :: ReadS [AssociationOverview]
 readsPrec :: Int -&gt; ReadS AssociationOverview
 $creadsPrec :: Int -&gt; ReadS AssociationOverview
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787350"><span id="local-6989586621679787352"><span id="local-6989586621679787354"><span class="annot"><span class="annottext">Int -&gt; AssociationOverview -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679787359"><span id="local-6989586621679787361"><span id="local-6989586621679787363"><span class="annot"><span class="annottext">Int -&gt; AssociationOverview -&gt; ShowS
 [AssociationOverview] -&gt; ShowS
 AssociationOverview -&gt; String
 (Int -&gt; AssociationOverview -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; Lens
      AssociationOverview AssociationOverview (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787341"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787350"><span class="annot"><span class="annottext">Maybe Text
 detailedStatus :: Maybe Text
 $sel:detailedStatus:AssociationOverview' :: AssociationOverview -&gt; Maybe Text
-</span><a href="#local-6989586621679787341"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679787341"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787340"><span class="annot"><span class="annottext">s :: AssociationOverview
-</span><a href="#local-6989586621679787340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787339"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679787339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationOverview
-</span><a href="#local-6989586621679787340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedStatus:AssociationOverview' :: Maybe Text
+</span><a href="#local-6989586621679787350"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679787350"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787349"><span class="annot"><span class="annottext">s :: AssociationOverview
+</span><a href="#local-6989586621679787349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787348"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679787348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationOverview
+</span><a href="#local-6989586621679787349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedStatus:AssociationOverview' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationOverview.html#%24sel%3AdetailedStatus%3AAssociationOverview%27"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679787339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679787348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The status of the association. Status can be: Pending, Success, or</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- Failed.</span><span>
@@ -163,16 +163,16 @@ $sel:detailedStatus:AssociationOverview' :: AssociationOverview -&gt; Maybe Text
 -&gt; Lens
      AssociationOverview AssociationOverview (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787337"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787346"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:AssociationOverview' :: AssociationOverview -&gt; Maybe Text
-</span><a href="#local-6989586621679787337"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679787337"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787336"><span class="annot"><span class="annottext">s :: AssociationOverview
-</span><a href="#local-6989586621679787336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787335"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679787335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationOverview
-</span><a href="#local-6989586621679787336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AssociationOverview' :: Maybe Text
+</span><a href="#local-6989586621679787346"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679787346"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787345"><span class="annot"><span class="annottext">s :: AssociationOverview
+</span><a href="#local-6989586621679787345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679787344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationOverview
+</span><a href="#local-6989586621679787345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AssociationOverview' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationOverview.html#%24sel%3Astatus%3AAssociationOverview%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679787335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679787344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | Returns the number of targets for the association status. For example,</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- if you created an association with two instances, and one of them was</span><span>
@@ -189,16 +189,16 @@ $sel:status:AssociationOverview' :: AssociationOverview -&gt; Maybe Text
      (Maybe (HashMap Text Int))
      (Maybe (HashMap Text Int))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787333"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679787342"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
 associationStatusAggregatedCount :: Maybe (HashMap Text Int)
 $sel:associationStatusAggregatedCount:AssociationOverview' :: AssociationOverview -&gt; Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679787333"><span class="hs-identifier hs-var hs-var">associationStatusAggregatedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679787333"><span class="hs-identifier hs-var">associationStatusAggregatedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787332"><span class="annot"><span class="annottext">s :: AssociationOverview
-</span><a href="#local-6989586621679787332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787331"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679787331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationOverview
-</span><a href="#local-6989586621679787332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationStatusAggregatedCount:AssociationOverview' :: Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679787342"><span class="hs-identifier hs-var hs-var">associationStatusAggregatedCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679787342"><span class="hs-identifier hs-var">associationStatusAggregatedCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679787341"><span class="annot"><span class="annottext">s :: AssociationOverview
+</span><a href="#local-6989586621679787341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-type">AssociationOverview'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679787340"><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
+</span><a href="#local-6989586621679787340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationOverview
+</span><a href="#local-6989586621679787341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationStatusAggregatedCount:AssociationOverview' :: Maybe (HashMap Text Int)
 </span><a href="Network.AWS.SSM.Types.AssociationOverview.html#%24sel%3AassociationStatusAggregatedCount%3AAssociationOverview%27"><span class="hs-identifier hs-var">associationStatusAggregatedCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Int)
-</span><a href="#local-6989586621679787331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679787340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
  -&gt; AssociationOverview -&gt; f AssociationOverview)
 -&gt; ((Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
     -&gt; Maybe (HashMap Text Int) -&gt; f (Maybe (HashMap Text Int)))
@@ -227,8 +227,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 </span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787325"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679787323"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssociationOverview
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787334"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679787332"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssociationOverview
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssociationOverview)
@@ -238,8 +238,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssociationOverview&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679787320"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679787329"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679787329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe (HashMap Text Int) -&gt; AssociationOverview
 </span><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview%27"><span class="hs-identifier hs-var">AssociationOverview'</span></a></span><span>
@@ -250,7 +250,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe (HashMap Text Int) -&gt; AssociationOverview)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679787329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetailedStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -260,7 +260,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Int) -&gt; AssociationOverview)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679787329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -268,7 +268,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Int)) -&gt; Parser AssociationOverview
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679787320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
+</span><a href="#local-6989586621679787329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Int)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssociationStatusAggregatedCount&quot;</span></span><span>
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787313"><span id="local-6989586621679787315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787322"><span id="local-6989586621679787324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679787319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationOverview.html#AssociationOverview"><span class="hs-identifier hs-type">AssociationOverview</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

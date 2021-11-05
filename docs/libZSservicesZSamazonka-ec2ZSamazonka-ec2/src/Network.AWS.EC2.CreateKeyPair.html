@@ -69,7 +69,7 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newCreateKeyPair' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621681295940"><span id="local-6989586621681295941"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyPair"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-var">CreateKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyPair%27"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-var">CreateKeyPair'</span></a></span></span><span>
+</span><span id="line-72"></span><span id="local-6989586621681295949"><span id="local-6989586621681295950"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyPair"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-var">CreateKeyPair</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyPair%27"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-var">CreateKeyPair'</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of key pair. Note that ED25519 keys are not supported for</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Windows instances, EC2 Instance Connect, and EC2 Serial Console.</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AkeyName%3ACreateKeyPair%27"><span class="annot"><span class="annottext">CreateKeyPair -&gt; Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPair%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681295931"><span id="local-6989586621681295933"><span class="annot"><span class="annottext">CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681295940"><span id="local-6989586621681295942"><span class="annot"><span class="annottext">CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
 (CreateKeyPair -&gt; CreateKeyPair -&gt; Bool)
 -&gt; (CreateKeyPair -&gt; CreateKeyPair -&gt; Bool) -&gt; Eq CreateKeyPair
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
 == :: CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
 $c== :: CreateKeyPair -&gt; CreateKeyPair -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295922"><span id="local-6989586621681295924"><span id="local-6989586621681295926"><span id="local-6989586621681295928"><span class="annot"><span class="annottext">ReadPrec [CreateKeyPair]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295931"><span id="local-6989586621681295933"><span id="local-6989586621681295935"><span id="local-6989586621681295937"><span class="annot"><span class="annottext">ReadPrec [CreateKeyPair]
 ReadPrec CreateKeyPair
 Int -&gt; ReadS CreateKeyPair
 ReadS [CreateKeyPair]
@@ -119,7 +119,7 @@ readList :: ReadS [CreateKeyPair]
 $creadList :: ReadS [CreateKeyPair]
 readsPrec :: Int -&gt; ReadS CreateKeyPair
 $creadsPrec :: Int -&gt; ReadS CreateKeyPair
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295915"><span id="local-6989586621681295917"><span id="local-6989586621681295919"><span class="annot"><span class="annottext">Int -&gt; CreateKeyPair -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295924"><span id="local-6989586621681295926"><span id="local-6989586621681295928"><span class="annot"><span class="annottext">Int -&gt; CreateKeyPair -&gt; ShowS
 [CreateKeyPair] -&gt; ShowS
 CreateKeyPair -&gt; String
 (Int -&gt; CreateKeyPair -&gt; ShowS)
@@ -173,8 +173,8 @@ $cfrom :: forall x. CreateKeyPair -&gt; Rep CreateKeyPair x
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span>
 </span><span id="line-119"></span><span id="newCreateKeyPair"><span class="annot"><span class="annottext">newCreateKeyPair :: Text -&gt; CreateKeyPair
-</span><a href="Network.AWS.EC2.CreateKeyPair.html#newCreateKeyPair"><span class="hs-identifier hs-var hs-var">newCreateKeyPair</span></a></span></span><span> </span><span id="local-6989586621681295910"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295910"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateKeyPair.html#newCreateKeyPair"><span class="hs-identifier hs-var hs-var">newCreateKeyPair</span></a></span></span><span> </span><span id="local-6989586621681295919"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295919"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">CreateKeyPair' :: Maybe KeyType
 -&gt; Maybe [TagSpecification] -&gt; Maybe Bool -&gt; Text -&gt; CreateKeyPair
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span>
@@ -192,7 +192,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPair' :: Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPair%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295910"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span>
+</span><a href="#local-6989586621681295919"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The type of key pair. Note that ED25519 keys are not supported for</span><span>
@@ -206,16 +206,16 @@ forall a. Maybe a
 -&gt; (CreateKeyPair -&gt; Maybe KeyType -&gt; CreateKeyPair)
 -&gt; Lens CreateKeyPair CreateKeyPair (Maybe KeyType) (Maybe KeyType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295907"><span class="annot"><span class="annottext">Maybe KeyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295916"><span class="annot"><span class="annottext">Maybe KeyType
 keyType :: Maybe KeyType
 $sel:keyType:CreateKeyPair' :: CreateKeyPair -&gt; Maybe KeyType
-</span><a href="#local-6989586621681295907"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
-</span><a href="#local-6989586621681295907"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295906"><span class="annot"><span class="annottext">s :: CreateKeyPair
-</span><a href="#local-6989586621681295906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295905"><span class="annot"><span class="annottext">Maybe KeyType
-</span><a href="#local-6989586621681295905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
-</span><a href="#local-6989586621681295906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:CreateKeyPair' :: Maybe KeyType
+</span><a href="#local-6989586621681295916"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681295916"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295915"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295914"><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681295914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:CreateKeyPair' :: Maybe KeyType
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyType%3ACreateKeyPair%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
-</span><a href="#local-6989586621681295905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The tags to apply to the new key pair.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#createKeyPair_tagSpecifications"><span class="hs-identifier hs-type">createKeyPair_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -229,16 +229,16 @@ $sel:keyType:CreateKeyPair' :: CreateKeyPair -&gt; Maybe KeyType
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295904"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295913"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:CreateKeyPair' :: CreateKeyPair -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681295904"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681295904"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295903"><span class="annot"><span class="annottext">s :: CreateKeyPair
-</span><a href="#local-6989586621681295903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295902"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681295902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
-</span><a href="#local-6989586621681295903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateKeyPair' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681295913"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681295913"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295912"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295911"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681295911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateKeyPair' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AtagSpecifications%3ACreateKeyPair%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681295902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681295911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; CreateKeyPair -&gt; f CreateKeyPair)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -277,16 +277,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateKeyPair -&gt; Maybe Bool -&gt; CreateKeyPair)
 -&gt; Lens CreateKeyPair CreateKeyPair (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295898"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295907"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:CreateKeyPair' :: CreateKeyPair -&gt; Maybe Bool
-</span><a href="#local-6989586621681295898"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681295898"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295897"><span class="annot"><span class="annottext">s :: CreateKeyPair
-</span><a href="#local-6989586621681295897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295896"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681295896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
-</span><a href="#local-6989586621681295897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateKeyPair' :: Maybe Bool
+</span><a href="#local-6989586621681295907"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681295907"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295906"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295906"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295905"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681295905"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295906"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateKeyPair' :: Maybe Bool
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AdryRun%3ACreateKeyPair%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681295896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295905"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | A unique name for the key pair.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
@@ -297,27 +297,27 @@ $sel:dryRun:CreateKeyPair' :: CreateKeyPair -&gt; Maybe Bool
 -&gt; (CreateKeyPair -&gt; Text -&gt; CreateKeyPair)
 -&gt; Lens CreateKeyPair CreateKeyPair Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295895"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295904"><span class="annot"><span class="annottext">Text
 keyName :: Text
 $sel:keyName:CreateKeyPair' :: CreateKeyPair -&gt; Text
-</span><a href="#local-6989586621681295895"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295895"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295894"><span class="annot"><span class="annottext">s :: CreateKeyPair
-</span><a href="#local-6989586621681295894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295893"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
-</span><a href="#local-6989586621681295894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPair' :: Text
+</span><a href="#local-6989586621681295904"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295904"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295903"><span class="annot"><span class="annottext">s :: CreateKeyPair
+</span><a href="#local-6989586621681295903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPair
+</span><a href="#local-6989586621681295903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPair' :: Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPair%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621681295889"><span class="annot"><span class="annottext">request :: CreateKeyPair -&gt; Request CreateKeyPair
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621681295898"><span class="annot"><span class="annottext">request :: CreateKeyPair -&gt; Request CreateKeyPair
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateKeyPair -&gt; Request CreateKeyPair
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621681295885"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621681295894"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateKeyPair
 -&gt; ClientResponse ClientBody
@@ -341,10 +341,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681295882"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681295882"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681295881"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681295881"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681295880"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681295880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681295891"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295891"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681295890"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681295890"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681295889"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681295889"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Tag]
 -&gt; Int
@@ -367,7 +367,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681295880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681295889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyPairId&quot;</span></span><span class="hs-special">)</span><span>
@@ -381,7 +381,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Int -&gt; Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681295880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681295889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -415,14 +415,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681295882"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295891"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Text -&gt; Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; Sensitive Text -&gt; CreateKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681295880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681295889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyName&quot;</span></span><span class="hs-special">)</span><span>
@@ -431,7 +431,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Sensitive Text -&gt; CreateKeyPairResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681295880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681295889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyFingerprint&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,18 +440,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String CreateKeyPairResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681295880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Sensitive Text)
+</span><a href="#local-6989586621681295889"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Sensitive Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyMaterial&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295868"><span id="local-6989586621681295870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295877"><span id="local-6989586621681295879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span></span></span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621681295861"><span class="annot"><span class="annottext">toHeaders :: CreateKeyPair -&gt; ResponseHeaders
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621681295870"><span class="annot"><span class="annottext">toHeaders :: CreateKeyPair -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateKeyPair -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -459,15 +459,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621681295856"><span class="annot"><span class="annottext">toPath :: CreateKeyPair -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681295865"><span class="annot"><span class="annottext">toPath :: CreateKeyPair -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateKeyPair -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair"><span class="hs-identifier hs-type">CreateKeyPair</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621681295852"><span class="annot"><span class="annottext">toQuery :: CreateKeyPair -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295847"><span id="local-6989586621681295848"><span id="local-6989586621681295849"><span id="local-6989586621681295850"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681295861"><span class="annot"><span class="annottext">toQuery :: CreateKeyPair -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPair%27"><span class="hs-identifier hs-type">CreateKeyPair'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295856"><span id="local-6989586621681295857"><span id="local-6989586621681295858"><span id="local-6989586621681295859"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [TagSpecification]
 Maybe KeyType
 Text
@@ -479,7 +479,7 @@ $sel:keyName:CreateKeyPair' :: CreateKeyPair -&gt; Text
 $sel:dryRun:CreateKeyPair' :: CreateKeyPair -&gt; Maybe Bool
 $sel:tagSpecifications:CreateKeyPair' :: CreateKeyPair -&gt; Maybe [TagSpecification]
 $sel:keyType:CreateKeyPair' :: CreateKeyPair -&gt; Maybe KeyType
-</span><a href="#local-6989586621681295847"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681295856"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -499,7 +499,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;KeyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe KeyType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
-</span><a href="#local-6989586621681295850"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681295859"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -513,24 +513,24 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681295849"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><a href="#local-6989586621681295858"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
 </span><span id="line-191"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681295848"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681295857"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;KeyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295847"><span class="hs-identifier hs-var">keyName</span></a></span><span>
+</span><a href="#local-6989586621681295856"><span class="hs-identifier hs-var">keyName</span></a></span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | Describes a key pair.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- /See:/ 'newCreateKeyPairResponse' smart constructor.</span><span>
-</span><span id="line-199"></span><span id="local-6989586621681295843"><span id="local-6989586621681295844"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyPairResponse"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-var">CreateKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyPairResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-var">CreateKeyPairResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span id="local-6989586621681295852"><span id="local-6989586621681295853"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateKeyPairResponse"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-var">CreateKeyPairResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateKeyPairResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-var">CreateKeyPairResponse'</span></a></span></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the key pair.</span><span>
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AkeyPairId%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyPairId%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -550,7 +550,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-211"></span><span>    </span><span id="%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; Sensitive Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var hs-var">keyMaterial</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-212"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681295833"><span id="local-6989586621681295835"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
+</span><span id="line-213"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681295842"><span id="local-6989586621681295844"><span class="annot"><span class="annottext">CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
 (CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool)
 -&gt; (CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool)
 -&gt; Eq CreateKeyPairResponse
@@ -559,7 +559,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
 == :: CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
 $c== :: CreateKeyPairResponse -&gt; CreateKeyPairResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295827"><span id="local-6989586621681295829"><span id="local-6989586621681295831"><span class="annot"><span class="annottext">Int -&gt; CreateKeyPairResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681295836"><span id="local-6989586621681295838"><span id="local-6989586621681295840"><span class="annot"><span class="annottext">Int -&gt; CreateKeyPairResponse -&gt; ShowS
 [CreateKeyPairResponse] -&gt; ShowS
 CreateKeyPairResponse -&gt; String
 (Int -&gt; CreateKeyPairResponse -&gt; ShowS)
@@ -616,14 +616,14 @@ $cfrom :: forall x. CreateKeyPairResponse -&gt; Rep CreateKeyPairResponse x
 </span><span id="line-243"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span>
 </span><span id="line-244"></span><span id="newCreateKeyPairResponse"><span class="annot"><span class="annottext">newCreateKeyPairResponse :: Int -&gt; Text -&gt; Text -&gt; Text -&gt; CreateKeyPairResponse
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#newCreateKeyPairResponse"><span class="hs-identifier hs-var hs-var">newCreateKeyPairResponse</span></a></span></span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621681295824"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681295824"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-246"></span><span>  </span><span id="local-6989586621681295823"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295823"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621681295822"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295822"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span></span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621681295821"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295821"><span class="hs-identifier hs-var">pKeyMaterial_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621681295833"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295833"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621681295832"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295832"><span class="hs-identifier hs-var">pKeyName_</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621681295831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295831"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span></span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621681295830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295830"><span class="hs-identifier hs-var">pKeyMaterial_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">CreateKeyPairResponse' :: Maybe Text
 -&gt; Maybe [Tag]
 -&gt; Int
@@ -642,13 +642,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyPairResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AhttpStatus%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681295824"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681295833"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPairResponse' :: Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295823"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681295832"><span class="hs-identifier hs-var">pKeyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-254"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyFingerprint:CreateKeyPairResponse' :: Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyFingerprint%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295822"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681295831"><span class="hs-identifier hs-var">pKeyFingerprint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyMaterial:CreateKeyPairResponse' :: Sensitive Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -658,7 +658,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295821"><span class="hs-identifier hs-var">pKeyMaterial_</span></a></span><span>
+</span><a href="#local-6989586621681295830"><span class="hs-identifier hs-var">pKeyMaterial_</span></a></span><span>
 </span><span id="line-256"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span class="hs-comment">-- | The ID of the key pair.</span><span>
@@ -673,16 +673,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295818"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295827"><span class="annot"><span class="annottext">Maybe Text
 keyPairId :: Maybe Text
 $sel:keyPairId:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681295818"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681295818"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295817"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
-</span><a href="#local-6989586621681295817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295816"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681295816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
-</span><a href="#local-6989586621681295817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:CreateKeyPairResponse' :: Maybe Text
+</span><a href="#local-6989586621681295827"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681295827"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295826"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295825"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681295825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:CreateKeyPairResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyPairId%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681295816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | Any tags applied to the key pair.</span><span>
 </span><span id="line-263"></span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#createKeyPairResponse_tags"><span class="hs-identifier hs-type">createKeyPairResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -696,16 +696,16 @@ $sel:keyPairId:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Maybe Text
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295815"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295824"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681295815"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681295815"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295814"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
-</span><a href="#local-6989586621681295814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295813"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681295813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
-</span><a href="#local-6989586621681295814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateKeyPairResponse' :: Maybe [Tag]
+</span><a href="#local-6989586621681295824"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681295824"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295823"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295822"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681295822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateKeyPairResponse' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3Atags%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681295813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681295822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -729,16 +729,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateKeyPairResponse -&gt; Int -&gt; CreateKeyPairResponse)
 -&gt; Lens CreateKeyPairResponse CreateKeyPairResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295812"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295821"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Int
-</span><a href="#local-6989586621681295812"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681295812"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295811"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
-</span><a href="#local-6989586621681295811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295810"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681295810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
-</span><a href="#local-6989586621681295811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyPairResponse' :: Int
+</span><a href="#local-6989586621681295821"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295821"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295820"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295819"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681295819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateKeyPairResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AhttpStatus%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681295810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The name of the key pair.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#createKeyPairResponse_keyName"><span class="hs-identifier hs-type">createKeyPairResponse_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -748,16 +748,16 @@ $sel:httpStatus:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Int
 -&gt; (CreateKeyPairResponse -&gt; Text -&gt; CreateKeyPairResponse)
 -&gt; Lens CreateKeyPairResponse CreateKeyPairResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295809"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295818"><span class="annot"><span class="annottext">Text
 keyName :: Text
 $sel:keyName:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Text
-</span><a href="#local-6989586621681295809"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295809"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295808"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
-</span><a href="#local-6989586621681295808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295807"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
-</span><a href="#local-6989586621681295808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPairResponse' :: Text
+</span><a href="#local-6989586621681295818"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295818"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295817"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:CreateKeyPairResponse' :: Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyName%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The SHA-1 digest of the DER encoded private key.</span><span>
 </span><span id="line-275"></span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#createKeyPairResponse_keyFingerprint"><span class="hs-identifier hs-type">createKeyPairResponse_keyFingerprint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -767,16 +767,16 @@ $sel:keyName:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Text
 -&gt; (CreateKeyPairResponse -&gt; Text -&gt; CreateKeyPairResponse)
 -&gt; Lens CreateKeyPairResponse CreateKeyPairResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295806"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295815"><span class="annot"><span class="annottext">Text
 keyFingerprint :: Text
 $sel:keyFingerprint:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Text
-</span><a href="#local-6989586621681295806"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295806"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295805"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
-</span><a href="#local-6989586621681295805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295804"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
-</span><a href="#local-6989586621681295805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:CreateKeyPairResponse' :: Text
+</span><a href="#local-6989586621681295815"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295815"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295814"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295813"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681295813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:CreateKeyPairResponse' :: Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyFingerprint%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681295804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681295813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | An unencrypted PEM encoded RSA or ED25519 private key.</span><span>
 </span><span id="line-279"></span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#createKeyPairResponse_keyMaterial"><span class="hs-identifier hs-type">createKeyPairResponse_keyMaterial</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -791,16 +791,16 @@ $sel:keyFingerprint:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Text
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295803"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681295812"><span class="annot"><span class="annottext">Sensitive Text
 keyMaterial :: Sensitive Text
 $sel:keyMaterial:CreateKeyPairResponse' :: CreateKeyPairResponse -&gt; Sensitive Text
-</span><a href="#local-6989586621681295803"><span class="hs-identifier hs-var hs-var">keyMaterial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621681295803"><span class="hs-identifier hs-var">keyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295802"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
-</span><a href="#local-6989586621681295802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295801"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621681295801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
-</span><a href="#local-6989586621681295802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyMaterial:CreateKeyPairResponse' :: Sensitive Text
+</span><a href="#local-6989586621681295812"><span class="hs-identifier hs-var hs-var">keyMaterial</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621681295812"><span class="hs-identifier hs-var">keyMaterial</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681295811"><span class="annot"><span class="annottext">s :: CreateKeyPairResponse
+</span><a href="#local-6989586621681295811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse%27"><span class="hs-identifier hs-type">CreateKeyPairResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681295810"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621681295810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateKeyPairResponse
+</span><a href="#local-6989586621681295811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyMaterial:CreateKeyPairResponse' :: Sensitive Text
 </span><a href="Network.AWS.EC2.CreateKeyPair.html#%24sel%3AkeyMaterial%3ACreateKeyPairResponse%27"><span class="hs-identifier hs-var">keyMaterial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621681295801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621681295810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; CreateKeyPairResponse -&gt; f CreateKeyPairResponse)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -811,5 +811,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-281"></span><span>
-</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295799"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681295808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateKeyPair.html#CreateKeyPairResponse"><span class="hs-identifier hs-type">CreateKeyPairResponse</span></a></span></span><span>
 </span><span id="line-283"></span></pre></body></html>

@@ -58,13 +58,13 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span id="local-6989586621680346150"><span id="local-6989586621680346151"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetDevice"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetDevice.html#TargetDevice"><span class="hs-identifier hs-var">TargetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetDevice%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetDevice.html#TargetDevice%27"><span class="hs-identifier hs-var">TargetDevice'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621680346159"><span id="local-6989586621680346160"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetDevice"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetDevice.html#TargetDevice"><span class="hs-identifier hs-var">TargetDevice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetDevice%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TargetDevice.html#TargetDevice%27"><span class="hs-identifier hs-var">TargetDevice'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetDevice"><span class="annot"><span class="annottext">TargetDevice -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TargetDevice.html#fromTargetDevice"><span class="hs-identifier hs-var hs-var">fromTargetDevice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346142"><span id="local-6989586621680346144"><span id="local-6989586621680346146"><span class="annot"><span class="annottext">Int -&gt; TargetDevice -&gt; ShowS
+</span><span id="line-66"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346151"><span id="local-6989586621680346153"><span id="local-6989586621680346155"><span class="annot"><span class="annottext">Int -&gt; TargetDevice -&gt; ShowS
 [TargetDevice] -&gt; ShowS
 TargetDevice -&gt; String
 (Int -&gt; TargetDevice -&gt; ShowS)
@@ -80,7 +80,7 @@ $cshow :: TargetDevice -&gt; String
 showsPrec :: Int -&gt; TargetDevice -&gt; ShowS
 $cshowsPrec :: Int -&gt; TargetDevice -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621680346133"><span id="local-6989586621680346135"><span id="local-6989586621680346137"><span id="local-6989586621680346139"><span class="annot"><span class="annottext">ReadPrec [TargetDevice]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680346142"><span id="local-6989586621680346144"><span id="local-6989586621680346146"><span id="local-6989586621680346148"><span class="annot"><span class="annottext">ReadPrec [TargetDevice]
 ReadPrec TargetDevice
 Int -&gt; ReadS TargetDevice
 ReadS [TargetDevice]
@@ -101,7 +101,7 @@ $creadList :: ReadS [TargetDevice]
 readsPrec :: Int -&gt; ReadS TargetDevice
 $creadsPrec :: Int -&gt; ReadS TargetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621680346128"><span id="local-6989586621680346130"><span class="annot"><span class="annottext">TargetDevice -&gt; TargetDevice -&gt; Bool
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680346137"><span id="local-6989586621680346139"><span class="annot"><span class="annottext">TargetDevice -&gt; TargetDevice -&gt; Bool
 (TargetDevice -&gt; TargetDevice -&gt; Bool)
 -&gt; (TargetDevice -&gt; TargetDevice -&gt; Bool) -&gt; Eq TargetDevice
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -110,7 +110,7 @@ $c/= :: TargetDevice -&gt; TargetDevice -&gt; Bool
 == :: TargetDevice -&gt; TargetDevice -&gt; Bool
 $c== :: TargetDevice -&gt; TargetDevice -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621680346112"><span id="local-6989586621680346114"><span id="local-6989586621680346116"><span id="local-6989586621680346118"><span id="local-6989586621680346120"><span id="local-6989586621680346122"><span id="local-6989586621680346124"><span class="annot"><span class="annottext">Eq TargetDevice
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680346121"><span id="local-6989586621680346123"><span id="local-6989586621680346125"><span id="local-6989586621680346127"><span id="local-6989586621680346129"><span id="local-6989586621680346131"><span id="local-6989586621680346133"><span class="annot"><span class="annottext">Eq TargetDevice
 Eq TargetDevice
 -&gt; (TargetDevice -&gt; TargetDevice -&gt; Ordering)
 -&gt; (TargetDevice -&gt; TargetDevice -&gt; Bool)
@@ -161,7 +161,7 @@ $cfrom :: forall x. TargetDevice -&gt; Rep TargetDevice x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346104"><span id="local-6989586621680346106"><span class="annot"><span class="annottext">Int -&gt; TargetDevice -&gt; Int
+</span><span id="line-73"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680346113"><span id="local-6989586621680346115"><span class="annot"><span class="annottext">Int -&gt; TargetDevice -&gt; Int
 TargetDevice -&gt; Int
 (Int -&gt; TargetDevice -&gt; Int)
 -&gt; (TargetDevice -&gt; Int) -&gt; Hashable TargetDevice
@@ -171,49 +171,49 @@ $chash :: TargetDevice -&gt; Int
 hashWithSalt :: Int -&gt; TargetDevice -&gt; Int
 $chashWithSalt :: Int -&gt; TargetDevice -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621680346101"><span class="annot"><span class="annottext">TargetDevice -&gt; ()
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621680346110"><span class="annot"><span class="annottext">TargetDevice -&gt; ()
 (TargetDevice -&gt; ()) -&gt; NFData TargetDevice
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TargetDevice -&gt; ()
 $crnf :: TargetDevice -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621680346098"><span class="annot"><span class="annottext">Text -&gt; Either String TargetDevice
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621680346107"><span class="annot"><span class="annottext">Text -&gt; Either String TargetDevice
 (Text -&gt; Either String TargetDevice) -&gt; FromText TargetDevice
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TargetDevice
 $cfromText :: Text -&gt; Either String TargetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621680346095"><span class="annot"><span class="annottext">TargetDevice -&gt; Text
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621680346104"><span class="annot"><span class="annottext">TargetDevice -&gt; Text
 (TargetDevice -&gt; Text) -&gt; ToText TargetDevice
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TargetDevice -&gt; Text
 $ctoText :: TargetDevice -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621680346092"><span class="annot"><span class="annottext">TargetDevice -&gt; ByteString
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621680346101"><span class="annot"><span class="annottext">TargetDevice -&gt; ByteString
 (TargetDevice -&gt; ByteString) -&gt; ToByteString TargetDevice
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TargetDevice -&gt; ByteString
 $ctoBS :: TargetDevice -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621680346089"><span class="annot"><span class="annottext">TargetDevice -&gt; ByteStringBuilder
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621680346098"><span class="annot"><span class="annottext">TargetDevice -&gt; ByteStringBuilder
 (TargetDevice -&gt; ByteStringBuilder) -&gt; ToLog TargetDevice
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TargetDevice -&gt; ByteStringBuilder
 $cbuild :: TargetDevice -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621680346086"><span class="annot"><span class="annottext">HeaderName -&gt; TargetDevice -&gt; [Header]
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621680346095"><span class="annot"><span class="annottext">HeaderName -&gt; TargetDevice -&gt; [Header]
 (HeaderName -&gt; TargetDevice -&gt; [Header]) -&gt; ToHeader TargetDevice
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TargetDevice -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TargetDevice -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621680346083"><span class="annot"><span class="annottext">TargetDevice -&gt; QueryString
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621680346092"><span class="annot"><span class="annottext">TargetDevice -&gt; QueryString
 (TargetDevice -&gt; QueryString) -&gt; ToQuery TargetDevice
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TargetDevice -&gt; QueryString
 $ctoQuery :: TargetDevice -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621680346078"><span id="local-6989586621680346080"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetDevice]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621680346087"><span id="local-6989586621680346089"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetDevice]
 Value -&gt; Parser TargetDevice
 (Value -&gt; Parser TargetDevice)
 -&gt; (Value -&gt; Parser [TargetDevice]) -&gt; FromJSON TargetDevice
@@ -224,7 +224,7 @@ $cparseJSONList :: Value -&gt; Parser [TargetDevice]
 parseJSON :: Value -&gt; Parser TargetDevice
 $cparseJSON :: Value -&gt; Parser TargetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621680346073"><span id="local-6989586621680346075"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetDevice]
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621680346082"><span id="local-6989586621680346084"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetDevice]
 FromJSONKeyFunction TargetDevice
 FromJSONKeyFunction TargetDevice
 -&gt; FromJSONKeyFunction [TargetDevice] -&gt; FromJSONKey TargetDevice
@@ -235,7 +235,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TargetDevice]
 fromJSONKey :: FromJSONKeyFunction TargetDevice
 $cfromJSONKey :: FromJSONKeyFunction TargetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621680346064"><span id="local-6989586621680346066"><span id="local-6989586621680346068"><span id="local-6989586621680346070"><span class="annot"><span class="annottext">[TargetDevice] -&gt; Encoding
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621680346073"><span id="local-6989586621680346075"><span id="local-6989586621680346077"><span id="local-6989586621680346079"><span class="annot"><span class="annottext">[TargetDevice] -&gt; Encoding
 [TargetDevice] -&gt; Value
 TargetDevice -&gt; Encoding
 TargetDevice -&gt; Value
@@ -259,7 +259,7 @@ $ctoEncoding :: TargetDevice -&gt; Encoding
 toJSON :: TargetDevice -&gt; Value
 $ctoJSON :: TargetDevice -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621680346059"><span id="local-6989586621680346061"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetDevice]
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621680346068"><span id="local-6989586621680346070"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetDevice]
 ToJSONKeyFunction TargetDevice
 ToJSONKeyFunction TargetDevice
 -&gt; ToJSONKeyFunction [TargetDevice] -&gt; ToJSONKey TargetDevice
@@ -270,13 +270,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TargetDevice]
 toJSONKey :: ToJSONKeyFunction TargetDevice
 $ctoJSONKey :: ToJSONKeyFunction TargetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621680346056"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetDevice
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621680346065"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetDevice
 ([Node] -&gt; Either String TargetDevice) -&gt; FromXML TargetDevice
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TargetDevice
 $cparseXML :: [Node] -&gt; Either String TargetDevice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span id="local-6989586621680346053"><span class="annot"><span class="annottext">TargetDevice -&gt; XML
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621680346062"><span class="annot"><span class="annottext">TargetDevice -&gt; XML
 (TargetDevice -&gt; XML) -&gt; ToXML TargetDevice
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TargetDevice -&gt; XML

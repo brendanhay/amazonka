@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Specify the encryption scheme that you want the service to use when</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- AES_CTR (AES-CTR).</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679948808"><span id="local-6989586621679948809"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafEncryptionType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafEncryptionType.html#CmafEncryptionType"><span class="hs-identifier hs-var">CmafEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafEncryptionType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafEncryptionType.html#CmafEncryptionType%27"><span class="hs-identifier hs-var">CmafEncryptionType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679948817"><span id="local-6989586621679948818"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafEncryptionType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafEncryptionType.html#CmafEncryptionType"><span class="hs-identifier hs-var">CmafEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafEncryptionType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafEncryptionType.html#CmafEncryptionType%27"><span class="hs-identifier hs-var">CmafEncryptionType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafEncryptionType"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafEncryptionType.html#fromCmafEncryptionType"><span class="hs-identifier hs-var hs-var">fromCmafEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948800"><span id="local-6989586621679948802"><span id="local-6989586621679948804"><span class="annot"><span class="annottext">Int -&gt; CmafEncryptionType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948809"><span id="local-6989586621679948811"><span id="local-6989586621679948813"><span class="annot"><span class="annottext">Int -&gt; CmafEncryptionType -&gt; ShowS
 [CmafEncryptionType] -&gt; ShowS
 CmafEncryptionType -&gt; String
 (Int -&gt; CmafEncryptionType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: CmafEncryptionType -&gt; String
 showsPrec :: Int -&gt; CmafEncryptionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafEncryptionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679948791"><span id="local-6989586621679948793"><span id="local-6989586621679948795"><span id="local-6989586621679948797"><span class="annot"><span class="annottext">ReadPrec [CmafEncryptionType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679948800"><span id="local-6989586621679948802"><span id="local-6989586621679948804"><span id="local-6989586621679948806"><span class="annot"><span class="annottext">ReadPrec [CmafEncryptionType]
 ReadPrec CmafEncryptionType
 Int -&gt; ReadS CmafEncryptionType
 ReadS [CmafEncryptionType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [CmafEncryptionType]
 readsPrec :: Int -&gt; ReadS CmafEncryptionType
 $creadsPrec :: Int -&gt; ReadS CmafEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679948786"><span id="local-6989586621679948788"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679948795"><span id="local-6989586621679948797"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool
 (CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool)
 -&gt; (CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool)
 -&gt; Eq CmafEncryptionType
@@ -85,7 +85,7 @@ $c/= :: CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool
 == :: CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool
 $c== :: CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679948770"><span id="local-6989586621679948772"><span id="local-6989586621679948774"><span id="local-6989586621679948776"><span id="local-6989586621679948778"><span id="local-6989586621679948780"><span id="local-6989586621679948782"><span class="annot"><span class="annottext">Eq CmafEncryptionType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679948779"><span id="local-6989586621679948781"><span id="local-6989586621679948783"><span id="local-6989586621679948785"><span id="local-6989586621679948787"><span id="local-6989586621679948789"><span id="local-6989586621679948791"><span class="annot"><span class="annottext">Eq CmafEncryptionType
 Eq CmafEncryptionType
 -&gt; (CmafEncryptionType -&gt; CmafEncryptionType -&gt; Ordering)
 -&gt; (CmafEncryptionType -&gt; CmafEncryptionType -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. CmafEncryptionType -&gt; Rep CmafEncryptionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948762"><span id="local-6989586621679948764"><span class="annot"><span class="annottext">Int -&gt; CmafEncryptionType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948771"><span id="local-6989586621679948773"><span class="annot"><span class="annottext">Int -&gt; CmafEncryptionType -&gt; Int
 CmafEncryptionType -&gt; Int
 (Int -&gt; CmafEncryptionType -&gt; Int)
 -&gt; (CmafEncryptionType -&gt; Int) -&gt; Hashable CmafEncryptionType
@@ -146,53 +146,53 @@ $chash :: CmafEncryptionType -&gt; Int
 hashWithSalt :: Int -&gt; CmafEncryptionType -&gt; Int
 $chashWithSalt :: Int -&gt; CmafEncryptionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679948759"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679948768"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; ()
 (CmafEncryptionType -&gt; ()) -&gt; NFData CmafEncryptionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafEncryptionType -&gt; ()
 $crnf :: CmafEncryptionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679948756"><span class="annot"><span class="annottext">Text -&gt; Either String CmafEncryptionType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679948765"><span class="annot"><span class="annottext">Text -&gt; Either String CmafEncryptionType
 (Text -&gt; Either String CmafEncryptionType)
 -&gt; FromText CmafEncryptionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafEncryptionType
 $cfromText :: Text -&gt; Either String CmafEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679948753"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679948762"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; Text
 (CmafEncryptionType -&gt; Text) -&gt; ToText CmafEncryptionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafEncryptionType -&gt; Text
 $ctoText :: CmafEncryptionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679948750"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679948759"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; ByteString
 (CmafEncryptionType -&gt; ByteString)
 -&gt; ToByteString CmafEncryptionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafEncryptionType -&gt; ByteString
 $ctoBS :: CmafEncryptionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679948747"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679948756"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; ByteStringBuilder
 (CmafEncryptionType -&gt; ByteStringBuilder)
 -&gt; ToLog CmafEncryptionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafEncryptionType -&gt; ByteStringBuilder
 $cbuild :: CmafEncryptionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679948744"><span class="annot"><span class="annottext">HeaderName -&gt; CmafEncryptionType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679948753"><span class="annot"><span class="annottext">HeaderName -&gt; CmafEncryptionType -&gt; [Header]
 (HeaderName -&gt; CmafEncryptionType -&gt; [Header])
 -&gt; ToHeader CmafEncryptionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafEncryptionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafEncryptionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679948741"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679948750"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; QueryString
 (CmafEncryptionType -&gt; QueryString) -&gt; ToQuery CmafEncryptionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafEncryptionType -&gt; QueryString
 $ctoQuery :: CmafEncryptionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679948736"><span id="local-6989586621679948738"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafEncryptionType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679948745"><span id="local-6989586621679948747"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafEncryptionType]
 Value -&gt; Parser CmafEncryptionType
 (Value -&gt; Parser CmafEncryptionType)
 -&gt; (Value -&gt; Parser [CmafEncryptionType])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafEncryptionType]
 parseJSON :: Value -&gt; Parser CmafEncryptionType
 $cparseJSON :: Value -&gt; Parser CmafEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679948731"><span id="local-6989586621679948733"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafEncryptionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679948740"><span id="local-6989586621679948742"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafEncryptionType]
 FromJSONKeyFunction CmafEncryptionType
 FromJSONKeyFunction CmafEncryptionType
 -&gt; FromJSONKeyFunction [CmafEncryptionType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafEncryptionType]
 fromJSONKey :: FromJSONKeyFunction CmafEncryptionType
 $cfromJSONKey :: FromJSONKeyFunction CmafEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679948722"><span id="local-6989586621679948724"><span id="local-6989586621679948726"><span id="local-6989586621679948728"><span class="annot"><span class="annottext">[CmafEncryptionType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679948731"><span id="local-6989586621679948733"><span id="local-6989586621679948735"><span id="local-6989586621679948737"><span class="annot"><span class="annottext">[CmafEncryptionType] -&gt; Encoding
 [CmafEncryptionType] -&gt; Value
 CmafEncryptionType -&gt; Encoding
 CmafEncryptionType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: CmafEncryptionType -&gt; Encoding
 toJSON :: CmafEncryptionType -&gt; Value
 $ctoJSON :: CmafEncryptionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679948717"><span id="local-6989586621679948719"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafEncryptionType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679948726"><span id="local-6989586621679948728"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafEncryptionType]
 ToJSONKeyFunction CmafEncryptionType
 ToJSONKeyFunction CmafEncryptionType
 -&gt; ToJSONKeyFunction [CmafEncryptionType]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafEncryptionType]
 toJSONKey :: ToJSONKeyFunction CmafEncryptionType
 $ctoJSONKey :: ToJSONKeyFunction CmafEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679948714"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafEncryptionType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679948723"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafEncryptionType
 ([Node] -&gt; Either String CmafEncryptionType)
 -&gt; FromXML CmafEncryptionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafEncryptionType
 $cparseXML :: [Node] -&gt; Either String CmafEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679948711"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679948720"><span class="annot"><span class="annottext">CmafEncryptionType -&gt; XML
 (CmafEncryptionType -&gt; XML) -&gt; ToXML CmafEncryptionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafEncryptionType -&gt; XML

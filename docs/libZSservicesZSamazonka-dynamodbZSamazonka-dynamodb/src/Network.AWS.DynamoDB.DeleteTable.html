@@ -68,12 +68,12 @@
 </span><span id="line-68"></span><span class="hs-comment">-- | Represents the input of a @DeleteTable@ operation.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- /See:/ 'newDeleteTable' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679394016"><span id="local-6989586621679394017"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTable"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-var">DeleteTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-var">DeleteTable'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679394025"><span id="local-6989586621679394026"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTable"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-var">DeleteTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-var">DeleteTable'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the table to delete.</span><span>
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AtableName%3ADeleteTable%27"><span class="annot"><span class="annottext">DeleteTable -&gt; Text
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AtableName%3ADeleteTable%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394010"><span id="local-6989586621679394012"><span class="annot"><span class="annottext">DeleteTable -&gt; DeleteTable -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394019"><span id="local-6989586621679394021"><span class="annot"><span class="annottext">DeleteTable -&gt; DeleteTable -&gt; Bool
 (DeleteTable -&gt; DeleteTable -&gt; Bool)
 -&gt; (DeleteTable -&gt; DeleteTable -&gt; Bool) -&gt; Eq DeleteTable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTable -&gt; DeleteTable -&gt; Bool
 == :: DeleteTable -&gt; DeleteTable -&gt; Bool
 $c== :: DeleteTable -&gt; DeleteTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394001"><span id="local-6989586621679394003"><span id="local-6989586621679394005"><span id="local-6989586621679394007"><span class="annot"><span class="annottext">ReadPrec [DeleteTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394010"><span id="local-6989586621679394012"><span id="local-6989586621679394014"><span id="local-6989586621679394016"><span class="annot"><span class="annottext">ReadPrec [DeleteTable]
 ReadPrec DeleteTable
 Int -&gt; ReadS DeleteTable
 ReadS [DeleteTable]
@@ -101,7 +101,7 @@ readList :: ReadS [DeleteTable]
 $creadList :: ReadS [DeleteTable]
 readsPrec :: Int -&gt; ReadS DeleteTable
 $creadsPrec :: Int -&gt; ReadS DeleteTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393994"><span id="local-6989586621679393996"><span id="local-6989586621679393998"><span class="annot"><span class="annottext">Int -&gt; DeleteTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394003"><span id="local-6989586621679394005"><span id="local-6989586621679394007"><span class="annot"><span class="annottext">Int -&gt; DeleteTable -&gt; ShowS
 [DeleteTable] -&gt; ShowS
 DeleteTable -&gt; String
 (Int -&gt; DeleteTable -&gt; ShowS)
@@ -141,12 +141,12 @@ $cfrom :: forall x. DeleteTable -&gt; Rep DeleteTable x
 </span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span>
 </span><span id="line-90"></span><span id="newDeleteTable"><span class="annot"><span class="annottext">newDeleteTable :: Text -&gt; DeleteTable
-</span><a href="Network.AWS.DynamoDB.DeleteTable.html#newDeleteTable"><span class="hs-identifier hs-var hs-var">newDeleteTable</span></a></span></span><span> </span><span id="local-6989586621679393989"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393989"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DeleteTable.html#newDeleteTable"><span class="hs-identifier hs-var hs-var">newDeleteTable</span></a></span></span><span> </span><span id="local-6989586621679393998"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393998"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DeleteTable' :: Text -&gt; DeleteTable
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DeleteTable' :: Text
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AtableName%3ADeleteTable%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393989"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679393998"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The name of the table to delete.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#deleteTable_tableName"><span class="hs-identifier hs-type">deleteTable_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -155,25 +155,25 @@ $cfrom :: forall x. DeleteTable -&gt; Rep DeleteTable x
 -&gt; (DeleteTable -&gt; Text -&gt; DeleteTable)
 -&gt; Lens DeleteTable DeleteTable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393986"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393995"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DeleteTable' :: DeleteTable -&gt; Text
-</span><a href="#local-6989586621679393986"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393986"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393985"><span class="annot"><span class="annottext">s :: DeleteTable
-</span><a href="#local-6989586621679393985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393984"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
-</span><a href="#local-6989586621679393985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DeleteTable' :: Text
+</span><a href="#local-6989586621679393995"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393995"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393994"><span class="annot"><span class="annottext">s :: DeleteTable
+</span><a href="#local-6989586621679393994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393993"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679393993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTable
+</span><a href="#local-6989586621679393994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DeleteTable' :: Text
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AtableName%3ADeleteTable%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679393980"><span class="annot"><span class="annottext">request :: DeleteTable -&gt; Request DeleteTable
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679393989"><span class="annot"><span class="annottext">request :: DeleteTable -&gt; Request DeleteTable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTable -&gt; Request DeleteTable
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679393976"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679393985"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTable
 -&gt; ClientResponse ClientBody
@@ -197,10 +197,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393973"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393973"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393972"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679393972"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393971"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393982"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679393981"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679393981"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679393980"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679393980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe TableDescription -&gt; Int -&gt; DeleteTableResponse
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-var">DeleteTableResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TableDescription -&gt; Int -&gt; DeleteTableResponse)
@@ -208,7 +208,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteTableResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TableDescription)
+</span><a href="#local-6989586621679393980"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TableDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -220,15 +220,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393973"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393982"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393963"><span id="local-6989586621679393965"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393972"><span id="local-6989586621679393974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393960"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679393956"><span class="annot"><span class="annottext">toHeaders :: DeleteTable -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679393965"><span class="annot"><span class="annottext">toHeaders :: DeleteTable -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteTable -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -255,12 +255,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393946"><span id="local-6989586621679393948"><span id="local-6989586621679393950"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679393944"><span class="annot"><span class="annottext">toJSON :: DeleteTable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393942"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393955"><span id="local-6989586621679393957"><span id="local-6989586621679393959"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679393953"><span class="annot"><span class="annottext">toJSON :: DeleteTable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable%27"><span class="hs-identifier hs-type">DeleteTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393951"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DeleteTable' :: DeleteTable -&gt; Text
-</span><a href="#local-6989586621679393942"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679393951"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,18 +272,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679393942"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679393951"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679393936"><span class="annot"><span class="annottext">toPath :: DeleteTable -&gt; ByteString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679393945"><span class="annot"><span class="annottext">toPath :: DeleteTable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTable -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTable"><span class="hs-identifier hs-type">DeleteTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679393932"><span class="annot"><span class="annottext">toQuery :: DeleteTable -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679393941"><span class="annot"><span class="annottext">toQuery :: DeleteTable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteTable -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span class="hs-comment">-- | Represents the output of a @DeleteTable@ operation.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- /See:/ 'newDeleteTableResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679393929"><span id="local-6989586621679393930"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTableResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-var">DeleteTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTableResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-var">DeleteTableResponse'</span></a></span></span><span>
+</span><span id="line-143"></span><span id="local-6989586621679393938"><span id="local-6989586621679393939"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTableResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-var">DeleteTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTableResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-var">DeleteTableResponse'</span></a></span></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents the properties of a table.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AtableDescription%3ADeleteTableResponse%27"><span class="annot"><span class="annottext">DeleteTableResponse -&gt; Maybe TableDescription
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AtableDescription%3ADeleteTableResponse%27"><span class="hs-identifier hs-var hs-var">tableDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableDescription.html#TableDescription"><span class="hs-identifier hs-type">TableDescription</span></a></span><span class="hs-special">,</span><span>
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="annot"><span class="annottext">DeleteTableResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393923"><span id="local-6989586621679393925"><span class="annot"><span class="annottext">DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393932"><span id="local-6989586621679393934"><span class="annot"><span class="annottext">DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
 (DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool)
 -&gt; (DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool)
 -&gt; Eq DeleteTableResponse
@@ -310,7 +310,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
 == :: DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
 $c== :: DeleteTableResponse -&gt; DeleteTableResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393915"><span id="local-6989586621679393917"><span id="local-6989586621679393919"><span id="local-6989586621679393921"><span class="annot"><span class="annottext">ReadPrec [DeleteTableResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393924"><span id="local-6989586621679393926"><span id="local-6989586621679393928"><span id="local-6989586621679393930"><span class="annot"><span class="annottext">ReadPrec [DeleteTableResponse]
 ReadPrec DeleteTableResponse
 Int -&gt; ReadS DeleteTableResponse
 ReadS [DeleteTableResponse]
@@ -330,7 +330,7 @@ readList :: ReadS [DeleteTableResponse]
 $creadList :: ReadS [DeleteTableResponse]
 readsPrec :: Int -&gt; ReadS DeleteTableResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTableResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393909"><span id="local-6989586621679393911"><span id="local-6989586621679393913"><span class="annot"><span class="annottext">Int -&gt; DeleteTableResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393918"><span id="local-6989586621679393920"><span id="local-6989586621679393922"><span class="annot"><span class="annottext">Int -&gt; DeleteTableResponse -&gt; ShowS
 [DeleteTableResponse] -&gt; ShowS
 DeleteTableResponse -&gt; String
 (Int -&gt; DeleteTableResponse -&gt; ShowS)
@@ -372,8 +372,8 @@ $cfrom :: forall x. DeleteTableResponse -&gt; Rep DeleteTableResponse x
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newDeleteTableResponse"><span class="annot"><span class="annottext">newDeleteTableResponse :: Int -&gt; DeleteTableResponse
-</span><a href="Network.AWS.DynamoDB.DeleteTable.html#newDeleteTableResponse"><span class="hs-identifier hs-var hs-var">newDeleteTableResponse</span></a></span></span><span> </span><span id="local-6989586621679393906"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393906"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DeleteTable.html#newDeleteTableResponse"><span class="hs-identifier hs-var hs-var">newDeleteTableResponse</span></a></span></span><span> </span><span id="local-6989586621679393915"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">DeleteTableResponse' :: Maybe TableDescription -&gt; Int -&gt; DeleteTableResponse
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableDescription:DeleteTableResponse' :: Maybe TableDescription
@@ -383,7 +383,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTableResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393906"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679393915"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | Represents the properties of a table.</span><span>
@@ -399,16 +399,16 @@ forall a. Maybe a
      (Maybe TableDescription)
      (Maybe TableDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393905"><span class="annot"><span class="annottext">Maybe TableDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393914"><span class="annot"><span class="annottext">Maybe TableDescription
 tableDescription :: Maybe TableDescription
 $sel:tableDescription:DeleteTableResponse' :: DeleteTableResponse -&gt; Maybe TableDescription
-</span><a href="#local-6989586621679393905"><span class="hs-identifier hs-var hs-var">tableDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
-</span><a href="#local-6989586621679393905"><span class="hs-identifier hs-var">tableDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393904"><span class="annot"><span class="annottext">s :: DeleteTableResponse
-</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393903"><span class="annot"><span class="annottext">Maybe TableDescription
-</span><a href="#local-6989586621679393903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTableResponse
-</span><a href="#local-6989586621679393904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableDescription:DeleteTableResponse' :: Maybe TableDescription
+</span><a href="#local-6989586621679393914"><span class="hs-identifier hs-var hs-var">tableDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679393914"><span class="hs-identifier hs-var">tableDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393913"><span class="annot"><span class="annottext">s :: DeleteTableResponse
+</span><a href="#local-6989586621679393913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393912"><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679393912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTableResponse
+</span><a href="#local-6989586621679393913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableDescription:DeleteTableResponse' :: Maybe TableDescription
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AtableDescription%3ADeleteTableResponse%27"><span class="hs-identifier hs-var">tableDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
-</span><a href="#local-6989586621679393903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#deleteTableResponse_httpStatus"><span class="hs-identifier hs-type">deleteTableResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -417,16 +417,16 @@ $sel:tableDescription:DeleteTableResponse' :: DeleteTableResponse -&gt; Maybe Ta
 -&gt; (DeleteTableResponse -&gt; Int -&gt; DeleteTableResponse)
 -&gt; Lens DeleteTableResponse DeleteTableResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393902"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393911"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteTableResponse' :: DeleteTableResponse -&gt; Int
-</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393902"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393901"><span class="annot"><span class="annottext">s :: DeleteTableResponse
-</span><a href="#local-6989586621679393901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393900"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTableResponse
-</span><a href="#local-6989586621679393901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTableResponse' :: Int
+</span><a href="#local-6989586621679393911"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393911"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393910"><span class="annot"><span class="annottext">s :: DeleteTableResponse
+</span><a href="#local-6989586621679393910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse%27"><span class="hs-identifier hs-type">DeleteTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393909"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679393909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTableResponse
+</span><a href="#local-6989586621679393910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteTableResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DeleteTable.html#%24sel%3AhttpStatus%3ADeleteTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679393900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DeleteTable.html#DeleteTableResponse"><span class="hs-identifier hs-type">DeleteTableResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

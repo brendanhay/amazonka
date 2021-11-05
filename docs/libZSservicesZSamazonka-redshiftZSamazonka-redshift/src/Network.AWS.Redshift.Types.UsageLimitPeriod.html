@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Internal.html"><span class="hs-identifier">Network.AWS.Redshift.Internal</span></a></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679502252"><span id="local-6989586621679502253"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageLimitPeriod"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-var">UsageLimitPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageLimitPeriod%27"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod%27"><span class="hs-identifier hs-var">UsageLimitPeriod'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679502261"><span id="local-6989586621679502262"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UsageLimitPeriod"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-var">UsageLimitPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageLimitPeriod%27"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod%27"><span class="hs-identifier hs-var">UsageLimitPeriod'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUsageLimitPeriod"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; Text
 </span><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#fromUsageLimitPeriod"><span class="hs-identifier hs-var hs-var">fromUsageLimitPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679502244"><span id="local-6989586621679502246"><span id="local-6989586621679502248"><span class="annot"><span class="annottext">Int -&gt; UsageLimitPeriod -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679502253"><span id="local-6989586621679502255"><span id="local-6989586621679502257"><span class="annot"><span class="annottext">Int -&gt; UsageLimitPeriod -&gt; ShowS
 [UsageLimitPeriod] -&gt; ShowS
 UsageLimitPeriod -&gt; String
 (Int -&gt; UsageLimitPeriod -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: UsageLimitPeriod -&gt; String
 showsPrec :: Int -&gt; UsageLimitPeriod -&gt; ShowS
 $cshowsPrec :: Int -&gt; UsageLimitPeriod -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679502235"><span id="local-6989586621679502237"><span id="local-6989586621679502239"><span id="local-6989586621679502241"><span class="annot"><span class="annottext">ReadPrec [UsageLimitPeriod]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679502244"><span id="local-6989586621679502246"><span id="local-6989586621679502248"><span id="local-6989586621679502250"><span class="annot"><span class="annottext">ReadPrec [UsageLimitPeriod]
 ReadPrec UsageLimitPeriod
 Int -&gt; ReadS UsageLimitPeriod
 ReadS [UsageLimitPeriod]
@@ -74,7 +74,7 @@ $creadList :: ReadS [UsageLimitPeriod]
 readsPrec :: Int -&gt; ReadS UsageLimitPeriod
 $creadsPrec :: Int -&gt; ReadS UsageLimitPeriod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679502230"><span id="local-6989586621679502232"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679502239"><span id="local-6989586621679502241"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
 (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
 -&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
 -&gt; Eq UsageLimitPeriod
@@ -84,7 +84,7 @@ $c/= :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
 == :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
 $c== :: UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679502214"><span id="local-6989586621679502216"><span id="local-6989586621679502218"><span id="local-6989586621679502220"><span id="local-6989586621679502222"><span id="local-6989586621679502224"><span id="local-6989586621679502226"><span class="annot"><span class="annottext">Eq UsageLimitPeriod
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679502223"><span id="local-6989586621679502225"><span id="local-6989586621679502227"><span id="local-6989586621679502229"><span id="local-6989586621679502231"><span id="local-6989586621679502233"><span id="local-6989586621679502235"><span class="annot"><span class="annottext">Eq UsageLimitPeriod
 Eq UsageLimitPeriod
 -&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Ordering)
 -&gt; (UsageLimitPeriod -&gt; UsageLimitPeriod -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. UsageLimitPeriod -&gt; Rep UsageLimitPeriod x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679502206"><span id="local-6989586621679502208"><span class="annot"><span class="annottext">Int -&gt; UsageLimitPeriod -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679502215"><span id="local-6989586621679502217"><span class="annot"><span class="annottext">Int -&gt; UsageLimitPeriod -&gt; Int
 UsageLimitPeriod -&gt; Int
 (Int -&gt; UsageLimitPeriod -&gt; Int)
 -&gt; (UsageLimitPeriod -&gt; Int) -&gt; Hashable UsageLimitPeriod
@@ -145,51 +145,51 @@ $chash :: UsageLimitPeriod -&gt; Int
 hashWithSalt :: Int -&gt; UsageLimitPeriod -&gt; Int
 $chashWithSalt :: Int -&gt; UsageLimitPeriod -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679502203"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679502212"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ()
 (UsageLimitPeriod -&gt; ()) -&gt; NFData UsageLimitPeriod
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UsageLimitPeriod -&gt; ()
 $crnf :: UsageLimitPeriod -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679502200"><span class="annot"><span class="annottext">Text -&gt; Either String UsageLimitPeriod
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679502209"><span class="annot"><span class="annottext">Text -&gt; Either String UsageLimitPeriod
 (Text -&gt; Either String UsageLimitPeriod)
 -&gt; FromText UsageLimitPeriod
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UsageLimitPeriod
 $cfromText :: Text -&gt; Either String UsageLimitPeriod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679502197"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679502206"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; Text
 (UsageLimitPeriod -&gt; Text) -&gt; ToText UsageLimitPeriod
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UsageLimitPeriod -&gt; Text
 $ctoText :: UsageLimitPeriod -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679502194"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679502203"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ByteString
 (UsageLimitPeriod -&gt; ByteString) -&gt; ToByteString UsageLimitPeriod
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UsageLimitPeriod -&gt; ByteString
 $ctoBS :: UsageLimitPeriod -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679502191"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679502200"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; ByteStringBuilder
 (UsageLimitPeriod -&gt; ByteStringBuilder) -&gt; ToLog UsageLimitPeriod
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UsageLimitPeriod -&gt; ByteStringBuilder
 $cbuild :: UsageLimitPeriod -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679502188"><span class="annot"><span class="annottext">HeaderName -&gt; UsageLimitPeriod -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679502197"><span class="annot"><span class="annottext">HeaderName -&gt; UsageLimitPeriod -&gt; [Header]
 (HeaderName -&gt; UsageLimitPeriod -&gt; [Header])
 -&gt; ToHeader UsageLimitPeriod
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UsageLimitPeriod -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UsageLimitPeriod -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679502185"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679502194"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; QueryString
 (UsageLimitPeriod -&gt; QueryString) -&gt; ToQuery UsageLimitPeriod
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UsageLimitPeriod -&gt; QueryString
 $ctoQuery :: UsageLimitPeriod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679502180"><span id="local-6989586621679502182"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageLimitPeriod]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679502189"><span id="local-6989586621679502191"><span class="annot"><span class="annottext">Value -&gt; Parser [UsageLimitPeriod]
 Value -&gt; Parser UsageLimitPeriod
 (Value -&gt; Parser UsageLimitPeriod)
 -&gt; (Value -&gt; Parser [UsageLimitPeriod])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [UsageLimitPeriod]
 parseJSON :: Value -&gt; Parser UsageLimitPeriod
 $cparseJSON :: Value -&gt; Parser UsageLimitPeriod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679502175"><span id="local-6989586621679502177"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageLimitPeriod]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679502184"><span id="local-6989586621679502186"><span class="annot"><span class="annottext">FromJSONKeyFunction [UsageLimitPeriod]
 FromJSONKeyFunction UsageLimitPeriod
 FromJSONKeyFunction UsageLimitPeriod
 -&gt; FromJSONKeyFunction [UsageLimitPeriod]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UsageLimitPeriod]
 fromJSONKey :: FromJSONKeyFunction UsageLimitPeriod
 $cfromJSONKey :: FromJSONKeyFunction UsageLimitPeriod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679502166"><span id="local-6989586621679502168"><span id="local-6989586621679502170"><span id="local-6989586621679502172"><span class="annot"><span class="annottext">[UsageLimitPeriod] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679502175"><span id="local-6989586621679502177"><span id="local-6989586621679502179"><span id="local-6989586621679502181"><span class="annot"><span class="annottext">[UsageLimitPeriod] -&gt; Encoding
 [UsageLimitPeriod] -&gt; Value
 UsageLimitPeriod -&gt; Encoding
 UsageLimitPeriod -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: UsageLimitPeriod -&gt; Encoding
 toJSON :: UsageLimitPeriod -&gt; Value
 $ctoJSON :: UsageLimitPeriod -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679502161"><span id="local-6989586621679502163"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageLimitPeriod]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679502170"><span id="local-6989586621679502172"><span class="annot"><span class="annottext">ToJSONKeyFunction [UsageLimitPeriod]
 ToJSONKeyFunction UsageLimitPeriod
 ToJSONKeyFunction UsageLimitPeriod
 -&gt; ToJSONKeyFunction [UsageLimitPeriod]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UsageLimitPeriod]
 toJSONKey :: ToJSONKeyFunction UsageLimitPeriod
 $ctoJSONKey :: ToJSONKeyFunction UsageLimitPeriod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679502158"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageLimitPeriod
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679502167"><span class="annot"><span class="annottext">[Node] -&gt; Either String UsageLimitPeriod
 ([Node] -&gt; Either String UsageLimitPeriod)
 -&gt; FromXML UsageLimitPeriod
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UsageLimitPeriod
 $cparseXML :: [Node] -&gt; Either String UsageLimitPeriod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679502155"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679502164"><span class="annot"><span class="annottext">UsageLimitPeriod -&gt; XML
 (UsageLimitPeriod -&gt; XML) -&gt; ToXML UsageLimitPeriod
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UsageLimitPeriod -&gt; XML

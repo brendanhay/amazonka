@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.KafkaConnect.Types.PluginDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.KafkaConnect.Types.PluginDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.CustomPluginDescription.html"><span class="hs-identifier">Network.AWS.KafkaConnect.Types.CustomPluginDescription</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The description of the plugin.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPluginDescription' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679202573"><span id="local-6989586621679202574"></span></span><span class="hs-keyword">data</span><span> </span><span id="PluginDescription"><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription"><span class="hs-identifier hs-var">PluginDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PluginDescription%27"><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription%27"><span class="hs-identifier hs-var">PluginDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about a custom plugin.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcustomPlugin%3APluginDescription%27"><span class="annot"><span class="annottext">PluginDescription -&gt; Maybe CustomPluginDescription
+</span><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#%24sel%3AcustomPlugin%3APluginDescription%27"><span class="hs-identifier hs-var hs-var">customPlugin</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.CustomPluginDescription.html#CustomPluginDescription"><span class="hs-identifier hs-type">CustomPluginDescription</span></a></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202567"><span id="local-6989586621679202569"><span class="annot"><span class="annottext">PluginDescription -&gt; PluginDescription -&gt; Bool
+(PluginDescription -&gt; PluginDescription -&gt; Bool)
+-&gt; (PluginDescription -&gt; PluginDescription -&gt; Bool)
+-&gt; Eq PluginDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PluginDescription -&gt; PluginDescription -&gt; Bool
+$c/= :: PluginDescription -&gt; PluginDescription -&gt; Bool
+== :: PluginDescription -&gt; PluginDescription -&gt; Bool
+$c== :: PluginDescription -&gt; PluginDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202558"><span id="local-6989586621679202560"><span id="local-6989586621679202562"><span id="local-6989586621679202564"><span class="annot"><span class="annottext">ReadPrec [PluginDescription]
+ReadPrec PluginDescription
+Int -&gt; ReadS PluginDescription
+ReadS [PluginDescription]
+(Int -&gt; ReadS PluginDescription)
+-&gt; ReadS [PluginDescription]
+-&gt; ReadPrec PluginDescription
+-&gt; ReadPrec [PluginDescription]
+-&gt; Read PluginDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PluginDescription]
+$creadListPrec :: ReadPrec [PluginDescription]
+readPrec :: ReadPrec PluginDescription
+$creadPrec :: ReadPrec PluginDescription
+readList :: ReadS [PluginDescription]
+$creadList :: ReadS [PluginDescription]
+readsPrec :: Int -&gt; ReadS PluginDescription
+$creadsPrec :: Int -&gt; ReadS PluginDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202551"><span id="local-6989586621679202553"><span id="local-6989586621679202555"><span class="annot"><span class="annottext">Int -&gt; PluginDescription -&gt; ShowS
+[PluginDescription] -&gt; ShowS
+PluginDescription -&gt; String
+(Int -&gt; PluginDescription -&gt; ShowS)
+-&gt; (PluginDescription -&gt; String)
+-&gt; ([PluginDescription] -&gt; ShowS)
+-&gt; Show PluginDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PluginDescription] -&gt; ShowS
+$cshowList :: [PluginDescription] -&gt; ShowS
+show :: PluginDescription -&gt; String
+$cshow :: PluginDescription -&gt; String
+showsPrec :: Int -&gt; PluginDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; PluginDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PluginDescription -&gt; Rep PluginDescription x)
+-&gt; (forall x. Rep PluginDescription x -&gt; PluginDescription)
+-&gt; Generic PluginDescription
+forall x. Rep PluginDescription x -&gt; PluginDescription
+forall x. PluginDescription -&gt; Rep PluginDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PluginDescription x -&gt; PluginDescription
+$cfrom :: forall x. PluginDescription -&gt; Rep PluginDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'PluginDescription' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'customPlugin', 'pluginDescription_customPlugin' - Details about a custom plugin.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#newPluginDescription"><span class="hs-identifier hs-type">newPluginDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription"><span class="hs-identifier hs-type">PluginDescription</span></a></span><span>
+</span><span id="line-47"></span><span id="newPluginDescription"><span class="annot"><span class="annottext">newPluginDescription :: PluginDescription
+</span><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#newPluginDescription"><span class="hs-identifier hs-var hs-var">newPluginDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">PluginDescription' :: Maybe CustomPluginDescription -&gt; PluginDescription
+</span><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription%27"><span class="hs-identifier hs-type">PluginDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customPlugin:PluginDescription' :: Maybe CustomPluginDescription
+</span><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#%24sel%3AcustomPlugin%3APluginDescription%27"><span class="hs-identifier hs-var">customPlugin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginDescription
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Details about a custom plugin.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#pluginDescription_customPlugin"><span class="hs-identifier hs-type">pluginDescription_customPlugin</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription"><span class="hs-identifier hs-type">PluginDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.CustomPluginDescription.html#CustomPluginDescription"><span class="hs-identifier hs-type">CustomPluginDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span id="pluginDescription_customPlugin"><span class="annot"><span class="annottext">pluginDescription_customPlugin :: (Maybe CustomPluginDescription
+ -&gt; f (Maybe CustomPluginDescription))
+-&gt; PluginDescription -&gt; f PluginDescription
+</span><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#pluginDescription_customPlugin"><span class="hs-identifier hs-var hs-var">pluginDescription_customPlugin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PluginDescription -&gt; Maybe CustomPluginDescription)
+-&gt; (PluginDescription
+    -&gt; Maybe CustomPluginDescription -&gt; PluginDescription)
+-&gt; Lens
+     PluginDescription
+     PluginDescription
+     (Maybe CustomPluginDescription)
+     (Maybe CustomPluginDescription)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription%27"><span class="hs-identifier hs-type">PluginDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202542"><span class="annot"><span class="annottext">Maybe CustomPluginDescription
+customPlugin :: Maybe CustomPluginDescription
+$sel:customPlugin:PluginDescription' :: PluginDescription -&gt; Maybe CustomPluginDescription
+</span><a href="#local-6989586621679202542"><span class="hs-identifier hs-var hs-var">customPlugin</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginDescription
+</span><a href="#local-6989586621679202542"><span class="hs-identifier hs-var">customPlugin</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202541"><span class="annot"><span class="annottext">s :: PluginDescription
+</span><a href="#local-6989586621679202541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription%27"><span class="hs-identifier hs-type">PluginDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202540"><span class="annot"><span class="annottext">Maybe CustomPluginDescription
+</span><a href="#local-6989586621679202540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PluginDescription
+</span><a href="#local-6989586621679202541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customPlugin:PluginDescription' :: Maybe CustomPluginDescription
+</span><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#%24sel%3AcustomPlugin%3APluginDescription%27"><span class="hs-identifier hs-var">customPlugin</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CustomPluginDescription
+</span><a href="#local-6989586621679202540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription"><span class="hs-identifier hs-type">PluginDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202537"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription"><span class="hs-identifier hs-type">PluginDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679202535"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PluginDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PluginDescription)
+-&gt; Value
+-&gt; Parser PluginDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PluginDescription&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202532"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe CustomPluginDescription -&gt; PluginDescription
+</span><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription%27"><span class="hs-identifier hs-var">PluginDescription'</span></a></span><span>
+</span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CustomPluginDescription -&gt; PluginDescription)
+-&gt; Parser (Maybe CustomPluginDescription)
+-&gt; Parser PluginDescription
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CustomPluginDescription)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customPlugin&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202526"><span id="local-6989586621679202528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription"><span class="hs-identifier hs-type">PluginDescription</span></a></span></span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KafkaConnect.Types.PluginDescription.html#PluginDescription"><span class="hs-identifier hs-type">PluginDescription</span></a></span></span><span>
+</span><span id="line-66"></span></pre></body></html>

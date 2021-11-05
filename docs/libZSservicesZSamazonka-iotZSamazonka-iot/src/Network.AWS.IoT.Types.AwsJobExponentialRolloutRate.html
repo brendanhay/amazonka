@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- define an exponential rate increase for a job rollout.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAwsJobExponentialRolloutRate' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679778701"><span id="local-6989586621679778702"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsJobExponentialRolloutRate"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-var">AwsJobExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsJobExponentialRolloutRate%27"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">AwsJobExponentialRolloutRate'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679778710"><span id="local-6989586621679778711"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsJobExponentialRolloutRate"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-var">AwsJobExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsJobExponentialRolloutRate%27"><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">AwsJobExponentialRolloutRate'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum number of things that will be notified of a pending job, per</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- minute, at the start of the job rollout. This is the initial rate of the</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- rollout.</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3ArateIncreaseCriteria%3AAwsJobExponentialRolloutRate%27"><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate -&gt; AwsJobRateIncreaseCriteria
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#%24sel%3ArateIncreaseCriteria%3AAwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var hs-var">rateIncreaseCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobRateIncreaseCriteria.html#AwsJobRateIncreaseCriteria"><span class="hs-identifier hs-type">AwsJobRateIncreaseCriteria</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778693"><span id="local-6989586621679778695"><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778702"><span id="local-6989586621679778704"><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
 -&gt; AwsJobExponentialRolloutRate -&gt; Bool
 (AwsJobExponentialRolloutRate
  -&gt; AwsJobExponentialRolloutRate -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: AwsJobExponentialRolloutRate
 -&gt; AwsJobExponentialRolloutRate -&gt; Bool
 $c== :: AwsJobExponentialRolloutRate
 -&gt; AwsJobExponentialRolloutRate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778684"><span id="local-6989586621679778686"><span id="local-6989586621679778688"><span id="local-6989586621679778690"><span class="annot"><span class="annottext">ReadPrec [AwsJobExponentialRolloutRate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778693"><span id="local-6989586621679778695"><span id="local-6989586621679778697"><span id="local-6989586621679778699"><span class="annot"><span class="annottext">ReadPrec [AwsJobExponentialRolloutRate]
 ReadPrec AwsJobExponentialRolloutRate
 Int -&gt; ReadS AwsJobExponentialRolloutRate
 ReadS [AwsJobExponentialRolloutRate]
@@ -81,7 +81,7 @@ readList :: ReadS [AwsJobExponentialRolloutRate]
 $creadList :: ReadS [AwsJobExponentialRolloutRate]
 readsPrec :: Int -&gt; ReadS AwsJobExponentialRolloutRate
 $creadsPrec :: Int -&gt; ReadS AwsJobExponentialRolloutRate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778677"><span id="local-6989586621679778679"><span id="local-6989586621679778681"><span class="annot"><span class="annottext">Int -&gt; AwsJobExponentialRolloutRate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778686"><span id="local-6989586621679778688"><span id="local-6989586621679778690"><span class="annot"><span class="annottext">Int -&gt; AwsJobExponentialRolloutRate -&gt; ShowS
 [AwsJobExponentialRolloutRate] -&gt; ShowS
 AwsJobExponentialRolloutRate -&gt; String
 (Int -&gt; AwsJobExponentialRolloutRate -&gt; ShowS)
@@ -145,12 +145,12 @@ AwsJobExponentialRolloutRate -&gt; Rep AwsJobExponentialRolloutRate x
 -&gt; AwsJobRateIncreaseCriteria
 -&gt; AwsJobExponentialRolloutRate
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#newAwsJobExponentialRolloutRate"><span class="hs-identifier hs-var hs-var">newAwsJobExponentialRolloutRate</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679778671"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679778671"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679778670"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679778670"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679778669"><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
-</span><a href="#local-6989586621679778669"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679778680"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679778680"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679778679"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679778679"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span></span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679778678"><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
+</span><a href="#local-6989586621679778678"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate' :: Natural
 -&gt; Double
 -&gt; AwsJobRateIncreaseCriteria
@@ -159,13 +159,13 @@ AwsJobExponentialRolloutRate -&gt; Rep AwsJobExponentialRolloutRate x
 </span><span id="line-79"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baseRatePerMinute:AwsJobExponentialRolloutRate' :: Natural
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#%24sel%3AbaseRatePerMinute%3AAwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679778671"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778680"><span class="hs-identifier hs-var">pBaseRatePerMinute_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:incrementFactor:AwsJobExponentialRolloutRate' :: Double
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#%24sel%3AincrementFactor%3AAwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679778670"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778679"><span class="hs-identifier hs-var">pIncrementFactor_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:rateIncreaseCriteria:AwsJobExponentialRolloutRate' :: AwsJobRateIncreaseCriteria
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#%24sel%3ArateIncreaseCriteria%3AAwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
-</span><a href="#local-6989586621679778669"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span><span>
+</span><a href="#local-6989586621679778678"><span class="hs-identifier hs-var">pRateIncreaseCriteria_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The minimum number of things that will be notified of a pending job, per</span><span>
@@ -183,16 +183,16 @@ AwsJobExponentialRolloutRate -&gt; Rep AwsJobExponentialRolloutRate x
      Natural
      Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778665"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778674"><span class="annot"><span class="annottext">Natural
 baseRatePerMinute :: Natural
 $sel:baseRatePerMinute:AwsJobExponentialRolloutRate' :: AwsJobExponentialRolloutRate -&gt; Natural
-</span><a href="#local-6989586621679778665"><span class="hs-identifier hs-var hs-var">baseRatePerMinute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679778665"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778664"><span class="annot"><span class="annottext">s :: AwsJobExponentialRolloutRate
-</span><a href="#local-6989586621679778664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778663"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679778663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
-</span><a href="#local-6989586621679778664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseRatePerMinute:AwsJobExponentialRolloutRate' :: Natural
+</span><a href="#local-6989586621679778674"><span class="hs-identifier hs-var hs-var">baseRatePerMinute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679778674"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778673"><span class="annot"><span class="annottext">s :: AwsJobExponentialRolloutRate
+</span><a href="#local-6989586621679778673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778672"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679778672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
+</span><a href="#local-6989586621679778673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseRatePerMinute:AwsJobExponentialRolloutRate' :: Natural
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#%24sel%3AbaseRatePerMinute%3AAwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679778663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The rate of increase for a job rollout. The number of things notified is</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- multiplied by this factor.</span><span>
@@ -208,16 +208,16 @@ $sel:baseRatePerMinute:AwsJobExponentialRolloutRate' :: AwsJobExponentialRollout
      Double
      Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778661"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778670"><span class="annot"><span class="annottext">Double
 incrementFactor :: Double
 $sel:incrementFactor:AwsJobExponentialRolloutRate' :: AwsJobExponentialRolloutRate -&gt; Double
-</span><a href="#local-6989586621679778661"><span class="hs-identifier hs-var hs-var">incrementFactor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679778661"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778660"><span class="annot"><span class="annottext">s :: AwsJobExponentialRolloutRate
-</span><a href="#local-6989586621679778660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778659"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679778659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
-</span><a href="#local-6989586621679778660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:incrementFactor:AwsJobExponentialRolloutRate' :: Double
+</span><a href="#local-6989586621679778670"><span class="hs-identifier hs-var hs-var">incrementFactor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679778670"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778669"><span class="annot"><span class="annottext">s :: AwsJobExponentialRolloutRate
+</span><a href="#local-6989586621679778669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778668"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679778668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
+</span><a href="#local-6989586621679778669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:incrementFactor:AwsJobExponentialRolloutRate' :: Double
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#%24sel%3AincrementFactor%3AAwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679778659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The criteria to initiate the increase in rate of rollout for a job.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
@@ -235,19 +235,19 @@ $sel:incrementFactor:AwsJobExponentialRolloutRate' :: AwsJobExponentialRolloutRa
      AwsJobRateIncreaseCriteria
      AwsJobRateIncreaseCriteria
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778657"><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778666"><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
 rateIncreaseCriteria :: AwsJobRateIncreaseCriteria
 $sel:rateIncreaseCriteria:AwsJobExponentialRolloutRate' :: AwsJobExponentialRolloutRate -&gt; AwsJobRateIncreaseCriteria
-</span><a href="#local-6989586621679778657"><span class="hs-identifier hs-var hs-var">rateIncreaseCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
-</span><a href="#local-6989586621679778657"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778656"><span class="annot"><span class="annottext">s :: AwsJobExponentialRolloutRate
-</span><a href="#local-6989586621679778656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778655"><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
-</span><a href="#local-6989586621679778655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
-</span><a href="#local-6989586621679778656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateIncreaseCriteria:AwsJobExponentialRolloutRate' :: AwsJobRateIncreaseCriteria
+</span><a href="#local-6989586621679778666"><span class="hs-identifier hs-var hs-var">rateIncreaseCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
+</span><a href="#local-6989586621679778666"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778665"><span class="annot"><span class="annottext">s :: AwsJobExponentialRolloutRate
+</span><a href="#local-6989586621679778665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778664"><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
+</span><a href="#local-6989586621679778664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsJobExponentialRolloutRate
+</span><a href="#local-6989586621679778665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rateIncreaseCriteria:AwsJobExponentialRolloutRate' :: AwsJobRateIncreaseCriteria
 </span><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#%24sel%3ArateIncreaseCriteria%3AAwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
-</span><a href="#local-6989586621679778655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679778664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778652"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679778650"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsJobExponentialRolloutRate
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778661"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679778659"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsJobExponentialRolloutRate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AwsJobExponentialRolloutRate)
@@ -257,8 +257,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AwsJobExponentialRolloutRate&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679778647"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778647"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679778656"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679778656"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Natural
 -&gt; Double
 -&gt; AwsJobRateIncreaseCriteria
@@ -274,7 +274,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AwsJobRateIncreaseCriteria -&gt; AwsJobExponentialRolloutRate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679778656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;baseRatePerMinute&quot;</span></span><span class="hs-special">)</span><span>
@@ -286,7 +286,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (AwsJobRateIncreaseCriteria -&gt; AwsJobExponentialRolloutRate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
+</span><a href="#local-6989586621679778656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Double
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;incrementFactor&quot;</span></span><span class="hs-special">)</span><span>
@@ -295,21 +295,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser AwsJobExponentialRolloutRate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679778647"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AwsJobRateIncreaseCriteria
+</span><a href="#local-6989586621679778656"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AwsJobRateIncreaseCriteria
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rateIncreaseCriteria&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679778641"><span id="local-6989586621679778643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679778650"><span id="local-6989586621679778652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778630"><span id="local-6989586621679778632"><span id="local-6989586621679778634"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679778628"><span class="annot"><span class="annottext">toJSON :: AwsJobExponentialRolloutRate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778624"><span id="local-6989586621679778625"><span id="local-6989586621679778626"><span class="annot"><span class="annottext">Double
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778639"><span id="local-6989586621679778641"><span id="local-6989586621679778643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679778637"><span class="annot"><span class="annottext">toJSON :: AwsJobExponentialRolloutRate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AwsJobExponentialRolloutRate.html#AwsJobExponentialRolloutRate%27"><span class="hs-identifier hs-type">AwsJobExponentialRolloutRate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778633"><span id="local-6989586621679778634"><span id="local-6989586621679778635"><span class="annot"><span class="annottext">Double
 Natural
 AwsJobRateIncreaseCriteria
 rateIncreaseCriteria :: AwsJobRateIncreaseCriteria
@@ -318,7 +318,7 @@ baseRatePerMinute :: Natural
 $sel:rateIncreaseCriteria:AwsJobExponentialRolloutRate' :: AwsJobExponentialRolloutRate -&gt; AwsJobRateIncreaseCriteria
 $sel:incrementFactor:AwsJobExponentialRolloutRate' :: AwsJobExponentialRolloutRate -&gt; Double
 $sel:baseRatePerMinute:AwsJobExponentialRolloutRate' :: AwsJobExponentialRolloutRate -&gt; Natural
-</span><a href="#local-6989586621679778624"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679778633"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -331,7 +331,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;baseRatePerMinute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679778626"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778635"><span class="hs-identifier hs-var">baseRatePerMinute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -339,7 +339,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;incrementFactor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679778625"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679778634"><span class="hs-identifier hs-var">incrementFactor</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -348,7 +348,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-130"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; AwsJobRateIncreaseCriteria -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AwsJobRateIncreaseCriteria
-</span><a href="#local-6989586621679778624"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span>
+</span><a href="#local-6989586621679778633"><span class="hs-identifier hs-var">rateIncreaseCriteria</span></a></span><span>
 </span><span id="line-131"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>

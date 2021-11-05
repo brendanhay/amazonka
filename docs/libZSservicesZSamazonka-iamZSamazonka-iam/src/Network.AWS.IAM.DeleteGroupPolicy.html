@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroupPolicy' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679456888"><span id="local-6989586621679456889"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupPolicy"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-var">DeleteGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupPolicy%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-var">DeleteGroupPolicy'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679456897"><span id="local-6989586621679456898"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupPolicy"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-var">DeleteGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupPolicy%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-var">DeleteGroupPolicy'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name (friendly name, not ARN) identifying the group that the policy</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- is embedded in.</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3ApolicyName%3ADeleteGroupPolicy%27"><span class="annot"><span class="annottext">DeleteGroupPolicy -&gt; Text
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#%24sel%3ApolicyName%3ADeleteGroupPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456881"><span id="local-6989586621679456883"><span class="annot"><span class="annottext">DeleteGroupPolicy -&gt; DeleteGroupPolicy -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456890"><span id="local-6989586621679456892"><span class="annot"><span class="annottext">DeleteGroupPolicy -&gt; DeleteGroupPolicy -&gt; Bool
 (DeleteGroupPolicy -&gt; DeleteGroupPolicy -&gt; Bool)
 -&gt; (DeleteGroupPolicy -&gt; DeleteGroupPolicy -&gt; Bool)
 -&gt; Eq DeleteGroupPolicy
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGroupPolicy -&gt; DeleteGroupPolicy -&gt; Bool
 == :: DeleteGroupPolicy -&gt; DeleteGroupPolicy -&gt; Bool
 $c== :: DeleteGroupPolicy -&gt; DeleteGroupPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456872"><span id="local-6989586621679456874"><span id="local-6989586621679456876"><span id="local-6989586621679456878"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456881"><span id="local-6989586621679456883"><span id="local-6989586621679456885"><span id="local-6989586621679456887"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupPolicy]
 ReadPrec DeleteGroupPolicy
 Int -&gt; ReadS DeleteGroupPolicy
 ReadS [DeleteGroupPolicy]
@@ -99,7 +99,7 @@ readList :: ReadS [DeleteGroupPolicy]
 $creadList :: ReadS [DeleteGroupPolicy]
 readsPrec :: Int -&gt; ReadS DeleteGroupPolicy
 $creadsPrec :: Int -&gt; ReadS DeleteGroupPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456865"><span id="local-6989586621679456867"><span id="local-6989586621679456869"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456874"><span id="local-6989586621679456876"><span id="local-6989586621679456878"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupPolicy -&gt; ShowS
 [DeleteGroupPolicy] -&gt; ShowS
 DeleteGroupPolicy -&gt; String
 (Int -&gt; DeleteGroupPolicy -&gt; ShowS)
@@ -154,17 +154,17 @@ $cfrom :: forall x. DeleteGroupPolicy -&gt; Rep DeleteGroupPolicy x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span>
 </span><span id="line-101"></span><span id="newDeleteGroupPolicy"><span class="annot"><span class="annottext">newDeleteGroupPolicy :: Text -&gt; Text -&gt; DeleteGroupPolicy
-</span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#newDeleteGroupPolicy"><span class="hs-identifier hs-var hs-var">newDeleteGroupPolicy</span></a></span></span><span> </span><span id="local-6989586621679456860"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456860"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679456859"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456859"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#newDeleteGroupPolicy"><span class="hs-identifier hs-var hs-var">newDeleteGroupPolicy</span></a></span></span><span> </span><span id="local-6989586621679456869"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456869"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679456868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456868"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroupPolicy' :: Text -&gt; Text -&gt; DeleteGroupPolicy
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#%24sel%3AgroupName%3ADeleteGroupPolicy%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456860"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679456869"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:DeleteGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#%24sel%3ApolicyName%3ADeleteGroupPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456859"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><a href="#local-6989586621679456868"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | The name (friendly name, not ARN) identifying the group that the policy</span><span>
@@ -180,16 +180,16 @@ $cfrom :: forall x. DeleteGroupPolicy -&gt; Rep DeleteGroupPolicy x
 -&gt; (DeleteGroupPolicy -&gt; Text -&gt; DeleteGroupPolicy)
 -&gt; Lens DeleteGroupPolicy DeleteGroupPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456856"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456865"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:DeleteGroupPolicy' :: DeleteGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679456856"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456856"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456855"><span class="annot"><span class="annottext">s :: DeleteGroupPolicy
-</span><a href="#local-6989586621679456855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456854"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupPolicy
-</span><a href="#local-6989586621679456855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroupPolicy' :: Text
+</span><a href="#local-6989586621679456865"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456865"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456864"><span class="annot"><span class="annottext">s :: DeleteGroupPolicy
+</span><a href="#local-6989586621679456864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupPolicy
+</span><a href="#local-6989586621679456864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#%24sel%3AgroupName%3ADeleteGroupPolicy%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The name identifying the policy document to delete.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
@@ -203,27 +203,27 @@ $sel:groupName:DeleteGroupPolicy' :: DeleteGroupPolicy -&gt; Text
 -&gt; (DeleteGroupPolicy -&gt; Text -&gt; DeleteGroupPolicy)
 -&gt; Lens DeleteGroupPolicy DeleteGroupPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456853"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456862"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:DeleteGroupPolicy' :: DeleteGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679456853"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456853"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456852"><span class="annot"><span class="annottext">s :: DeleteGroupPolicy
-</span><a href="#local-6989586621679456852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456851"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupPolicy
-</span><a href="#local-6989586621679456852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteGroupPolicy' :: Text
+</span><a href="#local-6989586621679456862"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456862"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456861"><span class="annot"><span class="annottext">s :: DeleteGroupPolicy
+</span><a href="#local-6989586621679456861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroupPolicy
+</span><a href="#local-6989586621679456861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#%24sel%3ApolicyName%3ADeleteGroupPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679456860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse"><span class="hs-identifier hs-type">DeleteGroupPolicyResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679456847"><span class="annot"><span class="annottext">request :: DeleteGroupPolicy -&gt; Request DeleteGroupPolicy
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679456856"><span class="annot"><span class="annottext">request :: DeleteGroupPolicy -&gt; Request DeleteGroupPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGroupPolicy -&gt; Request DeleteGroupPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679456843"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679456852"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteGroupPolicy
 -&gt; ClientResponse ClientBody
@@ -249,12 +249,12 @@ AWSResponse a
 DeleteGroupPolicyResponse
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse%27"><span class="hs-identifier hs-var">DeleteGroupPolicyResponse'</span></a></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456836"><span id="local-6989586621679456838"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456845"><span id="local-6989586621679456847"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679456829"><span class="annot"><span class="annottext">toHeaders :: DeleteGroupPolicy -&gt; [Header]
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679456838"><span class="annot"><span class="annottext">toHeaders :: DeleteGroupPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteGroupPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -262,20 +262,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679456824"><span class="annot"><span class="annottext">toPath :: DeleteGroupPolicy -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679456833"><span class="annot"><span class="annottext">toPath :: DeleteGroupPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteGroupPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy"><span class="hs-identifier hs-type">DeleteGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679456820"><span class="annot"><span class="annottext">toQuery :: DeleteGroupPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456817"><span id="local-6989586621679456818"><span class="annot"><span class="annottext">Text
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679456829"><span class="annot"><span class="annottext">toQuery :: DeleteGroupPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicy%27"><span class="hs-identifier hs-type">DeleteGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456826"><span id="local-6989586621679456827"><span class="annot"><span class="annottext">Text
 policyName :: Text
 groupName :: Text
 $sel:policyName:DeleteGroupPolicy' :: DeleteGroupPolicy -&gt; Text
 $sel:groupName:DeleteGroupPolicy' :: DeleteGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679456817"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679456826"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -295,19 +295,19 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456818"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679456827"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456817"><span class="hs-identifier hs-var">policyName</span></a></span><span>
+</span><a href="#local-6989586621679456826"><span class="hs-identifier hs-var">policyName</span></a></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroupPolicyResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679456814"><span id="local-6989586621679456815"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse"><span class="hs-identifier hs-var">DeleteGroupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse%27"><span class="hs-identifier hs-var">DeleteGroupPolicyResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679456823"><span id="local-6989586621679456824"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse"><span class="hs-identifier hs-var">DeleteGroupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse%27"><span class="hs-identifier hs-var">DeleteGroupPolicyResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456810"><span id="local-6989586621679456812"><span class="annot"><span class="annottext">DeleteGroupPolicyResponse -&gt; DeleteGroupPolicyResponse -&gt; Bool
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456819"><span id="local-6989586621679456821"><span class="annot"><span class="annottext">DeleteGroupPolicyResponse -&gt; DeleteGroupPolicyResponse -&gt; Bool
 (DeleteGroupPolicyResponse -&gt; DeleteGroupPolicyResponse -&gt; Bool)
 -&gt; (DeleteGroupPolicyResponse -&gt; DeleteGroupPolicyResponse -&gt; Bool)
 -&gt; Eq DeleteGroupPolicyResponse
@@ -316,7 +316,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGroupPolicyResponse -&gt; DeleteGroupPolicyResponse -&gt; Bool
 == :: DeleteGroupPolicyResponse -&gt; DeleteGroupPolicyResponse -&gt; Bool
 $c== :: DeleteGroupPolicyResponse -&gt; DeleteGroupPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456802"><span id="local-6989586621679456804"><span id="local-6989586621679456806"><span id="local-6989586621679456808"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456811"><span id="local-6989586621679456813"><span id="local-6989586621679456815"><span id="local-6989586621679456817"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupPolicyResponse]
 ReadPrec DeleteGroupPolicyResponse
 Int -&gt; ReadS DeleteGroupPolicyResponse
 ReadS [DeleteGroupPolicyResponse]
@@ -336,7 +336,7 @@ readList :: ReadS [DeleteGroupPolicyResponse]
 $creadList :: ReadS [DeleteGroupPolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteGroupPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteGroupPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456796"><span id="local-6989586621679456798"><span id="local-6989586621679456800"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456805"><span id="local-6989586621679456807"><span id="local-6989586621679456809"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupPolicyResponse -&gt; ShowS
 [DeleteGroupPolicyResponse] -&gt; ShowS
 DeleteGroupPolicyResponse -&gt; String
 (Int -&gt; DeleteGroupPolicyResponse -&gt; ShowS)
@@ -379,5 +379,5 @@ DeleteGroupPolicyResponse -&gt; Rep DeleteGroupPolicyResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroupPolicyResponse
 </span><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse%27"><span class="hs-identifier hs-var">DeleteGroupPolicyResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse"><span class="hs-identifier hs-type">DeleteGroupPolicyResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroupPolicy.html#DeleteGroupPolicyResponse"><span class="hs-identifier hs-type">DeleteGroupPolicyResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

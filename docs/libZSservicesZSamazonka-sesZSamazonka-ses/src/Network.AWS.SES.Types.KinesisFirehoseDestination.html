@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newKinesisFirehoseDestination' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679273029"><span id="local-6989586621679273030"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisFirehoseDestination"><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-var">KinesisFirehoseDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisFirehoseDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-var">KinesisFirehoseDestination'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679273038"><span id="local-6989586621679273039"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisFirehoseDestination"><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-var">KinesisFirehoseDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisFirehoseDestination%27"><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-var">KinesisFirehoseDestination'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the IAM role under which Amazon SES publishes email sending</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- events to the Amazon Kinesis Firehose stream.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AiAMRoleARN%3AKinesisFirehoseDestination%27"><span class="annot"><span class="annottext">KinesisFirehoseDestination -&gt; Text
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AdeliveryStreamARN%3AKinesisFirehoseDestination%27"><span class="annot"><span class="annottext">KinesisFirehoseDestination -&gt; Text
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#%24sel%3AdeliveryStreamARN%3AKinesisFirehoseDestination%27"><span class="hs-identifier hs-var hs-var">deliveryStreamARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273022"><span id="local-6989586621679273024"><span class="annot"><span class="annottext">KinesisFirehoseDestination -&gt; KinesisFirehoseDestination -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679273031"><span id="local-6989586621679273033"><span class="annot"><span class="annottext">KinesisFirehoseDestination -&gt; KinesisFirehoseDestination -&gt; Bool
 (KinesisFirehoseDestination -&gt; KinesisFirehoseDestination -&gt; Bool)
 -&gt; (KinesisFirehoseDestination
     -&gt; KinesisFirehoseDestination -&gt; Bool)
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KinesisFirehoseDestination -&gt; KinesisFirehoseDestination -&gt; Bool
 == :: KinesisFirehoseDestination -&gt; KinesisFirehoseDestination -&gt; Bool
 $c== :: KinesisFirehoseDestination -&gt; KinesisFirehoseDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273013"><span id="local-6989586621679273015"><span id="local-6989586621679273017"><span id="local-6989586621679273019"><span class="annot"><span class="annottext">ReadPrec [KinesisFirehoseDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273022"><span id="local-6989586621679273024"><span id="local-6989586621679273026"><span id="local-6989586621679273028"><span class="annot"><span class="annottext">ReadPrec [KinesisFirehoseDestination]
 ReadPrec KinesisFirehoseDestination
 Int -&gt; ReadS KinesisFirehoseDestination
 ReadS [KinesisFirehoseDestination]
@@ -72,7 +72,7 @@ readList :: ReadS [KinesisFirehoseDestination]
 $creadList :: ReadS [KinesisFirehoseDestination]
 readsPrec :: Int -&gt; ReadS KinesisFirehoseDestination
 $creadsPrec :: Int -&gt; ReadS KinesisFirehoseDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273006"><span id="local-6989586621679273008"><span id="local-6989586621679273010"><span class="annot"><span class="annottext">Int -&gt; KinesisFirehoseDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679273015"><span id="local-6989586621679273017"><span id="local-6989586621679273019"><span class="annot"><span class="annottext">Int -&gt; KinesisFirehoseDestination -&gt; ShowS
 [KinesisFirehoseDestination] -&gt; ShowS
 KinesisFirehoseDestination -&gt; String
 (Int -&gt; KinesisFirehoseDestination -&gt; ShowS)
@@ -125,19 +125,19 @@ KinesisFirehoseDestination -&gt; Rep KinesisFirehoseDestination x
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span>
 </span><span id="line-64"></span><span id="newKinesisFirehoseDestination"><span class="annot"><span class="annottext">newKinesisFirehoseDestination :: Text -&gt; Text -&gt; KinesisFirehoseDestination
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#newKinesisFirehoseDestination"><span class="hs-identifier hs-var hs-var">newKinesisFirehoseDestination</span></a></span></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679273000"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273000"><span class="hs-identifier hs-var">pIAMRoleARN_</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679272999"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272999"><span class="hs-identifier hs-var">pDeliveryStreamARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679273009"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273009"><span class="hs-identifier hs-var">pIAMRoleARN_</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679273008"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273008"><span class="hs-identifier hs-var">pDeliveryStreamARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">KinesisFirehoseDestination' :: Text -&gt; Text -&gt; KinesisFirehoseDestination
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iAMRoleARN:KinesisFirehoseDestination' :: Text
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#%24sel%3AiAMRoleARN%3AKinesisFirehoseDestination%27"><span class="hs-identifier hs-var">iAMRoleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679273000"><span class="hs-identifier hs-var">pIAMRoleARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679273009"><span class="hs-identifier hs-var">pIAMRoleARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:deliveryStreamARN:KinesisFirehoseDestination' :: Text
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#%24sel%3AdeliveryStreamARN%3AKinesisFirehoseDestination%27"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272999"><span class="hs-identifier hs-var">pDeliveryStreamARN_</span></a></span><span>
+</span><a href="#local-6989586621679273008"><span class="hs-identifier hs-var">pDeliveryStreamARN_</span></a></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The ARN of the IAM role under which Amazon SES publishes email sending</span><span>
@@ -151,16 +151,16 @@ KinesisFirehoseDestination -&gt; Rep KinesisFirehoseDestination x
 -&gt; Lens
      KinesisFirehoseDestination KinesisFirehoseDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272995"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273004"><span class="annot"><span class="annottext">Text
 iAMRoleARN :: Text
 $sel:iAMRoleARN:KinesisFirehoseDestination' :: KinesisFirehoseDestination -&gt; Text
-</span><a href="#local-6989586621679272995"><span class="hs-identifier hs-var hs-var">iAMRoleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272995"><span class="hs-identifier hs-var">iAMRoleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272994"><span class="annot"><span class="annottext">s :: KinesisFirehoseDestination
-</span><a href="#local-6989586621679272994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272993"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisFirehoseDestination
-</span><a href="#local-6989586621679272994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMRoleARN:KinesisFirehoseDestination' :: Text
+</span><a href="#local-6989586621679273004"><span class="hs-identifier hs-var hs-var">iAMRoleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273004"><span class="hs-identifier hs-var">iAMRoleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679273003"><span class="annot"><span class="annottext">s :: KinesisFirehoseDestination
+</span><a href="#local-6989586621679273003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679273002"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisFirehoseDestination
+</span><a href="#local-6989586621679273003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMRoleARN:KinesisFirehoseDestination' :: Text
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#%24sel%3AiAMRoleARN%3AKinesisFirehoseDestination%27"><span class="hs-identifier hs-var">iAMRoleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679273002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The ARN of the Amazon Kinesis Firehose stream that email sending events</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- should be published to.</span><span>
@@ -173,21 +173,21 @@ $sel:iAMRoleARN:KinesisFirehoseDestination' :: KinesisFirehoseDestination -&gt; 
 -&gt; Lens
      KinesisFirehoseDestination KinesisFirehoseDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272991"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679273000"><span class="annot"><span class="annottext">Text
 deliveryStreamARN :: Text
 $sel:deliveryStreamARN:KinesisFirehoseDestination' :: KinesisFirehoseDestination -&gt; Text
-</span><a href="#local-6989586621679272991"><span class="hs-identifier hs-var hs-var">deliveryStreamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272991"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272990"><span class="annot"><span class="annottext">s :: KinesisFirehoseDestination
-</span><a href="#local-6989586621679272990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272989"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisFirehoseDestination
-</span><a href="#local-6989586621679272990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamARN:KinesisFirehoseDestination' :: Text
+</span><a href="#local-6989586621679273000"><span class="hs-identifier hs-var hs-var">deliveryStreamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679273000"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272999"><span class="annot"><span class="annottext">s :: KinesisFirehoseDestination
+</span><a href="#local-6989586621679272999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272998"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisFirehoseDestination
+</span><a href="#local-6989586621679272999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamARN:KinesisFirehoseDestination' :: Text
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#%24sel%3AdeliveryStreamARN%3AKinesisFirehoseDestination%27"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679272998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679272986"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KinesisFirehoseDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679272984"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679272984"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679272995"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KinesisFirehoseDestination
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679272993"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679272993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; KinesisFirehoseDestination
 </span><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-var">KinesisFirehoseDestination'</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; KinesisFirehoseDestination)
@@ -195,7 +195,7 @@ $sel:deliveryStreamARN:KinesisFirehoseDestination' :: KinesisFirehoseDestination
 -&gt; Either String (Text -&gt; KinesisFirehoseDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679272984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679272993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IAMRoleARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,23 +203,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String KinesisFirehoseDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679272984"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679272993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeliveryStreamARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272978"><span id="local-6989586621679272980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272987"><span id="local-6989586621679272989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination"><span class="hs-identifier hs-type">KinesisFirehoseDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679272971"><span class="annot"><span class="annottext">toQuery :: KinesisFirehoseDestination -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272968"><span id="local-6989586621679272969"><span class="annot"><span class="annottext">Text
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679272980"><span class="annot"><span class="annottext">toQuery :: KinesisFirehoseDestination -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.KinesisFirehoseDestination.html#KinesisFirehoseDestination%27"><span class="hs-identifier hs-type">KinesisFirehoseDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272977"><span id="local-6989586621679272978"><span class="annot"><span class="annottext">Text
 deliveryStreamARN :: Text
 iAMRoleARN :: Text
 $sel:deliveryStreamARN:KinesisFirehoseDestination' :: KinesisFirehoseDestination -&gt; Text
 $sel:iAMRoleARN:KinesisFirehoseDestination' :: KinesisFirehoseDestination -&gt; Text
-</span><a href="#local-6989586621679272968"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679272977"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -227,11 +227,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;IAMRoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272969"><span class="hs-identifier hs-var">iAMRoleARN</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679272978"><span class="hs-identifier hs-var">iAMRoleARN</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DeliveryStreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679272968"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span>
+</span><a href="#local-6989586621679272977"><span class="hs-identifier hs-var">deliveryStreamARN</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span></pre></body></html>

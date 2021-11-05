@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newModifyUser' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679412156"><span id="local-6989586621679412157"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyUser"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-var">ModifyUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyUser%27"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-var">ModifyUser'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679412165"><span id="local-6989586621679412166"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyUser"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-var">ModifyUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyUser%27"><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-var">ModifyUser'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Adds additional user permissions to the access string.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AappendAccessString%3AModifyUser%27"><span class="annot"><span class="annottext">ModifyUser -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3AappendAccessString%3AModifyUser%27"><span class="hs-identifier hs-var hs-var">appendAccessString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AuserId%3AModifyUser%27"><span class="annot"><span class="annottext">ModifyUser -&gt; Text
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3AuserId%3AModifyUser%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412146"><span id="local-6989586621679412148"><span class="annot"><span class="annottext">ModifyUser -&gt; ModifyUser -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412155"><span id="local-6989586621679412157"><span class="annot"><span class="annottext">ModifyUser -&gt; ModifyUser -&gt; Bool
 (ModifyUser -&gt; ModifyUser -&gt; Bool)
 -&gt; (ModifyUser -&gt; ModifyUser -&gt; Bool) -&gt; Eq ModifyUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyUser -&gt; ModifyUser -&gt; Bool
 == :: ModifyUser -&gt; ModifyUser -&gt; Bool
 $c== :: ModifyUser -&gt; ModifyUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412137"><span id="local-6989586621679412139"><span id="local-6989586621679412141"><span id="local-6989586621679412143"><span class="annot"><span class="annottext">ReadPrec [ModifyUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412146"><span id="local-6989586621679412148"><span id="local-6989586621679412150"><span id="local-6989586621679412152"><span class="annot"><span class="annottext">ReadPrec [ModifyUser]
 ReadPrec ModifyUser
 Int -&gt; ReadS ModifyUser
 ReadS [ModifyUser]
@@ -102,7 +102,7 @@ readList :: ReadS [ModifyUser]
 $creadList :: ReadS [ModifyUser]
 readsPrec :: Int -&gt; ReadS ModifyUser
 $creadsPrec :: Int -&gt; ReadS ModifyUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412130"><span id="local-6989586621679412132"><span id="local-6989586621679412134"><span class="annot"><span class="annottext">Int -&gt; ModifyUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412139"><span id="local-6989586621679412141"><span id="local-6989586621679412143"><span class="annot"><span class="annottext">Int -&gt; ModifyUser -&gt; ShowS
 [ModifyUser] -&gt; ShowS
 ModifyUser -&gt; String
 (Int -&gt; ModifyUser -&gt; ShowS)
@@ -149,8 +149,8 @@ $cfrom :: forall x. ModifyUser -&gt; Rep ModifyUser x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span>
 </span><span id="line-95"></span><span id="newModifyUser"><span class="annot"><span class="annottext">newModifyUser :: Text -&gt; ModifyUser
-</span><a href="Network.AWS.ElastiCache.ModifyUser.html#newModifyUser"><span class="hs-identifier hs-var hs-var">newModifyUser</span></a></span></span><span> </span><span id="local-6989586621679412125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412125"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.ModifyUser.html#newModifyUser"><span class="hs-identifier hs-var hs-var">newModifyUser</span></a></span></span><span> </span><span id="local-6989586621679412134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412134"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ModifyUser' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe (NonEmpty Text)
@@ -176,7 +176,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:ModifyUser' :: Text
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3AuserId%3AModifyUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412125"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
+</span><a href="#local-6989586621679412134"><span class="hs-identifier hs-var">pUserId_</span></a></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Adds additional user permissions to the access string.</span><span>
@@ -186,16 +186,16 @@ forall a. Maybe a
 -&gt; (ModifyUser -&gt; Maybe Text -&gt; ModifyUser)
 -&gt; Lens ModifyUser ModifyUser (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412122"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412131"><span class="annot"><span class="annottext">Maybe Text
 appendAccessString :: Maybe Text
 $sel:appendAccessString:ModifyUser' :: ModifyUser -&gt; Maybe Text
-</span><a href="#local-6989586621679412122"><span class="hs-identifier hs-var hs-var">appendAccessString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412122"><span class="hs-identifier hs-var">appendAccessString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412121"><span class="annot"><span class="annottext">s :: ModifyUser
-</span><a href="#local-6989586621679412121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
-</span><a href="#local-6989586621679412121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appendAccessString:ModifyUser' :: Maybe Text
+</span><a href="#local-6989586621679412131"><span class="hs-identifier hs-var hs-var">appendAccessString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412131"><span class="hs-identifier hs-var">appendAccessString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412130"><span class="annot"><span class="annottext">s :: ModifyUser
+</span><a href="#local-6989586621679412130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412129"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
+</span><a href="#local-6989586621679412130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appendAccessString:ModifyUser' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3AappendAccessString%3AModifyUser%27"><span class="hs-identifier hs-var">appendAccessString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Access permissions string used for this user.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#modifyUser_accessString"><span class="hs-identifier hs-type">modifyUser_accessString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -204,16 +204,16 @@ $sel:appendAccessString:ModifyUser' :: ModifyUser -&gt; Maybe Text
 -&gt; (ModifyUser -&gt; Maybe Text -&gt; ModifyUser)
 -&gt; Lens ModifyUser ModifyUser (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412119"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412128"><span class="annot"><span class="annottext">Maybe Text
 accessString :: Maybe Text
 $sel:accessString:ModifyUser' :: ModifyUser -&gt; Maybe Text
-</span><a href="#local-6989586621679412119"><span class="hs-identifier hs-var hs-var">accessString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412119"><span class="hs-identifier hs-var">accessString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412118"><span class="annot"><span class="annottext">s :: ModifyUser
-</span><a href="#local-6989586621679412118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412117"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
-</span><a href="#local-6989586621679412118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessString:ModifyUser' :: Maybe Text
+</span><a href="#local-6989586621679412128"><span class="hs-identifier hs-var hs-var">accessString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412128"><span class="hs-identifier hs-var">accessString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412127"><span class="annot"><span class="annottext">s :: ModifyUser
+</span><a href="#local-6989586621679412127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
+</span><a href="#local-6989586621679412127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessString:ModifyUser' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3AaccessString%3AModifyUser%27"><span class="hs-identifier hs-var">accessString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The passwords belonging to the user. You are allowed up to two.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#modifyUser_passwords"><span class="hs-identifier hs-type">modifyUser_passwords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -227,16 +227,16 @@ $sel:accessString:ModifyUser' :: ModifyUser -&gt; Maybe Text
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412116"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412125"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 passwords :: Maybe (NonEmpty Text)
 $sel:passwords:ModifyUser' :: ModifyUser -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679412116"><span class="hs-identifier hs-var hs-var">passwords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679412116"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412115"><span class="annot"><span class="annottext">s :: ModifyUser
-</span><a href="#local-6989586621679412115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412114"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679412114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
-</span><a href="#local-6989586621679412115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwords:ModifyUser' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412125"><span class="hs-identifier hs-var hs-var">passwords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412125"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412124"><span class="annot"><span class="annottext">s :: ModifyUser
+</span><a href="#local-6989586621679412124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412123"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679412123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
+</span><a href="#local-6989586621679412124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwords:ModifyUser' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3Apasswords%3AModifyUser%27"><span class="hs-identifier hs-var">passwords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679412114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679412123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ModifyUser -&gt; f ModifyUser)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -266,16 +266,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (ModifyUser -&gt; Maybe Bool -&gt; ModifyUser)
 -&gt; Lens ModifyUser ModifyUser (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412110"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412119"><span class="annot"><span class="annottext">Maybe Bool
 noPasswordRequired :: Maybe Bool
 $sel:noPasswordRequired:ModifyUser' :: ModifyUser -&gt; Maybe Bool
-</span><a href="#local-6989586621679412110"><span class="hs-identifier hs-var hs-var">noPasswordRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679412110"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412109"><span class="annot"><span class="annottext">s :: ModifyUser
-</span><a href="#local-6989586621679412109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412108"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679412108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
-</span><a href="#local-6989586621679412109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noPasswordRequired:ModifyUser' :: Maybe Bool
+</span><a href="#local-6989586621679412119"><span class="hs-identifier hs-var hs-var">noPasswordRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679412119"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412118"><span class="annot"><span class="annottext">s :: ModifyUser
+</span><a href="#local-6989586621679412118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412117"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679412117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
+</span><a href="#local-6989586621679412118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noPasswordRequired:ModifyUser' :: Maybe Bool
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3AnoPasswordRequired%3AModifyUser%27"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679412108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The ID of the user.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#modifyUser_userId"><span class="hs-identifier hs-type">modifyUser_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -284,25 +284,25 @@ $sel:noPasswordRequired:ModifyUser' :: ModifyUser -&gt; Maybe Bool
 -&gt; (ModifyUser -&gt; Text -&gt; ModifyUser)
 -&gt; Lens ModifyUser ModifyUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412107"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412116"><span class="annot"><span class="annottext">Text
 userId :: Text
 $sel:userId:ModifyUser' :: ModifyUser -&gt; Text
-</span><a href="#local-6989586621679412107"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412107"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412106"><span class="annot"><span class="annottext">s :: ModifyUser
-</span><a href="#local-6989586621679412106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
-</span><a href="#local-6989586621679412106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:ModifyUser' :: Text
+</span><a href="#local-6989586621679412116"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412116"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412115"><span class="annot"><span class="annottext">s :: ModifyUser
+</span><a href="#local-6989586621679412115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412114"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyUser
+</span><a href="#local-6989586621679412115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:ModifyUser' :: Text
 </span><a href="Network.AWS.ElastiCache.ModifyUser.html#%24sel%3AuserId%3AModifyUser%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679412101"><span class="annot"><span class="annottext">request :: ModifyUser -&gt; Request ModifyUser
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679412110"><span class="annot"><span class="annottext">request :: ModifyUser -&gt; Request ModifyUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyUser -&gt; Request ModifyUser
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679412097"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679412106"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyUser
 -&gt; ClientResponse ClientBody
@@ -331,20 +331,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyUserResult&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412094"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412094"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412093"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679412093"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412092"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679412092"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String User
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412103"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412103"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412102"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412102"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412101"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679412101"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String User
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679412092"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412101"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412087"><span id="local-6989586621679412089"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412096"><span id="local-6989586621679412098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412084"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679412080"><span class="annot"><span class="annottext">toHeaders :: ModifyUser -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679412089"><span class="annot"><span class="annottext">toHeaders :: ModifyUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -352,15 +352,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679412075"><span class="annot"><span class="annottext">toPath :: ModifyUser -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679412084"><span class="annot"><span class="annottext">toPath :: ModifyUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser"><span class="hs-identifier hs-type">ModifyUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679412071"><span class="annot"><span class="annottext">toQuery :: ModifyUser -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412065"><span id="local-6989586621679412066"><span id="local-6989586621679412067"><span id="local-6989586621679412068"><span id="local-6989586621679412069"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679412080"><span class="annot"><span class="annottext">toQuery :: ModifyUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.ModifyUser.html#ModifyUser%27"><span class="hs-identifier hs-type">ModifyUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412074"><span id="local-6989586621679412075"><span id="local-6989586621679412076"><span id="local-6989586621679412077"><span id="local-6989586621679412078"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (NonEmpty Text)
 Maybe Text
 Text
@@ -374,7 +374,7 @@ $sel:noPasswordRequired:ModifyUser' :: ModifyUser -&gt; Maybe Bool
 $sel:passwords:ModifyUser' :: ModifyUser -&gt; Maybe (NonEmpty Text)
 $sel:accessString:ModifyUser' :: ModifyUser -&gt; Maybe Text
 $sel:appendAccessString:ModifyUser' :: ModifyUser -&gt; Maybe Text
-</span><a href="#local-6989586621679412065"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679412074"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -394,12 +394,12 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;AppendAccessString&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412069"><span class="hs-identifier hs-var">appendAccessString</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679412078"><span class="hs-identifier hs-var">appendAccessString</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AccessString&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412068"><span class="hs-identifier hs-var">accessString</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679412077"><span class="hs-identifier hs-var">accessString</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Passwords&quot;</span></span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -416,16 +416,16 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe (NonEmpty Text) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679412067"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679412076"><span class="hs-identifier hs-var">passwords</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NoPasswordRequired&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679412066"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679412075"><span class="hs-identifier hs-var">noPasswordRequired</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412065"><span class="hs-identifier hs-var">userId</span></a></span><span>
+</span><a href="#local-6989586621679412074"><span class="hs-identifier hs-var">userId</span></a></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span></pre></body></html>

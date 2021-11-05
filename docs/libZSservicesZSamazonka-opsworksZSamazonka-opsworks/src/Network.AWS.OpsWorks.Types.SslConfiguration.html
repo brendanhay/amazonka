@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes an app\'s SSL configuration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSslConfiguration' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679377822"><span id="local-6989586621679377823"></span></span><span class="hs-keyword">data</span><span> </span><span id="SslConfiguration"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-var">SslConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SslConfiguration%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-var">SslConfiguration'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679377831"><span id="local-6989586621679377832"></span></span><span class="hs-keyword">data</span><span> </span><span id="SslConfiguration"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-var">SslConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SslConfiguration%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-var">SslConfiguration'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The private key; the contents of the certificate\'s domain.kex file.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AprivateKey%3ASslConfiguration%27"><span class="annot"><span class="annottext">SslConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#%24sel%3AprivateKey%3ASslConfiguration%27"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Achain%3ASslConfiguration%27"><span class="annot"><span class="annottext">SslConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#%24sel%3Achain%3ASslConfiguration%27"><span class="hs-identifier hs-var hs-var">chain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377814"><span id="local-6989586621679377816"><span class="annot"><span class="annottext">SslConfiguration -&gt; SslConfiguration -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377823"><span id="local-6989586621679377825"><span class="annot"><span class="annottext">SslConfiguration -&gt; SslConfiguration -&gt; Bool
 (SslConfiguration -&gt; SslConfiguration -&gt; Bool)
 -&gt; (SslConfiguration -&gt; SslConfiguration -&gt; Bool)
 -&gt; Eq SslConfiguration
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SslConfiguration -&gt; SslConfiguration -&gt; Bool
 == :: SslConfiguration -&gt; SslConfiguration -&gt; Bool
 $c== :: SslConfiguration -&gt; SslConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377805"><span id="local-6989586621679377807"><span id="local-6989586621679377809"><span id="local-6989586621679377811"><span class="annot"><span class="annottext">ReadPrec [SslConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377814"><span id="local-6989586621679377816"><span id="local-6989586621679377818"><span id="local-6989586621679377820"><span class="annot"><span class="annottext">ReadPrec [SslConfiguration]
 ReadPrec SslConfiguration
 Int -&gt; ReadS SslConfiguration
 ReadS [SslConfiguration]
@@ -67,7 +67,7 @@ readList :: ReadS [SslConfiguration]
 $creadList :: ReadS [SslConfiguration]
 readsPrec :: Int -&gt; ReadS SslConfiguration
 $creadsPrec :: Int -&gt; ReadS SslConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377798"><span id="local-6989586621679377800"><span id="local-6989586621679377802"><span class="annot"><span class="annottext">Int -&gt; SslConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377807"><span id="local-6989586621679377809"><span id="local-6989586621679377811"><span class="annot"><span class="annottext">Int -&gt; SslConfiguration -&gt; ShowS
 [SslConfiguration] -&gt; ShowS
 SslConfiguration -&gt; String
 (Int -&gt; SslConfiguration -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
 -&gt; (SslConfiguration -&gt; Maybe Text -&gt; SslConfiguration)
 -&gt; Lens SslConfiguration SslConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377789"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377798"><span class="annot"><span class="annottext">Maybe Text
 privateKey :: Maybe Text
 $sel:privateKey:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679377789"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377789"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377788"><span class="annot"><span class="annottext">s :: SslConfiguration
-</span><a href="#local-6989586621679377788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377787"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslConfiguration
-</span><a href="#local-6989586621679377788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:SslConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679377798"><span class="hs-identifier hs-var hs-var">privateKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377798"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377797"><span class="annot"><span class="annottext">s :: SslConfiguration
+</span><a href="#local-6989586621679377797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377796"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslConfiguration
+</span><a href="#local-6989586621679377797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:privateKey:SslConfiguration' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#%24sel%3AprivateKey%3ASslConfiguration%27"><span class="hs-identifier hs-var">privateKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The contents of the certificate\'s domain.crt file.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#sslConfiguration_certificate"><span class="hs-identifier hs-type">sslConfiguration_certificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -154,16 +154,16 @@ $sel:privateKey:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
 -&gt; (SslConfiguration -&gt; Maybe Text -&gt; SslConfiguration)
 -&gt; Lens SslConfiguration SslConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377785"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377794"><span class="annot"><span class="annottext">Maybe Text
 certificate :: Maybe Text
 $sel:certificate:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679377785"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377785"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377784"><span class="annot"><span class="annottext">s :: SslConfiguration
-</span><a href="#local-6989586621679377784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377783"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslConfiguration
-</span><a href="#local-6989586621679377784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:SslConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679377794"><span class="hs-identifier hs-var hs-var">certificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377794"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377793"><span class="annot"><span class="annottext">s :: SslConfiguration
+</span><a href="#local-6989586621679377793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377792"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslConfiguration
+</span><a href="#local-6989586621679377793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificate:SslConfiguration' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#%24sel%3Acertificate%3ASslConfiguration%27"><span class="hs-identifier hs-var">certificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | Optional. Can be used to specify an intermediate certificate authority</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- key or client authentication.</span><span>
@@ -174,19 +174,19 @@ $sel:certificate:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
 -&gt; (SslConfiguration -&gt; Maybe Text -&gt; SslConfiguration)
 -&gt; Lens SslConfiguration SslConfiguration (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377781"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377790"><span class="annot"><span class="annottext">Maybe Text
 chain :: Maybe Text
 $sel:chain:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679377781"><span class="hs-identifier hs-var hs-var">chain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377781"><span class="hs-identifier hs-var">chain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377780"><span class="annot"><span class="annottext">s :: SslConfiguration
-</span><a href="#local-6989586621679377780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377779"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslConfiguration
-</span><a href="#local-6989586621679377780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chain:SslConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679377790"><span class="hs-identifier hs-var hs-var">chain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377790"><span class="hs-identifier hs-var">chain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377789"><span class="annot"><span class="annottext">s :: SslConfiguration
+</span><a href="#local-6989586621679377789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377788"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SslConfiguration
+</span><a href="#local-6989586621679377789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:chain:SslConfiguration' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#%24sel%3Achain%3ASslConfiguration%27"><span class="hs-identifier hs-var">chain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377776"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679377774"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SslConfiguration
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377785"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679377783"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SslConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SslConfiguration)
@@ -196,8 +196,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SslConfiguration&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377771"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377771"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377780"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377780"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SslConfiguration
 </span><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-var">SslConfiguration'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; SslConfiguration)
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SslConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrivateKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,7 +213,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; SslConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span class="hs-special">)</span><span>
@@ -221,26 +221,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser SslConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377771"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679377780"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Chain&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377765"><span id="local-6989586621679377767"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377774"><span id="local-6989586621679377776"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377762"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377754"><span id="local-6989586621679377756"><span id="local-6989586621679377758"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679377752"><span class="annot"><span class="annottext">toJSON :: SslConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377748"><span id="local-6989586621679377749"><span id="local-6989586621679377750"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377763"><span id="local-6989586621679377765"><span id="local-6989586621679377767"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration"><span class="hs-identifier hs-type">SslConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679377761"><span class="annot"><span class="annottext">toJSON :: SslConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.Types.SslConfiguration.html#SslConfiguration%27"><span class="hs-identifier hs-type">SslConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377757"><span id="local-6989586621679377758"><span id="local-6989586621679377759"><span class="annot"><span class="annottext">Maybe Text
 chain :: Maybe Text
 certificate :: Maybe Text
 privateKey :: Maybe Text
 $sel:chain:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
 $sel:certificate:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
 $sel:privateKey:SslConfiguration' :: SslConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679377748"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377757"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -252,21 +252,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377750"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377759"><span class="hs-identifier hs-var">privateKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Certificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377749"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679377758"><span class="hs-identifier hs-var">certificate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Chain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377748"><span class="hs-identifier hs-var">chain</span></a></span><span>
+</span><a href="#local-6989586621679377757"><span class="hs-identifier hs-var">chain</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

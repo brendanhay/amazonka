@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves information about a gateway capability configuration. Each</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- gateway capability defines data sources for a gateway. A capability</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- configuration can contain multiple data source configurations. If you</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- define OPC-UA sources for a gateway in the IoT SiteWise console, all of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- your OPC-UA sources are stored in one capability configuration. To list</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- all capability configurations for a gateway, use</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html DescribeGateway&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier">DescribeGatewayCapabilityConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#newDescribeGatewayCapabilityConfiguration"><span class="hs-identifier">newDescribeGatewayCapabilityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfiguration_gatewayId"><span class="hs-identifier">describeGatewayCapabilityConfiguration_gatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfiguration_capabilityNamespace"><span class="hs-identifier">describeGatewayCapabilityConfiguration_capabilityNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#newDescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier">newDescribeGatewayCapabilityConfigurationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_httpStatus"><span class="hs-identifier">describeGatewayCapabilityConfigurationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_gatewayId"><span class="hs-identifier">describeGatewayCapabilityConfigurationResponse_gatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilityNamespace"><span class="hs-identifier">describeGatewayCapabilityConfigurationResponse_capabilityNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilityConfiguration"><span class="hs-identifier">describeGatewayCapabilityConfigurationResponse_capabilityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus"><span class="hs-identifier">describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.html"><span class="hs-identifier">Network.AWS.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeGatewayCapabilityConfiguration' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679354558"><span id="local-6989586621679354559"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGatewayCapabilityConfiguration"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-var">DescribeGatewayCapabilityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGatewayCapabilityConfiguration%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-var">DescribeGatewayCapabilityConfiguration'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the gateway that defines the capability configuration.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfiguration%27"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfiguration -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The namespace of the capability configuration. For example, if you</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- configure OPC-UA sources from the IoT SiteWise console, your OPC-UA</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- capability configuration has the namespace</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @iotsitewise:opcuacollector:version@, where @version@ is a number such</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- as @1@.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfiguration%27"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfiguration -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-var hs-var">capabilityNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354551"><span id="local-6989586621679354553"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfiguration
+-&gt; DescribeGatewayCapabilityConfiguration -&gt; Bool
+(DescribeGatewayCapabilityConfiguration
+ -&gt; DescribeGatewayCapabilityConfiguration -&gt; Bool)
+-&gt; (DescribeGatewayCapabilityConfiguration
+    -&gt; DescribeGatewayCapabilityConfiguration -&gt; Bool)
+-&gt; Eq DescribeGatewayCapabilityConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGatewayCapabilityConfiguration
+-&gt; DescribeGatewayCapabilityConfiguration -&gt; Bool
+$c/= :: DescribeGatewayCapabilityConfiguration
+-&gt; DescribeGatewayCapabilityConfiguration -&gt; Bool
+== :: DescribeGatewayCapabilityConfiguration
+-&gt; DescribeGatewayCapabilityConfiguration -&gt; Bool
+$c== :: DescribeGatewayCapabilityConfiguration
+-&gt; DescribeGatewayCapabilityConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354542"><span id="local-6989586621679354544"><span id="local-6989586621679354546"><span id="local-6989586621679354548"><span class="annot"><span class="annottext">ReadPrec [DescribeGatewayCapabilityConfiguration]
+ReadPrec DescribeGatewayCapabilityConfiguration
+Int -&gt; ReadS DescribeGatewayCapabilityConfiguration
+ReadS [DescribeGatewayCapabilityConfiguration]
+(Int -&gt; ReadS DescribeGatewayCapabilityConfiguration)
+-&gt; ReadS [DescribeGatewayCapabilityConfiguration]
+-&gt; ReadPrec DescribeGatewayCapabilityConfiguration
+-&gt; ReadPrec [DescribeGatewayCapabilityConfiguration]
+-&gt; Read DescribeGatewayCapabilityConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGatewayCapabilityConfiguration]
+$creadListPrec :: ReadPrec [DescribeGatewayCapabilityConfiguration]
+readPrec :: ReadPrec DescribeGatewayCapabilityConfiguration
+$creadPrec :: ReadPrec DescribeGatewayCapabilityConfiguration
+readList :: ReadS [DescribeGatewayCapabilityConfiguration]
+$creadList :: ReadS [DescribeGatewayCapabilityConfiguration]
+readsPrec :: Int -&gt; ReadS DescribeGatewayCapabilityConfiguration
+$creadsPrec :: Int -&gt; ReadS DescribeGatewayCapabilityConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354535"><span id="local-6989586621679354537"><span id="local-6989586621679354539"><span class="annot"><span class="annottext">Int -&gt; DescribeGatewayCapabilityConfiguration -&gt; ShowS
+[DescribeGatewayCapabilityConfiguration] -&gt; ShowS
+DescribeGatewayCapabilityConfiguration -&gt; String
+(Int -&gt; DescribeGatewayCapabilityConfiguration -&gt; ShowS)
+-&gt; (DescribeGatewayCapabilityConfiguration -&gt; String)
+-&gt; ([DescribeGatewayCapabilityConfiguration] -&gt; ShowS)
+-&gt; Show DescribeGatewayCapabilityConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGatewayCapabilityConfiguration] -&gt; ShowS
+$cshowList :: [DescribeGatewayCapabilityConfiguration] -&gt; ShowS
+show :: DescribeGatewayCapabilityConfiguration -&gt; String
+$cshow :: DescribeGatewayCapabilityConfiguration -&gt; String
+showsPrec :: Int -&gt; DescribeGatewayCapabilityConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGatewayCapabilityConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeGatewayCapabilityConfiguration
+ -&gt; Rep DescribeGatewayCapabilityConfiguration x)
+-&gt; (forall x.
+    Rep DescribeGatewayCapabilityConfiguration x
+    -&gt; DescribeGatewayCapabilityConfiguration)
+-&gt; Generic DescribeGatewayCapabilityConfiguration
+forall x.
+Rep DescribeGatewayCapabilityConfiguration x
+-&gt; DescribeGatewayCapabilityConfiguration
+forall x.
+DescribeGatewayCapabilityConfiguration
+-&gt; Rep DescribeGatewayCapabilityConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeGatewayCapabilityConfiguration x
+-&gt; DescribeGatewayCapabilityConfiguration
+$cfrom :: forall x.
+DescribeGatewayCapabilityConfiguration
+-&gt; Rep DescribeGatewayCapabilityConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'DescribeGatewayCapabilityConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'gatewayId', 'describeGatewayCapabilityConfiguration_gatewayId' - The ID of the gateway that defines the capability configuration.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'capabilityNamespace', 'describeGatewayCapabilityConfiguration_capabilityNamespace' - The namespace of the capability configuration. For example, if you</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- configure OPC-UA sources from the IoT SiteWise console, your OPC-UA</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- capability configuration has the namespace</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @iotsitewise:opcuacollector:version@, where @version@ is a number such</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- as @1@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#newDescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">newDescribeGatewayCapabilityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'gatewayId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'capabilityNamespace'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span>
+</span><span id="line-93"></span><span id="newDescribeGatewayCapabilityConfiguration"><span class="annot"><span class="annottext">newDescribeGatewayCapabilityConfiguration :: Text -&gt; Text -&gt; DescribeGatewayCapabilityConfiguration
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#newDescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-var hs-var">newDescribeGatewayCapabilityConfiguration</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679354530"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354530"><span class="hs-identifier hs-var">pGatewayId_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679354529"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354529"><span class="hs-identifier hs-var">pCapabilityNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfiguration' :: Text -&gt; Text -&gt; DescribeGatewayCapabilityConfiguration
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGatewayCapabilityConfiguration' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354530"><span class="hs-identifier hs-var">pGatewayId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:capabilityNamespace:DescribeGatewayCapabilityConfiguration' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-var">capabilityNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354529"><span class="hs-identifier hs-var">pCapabilityNamespace_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the gateway that defines the capability configuration.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfiguration_gatewayId"><span class="hs-identifier hs-type">describeGatewayCapabilityConfiguration_gatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="describeGatewayCapabilityConfiguration_gatewayId"><span class="annot"><span class="annottext">describeGatewayCapabilityConfiguration_gatewayId :: (Text -&gt; f Text)
+-&gt; DescribeGatewayCapabilityConfiguration
+-&gt; f DescribeGatewayCapabilityConfiguration
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfiguration_gatewayId"><span class="hs-identifier hs-var hs-var">describeGatewayCapabilityConfiguration_gatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayCapabilityConfiguration -&gt; Text)
+-&gt; (DescribeGatewayCapabilityConfiguration
+    -&gt; Text -&gt; DescribeGatewayCapabilityConfiguration)
+-&gt; Lens
+     DescribeGatewayCapabilityConfiguration
+     DescribeGatewayCapabilityConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354526"><span class="annot"><span class="annottext">Text
+gatewayId :: Text
+$sel:gatewayId:DescribeGatewayCapabilityConfiguration' :: DescribeGatewayCapabilityConfiguration -&gt; Text
+</span><a href="#local-6989586621679354526"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354526"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354525"><span class="annot"><span class="annottext">s :: DescribeGatewayCapabilityConfiguration
+</span><a href="#local-6989586621679354525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfiguration
+</span><a href="#local-6989586621679354525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGatewayCapabilityConfiguration' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The namespace of the capability configuration. For example, if you</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- configure OPC-UA sources from the IoT SiteWise console, your OPC-UA</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- capability configuration has the namespace</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @iotsitewise:opcuacollector:version@, where @version@ is a number such</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- as @1@.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfiguration_capabilityNamespace"><span class="hs-identifier hs-type">describeGatewayCapabilityConfiguration_capabilityNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="describeGatewayCapabilityConfiguration_capabilityNamespace"><span class="annot"><span class="annottext">describeGatewayCapabilityConfiguration_capabilityNamespace :: (Text -&gt; f Text)
+-&gt; DescribeGatewayCapabilityConfiguration
+-&gt; f DescribeGatewayCapabilityConfiguration
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfiguration_capabilityNamespace"><span class="hs-identifier hs-var hs-var">describeGatewayCapabilityConfiguration_capabilityNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayCapabilityConfiguration -&gt; Text)
+-&gt; (DescribeGatewayCapabilityConfiguration
+    -&gt; Text -&gt; DescribeGatewayCapabilityConfiguration)
+-&gt; Lens
+     DescribeGatewayCapabilityConfiguration
+     DescribeGatewayCapabilityConfiguration
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354523"><span class="annot"><span class="annottext">Text
+capabilityNamespace :: Text
+$sel:capabilityNamespace:DescribeGatewayCapabilityConfiguration' :: DescribeGatewayCapabilityConfiguration -&gt; Text
+</span><a href="#local-6989586621679354523"><span class="hs-identifier hs-var hs-var">capabilityNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354523"><span class="hs-identifier hs-var">capabilityNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354522"><span class="annot"><span class="annottext">s :: DescribeGatewayCapabilityConfiguration
+</span><a href="#local-6989586621679354522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354521"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfiguration
+</span><a href="#local-6989586621679354522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilityNamespace:DescribeGatewayCapabilityConfiguration' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-var">capabilityNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679354517"><span class="annot"><span class="annottext">request :: DescribeGatewayCapabilityConfiguration
+-&gt; Request DescribeGatewayCapabilityConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeGatewayCapabilityConfiguration
+-&gt; Request DescribeGatewayCapabilityConfiguration
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679354513"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeGatewayCapabilityConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeGatewayCapabilityConfiguration)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse DescribeGatewayCapabilityConfiguration))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeGatewayCapabilityConfiguration
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DescribeGatewayCapabilityConfiguration)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354510"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354510"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679354509"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679354509"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679354508"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CapabilitySyncStatus
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; CapabilitySyncStatus
+ -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; CapabilitySyncStatus
+      -&gt; DescribeGatewayCapabilityConfigurationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354510"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; CapabilitySyncStatus
+   -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; CapabilitySyncStatus
+      -&gt; DescribeGatewayCapabilityConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; Text
+   -&gt; CapabilitySyncStatus
+   -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (Text
+      -&gt; CapabilitySyncStatus
+      -&gt; DescribeGatewayCapabilityConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capabilityNamespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Text
+   -&gt; CapabilitySyncStatus
+   -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (CapabilitySyncStatus
+      -&gt; DescribeGatewayCapabilityConfigurationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capabilityConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (CapabilitySyncStatus
+   -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Either String CapabilitySyncStatus
+-&gt; Either String DescribeGatewayCapabilityConfigurationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String CapabilitySyncStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capabilitySyncStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679354500"><span id="local-6989586621679354502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679354497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679354493"><span class="annot"><span class="annottext">toHeaders :: DescribeGatewayCapabilityConfiguration -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribeGatewayCapabilityConfiguration -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679354487"><span class="annot"><span class="annottext">toPath :: DescribeGatewayCapabilityConfiguration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354484"><span id="local-6989586621679354485"><span class="annot"><span class="annottext">Text
+capabilityNamespace :: Text
+gatewayId :: Text
+$sel:capabilityNamespace:DescribeGatewayCapabilityConfiguration' :: DescribeGatewayCapabilityConfiguration -&gt; Text
+$sel:gatewayId:DescribeGatewayCapabilityConfiguration' :: DescribeGatewayCapabilityConfiguration -&gt; Text
+</span><a href="#local-6989586621679354484"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/20200301/gateways/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354485"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/capability/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354484"><span class="hs-identifier hs-var">capabilityNamespace</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfiguration"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfiguration</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679354480"><span class="annot"><span class="annottext">toQuery :: DescribeGatewayCapabilityConfiguration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
+-&gt; DescribeGatewayCapabilityConfiguration -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newDescribeGatewayCapabilityConfigurationResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679354477"><span id="local-6989586621679354478"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGatewayCapabilityConfigurationResponse"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-var">DescribeGatewayCapabilityConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGatewayCapabilityConfigurationResponse%27"><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">DescribeGatewayCapabilityConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse -&gt; Int
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AhttpStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The ID of the gateway that defines the capability configuration.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The namespace of the gateway capability.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">capabilityNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The JSON document that defines the gateway capability\'s configuration.</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli Configuring data sources (CLI)&gt;</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AcapabilityConfiguration%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse -&gt; Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityConfiguration%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">capabilityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The synchronization status of the capability configuration. The sync</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- status can be one of the following:</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- -   @IN_SYNC@ &#8211; The gateway is running the capability configuration.</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- -   @OUT_OF_SYNC@ &#8211; The gateway hasn\'t received the capability</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- -   @SYNC_FAILED@ &#8211; The gateway rejected the capability configuration.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AcapabilitySyncStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse
+-&gt; CapabilitySyncStatus
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilitySyncStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">capabilitySyncStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus.html#CapabilitySyncStatus"><span class="hs-identifier hs-type">CapabilitySyncStatus</span></a></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354468"><span id="local-6989586621679354470"><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse
+-&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; Bool
+(DescribeGatewayCapabilityConfigurationResponse
+ -&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; Bool)
+-&gt; (DescribeGatewayCapabilityConfigurationResponse
+    -&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; Bool)
+-&gt; Eq DescribeGatewayCapabilityConfigurationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeGatewayCapabilityConfigurationResponse
+-&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; Bool
+$c/= :: DescribeGatewayCapabilityConfigurationResponse
+-&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; Bool
+== :: DescribeGatewayCapabilityConfigurationResponse
+-&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; Bool
+$c== :: DescribeGatewayCapabilityConfigurationResponse
+-&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354460"><span id="local-6989586621679354462"><span id="local-6989586621679354464"><span id="local-6989586621679354466"><span class="annot"><span class="annottext">ReadPrec [DescribeGatewayCapabilityConfigurationResponse]
+ReadPrec DescribeGatewayCapabilityConfigurationResponse
+Int -&gt; ReadS DescribeGatewayCapabilityConfigurationResponse
+ReadS [DescribeGatewayCapabilityConfigurationResponse]
+(Int -&gt; ReadS DescribeGatewayCapabilityConfigurationResponse)
+-&gt; ReadS [DescribeGatewayCapabilityConfigurationResponse]
+-&gt; ReadPrec DescribeGatewayCapabilityConfigurationResponse
+-&gt; ReadPrec [DescribeGatewayCapabilityConfigurationResponse]
+-&gt; Read DescribeGatewayCapabilityConfigurationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeGatewayCapabilityConfigurationResponse]
+$creadListPrec :: ReadPrec [DescribeGatewayCapabilityConfigurationResponse]
+readPrec :: ReadPrec DescribeGatewayCapabilityConfigurationResponse
+$creadPrec :: ReadPrec DescribeGatewayCapabilityConfigurationResponse
+readList :: ReadS [DescribeGatewayCapabilityConfigurationResponse]
+$creadList :: ReadS [DescribeGatewayCapabilityConfigurationResponse]
+readsPrec :: Int -&gt; ReadS DescribeGatewayCapabilityConfigurationResponse
+$creadsPrec :: Int -&gt; ReadS DescribeGatewayCapabilityConfigurationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354454"><span id="local-6989586621679354456"><span id="local-6989586621679354458"><span class="annot"><span class="annottext">Int -&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; ShowS
+[DescribeGatewayCapabilityConfigurationResponse] -&gt; ShowS
+DescribeGatewayCapabilityConfigurationResponse -&gt; String
+(Int -&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; ShowS)
+-&gt; (DescribeGatewayCapabilityConfigurationResponse -&gt; String)
+-&gt; ([DescribeGatewayCapabilityConfigurationResponse] -&gt; ShowS)
+-&gt; Show DescribeGatewayCapabilityConfigurationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeGatewayCapabilityConfigurationResponse] -&gt; ShowS
+$cshowList :: [DescribeGatewayCapabilityConfigurationResponse] -&gt; ShowS
+show :: DescribeGatewayCapabilityConfigurationResponse -&gt; String
+$cshow :: DescribeGatewayCapabilityConfigurationResponse -&gt; String
+showsPrec :: Int -&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeGatewayCapabilityConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeGatewayCapabilityConfigurationResponse
+ -&gt; Rep DescribeGatewayCapabilityConfigurationResponse x)
+-&gt; (forall x.
+    Rep DescribeGatewayCapabilityConfigurationResponse x
+    -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Generic DescribeGatewayCapabilityConfigurationResponse
+forall x.
+Rep DescribeGatewayCapabilityConfigurationResponse x
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+forall x.
+DescribeGatewayCapabilityConfigurationResponse
+-&gt; Rep DescribeGatewayCapabilityConfigurationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeGatewayCapabilityConfigurationResponse x
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+$cfrom :: forall x.
+DescribeGatewayCapabilityConfigurationResponse
+-&gt; Rep DescribeGatewayCapabilityConfigurationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'DescribeGatewayCapabilityConfigurationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'describeGatewayCapabilityConfigurationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'gatewayId', 'describeGatewayCapabilityConfigurationResponse_gatewayId' - The ID of the gateway that defines the capability configuration.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'capabilityNamespace', 'describeGatewayCapabilityConfigurationResponse_capabilityNamespace' - The namespace of the gateway capability.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'capabilityConfiguration', 'describeGatewayCapabilityConfigurationResponse_capabilityConfiguration' - The JSON document that defines the gateway capability\'s configuration.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli Configuring data sources (CLI)&gt;</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'capabilitySyncStatus', 'describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus' - The synchronization status of the capability configuration. The sync</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- status can be one of the following:</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- -   @IN_SYNC@ &#8211; The gateway is running the capability configuration.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   @OUT_OF_SYNC@ &#8211; The gateway hasn\'t received the capability</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   @SYNC_FAILED@ &#8211; The gateway rejected the capability configuration.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#newDescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">newDescribeGatewayCapabilityConfigurationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-comment">-- | 'gatewayId'</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-comment">-- | 'capabilityNamespace'</span><span>
+</span><span id="line-235"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'capabilityConfiguration'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="hs-comment">-- | 'capabilitySyncStatus'</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus.html#CapabilitySyncStatus"><span class="hs-identifier hs-type">CapabilitySyncStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span>
+</span><span id="line-241"></span><span id="newDescribeGatewayCapabilityConfigurationResponse"><span class="annot"><span class="annottext">newDescribeGatewayCapabilityConfigurationResponse :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CapabilitySyncStatus
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#newDescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-var hs-var">newDescribeGatewayCapabilityConfigurationResponse</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679354451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679354450"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354450"><span class="hs-identifier hs-var">pGatewayId_</span></a></span></span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679354449"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354449"><span class="hs-identifier hs-var">pCapabilityNamespace_</span></a></span></span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679354448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354448"><span class="hs-identifier hs-var">pCapabilityConfiguration_</span></a></span></span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621679354447"><span class="annot"><span class="annottext">CapabilitySyncStatus
+</span><a href="#local-6989586621679354447"><span class="hs-identifier hs-var">pCapabilitySyncStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse' :: Int
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; CapabilitySyncStatus
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGatewayCapabilityConfigurationResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AhttpStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGatewayCapabilityConfigurationResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354450"><span class="hs-identifier hs-var">pGatewayId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">$sel:capabilityNamespace:DescribeGatewayCapabilityConfigurationResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">capabilityNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354449"><span class="hs-identifier hs-var">pCapabilityNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>        </span><span class="annot"><span class="annottext">$sel:capabilityConfiguration:DescribeGatewayCapabilityConfigurationResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityConfiguration%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">capabilityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354448"><span class="hs-identifier hs-var">pCapabilityConfiguration_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">$sel:capabilitySyncStatus:DescribeGatewayCapabilityConfigurationResponse' :: CapabilitySyncStatus
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilitySyncStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">capabilitySyncStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-256"></span><span>          </span><span class="annot"><span class="annottext">CapabilitySyncStatus
+</span><a href="#local-6989586621679354447"><span class="hs-identifier hs-var">pCapabilitySyncStatus_</span></a></span><span>
+</span><span id="line-257"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">describeGatewayCapabilityConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-261"></span><span id="describeGatewayCapabilityConfigurationResponse_httpStatus"><span class="annot"><span class="annottext">describeGatewayCapabilityConfigurationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+-&gt; f DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeGatewayCapabilityConfigurationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayCapabilityConfigurationResponse -&gt; Int)
+-&gt; (DescribeGatewayCapabilityConfigurationResponse
+    -&gt; Int -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Lens
+     DescribeGatewayCapabilityConfigurationResponse
+     DescribeGatewayCapabilityConfigurationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354446"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeGatewayCapabilityConfigurationResponse' :: DescribeGatewayCapabilityConfigurationResponse -&gt; Int
+</span><a href="#local-6989586621679354446"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354446"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354445"><span class="annot"><span class="annottext">s :: DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354444"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGatewayCapabilityConfigurationResponse' :: Int
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AhttpStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The ID of the gateway that defines the capability configuration.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_gatewayId"><span class="hs-identifier hs-type">describeGatewayCapabilityConfigurationResponse_gatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-265"></span><span id="describeGatewayCapabilityConfigurationResponse_gatewayId"><span class="annot"><span class="annottext">describeGatewayCapabilityConfigurationResponse_gatewayId :: (Text -&gt; f Text)
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+-&gt; f DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_gatewayId"><span class="hs-identifier hs-var hs-var">describeGatewayCapabilityConfigurationResponse_gatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayCapabilityConfigurationResponse -&gt; Text)
+-&gt; (DescribeGatewayCapabilityConfigurationResponse
+    -&gt; Text -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Lens
+     DescribeGatewayCapabilityConfigurationResponse
+     DescribeGatewayCapabilityConfigurationResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354443"><span class="annot"><span class="annottext">Text
+gatewayId :: Text
+$sel:gatewayId:DescribeGatewayCapabilityConfigurationResponse' :: DescribeGatewayCapabilityConfigurationResponse -&gt; Text
+</span><a href="#local-6989586621679354443"><span class="hs-identifier hs-var hs-var">gatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354443"><span class="hs-identifier hs-var">gatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354442"><span class="annot"><span class="annottext">s :: DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354441"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayId:DescribeGatewayCapabilityConfigurationResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AgatewayId%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">gatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The namespace of the gateway capability.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilityNamespace"><span class="hs-identifier hs-type">describeGatewayCapabilityConfigurationResponse_capabilityNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-269"></span><span id="describeGatewayCapabilityConfigurationResponse_capabilityNamespace"><span class="annot"><span class="annottext">describeGatewayCapabilityConfigurationResponse_capabilityNamespace :: (Text -&gt; f Text)
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+-&gt; f DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilityNamespace"><span class="hs-identifier hs-var hs-var">describeGatewayCapabilityConfigurationResponse_capabilityNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayCapabilityConfigurationResponse -&gt; Text)
+-&gt; (DescribeGatewayCapabilityConfigurationResponse
+    -&gt; Text -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Lens
+     DescribeGatewayCapabilityConfigurationResponse
+     DescribeGatewayCapabilityConfigurationResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354440"><span class="annot"><span class="annottext">Text
+capabilityNamespace :: Text
+$sel:capabilityNamespace:DescribeGatewayCapabilityConfigurationResponse' :: DescribeGatewayCapabilityConfigurationResponse -&gt; Text
+</span><a href="#local-6989586621679354440"><span class="hs-identifier hs-var hs-var">capabilityNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354440"><span class="hs-identifier hs-var">capabilityNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354439"><span class="annot"><span class="annottext">s :: DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354438"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilityNamespace:DescribeGatewayCapabilityConfigurationResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityNamespace%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">capabilityNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The JSON document that defines the gateway capability\'s configuration.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli Configuring data sources (CLI)&gt;</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilityConfiguration"><span class="hs-identifier hs-type">describeGatewayCapabilityConfigurationResponse_capabilityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-276"></span><span id="describeGatewayCapabilityConfigurationResponse_capabilityConfiguration"><span class="annot"><span class="annottext">describeGatewayCapabilityConfigurationResponse_capabilityConfiguration :: (Text -&gt; f Text)
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+-&gt; f DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilityConfiguration"><span class="hs-identifier hs-var hs-var">describeGatewayCapabilityConfigurationResponse_capabilityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayCapabilityConfigurationResponse -&gt; Text)
+-&gt; (DescribeGatewayCapabilityConfigurationResponse
+    -&gt; Text -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Lens
+     DescribeGatewayCapabilityConfigurationResponse
+     DescribeGatewayCapabilityConfigurationResponse
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354437"><span class="annot"><span class="annottext">Text
+capabilityConfiguration :: Text
+$sel:capabilityConfiguration:DescribeGatewayCapabilityConfigurationResponse' :: DescribeGatewayCapabilityConfigurationResponse -&gt; Text
+</span><a href="#local-6989586621679354437"><span class="hs-identifier hs-var hs-var">capabilityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354437"><span class="hs-identifier hs-var">capabilityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354436"><span class="annot"><span class="annottext">s :: DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilityConfiguration:DescribeGatewayCapabilityConfigurationResponse' :: Text
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilityConfiguration%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">capabilityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The synchronization status of the capability configuration. The sync</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- status can be one of the following:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   @IN_SYNC@ &#8211; The gateway is running the capability configuration.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   @OUT_OF_SYNC@ &#8211; The gateway hasn\'t received the capability</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     configuration.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- -   @SYNC_FAILED@ &#8211; The gateway rejected the capability configuration.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus"><span class="hs-identifier hs-type">describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.Types.CapabilitySyncStatus.html#CapabilitySyncStatus"><span class="hs-identifier hs-type">CapabilitySyncStatus</span></a></span><span>
+</span><span id="line-288"></span><span id="describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus"><span class="annot"><span class="annottext">describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus :: (CapabilitySyncStatus -&gt; f CapabilitySyncStatus)
+-&gt; DescribeGatewayCapabilityConfigurationResponse
+-&gt; f DescribeGatewayCapabilityConfigurationResponse
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus"><span class="hs-identifier hs-var hs-var">describeGatewayCapabilityConfigurationResponse_capabilitySyncStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeGatewayCapabilityConfigurationResponse
+ -&gt; CapabilitySyncStatus)
+-&gt; (DescribeGatewayCapabilityConfigurationResponse
+    -&gt; CapabilitySyncStatus
+    -&gt; DescribeGatewayCapabilityConfigurationResponse)
+-&gt; Lens
+     DescribeGatewayCapabilityConfigurationResponse
+     DescribeGatewayCapabilityConfigurationResponse
+     CapabilitySyncStatus
+     CapabilitySyncStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354434"><span class="annot"><span class="annottext">CapabilitySyncStatus
+capabilitySyncStatus :: CapabilitySyncStatus
+$sel:capabilitySyncStatus:DescribeGatewayCapabilityConfigurationResponse' :: DescribeGatewayCapabilityConfigurationResponse
+-&gt; CapabilitySyncStatus
+</span><a href="#local-6989586621679354434"><span class="hs-identifier hs-var hs-var">capabilitySyncStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapabilitySyncStatus
+</span><a href="#local-6989586621679354434"><span class="hs-identifier hs-var">capabilitySyncStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354433"><span class="annot"><span class="annottext">s :: DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354432"><span class="annot"><span class="annottext">CapabilitySyncStatus
+</span><a href="#local-6989586621679354432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGatewayCapabilityConfigurationResponse
+</span><a href="#local-6989586621679354433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilitySyncStatus:DescribeGatewayCapabilityConfigurationResponse' :: CapabilitySyncStatus
+</span><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#%24sel%3AcapabilitySyncStatus%3ADescribeGatewayCapabilityConfigurationResponse%27"><span class="hs-identifier hs-var">capabilitySyncStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CapabilitySyncStatus
+</span><a href="#local-6989586621679354432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679354430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTSiteWise.DescribeGatewayCapabilityConfiguration.html#DescribeGatewayCapabilityConfigurationResponse"><span class="hs-identifier hs-type">DescribeGatewayCapabilityConfigurationResponse</span></a></span></span><span>
+</span><span id="line-293"></span></pre></body></html>

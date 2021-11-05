@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- jobs.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOutputDataConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679346097"><span id="local-6989586621679346098"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputDataConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-var">OutputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputDataConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-var">OutputDataConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679346106"><span id="local-6989586621679346107"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputDataConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-var">OutputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputDataConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-var">OutputDataConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- uses to encrypt the output results from an analysis job. The KmsKeyId</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- can be one of the following formats:</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3As3Uri%3AOutputDataConfig%27"><span class="annot"><span class="annottext">OutputDataConfig -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#%24sel%3As3Uri%3AOutputDataConfig%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346090"><span id="local-6989586621679346092"><span class="annot"><span class="annottext">OutputDataConfig -&gt; OutputDataConfig -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346099"><span id="local-6989586621679346101"><span class="annot"><span class="annottext">OutputDataConfig -&gt; OutputDataConfig -&gt; Bool
 (OutputDataConfig -&gt; OutputDataConfig -&gt; Bool)
 -&gt; (OutputDataConfig -&gt; OutputDataConfig -&gt; Bool)
 -&gt; Eq OutputDataConfig
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputDataConfig -&gt; OutputDataConfig -&gt; Bool
 == :: OutputDataConfig -&gt; OutputDataConfig -&gt; Bool
 $c== :: OutputDataConfig -&gt; OutputDataConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346081"><span id="local-6989586621679346083"><span id="local-6989586621679346085"><span id="local-6989586621679346087"><span class="annot"><span class="annottext">ReadPrec [OutputDataConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346090"><span id="local-6989586621679346092"><span id="local-6989586621679346094"><span id="local-6989586621679346096"><span class="annot"><span class="annottext">ReadPrec [OutputDataConfig]
 ReadPrec OutputDataConfig
 Int -&gt; ReadS OutputDataConfig
 ReadS [OutputDataConfig]
@@ -85,7 +85,7 @@ readList :: ReadS [OutputDataConfig]
 $creadList :: ReadS [OutputDataConfig]
 readsPrec :: Int -&gt; ReadS OutputDataConfig
 $creadsPrec :: Int -&gt; ReadS OutputDataConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346074"><span id="local-6989586621679346076"><span id="local-6989586621679346078"><span class="annot"><span class="annottext">Int -&gt; OutputDataConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346083"><span id="local-6989586621679346085"><span id="local-6989586621679346087"><span class="annot"><span class="annottext">Int -&gt; OutputDataConfig -&gt; ShowS
 [OutputDataConfig] -&gt; ShowS
 OutputDataConfig -&gt; String
 (Int -&gt; OutputDataConfig -&gt; ShowS)
@@ -148,8 +148,8 @@ $cfrom :: forall x. OutputDataConfig -&gt; Rep OutputDataConfig x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span>
 </span><span id="line-95"></span><span id="newOutputDataConfig"><span class="annot"><span class="annottext">newOutputDataConfig :: Text -&gt; OutputDataConfig
-</span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#newOutputDataConfig"><span class="hs-identifier hs-var hs-var">newOutputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679346068"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346068"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#newOutputDataConfig"><span class="hs-identifier hs-var hs-var">newOutputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679346077"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346077"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">OutputDataConfig' :: Maybe Text -&gt; Text -&gt; OutputDataConfig
 </span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKeyId:OutputDataConfig' :: Maybe Text
@@ -158,7 +158,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:OutputDataConfig' :: Text
 </span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#%24sel%3As3Uri%3AOutputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346068"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
+</span><a href="#local-6989586621679346077"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; (OutputDataConfig -&gt; Maybe Text -&gt; OutputDataConfig)
 -&gt; Lens OutputDataConfig OutputDataConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346064"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346073"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:OutputDataConfig' :: OutputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679346064"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346064"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346063"><span class="annot"><span class="annottext">s :: OutputDataConfig
-</span><a href="#local-6989586621679346063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346062"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621679346063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:OutputDataConfig' :: Maybe Text
+</span><a href="#local-6989586621679346073"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346073"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346072"><span class="annot"><span class="annottext">s :: OutputDataConfig
+</span><a href="#local-6989586621679346072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346071"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679346071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679346072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:OutputDataConfig' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#%24sel%3AkmsKeyId%3AOutputDataConfig%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | When you use the @OutputDataConfig@ object with asynchronous operations,</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- you specify the Amazon S3 location where you want to write the output</span><span>
@@ -208,19 +208,19 @@ $sel:kmsKeyId:OutputDataConfig' :: OutputDataConfig -&gt; Maybe Text
 -&gt; (OutputDataConfig -&gt; Text -&gt; OutputDataConfig)
 -&gt; Lens OutputDataConfig OutputDataConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346060"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346069"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:OutputDataConfig' :: OutputDataConfig -&gt; Text
-</span><a href="#local-6989586621679346060"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346060"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346059"><span class="annot"><span class="annottext">s :: OutputDataConfig
-</span><a href="#local-6989586621679346059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346058"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
-</span><a href="#local-6989586621679346059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:OutputDataConfig' :: Text
+</span><a href="#local-6989586621679346069"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346069"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346068"><span class="annot"><span class="annottext">s :: OutputDataConfig
+</span><a href="#local-6989586621679346068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346067"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679346067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679346068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:OutputDataConfig' :: Text
 </span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#%24sel%3As3Uri%3AOutputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346055"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679346053"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputDataConfig
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346064"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679346062"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputDataConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputDataConfig)
@@ -230,15 +230,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputDataConfig&quot;</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346050"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346050"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346059"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679346059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; OutputDataConfig
 </span><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-var">OutputDataConfig'</span></a></span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; OutputDataConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; OutputDataConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679346059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -246,25 +246,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser OutputDataConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679346050"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679346059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346043"><span id="local-6989586621679346045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346052"><span id="local-6989586621679346054"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346032"><span id="local-6989586621679346034"><span id="local-6989586621679346036"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679346030"><span class="annot"><span class="annottext">toJSON :: OutputDataConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346027"><span id="local-6989586621679346028"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346041"><span id="local-6989586621679346043"><span id="local-6989586621679346045"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679346039"><span class="annot"><span class="annottext">toJSON :: OutputDataConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.OutputDataConfig.html#OutputDataConfig%27"><span class="hs-identifier hs-type">OutputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346036"><span id="local-6989586621679346037"><span class="annot"><span class="annottext">Maybe Text
 Text
 s3Uri :: Text
 kmsKeyId :: Maybe Text
 $sel:s3Uri:OutputDataConfig' :: OutputDataConfig -&gt; Text
 $sel:kmsKeyId:OutputDataConfig' :: OutputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679346027"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679346036"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -276,14 +276,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679346028"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679346037"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346027"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679346036"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span></pre></body></html>

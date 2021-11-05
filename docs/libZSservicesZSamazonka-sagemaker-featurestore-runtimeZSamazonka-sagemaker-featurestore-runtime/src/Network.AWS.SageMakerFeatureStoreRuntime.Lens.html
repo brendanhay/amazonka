@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-4"></span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Module      : Network.AWS.SageMakerFeatureStoreRuntime.Lens</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.Lens</span><span>
+</span><span id="line-15"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-16"></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutRecord</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.html#putRecord_featureGroupName"><span class="hs-identifier">putRecord_featureGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.html#putRecord_record"><span class="hs-identifier">putRecord_record</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteRecord</span></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.html#deleteRecord_featureGroupName"><span class="hs-identifier">deleteRecord_featureGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.html#deleteRecord_recordIdentifierValueAsString"><span class="hs-identifier">deleteRecord_recordIdentifierValueAsString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.html#deleteRecord_eventTime"><span class="hs-identifier">deleteRecord_eventTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchGetRecord</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.html#batchGetRecord_identifiers"><span class="hs-identifier">batchGetRecord_identifiers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.html#batchGetRecordResponse_httpStatus"><span class="hs-identifier">batchGetRecordResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.html#batchGetRecordResponse_records"><span class="hs-identifier">batchGetRecordResponse_records</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.html#batchGetRecordResponse_errors"><span class="hs-identifier">batchGetRecordResponse_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.html#batchGetRecordResponse_unprocessedIdentifiers"><span class="hs-identifier">batchGetRecordResponse_unprocessedIdentifiers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetRecord</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.html#getRecord_featureNames"><span class="hs-identifier">getRecord_featureNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.html#getRecord_featureGroupName"><span class="hs-identifier">getRecord_featureGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.html#getRecord_recordIdentifierValueAsString"><span class="hs-identifier">getRecord_recordIdentifierValueAsString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.html#getRecordResponse_record"><span class="hs-identifier">getRecordResponse_record</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.html#getRecordResponse_httpStatus"><span class="hs-identifier">getRecordResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchGetRecordError</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_featureGroupName"><span class="hs-identifier">batchGetRecordError_featureGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_recordIdentifierValueAsString"><span class="hs-identifier">batchGetRecordError_recordIdentifierValueAsString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_errorCode"><span class="hs-identifier">batchGetRecordError_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html#batchGetRecordError_errorMessage"><span class="hs-identifier">batchGetRecordError_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchGetRecordIdentifier</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.html#batchGetRecordIdentifier_featureNames"><span class="hs-identifier">batchGetRecordIdentifier_featureNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.html#batchGetRecordIdentifier_featureGroupName"><span class="hs-identifier">batchGetRecordIdentifier_featureGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.html#batchGetRecordIdentifier_recordIdentifiersValueAsString"><span class="hs-identifier">batchGetRecordIdentifier_recordIdentifiersValueAsString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchGetRecordResultDetail</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_featureGroupName"><span class="hs-identifier">batchGetRecordResultDetail_featureGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_recordIdentifierValueAsString"><span class="hs-identifier">batchGetRecordResultDetail_recordIdentifierValueAsString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_record"><span class="hs-identifier">batchGetRecordResultDetail_record</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** FeatureValue</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.html#featureValue_featureName"><span class="hs-identifier">featureValue_featureName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.html#featureValue_valueAsString"><span class="hs-identifier">featureValue_valueAsString</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.GetRecord</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.PutRecord</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.html"><span class="hs-identifier">Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue</span></a></span><span>
+</span><span id="line-72"></span></pre></body></html>

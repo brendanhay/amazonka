@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679272480"><span id="local-6989586621679272481"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MediaFormat"><span class="annot"><a href="Network.AWS.Transcribe.Types.MediaFormat.html#MediaFormat"><span class="hs-identifier hs-var">MediaFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaFormat%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.MediaFormat.html#MediaFormat%27"><span class="hs-identifier hs-var">MediaFormat'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679272489"><span id="local-6989586621679272490"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MediaFormat"><span class="annot"><a href="Network.AWS.Transcribe.Types.MediaFormat.html#MediaFormat"><span class="hs-identifier hs-var">MediaFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MediaFormat%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.MediaFormat.html#MediaFormat%27"><span class="hs-identifier hs-var">MediaFormat'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMediaFormat"><span class="annot"><span class="annottext">MediaFormat -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.MediaFormat.html#fromMediaFormat"><span class="hs-identifier hs-var hs-var">fromMediaFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272472"><span id="local-6989586621679272474"><span id="local-6989586621679272476"><span class="annot"><span class="annottext">Int -&gt; MediaFormat -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272481"><span id="local-6989586621679272483"><span id="local-6989586621679272485"><span class="annot"><span class="annottext">Int -&gt; MediaFormat -&gt; ShowS
 [MediaFormat] -&gt; ShowS
 MediaFormat -&gt; String
 (Int -&gt; MediaFormat -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: MediaFormat -&gt; String
 showsPrec :: Int -&gt; MediaFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; MediaFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679272463"><span id="local-6989586621679272465"><span id="local-6989586621679272467"><span id="local-6989586621679272469"><span class="annot"><span class="annottext">ReadPrec [MediaFormat]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679272472"><span id="local-6989586621679272474"><span id="local-6989586621679272476"><span id="local-6989586621679272478"><span class="annot"><span class="annottext">ReadPrec [MediaFormat]
 ReadPrec MediaFormat
 Int -&gt; ReadS MediaFormat
 ReadS [MediaFormat]
@@ -77,7 +77,7 @@ $creadList :: ReadS [MediaFormat]
 readsPrec :: Int -&gt; ReadS MediaFormat
 $creadsPrec :: Int -&gt; ReadS MediaFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679272458"><span id="local-6989586621679272460"><span class="annot"><span class="annottext">MediaFormat -&gt; MediaFormat -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679272467"><span id="local-6989586621679272469"><span class="annot"><span class="annottext">MediaFormat -&gt; MediaFormat -&gt; Bool
 (MediaFormat -&gt; MediaFormat -&gt; Bool)
 -&gt; (MediaFormat -&gt; MediaFormat -&gt; Bool) -&gt; Eq MediaFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: MediaFormat -&gt; MediaFormat -&gt; Bool
 == :: MediaFormat -&gt; MediaFormat -&gt; Bool
 $c== :: MediaFormat -&gt; MediaFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272442"><span id="local-6989586621679272444"><span id="local-6989586621679272446"><span id="local-6989586621679272448"><span id="local-6989586621679272450"><span id="local-6989586621679272452"><span id="local-6989586621679272454"><span class="annot"><span class="annottext">Eq MediaFormat
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679272451"><span id="local-6989586621679272453"><span id="local-6989586621679272455"><span id="local-6989586621679272457"><span id="local-6989586621679272459"><span id="local-6989586621679272461"><span id="local-6989586621679272463"><span class="annot"><span class="annottext">Eq MediaFormat
 Eq MediaFormat
 -&gt; (MediaFormat -&gt; MediaFormat -&gt; Ordering)
 -&gt; (MediaFormat -&gt; MediaFormat -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. MediaFormat -&gt; Rep MediaFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272434"><span id="local-6989586621679272436"><span class="annot"><span class="annottext">Int -&gt; MediaFormat -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272443"><span id="local-6989586621679272445"><span class="annot"><span class="annottext">Int -&gt; MediaFormat -&gt; Int
 MediaFormat -&gt; Int
 (Int -&gt; MediaFormat -&gt; Int)
 -&gt; (MediaFormat -&gt; Int) -&gt; Hashable MediaFormat
@@ -147,49 +147,49 @@ $chash :: MediaFormat -&gt; Int
 hashWithSalt :: Int -&gt; MediaFormat -&gt; Int
 $chashWithSalt :: Int -&gt; MediaFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272431"><span class="annot"><span class="annottext">MediaFormat -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272440"><span class="annot"><span class="annottext">MediaFormat -&gt; ()
 (MediaFormat -&gt; ()) -&gt; NFData MediaFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MediaFormat -&gt; ()
 $crnf :: MediaFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272428"><span class="annot"><span class="annottext">Text -&gt; Either String MediaFormat
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272437"><span class="annot"><span class="annottext">Text -&gt; Either String MediaFormat
 (Text -&gt; Either String MediaFormat) -&gt; FromText MediaFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MediaFormat
 $cfromText :: Text -&gt; Either String MediaFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272425"><span class="annot"><span class="annottext">MediaFormat -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272434"><span class="annot"><span class="annottext">MediaFormat -&gt; Text
 (MediaFormat -&gt; Text) -&gt; ToText MediaFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MediaFormat -&gt; Text
 $ctoText :: MediaFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272422"><span class="annot"><span class="annottext">MediaFormat -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272431"><span class="annot"><span class="annottext">MediaFormat -&gt; ByteString
 (MediaFormat -&gt; ByteString) -&gt; ToByteString MediaFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MediaFormat -&gt; ByteString
 $ctoBS :: MediaFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272419"><span class="annot"><span class="annottext">MediaFormat -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272428"><span class="annot"><span class="annottext">MediaFormat -&gt; ByteStringBuilder
 (MediaFormat -&gt; ByteStringBuilder) -&gt; ToLog MediaFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MediaFormat -&gt; ByteStringBuilder
 $cbuild :: MediaFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272416"><span class="annot"><span class="annottext">HeaderName -&gt; MediaFormat -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272425"><span class="annot"><span class="annottext">HeaderName -&gt; MediaFormat -&gt; [Header]
 (HeaderName -&gt; MediaFormat -&gt; [Header]) -&gt; ToHeader MediaFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MediaFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MediaFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272413"><span class="annot"><span class="annottext">MediaFormat -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272422"><span class="annot"><span class="annottext">MediaFormat -&gt; QueryString
 (MediaFormat -&gt; QueryString) -&gt; ToQuery MediaFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MediaFormat -&gt; QueryString
 $ctoQuery :: MediaFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272408"><span id="local-6989586621679272410"><span class="annot"><span class="annottext">Value -&gt; Parser [MediaFormat]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679272417"><span id="local-6989586621679272419"><span class="annot"><span class="annottext">Value -&gt; Parser [MediaFormat]
 Value -&gt; Parser MediaFormat
 (Value -&gt; Parser MediaFormat)
 -&gt; (Value -&gt; Parser [MediaFormat]) -&gt; FromJSON MediaFormat
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [MediaFormat]
 parseJSON :: Value -&gt; Parser MediaFormat
 $cparseJSON :: Value -&gt; Parser MediaFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679272403"><span id="local-6989586621679272405"><span class="annot"><span class="annottext">FromJSONKeyFunction [MediaFormat]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679272412"><span id="local-6989586621679272414"><span class="annot"><span class="annottext">FromJSONKeyFunction [MediaFormat]
 FromJSONKeyFunction MediaFormat
 FromJSONKeyFunction MediaFormat
 -&gt; FromJSONKeyFunction [MediaFormat] -&gt; FromJSONKey MediaFormat
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MediaFormat]
 fromJSONKey :: FromJSONKeyFunction MediaFormat
 $cfromJSONKey :: FromJSONKeyFunction MediaFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679272394"><span id="local-6989586621679272396"><span id="local-6989586621679272398"><span id="local-6989586621679272400"><span class="annot"><span class="annottext">[MediaFormat] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679272403"><span id="local-6989586621679272405"><span id="local-6989586621679272407"><span id="local-6989586621679272409"><span class="annot"><span class="annottext">[MediaFormat] -&gt; Encoding
 [MediaFormat] -&gt; Value
 MediaFormat -&gt; Encoding
 MediaFormat -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: MediaFormat -&gt; Encoding
 toJSON :: MediaFormat -&gt; Value
 $ctoJSON :: MediaFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679272389"><span id="local-6989586621679272391"><span class="annot"><span class="annottext">ToJSONKeyFunction [MediaFormat]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679272398"><span id="local-6989586621679272400"><span class="annot"><span class="annottext">ToJSONKeyFunction [MediaFormat]
 ToJSONKeyFunction MediaFormat
 ToJSONKeyFunction MediaFormat
 -&gt; ToJSONKeyFunction [MediaFormat] -&gt; ToJSONKey MediaFormat
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MediaFormat]
 toJSONKey :: ToJSONKeyFunction MediaFormat
 $ctoJSONKey :: ToJSONKeyFunction MediaFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679272386"><span class="annot"><span class="annottext">[Node] -&gt; Either String MediaFormat
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679272395"><span class="annot"><span class="annottext">[Node] -&gt; Either String MediaFormat
 ([Node] -&gt; Either String MediaFormat) -&gt; FromXML MediaFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MediaFormat
 $cparseXML :: [Node] -&gt; Either String MediaFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679272383"><span class="annot"><span class="annottext">MediaFormat -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679272392"><span class="annot"><span class="annottext">MediaFormat -&gt; XML
 (MediaFormat -&gt; XML) -&gt; ToXML MediaFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MediaFormat -&gt; XML

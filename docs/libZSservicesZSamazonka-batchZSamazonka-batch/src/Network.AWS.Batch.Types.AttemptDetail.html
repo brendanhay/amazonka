@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing a job attempt.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAttemptDetail' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679263181"><span id="local-6989586621679263182"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttemptDetail"><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-var">AttemptDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttemptDetail%27"><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-var">AttemptDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679263190"><span id="local-6989586621679263191"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttemptDetail"><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-var">AttemptDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttemptDetail%27"><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-var">AttemptDetail'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Unix timestamp (in milliseconds) for when the attempt was stopped</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- (when the attempt transitioned from the @RUNNING@ state to a terminal</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- state, such as @SUCCEEDED@ or @FAILED@).</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AstatusReason%3AAttemptDetail%27"><span class="annot"><span class="annottext">AttemptDetail -&gt; Maybe Text
 </span><a href="Network.AWS.Batch.Types.AttemptDetail.html#%24sel%3AstatusReason%3AAttemptDetail%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263172"><span id="local-6989586621679263174"><span class="annot"><span class="annottext">AttemptDetail -&gt; AttemptDetail -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263181"><span id="local-6989586621679263183"><span class="annot"><span class="annottext">AttemptDetail -&gt; AttemptDetail -&gt; Bool
 (AttemptDetail -&gt; AttemptDetail -&gt; Bool)
 -&gt; (AttemptDetail -&gt; AttemptDetail -&gt; Bool) -&gt; Eq AttemptDetail
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttemptDetail -&gt; AttemptDetail -&gt; Bool
 == :: AttemptDetail -&gt; AttemptDetail -&gt; Bool
 $c== :: AttemptDetail -&gt; AttemptDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263163"><span id="local-6989586621679263165"><span id="local-6989586621679263167"><span id="local-6989586621679263169"><span class="annot"><span class="annottext">ReadPrec [AttemptDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263172"><span id="local-6989586621679263174"><span id="local-6989586621679263176"><span id="local-6989586621679263178"><span class="annot"><span class="annottext">ReadPrec [AttemptDetail]
 ReadPrec AttemptDetail
 Int -&gt; ReadS AttemptDetail
 ReadS [AttemptDetail]
@@ -74,7 +74,7 @@ readList :: ReadS [AttemptDetail]
 $creadList :: ReadS [AttemptDetail]
 readsPrec :: Int -&gt; ReadS AttemptDetail
 $creadsPrec :: Int -&gt; ReadS AttemptDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263156"><span id="local-6989586621679263158"><span id="local-6989586621679263160"><span class="annot"><span class="annottext">Int -&gt; AttemptDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263165"><span id="local-6989586621679263167"><span id="local-6989586621679263169"><span class="annot"><span class="annottext">Int -&gt; AttemptDetail -&gt; ShowS
 [AttemptDetail] -&gt; ShowS
 AttemptDetail -&gt; String
 (Int -&gt; AttemptDetail -&gt; ShowS)
@@ -158,16 +158,16 @@ forall a. Maybe a
 -&gt; (AttemptDetail -&gt; Maybe Integer -&gt; AttemptDetail)
 -&gt; Lens AttemptDetail AttemptDetail (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263147"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263156"><span class="annot"><span class="annottext">Maybe Integer
 stoppedAt :: Maybe Integer
 $sel:stoppedAt:AttemptDetail' :: AttemptDetail -&gt; Maybe Integer
-</span><a href="#local-6989586621679263147"><span class="hs-identifier hs-var hs-var">stoppedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679263147"><span class="hs-identifier hs-var">stoppedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263146"><span class="annot"><span class="annottext">s :: AttemptDetail
-</span><a href="#local-6989586621679263146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263145"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679263145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
-</span><a href="#local-6989586621679263146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppedAt:AttemptDetail' :: Maybe Integer
+</span><a href="#local-6989586621679263156"><span class="hs-identifier hs-var hs-var">stoppedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263156"><span class="hs-identifier hs-var">stoppedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263155"><span class="annot"><span class="annottext">s :: AttemptDetail
+</span><a href="#local-6989586621679263155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263154"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
+</span><a href="#local-6989586621679263155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stoppedAt:AttemptDetail' :: Maybe Integer
 </span><a href="Network.AWS.Batch.Types.AttemptDetail.html#%24sel%3AstoppedAt%3AAttemptDetail%27"><span class="hs-identifier hs-var">stoppedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679263145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The Unix timestamp (in milliseconds) for when the attempt was started</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- (when the attempt transitioned from the @STARTING@ state to the</span><span>
@@ -179,16 +179,16 @@ $sel:stoppedAt:AttemptDetail' :: AttemptDetail -&gt; Maybe Integer
 -&gt; (AttemptDetail -&gt; Maybe Integer -&gt; AttemptDetail)
 -&gt; Lens AttemptDetail AttemptDetail (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263143"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263152"><span class="annot"><span class="annottext">Maybe Integer
 startedAt :: Maybe Integer
 $sel:startedAt:AttemptDetail' :: AttemptDetail -&gt; Maybe Integer
-</span><a href="#local-6989586621679263143"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679263143"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263142"><span class="annot"><span class="annottext">s :: AttemptDetail
-</span><a href="#local-6989586621679263142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263141"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679263141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
-</span><a href="#local-6989586621679263142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:AttemptDetail' :: Maybe Integer
+</span><a href="#local-6989586621679263152"><span class="hs-identifier hs-var hs-var">startedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263152"><span class="hs-identifier hs-var">startedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263151"><span class="annot"><span class="annottext">s :: AttemptDetail
+</span><a href="#local-6989586621679263151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263150"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
+</span><a href="#local-6989586621679263151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedAt:AttemptDetail' :: Maybe Integer
 </span><a href="Network.AWS.Batch.Types.AttemptDetail.html#%24sel%3AstartedAt%3AAttemptDetail%27"><span class="hs-identifier hs-var">startedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679263141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Details about the container in this job attempt.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#attemptDetail_container"><span class="hs-identifier hs-type">attemptDetail_container</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span class="hs-special">)</span><span>
@@ -202,16 +202,16 @@ $sel:startedAt:AttemptDetail' :: AttemptDetail -&gt; Maybe Integer
      (Maybe AttemptContainerDetail)
      (Maybe AttemptContainerDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263139"><span class="annot"><span class="annottext">Maybe AttemptContainerDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263148"><span class="annot"><span class="annottext">Maybe AttemptContainerDetail
 container :: Maybe AttemptContainerDetail
 $sel:container:AttemptDetail' :: AttemptDetail -&gt; Maybe AttemptContainerDetail
-</span><a href="#local-6989586621679263139"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttemptContainerDetail
-</span><a href="#local-6989586621679263139"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263138"><span class="annot"><span class="annottext">s :: AttemptDetail
-</span><a href="#local-6989586621679263138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263137"><span class="annot"><span class="annottext">Maybe AttemptContainerDetail
-</span><a href="#local-6989586621679263137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
-</span><a href="#local-6989586621679263138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:AttemptDetail' :: Maybe AttemptContainerDetail
+</span><a href="#local-6989586621679263148"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttemptContainerDetail
+</span><a href="#local-6989586621679263148"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263147"><span class="annot"><span class="annottext">s :: AttemptDetail
+</span><a href="#local-6989586621679263147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263146"><span class="annot"><span class="annottext">Maybe AttemptContainerDetail
+</span><a href="#local-6989586621679263146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
+</span><a href="#local-6989586621679263147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:AttemptDetail' :: Maybe AttemptContainerDetail
 </span><a href="Network.AWS.Batch.Types.AttemptDetail.html#%24sel%3Acontainer%3AAttemptDetail%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttemptContainerDetail
-</span><a href="#local-6989586621679263137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | A short, human-readable string to provide additional details about the</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- current status of the job attempt.</span><span>
@@ -221,19 +221,19 @@ $sel:container:AttemptDetail' :: AttemptDetail -&gt; Maybe AttemptContainerDetai
 -&gt; (AttemptDetail -&gt; Maybe Text -&gt; AttemptDetail)
 -&gt; Lens AttemptDetail AttemptDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263135"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263144"><span class="annot"><span class="annottext">Maybe Text
 statusReason :: Maybe Text
 $sel:statusReason:AttemptDetail' :: AttemptDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679263135"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263135"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263134"><span class="annot"><span class="annottext">s :: AttemptDetail
-</span><a href="#local-6989586621679263134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263133"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
-</span><a href="#local-6989586621679263134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:AttemptDetail' :: Maybe Text
+</span><a href="#local-6989586621679263144"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263144"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263143"><span class="annot"><span class="annottext">s :: AttemptDetail
+</span><a href="#local-6989586621679263143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail%27"><span class="hs-identifier hs-type">AttemptDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptDetail
+</span><a href="#local-6989586621679263143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:AttemptDetail' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.AttemptDetail.html#%24sel%3AstatusReason%3AAttemptDetail%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679263133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263130"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679263128"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttemptDetail
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263139"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679263137"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttemptDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttemptDetail)
@@ -243,8 +243,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttemptDetail&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263125"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263125"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263134"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263134"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Integer
 -&gt; Maybe AttemptContainerDetail
@@ -262,7 +262,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe AttemptContainerDetail -&gt; Maybe Text -&gt; AttemptDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679263134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stoppedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,7 +274,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe AttemptContainerDetail -&gt; Maybe Text -&gt; AttemptDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679263134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedAt&quot;</span></span><span class="hs-special">)</span><span>
@@ -284,7 +284,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; AttemptDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttemptContainerDetail)
+</span><a href="#local-6989586621679263134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AttemptContainerDetail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;container&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,13 +292,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser AttemptDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679263125"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679263134"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;statusReason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263119"><span id="local-6989586621679263121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263128"><span id="local-6989586621679263130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.AttemptDetail.html#AttemptDetail"><span class="hs-identifier hs-type">AttemptDetail</span></a></span></span><span>
 </span><span id="line-113"></span></pre></body></html>

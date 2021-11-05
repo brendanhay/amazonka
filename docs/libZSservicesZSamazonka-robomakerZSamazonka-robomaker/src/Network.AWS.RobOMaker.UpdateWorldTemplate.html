@@ -1,0 +1,738 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.RobOMaker.UpdateWorldTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a world template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.RobOMaker.UpdateWorldTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#newUpdateWorldTemplate"><span class="hs-identifier">newUpdateWorldTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_name"><span class="hs-identifier">updateWorldTemplate_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_templateLocation"><span class="hs-identifier">updateWorldTemplate_templateLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_templateBody"><span class="hs-identifier">updateWorldTemplate_templateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_template"><span class="hs-identifier">updateWorldTemplate_template</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier">UpdateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#newUpdateWorldTemplateResponse"><span class="hs-identifier">newUpdateWorldTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_lastUpdatedAt"><span class="hs-identifier">updateWorldTemplateResponse_lastUpdatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_arn"><span class="hs-identifier">updateWorldTemplateResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_createdAt"><span class="hs-identifier">updateWorldTemplateResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_name"><span class="hs-identifier">updateWorldTemplateResponse_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_httpStatus"><span class="hs-identifier">updateWorldTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.html"><span class="hs-identifier">Network.AWS.RobOMaker.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorldTemplate' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679391957"><span id="local-6989586621679391958"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorldTemplate"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-var">UpdateWorldTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorldTemplate%27"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-var">UpdateWorldTemplate'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the template.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aname%3AUpdateWorldTemplate%27"><span class="annot"><span class="annottext">UpdateWorldTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aname%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The location of the world template.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AtemplateLocation%3AUpdateWorldTemplate%27"><span class="annot"><span class="annottext">UpdateWorldTemplate -&gt; Maybe TemplateLocation
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AtemplateLocation%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">templateLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.TemplateLocation.html#TemplateLocation"><span class="hs-identifier hs-type">TemplateLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The world template body.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtemplateBody%3AUpdateWorldTemplate%27"><span class="annot"><span class="annottext">UpdateWorldTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AtemplateBody%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (arn) of the world template to update.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atemplate%3AUpdateWorldTemplate%27"><span class="annot"><span class="annottext">UpdateWorldTemplate -&gt; Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Atemplate%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391948"><span id="local-6989586621679391950"><span class="annot"><span class="annottext">UpdateWorldTemplate -&gt; UpdateWorldTemplate -&gt; Bool
+(UpdateWorldTemplate -&gt; UpdateWorldTemplate -&gt; Bool)
+-&gt; (UpdateWorldTemplate -&gt; UpdateWorldTemplate -&gt; Bool)
+-&gt; Eq UpdateWorldTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateWorldTemplate -&gt; UpdateWorldTemplate -&gt; Bool
+$c/= :: UpdateWorldTemplate -&gt; UpdateWorldTemplate -&gt; Bool
+== :: UpdateWorldTemplate -&gt; UpdateWorldTemplate -&gt; Bool
+$c== :: UpdateWorldTemplate -&gt; UpdateWorldTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391939"><span id="local-6989586621679391941"><span id="local-6989586621679391943"><span id="local-6989586621679391945"><span class="annot"><span class="annottext">ReadPrec [UpdateWorldTemplate]
+ReadPrec UpdateWorldTemplate
+Int -&gt; ReadS UpdateWorldTemplate
+ReadS [UpdateWorldTemplate]
+(Int -&gt; ReadS UpdateWorldTemplate)
+-&gt; ReadS [UpdateWorldTemplate]
+-&gt; ReadPrec UpdateWorldTemplate
+-&gt; ReadPrec [UpdateWorldTemplate]
+-&gt; Read UpdateWorldTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateWorldTemplate]
+$creadListPrec :: ReadPrec [UpdateWorldTemplate]
+readPrec :: ReadPrec UpdateWorldTemplate
+$creadPrec :: ReadPrec UpdateWorldTemplate
+readList :: ReadS [UpdateWorldTemplate]
+$creadList :: ReadS [UpdateWorldTemplate]
+readsPrec :: Int -&gt; ReadS UpdateWorldTemplate
+$creadsPrec :: Int -&gt; ReadS UpdateWorldTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391932"><span id="local-6989586621679391934"><span id="local-6989586621679391936"><span class="annot"><span class="annottext">Int -&gt; UpdateWorldTemplate -&gt; ShowS
+[UpdateWorldTemplate] -&gt; ShowS
+UpdateWorldTemplate -&gt; String
+(Int -&gt; UpdateWorldTemplate -&gt; ShowS)
+-&gt; (UpdateWorldTemplate -&gt; String)
+-&gt; ([UpdateWorldTemplate] -&gt; ShowS)
+-&gt; Show UpdateWorldTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateWorldTemplate] -&gt; ShowS
+$cshowList :: [UpdateWorldTemplate] -&gt; ShowS
+show :: UpdateWorldTemplate -&gt; String
+$cshow :: UpdateWorldTemplate -&gt; String
+showsPrec :: Int -&gt; UpdateWorldTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateWorldTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateWorldTemplate -&gt; Rep UpdateWorldTemplate x)
+-&gt; (forall x. Rep UpdateWorldTemplate x -&gt; UpdateWorldTemplate)
+-&gt; Generic UpdateWorldTemplate
+forall x. Rep UpdateWorldTemplate x -&gt; UpdateWorldTemplate
+forall x. UpdateWorldTemplate -&gt; Rep UpdateWorldTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateWorldTemplate x -&gt; UpdateWorldTemplate
+$cfrom :: forall x. UpdateWorldTemplate -&gt; Rep UpdateWorldTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'UpdateWorldTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'name', 'updateWorldTemplate_name' - The name of the template.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'templateLocation', 'updateWorldTemplate_templateLocation' - The location of the world template.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'templateBody', 'updateWorldTemplate_templateBody' - The world template body.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'template', 'updateWorldTemplate_template' - The Amazon Resource Name (arn) of the world template to update.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#newUpdateWorldTemplate"><span class="hs-identifier hs-type">newUpdateWorldTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'template'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span>
+</span><span id="line-87"></span><span id="newUpdateWorldTemplate"><span class="annot"><span class="annottext">newUpdateWorldTemplate :: Text -&gt; UpdateWorldTemplate
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#newUpdateWorldTemplate"><span class="hs-identifier hs-var hs-var">newUpdateWorldTemplate</span></a></span></span><span> </span><span id="local-6989586621679391927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391927"><span class="hs-identifier hs-var">pTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorldTemplate' :: Maybe Text
+-&gt; Maybe TemplateLocation
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateWorldTemplate
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UpdateWorldTemplate' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aname%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateLocation:UpdateWorldTemplate' :: Maybe TemplateLocation
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AtemplateLocation%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">templateLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:templateBody:UpdateWorldTemplate' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AtemplateBody%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:template:UpdateWorldTemplate' :: Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Atemplate%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391927"><span class="hs-identifier hs-var">pTemplate_</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the template.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_name"><span class="hs-identifier hs-type">updateWorldTemplate_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="updateWorldTemplate_name"><span class="annot"><span class="annottext">updateWorldTemplate_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWorldTemplate -&gt; f UpdateWorldTemplate
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_name"><span class="hs-identifier hs-var hs-var">updateWorldTemplate_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplate -&gt; Maybe Text)
+-&gt; (UpdateWorldTemplate -&gt; Maybe Text -&gt; UpdateWorldTemplate)
+-&gt; Lens
+     UpdateWorldTemplate UpdateWorldTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391924"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679391924"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391924"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391923"><span class="annot"><span class="annottext">s :: UpdateWorldTemplate
+</span><a href="#local-6989586621679391923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391922"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplate
+</span><a href="#local-6989586621679391923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateWorldTemplate' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aname%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The location of the world template.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_templateLocation"><span class="hs-identifier hs-type">updateWorldTemplate_templateLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.Types.TemplateLocation.html#TemplateLocation"><span class="hs-identifier hs-type">TemplateLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="updateWorldTemplate_templateLocation"><span class="annot"><span class="annottext">updateWorldTemplate_templateLocation :: (Maybe TemplateLocation -&gt; f (Maybe TemplateLocation))
+-&gt; UpdateWorldTemplate -&gt; f UpdateWorldTemplate
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_templateLocation"><span class="hs-identifier hs-var hs-var">updateWorldTemplate_templateLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplate -&gt; Maybe TemplateLocation)
+-&gt; (UpdateWorldTemplate
+    -&gt; Maybe TemplateLocation -&gt; UpdateWorldTemplate)
+-&gt; Lens
+     UpdateWorldTemplate
+     UpdateWorldTemplate
+     (Maybe TemplateLocation)
+     (Maybe TemplateLocation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391921"><span class="annot"><span class="annottext">Maybe TemplateLocation
+templateLocation :: Maybe TemplateLocation
+$sel:templateLocation:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Maybe TemplateLocation
+</span><a href="#local-6989586621679391921"><span class="hs-identifier hs-var hs-var">templateLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679391921"><span class="hs-identifier hs-var">templateLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391920"><span class="annot"><span class="annottext">s :: UpdateWorldTemplate
+</span><a href="#local-6989586621679391920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391919"><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679391919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplate
+</span><a href="#local-6989586621679391920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateLocation:UpdateWorldTemplate' :: Maybe TemplateLocation
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AtemplateLocation%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">templateLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679391919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The world template body.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_templateBody"><span class="hs-identifier hs-type">updateWorldTemplate_templateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updateWorldTemplate_templateBody"><span class="annot"><span class="annottext">updateWorldTemplate_templateBody :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWorldTemplate -&gt; f UpdateWorldTemplate
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_templateBody"><span class="hs-identifier hs-var hs-var">updateWorldTemplate_templateBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplate -&gt; Maybe Text)
+-&gt; (UpdateWorldTemplate -&gt; Maybe Text -&gt; UpdateWorldTemplate)
+-&gt; Lens
+     UpdateWorldTemplate UpdateWorldTemplate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391918"><span class="annot"><span class="annottext">Maybe Text
+templateBody :: Maybe Text
+$sel:templateBody:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679391918"><span class="hs-identifier hs-var hs-var">templateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391918"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391917"><span class="annot"><span class="annottext">s :: UpdateWorldTemplate
+</span><a href="#local-6989586621679391917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391916"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplate
+</span><a href="#local-6989586621679391917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateBody:UpdateWorldTemplate' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AtemplateBody%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">templateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The Amazon Resource Name (arn) of the world template to update.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_template"><span class="hs-identifier hs-type">updateWorldTemplate_template</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="updateWorldTemplate_template"><span class="annot"><span class="annottext">updateWorldTemplate_template :: (Text -&gt; f Text) -&gt; UpdateWorldTemplate -&gt; f UpdateWorldTemplate
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplate_template"><span class="hs-identifier hs-var hs-var">updateWorldTemplate_template</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplate -&gt; Text)
+-&gt; (UpdateWorldTemplate -&gt; Text -&gt; UpdateWorldTemplate)
+-&gt; Lens UpdateWorldTemplate UpdateWorldTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391915"><span class="annot"><span class="annottext">Text
+template :: Text
+$sel:template:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Text
+</span><a href="#local-6989586621679391915"><span class="hs-identifier hs-var hs-var">template</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391915"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391914"><span class="annot"><span class="annottext">s :: UpdateWorldTemplate
+</span><a href="#local-6989586621679391914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391913"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplate
+</span><a href="#local-6989586621679391914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:template:UpdateWorldTemplate' :: Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Atemplate%3AUpdateWorldTemplate%27"><span class="hs-identifier hs-var">template</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679391909"><span class="annot"><span class="annottext">request :: UpdateWorldTemplate -&gt; Request UpdateWorldTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateWorldTemplate -&gt; Request UpdateWorldTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.RobOMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679391905"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateWorldTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateWorldTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateWorldTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateWorldTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateWorldTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391902"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391901"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391901"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391900"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391900"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">UpdateWorldTemplateResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; UpdateWorldTemplateResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateWorldTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; UpdateWorldTemplateResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; UpdateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; UpdateWorldTemplateResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; UpdateWorldTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391900"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateWorldTemplateResponse)
+-&gt; Either String Int -&gt; Either String UpdateWorldTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391902"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391892"><span id="local-6989586621679391894"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679391885"><span class="annot"><span class="annottext">toHeaders :: UpdateWorldTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateWorldTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-137"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-138"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391875"><span id="local-6989586621679391877"><span id="local-6989586621679391879"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679391873"><span class="annot"><span class="annottext">toJSON :: UpdateWorldTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate%27"><span class="hs-identifier hs-type">UpdateWorldTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391868"><span id="local-6989586621679391869"><span id="local-6989586621679391870"><span id="local-6989586621679391871"><span class="annot"><span class="annottext">Maybe Text
+Maybe TemplateLocation
+Text
+template :: Text
+templateBody :: Maybe Text
+templateLocation :: Maybe TemplateLocation
+name :: Maybe Text
+$sel:template:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Text
+$sel:templateBody:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Maybe Text
+$sel:templateLocation:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Maybe TemplateLocation
+$sel:name:UpdateWorldTemplate' :: UpdateWorldTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679391868"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391871"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TemplateLocation -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(TemplateLocation -&gt; Pair) -&gt; Maybe TemplateLocation -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TemplateLocation
+</span><a href="#local-6989586621679391870"><span class="hs-identifier hs-var">templateLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;templateBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391869"><span class="hs-identifier hs-var">templateBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;template&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391868"><span class="hs-identifier hs-var">template</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679391862"><span class="annot"><span class="annottext">toPath :: UpdateWorldTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateWorldTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/updateWorldTemplate&quot;</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplate"><span class="hs-identifier hs-type">UpdateWorldTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679391858"><span class="annot"><span class="annottext">toQuery :: UpdateWorldTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateWorldTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newUpdateWorldTemplateResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679391855"><span id="local-6989586621679391856"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateWorldTemplateResponse"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-var">UpdateWorldTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateWorldTemplateResponse%27"><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">UpdateWorldTemplateResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AUpdateWorldTemplateResponse%27"><span class="annot"><span class="annottext">UpdateWorldTemplateResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AlastUpdatedAt%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (arn) of the world template.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateWorldTemplateResponse%27"><span class="annot"><span class="annottext">UpdateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aarn%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AcreatedAt%3AUpdateWorldTemplateResponse%27"><span class="annot"><span class="annottext">UpdateWorldTemplateResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AcreatedAt%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The name of the world template.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Aname%3AUpdateWorldTemplateResponse%27"><span class="annot"><span class="annottext">UpdateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aname%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateWorldTemplateResponse%27"><span class="annot"><span class="annottext">UpdateWorldTemplateResponse -&gt; Int
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AhttpStatus%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391846"><span id="local-6989586621679391848"><span class="annot"><span class="annottext">UpdateWorldTemplateResponse -&gt; UpdateWorldTemplateResponse -&gt; Bool
+(UpdateWorldTemplateResponse
+ -&gt; UpdateWorldTemplateResponse -&gt; Bool)
+-&gt; (UpdateWorldTemplateResponse
+    -&gt; UpdateWorldTemplateResponse -&gt; Bool)
+-&gt; Eq UpdateWorldTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateWorldTemplateResponse -&gt; UpdateWorldTemplateResponse -&gt; Bool
+$c/= :: UpdateWorldTemplateResponse -&gt; UpdateWorldTemplateResponse -&gt; Bool
+== :: UpdateWorldTemplateResponse -&gt; UpdateWorldTemplateResponse -&gt; Bool
+$c== :: UpdateWorldTemplateResponse -&gt; UpdateWorldTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391838"><span id="local-6989586621679391840"><span id="local-6989586621679391842"><span id="local-6989586621679391844"><span class="annot"><span class="annottext">ReadPrec [UpdateWorldTemplateResponse]
+ReadPrec UpdateWorldTemplateResponse
+Int -&gt; ReadS UpdateWorldTemplateResponse
+ReadS [UpdateWorldTemplateResponse]
+(Int -&gt; ReadS UpdateWorldTemplateResponse)
+-&gt; ReadS [UpdateWorldTemplateResponse]
+-&gt; ReadPrec UpdateWorldTemplateResponse
+-&gt; ReadPrec [UpdateWorldTemplateResponse]
+-&gt; Read UpdateWorldTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateWorldTemplateResponse]
+$creadListPrec :: ReadPrec [UpdateWorldTemplateResponse]
+readPrec :: ReadPrec UpdateWorldTemplateResponse
+$creadPrec :: ReadPrec UpdateWorldTemplateResponse
+readList :: ReadS [UpdateWorldTemplateResponse]
+$creadList :: ReadS [UpdateWorldTemplateResponse]
+readsPrec :: Int -&gt; ReadS UpdateWorldTemplateResponse
+$creadsPrec :: Int -&gt; ReadS UpdateWorldTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391832"><span id="local-6989586621679391834"><span id="local-6989586621679391836"><span class="annot"><span class="annottext">Int -&gt; UpdateWorldTemplateResponse -&gt; ShowS
+[UpdateWorldTemplateResponse] -&gt; ShowS
+UpdateWorldTemplateResponse -&gt; String
+(Int -&gt; UpdateWorldTemplateResponse -&gt; ShowS)
+-&gt; (UpdateWorldTemplateResponse -&gt; String)
+-&gt; ([UpdateWorldTemplateResponse] -&gt; ShowS)
+-&gt; Show UpdateWorldTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateWorldTemplateResponse] -&gt; ShowS
+$cshowList :: [UpdateWorldTemplateResponse] -&gt; ShowS
+show :: UpdateWorldTemplateResponse -&gt; String
+$cshow :: UpdateWorldTemplateResponse -&gt; String
+showsPrec :: Int -&gt; UpdateWorldTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateWorldTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateWorldTemplateResponse -&gt; Rep UpdateWorldTemplateResponse x)
+-&gt; (forall x.
+    Rep UpdateWorldTemplateResponse x -&gt; UpdateWorldTemplateResponse)
+-&gt; Generic UpdateWorldTemplateResponse
+forall x.
+Rep UpdateWorldTemplateResponse x -&gt; UpdateWorldTemplateResponse
+forall x.
+UpdateWorldTemplateResponse -&gt; Rep UpdateWorldTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateWorldTemplateResponse x -&gt; UpdateWorldTemplateResponse
+$cfrom :: forall x.
+UpdateWorldTemplateResponse -&gt; Rep UpdateWorldTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Create a value of 'UpdateWorldTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'lastUpdatedAt', 'updateWorldTemplateResponse_lastUpdatedAt' - The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'arn', 'updateWorldTemplateResponse_arn' - The Amazon Resource Name (arn) of the world template.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'createdAt', 'updateWorldTemplateResponse_createdAt' - The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'name', 'updateWorldTemplateResponse_name' - The name of the world template.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'updateWorldTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#newUpdateWorldTemplateResponse"><span class="hs-identifier hs-type">newUpdateWorldTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span>
+</span><span id="line-200"></span><span id="newUpdateWorldTemplateResponse"><span class="annot"><span class="annottext">newUpdateWorldTemplateResponse :: Int -&gt; UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#newUpdateWorldTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateWorldTemplateResponse</span></a></span></span><span> </span><span id="local-6989586621679391829"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">UpdateWorldTemplateResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Int
+-&gt; UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:UpdateWorldTemplateResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AlastUpdatedAt%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateWorldTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aarn%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:UpdateWorldTemplateResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AcreatedAt%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateWorldTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aname%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorldTemplateResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AhttpStatus%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391829"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- last updated.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_lastUpdatedAt"><span class="hs-identifier hs-type">updateWorldTemplateResponse_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="updateWorldTemplateResponse_lastUpdatedAt"><span class="annot"><span class="annottext">updateWorldTemplateResponse_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateWorldTemplateResponse -&gt; f UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">updateWorldTemplateResponse_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplateResponse -&gt; Maybe POSIX)
+-&gt; (UpdateWorldTemplateResponse
+    -&gt; Maybe POSIX -&gt; UpdateWorldTemplateResponse)
+-&gt; Lens
+     UpdateWorldTemplateResponse
+     UpdateWorldTemplateResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391828"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:UpdateWorldTemplateResponse' :: UpdateWorldTemplateResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679391828"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391828"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391827"><span class="annot"><span class="annottext">s :: UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391826"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:UpdateWorldTemplateResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AlastUpdatedAt%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateWorldTemplateResponse -&gt; f UpdateWorldTemplateResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateWorldTemplateResponse
+-&gt; f UpdateWorldTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The Amazon Resource Name (arn) of the world template.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_arn"><span class="hs-identifier hs-type">updateWorldTemplateResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="updateWorldTemplateResponse_arn"><span class="annot"><span class="annottext">updateWorldTemplateResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWorldTemplateResponse -&gt; f UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_arn"><span class="hs-identifier hs-var hs-var">updateWorldTemplateResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplateResponse -&gt; Maybe Text)
+-&gt; (UpdateWorldTemplateResponse
+    -&gt; Maybe Text -&gt; UpdateWorldTemplateResponse)
+-&gt; Lens
+     UpdateWorldTemplateResponse
+     UpdateWorldTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391822"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:UpdateWorldTemplateResponse' :: UpdateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391822"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391822"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391821"><span class="annot"><span class="annottext">s :: UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateWorldTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aarn%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the world template was</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_createdAt"><span class="hs-identifier hs-type">updateWorldTemplateResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="updateWorldTemplateResponse_createdAt"><span class="annot"><span class="annottext">updateWorldTemplateResponse_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateWorldTemplateResponse -&gt; f UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_createdAt"><span class="hs-identifier hs-var hs-var">updateWorldTemplateResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplateResponse -&gt; Maybe POSIX)
+-&gt; (UpdateWorldTemplateResponse
+    -&gt; Maybe POSIX -&gt; UpdateWorldTemplateResponse)
+-&gt; Lens
+     UpdateWorldTemplateResponse
+     UpdateWorldTemplateResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391819"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:UpdateWorldTemplateResponse' :: UpdateWorldTemplateResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679391819"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391819"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391818"><span class="annot"><span class="annottext">s :: UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391817"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:UpdateWorldTemplateResponse' :: Maybe POSIX
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AcreatedAt%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679391817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; UpdateWorldTemplateResponse -&gt; f UpdateWorldTemplateResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; UpdateWorldTemplateResponse
+-&gt; f UpdateWorldTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The name of the world template.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_name"><span class="hs-identifier hs-type">updateWorldTemplateResponse_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="updateWorldTemplateResponse_name"><span class="annot"><span class="annottext">updateWorldTemplateResponse_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateWorldTemplateResponse -&gt; f UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_name"><span class="hs-identifier hs-var hs-var">updateWorldTemplateResponse_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplateResponse -&gt; Maybe Text)
+-&gt; (UpdateWorldTemplateResponse
+    -&gt; Maybe Text -&gt; UpdateWorldTemplateResponse)
+-&gt; Lens
+     UpdateWorldTemplateResponse
+     UpdateWorldTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391816"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateWorldTemplateResponse' :: UpdateWorldTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679391816"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391816"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391815"><span class="annot"><span class="annottext">s :: UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391814"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateWorldTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3Aname%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679391814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_httpStatus"><span class="hs-identifier hs-type">updateWorldTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span id="updateWorldTemplateResponse_httpStatus"><span class="annot"><span class="annottext">updateWorldTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateWorldTemplateResponse -&gt; f UpdateWorldTemplateResponse
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#updateWorldTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateWorldTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateWorldTemplateResponse -&gt; Int)
+-&gt; (UpdateWorldTemplateResponse
+    -&gt; Int -&gt; UpdateWorldTemplateResponse)
+-&gt; Lens
+     UpdateWorldTemplateResponse UpdateWorldTemplateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391813"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateWorldTemplateResponse' :: UpdateWorldTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679391813"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391813"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391812"><span class="annot"><span class="annottext">s :: UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse%27"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391811"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateWorldTemplateResponse
+</span><a href="#local-6989586621679391812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateWorldTemplateResponse' :: Int
+</span><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#%24sel%3AhttpStatus%3AUpdateWorldTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RobOMaker.UpdateWorldTemplate.html#UpdateWorldTemplateResponse"><span class="hs-identifier hs-type">UpdateWorldTemplateResponse</span></a></span></span><span>
+</span><span id="line-233"></span></pre></body></html>

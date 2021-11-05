@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-comment">-- | Contains the inputs for the ModifyHsm operation.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- /See:/ 'newModifyHsm' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679175291"><span id="local-6989586621679175292"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyHsm"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-var">ModifyHsm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyHsm%27"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-var">ModifyHsm'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679175300"><span id="local-6989586621679175301"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyHsm"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-var">ModifyHsm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyHsm%27"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-var">ModifyHsm'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new IAM role ARN.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AiamRoleArn%3AModifyHsm%27"><span class="annot"><span class="annottext">ModifyHsm -&gt; Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AiamRoleArn%3AModifyHsm%27"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -101,7 +101,7 @@
 </span><span id="line-96"></span><span>    </span><span id="%24sel%3AhsmArn%3AModifyHsm%27"><span class="annot"><span class="annottext">ModifyHsm -&gt; Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhsmArn%3AModifyHsm%27"><span class="hs-identifier hs-var hs-var">hsmArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175280"><span id="local-6989586621679175282"><span class="annot"><span class="annottext">ModifyHsm -&gt; ModifyHsm -&gt; Bool
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175289"><span id="local-6989586621679175291"><span class="annot"><span class="annottext">ModifyHsm -&gt; ModifyHsm -&gt; Bool
 (ModifyHsm -&gt; ModifyHsm -&gt; Bool)
 -&gt; (ModifyHsm -&gt; ModifyHsm -&gt; Bool) -&gt; Eq ModifyHsm
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -109,7 +109,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyHsm -&gt; ModifyHsm -&gt; Bool
 == :: ModifyHsm -&gt; ModifyHsm -&gt; Bool
 $c== :: ModifyHsm -&gt; ModifyHsm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175271"><span id="local-6989586621679175273"><span id="local-6989586621679175275"><span id="local-6989586621679175277"><span class="annot"><span class="annottext">ReadPrec [ModifyHsm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175280"><span id="local-6989586621679175282"><span id="local-6989586621679175284"><span id="local-6989586621679175286"><span class="annot"><span class="annottext">ReadPrec [ModifyHsm]
 ReadPrec ModifyHsm
 Int -&gt; ReadS ModifyHsm
 ReadS [ModifyHsm]
@@ -129,7 +129,7 @@ readList :: ReadS [ModifyHsm]
 $creadList :: ReadS [ModifyHsm]
 readsPrec :: Int -&gt; ReadS ModifyHsm
 $creadsPrec :: Int -&gt; ReadS ModifyHsm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175264"><span id="local-6989586621679175266"><span id="local-6989586621679175268"><span class="annot"><span class="annottext">Int -&gt; ModifyHsm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175273"><span id="local-6989586621679175275"><span id="local-6989586621679175277"><span class="annot"><span class="annottext">Int -&gt; ModifyHsm -&gt; ShowS
 [ModifyHsm] -&gt; ShowS
 ModifyHsm -&gt; String
 (Int -&gt; ModifyHsm -&gt; ShowS)
@@ -185,8 +185,8 @@ $cfrom :: forall x. ModifyHsm -&gt; Rep ModifyHsm x
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span>
 </span><span id="line-130"></span><span id="newModifyHsm"><span class="annot"><span class="annottext">newModifyHsm :: Text -&gt; ModifyHsm
-</span><a href="Network.AWS.CloudHSM.ModifyHsm.html#newModifyHsm"><span class="hs-identifier hs-var hs-var">newModifyHsm</span></a></span></span><span> </span><span id="local-6989586621679175259"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175259"><span class="hs-identifier hs-var">pHsmArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSM.ModifyHsm.html#newModifyHsm"><span class="hs-identifier hs-var hs-var">newModifyHsm</span></a></span></span><span> </span><span id="local-6989586621679175268"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175268"><span class="hs-identifier hs-var">pHsmArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">ModifyHsm' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -217,7 +217,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:hsmArn:ModifyHsm' :: Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhsmArn%3AModifyHsm%27"><span class="hs-identifier hs-var">hsmArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175259"><span class="hs-identifier hs-var">pHsmArn_</span></a></span><span>
+</span><a href="#local-6989586621679175268"><span class="hs-identifier hs-var">pHsmArn_</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The new IAM role ARN.</span><span>
@@ -227,16 +227,16 @@ forall a. Maybe a
 -&gt; (ModifyHsm -&gt; Maybe Text -&gt; ModifyHsm)
 -&gt; Lens ModifyHsm ModifyHsm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175256"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175265"><span class="annot"><span class="annottext">Maybe Text
 iamRoleArn :: Maybe Text
 $sel:iamRoleArn:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
-</span><a href="#local-6989586621679175256"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175256"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175255"><span class="annot"><span class="annottext">s :: ModifyHsm
-</span><a href="#local-6989586621679175255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175254"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
-</span><a href="#local-6989586621679175255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:ModifyHsm' :: Maybe Text
+</span><a href="#local-6989586621679175265"><span class="hs-identifier hs-var hs-var">iamRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175265"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175264"><span class="annot"><span class="annottext">s :: ModifyHsm
+</span><a href="#local-6989586621679175264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
+</span><a href="#local-6989586621679175264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamRoleArn:ModifyHsm' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AiamRoleArn%3AModifyHsm%27"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The new identifier of the subnet that the HSM is in. The new subnet must</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- be in the same Availability Zone as the current subnet.</span><span>
@@ -246,16 +246,16 @@ $sel:iamRoleArn:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 -&gt; (ModifyHsm -&gt; Maybe Text -&gt; ModifyHsm)
 -&gt; Lens ModifyHsm ModifyHsm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175253"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175262"><span class="annot"><span class="annottext">Maybe Text
 subnetId :: Maybe Text
 $sel:subnetId:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
-</span><a href="#local-6989586621679175253"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175253"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175252"><span class="annot"><span class="annottext">s :: ModifyHsm
-</span><a href="#local-6989586621679175252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175251"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
-</span><a href="#local-6989586621679175252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:ModifyHsm' :: Maybe Text
+</span><a href="#local-6989586621679175262"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175262"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175261"><span class="annot"><span class="annottext">s :: ModifyHsm
+</span><a href="#local-6989586621679175261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175260"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
+</span><a href="#local-6989586621679175261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:ModifyHsm' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AsubnetId%3AModifyHsm%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The new IP address for the syslog monitoring server. The AWS CloudHSM</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- service only supports one syslog monitoring server.</span><span>
@@ -265,16 +265,16 @@ $sel:subnetId:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 -&gt; (ModifyHsm -&gt; Maybe Text -&gt; ModifyHsm)
 -&gt; Lens ModifyHsm ModifyHsm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175250"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175259"><span class="annot"><span class="annottext">Maybe Text
 syslogIp :: Maybe Text
 $sel:syslogIp:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
-</span><a href="#local-6989586621679175250"><span class="hs-identifier hs-var hs-var">syslogIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175250"><span class="hs-identifier hs-var">syslogIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175249"><span class="annot"><span class="annottext">s :: ModifyHsm
-</span><a href="#local-6989586621679175249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175248"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
-</span><a href="#local-6989586621679175249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syslogIp:ModifyHsm' :: Maybe Text
+</span><a href="#local-6989586621679175259"><span class="hs-identifier hs-var hs-var">syslogIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175259"><span class="hs-identifier hs-var">syslogIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175258"><span class="annot"><span class="annottext">s :: ModifyHsm
+</span><a href="#local-6989586621679175258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175257"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
+</span><a href="#local-6989586621679175258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syslogIp:ModifyHsm' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AsyslogIp%3AModifyHsm%27"><span class="hs-identifier hs-var">syslogIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The new external ID.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#modifyHsm_externalId"><span class="hs-identifier hs-type">modifyHsm_externalId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -283,16 +283,16 @@ $sel:syslogIp:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 -&gt; (ModifyHsm -&gt; Maybe Text -&gt; ModifyHsm)
 -&gt; Lens ModifyHsm ModifyHsm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175247"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175256"><span class="annot"><span class="annottext">Maybe Text
 externalId :: Maybe Text
 $sel:externalId:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
-</span><a href="#local-6989586621679175247"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175247"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175246"><span class="annot"><span class="annottext">s :: ModifyHsm
-</span><a href="#local-6989586621679175246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175245"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
-</span><a href="#local-6989586621679175246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalId:ModifyHsm' :: Maybe Text
+</span><a href="#local-6989586621679175256"><span class="hs-identifier hs-var hs-var">externalId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175256"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175255"><span class="annot"><span class="annottext">s :: ModifyHsm
+</span><a href="#local-6989586621679175255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
+</span><a href="#local-6989586621679175255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:externalId:ModifyHsm' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AexternalId%3AModifyHsm%27"><span class="hs-identifier hs-var">externalId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The new IP address for the elastic network interface (ENI) attached to</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- the HSM.</span><span>
@@ -306,16 +306,16 @@ $sel:externalId:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 -&gt; (ModifyHsm -&gt; Maybe Text -&gt; ModifyHsm)
 -&gt; Lens ModifyHsm ModifyHsm (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175244"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175253"><span class="annot"><span class="annottext">Maybe Text
 eniIp :: Maybe Text
 $sel:eniIp:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
-</span><a href="#local-6989586621679175244"><span class="hs-identifier hs-var hs-var">eniIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175244"><span class="hs-identifier hs-var">eniIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175243"><span class="annot"><span class="annottext">s :: ModifyHsm
-</span><a href="#local-6989586621679175243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175242"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
-</span><a href="#local-6989586621679175243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eniIp:ModifyHsm' :: Maybe Text
+</span><a href="#local-6989586621679175253"><span class="hs-identifier hs-var hs-var">eniIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175253"><span class="hs-identifier hs-var">eniIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175252"><span class="annot"><span class="annottext">s :: ModifyHsm
+</span><a href="#local-6989586621679175252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175251"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
+</span><a href="#local-6989586621679175252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eniIp:ModifyHsm' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AeniIp%3AModifyHsm%27"><span class="hs-identifier hs-var">eniIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The ARN of the HSM to modify.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#modifyHsm_hsmArn"><span class="hs-identifier hs-type">modifyHsm_hsmArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -324,25 +324,25 @@ $sel:eniIp:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 -&gt; (ModifyHsm -&gt; Text -&gt; ModifyHsm)
 -&gt; Lens ModifyHsm ModifyHsm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175241"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175250"><span class="annot"><span class="annottext">Text
 hsmArn :: Text
 $sel:hsmArn:ModifyHsm' :: ModifyHsm -&gt; Text
-</span><a href="#local-6989586621679175241"><span class="hs-identifier hs-var hs-var">hsmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175241"><span class="hs-identifier hs-var">hsmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175240"><span class="annot"><span class="annottext">s :: ModifyHsm
-</span><a href="#local-6989586621679175240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175239"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
-</span><a href="#local-6989586621679175240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmArn:ModifyHsm' :: Text
+</span><a href="#local-6989586621679175250"><span class="hs-identifier hs-var hs-var">hsmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175250"><span class="hs-identifier hs-var">hsmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175249"><span class="annot"><span class="annottext">s :: ModifyHsm
+</span><a href="#local-6989586621679175249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175248"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsm
+</span><a href="#local-6989586621679175249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmArn:ModifyHsm' :: Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhsmArn%3AModifyHsm%27"><span class="hs-identifier hs-var">hsmArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679175235"><span class="annot"><span class="annottext">request :: ModifyHsm -&gt; Request ModifyHsm
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679175244"><span class="annot"><span class="annottext">request :: ModifyHsm -&gt; Request ModifyHsm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyHsm -&gt; Request ModifyHsm
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudHSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679175231"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679175240"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyHsm
 -&gt; ClientResponse ClientBody
@@ -366,10 +366,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175228"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175228"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175227"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175227"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175226"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175226"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175237"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175237"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175236"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175236"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175235"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ModifyHsmResponse
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-var">ModifyHsmResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ModifyHsmResponse)
@@ -377,7 +377,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ModifyHsmResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HsmArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,15 +389,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175228"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175237"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175218"><span id="local-6989586621679175220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175227"><span id="local-6989586621679175229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span></span></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679175211"><span class="annot"><span class="annottext">toHeaders :: ModifyHsm -&gt; ResponseHeaders
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679175220"><span class="annot"><span class="annottext">toHeaders :: ModifyHsm -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyHsm -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -424,9 +424,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175201"><span id="local-6989586621679175203"><span id="local-6989586621679175205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679175199"><span class="annot"><span class="annottext">toJSON :: ModifyHsm -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175192"><span id="local-6989586621679175193"><span id="local-6989586621679175194"><span id="local-6989586621679175195"><span id="local-6989586621679175196"><span id="local-6989586621679175197"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175210"><span id="local-6989586621679175212"><span id="local-6989586621679175214"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679175208"><span class="annot"><span class="annottext">toJSON :: ModifyHsm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm%27"><span class="hs-identifier hs-type">ModifyHsm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175201"><span id="local-6989586621679175202"><span id="local-6989586621679175203"><span id="local-6989586621679175204"><span id="local-6989586621679175205"><span id="local-6989586621679175206"><span class="annot"><span class="annottext">Maybe Text
 Text
 hsmArn :: Text
 eniIp :: Maybe Text
@@ -440,7 +440,7 @@ $sel:externalId:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 $sel:syslogIp:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 $sel:subnetId:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
 $sel:iamRoleArn:ModifyHsm' :: ModifyHsm -&gt; Maybe Text
-</span><a href="#local-6989586621679175192"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175201"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -452,54 +452,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175197"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175206"><span class="hs-identifier hs-var">iamRoleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175196"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175205"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SyslogIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175195"><span class="hs-identifier hs-var">syslogIp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175204"><span class="hs-identifier hs-var">syslogIp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ExternalId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175194"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175203"><span class="hs-identifier hs-var">externalId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EniIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175193"><span class="hs-identifier hs-var">eniIp</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175202"><span class="hs-identifier hs-var">eniIp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HsmArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175192"><span class="hs-identifier hs-var">hsmArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175201"><span class="hs-identifier hs-var">hsmArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679175186"><span class="annot"><span class="annottext">toPath :: ModifyHsm -&gt; ByteString
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679175195"><span class="annot"><span class="annottext">toPath :: ModifyHsm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyHsm -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsm"><span class="hs-identifier hs-type">ModifyHsm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679175182"><span class="annot"><span class="annottext">toQuery :: ModifyHsm -&gt; QueryString
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679175191"><span class="annot"><span class="annottext">toQuery :: ModifyHsm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyHsm -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -509,7 +509,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-220"></span><span class="hs-comment">-- | Contains the output of the ModifyHsm operation.</span><span>
 </span><span id="line-221"></span><span class="hs-comment">--</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- /See:/ 'newModifyHsmResponse' smart constructor.</span><span>
-</span><span id="line-223"></span><span id="local-6989586621679175179"><span id="local-6989586621679175180"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyHsmResponse"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-var">ModifyHsmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyHsmResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-var">ModifyHsmResponse'</span></a></span></span><span>
+</span><span id="line-223"></span><span id="local-6989586621679175188"><span id="local-6989586621679175189"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyHsmResponse"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-var">ModifyHsmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyHsmResponse%27"><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-var">ModifyHsmResponse'</span></a></span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the HSM.</span><span>
 </span><span id="line-225"></span><span>    </span><span id="%24sel%3AhsmArn%3AModifyHsmResponse%27"><span class="annot"><span class="annottext">ModifyHsmResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhsmArn%3AModifyHsmResponse%27"><span class="hs-identifier hs-var hs-var">hsmArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -517,7 +517,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyHsmResponse%27"><span class="annot"><span class="annottext">ModifyHsmResponse -&gt; Int
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhttpStatus%3AModifyHsmResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-228"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175173"><span id="local-6989586621679175175"><span class="annot"><span class="annottext">ModifyHsmResponse -&gt; ModifyHsmResponse -&gt; Bool
+</span><span id="line-229"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175182"><span id="local-6989586621679175184"><span class="annot"><span class="annottext">ModifyHsmResponse -&gt; ModifyHsmResponse -&gt; Bool
 (ModifyHsmResponse -&gt; ModifyHsmResponse -&gt; Bool)
 -&gt; (ModifyHsmResponse -&gt; ModifyHsmResponse -&gt; Bool)
 -&gt; Eq ModifyHsmResponse
@@ -526,7 +526,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyHsmResponse -&gt; ModifyHsmResponse -&gt; Bool
 == :: ModifyHsmResponse -&gt; ModifyHsmResponse -&gt; Bool
 $c== :: ModifyHsmResponse -&gt; ModifyHsmResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175165"><span id="local-6989586621679175167"><span id="local-6989586621679175169"><span id="local-6989586621679175171"><span class="annot"><span class="annottext">ReadPrec [ModifyHsmResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175174"><span id="local-6989586621679175176"><span id="local-6989586621679175178"><span id="local-6989586621679175180"><span class="annot"><span class="annottext">ReadPrec [ModifyHsmResponse]
 ReadPrec ModifyHsmResponse
 Int -&gt; ReadS ModifyHsmResponse
 ReadS [ModifyHsmResponse]
@@ -546,7 +546,7 @@ readList :: ReadS [ModifyHsmResponse]
 $creadList :: ReadS [ModifyHsmResponse]
 readsPrec :: Int -&gt; ReadS ModifyHsmResponse
 $creadsPrec :: Int -&gt; ReadS ModifyHsmResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175159"><span id="local-6989586621679175161"><span id="local-6989586621679175163"><span class="annot"><span class="annottext">Int -&gt; ModifyHsmResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175168"><span id="local-6989586621679175170"><span id="local-6989586621679175172"><span class="annot"><span class="annottext">Int -&gt; ModifyHsmResponse -&gt; ShowS
 [ModifyHsmResponse] -&gt; ShowS
 ModifyHsmResponse -&gt; String
 (Int -&gt; ModifyHsmResponse -&gt; ShowS)
@@ -588,8 +588,8 @@ $cfrom :: forall x. ModifyHsmResponse -&gt; Rep ModifyHsmResponse x
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span><span>
 </span><span id="line-246"></span><span id="newModifyHsmResponse"><span class="annot"><span class="annottext">newModifyHsmResponse :: Int -&gt; ModifyHsmResponse
-</span><a href="Network.AWS.CloudHSM.ModifyHsm.html#newModifyHsmResponse"><span class="hs-identifier hs-var hs-var">newModifyHsmResponse</span></a></span></span><span> </span><span id="local-6989586621679175156"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSM.ModifyHsm.html#newModifyHsmResponse"><span class="hs-identifier hs-var hs-var">newModifyHsmResponse</span></a></span></span><span> </span><span id="local-6989586621679175165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">ModifyHsmResponse' :: Maybe Text -&gt; Int -&gt; ModifyHsmResponse
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hsmArn:ModifyHsmResponse' :: Maybe Text
@@ -598,7 +598,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyHsmResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhttpStatus%3AModifyHsmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175156"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679175165"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-250"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | The ARN of the HSM.</span><span>
@@ -610,16 +610,16 @@ forall a. Maybe a
 -&gt; Lens
      ModifyHsmResponse ModifyHsmResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175155"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175164"><span class="annot"><span class="annottext">Maybe Text
 hsmArn :: Maybe Text
 $sel:hsmArn:ModifyHsmResponse' :: ModifyHsmResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679175155"><span class="hs-identifier hs-var hs-var">hsmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175155"><span class="hs-identifier hs-var">hsmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175154"><span class="annot"><span class="annottext">s :: ModifyHsmResponse
-</span><a href="#local-6989586621679175154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175153"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsmResponse
-</span><a href="#local-6989586621679175154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmArn:ModifyHsmResponse' :: Maybe Text
+</span><a href="#local-6989586621679175164"><span class="hs-identifier hs-var hs-var">hsmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175164"><span class="hs-identifier hs-var">hsmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175163"><span class="annot"><span class="annottext">s :: ModifyHsmResponse
+</span><a href="#local-6989586621679175163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175162"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsmResponse
+</span><a href="#local-6989586621679175163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hsmArn:ModifyHsmResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhsmArn%3AModifyHsmResponse%27"><span class="hs-identifier hs-var">hsmArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#modifyHsmResponse_httpStatus"><span class="hs-identifier hs-type">modifyHsmResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -628,16 +628,16 @@ $sel:hsmArn:ModifyHsmResponse' :: ModifyHsmResponse -&gt; Maybe Text
 -&gt; (ModifyHsmResponse -&gt; Int -&gt; ModifyHsmResponse)
 -&gt; Lens ModifyHsmResponse ModifyHsmResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175152"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175161"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyHsmResponse' :: ModifyHsmResponse -&gt; Int
-</span><a href="#local-6989586621679175152"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175152"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175151"><span class="annot"><span class="annottext">s :: ModifyHsmResponse
-</span><a href="#local-6989586621679175151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175150"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsmResponse
-</span><a href="#local-6989586621679175151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyHsmResponse' :: Int
+</span><a href="#local-6989586621679175161"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175161"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175160"><span class="annot"><span class="annottext">s :: ModifyHsmResponse
+</span><a href="#local-6989586621679175160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse%27"><span class="hs-identifier hs-type">ModifyHsmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyHsmResponse
+</span><a href="#local-6989586621679175160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyHsmResponse' :: Int
 </span><a href="Network.AWS.CloudHSM.ModifyHsm.html#%24sel%3AhttpStatus%3AModifyHsmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSM.ModifyHsm.html#ModifyHsmResponse"><span class="hs-identifier hs-type">ModifyHsmResponse</span></a></span></span><span>
 </span><span id="line-261"></span></pre></body></html>

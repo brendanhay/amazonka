@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.QuickSight.Types.OutputColumn</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.QuickSight.Types.OutputColumn</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ColumnDataType.html"><span class="hs-identifier">Network.AWS.QuickSight.Types.ColumnDataType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Output column.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOutputColumn' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679561757"><span id="local-6989586621679561758"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputColumn"><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-var">OutputColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputColumn%27"><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-var">OutputColumn'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A display name for the dataset.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3AOutputColumn%27"><span class="annot"><span class="annottext">OutputColumn -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Aname%3AOutputColumn%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Type.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3AOutputColumn%27"><span class="annot"><span class="annottext">OutputColumn -&gt; Maybe ColumnDataType
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Atype%27%3AOutputColumn%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ColumnDataType.html#ColumnDataType"><span class="hs-identifier hs-type">ColumnDataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A description for a column.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Adescription%3AOutputColumn%27"><span class="annot"><span class="annottext">OutputColumn -&gt; Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Adescription%3AOutputColumn%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679561749"><span id="local-6989586621679561751"><span class="annot"><span class="annottext">OutputColumn -&gt; OutputColumn -&gt; Bool
+(OutputColumn -&gt; OutputColumn -&gt; Bool)
+-&gt; (OutputColumn -&gt; OutputColumn -&gt; Bool) -&gt; Eq OutputColumn
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OutputColumn -&gt; OutputColumn -&gt; Bool
+$c/= :: OutputColumn -&gt; OutputColumn -&gt; Bool
+== :: OutputColumn -&gt; OutputColumn -&gt; Bool
+$c== :: OutputColumn -&gt; OutputColumn -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679561740"><span id="local-6989586621679561742"><span id="local-6989586621679561744"><span id="local-6989586621679561746"><span class="annot"><span class="annottext">ReadPrec [OutputColumn]
+ReadPrec OutputColumn
+Int -&gt; ReadS OutputColumn
+ReadS [OutputColumn]
+(Int -&gt; ReadS OutputColumn)
+-&gt; ReadS [OutputColumn]
+-&gt; ReadPrec OutputColumn
+-&gt; ReadPrec [OutputColumn]
+-&gt; Read OutputColumn
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OutputColumn]
+$creadListPrec :: ReadPrec [OutputColumn]
+readPrec :: ReadPrec OutputColumn
+$creadPrec :: ReadPrec OutputColumn
+readList :: ReadS [OutputColumn]
+$creadList :: ReadS [OutputColumn]
+readsPrec :: Int -&gt; ReadS OutputColumn
+$creadsPrec :: Int -&gt; ReadS OutputColumn
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679561733"><span id="local-6989586621679561735"><span id="local-6989586621679561737"><span class="annot"><span class="annottext">Int -&gt; OutputColumn -&gt; ShowS
+[OutputColumn] -&gt; ShowS
+OutputColumn -&gt; String
+(Int -&gt; OutputColumn -&gt; ShowS)
+-&gt; (OutputColumn -&gt; String)
+-&gt; ([OutputColumn] -&gt; ShowS)
+-&gt; Show OutputColumn
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OutputColumn] -&gt; ShowS
+$cshowList :: [OutputColumn] -&gt; ShowS
+show :: OutputColumn -&gt; String
+$cshow :: OutputColumn -&gt; String
+showsPrec :: Int -&gt; OutputColumn -&gt; ShowS
+$cshowsPrec :: Int -&gt; OutputColumn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OutputColumn -&gt; Rep OutputColumn x)
+-&gt; (forall x. Rep OutputColumn x -&gt; OutputColumn)
+-&gt; Generic OutputColumn
+forall x. Rep OutputColumn x -&gt; OutputColumn
+forall x. OutputColumn -&gt; Rep OutputColumn x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OutputColumn x -&gt; OutputColumn
+$cfrom :: forall x. OutputColumn -&gt; Rep OutputColumn x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'OutputColumn' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'outputColumn_name' - A display name for the dataset.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'type'', 'outputColumn_type' - Type.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'description', 'outputColumn_description' - A description for a column.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#newOutputColumn"><span class="hs-identifier hs-type">newOutputColumn</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span><span>
+</span><span id="line-55"></span><span id="newOutputColumn"><span class="annot"><span class="annottext">newOutputColumn :: OutputColumn
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#newOutputColumn"><span class="hs-identifier hs-var hs-var">newOutputColumn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">OutputColumn' :: Maybe Text -&gt; Maybe ColumnDataType -&gt; Maybe Text -&gt; OutputColumn
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-type">OutputColumn'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:OutputColumn' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Aname%3AOutputColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':OutputColumn' :: Maybe ColumnDataType
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Atype%27%3AOutputColumn%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnDataType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:OutputColumn' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Adescription%3AOutputColumn%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | A display name for the dataset.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#outputColumn_name"><span class="hs-identifier hs-type">outputColumn_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="outputColumn_name"><span class="annot"><span class="annottext">outputColumn_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; OutputColumn -&gt; f OutputColumn
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#outputColumn_name"><span class="hs-identifier hs-var hs-var">outputColumn_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputColumn -&gt; Maybe Text)
+-&gt; (OutputColumn -&gt; Maybe Text -&gt; OutputColumn)
+-&gt; Lens OutputColumn OutputColumn (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-type">OutputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561724"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:OutputColumn' :: OutputColumn -&gt; Maybe Text
+</span><a href="#local-6989586621679561724"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561724"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561723"><span class="annot"><span class="annottext">s :: OutputColumn
+</span><a href="#local-6989586621679561723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-type">OutputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputColumn
+</span><a href="#local-6989586621679561723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:OutputColumn' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Aname%3AOutputColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Type.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#outputColumn_type"><span class="hs-identifier hs-type">outputColumn_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.ColumnDataType.html#ColumnDataType"><span class="hs-identifier hs-type">ColumnDataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="outputColumn_type"><span class="annot"><span class="annottext">outputColumn_type :: (Maybe ColumnDataType -&gt; f (Maybe ColumnDataType))
+-&gt; OutputColumn -&gt; f OutputColumn
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#outputColumn_type"><span class="hs-identifier hs-var hs-var">outputColumn_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputColumn -&gt; Maybe ColumnDataType)
+-&gt; (OutputColumn -&gt; Maybe ColumnDataType -&gt; OutputColumn)
+-&gt; Lens
+     OutputColumn
+     OutputColumn
+     (Maybe ColumnDataType)
+     (Maybe ColumnDataType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-type">OutputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561720"><span class="annot"><span class="annottext">Maybe ColumnDataType
+type' :: Maybe ColumnDataType
+$sel:type':OutputColumn' :: OutputColumn -&gt; Maybe ColumnDataType
+</span><a href="#local-6989586621679561720"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnDataType
+</span><a href="#local-6989586621679561720"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561719"><span class="annot"><span class="annottext">s :: OutputColumn
+</span><a href="#local-6989586621679561719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-type">OutputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561718"><span class="annot"><span class="annottext">Maybe ColumnDataType
+</span><a href="#local-6989586621679561718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputColumn
+</span><a href="#local-6989586621679561719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OutputColumn' :: Maybe ColumnDataType
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Atype%27%3AOutputColumn%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnDataType
+</span><a href="#local-6989586621679561718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | A description for a column.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#outputColumn_description"><span class="hs-identifier hs-type">outputColumn_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="outputColumn_description"><span class="annot"><span class="annottext">outputColumn_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; OutputColumn -&gt; f OutputColumn
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#outputColumn_description"><span class="hs-identifier hs-var hs-var">outputColumn_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputColumn -&gt; Maybe Text)
+-&gt; (OutputColumn -&gt; Maybe Text -&gt; OutputColumn)
+-&gt; Lens OutputColumn OutputColumn (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-type">OutputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679561716"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:OutputColumn' :: OutputColumn -&gt; Maybe Text
+</span><a href="#local-6989586621679561716"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561716"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679561715"><span class="annot"><span class="annottext">s :: OutputColumn
+</span><a href="#local-6989586621679561715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-type">OutputColumn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679561714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputColumn
+</span><a href="#local-6989586621679561715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:OutputColumn' :: Maybe Text
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#%24sel%3Adescription%3AOutputColumn%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679561714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561711"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679561709"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputColumn
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser OutputColumn) -&gt; Value -&gt; Parser OutputColumn
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;OutputColumn&quot;</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679561706"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679561706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ColumnDataType -&gt; Maybe Text -&gt; OutputColumn
+</span><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn%27"><span class="hs-identifier hs-var">OutputColumn'</span></a></span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ColumnDataType -&gt; Maybe Text -&gt; OutputColumn)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ColumnDataType -&gt; Maybe Text -&gt; OutputColumn)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679561706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ColumnDataType -&gt; Maybe Text -&gt; OutputColumn)
+-&gt; Parser (Maybe ColumnDataType)
+-&gt; Parser (Maybe Text -&gt; OutputColumn)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679561706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColumnDataType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; OutputColumn)
+-&gt; Parser (Maybe Text) -&gt; Parser OutputColumn
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679561706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561700"><span id="local-6989586621679561702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679561697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QuickSight.Types.OutputColumn.html#OutputColumn"><span class="hs-identifier hs-type">OutputColumn</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

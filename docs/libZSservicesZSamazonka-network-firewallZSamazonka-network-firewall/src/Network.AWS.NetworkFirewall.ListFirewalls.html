@@ -1,0 +1,740 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.NetworkFirewall.ListFirewalls</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the metadata for the firewalls that you have defined. If you</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- provide VPC identifiers in your request, this returns only the firewalls</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for those VPCs.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Depending on your setting for max results and the number of firewalls, a</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- single call might not return the full list.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.NetworkFirewall.ListFirewalls</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier">ListFirewalls</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#newListFirewalls"><span class="hs-identifier">newListFirewalls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_nextToken"><span class="hs-identifier">listFirewalls_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_vpcIds"><span class="hs-identifier">listFirewalls_vpcIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_maxResults"><span class="hs-identifier">listFirewalls_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier">ListFirewallsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#newListFirewallsResponse"><span class="hs-identifier">newListFirewallsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_nextToken"><span class="hs-identifier">listFirewallsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_firewalls"><span class="hs-identifier">listFirewallsResponse_firewalls</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_httpStatus"><span class="hs-identifier">listFirewallsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.html"><span class="hs-identifier">Network.AWS.NetworkFirewall.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newListFirewalls' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679245397"><span id="local-6989586621679245398"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFirewalls"><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-var">ListFirewalls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFirewalls%27"><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-var">ListFirewalls'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When you request a list of objects with a @MaxResults@ setting, if the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- number of objects that are still available for retrieval exceeds the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- maximum you requested, Network Firewall returns a @NextToken@ value in</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the response. To retrieve the next batch of objects, use the token</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- returned from the prior request in your next request.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListFirewalls%27"><span class="annot"><span class="annottext">ListFirewalls -&gt; Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AnextToken%3AListFirewalls%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The unique identifiers of the VPCs that you want Network Firewall to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- retrieve the firewalls for. Leave this blank to retrieve all firewalls</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- that you have defined.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AvpcIds%3AListFirewalls%27"><span class="annot"><span class="annottext">ListFirewalls -&gt; Maybe [Text]
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AvpcIds%3AListFirewalls%27"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of objects that you want Network Firewall to return</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- for this request. If more objects are available, in the response,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Network Firewall provides a @NextToken@ value that you can use in a</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- subsequent call to get the next batch of objects.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AmaxResults%3AListFirewalls%27"><span class="annot"><span class="annottext">ListFirewalls -&gt; Maybe Natural
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AmaxResults%3AListFirewalls%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245389"><span id="local-6989586621679245391"><span class="annot"><span class="annottext">ListFirewalls -&gt; ListFirewalls -&gt; Bool
+(ListFirewalls -&gt; ListFirewalls -&gt; Bool)
+-&gt; (ListFirewalls -&gt; ListFirewalls -&gt; Bool) -&gt; Eq ListFirewalls
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFirewalls -&gt; ListFirewalls -&gt; Bool
+$c/= :: ListFirewalls -&gt; ListFirewalls -&gt; Bool
+== :: ListFirewalls -&gt; ListFirewalls -&gt; Bool
+$c== :: ListFirewalls -&gt; ListFirewalls -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245380"><span id="local-6989586621679245382"><span id="local-6989586621679245384"><span id="local-6989586621679245386"><span class="annot"><span class="annottext">ReadPrec [ListFirewalls]
+ReadPrec ListFirewalls
+Int -&gt; ReadS ListFirewalls
+ReadS [ListFirewalls]
+(Int -&gt; ReadS ListFirewalls)
+-&gt; ReadS [ListFirewalls]
+-&gt; ReadPrec ListFirewalls
+-&gt; ReadPrec [ListFirewalls]
+-&gt; Read ListFirewalls
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFirewalls]
+$creadListPrec :: ReadPrec [ListFirewalls]
+readPrec :: ReadPrec ListFirewalls
+$creadPrec :: ReadPrec ListFirewalls
+readList :: ReadS [ListFirewalls]
+$creadList :: ReadS [ListFirewalls]
+readsPrec :: Int -&gt; ReadS ListFirewalls
+$creadsPrec :: Int -&gt; ReadS ListFirewalls
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245373"><span id="local-6989586621679245375"><span id="local-6989586621679245377"><span class="annot"><span class="annottext">Int -&gt; ListFirewalls -&gt; ShowS
+[ListFirewalls] -&gt; ShowS
+ListFirewalls -&gt; String
+(Int -&gt; ListFirewalls -&gt; ShowS)
+-&gt; (ListFirewalls -&gt; String)
+-&gt; ([ListFirewalls] -&gt; ShowS)
+-&gt; Show ListFirewalls
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFirewalls] -&gt; ShowS
+$cshowList :: [ListFirewalls] -&gt; ShowS
+show :: ListFirewalls -&gt; String
+$cshow :: ListFirewalls -&gt; String
+showsPrec :: Int -&gt; ListFirewalls -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFirewalls -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListFirewalls -&gt; Rep ListFirewalls x)
+-&gt; (forall x. Rep ListFirewalls x -&gt; ListFirewalls)
+-&gt; Generic ListFirewalls
+forall x. Rep ListFirewalls x -&gt; ListFirewalls
+forall x. ListFirewalls -&gt; Rep ListFirewalls x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListFirewalls x -&gt; ListFirewalls
+$cfrom :: forall x. ListFirewalls -&gt; Rep ListFirewalls x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'ListFirewalls' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'nextToken', 'listFirewalls_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- number of objects that are still available for retrieval exceeds the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- maximum you requested, Network Firewall returns a @NextToken@ value in</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- the response. To retrieve the next batch of objects, use the token</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- returned from the prior request in your next request.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'vpcIds', 'listFirewalls_vpcIds' - The unique identifiers of the VPCs that you want Network Firewall to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- retrieve the firewalls for. Leave this blank to retrieve all firewalls</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- that you have defined.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'maxResults', 'listFirewalls_maxResults' - The maximum number of objects that you want Network Firewall to return</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- for this request. If more objects are available, in the response,</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Network Firewall provides a @NextToken@ value that you can use in a</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- subsequent call to get the next batch of objects.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#newListFirewalls"><span class="hs-identifier hs-type">newListFirewalls</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span>
+</span><span id="line-103"></span><span id="newListFirewalls"><span class="annot"><span class="annottext">newListFirewalls :: ListFirewalls
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#newListFirewalls"><span class="hs-identifier hs-var hs-var">newListFirewalls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">ListFirewalls' :: Maybe Text -&gt; Maybe [Text] -&gt; Maybe Natural -&gt; ListFirewalls
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFirewalls' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AnextToken%3AListFirewalls%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcIds:ListFirewalls' :: Maybe [Text]
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AvpcIds%3AListFirewalls%27"><span class="hs-identifier hs-var">vpcIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListFirewalls' :: Maybe Natural
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AmaxResults%3AListFirewalls%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | When you request a list of objects with a @MaxResults@ setting, if the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- number of objects that are still available for retrieval exceeds the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- maximum you requested, Network Firewall returns a @NextToken@ value in</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- the response. To retrieve the next batch of objects, use the token</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- returned from the prior request in your next request.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_nextToken"><span class="hs-identifier hs-type">listFirewalls_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="listFirewalls_nextToken"><span class="annot"><span class="annottext">listFirewalls_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListFirewalls -&gt; f ListFirewalls
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_nextToken"><span class="hs-identifier hs-var hs-var">listFirewalls_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFirewalls -&gt; Maybe Text)
+-&gt; (ListFirewalls -&gt; Maybe Text -&gt; ListFirewalls)
+-&gt; Lens ListFirewalls ListFirewalls (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245367"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListFirewalls' :: ListFirewalls -&gt; Maybe Text
+</span><a href="#local-6989586621679245367"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245367"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245366"><span class="annot"><span class="annottext">s :: ListFirewalls
+</span><a href="#local-6989586621679245366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245365"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFirewalls
+</span><a href="#local-6989586621679245366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFirewalls' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AnextToken%3AListFirewalls%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The unique identifiers of the VPCs that you want Network Firewall to</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- retrieve the firewalls for. Leave this blank to retrieve all firewalls</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- that you have defined.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_vpcIds"><span class="hs-identifier hs-type">listFirewalls_vpcIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="listFirewalls_vpcIds"><span class="annot"><span class="annottext">listFirewalls_vpcIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListFirewalls -&gt; f ListFirewalls
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_vpcIds"><span class="hs-identifier hs-var hs-var">listFirewalls_vpcIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFirewalls -&gt; Maybe [Text])
+-&gt; (ListFirewalls -&gt; Maybe [Text] -&gt; ListFirewalls)
+-&gt; Lens ListFirewalls ListFirewalls (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245364"><span class="annot"><span class="annottext">Maybe [Text]
+vpcIds :: Maybe [Text]
+$sel:vpcIds:ListFirewalls' :: ListFirewalls -&gt; Maybe [Text]
+</span><a href="#local-6989586621679245364"><span class="hs-identifier hs-var hs-var">vpcIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245364"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245363"><span class="annot"><span class="annottext">s :: ListFirewalls
+</span><a href="#local-6989586621679245363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245362"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFirewalls
+</span><a href="#local-6989586621679245363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcIds:ListFirewalls' :: Maybe [Text]
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AvpcIds%3AListFirewalls%27"><span class="hs-identifier hs-var">vpcIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListFirewalls -&gt; f ListFirewalls)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListFirewalls
+-&gt; f ListFirewalls
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The maximum number of objects that you want Network Firewall to return</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for this request. If more objects are available, in the response,</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Network Firewall provides a @NextToken@ value that you can use in a</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- subsequent call to get the next batch of objects.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_maxResults"><span class="hs-identifier hs-type">listFirewalls_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="listFirewalls_maxResults"><span class="annot"><span class="annottext">listFirewalls_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListFirewalls -&gt; f ListFirewalls
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_maxResults"><span class="hs-identifier hs-var hs-var">listFirewalls_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFirewalls -&gt; Maybe Natural)
+-&gt; (ListFirewalls -&gt; Maybe Natural -&gt; ListFirewalls)
+-&gt; Lens ListFirewalls ListFirewalls (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245358"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListFirewalls' :: ListFirewalls -&gt; Maybe Natural
+</span><a href="#local-6989586621679245358"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245358"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245357"><span class="annot"><span class="annottext">s :: ListFirewalls
+</span><a href="#local-6989586621679245357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245356"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFirewalls
+</span><a href="#local-6989586621679245357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListFirewalls' :: Maybe Natural
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AmaxResults%3AListFirewalls%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679245352"><span class="annot"><span class="annottext">page :: ListFirewalls -&gt; AWSResponse ListFirewalls -&gt; Maybe ListFirewalls
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679245350"><span class="annot"><span class="annottext">ListFirewalls
+</span><a href="#local-6989586621679245350"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679245349"><span class="annot"><span class="annottext">AWSResponse ListFirewalls
+</span><a href="#local-6989586621679245349"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-134"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFirewalls
+ListFirewallsResponse
+</span><a href="#local-6989586621679245349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">ListFirewallsResponse
+-&gt; Getting (First Text) ListFirewallsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListFirewallsResponse
+-&gt; Const (First Text) ListFirewallsResponse
+Lens' ListFirewallsResponse (Maybe Text)
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_nextToken"><span class="hs-identifier hs-var">listFirewallsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListFirewallsResponse
+ -&gt; Const (First Text) ListFirewallsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListFirewallsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-136"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListFirewalls
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [FirewallMetadata] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFirewalls
+ListFirewallsResponse
+</span><a href="#local-6989586621679245349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">ListFirewallsResponse
+-&gt; Getting
+     (First [FirewallMetadata]) ListFirewallsResponse [FirewallMetadata]
+-&gt; Maybe [FirewallMetadata]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [FirewallMetadata]
+ -&gt; Const (First [FirewallMetadata]) (Maybe [FirewallMetadata]))
+-&gt; ListFirewallsResponse
+-&gt; Const (First [FirewallMetadata]) ListFirewallsResponse
+Lens' ListFirewallsResponse (Maybe [FirewallMetadata])
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_firewalls"><span class="hs-identifier hs-var">listFirewallsResponse_firewalls</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [FirewallMetadata]
+  -&gt; Const (First [FirewallMetadata]) (Maybe [FirewallMetadata]))
+ -&gt; ListFirewallsResponse
+ -&gt; Const (First [FirewallMetadata]) ListFirewallsResponse)
+-&gt; (([FirewallMetadata]
+     -&gt; Const (First [FirewallMetadata]) [FirewallMetadata])
+    -&gt; Maybe [FirewallMetadata]
+    -&gt; Const (First [FirewallMetadata]) (Maybe [FirewallMetadata]))
+-&gt; Getting
+     (First [FirewallMetadata]) ListFirewallsResponse [FirewallMetadata]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([FirewallMetadata]
+ -&gt; Const (First [FirewallMetadata]) [FirewallMetadata])
+-&gt; Maybe [FirewallMetadata]
+-&gt; Const (First [FirewallMetadata]) (Maybe [FirewallMetadata])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListFirewalls
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">ListFirewalls -&gt; Maybe ListFirewalls
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListFirewalls -&gt; Maybe ListFirewalls)
+-&gt; ListFirewalls -&gt; Maybe ListFirewalls
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ListFirewalls
+</span><a href="#local-6989586621679245350"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ListFirewalls -&gt; (ListFirewalls -&gt; ListFirewalls) -&gt; ListFirewalls
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListFirewalls -&gt; Identity ListFirewalls
+Lens ListFirewalls ListFirewalls (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewalls_nextToken"><span class="hs-identifier hs-var">listFirewalls_nextToken</span></a></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListFirewalls -&gt; Identity ListFirewalls)
+-&gt; Maybe Text -&gt; ListFirewalls -&gt; ListFirewalls
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListFirewalls
+ListFirewallsResponse
+</span><a href="#local-6989586621679245349"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">ListFirewallsResponse
+-&gt; Getting (First Text) ListFirewallsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListFirewallsResponse
+-&gt; Const (First Text) ListFirewallsResponse
+Lens' ListFirewallsResponse (Maybe Text)
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_nextToken"><span class="hs-identifier hs-var">listFirewallsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListFirewallsResponse
+ -&gt; Const (First Text) ListFirewallsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListFirewallsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679245340"><span class="annot"><span class="annottext">request :: ListFirewalls -&gt; Request ListFirewalls
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListFirewalls -&gt; Request ListFirewalls
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.NetworkFirewall.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679245336"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListFirewalls
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListFirewalls)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListFirewalls))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListFirewalls
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListFirewalls)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245333"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245333"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679245332"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679245332"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679245331"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [FirewallMetadata] -&gt; Int -&gt; ListFirewallsResponse
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-var">ListFirewallsResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [FirewallMetadata] -&gt; Int -&gt; ListFirewallsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [FirewallMetadata] -&gt; Int -&gt; ListFirewallsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [FirewallMetadata] -&gt; Int -&gt; ListFirewallsResponse)
+-&gt; Either String (Maybe [FirewallMetadata])
+-&gt; Either String (Int -&gt; ListFirewallsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FirewallMetadata]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Firewalls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FirewallMetadata]))
+-&gt; Maybe [FirewallMetadata]
+-&gt; Either String (Maybe [FirewallMetadata])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FirewallMetadata]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListFirewallsResponse)
+-&gt; Either String Int -&gt; Either String ListFirewallsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245333"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245322"><span id="local-6989586621679245324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679245315"><span class="annot"><span class="annottext">toHeaders :: ListFirewalls -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListFirewalls -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NetworkFirewall_20201112.ListFirewalls&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-175"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-179"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245305"><span id="local-6989586621679245307"><span id="local-6989586621679245309"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679245303"><span class="annot"><span class="annottext">toJSON :: ListFirewalls -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls%27"><span class="hs-identifier hs-type">ListFirewalls'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245299"><span id="local-6989586621679245300"><span id="local-6989586621679245301"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Text]
+Maybe Text
+maxResults :: Maybe Natural
+vpcIds :: Maybe [Text]
+nextToken :: Maybe Text
+$sel:maxResults:ListFirewalls' :: ListFirewalls -&gt; Maybe Natural
+$sel:vpcIds:ListFirewalls' :: ListFirewalls -&gt; Maybe [Text]
+$sel:nextToken:ListFirewalls' :: ListFirewalls -&gt; Maybe Text
+</span><a href="#local-6989586621679245299"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-187"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245301"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679245300"><span class="hs-identifier hs-var">vpcIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679245299"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-190"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679245293"><span class="annot"><span class="annottext">toPath :: ListFirewalls -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListFirewalls -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewalls"><span class="hs-identifier hs-type">ListFirewalls</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679245289"><span class="annot"><span class="annottext">toQuery :: ListFirewalls -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListFirewalls -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | /See:/ 'newListFirewallsResponse' smart constructor.</span><span>
+</span><span id="line-200"></span><span id="local-6989586621679245286"><span id="local-6989586621679245287"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListFirewallsResponse"><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-var">ListFirewallsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListFirewallsResponse%27"><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-var">ListFirewallsResponse'</span></a></span></span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When you request a list of objects with a @MaxResults@ setting, if the</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- number of objects that are still available for retrieval exceeds the</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- maximum you requested, Network Firewall returns a @NextToken@ value in</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- the response. To retrieve the next batch of objects, use the token</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- returned from the prior request in your next request.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AnextToken%3AListFirewallsResponse%27"><span class="annot"><span class="annottext">ListFirewallsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AnextToken%3AListFirewallsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The firewall metadata objects for the VPCs that you specified. Depending</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- on your setting for max results and the number of firewalls you have, a</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- single call might not be the full list.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3Afirewalls%3AListFirewallsResponse%27"><span class="annot"><span class="annottext">ListFirewallsResponse -&gt; Maybe [FirewallMetadata]
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3Afirewalls%3AListFirewallsResponse%27"><span class="hs-identifier hs-var hs-var">firewalls</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallMetadata.html#FirewallMetadata"><span class="hs-identifier hs-type">FirewallMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListFirewallsResponse%27"><span class="annot"><span class="annottext">ListFirewallsResponse -&gt; Int
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AhttpStatus%3AListFirewallsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245279"><span id="local-6989586621679245281"><span class="annot"><span class="annottext">ListFirewallsResponse -&gt; ListFirewallsResponse -&gt; Bool
+(ListFirewallsResponse -&gt; ListFirewallsResponse -&gt; Bool)
+-&gt; (ListFirewallsResponse -&gt; ListFirewallsResponse -&gt; Bool)
+-&gt; Eq ListFirewallsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListFirewallsResponse -&gt; ListFirewallsResponse -&gt; Bool
+$c/= :: ListFirewallsResponse -&gt; ListFirewallsResponse -&gt; Bool
+== :: ListFirewallsResponse -&gt; ListFirewallsResponse -&gt; Bool
+$c== :: ListFirewallsResponse -&gt; ListFirewallsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245271"><span id="local-6989586621679245273"><span id="local-6989586621679245275"><span id="local-6989586621679245277"><span class="annot"><span class="annottext">ReadPrec [ListFirewallsResponse]
+ReadPrec ListFirewallsResponse
+Int -&gt; ReadS ListFirewallsResponse
+ReadS [ListFirewallsResponse]
+(Int -&gt; ReadS ListFirewallsResponse)
+-&gt; ReadS [ListFirewallsResponse]
+-&gt; ReadPrec ListFirewallsResponse
+-&gt; ReadPrec [ListFirewallsResponse]
+-&gt; Read ListFirewallsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListFirewallsResponse]
+$creadListPrec :: ReadPrec [ListFirewallsResponse]
+readPrec :: ReadPrec ListFirewallsResponse
+$creadPrec :: ReadPrec ListFirewallsResponse
+readList :: ReadS [ListFirewallsResponse]
+$creadList :: ReadS [ListFirewallsResponse]
+readsPrec :: Int -&gt; ReadS ListFirewallsResponse
+$creadsPrec :: Int -&gt; ReadS ListFirewallsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245265"><span id="local-6989586621679245267"><span id="local-6989586621679245269"><span class="annot"><span class="annottext">Int -&gt; ListFirewallsResponse -&gt; ShowS
+[ListFirewallsResponse] -&gt; ShowS
+ListFirewallsResponse -&gt; String
+(Int -&gt; ListFirewallsResponse -&gt; ShowS)
+-&gt; (ListFirewallsResponse -&gt; String)
+-&gt; ([ListFirewallsResponse] -&gt; ShowS)
+-&gt; Show ListFirewallsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListFirewallsResponse] -&gt; ShowS
+$cshowList :: [ListFirewallsResponse] -&gt; ShowS
+show :: ListFirewallsResponse -&gt; String
+$cshow :: ListFirewallsResponse -&gt; String
+showsPrec :: Int -&gt; ListFirewallsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListFirewallsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListFirewallsResponse -&gt; Rep ListFirewallsResponse x)
+-&gt; (forall x. Rep ListFirewallsResponse x -&gt; ListFirewallsResponse)
+-&gt; Generic ListFirewallsResponse
+forall x. Rep ListFirewallsResponse x -&gt; ListFirewallsResponse
+forall x. ListFirewallsResponse -&gt; Rep ListFirewallsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListFirewallsResponse x -&gt; ListFirewallsResponse
+$cfrom :: forall x. ListFirewallsResponse -&gt; Rep ListFirewallsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- Create a value of 'ListFirewallsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'nextToken', 'listFirewallsResponse_nextToken' - When you request a list of objects with a @MaxResults@ setting, if the</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- number of objects that are still available for retrieval exceeds the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- maximum you requested, Network Firewall returns a @NextToken@ value in</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- the response. To retrieve the next batch of objects, use the token</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- returned from the prior request in your next request.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'firewalls', 'listFirewallsResponse_firewalls' - The firewall metadata objects for the VPCs that you specified. Depending</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- on your setting for max results and the number of firewalls you have, a</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- single call might not be the full list.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'httpStatus', 'listFirewallsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#newListFirewallsResponse"><span class="hs-identifier hs-type">newListFirewallsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span>
+</span><span id="line-239"></span><span id="newListFirewallsResponse"><span class="annot"><span class="annottext">newListFirewallsResponse :: Int -&gt; ListFirewallsResponse
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#newListFirewallsResponse"><span class="hs-identifier hs-var hs-var">newListFirewallsResponse</span></a></span></span><span> </span><span id="local-6989586621679245262"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245262"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">ListFirewallsResponse' :: Maybe Text
+-&gt; Maybe [FirewallMetadata] -&gt; Int -&gt; ListFirewallsResponse
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-type">ListFirewallsResponse'</span></a></span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListFirewallsResponse' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AnextToken%3AListFirewallsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewalls:ListFirewallsResponse' :: Maybe [FirewallMetadata]
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3Afirewalls%3AListFirewallsResponse%27"><span class="hs-identifier hs-var">firewalls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FirewallMetadata]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListFirewallsResponse' :: Int
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AhttpStatus%3AListFirewallsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245262"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | When you request a list of objects with a @MaxResults@ setting, if the</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- number of objects that are still available for retrieval exceeds the</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- maximum you requested, Network Firewall returns a @NextToken@ value in</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- the response. To retrieve the next batch of objects, use the token</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- returned from the prior request in your next request.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_nextToken"><span class="hs-identifier hs-type">listFirewallsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="listFirewallsResponse_nextToken"><span class="annot"><span class="annottext">listFirewallsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListFirewallsResponse -&gt; f ListFirewallsResponse
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listFirewallsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFirewallsResponse -&gt; Maybe Text)
+-&gt; (ListFirewallsResponse -&gt; Maybe Text -&gt; ListFirewallsResponse)
+-&gt; Lens' ListFirewallsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-type">ListFirewallsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245261"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListFirewallsResponse' :: ListFirewallsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679245261"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245261"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245260"><span class="annot"><span class="annottext">s :: ListFirewallsResponse
+</span><a href="#local-6989586621679245260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-type">ListFirewallsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245259"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFirewallsResponse
+</span><a href="#local-6989586621679245260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListFirewallsResponse' :: Maybe Text
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AnextToken%3AListFirewallsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The firewall metadata objects for the VPCs that you specified. Depending</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- on your setting for max results and the number of firewalls you have, a</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- single call might not be the full list.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_firewalls"><span class="hs-identifier hs-type">listFirewallsResponse_firewalls</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.NetworkFirewall.Types.FirewallMetadata.html#FirewallMetadata"><span class="hs-identifier hs-type">FirewallMetadata</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="listFirewallsResponse_firewalls"><span class="annot"><span class="annottext">listFirewallsResponse_firewalls :: (Maybe [FirewallMetadata] -&gt; f (Maybe [FirewallMetadata]))
+-&gt; ListFirewallsResponse -&gt; f ListFirewallsResponse
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_firewalls"><span class="hs-identifier hs-var hs-var">listFirewallsResponse_firewalls</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFirewallsResponse -&gt; Maybe [FirewallMetadata])
+-&gt; (ListFirewallsResponse
+    -&gt; Maybe [FirewallMetadata] -&gt; ListFirewallsResponse)
+-&gt; Lens' ListFirewallsResponse (Maybe [FirewallMetadata])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-type">ListFirewallsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245258"><span class="annot"><span class="annottext">Maybe [FirewallMetadata]
+firewalls :: Maybe [FirewallMetadata]
+$sel:firewalls:ListFirewallsResponse' :: ListFirewallsResponse -&gt; Maybe [FirewallMetadata]
+</span><a href="#local-6989586621679245258"><span class="hs-identifier hs-var hs-var">firewalls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FirewallMetadata]
+</span><a href="#local-6989586621679245258"><span class="hs-identifier hs-var">firewalls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245257"><span class="annot"><span class="annottext">s :: ListFirewallsResponse
+</span><a href="#local-6989586621679245257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-type">ListFirewallsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245256"><span class="annot"><span class="annottext">Maybe [FirewallMetadata]
+</span><a href="#local-6989586621679245256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFirewallsResponse
+</span><a href="#local-6989586621679245257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewalls:ListFirewallsResponse' :: Maybe [FirewallMetadata]
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3Afirewalls%3AListFirewallsResponse%27"><span class="hs-identifier hs-var">firewalls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FirewallMetadata]
+</span><a href="#local-6989586621679245256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FirewallMetadata] -&gt; f (Maybe [FirewallMetadata]))
+ -&gt; ListFirewallsResponse -&gt; f ListFirewallsResponse)
+-&gt; ((Maybe [FirewallMetadata] -&gt; f (Maybe [FirewallMetadata]))
+    -&gt; Maybe [FirewallMetadata] -&gt; f (Maybe [FirewallMetadata]))
+-&gt; (Maybe [FirewallMetadata] -&gt; f (Maybe [FirewallMetadata]))
+-&gt; ListFirewallsResponse
+-&gt; f ListFirewallsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FirewallMetadata]
+  [FirewallMetadata]
+  [FirewallMetadata]
+  [FirewallMetadata]
+-&gt; Iso
+     (Maybe [FirewallMetadata])
+     (Maybe [FirewallMetadata])
+     (Maybe [FirewallMetadata])
+     (Maybe [FirewallMetadata])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FirewallMetadata]
+  [FirewallMetadata]
+  [FirewallMetadata]
+  [FirewallMetadata]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_httpStatus"><span class="hs-identifier hs-type">listFirewallsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="listFirewallsResponse_httpStatus"><span class="annot"><span class="annottext">listFirewallsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListFirewallsResponse -&gt; f ListFirewallsResponse
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#listFirewallsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listFirewallsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListFirewallsResponse -&gt; Int)
+-&gt; (ListFirewallsResponse -&gt; Int -&gt; ListFirewallsResponse)
+-&gt; Lens ListFirewallsResponse ListFirewallsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-type">ListFirewallsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245255"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListFirewallsResponse' :: ListFirewallsResponse -&gt; Int
+</span><a href="#local-6989586621679245255"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245255"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245254"><span class="annot"><span class="annottext">s :: ListFirewallsResponse
+</span><a href="#local-6989586621679245254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse%27"><span class="hs-identifier hs-type">ListFirewallsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245253"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListFirewallsResponse
+</span><a href="#local-6989586621679245254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListFirewallsResponse' :: Int
+</span><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#%24sel%3AhttpStatus%3AListFirewallsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679245253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.NetworkFirewall.ListFirewalls.html#ListFirewallsResponse"><span class="hs-identifier hs-type">ListFirewallsResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

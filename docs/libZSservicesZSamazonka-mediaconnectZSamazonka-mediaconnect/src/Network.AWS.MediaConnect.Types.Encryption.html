@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.MediaConnect.Types.Encryption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.MediaConnect.Types.Encryption</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Algorithm.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.Algorithm</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.KeyType.html"><span class="hs-identifier">Network.AWS.MediaConnect.Types.KeyType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about the encryption of the flow.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEncryption' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679267046"><span id="local-6989586621679267047"></span></span><span class="hs-keyword">data</span><span> </span><span id="Encryption"><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-var">Encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Encryption%27"><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of key that is used for the encryption. If no keyType is</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- provided, the service will use the default setting (static-key).</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AkeyType%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe KeyType
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AkeyType%3AEncryption%27"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An identifier for the content. The service sends this value to the key</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- server to identify the current endpoint. The resource ID is also known</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- as the content ID. This parameter is required for SPEKE encryption and</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- is not valid for static key encryption.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AresourceId%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AresourceId%3AEncryption%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The URL from the API Gateway proxy that you set up to talk to your key</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- server. This parameter is required for SPEKE encryption and is not valid</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- for static key encryption.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aurl%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aurl%3AEncryption%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The type of algorithm that is used for the encryption (such as aes128,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- aes192, or aes256).</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aalgorithm%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Algorithm
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aalgorithm%3AEncryption%27"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A 128-bit, 16-byte hex value represented by a 32-character string, to be</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- used with the key for encrypting content. This parameter is not valid</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- for static key encryption.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AconstantInitializationVector%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AconstantInitializationVector%3AEncryption%27"><span class="hs-identifier hs-var hs-var">constantInitializationVector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The value of one of the devices that you configured with your digital</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- rights management (DRM) platform key provider. This parameter is</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- required for SPEKE encryption and is not valid for static key</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdeviceId%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AdeviceId%3AEncryption%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The AWS Region that the API Gateway proxy endpoint was created in. This</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- parameter is required for SPEKE encryption and is not valid for static</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- key encryption.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aregion%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aregion%3AEncryption%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The ARN of the secret that you created in AWS Secrets Manager to store</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the encryption key. This parameter is required for static key encryption</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- and is not valid for SPEKE encryption.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsecretArn%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AsecretArn%3AEncryption%27"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ARN of the role that you created during setup (when you set up AWS</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Elemental MediaConnect as a trusted entity).</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AroleArn%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AroleArn%3AEncryption%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267032"><span id="local-6989586621679267034"><span class="annot"><span class="annottext">Encryption -&gt; Encryption -&gt; Bool
+(Encryption -&gt; Encryption -&gt; Bool)
+-&gt; (Encryption -&gt; Encryption -&gt; Bool) -&gt; Eq Encryption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Encryption -&gt; Encryption -&gt; Bool
+$c/= :: Encryption -&gt; Encryption -&gt; Bool
+== :: Encryption -&gt; Encryption -&gt; Bool
+$c== :: Encryption -&gt; Encryption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267023"><span id="local-6989586621679267025"><span id="local-6989586621679267027"><span id="local-6989586621679267029"><span class="annot"><span class="annottext">ReadPrec [Encryption]
+ReadPrec Encryption
+Int -&gt; ReadS Encryption
+ReadS [Encryption]
+(Int -&gt; ReadS Encryption)
+-&gt; ReadS [Encryption]
+-&gt; ReadPrec Encryption
+-&gt; ReadPrec [Encryption]
+-&gt; Read Encryption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Encryption]
+$creadListPrec :: ReadPrec [Encryption]
+readPrec :: ReadPrec Encryption
+$creadPrec :: ReadPrec Encryption
+readList :: ReadS [Encryption]
+$creadList :: ReadS [Encryption]
+readsPrec :: Int -&gt; ReadS Encryption
+$creadsPrec :: Int -&gt; ReadS Encryption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267016"><span id="local-6989586621679267018"><span id="local-6989586621679267020"><span class="annot"><span class="annottext">Int -&gt; Encryption -&gt; ShowS
+[Encryption] -&gt; ShowS
+Encryption -&gt; String
+(Int -&gt; Encryption -&gt; ShowS)
+-&gt; (Encryption -&gt; String)
+-&gt; ([Encryption] -&gt; ShowS)
+-&gt; Show Encryption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Encryption] -&gt; ShowS
+$cshowList :: [Encryption] -&gt; ShowS
+show :: Encryption -&gt; String
+$cshow :: Encryption -&gt; String
+showsPrec :: Int -&gt; Encryption -&gt; ShowS
+$cshowsPrec :: Int -&gt; Encryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Encryption -&gt; Rep Encryption x)
+-&gt; (forall x. Rep Encryption x -&gt; Encryption) -&gt; Generic Encryption
+forall x. Rep Encryption x -&gt; Encryption
+forall x. Encryption -&gt; Rep Encryption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Encryption x -&gt; Encryption
+$cfrom :: forall x. Encryption -&gt; Rep Encryption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'Encryption' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'keyType', 'encryption_keyType' - The type of key that is used for the encryption. If no keyType is</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- provided, the service will use the default setting (static-key).</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'resourceId', 'encryption_resourceId' - An identifier for the content. The service sends this value to the key</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- server to identify the current endpoint. The resource ID is also known</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- as the content ID. This parameter is required for SPEKE encryption and</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- is not valid for static key encryption.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'url', 'encryption_url' - The URL from the API Gateway proxy that you set up to talk to your key</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- server. This parameter is required for SPEKE encryption and is not valid</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for static key encryption.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'algorithm', 'encryption_algorithm' - The type of algorithm that is used for the encryption (such as aes128,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- aes192, or aes256).</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'constantInitializationVector', 'encryption_constantInitializationVector' - A 128-bit, 16-byte hex value represented by a 32-character string, to be</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- used with the key for encrypting content. This parameter is not valid</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- for static key encryption.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'deviceId', 'encryption_deviceId' - The value of one of the devices that you configured with your digital</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- rights management (DRM) platform key provider. This parameter is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- required for SPEKE encryption and is not valid for static key</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'region', 'encryption_region' - The AWS Region that the API Gateway proxy endpoint was created in. This</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- parameter is required for SPEKE encryption and is not valid for static</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- key encryption.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'secretArn', 'encryption_secretArn' - The ARN of the secret that you created in AWS Secrets Manager to store</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the encryption key. This parameter is required for static key encryption</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- and is not valid for SPEKE encryption.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'roleArn', 'encryption_roleArn' - The ARN of the role that you created during setup (when you set up AWS</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Elemental MediaConnect as a trusted entity).</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#newEncryption"><span class="hs-identifier hs-type">newEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'roleArn'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span>
+</span><span id="line-116"></span><span id="newEncryption"><span class="annot"><span class="annottext">newEncryption :: Text -&gt; Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#newEncryption"><span class="hs-identifier hs-var hs-var">newEncryption</span></a></span></span><span> </span><span id="local-6989586621679267010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267010"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">Encryption' :: Maybe KeyType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Algorithm
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyType:Encryption' :: Maybe KeyType
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AkeyType%3AEncryption%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AresourceId%3AEncryption%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aurl%3AEncryption%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:algorithm:Encryption' :: Maybe Algorithm
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aalgorithm%3AEncryption%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Algorithm
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:constantInitializationVector:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AconstantInitializationVector%3AEncryption%27"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceId:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AdeviceId%3AEncryption%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aregion%3AEncryption%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretArn:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AsecretArn%3AEncryption%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:Encryption' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AroleArn%3AEncryption%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679267010"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The type of key that is used for the encryption. If no keyType is</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- provided, the service will use the default setting (static-key).</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_keyType"><span class="hs-identifier hs-type">encryption_keyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="encryption_keyType"><span class="annot"><span class="annottext">encryption_keyType :: (Maybe KeyType -&gt; f (Maybe KeyType)) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_keyType"><span class="hs-identifier hs-var hs-var">encryption_keyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe KeyType)
+-&gt; (Encryption -&gt; Maybe KeyType -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe KeyType) (Maybe KeyType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267006"><span class="annot"><span class="annottext">Maybe KeyType
+keyType :: Maybe KeyType
+$sel:keyType:Encryption' :: Encryption -&gt; Maybe KeyType
+</span><a href="#local-6989586621679267006"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621679267006"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267005"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679267005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267004"><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621679267004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679267005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:Encryption' :: Maybe KeyType
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AkeyType%3AEncryption%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621679267004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | An identifier for the content. The service sends this value to the key</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- server to identify the current endpoint. The resource ID is also known</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- as the content ID. This parameter is required for SPEKE encryption and</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- is not valid for static key encryption.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_resourceId"><span class="hs-identifier hs-type">encryption_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="encryption_resourceId"><span class="annot"><span class="annottext">encryption_resourceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_resourceId"><span class="hs-identifier hs-var hs-var">encryption_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe Text)
+-&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267002"><span class="annot"><span class="annottext">Maybe Text
+resourceId :: Maybe Text
+$sel:resourceId:Encryption' :: Encryption -&gt; Maybe Text
+</span><a href="#local-6989586621679267002"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267002"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267001"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679267001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679267001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AresourceId%3AEncryption%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679267000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The URL from the API Gateway proxy that you set up to talk to your key</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- server. This parameter is required for SPEKE encryption and is not valid</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for static key encryption.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_url"><span class="hs-identifier hs-type">encryption_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="encryption_url"><span class="annot"><span class="annottext">encryption_url :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_url"><span class="hs-identifier hs-var hs-var">encryption_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe Text)
+-&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266998"><span class="annot"><span class="annottext">Maybe Text
+url :: Maybe Text
+$sel:url:Encryption' :: Encryption -&gt; Maybe Text
+</span><a href="#local-6989586621679266998"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266998"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266997"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679266997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266996"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679266997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aurl%3AEncryption%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The type of algorithm that is used for the encryption (such as aes128,</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- aes192, or aes256).</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_algorithm"><span class="hs-identifier hs-type">encryption_algorithm</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Algorithm.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="encryption_algorithm"><span class="annot"><span class="annottext">encryption_algorithm :: (Maybe Algorithm -&gt; f (Maybe Algorithm))
+-&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_algorithm"><span class="hs-identifier hs-var hs-var">encryption_algorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe Algorithm)
+-&gt; (Encryption -&gt; Maybe Algorithm -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe Algorithm) (Maybe Algorithm)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266994"><span class="annot"><span class="annottext">Maybe Algorithm
+algorithm :: Maybe Algorithm
+$sel:algorithm:Encryption' :: Encryption -&gt; Maybe Algorithm
+</span><a href="#local-6989586621679266994"><span class="hs-identifier hs-var hs-var">algorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Algorithm
+</span><a href="#local-6989586621679266994"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266993"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679266993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266992"><span class="annot"><span class="annottext">Maybe Algorithm
+</span><a href="#local-6989586621679266992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679266993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithm:Encryption' :: Maybe Algorithm
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aalgorithm%3AEncryption%27"><span class="hs-identifier hs-var">algorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Algorithm
+</span><a href="#local-6989586621679266992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | A 128-bit, 16-byte hex value represented by a 32-character string, to be</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- used with the key for encrypting content. This parameter is not valid</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- for static key encryption.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_constantInitializationVector"><span class="hs-identifier hs-type">encryption_constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="encryption_constantInitializationVector"><span class="annot"><span class="annottext">encryption_constantInitializationVector :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_constantInitializationVector"><span class="hs-identifier hs-var hs-var">encryption_constantInitializationVector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe Text)
+-&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266990"><span class="annot"><span class="annottext">Maybe Text
+constantInitializationVector :: Maybe Text
+$sel:constantInitializationVector:Encryption' :: Encryption -&gt; Maybe Text
+</span><a href="#local-6989586621679266990"><span class="hs-identifier hs-var hs-var">constantInitializationVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266990"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266989"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679266989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266988"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679266989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constantInitializationVector:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AconstantInitializationVector%3AEncryption%27"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The value of one of the devices that you configured with your digital</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- rights management (DRM) platform key provider. This parameter is</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- required for SPEKE encryption and is not valid for static key</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_deviceId"><span class="hs-identifier hs-type">encryption_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="encryption_deviceId"><span class="annot"><span class="annottext">encryption_deviceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_deviceId"><span class="hs-identifier hs-var hs-var">encryption_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe Text)
+-&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266986"><span class="annot"><span class="annottext">Maybe Text
+deviceId :: Maybe Text
+$sel:deviceId:Encryption' :: Encryption -&gt; Maybe Text
+</span><a href="#local-6989586621679266986"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266986"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266985"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679266985"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266984"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266984"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679266985"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AdeviceId%3AEncryption%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266984"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The AWS Region that the API Gateway proxy endpoint was created in. This</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- parameter is required for SPEKE encryption and is not valid for static</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- key encryption.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_region"><span class="hs-identifier hs-type">encryption_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="encryption_region"><span class="annot"><span class="annottext">encryption_region :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_region"><span class="hs-identifier hs-var hs-var">encryption_region</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe Text)
+-&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266982"><span class="annot"><span class="annottext">Maybe Text
+region :: Maybe Text
+$sel:region:Encryption' :: Encryption -&gt; Maybe Text
+</span><a href="#local-6989586621679266982"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266982"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266981"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679266981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266980"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679266981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3Aregion%3AEncryption%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The ARN of the secret that you created in AWS Secrets Manager to store</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- the encryption key. This parameter is required for static key encryption</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- and is not valid for SPEKE encryption.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_secretArn"><span class="hs-identifier hs-type">encryption_secretArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="encryption_secretArn"><span class="annot"><span class="annottext">encryption_secretArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_secretArn"><span class="hs-identifier hs-var hs-var">encryption_secretArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Maybe Text)
+-&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
+-&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266978"><span class="annot"><span class="annottext">Maybe Text
+secretArn :: Maybe Text
+$sel:secretArn:Encryption' :: Encryption -&gt; Maybe Text
+</span><a href="#local-6989586621679266978"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266978"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266977"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679266977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266976"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679266977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretArn:Encryption' :: Maybe Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AsecretArn%3AEncryption%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The ARN of the role that you created during setup (when you set up AWS</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Elemental MediaConnect as a trusted entity).</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_roleArn"><span class="hs-identifier hs-type">encryption_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-180"></span><span id="encryption_roleArn"><span class="annot"><span class="annottext">encryption_roleArn :: (Text -&gt; f Text) -&gt; Encryption -&gt; f Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#encryption_roleArn"><span class="hs-identifier hs-var hs-var">encryption_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Encryption -&gt; Text)
+-&gt; (Encryption -&gt; Text -&gt; Encryption)
+-&gt; Lens Encryption Encryption Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266974"><span class="annot"><span class="annottext">Text
+roleArn :: Text
+$sel:roleArn:Encryption' :: Encryption -&gt; Text
+</span><a href="#local-6989586621679266974"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266974"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679266973"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679266973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679266972"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679266973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Encryption' :: Text
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#%24sel%3AroleArn%3AEncryption%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266969"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679266967"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Encryption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Encryption) -&gt; Value -&gt; Parser Encryption
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Encryption&quot;</span></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679266964"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe KeyType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Algorithm
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Encryption
+</span><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe KeyType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Algorithm
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Encryption)
+-&gt; Parser (Maybe KeyType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe KeyType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Encryption)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Encryption)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Algorithm
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Algorithm
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Encryption)
+-&gt; Parser (Maybe Algorithm)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Algorithm)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;algorithm&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Encryption)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;constantInitializationVector&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Encryption)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Encryption)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Text -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Encryption)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Encryption)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Encryption) -&gt; Parser Text -&gt; Parser Encryption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679266964"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266957"><span id="local-6989586621679266959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679266946"><span id="local-6989586621679266948"><span id="local-6989586621679266950"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679266944"><span class="annot"><span class="annottext">toJSON :: Encryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConnect.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679266934"><span id="local-6989586621679266935"><span id="local-6989586621679266936"><span id="local-6989586621679266937"><span id="local-6989586621679266938"><span id="local-6989586621679266939"><span id="local-6989586621679266940"><span id="local-6989586621679266941"><span id="local-6989586621679266942"><span class="annot"><span class="annottext">Maybe Text
+Maybe Algorithm
+Maybe KeyType
+Text
+roleArn :: Text
+secretArn :: Maybe Text
+region :: Maybe Text
+deviceId :: Maybe Text
+constantInitializationVector :: Maybe Text
+algorithm :: Maybe Algorithm
+url :: Maybe Text
+resourceId :: Maybe Text
+keyType :: Maybe KeyType
+$sel:roleArn:Encryption' :: Encryption -&gt; Text
+$sel:secretArn:Encryption' :: Encryption -&gt; Maybe Text
+$sel:region:Encryption' :: Encryption -&gt; Maybe Text
+$sel:deviceId:Encryption' :: Encryption -&gt; Maybe Text
+$sel:constantInitializationVector:Encryption' :: Encryption -&gt; Maybe Text
+$sel:algorithm:Encryption' :: Encryption -&gt; Maybe Algorithm
+$sel:url:Encryption' :: Encryption -&gt; Maybe Text
+$sel:resourceId:Encryption' :: Encryption -&gt; Maybe Text
+$sel:keyType:Encryption' :: Encryption -&gt; Maybe KeyType
+</span><a href="#local-6989586621679266934"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-207"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KeyType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(KeyType -&gt; Pair) -&gt; Maybe KeyType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621679266942"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266941"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266940"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;algorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Algorithm -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Algorithm -&gt; Pair) -&gt; Maybe Algorithm -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Algorithm
+</span><a href="#local-6989586621679266939"><span class="hs-identifier hs-var">algorithm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;constantInitializationVector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266938"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266937"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266936"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679266935"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679266934"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span></pre></body></html>

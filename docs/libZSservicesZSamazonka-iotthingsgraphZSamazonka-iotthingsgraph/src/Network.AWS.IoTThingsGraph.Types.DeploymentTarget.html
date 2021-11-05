@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.IoTThingsGraph.Types.DeploymentTarget</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.IoTThingsGraph.Types.DeploymentTarget</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier">DeploymentTarget</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget_CLOUD"><span class="hs-identifier">DeploymentTarget_CLOUD</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget_GREENGRASS"><span class="hs-identifier">DeploymentTarget_GREENGRASS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679216290"><span id="local-6989586621679216291"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeploymentTarget"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-var">DeploymentTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeploymentTarget%27"><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-var">DeploymentTarget'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeploymentTarget"><span class="annot"><span class="annottext">DeploymentTarget -&gt; Text
+</span><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#fromDeploymentTarget"><span class="hs-identifier hs-var hs-var">fromDeploymentTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679216282"><span id="local-6989586621679216284"><span id="local-6989586621679216286"><span class="annot"><span class="annottext">Int -&gt; DeploymentTarget -&gt; ShowS
+[DeploymentTarget] -&gt; ShowS
+DeploymentTarget -&gt; String
+(Int -&gt; DeploymentTarget -&gt; ShowS)
+-&gt; (DeploymentTarget -&gt; String)
+-&gt; ([DeploymentTarget] -&gt; ShowS)
+-&gt; Show DeploymentTarget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeploymentTarget] -&gt; ShowS
+$cshowList :: [DeploymentTarget] -&gt; ShowS
+show :: DeploymentTarget -&gt; String
+$cshow :: DeploymentTarget -&gt; String
+showsPrec :: Int -&gt; DeploymentTarget -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeploymentTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679216273"><span id="local-6989586621679216275"><span id="local-6989586621679216277"><span id="local-6989586621679216279"><span class="annot"><span class="annottext">ReadPrec [DeploymentTarget]
+ReadPrec DeploymentTarget
+Int -&gt; ReadS DeploymentTarget
+ReadS [DeploymentTarget]
+(Int -&gt; ReadS DeploymentTarget)
+-&gt; ReadS [DeploymentTarget]
+-&gt; ReadPrec DeploymentTarget
+-&gt; ReadPrec [DeploymentTarget]
+-&gt; Read DeploymentTarget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeploymentTarget]
+$creadListPrec :: ReadPrec [DeploymentTarget]
+readPrec :: ReadPrec DeploymentTarget
+$creadPrec :: ReadPrec DeploymentTarget
+readList :: ReadS [DeploymentTarget]
+$creadList :: ReadS [DeploymentTarget]
+readsPrec :: Int -&gt; ReadS DeploymentTarget
+$creadsPrec :: Int -&gt; ReadS DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679216268"><span id="local-6989586621679216270"><span class="annot"><span class="annottext">DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+(DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; Eq DeploymentTarget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c/= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+== :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c== :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679216252"><span id="local-6989586621679216254"><span id="local-6989586621679216256"><span id="local-6989586621679216258"><span id="local-6989586621679216260"><span id="local-6989586621679216262"><span id="local-6989586621679216264"><span class="annot"><span class="annottext">Eq DeploymentTarget
+Eq DeploymentTarget
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; Ordering)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; Bool)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; DeploymentTarget)
+-&gt; (DeploymentTarget -&gt; DeploymentTarget -&gt; DeploymentTarget)
+-&gt; Ord DeploymentTarget
+DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+DeploymentTarget -&gt; DeploymentTarget -&gt; Ordering
+DeploymentTarget -&gt; DeploymentTarget -&gt; DeploymentTarget
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DeploymentTarget -&gt; DeploymentTarget -&gt; DeploymentTarget
+$cmin :: DeploymentTarget -&gt; DeploymentTarget -&gt; DeploymentTarget
+max :: DeploymentTarget -&gt; DeploymentTarget -&gt; DeploymentTarget
+$cmax :: DeploymentTarget -&gt; DeploymentTarget -&gt; DeploymentTarget
+&gt;= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c&gt;= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+&gt; :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c&gt; :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+&lt;= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c&lt;= :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+&lt; :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+$c&lt; :: DeploymentTarget -&gt; DeploymentTarget -&gt; Bool
+compare :: DeploymentTarget -&gt; DeploymentTarget -&gt; Ordering
+$ccompare :: DeploymentTarget -&gt; DeploymentTarget -&gt; Ordering
+$cp1Ord :: Eq DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DeploymentTarget -&gt; Rep DeploymentTarget x)
+-&gt; (forall x. Rep DeploymentTarget x -&gt; DeploymentTarget)
+-&gt; Generic DeploymentTarget
+forall x. Rep DeploymentTarget x -&gt; DeploymentTarget
+forall x. DeploymentTarget -&gt; Rep DeploymentTarget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeploymentTarget x -&gt; DeploymentTarget
+$cfrom :: forall x. DeploymentTarget -&gt; Rep DeploymentTarget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679216244"><span id="local-6989586621679216246"><span class="annot"><span class="annottext">Int -&gt; DeploymentTarget -&gt; Int
+DeploymentTarget -&gt; Int
+(Int -&gt; DeploymentTarget -&gt; Int)
+-&gt; (DeploymentTarget -&gt; Int) -&gt; Hashable DeploymentTarget
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DeploymentTarget -&gt; Int
+$chash :: DeploymentTarget -&gt; Int
+hashWithSalt :: Int -&gt; DeploymentTarget -&gt; Int
+$chashWithSalt :: Int -&gt; DeploymentTarget -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679216241"><span class="annot"><span class="annottext">DeploymentTarget -&gt; ()
+(DeploymentTarget -&gt; ()) -&gt; NFData DeploymentTarget
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DeploymentTarget -&gt; ()
+$crnf :: DeploymentTarget -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679216238"><span class="annot"><span class="annottext">Text -&gt; Either String DeploymentTarget
+(Text -&gt; Either String DeploymentTarget)
+-&gt; FromText DeploymentTarget
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DeploymentTarget
+$cfromText :: Text -&gt; Either String DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679216235"><span class="annot"><span class="annottext">DeploymentTarget -&gt; Text
+(DeploymentTarget -&gt; Text) -&gt; ToText DeploymentTarget
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DeploymentTarget -&gt; Text
+$ctoText :: DeploymentTarget -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679216232"><span class="annot"><span class="annottext">DeploymentTarget -&gt; ByteString
+(DeploymentTarget -&gt; ByteString) -&gt; ToByteString DeploymentTarget
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DeploymentTarget -&gt; ByteString
+$ctoBS :: DeploymentTarget -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679216229"><span class="annot"><span class="annottext">DeploymentTarget -&gt; ByteStringBuilder
+(DeploymentTarget -&gt; ByteStringBuilder) -&gt; ToLog DeploymentTarget
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DeploymentTarget -&gt; ByteStringBuilder
+$cbuild :: DeploymentTarget -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679216226"><span class="annot"><span class="annottext">HeaderName -&gt; DeploymentTarget -&gt; [Header]
+(HeaderName -&gt; DeploymentTarget -&gt; [Header])
+-&gt; ToHeader DeploymentTarget
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DeploymentTarget -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DeploymentTarget -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679216223"><span class="annot"><span class="annottext">DeploymentTarget -&gt; QueryString
+(DeploymentTarget -&gt; QueryString) -&gt; ToQuery DeploymentTarget
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DeploymentTarget -&gt; QueryString
+$ctoQuery :: DeploymentTarget -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679216218"><span id="local-6989586621679216220"><span class="annot"><span class="annottext">Value -&gt; Parser [DeploymentTarget]
+Value -&gt; Parser DeploymentTarget
+(Value -&gt; Parser DeploymentTarget)
+-&gt; (Value -&gt; Parser [DeploymentTarget])
+-&gt; FromJSON DeploymentTarget
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DeploymentTarget]
+$cparseJSONList :: Value -&gt; Parser [DeploymentTarget]
+parseJSON :: Value -&gt; Parser DeploymentTarget
+$cparseJSON :: Value -&gt; Parser DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679216213"><span id="local-6989586621679216215"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeploymentTarget]
+FromJSONKeyFunction DeploymentTarget
+FromJSONKeyFunction DeploymentTarget
+-&gt; FromJSONKeyFunction [DeploymentTarget]
+-&gt; FromJSONKey DeploymentTarget
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DeploymentTarget]
+$cfromJSONKeyList :: FromJSONKeyFunction [DeploymentTarget]
+fromJSONKey :: FromJSONKeyFunction DeploymentTarget
+$cfromJSONKey :: FromJSONKeyFunction DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679216204"><span id="local-6989586621679216206"><span id="local-6989586621679216208"><span id="local-6989586621679216210"><span class="annot"><span class="annottext">[DeploymentTarget] -&gt; Encoding
+[DeploymentTarget] -&gt; Value
+DeploymentTarget -&gt; Encoding
+DeploymentTarget -&gt; Value
+(DeploymentTarget -&gt; Value)
+-&gt; (DeploymentTarget -&gt; Encoding)
+-&gt; ([DeploymentTarget] -&gt; Value)
+-&gt; ([DeploymentTarget] -&gt; Encoding)
+-&gt; ToJSON DeploymentTarget
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DeploymentTarget] -&gt; Encoding
+$ctoEncodingList :: [DeploymentTarget] -&gt; Encoding
+toJSONList :: [DeploymentTarget] -&gt; Value
+$ctoJSONList :: [DeploymentTarget] -&gt; Value
+toEncoding :: DeploymentTarget -&gt; Encoding
+$ctoEncoding :: DeploymentTarget -&gt; Encoding
+toJSON :: DeploymentTarget -&gt; Value
+$ctoJSON :: DeploymentTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679216199"><span id="local-6989586621679216201"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeploymentTarget]
+ToJSONKeyFunction DeploymentTarget
+ToJSONKeyFunction DeploymentTarget
+-&gt; ToJSONKeyFunction [DeploymentTarget]
+-&gt; ToJSONKey DeploymentTarget
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DeploymentTarget]
+$ctoJSONKeyList :: ToJSONKeyFunction [DeploymentTarget]
+toJSONKey :: ToJSONKeyFunction DeploymentTarget
+$ctoJSONKey :: ToJSONKeyFunction DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679216196"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeploymentTarget
+([Node] -&gt; Either String DeploymentTarget)
+-&gt; FromXML DeploymentTarget
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DeploymentTarget
+$cparseXML :: [Node] -&gt; Either String DeploymentTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679216193"><span class="annot"><span class="annottext">DeploymentTarget -&gt; XML
+(DeploymentTarget -&gt; XML) -&gt; ToXML DeploymentTarget
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DeploymentTarget -&gt; XML
+$ctoXML :: DeploymentTarget -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget_CLOUD"><span class="hs-identifier hs-type">DeploymentTarget_CLOUD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentTarget_CLOUD"><span id="%24mDeploymentTarget_CLOUD"><span id="DeploymentTarget_CLOUD"><span class="annot"><span class="annottext">$bDeploymentTarget_CLOUD :: DeploymentTarget
+$mDeploymentTarget_CLOUD :: forall r. DeploymentTarget -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#%24bDeploymentTarget_CLOUD"><span class="hs-identifier hs-var hs-var hs-var">DeploymentTarget_CLOUD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CLOUD&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget_GREENGRASS"><span class="hs-identifier hs-type">DeploymentTarget_GREENGRASS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget"><span class="hs-identifier hs-type">DeploymentTarget</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDeploymentTarget_GREENGRASS"><span id="%24mDeploymentTarget_GREENGRASS"><span id="DeploymentTarget_GREENGRASS"><span class="annot"><span class="annottext">$bDeploymentTarget_GREENGRASS :: DeploymentTarget
+$mDeploymentTarget_GREENGRASS :: forall r. DeploymentTarget -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#%24bDeploymentTarget_GREENGRASS"><span class="hs-identifier hs-var hs-var hs-var">DeploymentTarget_GREENGRASS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-identifier hs-type">DeploymentTarget'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;GREENGRASS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget_CLOUD"><span class="hs-pragma hs-type">DeploymentTarget_CLOUD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget_GREENGRASS"><span class="hs-pragma hs-type">DeploymentTarget_GREENGRASS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTThingsGraph.Types.DeploymentTarget.html#DeploymentTarget%27"><span class="hs-pragma hs-type">DeploymentTarget'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

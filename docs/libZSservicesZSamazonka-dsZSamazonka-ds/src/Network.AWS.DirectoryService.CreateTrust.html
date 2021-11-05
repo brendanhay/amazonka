@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-comment">-- external domain.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- /See:/ 'newCreateTrust' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679313140"><span id="local-6989586621679313141"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrust"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-var">CreateTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrust%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-var">CreateTrust'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679313149"><span id="local-6989586621679313150"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrust"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-var">CreateTrust</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrust%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-var">CreateTrust'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP addresses of the remote DNS server associated with</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- RemoteDomainName.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AconditionalForwarderIpAddrs%3ACreateTrust%27"><span class="annot"><span class="annottext">CreateTrust -&gt; Maybe [Text]
@@ -99,7 +99,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AtrustDirection%3ACreateTrust%27"><span class="annot"><span class="annottext">CreateTrust -&gt; TrustDirection
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustDirection%3ACreateTrust%27"><span class="hs-identifier hs-var hs-var">trustDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.TrustDirection.html#TrustDirection"><span class="hs-identifier hs-type">TrustDirection</span></a></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313128"><span id="local-6989586621679313130"><span class="annot"><span class="annottext">CreateTrust -&gt; CreateTrust -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313137"><span id="local-6989586621679313139"><span class="annot"><span class="annottext">CreateTrust -&gt; CreateTrust -&gt; Bool
 (CreateTrust -&gt; CreateTrust -&gt; Bool)
 -&gt; (CreateTrust -&gt; CreateTrust -&gt; Bool) -&gt; Eq CreateTrust
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTrust -&gt; CreateTrust -&gt; Bool
 == :: CreateTrust -&gt; CreateTrust -&gt; Bool
 $c== :: CreateTrust -&gt; CreateTrust -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313121"><span id="local-6989586621679313123"><span id="local-6989586621679313125"><span class="annot"><span class="annottext">Int -&gt; CreateTrust -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313130"><span id="local-6989586621679313132"><span id="local-6989586621679313134"><span class="annot"><span class="annottext">Int -&gt; CreateTrust -&gt; ShowS
 [CreateTrust] -&gt; ShowS
 CreateTrust -&gt; String
 (Int -&gt; CreateTrust -&gt; ShowS)
@@ -170,14 +170,14 @@ $cfrom :: forall x. CreateTrust -&gt; Rep CreateTrust x
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span>
 </span><span id="line-132"></span><span id="newCreateTrust"><span class="annot"><span class="annottext">newCreateTrust :: Text -&gt; Text -&gt; Text -&gt; TrustDirection -&gt; CreateTrust
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#newCreateTrust"><span class="hs-identifier hs-var hs-var">newCreateTrust</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679313116"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313116"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679313115"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313115"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679313114"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313114"><span class="hs-identifier hs-var">pTrustPassword_</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679313113"><span class="annot"><span class="annottext">TrustDirection
-</span><a href="#local-6989586621679313113"><span class="hs-identifier hs-var">pTrustDirection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679313125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313125"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679313124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313124"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679313123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313123"><span class="hs-identifier hs-var">pTrustPassword_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679313122"><span class="annot"><span class="annottext">TrustDirection
+</span><a href="#local-6989586621679313122"><span class="hs-identifier hs-var">pTrustDirection_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">CreateTrust' :: Maybe [Text]
 -&gt; Maybe TrustType
 -&gt; Maybe SelectiveAuth
@@ -202,10 +202,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryId:CreateTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AdirectoryId%3ACreateTrust%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313116"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313125"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:remoteDomainName:CreateTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AremoteDomainName%3ACreateTrust%27"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313115"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313124"><span class="hs-identifier hs-var">pRemoteDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:trustPassword:CreateTrust' :: Sensitive Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustPassword%3ACreateTrust%27"><span class="hs-identifier hs-var">trustPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
@@ -216,10 +216,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313114"><span class="hs-identifier hs-var">pTrustPassword_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313123"><span class="hs-identifier hs-var">pTrustPassword_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:trustDirection:CreateTrust' :: TrustDirection
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustDirection%3ACreateTrust%27"><span class="hs-identifier hs-var">trustDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrustDirection
-</span><a href="#local-6989586621679313113"><span class="hs-identifier hs-var">pTrustDirection_</span></a></span><span>
+</span><a href="#local-6989586621679313122"><span class="hs-identifier hs-var">pTrustDirection_</span></a></span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The IP addresses of the remote DNS server associated with</span><span>
@@ -230,16 +230,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (CreateTrust -&gt; Maybe [Text] -&gt; CreateTrust)
 -&gt; Lens CreateTrust CreateTrust (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313108"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313117"><span class="annot"><span class="annottext">Maybe [Text]
 conditionalForwarderIpAddrs :: Maybe [Text]
 $sel:conditionalForwarderIpAddrs:CreateTrust' :: CreateTrust -&gt; Maybe [Text]
-</span><a href="#local-6989586621679313108"><span class="hs-identifier hs-var hs-var">conditionalForwarderIpAddrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313108"><span class="hs-identifier hs-var">conditionalForwarderIpAddrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313107"><span class="annot"><span class="annottext">s :: CreateTrust
-</span><a href="#local-6989586621679313107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313106"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
-</span><a href="#local-6989586621679313107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalForwarderIpAddrs:CreateTrust' :: Maybe [Text]
+</span><a href="#local-6989586621679313117"><span class="hs-identifier hs-var hs-var">conditionalForwarderIpAddrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313117"><span class="hs-identifier hs-var">conditionalForwarderIpAddrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313116"><span class="annot"><span class="annottext">s :: CreateTrust
+</span><a href="#local-6989586621679313116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313115"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679313115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
+</span><a href="#local-6989586621679313116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionalForwarderIpAddrs:CreateTrust' :: Maybe [Text]
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AconditionalForwarderIpAddrs%3ACreateTrust%27"><span class="hs-identifier hs-var">conditionalForwarderIpAddrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679313115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateTrust -&gt; f CreateTrust)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -264,16 +264,16 @@ forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
 -&gt; (CreateTrust -&gt; Maybe TrustType -&gt; CreateTrust)
 -&gt; Lens CreateTrust CreateTrust (Maybe TrustType) (Maybe TrustType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313102"><span class="annot"><span class="annottext">Maybe TrustType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313111"><span class="annot"><span class="annottext">Maybe TrustType
 trustType :: Maybe TrustType
 $sel:trustType:CreateTrust' :: CreateTrust -&gt; Maybe TrustType
-</span><a href="#local-6989586621679313102"><span class="hs-identifier hs-var hs-var">trustType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrustType
-</span><a href="#local-6989586621679313102"><span class="hs-identifier hs-var">trustType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313101"><span class="annot"><span class="annottext">s :: CreateTrust
-</span><a href="#local-6989586621679313101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313100"><span class="annot"><span class="annottext">Maybe TrustType
-</span><a href="#local-6989586621679313100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
-</span><a href="#local-6989586621679313101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustType:CreateTrust' :: Maybe TrustType
+</span><a href="#local-6989586621679313111"><span class="hs-identifier hs-var hs-var">trustType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrustType
+</span><a href="#local-6989586621679313111"><span class="hs-identifier hs-var">trustType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313110"><span class="annot"><span class="annottext">s :: CreateTrust
+</span><a href="#local-6989586621679313110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313109"><span class="annot"><span class="annottext">Maybe TrustType
+</span><a href="#local-6989586621679313109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
+</span><a href="#local-6989586621679313110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustType:CreateTrust' :: Maybe TrustType
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustType%3ACreateTrust%27"><span class="hs-identifier hs-var">trustType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrustType
-</span><a href="#local-6989586621679313100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | Optional parameter to enable selective authentication for the trust.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#createTrust_selectiveAuth"><span class="hs-identifier hs-type">createTrust_selectiveAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SelectiveAuth.html#SelectiveAuth"><span class="hs-identifier hs-type">SelectiveAuth</span></a></span><span class="hs-special">)</span><span>
@@ -284,16 +284,16 @@ $sel:trustType:CreateTrust' :: CreateTrust -&gt; Maybe TrustType
 -&gt; Lens
      CreateTrust CreateTrust (Maybe SelectiveAuth) (Maybe SelectiveAuth)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313099"><span class="annot"><span class="annottext">Maybe SelectiveAuth
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313108"><span class="annot"><span class="annottext">Maybe SelectiveAuth
 selectiveAuth :: Maybe SelectiveAuth
 $sel:selectiveAuth:CreateTrust' :: CreateTrust -&gt; Maybe SelectiveAuth
-</span><a href="#local-6989586621679313099"><span class="hs-identifier hs-var hs-var">selectiveAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679313099"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313098"><span class="annot"><span class="annottext">s :: CreateTrust
-</span><a href="#local-6989586621679313098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313097"><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679313097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
-</span><a href="#local-6989586621679313098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectiveAuth:CreateTrust' :: Maybe SelectiveAuth
+</span><a href="#local-6989586621679313108"><span class="hs-identifier hs-var hs-var">selectiveAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
+</span><a href="#local-6989586621679313108"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313107"><span class="annot"><span class="annottext">s :: CreateTrust
+</span><a href="#local-6989586621679313107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313106"><span class="annot"><span class="annottext">Maybe SelectiveAuth
+</span><a href="#local-6989586621679313106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
+</span><a href="#local-6989586621679313107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectiveAuth:CreateTrust' :: Maybe SelectiveAuth
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AselectiveAuth%3ACreateTrust%27"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679313097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The Directory ID of the Managed Microsoft AD directory for which to</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- establish the trust relationship.</span><span>
@@ -303,16 +303,16 @@ $sel:selectiveAuth:CreateTrust' :: CreateTrust -&gt; Maybe SelectiveAuth
 -&gt; (CreateTrust -&gt; Text -&gt; CreateTrust)
 -&gt; Lens CreateTrust CreateTrust Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313096"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313105"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:CreateTrust' :: CreateTrust -&gt; Text
-</span><a href="#local-6989586621679313096"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313096"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313095"><span class="annot"><span class="annottext">s :: CreateTrust
-</span><a href="#local-6989586621679313095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313094"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
-</span><a href="#local-6989586621679313095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateTrust' :: Text
+</span><a href="#local-6989586621679313105"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313105"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313104"><span class="annot"><span class="annottext">s :: CreateTrust
+</span><a href="#local-6989586621679313104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313103"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
+</span><a href="#local-6989586621679313104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:CreateTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AdirectoryId%3ACreateTrust%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The Fully Qualified Domain Name (FQDN) of the external domain for which</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- to create the trust relationship.</span><span>
@@ -322,16 +322,16 @@ $sel:directoryId:CreateTrust' :: CreateTrust -&gt; Text
 -&gt; (CreateTrust -&gt; Text -&gt; CreateTrust)
 -&gt; Lens CreateTrust CreateTrust Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313093"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313102"><span class="annot"><span class="annottext">Text
 remoteDomainName :: Text
 $sel:remoteDomainName:CreateTrust' :: CreateTrust -&gt; Text
-</span><a href="#local-6989586621679313093"><span class="hs-identifier hs-var hs-var">remoteDomainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313093"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313092"><span class="annot"><span class="annottext">s :: CreateTrust
-</span><a href="#local-6989586621679313092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
-</span><a href="#local-6989586621679313092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteDomainName:CreateTrust' :: Text
+</span><a href="#local-6989586621679313102"><span class="hs-identifier hs-var hs-var">remoteDomainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313102"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313101"><span class="annot"><span class="annottext">s :: CreateTrust
+</span><a href="#local-6989586621679313101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679313100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
+</span><a href="#local-6989586621679313101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteDomainName:CreateTrust' :: Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AremoteDomainName%3ACreateTrust%27"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The trust password. The must be the same password that was used when</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- creating the trust relationship on the external domain.</span><span>
@@ -341,16 +341,16 @@ $sel:remoteDomainName:CreateTrust' :: CreateTrust -&gt; Text
 -&gt; (CreateTrust -&gt; Sensitive Text -&gt; CreateTrust)
 -&gt; Lens CreateTrust CreateTrust (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313090"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313099"><span class="annot"><span class="annottext">Sensitive Text
 trustPassword :: Sensitive Text
 $sel:trustPassword:CreateTrust' :: CreateTrust -&gt; Sensitive Text
-</span><a href="#local-6989586621679313090"><span class="hs-identifier hs-var hs-var">trustPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679313090"><span class="hs-identifier hs-var">trustPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313089"><span class="annot"><span class="annottext">s :: CreateTrust
-</span><a href="#local-6989586621679313089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313088"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679313088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
-</span><a href="#local-6989586621679313089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustPassword:CreateTrust' :: Sensitive Text
+</span><a href="#local-6989586621679313099"><span class="hs-identifier hs-var hs-var">trustPassword</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679313099"><span class="hs-identifier hs-var">trustPassword</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313098"><span class="annot"><span class="annottext">s :: CreateTrust
+</span><a href="#local-6989586621679313098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313097"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679313097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
+</span><a href="#local-6989586621679313098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustPassword:CreateTrust' :: Sensitive Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustPassword%3ACreateTrust%27"><span class="hs-identifier hs-var">trustPassword</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679313088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679313097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; CreateTrust -&gt; f CreateTrust)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -369,25 +369,25 @@ forall a. Iso' (Sensitive a) a
 -&gt; (CreateTrust -&gt; TrustDirection -&gt; CreateTrust)
 -&gt; Lens CreateTrust CreateTrust TrustDirection TrustDirection
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313087"><span class="annot"><span class="annottext">TrustDirection
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313096"><span class="annot"><span class="annottext">TrustDirection
 trustDirection :: TrustDirection
 $sel:trustDirection:CreateTrust' :: CreateTrust -&gt; TrustDirection
-</span><a href="#local-6989586621679313087"><span class="hs-identifier hs-var hs-var">trustDirection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrustDirection
-</span><a href="#local-6989586621679313087"><span class="hs-identifier hs-var">trustDirection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313086"><span class="annot"><span class="annottext">s :: CreateTrust
-</span><a href="#local-6989586621679313086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313085"><span class="annot"><span class="annottext">TrustDirection
-</span><a href="#local-6989586621679313085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
-</span><a href="#local-6989586621679313086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustDirection:CreateTrust' :: TrustDirection
+</span><a href="#local-6989586621679313096"><span class="hs-identifier hs-var hs-var">trustDirection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrustDirection
+</span><a href="#local-6989586621679313096"><span class="hs-identifier hs-var">trustDirection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313095"><span class="annot"><span class="annottext">s :: CreateTrust
+</span><a href="#local-6989586621679313095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313094"><span class="annot"><span class="annottext">TrustDirection
+</span><a href="#local-6989586621679313094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrust
+</span><a href="#local-6989586621679313095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustDirection:CreateTrust' :: TrustDirection
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustDirection%3ACreateTrust%27"><span class="hs-identifier hs-var">trustDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrustDirection
-</span><a href="#local-6989586621679313085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679313081"><span class="annot"><span class="annottext">request :: CreateTrust -&gt; Request CreateTrust
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679313090"><span class="annot"><span class="annottext">request :: CreateTrust -&gt; Request CreateTrust
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTrust -&gt; Request CreateTrust
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679313077"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679313086"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateTrust
 -&gt; ClientResponse ClientBody
@@ -411,10 +411,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313074"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313073"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679313073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313072"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313083"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679313082"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679313082"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679313081"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateTrustResponse
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-var">CreateTrustResponse'</span></a></span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateTrustResponse)
@@ -422,7 +422,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateTrustResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679313072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679313081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustId&quot;</span></span><span class="hs-special">)</span><span>
@@ -434,15 +434,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313083"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313064"><span id="local-6989586621679313066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313073"><span id="local-6989586621679313075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span></span></span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679313057"><span class="annot"><span class="annottext">toHeaders :: CreateTrust -&gt; ResponseHeaders
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679313066"><span class="annot"><span class="annottext">toHeaders :: CreateTrust -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTrust -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -469,9 +469,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313047"><span id="local-6989586621679313049"><span id="local-6989586621679313051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-212"></span><span>  </span><span id="local-6989586621679313045"><span class="annot"><span class="annottext">toJSON :: CreateTrust -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313037"><span id="local-6989586621679313038"><span id="local-6989586621679313039"><span id="local-6989586621679313040"><span id="local-6989586621679313041"><span id="local-6989586621679313042"><span id="local-6989586621679313043"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313056"><span id="local-6989586621679313058"><span id="local-6989586621679313060"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679313054"><span class="annot"><span class="annottext">toJSON :: CreateTrust -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust%27"><span class="hs-identifier hs-type">CreateTrust'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313046"><span id="local-6989586621679313047"><span id="local-6989586621679313048"><span id="local-6989586621679313049"><span id="local-6989586621679313050"><span id="local-6989586621679313051"><span id="local-6989586621679313052"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe SelectiveAuth
 Maybe TrustType
 Text
@@ -491,7 +491,7 @@ $sel:directoryId:CreateTrust' :: CreateTrust -&gt; Text
 $sel:selectiveAuth:CreateTrust' :: CreateTrust -&gt; Maybe SelectiveAuth
 $sel:trustType:CreateTrust' :: CreateTrust -&gt; Maybe TrustType
 $sel:conditionalForwarderIpAddrs:CreateTrust' :: CreateTrust -&gt; Maybe [Text]
-</span><a href="#local-6989586621679313037"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679313046"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -504,28 +504,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679313043"><span class="hs-identifier hs-var">conditionalForwarderIpAddrs</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313052"><span class="hs-identifier hs-var">conditionalForwarderIpAddrs</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrustType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TrustType -&gt; Pair) -&gt; Maybe TrustType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrustType
-</span><a href="#local-6989586621679313042"><span class="hs-identifier hs-var">trustType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313051"><span class="hs-identifier hs-var">trustType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SelectiveAuth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SelectiveAuth -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SelectiveAuth -&gt; Pair) -&gt; Maybe SelectiveAuth -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SelectiveAuth
-</span><a href="#local-6989586621679313041"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313050"><span class="hs-identifier hs-var">selectiveAuth</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313040"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313049"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -533,14 +533,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RemoteDomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679313039"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313048"><span class="hs-identifier hs-var">remoteDomainName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrustPassword&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679313038"><span class="hs-identifier hs-var">trustPassword</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679313047"><span class="hs-identifier hs-var">trustPassword</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -548,19 +548,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TrustDirection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TrustDirection -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TrustDirection
-</span><a href="#local-6989586621679313037"><span class="hs-identifier hs-var">trustDirection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313046"><span class="hs-identifier hs-var">trustDirection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679313031"><span class="annot"><span class="annottext">toPath :: CreateTrust -&gt; ByteString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679313040"><span class="annot"><span class="annottext">toPath :: CreateTrust -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTrust -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrust"><span class="hs-identifier hs-type">CreateTrust</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679313027"><span class="annot"><span class="annottext">toQuery :: CreateTrust -&gt; QueryString
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679313036"><span class="annot"><span class="annottext">toQuery :: CreateTrust -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTrust -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -570,7 +570,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-234"></span><span class="hs-comment">-- | The result of a CreateTrust request.</span><span>
 </span><span id="line-235"></span><span class="hs-comment">--</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- /See:/ 'newCreateTrustResponse' smart constructor.</span><span>
-</span><span id="line-237"></span><span id="local-6989586621679313024"><span id="local-6989586621679313025"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrustResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-var">CreateTrustResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrustResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-var">CreateTrustResponse'</span></a></span></span><span>
+</span><span id="line-237"></span><span id="local-6989586621679313033"><span id="local-6989586621679313034"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrustResponse"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-var">CreateTrustResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrustResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-var">CreateTrustResponse'</span></a></span></span><span>
 </span><span id="line-238"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the trust relationship that was created.</span><span>
 </span><span id="line-239"></span><span>    </span><span id="%24sel%3AtrustId%3ACreateTrustResponse%27"><span class="annot"><span class="annottext">CreateTrustResponse -&gt; Maybe Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustId%3ACreateTrustResponse%27"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -578,7 +578,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTrustResponse%27"><span class="annot"><span class="annottext">CreateTrustResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AhttpStatus%3ACreateTrustResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313018"><span id="local-6989586621679313020"><span class="annot"><span class="annottext">CreateTrustResponse -&gt; CreateTrustResponse -&gt; Bool
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313027"><span id="local-6989586621679313029"><span class="annot"><span class="annottext">CreateTrustResponse -&gt; CreateTrustResponse -&gt; Bool
 (CreateTrustResponse -&gt; CreateTrustResponse -&gt; Bool)
 -&gt; (CreateTrustResponse -&gt; CreateTrustResponse -&gt; Bool)
 -&gt; Eq CreateTrustResponse
@@ -587,7 +587,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTrustResponse -&gt; CreateTrustResponse -&gt; Bool
 == :: CreateTrustResponse -&gt; CreateTrustResponse -&gt; Bool
 $c== :: CreateTrustResponse -&gt; CreateTrustResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313010"><span id="local-6989586621679313012"><span id="local-6989586621679313014"><span id="local-6989586621679313016"><span class="annot"><span class="annottext">ReadPrec [CreateTrustResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313019"><span id="local-6989586621679313021"><span id="local-6989586621679313023"><span id="local-6989586621679313025"><span class="annot"><span class="annottext">ReadPrec [CreateTrustResponse]
 ReadPrec CreateTrustResponse
 Int -&gt; ReadS CreateTrustResponse
 ReadS [CreateTrustResponse]
@@ -607,7 +607,7 @@ readList :: ReadS [CreateTrustResponse]
 $creadList :: ReadS [CreateTrustResponse]
 readsPrec :: Int -&gt; ReadS CreateTrustResponse
 $creadsPrec :: Int -&gt; ReadS CreateTrustResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313003"><span id="local-6989586621679313005"><span id="local-6989586621679313007"><span class="annot"><span class="annottext">Int -&gt; CreateTrustResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313012"><span id="local-6989586621679313014"><span id="local-6989586621679313016"><span class="annot"><span class="annottext">Int -&gt; CreateTrustResponse -&gt; ShowS
 [CreateTrustResponse] -&gt; ShowS
 CreateTrustResponse -&gt; String
 (Int -&gt; CreateTrustResponse -&gt; ShowS)
@@ -649,8 +649,8 @@ $cfrom :: forall x. CreateTrustResponse -&gt; Rep CreateTrustResponse x
 </span><span id="line-258"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-259"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span><span>
 </span><span id="line-260"></span><span id="newCreateTrustResponse"><span class="annot"><span class="annottext">newCreateTrustResponse :: Int -&gt; CreateTrustResponse
-</span><a href="Network.AWS.DirectoryService.CreateTrust.html#newCreateTrustResponse"><span class="hs-identifier hs-var hs-var">newCreateTrustResponse</span></a></span></span><span> </span><span id="local-6989586621679313000"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.CreateTrust.html#newCreateTrustResponse"><span class="hs-identifier hs-var hs-var">newCreateTrustResponse</span></a></span></span><span> </span><span id="local-6989586621679313009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313009"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-261"></span><span>  </span><span class="annot"><span class="annottext">CreateTrustResponse' :: Maybe Text -&gt; Int -&gt; CreateTrustResponse
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span>
 </span><span id="line-262"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trustId:CreateTrustResponse' :: Maybe Text
@@ -659,7 +659,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-263"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrustResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AhttpStatus%3ACreateTrustResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679313000"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679313009"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-264"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-265"></span><span>
 </span><span id="line-266"></span><span class="hs-comment">-- | A unique identifier for the trust relationship that was created.</span><span>
@@ -671,16 +671,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateTrustResponse CreateTrustResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312999"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313008"><span class="annot"><span class="annottext">Maybe Text
 trustId :: Maybe Text
 $sel:trustId:CreateTrustResponse' :: CreateTrustResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679312999"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312999"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312998"><span class="annot"><span class="annottext">s :: CreateTrustResponse
-</span><a href="#local-6989586621679312998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312997"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrustResponse
-</span><a href="#local-6989586621679312998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:CreateTrustResponse' :: Maybe Text
+</span><a href="#local-6989586621679313008"><span class="hs-identifier hs-var hs-var">trustId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313008"><span class="hs-identifier hs-var">trustId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313007"><span class="annot"><span class="annottext">s :: CreateTrustResponse
+</span><a href="#local-6989586621679313007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313006"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrustResponse
+</span><a href="#local-6989586621679313007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trustId:CreateTrustResponse' :: Maybe Text
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AtrustId%3ACreateTrustResponse%27"><span class="hs-identifier hs-var">trustId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679312997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-271"></span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#createTrustResponse_httpStatus"><span class="hs-identifier hs-type">createTrustResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -689,16 +689,16 @@ $sel:trustId:CreateTrustResponse' :: CreateTrustResponse -&gt; Maybe Text
 -&gt; (CreateTrustResponse -&gt; Int -&gt; CreateTrustResponse)
 -&gt; Lens CreateTrustResponse CreateTrustResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312996"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313005"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateTrustResponse' :: CreateTrustResponse -&gt; Int
-</span><a href="#local-6989586621679312996"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312996"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312995"><span class="annot"><span class="annottext">s :: CreateTrustResponse
-</span><a href="#local-6989586621679312995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312994"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrustResponse
-</span><a href="#local-6989586621679312995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrustResponse' :: Int
+</span><a href="#local-6989586621679313005"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313005"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313004"><span class="annot"><span class="annottext">s :: CreateTrustResponse
+</span><a href="#local-6989586621679313004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse%27"><span class="hs-identifier hs-type">CreateTrustResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313003"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679313003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrustResponse
+</span><a href="#local-6989586621679313004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrustResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.CreateTrust.html#%24sel%3AhttpStatus%3ACreateTrustResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679313003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.CreateTrust.html#CreateTrustResponse"><span class="hs-identifier hs-type">CreateTrustResponse</span></a></span></span><span>
 </span><span id="line-275"></span></pre></body></html>

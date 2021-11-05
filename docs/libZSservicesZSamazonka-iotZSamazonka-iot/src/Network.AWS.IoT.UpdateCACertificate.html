@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | The input to the UpdateCACertificate operation.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUpdateCACertificate' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679858811"><span id="local-6989586621679858812"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCACertificate"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-var">UpdateCACertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCACertificate%27"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-var">UpdateCACertificate'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679858820"><span id="local-6989586621679858821"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCACertificate"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-var">UpdateCACertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCACertificate%27"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-var">UpdateCACertificate'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, removes auto registration.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AremoveAutoRegistration%3AUpdateCACertificate%27"><span class="annot"><span class="annottext">UpdateCACertificate -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AremoveAutoRegistration%3AUpdateCACertificate%27"><span class="hs-identifier hs-var hs-var">removeAutoRegistration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AcertificateId%3AUpdateCACertificate%27"><span class="annot"><span class="annottext">UpdateCACertificate -&gt; Text
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AcertificateId%3AUpdateCACertificate%27"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858801"><span id="local-6989586621679858803"><span class="annot"><span class="annottext">UpdateCACertificate -&gt; UpdateCACertificate -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858810"><span id="local-6989586621679858812"><span class="annot"><span class="annottext">UpdateCACertificate -&gt; UpdateCACertificate -&gt; Bool
 (UpdateCACertificate -&gt; UpdateCACertificate -&gt; Bool)
 -&gt; (UpdateCACertificate -&gt; UpdateCACertificate -&gt; Bool)
 -&gt; Eq UpdateCACertificate
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCACertificate -&gt; UpdateCACertificate -&gt; Bool
 == :: UpdateCACertificate -&gt; UpdateCACertificate -&gt; Bool
 $c== :: UpdateCACertificate -&gt; UpdateCACertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858792"><span id="local-6989586621679858794"><span id="local-6989586621679858796"><span id="local-6989586621679858798"><span class="annot"><span class="annottext">ReadPrec [UpdateCACertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858801"><span id="local-6989586621679858803"><span id="local-6989586621679858805"><span id="local-6989586621679858807"><span class="annot"><span class="annottext">ReadPrec [UpdateCACertificate]
 ReadPrec UpdateCACertificate
 Int -&gt; ReadS UpdateCACertificate
 ReadS [UpdateCACertificate]
@@ -103,7 +103,7 @@ readList :: ReadS [UpdateCACertificate]
 $creadList :: ReadS [UpdateCACertificate]
 readsPrec :: Int -&gt; ReadS UpdateCACertificate
 $creadsPrec :: Int -&gt; ReadS UpdateCACertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858785"><span id="local-6989586621679858787"><span id="local-6989586621679858789"><span class="annot"><span class="annottext">Int -&gt; UpdateCACertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858794"><span id="local-6989586621679858796"><span id="local-6989586621679858798"><span class="annot"><span class="annottext">Int -&gt; UpdateCACertificate -&gt; ShowS
 [UpdateCACertificate] -&gt; ShowS
 UpdateCACertificate -&gt; String
 (Int -&gt; UpdateCACertificate -&gt; ShowS)
@@ -155,8 +155,8 @@ $cfrom :: forall x. UpdateCACertificate -&gt; Rep UpdateCACertificate x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span>
 </span><span id="line-99"></span><span id="newUpdateCACertificate"><span class="annot"><span class="annottext">newUpdateCACertificate :: Text -&gt; UpdateCACertificate
-</span><a href="Network.AWS.IoT.UpdateCACertificate.html#newUpdateCACertificate"><span class="hs-identifier hs-var hs-var">newUpdateCACertificate</span></a></span></span><span> </span><span id="local-6989586621679858780"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858780"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.UpdateCACertificate.html#newUpdateCACertificate"><span class="hs-identifier hs-var hs-var">newUpdateCACertificate</span></a></span></span><span> </span><span id="local-6989586621679858789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858789"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">UpdateCACertificate' :: Maybe Bool
 -&gt; Maybe CACertificateStatus
 -&gt; Maybe RegistrationConfig
@@ -183,7 +183,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:certificateId:UpdateCACertificate' :: Text
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AcertificateId%3AUpdateCACertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858780"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
+</span><a href="#local-6989586621679858789"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | If true, removes auto registration.</span><span>
@@ -195,16 +195,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateCACertificate UpdateCACertificate (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858777"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858786"><span class="annot"><span class="annottext">Maybe Bool
 removeAutoRegistration :: Maybe Bool
 $sel:removeAutoRegistration:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679858777"><span class="hs-identifier hs-var hs-var">removeAutoRegistration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858777"><span class="hs-identifier hs-var">removeAutoRegistration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858776"><span class="annot"><span class="annottext">s :: UpdateCACertificate
-</span><a href="#local-6989586621679858776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858775"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
-</span><a href="#local-6989586621679858776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeAutoRegistration:UpdateCACertificate' :: Maybe Bool
+</span><a href="#local-6989586621679858786"><span class="hs-identifier hs-var hs-var">removeAutoRegistration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679858786"><span class="hs-identifier hs-var">removeAutoRegistration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858785"><span class="annot"><span class="annottext">s :: UpdateCACertificate
+</span><a href="#local-6989586621679858785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858784"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679858784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
+</span><a href="#local-6989586621679858785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:removeAutoRegistration:UpdateCACertificate' :: Maybe Bool
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AremoveAutoRegistration%3AUpdateCACertificate%27"><span class="hs-identifier hs-var">removeAutoRegistration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The updated status of the CA certificate.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
@@ -222,16 +222,16 @@ $sel:removeAutoRegistration:UpdateCACertificate' :: UpdateCACertificate -&gt; Ma
      (Maybe CACertificateStatus)
      (Maybe CACertificateStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858774"><span class="annot"><span class="annottext">Maybe CACertificateStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858783"><span class="annot"><span class="annottext">Maybe CACertificateStatus
 newStatus' :: Maybe CACertificateStatus
 $sel:newStatus':UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe CACertificateStatus
-</span><a href="#local-6989586621679858774"><span class="hs-identifier hs-var hs-var">newStatus'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
-</span><a href="#local-6989586621679858774"><span class="hs-identifier hs-var">newStatus'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858773"><span class="annot"><span class="annottext">s :: UpdateCACertificate
-</span><a href="#local-6989586621679858773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858772"><span class="annot"><span class="annottext">Maybe CACertificateStatus
-</span><a href="#local-6989586621679858772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
-</span><a href="#local-6989586621679858773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newStatus':UpdateCACertificate' :: Maybe CACertificateStatus
+</span><a href="#local-6989586621679858783"><span class="hs-identifier hs-var hs-var">newStatus'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
+</span><a href="#local-6989586621679858783"><span class="hs-identifier hs-var">newStatus'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858782"><span class="annot"><span class="annottext">s :: UpdateCACertificate
+</span><a href="#local-6989586621679858782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858781"><span class="annot"><span class="annottext">Maybe CACertificateStatus
+</span><a href="#local-6989586621679858781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
+</span><a href="#local-6989586621679858782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newStatus':UpdateCACertificate' :: Maybe CACertificateStatus
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AnewStatus%27%3AUpdateCACertificate%27"><span class="hs-identifier hs-var">newStatus'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
-</span><a href="#local-6989586621679858772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Information about the registration configuration.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#updateCACertificate_registrationConfig"><span class="hs-identifier hs-type">updateCACertificate_registrationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">)</span><span>
@@ -246,16 +246,16 @@ $sel:newStatus':UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe CACertif
      (Maybe RegistrationConfig)
      (Maybe RegistrationConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858771"><span class="annot"><span class="annottext">Maybe RegistrationConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858780"><span class="annot"><span class="annottext">Maybe RegistrationConfig
 registrationConfig :: Maybe RegistrationConfig
 $sel:registrationConfig:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe RegistrationConfig
-</span><a href="#local-6989586621679858771"><span class="hs-identifier hs-var hs-var">registrationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679858771"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858770"><span class="annot"><span class="annottext">s :: UpdateCACertificate
-</span><a href="#local-6989586621679858770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858769"><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679858769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
-</span><a href="#local-6989586621679858770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationConfig:UpdateCACertificate' :: Maybe RegistrationConfig
+</span><a href="#local-6989586621679858780"><span class="hs-identifier hs-var hs-var">registrationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
+</span><a href="#local-6989586621679858780"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858779"><span class="annot"><span class="annottext">s :: UpdateCACertificate
+</span><a href="#local-6989586621679858779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858778"><span class="annot"><span class="annottext">Maybe RegistrationConfig
+</span><a href="#local-6989586621679858778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
+</span><a href="#local-6989586621679858779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationConfig:UpdateCACertificate' :: Maybe RegistrationConfig
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AregistrationConfig%3AUpdateCACertificate%27"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679858769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The new value for the auto registration status. Valid values are:</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- \&quot;ENABLE\&quot; or \&quot;DISABLE\&quot;.</span><span>
@@ -271,16 +271,16 @@ $sel:registrationConfig:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe 
      (Maybe AutoRegistrationStatus)
      (Maybe AutoRegistrationStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858768"><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858777"><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
 newAutoRegistrationStatus' :: Maybe AutoRegistrationStatus
 $sel:newAutoRegistrationStatus':UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe AutoRegistrationStatus
-</span><a href="#local-6989586621679858768"><span class="hs-identifier hs-var hs-var">newAutoRegistrationStatus'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
-</span><a href="#local-6989586621679858768"><span class="hs-identifier hs-var">newAutoRegistrationStatus'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858767"><span class="annot"><span class="annottext">s :: UpdateCACertificate
-</span><a href="#local-6989586621679858767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858766"><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
-</span><a href="#local-6989586621679858766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
-</span><a href="#local-6989586621679858767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newAutoRegistrationStatus':UpdateCACertificate' :: Maybe AutoRegistrationStatus
+</span><a href="#local-6989586621679858777"><span class="hs-identifier hs-var hs-var">newAutoRegistrationStatus'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+</span><a href="#local-6989586621679858777"><span class="hs-identifier hs-var">newAutoRegistrationStatus'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858776"><span class="annot"><span class="annottext">s :: UpdateCACertificate
+</span><a href="#local-6989586621679858776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858775"><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
+</span><a href="#local-6989586621679858775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
+</span><a href="#local-6989586621679858776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:newAutoRegistrationStatus':UpdateCACertificate' :: Maybe AutoRegistrationStatus
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AnewAutoRegistrationStatus%27%3AUpdateCACertificate%27"><span class="hs-identifier hs-var">newAutoRegistrationStatus'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
-</span><a href="#local-6989586621679858766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The CA certificate identifier.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#updateCACertificate_certificateId"><span class="hs-identifier hs-type">updateCACertificate_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -289,27 +289,27 @@ $sel:newAutoRegistrationStatus':UpdateCACertificate' :: UpdateCACertificate -&gt
 -&gt; (UpdateCACertificate -&gt; Text -&gt; UpdateCACertificate)
 -&gt; Lens UpdateCACertificate UpdateCACertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858765"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858774"><span class="annot"><span class="annottext">Text
 certificateId :: Text
 $sel:certificateId:UpdateCACertificate' :: UpdateCACertificate -&gt; Text
-</span><a href="#local-6989586621679858765"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858765"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858764"><span class="annot"><span class="annottext">s :: UpdateCACertificate
-</span><a href="#local-6989586621679858764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858763"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
-</span><a href="#local-6989586621679858764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:UpdateCACertificate' :: Text
+</span><a href="#local-6989586621679858774"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858774"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679858773"><span class="annot"><span class="annottext">s :: UpdateCACertificate
+</span><a href="#local-6989586621679858773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679858772"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679858772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateCACertificate
+</span><a href="#local-6989586621679858773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:UpdateCACertificate' :: Text
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#%24sel%3AcertificateId%3AUpdateCACertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679858772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse"><span class="hs-identifier hs-type">UpdateCACertificateResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679858759"><span class="annot"><span class="annottext">request :: UpdateCACertificate -&gt; Request UpdateCACertificate
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679858768"><span class="annot"><span class="annottext">request :: UpdateCACertificate -&gt; Request UpdateCACertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateCACertificate -&gt; Request UpdateCACertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679858755"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679858764"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateCACertificate
 -&gt; ClientResponse ClientBody
@@ -335,21 +335,21 @@ AWSResponse a
 UpdateCACertificateResponse
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse%27"><span class="hs-identifier hs-var">UpdateCACertificateResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858748"><span id="local-6989586621679858750"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858757"><span id="local-6989586621679858759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858745"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679858741"><span class="annot"><span class="annottext">toHeaders :: UpdateCACertificate -&gt; [Header]
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679858750"><span class="annot"><span class="annottext">toHeaders :: UpdateCACertificate -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateCACertificate -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858732"><span id="local-6989586621679858734"><span id="local-6989586621679858736"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679858730"><span class="annot"><span class="annottext">toJSON :: UpdateCACertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858724"><span id="local-6989586621679858725"><span id="local-6989586621679858726"><span id="local-6989586621679858727"><span id="local-6989586621679858728"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858741"><span id="local-6989586621679858743"><span id="local-6989586621679858745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679858739"><span class="annot"><span class="annottext">toJSON :: UpdateCACertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858733"><span id="local-6989586621679858734"><span id="local-6989586621679858735"><span id="local-6989586621679858736"><span id="local-6989586621679858737"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AutoRegistrationStatus
 Maybe CACertificateStatus
 Maybe RegistrationConfig
@@ -364,7 +364,7 @@ $sel:newAutoRegistrationStatus':UpdateCACertificate' :: UpdateCACertificate -&gt
 $sel:registrationConfig:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe RegistrationConfig
 $sel:newStatus':UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe CACertificateStatus
 $sel:removeAutoRegistration:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679858724"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679858733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -377,7 +377,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679858728"><span class="hs-identifier hs-var">removeAutoRegistration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679858737"><span class="hs-identifier hs-var">removeAutoRegistration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;registrationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegistrationConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -386,13 +386,13 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe RegistrationConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679858726"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span>
+</span><a href="#local-6989586621679858735"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679858717"><span class="annot"><span class="annottext">toPath :: UpdateCACertificate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858711"><span id="local-6989586621679858712"><span id="local-6989586621679858713"><span id="local-6989586621679858714"><span id="local-6989586621679858715"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679858726"><span class="annot"><span class="annottext">toPath :: UpdateCACertificate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858720"><span id="local-6989586621679858721"><span id="local-6989586621679858722"><span id="local-6989586621679858723"><span id="local-6989586621679858724"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AutoRegistrationStatus
 Maybe CACertificateStatus
 Maybe RegistrationConfig
@@ -407,7 +407,7 @@ $sel:newAutoRegistrationStatus':UpdateCACertificate' :: UpdateCACertificate -&gt
 $sel:registrationConfig:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe RegistrationConfig
 $sel:newStatus':UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe CACertificateStatus
 $sel:removeAutoRegistration:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679858711"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679858720"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -415,11 +415,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/cacertificate/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679858711"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679858720"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate"><span class="hs-identifier hs-type">UpdateCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679858707"><span class="annot"><span class="annottext">toQuery :: UpdateCACertificate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858701"><span id="local-6989586621679858702"><span id="local-6989586621679858703"><span id="local-6989586621679858704"><span id="local-6989586621679858705"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679858716"><span class="annot"><span class="annottext">toQuery :: UpdateCACertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificate%27"><span class="hs-identifier hs-type">UpdateCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679858710"><span id="local-6989586621679858711"><span id="local-6989586621679858712"><span id="local-6989586621679858713"><span id="local-6989586621679858714"><span class="annot"><span class="annottext">Maybe Bool
 Maybe AutoRegistrationStatus
 Maybe CACertificateStatus
 Maybe RegistrationConfig
@@ -434,7 +434,7 @@ $sel:newAutoRegistrationStatus':UpdateCACertificate' :: UpdateCACertificate -&gt
 $sel:registrationConfig:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe RegistrationConfig
 $sel:newStatus':UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe CACertificateStatus
 $sel:removeAutoRegistration:UpdateCACertificate' :: UpdateCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679858701"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679858710"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -442,20 +442,20 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;newStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe CACertificateStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe CACertificateStatus
-</span><a href="#local-6989586621679858704"><span class="hs-identifier hs-var">newStatus'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679858713"><span class="hs-identifier hs-var">newStatus'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;newAutoRegistrationStatus&quot;</span></span><span>
 </span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AutoRegistrationStatus -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AutoRegistrationStatus
-</span><a href="#local-6989586621679858702"><span class="hs-identifier hs-var">newAutoRegistrationStatus'</span></a></span><span>
+</span><a href="#local-6989586621679858711"><span class="hs-identifier hs-var">newAutoRegistrationStatus'</span></a></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newUpdateCACertificateResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679858698"><span id="local-6989586621679858699"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCACertificateResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse"><span class="hs-identifier hs-var">UpdateCACertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCACertificateResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse%27"><span class="hs-identifier hs-var">UpdateCACertificateResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679858707"><span id="local-6989586621679858708"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateCACertificateResponse"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse"><span class="hs-identifier hs-var">UpdateCACertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateCACertificateResponse%27"><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse%27"><span class="hs-identifier hs-var">UpdateCACertificateResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858694"><span id="local-6989586621679858696"><span class="annot"><span class="annottext">UpdateCACertificateResponse -&gt; UpdateCACertificateResponse -&gt; Bool
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679858703"><span id="local-6989586621679858705"><span class="annot"><span class="annottext">UpdateCACertificateResponse -&gt; UpdateCACertificateResponse -&gt; Bool
 (UpdateCACertificateResponse
  -&gt; UpdateCACertificateResponse -&gt; Bool)
 -&gt; (UpdateCACertificateResponse
@@ -466,7 +466,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateCACertificateResponse -&gt; UpdateCACertificateResponse -&gt; Bool
 == :: UpdateCACertificateResponse -&gt; UpdateCACertificateResponse -&gt; Bool
 $c== :: UpdateCACertificateResponse -&gt; UpdateCACertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858686"><span id="local-6989586621679858688"><span id="local-6989586621679858690"><span id="local-6989586621679858692"><span class="annot"><span class="annottext">ReadPrec [UpdateCACertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858695"><span id="local-6989586621679858697"><span id="local-6989586621679858699"><span id="local-6989586621679858701"><span class="annot"><span class="annottext">ReadPrec [UpdateCACertificateResponse]
 ReadPrec UpdateCACertificateResponse
 Int -&gt; ReadS UpdateCACertificateResponse
 ReadS [UpdateCACertificateResponse]
@@ -486,7 +486,7 @@ readList :: ReadS [UpdateCACertificateResponse]
 $creadList :: ReadS [UpdateCACertificateResponse]
 readsPrec :: Int -&gt; ReadS UpdateCACertificateResponse
 $creadsPrec :: Int -&gt; ReadS UpdateCACertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858680"><span id="local-6989586621679858682"><span id="local-6989586621679858684"><span class="annot"><span class="annottext">Int -&gt; UpdateCACertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679858689"><span id="local-6989586621679858691"><span id="local-6989586621679858693"><span class="annot"><span class="annottext">Int -&gt; UpdateCACertificateResponse -&gt; ShowS
 [UpdateCACertificateResponse] -&gt; ShowS
 UpdateCACertificateResponse -&gt; String
 (Int -&gt; UpdateCACertificateResponse -&gt; ShowS)
@@ -529,5 +529,5 @@ UpdateCACertificateResponse -&gt; Rep UpdateCACertificateResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">UpdateCACertificateResponse
 </span><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse%27"><span class="hs-identifier hs-var">UpdateCACertificateResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse"><span class="hs-identifier hs-type">UpdateCACertificateResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679858685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.UpdateCACertificate.html#UpdateCACertificateResponse"><span class="hs-identifier hs-type">UpdateCACertificateResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

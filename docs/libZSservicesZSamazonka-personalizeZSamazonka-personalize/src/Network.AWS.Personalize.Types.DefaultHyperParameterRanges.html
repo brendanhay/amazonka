@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.Personalize.Types.DefaultHyperParameterRanges</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.Personalize.Types.DefaultHyperParameterRanges</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultCategoricalHyperParameterRange.html"><span class="hs-identifier">Network.AWS.Personalize.Types.DefaultCategoricalHyperParameterRange</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultContinuousHyperParameterRange.html"><span class="hs-identifier">Network.AWS.Personalize.Types.DefaultContinuousHyperParameterRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultIntegerHyperParameterRange.html"><span class="hs-identifier">Network.AWS.Personalize.Types.DefaultIntegerHyperParameterRange</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Specifies the hyperparameters and their default ranges. Hyperparameters</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- can be categorical, continuous, or integer-valued.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDefaultHyperParameterRanges' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679270226"><span id="local-6989586621679270227"></span></span><span class="hs-keyword">data</span><span> </span><span id="DefaultHyperParameterRanges"><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-var">DefaultHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefaultHyperParameterRanges%27"><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">DefaultHyperParameterRanges'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The integer-valued hyperparameters and their default ranges.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AintegerHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="annot"><span class="annottext">DefaultHyperParameterRanges
+-&gt; Maybe [DefaultIntegerHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AintegerHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var hs-var">integerHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultIntegerHyperParameterRange.html#DefaultIntegerHyperParameterRange"><span class="hs-identifier hs-type">DefaultIntegerHyperParameterRange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The categorical hyperparameters and their default ranges.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcategoricalHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="annot"><span class="annottext">DefaultHyperParameterRanges
+-&gt; Maybe [DefaultCategoricalHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AcategoricalHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var hs-var">categoricalHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultCategoricalHyperParameterRange.html#DefaultCategoricalHyperParameterRange"><span class="hs-identifier hs-type">DefaultCategoricalHyperParameterRange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The continuous hyperparameters and their default ranges.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcontinuousHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="annot"><span class="annottext">DefaultHyperParameterRanges
+-&gt; Maybe [DefaultContinuousHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AcontinuousHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var hs-var">continuousHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultContinuousHyperParameterRange.html#DefaultContinuousHyperParameterRange"><span class="hs-identifier hs-type">DefaultContinuousHyperParameterRange</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270218"><span id="local-6989586621679270220"><span class="annot"><span class="annottext">DefaultHyperParameterRanges -&gt; DefaultHyperParameterRanges -&gt; Bool
+(DefaultHyperParameterRanges
+ -&gt; DefaultHyperParameterRanges -&gt; Bool)
+-&gt; (DefaultHyperParameterRanges
+    -&gt; DefaultHyperParameterRanges -&gt; Bool)
+-&gt; Eq DefaultHyperParameterRanges
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefaultHyperParameterRanges -&gt; DefaultHyperParameterRanges -&gt; Bool
+$c/= :: DefaultHyperParameterRanges -&gt; DefaultHyperParameterRanges -&gt; Bool
+== :: DefaultHyperParameterRanges -&gt; DefaultHyperParameterRanges -&gt; Bool
+$c== :: DefaultHyperParameterRanges -&gt; DefaultHyperParameterRanges -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270209"><span id="local-6989586621679270211"><span id="local-6989586621679270213"><span id="local-6989586621679270215"><span class="annot"><span class="annottext">ReadPrec [DefaultHyperParameterRanges]
+ReadPrec DefaultHyperParameterRanges
+Int -&gt; ReadS DefaultHyperParameterRanges
+ReadS [DefaultHyperParameterRanges]
+(Int -&gt; ReadS DefaultHyperParameterRanges)
+-&gt; ReadS [DefaultHyperParameterRanges]
+-&gt; ReadPrec DefaultHyperParameterRanges
+-&gt; ReadPrec [DefaultHyperParameterRanges]
+-&gt; Read DefaultHyperParameterRanges
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefaultHyperParameterRanges]
+$creadListPrec :: ReadPrec [DefaultHyperParameterRanges]
+readPrec :: ReadPrec DefaultHyperParameterRanges
+$creadPrec :: ReadPrec DefaultHyperParameterRanges
+readList :: ReadS [DefaultHyperParameterRanges]
+$creadList :: ReadS [DefaultHyperParameterRanges]
+readsPrec :: Int -&gt; ReadS DefaultHyperParameterRanges
+$creadsPrec :: Int -&gt; ReadS DefaultHyperParameterRanges
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270202"><span id="local-6989586621679270204"><span id="local-6989586621679270206"><span class="annot"><span class="annottext">Int -&gt; DefaultHyperParameterRanges -&gt; ShowS
+[DefaultHyperParameterRanges] -&gt; ShowS
+DefaultHyperParameterRanges -&gt; String
+(Int -&gt; DefaultHyperParameterRanges -&gt; ShowS)
+-&gt; (DefaultHyperParameterRanges -&gt; String)
+-&gt; ([DefaultHyperParameterRanges] -&gt; ShowS)
+-&gt; Show DefaultHyperParameterRanges
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefaultHyperParameterRanges] -&gt; ShowS
+$cshowList :: [DefaultHyperParameterRanges] -&gt; ShowS
+show :: DefaultHyperParameterRanges -&gt; String
+$cshow :: DefaultHyperParameterRanges -&gt; String
+showsPrec :: Int -&gt; DefaultHyperParameterRanges -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefaultHyperParameterRanges -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DefaultHyperParameterRanges -&gt; Rep DefaultHyperParameterRanges x)
+-&gt; (forall x.
+    Rep DefaultHyperParameterRanges x -&gt; DefaultHyperParameterRanges)
+-&gt; Generic DefaultHyperParameterRanges
+forall x.
+Rep DefaultHyperParameterRanges x -&gt; DefaultHyperParameterRanges
+forall x.
+DefaultHyperParameterRanges -&gt; Rep DefaultHyperParameterRanges x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DefaultHyperParameterRanges x -&gt; DefaultHyperParameterRanges
+$cfrom :: forall x.
+DefaultHyperParameterRanges -&gt; Rep DefaultHyperParameterRanges x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'DefaultHyperParameterRanges' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'integerHyperParameterRanges', 'defaultHyperParameterRanges_integerHyperParameterRanges' - The integer-valued hyperparameters and their default ranges.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'categoricalHyperParameterRanges', 'defaultHyperParameterRanges_categoricalHyperParameterRanges' - The categorical hyperparameters and their default ranges.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'continuousHyperParameterRanges', 'defaultHyperParameterRanges_continuousHyperParameterRanges' - The continuous hyperparameters and their default ranges.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#newDefaultHyperParameterRanges"><span class="hs-identifier hs-type">newDefaultHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span><span>
+</span><span id="line-58"></span><span id="newDefaultHyperParameterRanges"><span class="annot"><span class="annottext">newDefaultHyperParameterRanges :: DefaultHyperParameterRanges
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#newDefaultHyperParameterRanges"><span class="hs-identifier hs-var hs-var">newDefaultHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">DefaultHyperParameterRanges' :: Maybe [DefaultIntegerHyperParameterRange]
+-&gt; Maybe [DefaultCategoricalHyperParameterRange]
+-&gt; Maybe [DefaultContinuousHyperParameterRange]
+-&gt; DefaultHyperParameterRanges
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-type">DefaultHyperParameterRanges'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:integerHyperParameterRanges:DefaultHyperParameterRanges' :: Maybe [DefaultIntegerHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AintegerHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">integerHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DefaultIntegerHyperParameterRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:categoricalHyperParameterRanges:DefaultHyperParameterRanges' :: Maybe [DefaultCategoricalHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AcategoricalHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">categoricalHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DefaultCategoricalHyperParameterRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:continuousHyperParameterRanges:DefaultHyperParameterRanges' :: Maybe [DefaultContinuousHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AcontinuousHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">continuousHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe [DefaultContinuousHyperParameterRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The integer-valued hyperparameters and their default ranges.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#defaultHyperParameterRanges_integerHyperParameterRanges"><span class="hs-identifier hs-type">defaultHyperParameterRanges_integerHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultIntegerHyperParameterRange.html#DefaultIntegerHyperParameterRange"><span class="hs-identifier hs-type">DefaultIntegerHyperParameterRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="defaultHyperParameterRanges_integerHyperParameterRanges"><span class="annot"><span class="annottext">defaultHyperParameterRanges_integerHyperParameterRanges :: (Maybe [DefaultIntegerHyperParameterRange]
+ -&gt; f (Maybe [DefaultIntegerHyperParameterRange]))
+-&gt; DefaultHyperParameterRanges -&gt; f DefaultHyperParameterRanges
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#defaultHyperParameterRanges_integerHyperParameterRanges"><span class="hs-identifier hs-var hs-var">defaultHyperParameterRanges_integerHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultHyperParameterRanges
+ -&gt; Maybe [DefaultIntegerHyperParameterRange])
+-&gt; (DefaultHyperParameterRanges
+    -&gt; Maybe [DefaultIntegerHyperParameterRange]
+    -&gt; DefaultHyperParameterRanges)
+-&gt; Lens
+     DefaultHyperParameterRanges
+     DefaultHyperParameterRanges
+     (Maybe [DefaultIntegerHyperParameterRange])
+     (Maybe [DefaultIntegerHyperParameterRange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-type">DefaultHyperParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270193"><span class="annot"><span class="annottext">Maybe [DefaultIntegerHyperParameterRange]
+integerHyperParameterRanges :: Maybe [DefaultIntegerHyperParameterRange]
+$sel:integerHyperParameterRanges:DefaultHyperParameterRanges' :: DefaultHyperParameterRanges
+-&gt; Maybe [DefaultIntegerHyperParameterRange]
+</span><a href="#local-6989586621679270193"><span class="hs-identifier hs-var hs-var">integerHyperParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultIntegerHyperParameterRange]
+</span><a href="#local-6989586621679270193"><span class="hs-identifier hs-var">integerHyperParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270192"><span class="annot"><span class="annottext">s :: DefaultHyperParameterRanges
+</span><a href="#local-6989586621679270192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-type">DefaultHyperParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270191"><span class="annot"><span class="annottext">Maybe [DefaultIntegerHyperParameterRange]
+</span><a href="#local-6989586621679270191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultHyperParameterRanges
+</span><a href="#local-6989586621679270192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerHyperParameterRanges:DefaultHyperParameterRanges' :: Maybe [DefaultIntegerHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AintegerHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">integerHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultIntegerHyperParameterRange]
+</span><a href="#local-6989586621679270191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DefaultIntegerHyperParameterRange]
+  -&gt; f (Maybe [DefaultIntegerHyperParameterRange]))
+ -&gt; DefaultHyperParameterRanges -&gt; f DefaultHyperParameterRanges)
+-&gt; ((Maybe [DefaultIntegerHyperParameterRange]
+     -&gt; f (Maybe [DefaultIntegerHyperParameterRange]))
+    -&gt; Maybe [DefaultIntegerHyperParameterRange]
+    -&gt; f (Maybe [DefaultIntegerHyperParameterRange]))
+-&gt; (Maybe [DefaultIntegerHyperParameterRange]
+    -&gt; f (Maybe [DefaultIntegerHyperParameterRange]))
+-&gt; DefaultHyperParameterRanges
+-&gt; f DefaultHyperParameterRanges
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DefaultIntegerHyperParameterRange]
+  [DefaultIntegerHyperParameterRange]
+  [DefaultIntegerHyperParameterRange]
+  [DefaultIntegerHyperParameterRange]
+-&gt; Iso
+     (Maybe [DefaultIntegerHyperParameterRange])
+     (Maybe [DefaultIntegerHyperParameterRange])
+     (Maybe [DefaultIntegerHyperParameterRange])
+     (Maybe [DefaultIntegerHyperParameterRange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DefaultIntegerHyperParameterRange]
+  [DefaultIntegerHyperParameterRange]
+  [DefaultIntegerHyperParameterRange]
+  [DefaultIntegerHyperParameterRange]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The categorical hyperparameters and their default ranges.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#defaultHyperParameterRanges_categoricalHyperParameterRanges"><span class="hs-identifier hs-type">defaultHyperParameterRanges_categoricalHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultCategoricalHyperParameterRange.html#DefaultCategoricalHyperParameterRange"><span class="hs-identifier hs-type">DefaultCategoricalHyperParameterRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="defaultHyperParameterRanges_categoricalHyperParameterRanges"><span class="annot"><span class="annottext">defaultHyperParameterRanges_categoricalHyperParameterRanges :: (Maybe [DefaultCategoricalHyperParameterRange]
+ -&gt; f (Maybe [DefaultCategoricalHyperParameterRange]))
+-&gt; DefaultHyperParameterRanges -&gt; f DefaultHyperParameterRanges
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#defaultHyperParameterRanges_categoricalHyperParameterRanges"><span class="hs-identifier hs-var hs-var">defaultHyperParameterRanges_categoricalHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultHyperParameterRanges
+ -&gt; Maybe [DefaultCategoricalHyperParameterRange])
+-&gt; (DefaultHyperParameterRanges
+    -&gt; Maybe [DefaultCategoricalHyperParameterRange]
+    -&gt; DefaultHyperParameterRanges)
+-&gt; Lens
+     DefaultHyperParameterRanges
+     DefaultHyperParameterRanges
+     (Maybe [DefaultCategoricalHyperParameterRange])
+     (Maybe [DefaultCategoricalHyperParameterRange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-type">DefaultHyperParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270186"><span class="annot"><span class="annottext">Maybe [DefaultCategoricalHyperParameterRange]
+categoricalHyperParameterRanges :: Maybe [DefaultCategoricalHyperParameterRange]
+$sel:categoricalHyperParameterRanges:DefaultHyperParameterRanges' :: DefaultHyperParameterRanges
+-&gt; Maybe [DefaultCategoricalHyperParameterRange]
+</span><a href="#local-6989586621679270186"><span class="hs-identifier hs-var hs-var">categoricalHyperParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultCategoricalHyperParameterRange]
+</span><a href="#local-6989586621679270186"><span class="hs-identifier hs-var">categoricalHyperParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270185"><span class="annot"><span class="annottext">s :: DefaultHyperParameterRanges
+</span><a href="#local-6989586621679270185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-type">DefaultHyperParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270184"><span class="annot"><span class="annottext">Maybe [DefaultCategoricalHyperParameterRange]
+</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultHyperParameterRanges
+</span><a href="#local-6989586621679270185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoricalHyperParameterRanges:DefaultHyperParameterRanges' :: Maybe [DefaultCategoricalHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AcategoricalHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">categoricalHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultCategoricalHyperParameterRange]
+</span><a href="#local-6989586621679270184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DefaultCategoricalHyperParameterRange]
+  -&gt; f (Maybe [DefaultCategoricalHyperParameterRange]))
+ -&gt; DefaultHyperParameterRanges -&gt; f DefaultHyperParameterRanges)
+-&gt; ((Maybe [DefaultCategoricalHyperParameterRange]
+     -&gt; f (Maybe [DefaultCategoricalHyperParameterRange]))
+    -&gt; Maybe [DefaultCategoricalHyperParameterRange]
+    -&gt; f (Maybe [DefaultCategoricalHyperParameterRange]))
+-&gt; (Maybe [DefaultCategoricalHyperParameterRange]
+    -&gt; f (Maybe [DefaultCategoricalHyperParameterRange]))
+-&gt; DefaultHyperParameterRanges
+-&gt; f DefaultHyperParameterRanges
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DefaultCategoricalHyperParameterRange]
+  [DefaultCategoricalHyperParameterRange]
+  [DefaultCategoricalHyperParameterRange]
+  [DefaultCategoricalHyperParameterRange]
+-&gt; Iso
+     (Maybe [DefaultCategoricalHyperParameterRange])
+     (Maybe [DefaultCategoricalHyperParameterRange])
+     (Maybe [DefaultCategoricalHyperParameterRange])
+     (Maybe [DefaultCategoricalHyperParameterRange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DefaultCategoricalHyperParameterRange]
+  [DefaultCategoricalHyperParameterRange]
+  [DefaultCategoricalHyperParameterRange]
+  [DefaultCategoricalHyperParameterRange]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The continuous hyperparameters and their default ranges.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#defaultHyperParameterRanges_continuousHyperParameterRanges"><span class="hs-identifier hs-type">defaultHyperParameterRanges_continuousHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultContinuousHyperParameterRange.html#DefaultContinuousHyperParameterRange"><span class="hs-identifier hs-type">DefaultContinuousHyperParameterRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="defaultHyperParameterRanges_continuousHyperParameterRanges"><span class="annot"><span class="annottext">defaultHyperParameterRanges_continuousHyperParameterRanges :: (Maybe [DefaultContinuousHyperParameterRange]
+ -&gt; f (Maybe [DefaultContinuousHyperParameterRange]))
+-&gt; DefaultHyperParameterRanges -&gt; f DefaultHyperParameterRanges
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#defaultHyperParameterRanges_continuousHyperParameterRanges"><span class="hs-identifier hs-var hs-var">defaultHyperParameterRanges_continuousHyperParameterRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DefaultHyperParameterRanges
+ -&gt; Maybe [DefaultContinuousHyperParameterRange])
+-&gt; (DefaultHyperParameterRanges
+    -&gt; Maybe [DefaultContinuousHyperParameterRange]
+    -&gt; DefaultHyperParameterRanges)
+-&gt; Lens
+     DefaultHyperParameterRanges
+     DefaultHyperParameterRanges
+     (Maybe [DefaultContinuousHyperParameterRange])
+     (Maybe [DefaultContinuousHyperParameterRange])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-type">DefaultHyperParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270182"><span class="annot"><span class="annottext">Maybe [DefaultContinuousHyperParameterRange]
+continuousHyperParameterRanges :: Maybe [DefaultContinuousHyperParameterRange]
+$sel:continuousHyperParameterRanges:DefaultHyperParameterRanges' :: DefaultHyperParameterRanges
+-&gt; Maybe [DefaultContinuousHyperParameterRange]
+</span><a href="#local-6989586621679270182"><span class="hs-identifier hs-var hs-var">continuousHyperParameterRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultContinuousHyperParameterRange]
+</span><a href="#local-6989586621679270182"><span class="hs-identifier hs-var">continuousHyperParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270181"><span class="annot"><span class="annottext">s :: DefaultHyperParameterRanges
+</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-type">DefaultHyperParameterRanges'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270180"><span class="annot"><span class="annottext">Maybe [DefaultContinuousHyperParameterRange]
+</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DefaultHyperParameterRanges
+</span><a href="#local-6989586621679270181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuousHyperParameterRanges:DefaultHyperParameterRanges' :: Maybe [DefaultContinuousHyperParameterRange]
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#%24sel%3AcontinuousHyperParameterRanges%3ADefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">continuousHyperParameterRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultContinuousHyperParameterRange]
+</span><a href="#local-6989586621679270180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DefaultContinuousHyperParameterRange]
+  -&gt; f (Maybe [DefaultContinuousHyperParameterRange]))
+ -&gt; DefaultHyperParameterRanges -&gt; f DefaultHyperParameterRanges)
+-&gt; ((Maybe [DefaultContinuousHyperParameterRange]
+     -&gt; f (Maybe [DefaultContinuousHyperParameterRange]))
+    -&gt; Maybe [DefaultContinuousHyperParameterRange]
+    -&gt; f (Maybe [DefaultContinuousHyperParameterRange]))
+-&gt; (Maybe [DefaultContinuousHyperParameterRange]
+    -&gt; f (Maybe [DefaultContinuousHyperParameterRange]))
+-&gt; DefaultHyperParameterRanges
+-&gt; f DefaultHyperParameterRanges
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DefaultContinuousHyperParameterRange]
+  [DefaultContinuousHyperParameterRange]
+  [DefaultContinuousHyperParameterRange]
+  [DefaultContinuousHyperParameterRange]
+-&gt; Iso
+     (Maybe [DefaultContinuousHyperParameterRange])
+     (Maybe [DefaultContinuousHyperParameterRange])
+     (Maybe [DefaultContinuousHyperParameterRange])
+     (Maybe [DefaultContinuousHyperParameterRange])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [DefaultContinuousHyperParameterRange]
+  [DefaultContinuousHyperParameterRange]
+  [DefaultContinuousHyperParameterRange]
+  [DefaultContinuousHyperParameterRange]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679270175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DefaultHyperParameterRanges
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DefaultHyperParameterRanges)
+-&gt; Value
+-&gt; Parser DefaultHyperParameterRanges
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DefaultHyperParameterRanges&quot;</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DefaultIntegerHyperParameterRange]
+-&gt; Maybe [DefaultCategoricalHyperParameterRange]
+-&gt; Maybe [DefaultContinuousHyperParameterRange]
+-&gt; DefaultHyperParameterRanges
+</span><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges%27"><span class="hs-identifier hs-var">DefaultHyperParameterRanges'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DefaultIntegerHyperParameterRange]
+ -&gt; Maybe [DefaultCategoricalHyperParameterRange]
+ -&gt; Maybe [DefaultContinuousHyperParameterRange]
+ -&gt; DefaultHyperParameterRanges)
+-&gt; Parser (Maybe [DefaultIntegerHyperParameterRange])
+-&gt; Parser
+     (Maybe [DefaultCategoricalHyperParameterRange]
+      -&gt; Maybe [DefaultContinuousHyperParameterRange]
+      -&gt; DefaultHyperParameterRanges)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [DefaultIntegerHyperParameterRange]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;integerHyperParameterRanges&quot;</span></span><span>
+</span><span id="line-87"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DefaultIntegerHyperParameterRange]))
+-&gt; Maybe [DefaultIntegerHyperParameterRange]
+-&gt; Parser (Maybe [DefaultIntegerHyperParameterRange])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultIntegerHyperParameterRange]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-88"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [DefaultCategoricalHyperParameterRange]
+   -&gt; Maybe [DefaultContinuousHyperParameterRange]
+   -&gt; DefaultHyperParameterRanges)
+-&gt; Parser (Maybe [DefaultCategoricalHyperParameterRange])
+-&gt; Parser
+     (Maybe [DefaultContinuousHyperParameterRange]
+      -&gt; DefaultHyperParameterRanges)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [DefaultCategoricalHyperParameterRange]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;categoricalHyperParameterRanges&quot;</span></span><span>
+</span><span id="line-90"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DefaultCategoricalHyperParameterRange]))
+-&gt; Maybe [DefaultCategoricalHyperParameterRange]
+-&gt; Parser (Maybe [DefaultCategoricalHyperParameterRange])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultCategoricalHyperParameterRange]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [DefaultContinuousHyperParameterRange]
+   -&gt; DefaultHyperParameterRanges)
+-&gt; Parser (Maybe [DefaultContinuousHyperParameterRange])
+-&gt; Parser DefaultHyperParameterRanges
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe (Maybe [DefaultContinuousHyperParameterRange]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;continuousHyperParameterRanges&quot;</span></span><span>
+</span><span id="line-93"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DefaultContinuousHyperParameterRange]))
+-&gt; Maybe [DefaultContinuousHyperParameterRange]
+-&gt; Parser (Maybe [DefaultContinuousHyperParameterRange])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DefaultContinuousHyperParameterRange]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-94"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270165"><span id="local-6989586621679270167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Personalize.Types.DefaultHyperParameterRanges.html#DefaultHyperParameterRanges"><span class="hs-identifier hs-type">DefaultHyperParameterRanges</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

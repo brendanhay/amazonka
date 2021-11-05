@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-comment">-- set to (NONE). A preferred implementation of this workflow is to set</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- RespondToAfd to (NONE) and set AfdSignaling to (AUTO). * Choose None to</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- remove all input AFD values from this output.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621680004148"><span id="local-6989586621680004149"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RespondToAfd"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RespondToAfd.html#RespondToAfd"><span class="hs-identifier hs-var">RespondToAfd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RespondToAfd%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RespondToAfd.html#RespondToAfd%27"><span class="hs-identifier hs-var">RespondToAfd'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621680004157"><span id="local-6989586621680004158"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RespondToAfd"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RespondToAfd.html#RespondToAfd"><span class="hs-identifier hs-var">RespondToAfd</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RespondToAfd%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.RespondToAfd.html#RespondToAfd%27"><span class="hs-identifier hs-var">RespondToAfd'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRespondToAfd"><span class="annot"><span class="annottext">RespondToAfd -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.RespondToAfd.html#fromRespondToAfd"><span class="hs-identifier hs-var hs-var">fromRespondToAfd</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004140"><span id="local-6989586621680004142"><span id="local-6989586621680004144"><span class="annot"><span class="annottext">Int -&gt; RespondToAfd -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004149"><span id="local-6989586621680004151"><span id="local-6989586621680004153"><span class="annot"><span class="annottext">Int -&gt; RespondToAfd -&gt; ShowS
 [RespondToAfd] -&gt; ShowS
 RespondToAfd -&gt; String
 (Int -&gt; RespondToAfd -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: RespondToAfd -&gt; String
 showsPrec :: Int -&gt; RespondToAfd -&gt; ShowS
 $cshowsPrec :: Int -&gt; RespondToAfd -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680004131"><span id="local-6989586621680004133"><span id="local-6989586621680004135"><span id="local-6989586621680004137"><span class="annot"><span class="annottext">ReadPrec [RespondToAfd]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680004140"><span id="local-6989586621680004142"><span id="local-6989586621680004144"><span id="local-6989586621680004146"><span class="annot"><span class="annottext">ReadPrec [RespondToAfd]
 ReadPrec RespondToAfd
 Int -&gt; ReadS RespondToAfd
 ReadS [RespondToAfd]
@@ -81,7 +81,7 @@ $creadList :: ReadS [RespondToAfd]
 readsPrec :: Int -&gt; ReadS RespondToAfd
 $creadsPrec :: Int -&gt; ReadS RespondToAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680004126"><span id="local-6989586621680004128"><span class="annot"><span class="annottext">RespondToAfd -&gt; RespondToAfd -&gt; Bool
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680004135"><span id="local-6989586621680004137"><span class="annot"><span class="annottext">RespondToAfd -&gt; RespondToAfd -&gt; Bool
 (RespondToAfd -&gt; RespondToAfd -&gt; Bool)
 -&gt; (RespondToAfd -&gt; RespondToAfd -&gt; Bool) -&gt; Eq RespondToAfd
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ $c/= :: RespondToAfd -&gt; RespondToAfd -&gt; Bool
 == :: RespondToAfd -&gt; RespondToAfd -&gt; Bool
 $c== :: RespondToAfd -&gt; RespondToAfd -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680004110"><span id="local-6989586621680004112"><span id="local-6989586621680004114"><span id="local-6989586621680004116"><span id="local-6989586621680004118"><span id="local-6989586621680004120"><span id="local-6989586621680004122"><span class="annot"><span class="annottext">Eq RespondToAfd
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680004119"><span id="local-6989586621680004121"><span id="local-6989586621680004123"><span id="local-6989586621680004125"><span id="local-6989586621680004127"><span id="local-6989586621680004129"><span id="local-6989586621680004131"><span class="annot"><span class="annottext">Eq RespondToAfd
 Eq RespondToAfd
 -&gt; (RespondToAfd -&gt; RespondToAfd -&gt; Ordering)
 -&gt; (RespondToAfd -&gt; RespondToAfd -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. RespondToAfd -&gt; Rep RespondToAfd x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004102"><span id="local-6989586621680004104"><span class="annot"><span class="annottext">Int -&gt; RespondToAfd -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680004111"><span id="local-6989586621680004113"><span class="annot"><span class="annottext">Int -&gt; RespondToAfd -&gt; Int
 RespondToAfd -&gt; Int
 (Int -&gt; RespondToAfd -&gt; Int)
 -&gt; (RespondToAfd -&gt; Int) -&gt; Hashable RespondToAfd
@@ -151,49 +151,49 @@ $chash :: RespondToAfd -&gt; Int
 hashWithSalt :: Int -&gt; RespondToAfd -&gt; Int
 $chashWithSalt :: Int -&gt; RespondToAfd -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680004099"><span class="annot"><span class="annottext">RespondToAfd -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680004108"><span class="annot"><span class="annottext">RespondToAfd -&gt; ()
 (RespondToAfd -&gt; ()) -&gt; NFData RespondToAfd
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RespondToAfd -&gt; ()
 $crnf :: RespondToAfd -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680004096"><span class="annot"><span class="annottext">Text -&gt; Either String RespondToAfd
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680004105"><span class="annot"><span class="annottext">Text -&gt; Either String RespondToAfd
 (Text -&gt; Either String RespondToAfd) -&gt; FromText RespondToAfd
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RespondToAfd
 $cfromText :: Text -&gt; Either String RespondToAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680004093"><span class="annot"><span class="annottext">RespondToAfd -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680004102"><span class="annot"><span class="annottext">RespondToAfd -&gt; Text
 (RespondToAfd -&gt; Text) -&gt; ToText RespondToAfd
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RespondToAfd -&gt; Text
 $ctoText :: RespondToAfd -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680004090"><span class="annot"><span class="annottext">RespondToAfd -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680004099"><span class="annot"><span class="annottext">RespondToAfd -&gt; ByteString
 (RespondToAfd -&gt; ByteString) -&gt; ToByteString RespondToAfd
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RespondToAfd -&gt; ByteString
 $ctoBS :: RespondToAfd -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680004087"><span class="annot"><span class="annottext">RespondToAfd -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680004096"><span class="annot"><span class="annottext">RespondToAfd -&gt; ByteStringBuilder
 (RespondToAfd -&gt; ByteStringBuilder) -&gt; ToLog RespondToAfd
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RespondToAfd -&gt; ByteStringBuilder
 $cbuild :: RespondToAfd -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680004084"><span class="annot"><span class="annottext">HeaderName -&gt; RespondToAfd -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680004093"><span class="annot"><span class="annottext">HeaderName -&gt; RespondToAfd -&gt; [Header]
 (HeaderName -&gt; RespondToAfd -&gt; [Header]) -&gt; ToHeader RespondToAfd
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RespondToAfd -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RespondToAfd -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680004081"><span class="annot"><span class="annottext">RespondToAfd -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680004090"><span class="annot"><span class="annottext">RespondToAfd -&gt; QueryString
 (RespondToAfd -&gt; QueryString) -&gt; ToQuery RespondToAfd
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RespondToAfd -&gt; QueryString
 $ctoQuery :: RespondToAfd -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680004076"><span id="local-6989586621680004078"><span class="annot"><span class="annottext">Value -&gt; Parser [RespondToAfd]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680004085"><span id="local-6989586621680004087"><span class="annot"><span class="annottext">Value -&gt; Parser [RespondToAfd]
 Value -&gt; Parser RespondToAfd
 (Value -&gt; Parser RespondToAfd)
 -&gt; (Value -&gt; Parser [RespondToAfd]) -&gt; FromJSON RespondToAfd
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [RespondToAfd]
 parseJSON :: Value -&gt; Parser RespondToAfd
 $cparseJSON :: Value -&gt; Parser RespondToAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621680004071"><span id="local-6989586621680004073"><span class="annot"><span class="annottext">FromJSONKeyFunction [RespondToAfd]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680004080"><span id="local-6989586621680004082"><span class="annot"><span class="annottext">FromJSONKeyFunction [RespondToAfd]
 FromJSONKeyFunction RespondToAfd
 FromJSONKeyFunction RespondToAfd
 -&gt; FromJSONKeyFunction [RespondToAfd] -&gt; FromJSONKey RespondToAfd
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RespondToAfd]
 fromJSONKey :: FromJSONKeyFunction RespondToAfd
 $cfromJSONKey :: FromJSONKeyFunction RespondToAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621680004062"><span id="local-6989586621680004064"><span id="local-6989586621680004066"><span id="local-6989586621680004068"><span class="annot"><span class="annottext">[RespondToAfd] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680004071"><span id="local-6989586621680004073"><span id="local-6989586621680004075"><span id="local-6989586621680004077"><span class="annot"><span class="annottext">[RespondToAfd] -&gt; Encoding
 [RespondToAfd] -&gt; Value
 RespondToAfd -&gt; Encoding
 RespondToAfd -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: RespondToAfd -&gt; Encoding
 toJSON :: RespondToAfd -&gt; Value
 $ctoJSON :: RespondToAfd -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621680004057"><span id="local-6989586621680004059"><span class="annot"><span class="annottext">ToJSONKeyFunction [RespondToAfd]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680004066"><span id="local-6989586621680004068"><span class="annot"><span class="annottext">ToJSONKeyFunction [RespondToAfd]
 ToJSONKeyFunction RespondToAfd
 ToJSONKeyFunction RespondToAfd
 -&gt; ToJSONKeyFunction [RespondToAfd] -&gt; ToJSONKey RespondToAfd
@@ -250,13 +250,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RespondToAfd]
 toJSONKey :: ToJSONKeyFunction RespondToAfd
 $ctoJSONKey :: ToJSONKeyFunction RespondToAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621680004054"><span class="annot"><span class="annottext">[Node] -&gt; Either String RespondToAfd
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680004063"><span class="annot"><span class="annottext">[Node] -&gt; Either String RespondToAfd
 ([Node] -&gt; Either String RespondToAfd) -&gt; FromXML RespondToAfd
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RespondToAfd
 $cparseXML :: [Node] -&gt; Either String RespondToAfd
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621680004051"><span class="annot"><span class="annottext">RespondToAfd -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680004060"><span class="annot"><span class="annottext">RespondToAfd -&gt; XML
 (RespondToAfd -&gt; XML) -&gt; ToXML RespondToAfd
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RespondToAfd -&gt; XML

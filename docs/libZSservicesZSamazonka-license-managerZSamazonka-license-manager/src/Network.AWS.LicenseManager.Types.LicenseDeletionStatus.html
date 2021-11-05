@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.LicenseManager.Types.LicenseDeletionStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.LicenseManager.Types.LicenseDeletionStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus"><span class="hs-identifier">LicenseDeletionStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus_DELETED"><span class="hs-identifier">LicenseDeletionStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus_PENDING_DELETE"><span class="hs-identifier">LicenseDeletionStatus_PENDING_DELETE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679298892"><span id="local-6989586621679298893"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LicenseDeletionStatus"><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus"><span class="hs-identifier hs-var">LicenseDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LicenseDeletionStatus%27"><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus%27"><span class="hs-identifier hs-var">LicenseDeletionStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLicenseDeletionStatus"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; Text
+</span><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#fromLicenseDeletionStatus"><span class="hs-identifier hs-var hs-var">fromLicenseDeletionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298884"><span id="local-6989586621679298886"><span id="local-6989586621679298888"><span class="annot"><span class="annottext">Int -&gt; LicenseDeletionStatus -&gt; ShowS
+[LicenseDeletionStatus] -&gt; ShowS
+LicenseDeletionStatus -&gt; String
+(Int -&gt; LicenseDeletionStatus -&gt; ShowS)
+-&gt; (LicenseDeletionStatus -&gt; String)
+-&gt; ([LicenseDeletionStatus] -&gt; ShowS)
+-&gt; Show LicenseDeletionStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LicenseDeletionStatus] -&gt; ShowS
+$cshowList :: [LicenseDeletionStatus] -&gt; ShowS
+show :: LicenseDeletionStatus -&gt; String
+$cshow :: LicenseDeletionStatus -&gt; String
+showsPrec :: Int -&gt; LicenseDeletionStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; LicenseDeletionStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679298875"><span id="local-6989586621679298877"><span id="local-6989586621679298879"><span id="local-6989586621679298881"><span class="annot"><span class="annottext">ReadPrec [LicenseDeletionStatus]
+ReadPrec LicenseDeletionStatus
+Int -&gt; ReadS LicenseDeletionStatus
+ReadS [LicenseDeletionStatus]
+(Int -&gt; ReadS LicenseDeletionStatus)
+-&gt; ReadS [LicenseDeletionStatus]
+-&gt; ReadPrec LicenseDeletionStatus
+-&gt; ReadPrec [LicenseDeletionStatus]
+-&gt; Read LicenseDeletionStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [LicenseDeletionStatus]
+$creadListPrec :: ReadPrec [LicenseDeletionStatus]
+readPrec :: ReadPrec LicenseDeletionStatus
+$creadPrec :: ReadPrec LicenseDeletionStatus
+readList :: ReadS [LicenseDeletionStatus]
+$creadList :: ReadS [LicenseDeletionStatus]
+readsPrec :: Int -&gt; ReadS LicenseDeletionStatus
+$creadsPrec :: Int -&gt; ReadS LicenseDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298870"><span id="local-6989586621679298872"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+(LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool)
+-&gt; (LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool)
+-&gt; Eq LicenseDeletionStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+$c/= :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+== :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+$c== :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298854"><span id="local-6989586621679298856"><span id="local-6989586621679298858"><span id="local-6989586621679298860"><span id="local-6989586621679298862"><span id="local-6989586621679298864"><span id="local-6989586621679298866"><span class="annot"><span class="annottext">Eq LicenseDeletionStatus
+Eq LicenseDeletionStatus
+-&gt; (LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Ordering)
+-&gt; (LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool)
+-&gt; (LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool)
+-&gt; (LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool)
+-&gt; (LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool)
+-&gt; (LicenseDeletionStatus
+    -&gt; LicenseDeletionStatus -&gt; LicenseDeletionStatus)
+-&gt; (LicenseDeletionStatus
+    -&gt; LicenseDeletionStatus -&gt; LicenseDeletionStatus)
+-&gt; Ord LicenseDeletionStatus
+LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Ordering
+LicenseDeletionStatus
+-&gt; LicenseDeletionStatus -&gt; LicenseDeletionStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: LicenseDeletionStatus
+-&gt; LicenseDeletionStatus -&gt; LicenseDeletionStatus
+$cmin :: LicenseDeletionStatus
+-&gt; LicenseDeletionStatus -&gt; LicenseDeletionStatus
+max :: LicenseDeletionStatus
+-&gt; LicenseDeletionStatus -&gt; LicenseDeletionStatus
+$cmax :: LicenseDeletionStatus
+-&gt; LicenseDeletionStatus -&gt; LicenseDeletionStatus
+&gt;= :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+$c&gt;= :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+&gt; :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+$c&gt; :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+&lt;= :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+$c&lt;= :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+&lt; :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+$c&lt; :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Bool
+compare :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Ordering
+$ccompare :: LicenseDeletionStatus -&gt; LicenseDeletionStatus -&gt; Ordering
+$cp1Ord :: Eq LicenseDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. LicenseDeletionStatus -&gt; Rep LicenseDeletionStatus x)
+-&gt; (forall x. Rep LicenseDeletionStatus x -&gt; LicenseDeletionStatus)
+-&gt; Generic LicenseDeletionStatus
+forall x. Rep LicenseDeletionStatus x -&gt; LicenseDeletionStatus
+forall x. LicenseDeletionStatus -&gt; Rep LicenseDeletionStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep LicenseDeletionStatus x -&gt; LicenseDeletionStatus
+$cfrom :: forall x. LicenseDeletionStatus -&gt; Rep LicenseDeletionStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298846"><span id="local-6989586621679298848"><span class="annot"><span class="annottext">Int -&gt; LicenseDeletionStatus -&gt; Int
+LicenseDeletionStatus -&gt; Int
+(Int -&gt; LicenseDeletionStatus -&gt; Int)
+-&gt; (LicenseDeletionStatus -&gt; Int) -&gt; Hashable LicenseDeletionStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: LicenseDeletionStatus -&gt; Int
+$chash :: LicenseDeletionStatus -&gt; Int
+hashWithSalt :: Int -&gt; LicenseDeletionStatus -&gt; Int
+$chashWithSalt :: Int -&gt; LicenseDeletionStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298843"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; ()
+(LicenseDeletionStatus -&gt; ()) -&gt; NFData LicenseDeletionStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: LicenseDeletionStatus -&gt; ()
+$crnf :: LicenseDeletionStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298840"><span class="annot"><span class="annottext">Text -&gt; Either String LicenseDeletionStatus
+(Text -&gt; Either String LicenseDeletionStatus)
+-&gt; FromText LicenseDeletionStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String LicenseDeletionStatus
+$cfromText :: Text -&gt; Either String LicenseDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298837"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; Text
+(LicenseDeletionStatus -&gt; Text) -&gt; ToText LicenseDeletionStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: LicenseDeletionStatus -&gt; Text
+$ctoText :: LicenseDeletionStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298834"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; ByteString
+(LicenseDeletionStatus -&gt; ByteString)
+-&gt; ToByteString LicenseDeletionStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: LicenseDeletionStatus -&gt; ByteString
+$ctoBS :: LicenseDeletionStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298831"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; ByteStringBuilder
+(LicenseDeletionStatus -&gt; ByteStringBuilder)
+-&gt; ToLog LicenseDeletionStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: LicenseDeletionStatus -&gt; ByteStringBuilder
+$cbuild :: LicenseDeletionStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298828"><span class="annot"><span class="annottext">HeaderName -&gt; LicenseDeletionStatus -&gt; [Header]
+(HeaderName -&gt; LicenseDeletionStatus -&gt; [Header])
+-&gt; ToHeader LicenseDeletionStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; LicenseDeletionStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; LicenseDeletionStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298825"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; QueryString
+(LicenseDeletionStatus -&gt; QueryString)
+-&gt; ToQuery LicenseDeletionStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: LicenseDeletionStatus -&gt; QueryString
+$ctoQuery :: LicenseDeletionStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298820"><span id="local-6989586621679298822"><span class="annot"><span class="annottext">Value -&gt; Parser [LicenseDeletionStatus]
+Value -&gt; Parser LicenseDeletionStatus
+(Value -&gt; Parser LicenseDeletionStatus)
+-&gt; (Value -&gt; Parser [LicenseDeletionStatus])
+-&gt; FromJSON LicenseDeletionStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [LicenseDeletionStatus]
+$cparseJSONList :: Value -&gt; Parser [LicenseDeletionStatus]
+parseJSON :: Value -&gt; Parser LicenseDeletionStatus
+$cparseJSON :: Value -&gt; Parser LicenseDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298815"><span id="local-6989586621679298817"><span class="annot"><span class="annottext">FromJSONKeyFunction [LicenseDeletionStatus]
+FromJSONKeyFunction LicenseDeletionStatus
+FromJSONKeyFunction LicenseDeletionStatus
+-&gt; FromJSONKeyFunction [LicenseDeletionStatus]
+-&gt; FromJSONKey LicenseDeletionStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [LicenseDeletionStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [LicenseDeletionStatus]
+fromJSONKey :: FromJSONKeyFunction LicenseDeletionStatus
+$cfromJSONKey :: FromJSONKeyFunction LicenseDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298806"><span id="local-6989586621679298808"><span id="local-6989586621679298810"><span id="local-6989586621679298812"><span class="annot"><span class="annottext">[LicenseDeletionStatus] -&gt; Encoding
+[LicenseDeletionStatus] -&gt; Value
+LicenseDeletionStatus -&gt; Encoding
+LicenseDeletionStatus -&gt; Value
+(LicenseDeletionStatus -&gt; Value)
+-&gt; (LicenseDeletionStatus -&gt; Encoding)
+-&gt; ([LicenseDeletionStatus] -&gt; Value)
+-&gt; ([LicenseDeletionStatus] -&gt; Encoding)
+-&gt; ToJSON LicenseDeletionStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [LicenseDeletionStatus] -&gt; Encoding
+$ctoEncodingList :: [LicenseDeletionStatus] -&gt; Encoding
+toJSONList :: [LicenseDeletionStatus] -&gt; Value
+$ctoJSONList :: [LicenseDeletionStatus] -&gt; Value
+toEncoding :: LicenseDeletionStatus -&gt; Encoding
+$ctoEncoding :: LicenseDeletionStatus -&gt; Encoding
+toJSON :: LicenseDeletionStatus -&gt; Value
+$ctoJSON :: LicenseDeletionStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298801"><span id="local-6989586621679298803"><span class="annot"><span class="annottext">ToJSONKeyFunction [LicenseDeletionStatus]
+ToJSONKeyFunction LicenseDeletionStatus
+ToJSONKeyFunction LicenseDeletionStatus
+-&gt; ToJSONKeyFunction [LicenseDeletionStatus]
+-&gt; ToJSONKey LicenseDeletionStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [LicenseDeletionStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [LicenseDeletionStatus]
+toJSONKey :: ToJSONKeyFunction LicenseDeletionStatus
+$ctoJSONKey :: ToJSONKeyFunction LicenseDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298798"><span class="annot"><span class="annottext">[Node] -&gt; Either String LicenseDeletionStatus
+([Node] -&gt; Either String LicenseDeletionStatus)
+-&gt; FromXML LicenseDeletionStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String LicenseDeletionStatus
+$cparseXML :: [Node] -&gt; Either String LicenseDeletionStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298795"><span class="annot"><span class="annottext">LicenseDeletionStatus -&gt; XML
+(LicenseDeletionStatus -&gt; XML) -&gt; ToXML LicenseDeletionStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: LicenseDeletionStatus -&gt; XML
+$ctoXML :: LicenseDeletionStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus_DELETED"><span class="hs-identifier hs-type">LicenseDeletionStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus"><span class="hs-identifier hs-type">LicenseDeletionStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseDeletionStatus_DELETED"><span id="%24mLicenseDeletionStatus_DELETED"><span id="LicenseDeletionStatus_DELETED"><span class="annot"><span class="annottext">$bLicenseDeletionStatus_DELETED :: LicenseDeletionStatus
+$mLicenseDeletionStatus_DELETED :: forall r.
+LicenseDeletionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#%24bLicenseDeletionStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">LicenseDeletionStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus%27"><span class="hs-identifier hs-type">LicenseDeletionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus_PENDING_DELETE"><span class="hs-identifier hs-type">LicenseDeletionStatus_PENDING_DELETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus"><span class="hs-identifier hs-type">LicenseDeletionStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLicenseDeletionStatus_PENDING_DELETE"><span id="%24mLicenseDeletionStatus_PENDING_DELETE"><span id="LicenseDeletionStatus_PENDING_DELETE"><span class="annot"><span class="annottext">$bLicenseDeletionStatus_PENDING_DELETE :: LicenseDeletionStatus
+$mLicenseDeletionStatus_PENDING_DELETE :: forall r.
+LicenseDeletionStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#%24bLicenseDeletionStatus_PENDING_DELETE"><span class="hs-identifier hs-var hs-var hs-var">LicenseDeletionStatus_PENDING_DELETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus%27"><span class="hs-identifier hs-type">LicenseDeletionStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING_DELETE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus_DELETED"><span class="hs-pragma hs-type">LicenseDeletionStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus_PENDING_DELETE"><span class="hs-pragma hs-type">LicenseDeletionStatus_PENDING_DELETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.LicenseManager.Types.LicenseDeletionStatus.html#LicenseDeletionStatus%27"><span class="hs-pragma hs-type">LicenseDeletionStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

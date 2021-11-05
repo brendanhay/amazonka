@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680292512"><span id="local-6989586621680292513"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-var">AuthMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AuthMode.html#AuthMode%27"><span class="hs-identifier hs-var">AuthMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680292521"><span id="local-6989586621680292522"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-var">AuthMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AuthMode.html#AuthMode%27"><span class="hs-identifier hs-var">AuthMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthMode"><span class="annot"><span class="annottext">AuthMode -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AuthMode.html#fromAuthMode"><span class="hs-identifier hs-var hs-var">fromAuthMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292504"><span id="local-6989586621680292506"><span id="local-6989586621680292508"><span class="annot"><span class="annottext">Int -&gt; AuthMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292513"><span id="local-6989586621680292515"><span id="local-6989586621680292517"><span class="annot"><span class="annottext">Int -&gt; AuthMode -&gt; ShowS
 [AuthMode] -&gt; ShowS
 AuthMode -&gt; String
 (Int -&gt; AuthMode -&gt; ShowS)
@@ -49,7 +49,7 @@ $cshow :: AuthMode -&gt; String
 showsPrec :: Int -&gt; AuthMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuthMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680292495"><span id="local-6989586621680292497"><span id="local-6989586621680292499"><span id="local-6989586621680292501"><span class="annot"><span class="annottext">ReadPrec [AuthMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680292504"><span id="local-6989586621680292506"><span id="local-6989586621680292508"><span id="local-6989586621680292510"><span class="annot"><span class="annottext">ReadPrec [AuthMode]
 ReadPrec AuthMode
 Int -&gt; ReadS AuthMode
 ReadS [AuthMode]
@@ -70,7 +70,7 @@ $creadList :: ReadS [AuthMode]
 readsPrec :: Int -&gt; ReadS AuthMode
 $creadsPrec :: Int -&gt; ReadS AuthMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680292490"><span id="local-6989586621680292492"><span class="annot"><span class="annottext">AuthMode -&gt; AuthMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680292499"><span id="local-6989586621680292501"><span class="annot"><span class="annottext">AuthMode -&gt; AuthMode -&gt; Bool
 (AuthMode -&gt; AuthMode -&gt; Bool)
 -&gt; (AuthMode -&gt; AuthMode -&gt; Bool) -&gt; Eq AuthMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ $c/= :: AuthMode -&gt; AuthMode -&gt; Bool
 == :: AuthMode -&gt; AuthMode -&gt; Bool
 $c== :: AuthMode -&gt; AuthMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680292474"><span id="local-6989586621680292476"><span id="local-6989586621680292478"><span id="local-6989586621680292480"><span id="local-6989586621680292482"><span id="local-6989586621680292484"><span id="local-6989586621680292486"><span class="annot"><span class="annottext">Eq AuthMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680292483"><span id="local-6989586621680292485"><span id="local-6989586621680292487"><span id="local-6989586621680292489"><span id="local-6989586621680292491"><span id="local-6989586621680292493"><span id="local-6989586621680292495"><span class="annot"><span class="annottext">Eq AuthMode
 Eq AuthMode
 -&gt; (AuthMode -&gt; AuthMode -&gt; Ordering)
 -&gt; (AuthMode -&gt; AuthMode -&gt; Bool)
@@ -129,7 +129,7 @@ $cfrom :: forall x. AuthMode -&gt; Rep AuthMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292466"><span id="local-6989586621680292468"><span class="annot"><span class="annottext">Int -&gt; AuthMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680292475"><span id="local-6989586621680292477"><span class="annot"><span class="annottext">Int -&gt; AuthMode -&gt; Int
 AuthMode -&gt; Int
 (Int -&gt; AuthMode -&gt; Int) -&gt; (AuthMode -&gt; Int) -&gt; Hashable AuthMode
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -138,49 +138,49 @@ $chash :: AuthMode -&gt; Int
 hashWithSalt :: Int -&gt; AuthMode -&gt; Int
 $chashWithSalt :: Int -&gt; AuthMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680292463"><span class="annot"><span class="annottext">AuthMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680292472"><span class="annot"><span class="annottext">AuthMode -&gt; ()
 (AuthMode -&gt; ()) -&gt; NFData AuthMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuthMode -&gt; ()
 $crnf :: AuthMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680292460"><span class="annot"><span class="annottext">Text -&gt; Either String AuthMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680292469"><span class="annot"><span class="annottext">Text -&gt; Either String AuthMode
 (Text -&gt; Either String AuthMode) -&gt; FromText AuthMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuthMode
 $cfromText :: Text -&gt; Either String AuthMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680292457"><span class="annot"><span class="annottext">AuthMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680292466"><span class="annot"><span class="annottext">AuthMode -&gt; Text
 (AuthMode -&gt; Text) -&gt; ToText AuthMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuthMode -&gt; Text
 $ctoText :: AuthMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680292454"><span class="annot"><span class="annottext">AuthMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680292463"><span class="annot"><span class="annottext">AuthMode -&gt; ByteString
 (AuthMode -&gt; ByteString) -&gt; ToByteString AuthMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuthMode -&gt; ByteString
 $ctoBS :: AuthMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680292451"><span class="annot"><span class="annottext">AuthMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680292460"><span class="annot"><span class="annottext">AuthMode -&gt; ByteStringBuilder
 (AuthMode -&gt; ByteStringBuilder) -&gt; ToLog AuthMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuthMode -&gt; ByteStringBuilder
 $cbuild :: AuthMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680292448"><span class="annot"><span class="annottext">HeaderName -&gt; AuthMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680292457"><span class="annot"><span class="annottext">HeaderName -&gt; AuthMode -&gt; [Header]
 (HeaderName -&gt; AuthMode -&gt; [Header]) -&gt; ToHeader AuthMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuthMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuthMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680292445"><span class="annot"><span class="annottext">AuthMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680292454"><span class="annot"><span class="annottext">AuthMode -&gt; QueryString
 (AuthMode -&gt; QueryString) -&gt; ToQuery AuthMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuthMode -&gt; QueryString
 $ctoQuery :: AuthMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680292440"><span id="local-6989586621680292442"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680292449"><span id="local-6989586621680292451"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthMode]
 Value -&gt; Parser AuthMode
 (Value -&gt; Parser AuthMode)
 -&gt; (Value -&gt; Parser [AuthMode]) -&gt; FromJSON AuthMode
@@ -191,7 +191,7 @@ $cparseJSONList :: Value -&gt; Parser [AuthMode]
 parseJSON :: Value -&gt; Parser AuthMode
 $cparseJSON :: Value -&gt; Parser AuthMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680292435"><span id="local-6989586621680292437"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680292444"><span id="local-6989586621680292446"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthMode]
 FromJSONKeyFunction AuthMode
 FromJSONKeyFunction AuthMode
 -&gt; FromJSONKeyFunction [AuthMode] -&gt; FromJSONKey AuthMode
@@ -202,7 +202,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuthMode]
 fromJSONKey :: FromJSONKeyFunction AuthMode
 $cfromJSONKey :: FromJSONKeyFunction AuthMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680292426"><span id="local-6989586621680292428"><span id="local-6989586621680292430"><span id="local-6989586621680292432"><span class="annot"><span class="annottext">[AuthMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680292435"><span id="local-6989586621680292437"><span id="local-6989586621680292439"><span id="local-6989586621680292441"><span class="annot"><span class="annottext">[AuthMode] -&gt; Encoding
 [AuthMode] -&gt; Value
 AuthMode -&gt; Encoding
 AuthMode -&gt; Value
@@ -226,7 +226,7 @@ $ctoEncoding :: AuthMode -&gt; Encoding
 toJSON :: AuthMode -&gt; Value
 $ctoJSON :: AuthMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680292421"><span id="local-6989586621680292423"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680292430"><span id="local-6989586621680292432"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthMode]
 ToJSONKeyFunction AuthMode
 ToJSONKeyFunction AuthMode
 -&gt; ToJSONKeyFunction [AuthMode] -&gt; ToJSONKey AuthMode
@@ -237,13 +237,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuthMode]
 toJSONKey :: ToJSONKeyFunction AuthMode
 $ctoJSONKey :: ToJSONKeyFunction AuthMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680292418"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680292427"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthMode
 ([Node] -&gt; Either String AuthMode) -&gt; FromXML AuthMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuthMode
 $cparseXML :: [Node] -&gt; Either String AuthMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680292415"><span class="annot"><span class="annottext">AuthMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680292424"><span class="annot"><span class="annottext">AuthMode -&gt; XML
 (AuthMode -&gt; XML) -&gt; ToXML AuthMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuthMode -&gt; XML
